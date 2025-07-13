@@ -1,21 +1,57 @@
-## TemplateDevEnv
-_For Kotlin see [TemplateDevEnvKt](https://github.com/CleanroomMC/TemplateDevEnvKt)_
+## 欢迎来到 GTQT Core 的仓库
 
-Template workspace for modding Minecraft 1.12.2. Licensed under MIT, it is made for public use.
+### 这是什么？
 
-This template runs on Java 21! Currently utilizies **Gradle 8.12** + **[RetroFuturaGradle](https://github.com/GTNewHorizons/RetroFuturaGradle) 1.4.1** + **Forge 14.23.5.2847**.
+<u>GTQTCore</u>整合包 __[GTQT](https://www.mcmod.cn/modpack/590.html)__ 的核心模组。
 
-With **coremod and mixin support** that is easy to configure.
+### 导言
 
-### Instructions:
+GTQT Core 不仅是拓展了所有终局游戏阶段，而是彻底修改了整个GT流程。
 
-1. Click `use this template` at the top.
-2. Clone the repository that you have created with this template to your local machine.
-3. Make sure IDEA is using Java 21 for Gradle before you sync the project. Verify this by going to IDEA's `Settings > Build, Execution, Deployment > Build Tools > Gradle > Gradle JVM`.
-4. Open the project folder in IDEA. When prompted, click "Load Gradle Project" as it detects the `build.gradle`, if you weren't prompted, right-click the project's `build.gradle` in IDEA, select `Link Gradle Project`, after completion, hit `Refresh All` in the gradle tab on the right.
-5. Run gradle tasks such as `runClient` and `runServer` in the IDEA gradle tab, or use the auto-imported run configurations like `1. Run Client`.
+#### 特性
 
-### Notes:
-- Dependencies script in [gradle/scripts/dependencies.gradle](gradle/scripts/dependencies.gradle), explanations are commented in the file.
-- Publishing script in [gradle/scripts/publishing.gradle](gradle/scripts/publishing.gradle).
-- When writing Mixins on IntelliJ, it is advisable to use latest [MinecraftDev Fork for RetroFuturaGradle](https://github.com/eigenraven/MinecraftDev/releases).
+你猜
+
+#### 联动
+
+你猜
+
+### 项目目标
+
+干翻GTNH
+
+### 协议
+
+* GTQTcore 的原始模板 ([TemplateDevEnv](https://github.com/CleanroomMC/TemplateDevEnv))
+    - Copyright (c) CleanroomMC
+    - [![License](https://img.shields.io/badge/License-MIT-red.svg?style=flat-square)](http://opensource.org/licenses/MIT)
+
+* GTQTcore 模组本体
+    - Copyright (c) KeQingSoCute520
+    - [![License](https://img.shields.io/badge/License-GPLv3-blue.svg?style=flat-square)](https://github.com/GTQT/GTQTcore/blob/main/LICENSE)
+
+* GTQT 整合包本体
+    - Copyright (c) KeQingSoCute520
+    - [![License](https://img.shields.io/badge/License-AGPLv3-blue.svg?style=flat-square)](https://github.com/GTQT/GT-QuantumTransition/blob/main/LICENSE)
+
+* 文本，翻译与任务书文本
+    - Copyright (c) 越人不歌 KeQingSoCute520 
+    - [![License](https://img.shields.io/badge/License-CC%20BY--NC--SA%203.0-yellow.svg?style=flat-square)](https://creativecommons.org/licenses/by-nc-sa/3.0/)
+
+* 材质与模型
+    - Copyright (c) KeQingSoCute520
+    - [![License](https://img.shields.io/badge/License-CC%20BY--NC--SA%203.0-yellow.svg?style=flat-square)](https://creativecommons.org/licenses/by-nc-sa/3.0/)
+### 致谢
+
+* 物品，方块与多方块结构的基本思路来自 [Gregicality Science](https://github.com/GregTechCEu/gregicality-science).
+* 一些代码来自 [Nomi Labs](https://github.com/Nomi-CEu/Nomi-Labs)，采用 [GNU LGPL-3.0](https://github.com/Nomi-CEu/Nomi-Labs/blob/main/LICENSE) 协议.
+* 一些代码来自 [GTLite Core](https://gitlab.com/gregtech-lite/gregtech-lite-core)，采用 [MIT](https://gitlab.com/gregtech-lite/gregtech-lite-core/-/blob/test-magic-sweepy/LICENSE) 协议.
+* 一些材质，多方块结构与处理线路来自 [Gregicality Legacy](https://github.com/GregTechCEu/gregicality-legacy)，采用 [GNU GPL-3.0](https://github.com/GregTechCEu/gregicality-legacy/blob/master/LICENSE) 协议.
+* 一些材质，多方块结构与处理线路来自 [GregTech++](https://github.com/GTNewHorizons/GTplusplus)，采用 [GNU GPL-3.0](https://github.com/GTNewHorizons/GTplusplus/blob/master/LICENSE) 协议.
+* 一些材质，多方块结构与处理线路来自 [GregTech 5 Unofficial](https://github.com/GTNewHorizons/GT5-Unofficial) on [GNU LGPL-3.0](https://github.com/GTNewHorizons/GT5-Unofficial/blob/master/LICENSE.txt) 协议.
+* 一些材质来自 [GregTech 6](https://github.com/GregTech6/gregtech6)，采用 [GNU GPL-3.0](https://github.com/GregTech6/gregtech6/blob/master/LICENSE) 协议.
+* 一些材质与多方块结构来自 [TecTech](https://github.com/Technus/TecTech).
+* 一些材质与多方块结构来自 [GoodGenerator](https://github.com/GTNewHorizons/GoodGenerator)，采用 [MIT](https://github.com/GTNewHorizons/GoodGenerator/blob/master/LICENSE) 协议.
+* 一些材质来自 [Epimorphism Core](https://gitlab.com/gtcnc/epimorphism-core)，采用 [MIT](https://gitlab.com/gtcnc/epimorphism-core/-/blob/overhaul/LICENSE?ref_type=heads) 协议.
+* 一些材质来自 [GTExpert Core](https://github.com/GTModpackTeam/GTExpert-Core/)，采用 [GNU LGPL-3.0](https://github.com/GTModpackTeam/GTExpert-Core/blob/master/LICENSE) 协议.
+* 一些材质来自 [Supersymmetry](https://github.com/SymmetricDevs/Supersymmetry)，采用 [GNU LGPL-3.0](https://github.com/SymmetricDevs/Supersymmetry/blob/master-ceu/LICENSE) 协议.
