@@ -27,19 +27,19 @@ GTQT Core 不仅是拓展了所有终局游戏阶段，而是彻底修改了整�
     - [![License](https://img.shields.io/badge/License-MIT-red.svg?style=flat-square)](http://opensource.org/licenses/MIT)
 
 * GTQTcore 模组本体
-    - Copyright (c) KeQingSoCute520
+    - Copyright (c) MeowmelMuku
     - [![License](https://img.shields.io/badge/License-GPLv3-blue.svg?style=flat-square)](https://github.com/GTQT/GTQTcore/blob/main/LICENSE)
 
 * GTQT 整合包本体
-    - Copyright (c) KeQingSoCute520
+    - Copyright (c) MeowmelMuku
     - [![License](https://img.shields.io/badge/License-AGPLv3-blue.svg?style=flat-square)](https://github.com/GTQT/GT-QuantumTransition/blob/main/LICENSE)
 
 * 文本，翻译与任务书文本
-    - Copyright (c) 越人不歌 KeQingSoCute520 
+    - Copyright (c) 越人不歌 MeowmelMuku 
     - [![License](https://img.shields.io/badge/License-CC%20BY--NC--SA%203.0-yellow.svg?style=flat-square)](https://creativecommons.org/licenses/by-nc-sa/3.0/)
 
 * 材质与模型
-    - Copyright (c) KeQingSoCute520
+    - Copyright (c) MeowmelMuku
     - [![License](https://img.shields.io/badge/License-CC%20BY--NC--SA%203.0-yellow.svg?style=flat-square)](https://creativecommons.org/licenses/by-nc-sa/3.0/)
 ### 致谢
 
