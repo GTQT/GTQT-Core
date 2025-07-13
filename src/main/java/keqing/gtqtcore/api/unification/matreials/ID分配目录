@@ -1,0 +1,20 @@
+ElementMaterials 元素 注册200位
+0-200
+
+FirstDegreeMaterials 第一类化合物 注册1800位
+200-2000
+
+SecondDegreeMaterials 第二类化合物 注册2000位
+2000-4000
+
+HigherDegreeMaterials 第三类复合化合物/混合物 注册2000位
+4000-6000
+
+MachineCasingMaterials 机器外壳材料/复杂合金 注册2000位
+6000-8000
+
+UnknownCompositionMaterials 无组分材料 注册2000位
+8000-10000
+【8000-8100 艾萨浮选泡沫】
+
+当然不按照这么写也行，只要不冲突

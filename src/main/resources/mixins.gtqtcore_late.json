@@ -1,0 +1,29 @@
+{
+  "package": "keqing.gtqtcore.mixins",
+  "required": true,
+  "refmap": "${mixin_refmap}",
+  "target": "@env(DEFAULT)",
+  "minVersion": "0.8.3",
+  "compatibilityLevel": "JAVA_8",
+  "mixins": [
+    "gregtech.MixinMetaTileEntityHolder",
+    "architecturecraft.MixinBlockSawbench",
+    "architecturecraft.MixinBlockShape",
+    "architecturecraft.MixinEnumShape",
+    "architecturecraft.MixinTileSawbench",
+    "gregtech.MixinGlassCasingType",
+    "gregtech.MixinMetaItem",
+    "gregtech.MixinMetaPrefixItem",
+    "gregtech.MixinMetaValueItem",
+    "gregtech.MixinSolarBoilerServer",
+    "gregtech.MixinSteamBoilerAccess",
+    "gregtech.MetaTileEntityDrumAccessor"
+  ],
+  "server": [],
+  "client": [
+    "architecturecraft.MixinGuiSawbench",
+    "architecturecraft.MixinRenderRoof",
+    "gregtech.MixinBlockGlassCasing",
+    "gregtech.MixinSolarBoilerClient"
+  ]
+}

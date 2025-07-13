@@ -1,0 +1,48 @@
+{
+  "forge_marker": 1,
+  "defaults": {
+    "model": "minecraft:cube_all",
+    "textures": {
+      "all": "gregtech:blocks/rendering_error"
+    }
+  },
+  "variants": {
+    "variant": {
+      "neutronium_coil_block": {
+        "model": "minecraft:cube_all",
+        "textures": {
+          "all": "gregtech:blocks/multiblock/wire_coil/neutronium_coil_block"
+        }
+      },
+      "infinity_coil_block": {
+        "model": "minecraft:cube_all",
+        "textures": {
+          "all": "gregtech:blocks/multiblock/wire_coil/machine_coil_infinity"
+        }
+      },
+      "hypogen_coil_block": {
+        "model": "minecraft:cube_all",
+        "textures": {
+          "all": "gregtech:blocks/multiblock/wire_coil/machine_coil_hypogen"
+        }
+      },
+      "space_time_coil_block": {
+        "textures": {
+          "all": "gregtech:blocks/multiblock/wire_coil/machine_coil_space_time"
+        }
+      },
+      "eternity_coil_block": {
+        "model": "minecraft:cube_all",
+        "textures": {
+          "all": "gregtech:blocks/multiblock/wire_coil/machine_coil_eternity"
+        }
+      },
+      "cupar_proton_pair_coil_block": {
+        "model": "minecraft:cube_all",
+        "textures": {
+          "all": "gregtech:blocks/multiblock/wire_coil/cupar_proton_pair_coil"
+        }
+      }
+    }
+  }
+}

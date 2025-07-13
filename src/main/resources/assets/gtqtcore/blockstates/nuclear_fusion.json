@@ -1,0 +1,51 @@
+{
+  "forge_marker": 1,
+  "defaults": {
+    "model": "minecraft:cube_all",
+    "textures": {
+      "all": "gregtech:blocks/rendering_error"
+    }
+  },
+  "variants": {
+    "variant": {
+      "nuclear_fusion_casing": {
+        "model": "minecraft:cube_all",
+        "textures": {
+          "all": "gregtech:blocks/multiblock/casings/nuclear_fusion_casing"
+        }
+      },
+      "nuclear_fusion_frame": {
+        "model": "minecraft:cube_all",
+        "textures": {
+          "all": "gregtech:blocks/multiblock/casings/nuclear_fusion_frame"
+        }
+      },
+      "nuclear_fusion_cooling": {
+        "model": "minecraft:cube_all",
+        "textures": {
+          "all": "gregtech:blocks/multiblock/casings/nuclear_fusion_cooling"
+        }
+      },
+      "neutron_activator_frame": {
+        "model": "minecraft:cube_all",
+        "textures": {
+          "all": "gregtech:blocks/multiblock/casings/neutron_activator_frame"
+        }
+      },
+      "neutron_activator_casing": {
+        "model": "minecraft:cube_all",
+        "textures": {
+          "all": "gregtech:blocks/multiblock/casings/neutron_activator_casing"
+        }
+      },
+      "energy_cell": {
+        "model": "minecraft:cube_bottom_top",
+        "textures": {
+          "bottom": "gtqtcore:blocks/casings/batteries/top",
+          "top": "#bottom",
+          "side": "gtqtcore:blocks/casings/batteries/side"
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,80 @@
+package keqing.gtqtcore.loaders.recipes.chain;
+
+import static gregtech.api.GTValues.*;
+import static gregtech.api.unification.material.Materials.*;
+import static gregtech.api.unification.ore.OrePrefix.*;
+import static keqing.gtqtcore.api.recipes.GTQTcoreRecipeMaps.*;
+import static keqing.gtqtcore.api.unification.GTQTMaterials.*;
+
+public class SodiumChain {
+    public static void init() {
+
+        //  Sodium Tungstate
+        BURNER_REACTOR_RECIPES.recipeBuilder()
+                .input(dust, Scheelite, 7)
+                .input(dust, SodiumHydroxide, 6)
+                .fluidInputs(HydrogenPeroxide.getFluid(1000))
+                .output(dust, CalciumHydroxide, 10)
+                .fluidOutputs(SodiumTungstate.getFluid(1000))
+                .EUt(VA[HV])
+                .duration(110)
+                .blastFurnaceTemp(2700)
+                .buildAndRegister();
+
+        //  Sodium Molybdate
+        BURNER_REACTOR_RECIPES.recipeBuilder()
+                .input(dust, SodiumHydroxide, 6)
+                .input(dust, MolybdenumTrioxide, 4)
+                .output(dust, SodiumMolybdate, 7)
+                .fluidOutputs(Steam.getFluid(1000))
+                .EUt(VA[HV])
+                .duration(110)
+                .blastFurnaceTemp(2700)
+                .buildAndRegister();
+
+        //  Sodium Tungstate + Phosphoric Acid -> Sodium Phosphotungstate + Sodium Hydroxide + Sodium Oxide
+        BURNER_REACTOR_RECIPES.recipeBuilder()
+                .fluidInputs(SodiumTungstate.getFluid(12000))
+                .fluidInputs(PhosphoricAcid.getFluid(1000))
+                .output(dust, SodiumPhosphotungstate, 56)
+                .output(dust, SodiumHydroxide, 3)
+                .output(dust, SodiumOxide, 30)
+                .EUt(VA[EV])
+                .duration(480)
+                .blastFurnaceTemp(2700)
+                .buildAndRegister();
+
+        BURNER_REACTOR_RECIPES.recipeBuilder()
+                .input(dust, SodiumNitrite, 2)
+                .input(dust, Sodium, 7)
+                .output(dust, SodiumOxide, 4)
+                .fluidOutputs(Nitrogen.getFluid(1000))
+                .EUt(VA[EV])
+                .duration(600)
+                .blastFurnaceTemp(2700)
+                .buildAndRegister();
+
+        BURNER_REACTOR_RECIPES.recipeBuilder()
+                .input(dust, SodiumNitrate, 10)
+                .output(dust, SodiumOxide, 3)
+                .fluidOutputs(Oxygen.getFluid(5000))
+                .fluidOutputs(Nitrogen.getFluid(2000))
+                .EUt(VA[EV])
+                .duration(400)
+                .blastFurnaceTemp(3600)
+                .buildAndRegister();
+
+        //  Sodium Molybdate + Phosphoric Acid -> Sodium Phosphomolybdate + Sodium Hydroxide + Sodium Oxide
+        BURNER_REACTOR_RECIPES.recipeBuilder()
+                .input(dust, SodiumMolybdate, 64)
+                .input(dust, SodiumMolybdate, 20)
+                .fluidInputs(PhosphoricAcid.getFluid(1000))
+                .output(dust, SodiumPhosphomolybdate, 56)
+                .output(dust, SodiumHydroxide, 3)
+                .output(dust, SodiumOxide, 30)
+                .EUt(VA[EV])
+                .duration(480)
+                .blastFurnaceTemp(3600)
+                .buildAndRegister();
+    }
+}
