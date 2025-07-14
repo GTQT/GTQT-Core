@@ -251,7 +251,7 @@ public class AE2TileRecipes {
                 .duration(40)
                 .buildAndRegister();
         //64k
-        ModHandler.removeRecipeByName("appliedenergesis2:network/crafting/cpu_crafting_storage_64k");
+        ModHandler.removeRecipeByName("appliedenergistics2:network/crafting/cpu_crafting_storage_64k");
         RecipeMaps.PACKER_RECIPES.recipeBuilder()
                 .inputs(craftingUnit)
                 .inputs(cell64k)

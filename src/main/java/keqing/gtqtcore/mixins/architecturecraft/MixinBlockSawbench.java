@@ -28,7 +28,7 @@ import org.spongepowered.asm.mixin.Mixin;
  *
  * @author IntegerLimit
  */
-@Mixin(value = BlockSawbench.class, remap = false)
+@Mixin(value = BlockSawbench.class)
 public class MixinBlockSawbench extends BlockArchitecture<TileSawbench> {
 
     /**

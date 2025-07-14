@@ -179,6 +179,7 @@ dependencies {
 }
 
 apply from: 'gradle/scripts/dependencies.gradle'
+/*
 tasks.withType(JavaCompile).configureEach {
     options.compilerArgs += [
             '-Xplugin:lombok',
@@ -186,6 +187,7 @@ tasks.withType(JavaCompile).configureEach {
     ]
     options.annotationProcessorPath = configurations.annotationProcessor
 }
+ */
 // Adds Access Transformer files to tasks
 if (propertyBool('use_access_transformer')) {
     for (def location : propertyStringList('access_transformer_locations')) {
