@@ -43,13 +43,11 @@ import keqing.gtqtcore.client.textures.GTQTTextures;
 import keqing.gtqtcore.common.block.GTQTMetaBlocks;
 import keqing.gtqtcore.common.block.blocks.BlockQuantumCasing;
 import keqing.gtqtcore.common.items.GTQTMetaItems;
-import lombok.Getter;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.client.resources.I18n;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.ResourceLocation;
-import net.minecraft.util.text.TextFormatting;
 import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
@@ -62,6 +60,8 @@ import static gregtech.api.util.RelativeDirection.*;
 import static keqing.gtqtcore.api.predicate.TiredTraceabilityPredicate.*;
 import static keqing.gtqtcore.api.unification.GTQTMaterials.Spacetime;
 import static keqing.gtqtcore.api.utils.GTQTUtil.logBase;
+import static net.minecraft.util.text.TextFormatting.GRAY;
+import static net.minecraft.util.text.TextFormatting.GREEN;
 
 public class MetaTileEntityEyeOfHarmony extends RecipeMapMultiblockController {
     //+成功率
@@ -107,11 +107,11 @@ public class MetaTileEntityEyeOfHarmony extends RecipeMapMultiblockController {
                 .addEnergyUsageLine(getEnergyContainer())
                 .addEnergyTierLine(GTUtility.getTierByVoltage(recipeMapWorkable.getMaxVoltage()))
                 .addCustom((textList, syncer) -> {
-                    textList.add(KeyUtil.lang( "时间膨胀发生器:%s", syncer.syncInt(timeAcceleration)));
-                    textList.add(KeyUtil.lang( "压缩时空发生器:%s", syncer.syncInt(spaceTimeCompression)));
-                    textList.add(KeyUtil.lang( "时间膨胀发生器:%s", syncer.syncInt(stabilization)));
-                    textList.add(KeyUtil.lang( "星阵数量:%s", syncer.syncInt(calculateStarArray())));
-                    textList.add(KeyUtil.lang( "最大超频次数:%s", syncer.syncInt(maxAllowedOc)));
+                    textList.add(KeyUtil.lang("时间膨胀发生器:%s", syncer.syncInt(timeAcceleration)));
+                    textList.add(KeyUtil.lang("压缩时空发生器:%s", syncer.syncInt(spaceTimeCompression)));
+                    textList.add(KeyUtil.lang("时间膨胀发生器:%s", syncer.syncInt(stabilization)));
+                    textList.add(KeyUtil.lang("星阵数量:%s", syncer.syncInt(calculateStarArray())));
+                    textList.add(KeyUtil.lang("最大超频次数:%s", syncer.syncInt(maxAllowedOc)));
                 })
                 .addParallelsLine(recipeMapWorkable.getParallelLimit())
                 .addWorkingStatusLine()
@@ -141,7 +141,7 @@ public class MetaTileEntityEyeOfHarmony extends RecipeMapMultiblockController {
     }
 
     private ModularPanel makeThrottlePanel(PanelSyncManager syncManager, IPanelHandler syncHandler) {
-        StringSyncValue throttleValue = new StringSyncValue(() -> maxAllowedOc+"", str -> {
+        StringSyncValue throttleValue = new StringSyncValue(() -> maxAllowedOc + "", str -> {
             try {
                 if (str.charAt(str.length() - 1) == '%') {
                     str = str.substring(0, str.length() - 1);
@@ -292,7 +292,8 @@ public class MetaTileEntityEyeOfHarmony extends RecipeMapMultiblockController {
         tooltip.add(I18n.format("注入基础重子物质流（H/He），触发引力坍缩，锻造新生星球胚胎"));
         tooltip.add(I18n.format("随后激活引力解离场，拆解星体，回收其凝聚态宇宙物质精华"));
         tooltip.add(I18n.format("=============================================="));
-        tooltip.add(I18n.format("gtqtcore.multiblock.kq.laser.tooltip"));
+        tooltip.add(GREEN + I18n.format("gtqtcore.multiblock.laser_hatch.enable"));
+        tooltip.add(GRAY + I18n.format("gtqtcore.multiblock.laser_hatch.tooltip"));
         tooltip.add(I18n.format("可使用无线能源/动力仓，直接发电至无线电网"));
         tooltip.add(I18n.format("=============================================="));
         tooltip.add(I18n.format("这台多方块机器需要3种模块,每种模块有9个等级"));

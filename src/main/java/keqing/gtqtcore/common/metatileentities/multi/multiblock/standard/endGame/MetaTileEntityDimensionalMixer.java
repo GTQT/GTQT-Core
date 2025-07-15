@@ -35,6 +35,8 @@ import java.util.List;
 import static keqing.gtqtcore.api.metatileentity.multiblock.GTQTMultiblockAbility.WARP_SWARM_MULTIBLOCK_ABILITY;
 import static keqing.gtqtcore.api.predicate.TiredTraceabilityPredicate.CP_DM_CASING;
 import static keqing.gtqtcore.common.block.blocks.BlockQuantumCasing.CasingType.*;
+import static net.minecraft.util.text.TextFormatting.GRAY;
+import static net.minecraft.util.text.TextFormatting.GREEN;
 
 public class MetaTileEntityDimensionalMixer extends MultiMapMultiblockController {
     public MetaTileEntityDimensionalMixer(ResourceLocation metaTileEntityId) {
@@ -135,7 +137,8 @@ public class MetaTileEntityDimensionalMixer extends MultiMapMultiblockController
         tooltip.add(I18n.format("本设备支持纳米蜂群仓，每完成一次配方会消耗一点耐久（无视并行）"));
         tooltip.add(I18n.format("每等级纳米蜂群提供Math.pow(2,tier)*256的并行"));
         tooltip.add(I18n.format("每等级纳米蜂群提供10%%的耗时减免"));
-        tooltip.add(I18n.format("gtqtcore.multiblock.kq.laser.tooltip"));
+        tooltip.add(GREEN + I18n.format("gtqtcore.multiblock.laser_hatch.enable"));
+        tooltip.add(GRAY + I18n.format("gtqtcore.multiblock.laser_hatch.tooltip"));
         tooltip.add(I18n.format("=============================================="));
     }
 

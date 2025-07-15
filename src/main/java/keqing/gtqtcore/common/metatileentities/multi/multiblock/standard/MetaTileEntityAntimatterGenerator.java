@@ -8,11 +8,12 @@ import gregtech.api.capability.IEnergyContainer;
 import gregtech.api.capability.IMultipleTankHandler;
 import gregtech.api.capability.impl.EnergyContainerList;
 import gregtech.api.fluids.store.FluidStorageKeys;
-import gregtech.api.gui.GuiTextures;
-import gregtech.api.gui.resources.TextureArea;
 import gregtech.api.metatileentity.MetaTileEntity;
 import gregtech.api.metatileentity.interfaces.IGregTechTileEntity;
-import gregtech.api.metatileentity.multiblock.*;
+import gregtech.api.metatileentity.multiblock.IMultiblockPart;
+import gregtech.api.metatileentity.multiblock.MultiblockAbility;
+import gregtech.api.metatileentity.multiblock.ProgressBarMultiblock;
+import gregtech.api.metatileentity.multiblock.RecipeMapMultiblockController;
 import gregtech.api.metatileentity.multiblock.ui.KeyManager;
 import gregtech.api.metatileentity.multiblock.ui.MultiblockUIBuilder;
 import gregtech.api.metatileentity.multiblock.ui.TemplateBarBuilder;
@@ -24,7 +25,6 @@ import gregtech.api.pattern.TraceabilityPredicate;
 import gregtech.api.unification.material.Materials;
 import gregtech.api.util.GTUtility;
 import gregtech.api.util.KeyUtil;
-import gregtech.api.util.TextComponentUtil;
 import gregtech.api.util.TextFormattingUtil;
 import gregtech.client.renderer.ICubeRenderer;
 import gregtech.client.renderer.texture.Textures;
@@ -43,8 +43,6 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.text.ITextComponent;
-import net.minecraft.util.text.TextComponentString;
-import net.minecraft.util.text.TextComponentTranslation;
 import net.minecraft.util.text.TextFormatting;
 import net.minecraft.world.World;
 import net.minecraftforge.fluids.FluidStack;
@@ -57,9 +55,7 @@ import java.util.List;
 import java.util.function.UnaryOperator;
 
 import static gregtech.api.GTValues.*;
-import static gregtech.api.GTValues.VN;
 import static gregtech.api.util.RelativeDirection.*;
-import static keqing.gtqtcore.GTQTCoreConfig.MachineSwitch;
 import static keqing.gtqtcore.api.recipes.GTQTcoreRecipeMaps.ANTIMATTER_GENERATOR;
 import static keqing.gtqtcore.common.block.blocks.BlockMultiblockGlass.CasingType.ANTIMATTER_CONTAINMENT_CASING;
 
@@ -222,14 +218,16 @@ public class MetaTileEntityAntimatterGenerator extends RecipeMapMultiblockContro
     protected void configureDisplayText(MultiblockUIBuilder builder) {
         builder.addCustom(this::addCustomCapacity);
     }
+
     private void addCustomCapacity(KeyManager keyManager, UISyncer syncer) {
 
-        keyManager.add(KeyUtil.lang(TextFormatting.GREEN, "正在湮灭: %s %s",syncer.syncString(getParticleHatch(0).getParticle().getDisplayName()), syncer.syncString(getParticleHatch(1).getParticle().getDisplayName())));
-        keyManager.add(KeyUtil.lang(TextFormatting.GREEN, "湮灭能量: %s %s",syncer.syncString(TextFormattingUtil.formatNumbers(euBase)), syncer.syncString(VN[GTUtility.getTierByVoltage((long) euBase)])));
+        keyManager.add(KeyUtil.lang(TextFormatting.GREEN, "正在湮灭: %s %s", syncer.syncString(getParticleHatch(0).getParticle().getDisplayName()), syncer.syncString(getParticleHatch(1).getParticle().getDisplayName())));
+        keyManager.add(KeyUtil.lang(TextFormatting.GREEN, "湮灭能量: %s %s", syncer.syncString(TextFormattingUtil.formatNumbers(euBase)), syncer.syncString(VN[GTUtility.getTierByVoltage((long) euBase)])));
         keyManager.add(KeyUtil.lang(TextFormatting.GREEN, "湮灭倍率: %s 倍", syncer.syncDouble(euBooster)));
-        keyManager.add(KeyUtil.lang(TextFormatting.GREEN, "总产生能量: %s %s",syncer.syncString(TextFormattingUtil.formatNumbers(euBase * euBooster)), syncer.syncString(VN[GTUtility.getTierByVoltage((long) (euBase * euBooster))])));
+        keyManager.add(KeyUtil.lang(TextFormatting.GREEN, "总产生能量: %s %s", syncer.syncString(TextFormattingUtil.formatNumbers(euBase * euBooster)), syncer.syncString(VN[GTUtility.getTierByVoltage((long) (euBase * euBooster))])));
         keyManager.add(KeyUtil.lang(TextFormatting.GREEN, "反应温度 : %s K/200000 K", syncer.syncInt(heat)));
     }
+
     @Override
     protected void initializeAbilities() {
         super.initializeAbilities();
@@ -343,24 +341,25 @@ public class MetaTileEntityAntimatterGenerator extends RecipeMapMultiblockContro
     public int getProgressBarCount() {
         return 1;
     }
+
     @Override
     public void registerBars(List<UnaryOperator<TemplateBarBuilder>> bars, PanelSyncManager syncManager) {
 
-            IntSyncValue heat = new IntSyncValue(()->this.heat);
-            syncManager.syncValue("heat", heat);
+        IntSyncValue heat = new IntSyncValue(() -> this.heat);
+        syncManager.syncValue("heat", heat);
 
-            bars.add(barTest -> barTest
-                    .texture(GTGuiTextures.PROGRESS_BAR_FUSION_HEAT)
-                    .tooltipBuilder(tooltip -> {
-                        IKey heatInfo = KeyUtil.string(TextFormatting.AQUA,
-                                "%s / %s  H",
-                                heat.getIntValue(), 200000);
-                        tooltip.add(KeyUtil.lang(
-                                "反应温度",
-                                heatInfo));
-                    })
-                    .progress(() -> heat.getIntValue() > 0 ?
-                            (double) (heat.getIntValue()) /200000 : 0));
+        bars.add(barTest -> barTest
+                .texture(GTGuiTextures.PROGRESS_BAR_FUSION_HEAT)
+                .tooltipBuilder(tooltip -> {
+                    IKey heatInfo = KeyUtil.string(TextFormatting.AQUA,
+                            "%s / %s  H",
+                            heat.getIntValue(), 200000);
+                    tooltip.add(KeyUtil.lang(
+                            "反应温度",
+                            heatInfo));
+                })
+                .progress(() -> heat.getIntValue() > 0 ?
+                        (double) (heat.getIntValue()) / 200000 : 0));
 
     }
 
@@ -388,8 +387,8 @@ public class MetaTileEntityAntimatterGenerator extends RecipeMapMultiblockContro
                                World player,
                                List<String> tooltip,
                                boolean advanced) {
-        super.addInformation(stack, player, tooltip, advanced);
         tooltip.add(TooltipHelper.RAINBOW_SLOW + I18n.format("根据泛银河系公约 ,反物质被禁止用于武器！"));
+        super.addInformation(stack, player, tooltip, advanced);
         tooltip.add(I18n.format("=============================================="));
         tooltip.add(I18n.format("将粒子与半稳定反粒子湮灭产生的巨大能量通过共振线圈收集转化为电能"));
         tooltip.add(I18n.format("湮灭反应需要对等数量的粒子与半稳定反粒子"));

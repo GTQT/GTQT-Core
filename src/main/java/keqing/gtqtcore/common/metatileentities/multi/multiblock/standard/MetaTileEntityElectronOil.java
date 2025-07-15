@@ -43,9 +43,8 @@ public class MetaTileEntityElectronOil extends GTQTNoTierMultiblockController {
 
     @Override
     public void addInformation(ItemStack stack, World player, List<String> tooltip, boolean advanced) {
+        tooltip.add(TooltipHelper.RAINBOW_SLOW + I18n.format("石油滋生者"));
         super.addInformation(stack, player, tooltip, advanced);
-        tooltip.add(TooltipHelper.RAINBOW_SLOW + I18n.format("石油滋生者", new Object[0]));
-
         tooltip.add(I18n.format("默认耗时减免20%%"));
         tooltip.add(I18n.format("gtqtcore.machine.parallel.num", 16));
     }

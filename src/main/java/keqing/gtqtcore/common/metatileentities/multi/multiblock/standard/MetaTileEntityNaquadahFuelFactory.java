@@ -37,8 +37,6 @@ import net.minecraft.client.resources.I18n;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.ResourceLocation;
-import net.minecraft.util.text.ITextComponent;
-import net.minecraft.util.text.TextComponentTranslation;
 import net.minecraft.util.text.TextFormatting;
 import net.minecraft.world.World;
 
@@ -48,6 +46,8 @@ import java.util.Comparator;
 import java.util.List;
 
 import static keqing.gtqtcore.api.GTQTAPI.MAP_FORCE_FIELD_COIL;
+import static net.minecraft.util.text.TextFormatting.GRAY;
+import static net.minecraft.util.text.TextFormatting.GREEN;
 
 public class MetaTileEntityNaquadahFuelFactory extends GTQTNoTierMultiblockController {
 
@@ -71,7 +71,7 @@ public class MetaTileEntityNaquadahFuelFactory extends GTQTNoTierMultiblockContr
     public void addCustomData(KeyManager keyManager, UISyncer syncer) {
         super.addCustomData(keyManager, syncer);
         if (isStructureFormed())
-            keyManager.add(KeyUtil.lang(TextFormatting.GRAY ,"线圈等级 %s", syncer.syncInt(CoilLevel)));
+            keyManager.add(KeyUtil.lang(TextFormatting.GRAY, "线圈等级 %s", syncer.syncInt(CoilLevel)));
     }
 
     @Override
@@ -109,16 +109,18 @@ public class MetaTileEntityNaquadahFuelFactory extends GTQTNoTierMultiblockContr
 
     @Override
     public void addInformation(ItemStack stack, World player, @Nonnull List<String> tooltip, boolean advanced) {
+        tooltip.add(TooltipHelper.RAINBOW_SLOW + I18n.format("硅岩快乐之家"));
         super.addInformation(stack, player, tooltip, advanced);
-        tooltip.add(TooltipHelper.RAINBOW_SLOW + I18n.format("硅岩快乐之家", new Object[0]));
         tooltip.add(I18n.format("gtqtcore.machine.naquadah_fuel_refine_factory.tooltip.1"));
         tooltip.add(I18n.format("gtqtcore.machine.naquadah_fuel_refine_factory.tooltip.2"));
         tooltip.add(I18n.format("gtqtcore.machine.naquadah_fuel_refine_factory.tooltip.3"));
         tooltip.add(I18n.format("gtqtcore.machine.naquadah_fuel_refine_factory.tooltip.4"));
         tooltip.add(I18n.format("gtqtcore.machine.naquadah_fuel_refine_factory.tooltip.5"));
         tooltip.add(I18n.format("gtqtcore.machine.naquadah_fuel_refine_factory.tooltip.6"));
-        tooltip.add(I18n.format("gtqtcore.multiblock.kq.acc.tooltip"));
-        tooltip.add(I18n.format("gtqtcore.multiblock.kq.laser.tooltip"));
+        tooltip.add(GREEN + I18n.format("gtqtcore.multiblock.compution_accelerate.enable"));
+        tooltip.add(GRAY + I18n.format("gtqtcore.multiblock.compution_accelerate.tooltip"));
+        tooltip.add(GREEN + I18n.format("gtqtcore.multiblock.laser_hatch.enable"));
+        tooltip.add(GRAY + I18n.format("gtqtcore.multiblock.laser_hatch.tooltip"));
     }
 
     @Override

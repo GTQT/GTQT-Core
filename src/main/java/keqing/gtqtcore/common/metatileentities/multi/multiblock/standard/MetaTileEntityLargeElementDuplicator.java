@@ -1,7 +1,10 @@
 package keqing.gtqtcore.common.metatileentities.multi.multiblock.standard;
 
 import gregtech.api.GTValues;
-import gregtech.api.capability.*;
+import gregtech.api.capability.IEnergyContainer;
+import gregtech.api.capability.IOpticalComputationHatch;
+import gregtech.api.capability.IOpticalComputationProvider;
+import gregtech.api.capability.IOpticalComputationReceiver;
 import gregtech.api.capability.impl.EnergyContainerList;
 import gregtech.api.capability.impl.FluidTankList;
 import gregtech.api.capability.impl.ItemHandlerList;
@@ -18,20 +21,14 @@ import gregtech.api.pattern.PatternMatchContext;
 import gregtech.api.pattern.TraceabilityPredicate;
 import gregtech.api.util.GTUtility;
 import gregtech.api.util.KeyUtil;
-import gregtech.api.util.TextComponentUtil;
-import gregtech.api.util.TextFormattingUtil;
 import gregtech.client.renderer.ICubeRenderer;
 import gregtech.client.utils.TooltipHelper;
-import keqing.gtqtcore.api.recipes.GTQTcoreRecipeMaps;
 import keqing.gtqtcore.client.textures.GTQTTextures;
 import keqing.gtqtcore.common.block.GTQTMetaBlocks;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.client.resources.I18n;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.ResourceLocation;
-import net.minecraft.util.text.ITextComponent;
-import net.minecraft.util.text.TextComponentTranslation;
-import net.minecraft.util.text.TextFormatting;
 import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
@@ -45,6 +42,8 @@ import static gregtech.api.recipes.RecipeMaps.REPLICATOR_RECIPES;
 import static keqing.gtqtcore.api.utils.GTQTUtil.getAccelerateByCWU;
 import static keqing.gtqtcore.common.block.blocks.BlockMultiblockCasing.CasingType.*;
 import static keqing.gtqtcore.common.block.blocks.BlockMultiblockGlass.CasingType.COPY_GALSS;
+import static net.minecraft.util.text.TextFormatting.GRAY;
+import static net.minecraft.util.text.TextFormatting.GREEN;
 
 public class MetaTileEntityLargeElementDuplicator extends RecipeMapMultiblockController implements IOpticalComputationReceiver {
     int requestCWUt;
@@ -75,7 +74,7 @@ public class MetaTileEntityLargeElementDuplicator extends RecipeMapMultiblockCon
                 .addEnergyTierLine(GTUtility.getTierByVoltage(recipeMapWorkable.getMaxVoltage()))
                 .addCustom((textList, syncer) -> {
                     if (!isStructureFormed()) return;
-                    textList.add(KeyUtil.lang( "gtqtcore.kqcc_accelerate", syncer.syncInt(requestCWUt), syncer.syncDouble(getAccelerateByCWU(requestCWUt))));
+                    textList.add(KeyUtil.lang("gtqtcore.kqcc_accelerate", syncer.syncInt(requestCWUt), syncer.syncDouble(getAccelerateByCWU(requestCWUt))));
 
                 })
                 .addParallelsLine(recipeMapWorkable.getParallelLimit())
@@ -83,6 +82,7 @@ public class MetaTileEntityLargeElementDuplicator extends RecipeMapMultiblockCon
                 .addProgressLine(recipeMapWorkable.getProgress(), recipeMapWorkable.getMaxProgress())
                 .addRecipeOutputLine(recipeMapWorkable);
     }
+
     @Override
     protected BlockPattern createStructurePattern() {
         TraceabilityPredicate abilities = autoAbilities();
@@ -161,13 +161,15 @@ public class MetaTileEntityLargeElementDuplicator extends RecipeMapMultiblockCon
 
     @Override
     public void addInformation(ItemStack stack, @Nullable World player, List<String> tooltip, boolean advanced) {
+        tooltip.add(TooltipHelper.RAINBOW_SLOW + I18n.format("复制元素", new Object[0]));
         super.addInformation(stack, player, tooltip, advanced);
         tooltip.add(TooltipHelper.RAINBOW_SLOW + I18n.format("gregtech.machine.perfect_oc"));
-        tooltip.add(TooltipHelper.RAINBOW_SLOW + I18n.format("复制元素", new Object[0]));
         tooltip.add(I18n.format("gtqtcore.machine.parallel.pow.machineTier", 2, 256));
         tooltip.add(I18n.format("gtqtcore.machine.progress_time", "maxProgress *0.8"));
-        tooltip.add(I18n.format("gtqtcore.multiblock.kq.acc.tooltip"));
-        tooltip.add(I18n.format("gtqtcore.multiblock.kq.laser.tooltip"));
+        tooltip.add(GREEN + I18n.format("gtqtcore.multiblock.compution_accelerate.enable"));
+        tooltip.add(GRAY + I18n.format("gtqtcore.multiblock.compution_accelerate.tooltip"));
+        tooltip.add(GREEN + I18n.format("gtqtcore.multiblock.laser_hatch.enable"));
+        tooltip.add(GRAY + I18n.format("gtqtcore.multiblock.laser_hatch.tooltip"));
     }
 
     @Override

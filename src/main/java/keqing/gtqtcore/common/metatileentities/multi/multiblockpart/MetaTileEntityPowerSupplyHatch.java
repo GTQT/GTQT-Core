@@ -172,9 +172,9 @@ public class MetaTileEntityPowerSupplyHatch extends MetaTileEntityMultiblockPart
     @Override
     public void addInformation(ItemStack stack, World player, List<String> tooltip, boolean advanced) {
         super.addInformation(stack, player, tooltip, advanced);
-        if (Objects.equals(type, "frame"))tooltip.add(TooltipHelper.RAINBOW_SLOW + I18n.format("奢侈的地板", new Object[0]));
-        if (Objects.equals(type, "supply"))tooltip.add(TooltipHelper.RAINBOW_SLOW + I18n.format("内置御坂美琴", new Object[0]));
-        if (Objects.equals(type, "battle"))tooltip.add(TooltipHelper.RAINBOW_SLOW + I18n.format("并不是新能源汽车电池", new Object[0]));
+        if (Objects.equals(type, "frame"))tooltip.add(TooltipHelper.RAINBOW_SLOW + I18n.format("奢侈的地板"));
+        if (Objects.equals(type, "supply"))tooltip.add(TooltipHelper.RAINBOW_SLOW + I18n.format("内置御坂美琴"));
+        if (Objects.equals(type, "battle"))tooltip.add(TooltipHelper.RAINBOW_SLOW + I18n.format("并不是新能源汽车电池"));
         tooltip.add(I18n.format("可填充在超导矩阵多方块内的任意位置，不同模块拥有不同功能，详情请见 超导矩阵 多方块的tooltips"));
         tooltip.add(I18n.format("模块类型："+type));
         tooltip.add(I18n.format("模块等级："+level));

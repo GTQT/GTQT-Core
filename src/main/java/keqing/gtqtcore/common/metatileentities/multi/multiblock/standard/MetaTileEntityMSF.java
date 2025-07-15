@@ -6,8 +6,6 @@ import com.cleanroommc.modularui.value.sync.PanelSyncManager;
 import gregtech.api.block.IHeatingCoilBlockStats;
 import gregtech.api.capability.IMultipleTankHandler;
 import gregtech.api.capability.impl.MultiblockRecipeLogic;
-import gregtech.api.gui.GuiTextures;
-import gregtech.api.gui.resources.TextureArea;
 import gregtech.api.metatileentity.MetaTileEntity;
 import gregtech.api.metatileentity.interfaces.IGregTechTileEntity;
 import gregtech.api.metatileentity.multiblock.*;
@@ -20,7 +18,10 @@ import gregtech.api.pattern.*;
 import gregtech.api.recipes.RecipeMap;
 import gregtech.api.recipes.RecipeMaps;
 import gregtech.api.unification.material.Materials;
-import gregtech.api.util.*;
+import gregtech.api.util.BlockInfo;
+import gregtech.api.util.GTUtility;
+import gregtech.api.util.KeyUtil;
+import gregtech.api.util.TextFormattingUtil;
 import gregtech.client.renderer.ICubeRenderer;
 import gregtech.client.renderer.texture.Textures;
 import gregtech.common.blocks.BlockBoilerCasing;
@@ -34,8 +35,6 @@ import net.minecraft.client.resources.I18n;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.ResourceLocation;
-import net.minecraft.util.text.ITextComponent;
-import net.minecraft.util.text.TextComponentTranslation;
 import net.minecraft.util.text.TextFormatting;
 import net.minecraft.world.World;
 import net.minecraftforge.fluids.FluidStack;
@@ -190,13 +189,14 @@ public class MetaTileEntityMSF extends MultiMapMultiblockController implements P
             keyManager.add(KeyUtil.lang(TextFormatting.GREEN, "gtqtcore.gc.count1", syncer.syncString(TextFormattingUtil.formatNumbers(SteamAmount))));
         }
 
-        keyManager.add(KeyUtil.lang(TextFormatting.GREEN, "gtqtcore.msf.count2",syncer.syncDouble(steam[0] / 1000.0), syncer.syncDouble(steam[1] / 1000.0), syncer.syncDouble(steam[2] / 1000.0)));
+        keyManager.add(KeyUtil.lang(TextFormatting.GREEN, "gtqtcore.msf.count2", syncer.syncDouble(steam[0] / 1000.0), syncer.syncDouble(steam[1] / 1000.0), syncer.syncDouble(steam[2] / 1000.0)));
         if (getStatue()) keyManager.add(KeyUtil.lang(TextFormatting.GREEN,
                 "gtqtcore.msf.good"));
         else keyManager.add(KeyUtil.lang(TextFormatting.YELLOW,
                 "gtqtcore.msf.no"));
 
     }
+
     @Override
     public MetaTileEntity createMetaTileEntity(IGregTechTileEntity iGregTechTileEntity) {
         return new MetaTileEntityMSF(metaTileEntityId);
@@ -277,25 +277,25 @@ public class MetaTileEntityMSF extends MultiMapMultiblockController implements P
 
     @Override
     public void registerBars(List<UnaryOperator<TemplateBarBuilder>> bars, PanelSyncManager syncManager) {
-        for(int i=0;i<3;i++)
-        {
-            IntSyncValue hatch = new IntSyncValue(()->steam[0]);
-            syncManager.syncValue("hatch"+i, hatch);
+        for (int i = 0; i < 3; i++) {
+            IntSyncValue hatch = new IntSyncValue(() -> steam[0]);
+            syncManager.syncValue("hatch" + i, hatch);
 
             bars.add(barTest -> barTest
                     .texture(GTGuiTextures.PROGRESS_BAR_FUSION_HEAT)
                     .tooltipBuilder(tooltip -> {
                         IKey heatInfo = KeyUtil.string(TextFormatting.AQUA,
                                 "%s / %s  kPa",
-                                hatch.getIntValue()+100, 10000);
+                                hatch.getIntValue() + 100, 10000);
                         tooltip.add(KeyUtil.lang(
                                 "仓室压力",
                                 heatInfo));
                     })
                     .progress(() -> hatch.getIntValue() > 0 ?
-                            (double) (hatch.getIntValue() + 1000) /10000 : 0));
+                            (double) (hatch.getIntValue() + 1000) / 10000 : 0));
         }
     }
+
     private class MFSWorkableHandler extends MultiblockRecipeLogic {
         public MFSWorkableHandler(RecipeMapMultiblockController tileEntity) {
             super(tileEntity);

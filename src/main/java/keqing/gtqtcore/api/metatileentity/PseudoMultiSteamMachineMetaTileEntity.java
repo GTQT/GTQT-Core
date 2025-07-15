@@ -18,12 +18,13 @@ import net.minecraft.util.ResourceLocation;
 public class PseudoMultiSteamMachineMetaTileEntity extends SimpleSteamMetaTileEntity {
     private IBlockState targetBlockState;
 
-    public IBlockState getTargetBlockState() {
-        return targetBlockState;
-    }
     public PseudoMultiSteamMachineMetaTileEntity(ResourceLocation metaTileEntityId, RecipeMap<?> recipeMap, SteamProgressIndicator progressIndicator, ICubeRenderer renderer, boolean isBrickedCasing, boolean isHighPressure) {
         super(metaTileEntityId, recipeMap, progressIndicator, renderer, isBrickedCasing, isHighPressure);
         this.workableHandler = new PseudoMultiSteamRecipeLogic(this, recipeMap, isHighPressure, steamFluidTank, 1.0);
+    }
+
+    public IBlockState getTargetBlockState() {
+        return targetBlockState;
     }
 
     @Override
@@ -31,8 +32,8 @@ public class PseudoMultiSteamMachineMetaTileEntity extends SimpleSteamMetaTileEn
         return new PseudoMultiSteamMachineMetaTileEntity(metaTileEntityId, workableHandler.getRecipeMap(), progressIndicator, renderer, isBrickedCasing, isHighPressure);
     }
 
-    public void checkAdjacentBlocks(){
-        if(this.getWorld() == null || this.getWorld().isRemote) {
+    public void checkAdjacentBlocks() {
+        if (this.getWorld() == null || this.getWorld().isRemote) {
             targetBlockState = null;
             return;
         }
@@ -68,7 +69,10 @@ public class PseudoMultiSteamMachineMetaTileEntity extends SimpleSteamMetaTileEn
     }
 
     @Override
-    public boolean needsSneakToRotate() { return true; }
+    public boolean needsSneakToRotate() {
+        return true;
+    }
+
     @Override
     public boolean getIsWeatherOrTerrainResistant() {
         return true;

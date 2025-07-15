@@ -52,23 +52,24 @@ import java.util.List;
 
 import static keqing.gtqtcore.common.block.blocks.BlockQuantumCasing.CasingType.HIGH_ENERGY_CASING;
 import static keqing.gtqtcore.common.block.blocks.BlockQuantumCasing.CasingType.MOLECULAR_COIL;
-
+import static net.minecraft.util.text.TextFormatting.GRAY;
+import static net.minecraft.util.text.TextFormatting.GREEN;
 
 public class MetaTileEntityEnergyInfuser extends MultiblockWithDisplayBase implements IControllable {
-    @Override
-    public boolean usesMui2() {
-        return false;
-    }
     protected IItemHandlerModifiable inputInventory;
     protected IItemHandlerModifiable outputInventory;
     protected IMultipleTankHandler inputFluidInventory;
     protected IEnergyContainer energyContainer;
     private boolean isWorkingEnabled = true;
-
     private boolean isChargingItem = false;
 
     public MetaTileEntityEnergyInfuser(ResourceLocation metaTileEntityId) {
         super(metaTileEntityId);
+    }
+
+    @Override
+    public boolean usesMui2() {
+        return false;
     }
 
     @Override
@@ -132,7 +133,7 @@ public class MetaTileEntityEnergyInfuser extends MultiblockWithDisplayBase imple
         }
     }
 
-    private boolean isItemFullyCharged( ItemStack itemStack) {
+    private boolean isItemFullyCharged(ItemStack itemStack) {
         if (itemStack.hasCapability(GregtechCapabilities.CAPABILITY_ELECTRIC_ITEM, null)) {
             IElectricItem electricItem = itemStack.getCapability(GregtechCapabilities.CAPABILITY_ELECTRIC_ITEM, null);
             if (electricItem == null || !electricItem.chargeable()) return true;
@@ -146,7 +147,7 @@ public class MetaTileEntityEnergyInfuser extends MultiblockWithDisplayBase imple
         return true;
     }
 
-    private long chargeItem( ItemStack itemStack, long toCharge) {
+    private long chargeItem(ItemStack itemStack, long toCharge) {
         long availableEU = Math.min(toCharge, energyContainer.getInputVoltage() * energyContainer.getInputAmperage());
 
         if (itemStack.hasCapability(GregtechCapabilities.CAPABILITY_ELECTRIC_ITEM, null)) {
@@ -163,7 +164,7 @@ public class MetaTileEntityEnergyInfuser extends MultiblockWithDisplayBase imple
         return 0;
     }
 
-    private boolean isItemFullyRepaired( ItemStack itemStack) {
+    private boolean isItemFullyRepaired(ItemStack itemStack) {
         Item item = itemStack.getItem();
         return !item.isRepairable() || item.getDamage(itemStack) <= 0;
     }
@@ -342,6 +343,7 @@ public class MetaTileEntityEnergyInfuser extends MultiblockWithDisplayBase imple
         tooltip.add(I18n.format("gtqtcore.machine.energy_infuser.tooltip.0"));
         tooltip.add(I18n.format("gtqtcore.machine.energy_infuser.tooltip.1",
                 GTQTCoreConfig.MachineSwitch.energyInfuserSettings.usedUUMatterPerDurability));
-        tooltip.add(I18n.format("gtqtcore.multiblock.kq.laser.tooltip"));
+        tooltip.add(GREEN + I18n.format("gtqtcore.multiblock.laser_hatch.enable"));
+        tooltip.add(GRAY + I18n.format("gtqtcore.multiblock.laser_hatch.tooltip"));
     }
 }

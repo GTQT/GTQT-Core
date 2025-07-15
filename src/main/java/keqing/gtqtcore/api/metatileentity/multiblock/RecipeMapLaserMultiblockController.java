@@ -47,7 +47,7 @@ import static gregtech.api.GTValues.VOC;
 import static gregtech.api.GTValues.VOCN;
 import static keqing.gtqtcore.api.metatileentity.multiblock.GTQTMultiblockAbility.LASER_INPUT;
 
-public abstract class RecipeMapLaserMultiblockController extends MultiblockWithDisplayBase implements IDistinctBusController, IControllable , IBatch {
+public abstract class RecipeMapLaserMultiblockController extends MultiblockWithDisplayBase implements IDistinctBusController, IControllable, IBatch {
     public final RecipeMap<?> recipeMap;
     protected MultiblockLaserRecipeLogic recipeMapWorkable;
     protected IItemHandlerModifiable inputInventory;
@@ -182,7 +182,7 @@ public abstract class RecipeMapLaserMultiblockController extends MultiblockWithD
             var heatString = KeyUtil.number(TextFormatting.RED,
                     syncer.syncInt(temp), "K");
 
-            keyManager.add(KeyUtil.lang(TextFormatting.GRAY,"gregtech.multiblock.blast_furnace.max_temperature", heatString));
+            keyManager.add(KeyUtil.lang(TextFormatting.GRAY, "gregtech.multiblock.blast_furnace.max_temperature", heatString));
         }
     }
 
@@ -194,9 +194,10 @@ public abstract class RecipeMapLaserMultiblockController extends MultiblockWithD
     public void addInformation(ItemStack stack, World world, List<String> tooltip,
                                boolean advanced) {
         super.addInformation(stack, world, tooltip, advanced);
-        tooltip.add(I18n.format("使用高能无线激光靶仓代替能源仓，可以使用双仓升压.注意，请手动打开你的激光源仓！"));
-        tooltip.add(I18n.format("最大并行：Math.pow(2, 激光靶仓等级)"));
-        tooltip.add(I18n.format("耗时减免：1-激光靶仓等级*0.05"));
+        tooltip.add(TextFormatting.GREEN + I18n.format("-高能激光支持："));
+        tooltip.add(TextFormatting.GRAY + I18n.format("仅可使用高能无线激光靶仓代替能源仓，同样可以使用双仓升压。注意，请手动打开你的激光源仓保证能量顺利接收！"));
+        tooltip.add(TextFormatting.GRAY + I18n.format("最大并行：Math.pow(2, 激光靶仓等级)"));
+        tooltip.add(TextFormatting.GRAY + I18n.format("耗时减免：1-激光靶仓等级*0.05"));
     }
 
     protected void addWarningText(List<ITextComponent> textList) {
@@ -382,13 +383,12 @@ public abstract class RecipeMapLaserMultiblockController extends MultiblockWithD
     }
 
     @Override
-    public boolean isBatchEnable(){
+    public boolean isBatchEnable() {
         return recipeMapWorkable.isBatchEnable();
     }
 
     @Override
-    public void setBatchEnable(boolean enable)
-    {
+    public void setBatchEnable(boolean enable) {
         recipeMapWorkable.setBatchEnable(enable);
     }
 }

@@ -14,15 +14,16 @@ import net.minecraft.util.ResourceLocation;
 import java.util.List;
 
 public abstract class PressureMultiblockController extends RecipeMapMultiblockController implements IPressureMachine {
-    @Override
-    public boolean usesMui2() {
-        return false;
-    }
     private IPressureContainer container;
 
     public PressureMultiblockController(ResourceLocation metaTileEntityId, RecipeMap<?> recipeMap) {
         super(metaTileEntityId, recipeMap);
         this.recipeMapWorkable = new PressureMultiblockRecipeLogic(this);
+    }
+
+    @Override
+    public boolean usesMui2() {
+        return false;
     }
 
     @Override

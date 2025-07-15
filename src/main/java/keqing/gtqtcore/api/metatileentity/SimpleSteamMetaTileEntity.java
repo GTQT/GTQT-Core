@@ -38,7 +38,7 @@ public class SimpleSteamMetaTileEntity extends SteamMetaTileEntity {
 
     protected SteamProgressIndicator progressIndicator;
     protected boolean isBrickedCasing;
-    protected  GhostCircuitItemStackHandler circuitInventory;
+    protected GhostCircuitItemStackHandler circuitInventory;
     protected IItemHandler outputItemInventory;
     protected IFluidHandler outputFluidInventory;
     private IItemHandlerModifiable actualImportItems;

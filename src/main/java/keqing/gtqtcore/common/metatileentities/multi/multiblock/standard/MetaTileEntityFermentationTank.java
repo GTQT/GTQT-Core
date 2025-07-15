@@ -35,8 +35,6 @@ import net.minecraft.client.resources.I18n;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.ResourceLocation;
-import net.minecraft.util.text.ITextComponent;
-import net.minecraft.util.text.TextComponentTranslation;
 import net.minecraft.util.text.TextFormatting;
 import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
@@ -128,6 +126,7 @@ public class MetaTileEntityFermentationTank extends RecipeMapMultiblockControlle
                 .where('E', air())
                 .build();
     }
+
     @Override
     protected void configureDisplayText(MultiblockUIBuilder builder) {
         builder.setWorkingStatus(recipeMapWorkable.isWorkingEnabled(), recipeMapWorkable.isActive())
@@ -142,7 +141,7 @@ public class MetaTileEntityFermentationTank extends RecipeMapMultiblockControlle
 
     private void addHeatCapacity(KeyManager keyManager, UISyncer syncer) {
         if (isStructureFormed()) {
-            keyManager.add(KeyUtil.lang(TextFormatting.GRAY,"gtqtcore.machine.fermentation_tank.ph", syncer.syncString(String.format("%, .2f", this.pH))));
+            keyManager.add(KeyUtil.lang(TextFormatting.GRAY, "gtqtcore.machine.fermentation_tank.ph", syncer.syncString(String.format("%, .2f", this.pH))));
         }
     }
 
@@ -208,8 +207,8 @@ public class MetaTileEntityFermentationTank extends RecipeMapMultiblockControlle
                                World player,
                                List<String> tooltip,
                                boolean advanced) {
-        super.addInformation(stack, player, tooltip, advanced);
         tooltip.add(TooltipHelper.RAINBOW_SLOW + I18n.format("工业化生产沼气", new Object[0]));
+        super.addInformation(stack, player, tooltip, advanced);
     }
 
     protected class PHRecipeLogic extends MultiblockRecipeLogic {

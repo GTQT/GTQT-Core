@@ -99,8 +99,8 @@ public class MetaTileEntityLargeBiomassGenerator extends FuelMultiblockControlle
 
     @Override
     public void addInformation(ItemStack stack, World player, List<String> tooltip,boolean advanced) {
+        tooltip.add(TooltipHelper.RAINBOW_SLOW + I18n.format("猫猫发电机！放入一个cat，可以产生1eu/t的电（="));
         super.addInformation(stack, player, tooltip, advanced);
-        tooltip.add(TooltipHelper.RAINBOW_SLOW + I18n.format("猫猫发电机！放入一个cat，可以产生1eu/t的电（"));
         tooltip.add(I18n.format("gregtech.universal.tooltip.base_production_eut", GTValues.V[LuV]));
         tooltip.add(I18n.format("gtqtcore.machine.large_biomass_generator.tooltip.1"));
     }

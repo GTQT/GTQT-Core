@@ -171,7 +171,7 @@ public class MetaTileEntityCryogenicFreezer extends GTQTNoTierMultiblockControll
 
     @Override
     public void addInformation(ItemStack stack, @Nullable World player, @Nonnull List<String> tooltip, boolean advanced) {
-        tooltip.add(TooltipHelper.RAINBOW_SLOW + I18n.format("大厂冻，小厂烧", new Object[0]));
+        tooltip.add(TooltipHelper.RAINBOW_SLOW + I18n.format("大厂冻，小厂烧"));
         super.addInformation(stack, player, tooltip, advanced);
     }
 

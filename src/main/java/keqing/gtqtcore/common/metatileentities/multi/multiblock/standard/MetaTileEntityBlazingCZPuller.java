@@ -29,7 +29,10 @@ import gregtech.client.renderer.ICubeRenderer;
 import gregtech.client.renderer.texture.cube.OrientedOverlayRenderer;
 import gregtech.client.utils.TooltipHelper;
 import gregtech.common.ConfigHolder;
-import gregtech.common.blocks.*;
+import gregtech.common.blocks.BlockGlassCasing;
+import gregtech.common.blocks.BlockMetalCasing;
+import gregtech.common.blocks.BlockWireCoil;
+import gregtech.common.blocks.MetaBlocks;
 import keqing.gtqtcore.api.GCYSValues;
 import keqing.gtqtcore.api.capability.IPressureContainer;
 import keqing.gtqtcore.api.capability.IPressureMachine;
@@ -42,8 +45,6 @@ import net.minecraft.block.state.IBlockState;
 import net.minecraft.client.resources.I18n;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.ResourceLocation;
-import net.minecraft.util.text.ITextComponent;
-import net.minecraft.util.text.TextComponentTranslation;
 import net.minecraft.util.text.TextFormatting;
 import net.minecraft.world.World;
 import net.minecraftforge.fluids.FluidStack;
@@ -214,6 +215,7 @@ public class MetaTileEntityBlazingCZPuller extends GTQTNoTierMultiblockControlle
         heatingCoilLevel = 0;
         pyrotheumFluid = null;
     }
+
     public boolean drainPyrotheum(boolean sim) {
         IMultipleTankHandler inputTank = getInputFluidInventory();
         if (!sim && !isStructureFormed()) return false;
@@ -225,6 +227,7 @@ public class MetaTileEntityBlazingCZPuller extends GTQTNoTierMultiblockControlle
         }
         return false;
     }
+
     protected class BlazingBlastFurnaceWorkable extends PressureMultiblockRecipeLogic {
 
         private final MetaTileEntityBlazingCZPuller combustionEngine;
@@ -266,9 +269,9 @@ public class MetaTileEntityBlazingCZPuller extends GTQTNoTierMultiblockControlle
 
         @Override
         protected double getOverclockingDurationFactor() {
-            return OCFirst ? 1/Overclocking : 0.5;
+            return OCFirst ? 1 / Overclocking : 0.5;
         }
-        
+
 
         @Override
         public void update() {

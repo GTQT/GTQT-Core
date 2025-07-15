@@ -43,7 +43,6 @@ import net.minecraft.init.Blocks;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.ResourceLocation;
-import net.minecraft.util.text.TextFormatting;
 import net.minecraft.world.World;
 import net.minecraftforge.fluids.FluidStack;
 import net.minecraftforge.fml.relauncher.Side;
@@ -60,6 +59,8 @@ import static gregtech.api.unification.material.Materials.Neptunium;
 import static keqing.gtqtcore.api.GTQTAPI.*;
 import static keqing.gtqtcore.api.metatileentity.multiblock.GTQTMultiblockAbility.WARP_SWARM_MULTIBLOCK_ABILITY;
 import static keqing.gtqtcore.common.block.blocks.BlockQuantumForceTransformerCasing.CasingType.NEUTRON_PULSE_MANIPULATOR_CASING;
+import static net.minecraft.util.text.TextFormatting.GRAY;
+import static net.minecraft.util.text.TextFormatting.GREEN;
 
 public class MetaTileEntityQuantumForceTransformer extends RecipeMapMultiblockController {
 
@@ -283,7 +284,8 @@ public class MetaTileEntityQuantumForceTransformer extends RecipeMapMultiblockCo
         tooltip.add(I18n.format("=============================================="));
         tooltip.add(I18n.format("本设备支持催化剂仓，在运行含催化剂的配方时需将催化剂放置在仓内"));
         tooltip.add(I18n.format("会在配方检查时无视并行数量消耗一点耐久，加工中途失败需重新消耗耐久"));
-        tooltip.add(I18n.format("gtqtcore.multiblock.kq.laser.tooltip"));
+        tooltip.add(GREEN + I18n.format("gtqtcore.multiblock.laser_hatch.enable"));
+        tooltip.add(GRAY + I18n.format("gtqtcore.multiblock.laser_hatch.tooltip"));
         tooltip.add(I18n.format("=============================================="));
         tooltip.add(I18n.format("本设备支持纳米蜂群仓，每完成一次配方会消耗一点耐久（无视并行）"));
         tooltip.add(I18n.format("配方等级：由脉冲控制器等级决定"));
@@ -302,21 +304,22 @@ public class MetaTileEntityQuantumForceTransformer extends RecipeMapMultiblockCo
                 .addEnergyTierLine(GTUtility.getTierByVoltage(recipeMapWorkable.getMaxVoltage()))
 
                 .addCustom((textList, syncer) -> {
-                    textList.add(KeyUtil.lang( "gtqtcore.multiblock.md.level", syncer.syncInt(coreTier)));
-                    textList.add(KeyUtil.lang( "gtqtcore.multiblock.md.glass", syncer.syncInt(glassTier)));
-                    textList.add(KeyUtil.lang( "gtqtcore.casingTire", syncer.syncInt(manioulatorTier)));
+                    textList.add(KeyUtil.lang("gtqtcore.multiblock.md.level", syncer.syncInt(coreTier)));
+                    textList.add(KeyUtil.lang("gtqtcore.multiblock.md.glass", syncer.syncInt(glassTier)));
+                    textList.add(KeyUtil.lang("gtqtcore.casingTire", syncer.syncInt(manioulatorTier)));
                     if (isStructureFormed())
-                        textList.add(KeyUtil.lang( "当前耗时减免：%s", syncer.syncInt(10 * Math.min(getWarpSwarmTier(), glassTier))));
-                    textList.add(KeyUtil.lang( "当前配方超频：%s", syncer.syncBoolean(canOverclocking)));
-                    textList.add(KeyUtil.lang( "当前配方无损：%s", syncer.syncBoolean(canBoosterOutput)));
+                        textList.add(KeyUtil.lang("当前耗时减免：%s", syncer.syncInt(10 * Math.min(getWarpSwarmTier(), glassTier))));
+                    textList.add(KeyUtil.lang("当前配方超频：%s", syncer.syncBoolean(canOverclocking)));
+                    textList.add(KeyUtil.lang("当前配方无损：%s", syncer.syncBoolean(canBoosterOutput)));
                 })
                 .addParallelsLine(recipeMapWorkable.getParallelLimit())
                 .addWorkingStatusLine()
                 .addProgressLine(recipeMapWorkable.getProgress(), recipeMapWorkable.getMaxProgress())
                 .addRecipeOutputLine(recipeMapWorkable);
     }
-    public int getWarpSwarmTier(){
-        if(getAbility()!=null){
+
+    public int getWarpSwarmTier() {
+        if (getAbility() != null) {
             return getAbility().getWarpSwarmTier();
         }
         return 0;

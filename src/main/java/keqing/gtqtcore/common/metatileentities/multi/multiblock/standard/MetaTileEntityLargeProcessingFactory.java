@@ -83,8 +83,8 @@ public class MetaTileEntityLargeProcessingFactory extends MultiMapMultiblockCont
                                @Nullable World player,
                                List<String> tooltip,
                                boolean advanced) {
+        tooltip.add(TooltipHelper.RAINBOW_SLOW + I18n.format("把你的小机器丢掉"));
         super.addInformation(stack, player, tooltip, advanced);
-        tooltip.add(TooltipHelper.RAINBOW_SLOW + I18n.format("把你的小机器丢掉", new Object[0]));
         tooltip.add(I18n.format("gtqtcore.machine.large_processing_factory.tooltip.1"));
         tooltip.add(I18n.format("gtqtcore.machine.large_processing_factory.tooltip.2"));
         tooltip.add(I18n.format("gtqtcore.machine.large_processing_factory.tooltip.3"));
@@ -107,7 +107,7 @@ public class MetaTileEntityLargeProcessingFactory extends MultiMapMultiblockCont
 
         @Override
         public void setMaxProgress(int maxProgress) {
-            super.setMaxProgress((int) (maxProgress*0.4));
+            super.setMaxProgress((int) (maxProgress * 0.4));
         }
 
         @Override

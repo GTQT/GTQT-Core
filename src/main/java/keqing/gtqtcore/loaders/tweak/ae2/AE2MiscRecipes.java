@@ -1,5 +1,6 @@
 package keqing.gtqtcore.loaders.tweak.ae2;
 
+import gregtech.api.metatileentity.multiblock.CleanroomType;
 import gregtech.api.recipes.ModHandler;
 import gregtech.api.recipes.RecipeMaps;
 import gregtech.api.unification.material.MarkerMaterials;
@@ -9,14 +10,12 @@ import gregtech.api.unification.stack.UnificationEntry;
 import gregtech.api.util.GTUtility;
 import gregtech.api.util.Mods;
 import gregtech.common.items.MetaItems;
-import keqing.gtqtcore.api.unification.GTQTMaterials;
 import keqing.gtqtcore.common.items.GTQTMetaItems;
 import net.minecraft.init.Blocks;
 import net.minecraft.item.ItemStack;
 
 import static gregtech.api.GTValues.*;
-import static gregtech.api.recipes.RecipeMaps.ASSEMBLER_RECIPES;
-import static gregtech.api.recipes.RecipeMaps.CHEMICAL_BATH_RECIPES;
+import static gregtech.api.recipes.RecipeMaps.*;
 import static gregtech.api.unification.material.Materials.*;
 import static gregtech.api.unification.ore.OrePrefix.*;
 import static gtqt.api.util.MaterialHelper.Cable;
@@ -24,6 +23,7 @@ import static keqing.gtqtcore.api.unification.GTQTMaterials.Fluix;
 import static keqing.gtqtcore.api.unification.MaterialHelper.Glue;
 import static keqing.gtqtcore.api.utils.GTQTUtil.getPistonByTier;
 import static keqing.gtqtcore.api.utils.GTQTUtil.getPumpByTier;
+import static keqing.gtqtcore.common.items.GTQTMetaItems.*;
 import static keqing.gtqtcore.loaders.tweak.ae2.index.*;
 
 public class AE2MiscRecipes {
@@ -195,6 +195,7 @@ public class AE2MiscRecipes {
                 'P', new UnificationEntry(plate, Steel),
                 'S', new UnificationEntry(screw, Lead));
 
+        /*
         RecipeMaps.FORMING_PRESS_RECIPES.recipeBuilder()
                 .input(block, Steel)
                 .notConsumable(logicModel)
@@ -226,6 +227,8 @@ public class AE2MiscRecipes {
                 .EUt(VA[HV])
                 .duration(100)
                 .buildAndRegister();
+
+         */
     }
 
     private static void UpgradeCardRecipes() {
@@ -567,6 +570,7 @@ public class AE2MiscRecipes {
     public static void ProcessorRecipes() {
         //注册格式：硅板+主材料+贴片三种（升级四次）+液态红石 144mb
         //逻辑 金
+        /*
         RecipeMaps.FORMING_PRESS_RECIPES.recipeBuilder()
                 .notConsumable(logicModel)
                 .input(plate, Materials.Gold)
@@ -673,6 +677,30 @@ public class AE2MiscRecipes {
                 .outputs(GTUtility.copy(64, engineeringBase))
                 .EUt(VA[UHV])
                 .duration(200)
+                .buildAndRegister();
+        */
+        CUTTER_RECIPES.recipeBuilder()
+                .input(AE_LOGIC_CHIP)
+                .outputs(GTUtility.copy(16, logicBase))
+                .EUt(VA[HV])
+                .duration(200)
+                .cleanroom(CleanroomType.CLEANROOM)
+                .buildAndRegister();
+
+        CUTTER_RECIPES.recipeBuilder()
+                .input(AE_CALCULATION_CHIP)
+                .outputs(GTUtility.copy(16, calculationBase))
+                .EUt(VA[HV])
+                .duration(200)
+                .cleanroom(CleanroomType.CLEANROOM)
+                .buildAndRegister();
+
+        CUTTER_RECIPES.recipeBuilder()
+                .input(AE_ENGINEERING_CHIP)
+                .outputs(GTUtility.copy(16, engineeringBase))
+                .EUt(VA[HV])
+                .duration(200)
+                .cleanroom(CleanroomType.CLEANROOM)
                 .buildAndRegister();
         ////////////////////////////////////////////////////////////
         //逻辑

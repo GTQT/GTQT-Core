@@ -58,10 +58,6 @@ import static gregtech.api.unification.material.Materials.Lubricant;
 
 //大矿机
 public class MetaTileEntityMiningDrill extends RecipeMapMultiblockController {
-    @Override
-    public boolean usesMui2() {
-        return false;
-    }
     private final ItemStackHandler containerInventory;
     int tier = 1;
     int casing;
@@ -71,11 +67,15 @@ public class MetaTileEntityMiningDrill extends RecipeMapMultiblockController {
     int random;
     int type;
     int dimension;
-
     public MetaTileEntityMiningDrill(ResourceLocation metaTileEntityId) {
         super(metaTileEntityId, GTQTcoreRecipeMaps.MINING_DRILL_RECIPES);
         this.recipeMapWorkable = new IndustrialDrillWorkableHandler(this);
         this.containerInventory = new GTItemStackHandler(this, 1);
+    }
+
+    @Override
+    public boolean usesMui2() {
+        return false;
     }
 
     public NBTTagCompound writeToNBT(NBTTagCompound data) {
@@ -308,8 +308,8 @@ public class MetaTileEntityMiningDrill extends RecipeMapMultiblockController {
 
     @Override
     public void addInformation(ItemStack stack, World player, List<String> tooltip, boolean advanced) {
+        tooltip.add(TooltipHelper.RAINBOW_SLOW + I18n.format("无中生有"));
         super.addInformation(stack, player, tooltip, advanced);
-        tooltip.add(TooltipHelper.RAINBOW_SLOW + I18n.format("无中生有", new Object[0]));
         tooltip.add(I18n.format("gtqtcore.machine.mdi.tooltip.1"));
         tooltip.add(I18n.format("gtqtcore.machine.mdi.tooltip.2"));
         tooltip.add(I18n.format("gtqtcore.machine.mdi.tooltip.3"));
@@ -352,7 +352,7 @@ public class MetaTileEntityMiningDrill extends RecipeMapMultiblockController {
     @Override
     public boolean checkRecipe(@Nonnull Recipe recipe, boolean consumeIfSuccess) {
         if (recipe.getProperty(MiningDrillProperties.getInstance(), 0) <= drillTier && super.checkRecipe(recipe, consumeIfSuccess)) {
-            return importItems.getStackInSlot(0)==GTQTOreHelper.setOre(dimension,type);
+            return importItems.getStackInSlot(0) == GTQTOreHelper.setOre(dimension, type);
         }
         return false;
     }

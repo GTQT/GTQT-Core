@@ -58,10 +58,6 @@ import static keqing.gtqtcore.common.block.blocks.BlocksResearchSystem.CasingTyp
 import static keqing.gtqtcore.common.block.blocks.BlocksResearchSystem.CasingType.KQCC_COMPUTER_CASING;
 
 public class MetaTileEntityAdvanceKQCC extends MultiblockWithDisplayBase implements IOpticalComputationProvider {
-    @Override
-    public boolean usesMui2() {
-        return false;
-    }
     float HOT;
     int length;
     int thresholdPercentage = 0;
@@ -78,10 +74,14 @@ public class MetaTileEntityAdvanceKQCC extends MultiblockWithDisplayBase impleme
     private int RAM;
     private IEnergyContainer energyContainer;
     private boolean hasNotEnoughEnergy;
-
     public MetaTileEntityAdvanceKQCC(ResourceLocation metaTileEntityId) {
         super(metaTileEntityId);
         this.energyContainer = new EnergyContainerList(new ArrayList<>());
+    }
+
+    @Override
+    public boolean usesMui2() {
+        return false;
     }
 
     public NBTTagCompound writeToNBT(NBTTagCompound data) {
@@ -416,6 +416,7 @@ public class MetaTileEntityAdvanceKQCC extends MultiblockWithDisplayBase impleme
                 RAM += this.getAbilities(KQCC_MULTIBLOCK_ABILITY).get(Q).getLevel();
         }
     }
+
     @Override
     protected void updateFormedValid() {
         consumeEnergy();

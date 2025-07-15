@@ -23,7 +23,6 @@ import gregtech.client.utils.TooltipHelper;
 import keqing.gtqtcore.api.blocks.impl.WrappedIntTired;
 import keqing.gtqtcore.api.predicate.TiredTraceabilityPredicate;
 import keqing.gtqtcore.api.recipes.GTQTcoreRecipeMaps;
-import keqing.gtqtcore.api.utils.GTQTDateHelper;
 import keqing.gtqtcore.api.utils.GTQTUtil;
 import keqing.gtqtcore.client.textures.GTQTTextures;
 import keqing.gtqtcore.common.block.GTQTMetaBlocks;
@@ -31,8 +30,6 @@ import net.minecraft.block.state.IBlockState;
 import net.minecraft.client.resources.I18n;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.ResourceLocation;
-import net.minecraft.util.text.ITextComponent;
-import net.minecraft.util.text.TextComponentTranslation;
 import net.minecraft.util.text.TextFormatting;
 import net.minecraft.world.World;
 
@@ -117,6 +114,7 @@ public class MetaTileEntityBioCentrifuge extends MultiMapMultiblockController {
 
         tier = Math.min(this.glass_tier, this.tubeTier * 2);
     }
+
     @Override
     protected void configureDisplayText(MultiblockUIBuilder builder) {
         builder.setWorkingStatus(recipeMapWorkable.isWorkingEnabled(), recipeMapWorkable.isActive())
@@ -130,7 +128,7 @@ public class MetaTileEntityBioCentrifuge extends MultiMapMultiblockController {
     }
 
     private void addCustomCapacity(KeyManager keyManager, UISyncer syncer) {
-        keyManager.add(KeyUtil.lang(TextFormatting.GRAY,"Glass:%s Tube:%s Clean:%s", syncer.syncInt(glass_tier), syncer.syncDouble(tubeTier),syncer.syncInt(clean_tier)));
+        keyManager.add(KeyUtil.lang(TextFormatting.GRAY, "Glass:%s Tube:%s Clean:%s", syncer.syncInt(glass_tier), syncer.syncDouble(tubeTier), syncer.syncInt(clean_tier)));
     }
 
     @Override
@@ -140,8 +138,8 @@ public class MetaTileEntityBioCentrifuge extends MultiMapMultiblockController {
 
     @Override
     public void addInformation(ItemStack stack, World player, List<String> tooltip, boolean advanced) {
-        super.addInformation(stack, player, tooltip, advanced);
         tooltip.add(TooltipHelper.RAINBOW_SLOW + I18n.format("爱的魔力转圈圈", new Object[0]));
+        super.addInformation(stack, player, tooltip, advanced);
         tooltip.add(I18n.format("gtqtcore.machine.parallel.pow.machineTier", 2, 64));
         tooltip.add(I18n.format("gtqtcore.machine.progress_time", "maxProgress /coilLevel"));
     }

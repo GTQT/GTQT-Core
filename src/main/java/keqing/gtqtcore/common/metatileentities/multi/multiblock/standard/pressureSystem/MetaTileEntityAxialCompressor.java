@@ -62,20 +62,13 @@ import static keqing.gtqtcore.common.block.blocks.BlockActiveUniqueCasing1.Activ
 import static keqing.gtqtcore.common.block.blocks.BlockActiveUniqueCasing1.ActiveCasingType.AIRFOIL;
 
 public class MetaTileEntityAxialCompressor extends MultiblockWithDisplayBase implements IWorkable {
-    @Override
-    public boolean usesMui2() {
-        return false;
-    }
     public static final int MAX_PROGRESS = 20;
     public static final int FLUID_USE_AMOUNT = 100;
     protected static final FluidStack LUBRICANT = Materials.Lubricant.getFluid(1);
     protected final int tier;
-
     protected final double maxPressure;
     protected final double pressureRate;
-
     protected double targetPressure;
-
     protected IMultipleTankHandler inputFluidInventory;
     protected IEnergyContainer energyContainer;
     protected boolean lastActive;
@@ -85,7 +78,6 @@ public class MetaTileEntityAxialCompressor extends MultiblockWithDisplayBase imp
     private boolean isWorkingEnabled = true;
     private boolean wasActiveAndNeedsUpdate;
     private boolean hasNotEnoughEnergy;
-
     public MetaTileEntityAxialCompressor(ResourceLocation metaTileEntityId, int tier, double maxPressure, double pressureRate) {
         super(metaTileEntityId);
         this.tier = tier;
@@ -99,6 +91,11 @@ public class MetaTileEntityAxialCompressor extends MultiblockWithDisplayBase imp
             if (val.isEmpty()) return "" + GCYSValues.EARTH_PRESSURE;
             return val;
         };
+    }
+
+    @Override
+    public boolean usesMui2() {
+        return false;
     }
 
     @Override

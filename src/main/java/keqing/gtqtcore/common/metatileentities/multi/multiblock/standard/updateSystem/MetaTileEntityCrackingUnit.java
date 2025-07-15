@@ -5,7 +5,6 @@ import gregtech.api.block.IHeatingCoilBlockStats;
 import gregtech.api.metatileentity.MetaTileEntity;
 import gregtech.api.metatileentity.interfaces.IGregTechTileEntity;
 import gregtech.api.metatileentity.multiblock.IMultiblockPart;
-import gregtech.api.metatileentity.multiblock.MultiblockDisplayText;
 import gregtech.api.metatileentity.multiblock.ui.MultiblockUIBuilder;
 import gregtech.api.pattern.BlockPattern;
 import gregtech.api.pattern.FactoryBlockPattern;
@@ -14,7 +13,6 @@ import gregtech.api.recipes.RecipeMap;
 import gregtech.api.recipes.RecipeMaps;
 import gregtech.api.util.GTUtility;
 import gregtech.api.util.KeyUtil;
-import gregtech.api.util.TextComponentUtil;
 import gregtech.client.renderer.ICubeRenderer;
 import gregtech.client.renderer.texture.Textures;
 import gregtech.common.blocks.BlockMetalCasing;
@@ -30,13 +28,9 @@ import net.minecraft.block.state.IBlockState;
 import net.minecraft.network.PacketBuffer;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.SoundEvent;
-import net.minecraft.util.text.ITextComponent;
-import net.minecraft.util.text.TextComponentTranslation;
 import net.minecraft.util.text.TextFormatting;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
-
-import java.util.List;
 
 public class MetaTileEntityCrackingUnit extends GTQTRecipeMapMultiblockController {
 
@@ -184,8 +178,8 @@ public class MetaTileEntityCrackingUnit extends GTQTRecipeMapMultiblockControlle
 
                     textList.add(KeyUtil.setHover(base, hover));
 
-                    textList.add(KeyUtil.lang( "gtqtcore.casingTire",syncer.syncInt(casingTier)));
-                    textList.add(KeyUtil.lang( "线圈等级：%s",syncer.syncInt(coilTier)));
+                    textList.add(KeyUtil.lang("gtqtcore.casingTire", syncer.syncInt(casingTier)));
+                    textList.add(KeyUtil.lang("线圈等级：%s", syncer.syncInt(coilTier)));
                 })
                 .addParallelsLine(recipeMapWorkable.getParallelLimit())
                 .addWorkingStatusLine()

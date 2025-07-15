@@ -37,7 +37,6 @@ import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
-
 import javax.annotation.Nonnull;
 import java.util.ArrayList;
 import java.util.Collection;
@@ -254,10 +253,12 @@ public class MetaTileEntityResearchSystemNetworkSwitch extends MetaTileEntityDat
         tooltip.add(I18n.format("gtqtcore.machine.network_switch.tooltip.1"));
         tooltip.add(I18n.format("gregtech.machine.network_switch.tooltip.4", TextFormattingUtil.formatNumbers(EUT_PER_HATCH)));
     }
+
     @Override
     public boolean usesMui2() {
         return false;
     }
+
     @Override
     protected void addDisplayText(List<ITextComponent> textList) {
         MultiblockDisplayText.builder(textList, isStructureFormed())

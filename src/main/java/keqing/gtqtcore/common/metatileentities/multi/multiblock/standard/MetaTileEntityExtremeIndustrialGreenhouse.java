@@ -116,8 +116,8 @@ public class MetaTileEntityExtremeIndustrialGreenhouse extends RecipeMapMultiblo
                                World player,
                                List<String> tooltip,
                                boolean advanced) {
+        tooltip.add(TooltipHelper.RAINBOW_SLOW + I18n.format("开心农场"));
         super.addInformation(stack, player, tooltip, advanced);
-        tooltip.add(TooltipHelper.RAINBOW_SLOW + I18n.format("开心农场", new Object[0]));
         tooltip.add(TooltipHelper.RAINBOW_SLOW + I18n.format("gregtech.machine.perfect_oc"));
         tooltip.add(I18n.format("gtqtcore.machine.extreme_industrial_greenhouse.tooltip.1"));
         tooltip.add(I18n.format("gtqtcore.machine.extreme_industrial_greenhouse.tooltip.2"));

@@ -1,6 +1,5 @@
 package keqing.gtqtcore.common.metatileentities.multi.multiblock.standard;
 
-
 import com.cleanroommc.modularui.api.GuiAxis;
 import com.cleanroommc.modularui.api.IPanelHandler;
 import com.cleanroommc.modularui.api.drawable.IKey;
@@ -82,6 +81,8 @@ import static keqing.gtqtcore.api.unification.GTQTMaterials.SiliconCarbide;
 import static keqing.gtqtcore.api.unification.ore.GTQTOrePrefix.swarm;
 import static keqing.gtqtcore.api.utils.GTQTUtil.getAccelerateByCWU;
 import static keqing.gtqtcore.common.block.blocks.BlockPCBFactoryCasing.PCBFactoryCasingType.SUBSTRATE_CASING;
+import static net.minecraft.util.text.TextFormatting.GRAY;
+import static net.minecraft.util.text.TextFormatting.GREEN;
 
 public class MetaTileEntityPCBFactory extends RecipeMapMultiblockController implements IOpticalComputationReceiver {
 
@@ -485,8 +486,8 @@ public class MetaTileEntityPCBFactory extends RecipeMapMultiblockController impl
                                @Nullable World player,
                                @Nonnull List<String> tooltip,
                                boolean advanced) {
+        tooltip.add(TooltipHelper.RAINBOW_SLOW + I18n.format("先进的电子厂"));
         super.addInformation(stack, player, tooltip, advanced);
-        tooltip.add(TooltipHelper.RAINBOW_SLOW + I18n.format("先进的电子厂", new Object[0]));
         tooltip.add(I18n.format("gtqtcore.machine.pcb_factory.tooltip.1"));
         tooltip.add(I18n.format("gtqtcore.machine.pcb_factory.tooltip.2"));
         tooltip.add(I18n.format("gtqtcore.machine.pcb_factory.tooltip.3"));
@@ -503,8 +504,10 @@ public class MetaTileEntityPCBFactory extends RecipeMapMultiblockController impl
         tooltip.add(I18n.format("gtqtcore.machine.pcb_factory.tooltip.12"));
         tooltip.add(I18n.format("gtqtcore.machine.pcb_factory.tooltip.13"));
         tooltip.add(I18n.format("gtqtcore.machine.pcb_factory.tooltip.14"));
-        tooltip.add(I18n.format("gtqtcore.multiblock.kq.acc.tooltip"));
-        tooltip.add(I18n.format("gtqtcore.multiblock.kq.laser.tooltip"));
+        tooltip.add(GREEN + I18n.format("gtqtcore.multiblock.compution_accelerate.enable"));
+        tooltip.add(GRAY + I18n.format("gtqtcore.multiblock.compution_accelerate.tooltip"));
+        tooltip.add(GREEN + I18n.format("gtqtcore.multiblock.laser_hatch.enable"));
+        tooltip.add(GRAY + I18n.format("gtqtcore.multiblock.laser_hatch.tooltip"));
     }
 
     @Override
@@ -544,6 +547,7 @@ public class MetaTileEntityPCBFactory extends RecipeMapMultiblockController impl
                 .addWorkingStatusLine()
                 .addProgressLine(recipeMapWorkable.getProgress(), recipeMapWorkable.getMaxProgress());
     }
+
     private void addCustomData(KeyManager keyManager, UISyncer syncer) {
         if (!isStructureFormed()) return;
 

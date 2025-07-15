@@ -31,8 +31,6 @@ import net.minecraft.client.resources.I18n;
 import net.minecraft.item.ItemStack;
 import net.minecraft.network.PacketBuffer;
 import net.minecraft.util.ResourceLocation;
-import net.minecraft.util.text.ITextComponent;
-import net.minecraft.util.text.TextComponentTranslation;
 import net.minecraft.util.text.TextFormatting;
 import net.minecraft.world.World;
 
@@ -127,17 +125,19 @@ public class MetaTileEntityElectronBath extends GTQTRecipeMapMultiblockControlle
         super.receiveInitialSyncData(buf);
         this.casingTier = buf.readInt();
     }
+
     @Override
     public void addCustomData(KeyManager keyManager, UISyncer syncer) {
         super.addCustomData(keyManager, syncer);
         if (!isStructureFormed()) return;
-        keyManager.add(KeyUtil.lang(TextFormatting.GRAY ,"电极状态：%s 电极等级：%s" , syncer.syncBoolean(checkAvailable()),syncer.syncInt(ElectrodeTier)));
+        keyManager.add(KeyUtil.lang(TextFormatting.GRAY, "电极状态：%s 电极等级：%s", syncer.syncBoolean(checkAvailable()), syncer.syncInt(ElectrodeTier)));
         if (casingTier != tubeTier)
-            keyManager.add(KeyUtil.lang(TextFormatting.GRAY ,"gtqtcore.equal" , syncer.syncInt(casingTier), syncer.syncInt(tubeTier)));
+            keyManager.add(KeyUtil.lang(TextFormatting.GRAY, "gtqtcore.equal", syncer.syncInt(casingTier), syncer.syncInt(tubeTier)));
     }
+
     @Override
     public void addInformation(ItemStack stack, World player, List<String> tooltip, boolean advanced) {
-        tooltip.add(TooltipHelper.RAINBOW_SLOW + I18n.format("谁还需要电解机", new Object[0]));
+        tooltip.add(TooltipHelper.RAINBOW_SLOW + I18n.format("谁还需要电解机"));
         tooltip.add(I18n.format("gtqtcore.machine.ele.tooltip.1"));
         tooltip.add(I18n.format("gtqtcore.machine.ele.tooltip.2"));
         super.addInformation(stack, player, tooltip, advanced);

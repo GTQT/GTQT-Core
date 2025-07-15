@@ -57,10 +57,6 @@ import static keqing.gtqtcore.common.block.blocks.BlocksResearchSystem.CasingTyp
 import static keqing.gtqtcore.common.block.blocks.BlocksResearchSystem.CasingType.KQCC_COMPUTER_CASING;
 
 public class MetaTileEntityResearchSystemControlCenter extends MultiblockWithDisplayBase implements IOpticalComputationProvider {
-    @Override
-    public boolean usesMui2() {
-        return false;
-    }
     float HOT;
     int length;
     int thresholdPercentage = 0;
@@ -77,10 +73,14 @@ public class MetaTileEntityResearchSystemControlCenter extends MultiblockWithDis
     private int RAM;
     private IEnergyContainer energyContainer;
     private boolean hasNotEnoughEnergy;
-
     public MetaTileEntityResearchSystemControlCenter(ResourceLocation metaTileEntityId) {
         super(metaTileEntityId);
         this.energyContainer = new EnergyContainerList(new ArrayList<>());
+    }
+
+    @Override
+    public boolean usesMui2() {
+        return false;
     }
 
     public NBTTagCompound writeToNBT(NBTTagCompound data) {

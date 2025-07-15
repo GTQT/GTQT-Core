@@ -12,9 +12,6 @@ import com.cleanroommc.modularui.widgets.ItemSlot;
 import com.cleanroommc.modularui.widgets.ProgressWidget;
 import com.cleanroommc.modularui.widgets.slot.ModularSlot;
 import gregtech.api.GTValues;
-import gregtech.api.gui.GuiTextures;
-import gregtech.api.gui.ModularUI;
-import gregtech.api.gui.widgets.*;
 import gregtech.api.metatileentity.MetaTileEntity;
 import gregtech.api.metatileentity.interfaces.IGregTechTileEntity;
 import gregtech.api.metatileentity.multiblock.IMultiblockPart;
@@ -38,8 +35,6 @@ import gregtech.common.blocks.MetaBlocks;
 import gregtech.common.mui.widget.GTFluidSlot;
 import keqing.gtqtcore.api.recipes.GTQTcoreRecipeMaps;
 import keqing.gtqtcore.client.textures.GTQTTextures;
-import keqing.gtsteam.api.metatileentity.multiblock.NoEnergyMultiblockController;
-import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.EnumParticleTypes;
 import net.minecraft.util.ResourceLocation;
@@ -62,6 +57,7 @@ public class MetaTileEntityPrimitiveRoaster extends RecipeMapPrimitiveMultiblock
     public ICubeRenderer getBaseTexture(IMultiblockPart sourcePart) {
         return Textures.PRIMITIVE_BRICKS;
     }
+
     @Override
     protected MultiblockUIFactory createUIFactory() {
         return new MultiblockUIFactory(this)

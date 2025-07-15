@@ -5,7 +5,6 @@ import gregtech.api.capability.impl.MultiblockRecipeLogic;
 import gregtech.api.metatileentity.MetaTileEntity;
 import gregtech.api.metatileentity.interfaces.IGregTechTileEntity;
 import gregtech.api.metatileentity.multiblock.IMultiblockPart;
-import gregtech.api.metatileentity.multiblock.MultiblockAbility;
 import gregtech.api.metatileentity.multiblock.RecipeMapMultiblockController;
 import gregtech.api.pattern.*;
 import gregtech.api.recipes.Recipe;
@@ -36,16 +35,11 @@ import static keqing.gtqtcore.common.block.blocks.BlockNuclearCasing.CasingType.
 import static keqing.gtqtcore.common.block.blocks.BlockNuclearCasing.CasingType.NEUTRON_ACTIVATOR_FRAME;
 
 public class MetaTileEntityNeutronActivator extends RecipeMapMultiblockController {
-    @Override
-    public boolean usesMui2() {
-        return false;
-    }
     protected int heatingCoilLevel;
     double pa;
     double pamax;
     double pamin;
     private int coilHeight;
-
     public MetaTileEntityNeutronActivator(ResourceLocation metaTileEntityId) {
         super(metaTileEntityId, GTQTcoreRecipeMaps.NEUTRON_ACTIVATOR);
         this.recipeMapWorkable = new NeutronActivatorLogic(this);
@@ -53,6 +47,11 @@ public class MetaTileEntityNeutronActivator extends RecipeMapMultiblockControlle
 
     private static IBlockState getFrameState() {
         return MetaBlocks.FRAMES.get(GTQTMaterials.MARM200Steel).getBlock(GTQTMaterials.MARM200Steel);
+    }
+
+    @Override
+    public boolean usesMui2() {
+        return false;
     }
 
     @Override

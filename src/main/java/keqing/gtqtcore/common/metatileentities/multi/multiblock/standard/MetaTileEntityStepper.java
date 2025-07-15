@@ -5,10 +5,6 @@ import codechicken.lib.raytracer.CuboidRayTraceResult;
 import gregtech.api.capability.IMultipleTankHandler;
 import gregtech.api.capability.IOpticalComputationHatch;
 import gregtech.api.capability.IOpticalComputationProvider;
-import gregtech.api.gui.GuiTextures;
-import gregtech.api.gui.Widget;
-import gregtech.api.gui.widgets.ClickButtonWidget;
-import gregtech.api.gui.widgets.WidgetGroup;
 import gregtech.api.metatileentity.MetaTileEntity;
 import gregtech.api.metatileentity.interfaces.IGregTechTileEntity;
 import gregtech.api.metatileentity.multiblock.IMultiblockPart;
@@ -43,8 +39,6 @@ import net.minecraft.util.EnumFacing;
 import net.minecraft.util.EnumHand;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.SoundEvent;
-import net.minecraft.util.text.ITextComponent;
-import net.minecraft.util.text.TextComponentTranslation;
 import net.minecraft.util.text.TextFormatting;
 import net.minecraft.world.World;
 import net.minecraftforge.fluids.FluidStack;
@@ -65,6 +59,7 @@ public class MetaTileEntityStepper extends GTQTOCMultiblockController {
     private int laser_tier;
     private int casing_tier;
     private IOpticalComputationProvider computationProvider;
+
     public MetaTileEntityStepper(ResourceLocation metaTileEntityId) {
         super(metaTileEntityId, new RecipeMap[]{GTQTcoreRecipeMaps.STEPPER_RECIPES});
         this.recipeMapWorkable = new LaserEngravingWorkableHandler(this);
@@ -87,6 +82,7 @@ public class MetaTileEntityStepper extends GTQTOCMultiblockController {
                                       CuboidRayTraceResult hitResult) {
         return outputlaser();
     }
+
     private boolean outputlaser() {
         if (LaserKind == 1) this.getOutputFluidInventory().fill(HydrogenSilsesquioxane.getFluid(LaserAmount), true);
         if (LaserKind == 2) this.getOutputFluidInventory().fill(Vinylcinnamate.getFluid(LaserAmount), true);
@@ -100,8 +96,8 @@ public class MetaTileEntityStepper extends GTQTOCMultiblockController {
 
     @Override
     public void addInformation(ItemStack stack, World world, List<String> tooltip, boolean advanced) {
-        super.addInformation(stack, world, tooltip, advanced);
         tooltip.add(TooltipHelper.RAINBOW_SLOW + I18n.format("突破原子极限"));
+        super.addInformation(stack, world, tooltip, advanced);
         tooltip.add(I18n.format("gtqt.machine.stepper.1"));
         tooltip.add(I18n.format("gtqt.machine.stepper.2"));
         tooltip.add(I18n.format("gtqt.machine.stepper.3"));
@@ -165,12 +161,13 @@ public class MetaTileEntityStepper extends GTQTOCMultiblockController {
     @Override
     public void addCustomData(KeyManager keyManager, UISyncer syncer) {
         super.addCustomData(keyManager, syncer);
-        if (isStructureFormed()){
-            keyManager.add(KeyUtil.lang(TextFormatting.GRAY ,"外壳等级：%s 紫外等级：%s 玻璃等级：%s ", syncer.syncInt(casing_tier), syncer.syncInt(laser_tier), syncer.syncInt(glass_tier)));
-            keyManager.add(KeyUtil.lang(TextFormatting.GRAY ,"洁净等级：%s 射频调节器等级：%s", syncer.syncInt(clean_tier), syncer.syncInt(radio_tier)));
-            keyManager.add(KeyUtil.lang(TextFormatting.GRAY ,"光刻胶等级：%s 光刻胶储量：%s ", syncer.syncInt(LaserKind), syncer.syncInt(LaserAmount)));
+        if (isStructureFormed()) {
+            keyManager.add(KeyUtil.lang(TextFormatting.GRAY, "外壳等级：%s 紫外等级：%s 玻璃等级：%s ", syncer.syncInt(casing_tier), syncer.syncInt(laser_tier), syncer.syncInt(glass_tier)));
+            keyManager.add(KeyUtil.lang(TextFormatting.GRAY, "洁净等级：%s 射频调节器等级：%s", syncer.syncInt(clean_tier), syncer.syncInt(radio_tier)));
+            keyManager.add(KeyUtil.lang(TextFormatting.GRAY, "光刻胶等级：%s 光刻胶储量：%s ", syncer.syncInt(LaserKind), syncer.syncInt(LaserAmount)));
         }
     }
+
     @Override
     protected BlockPattern createStructurePattern() {
         return FactoryBlockPattern.start()
@@ -331,7 +328,7 @@ public class MetaTileEntityStepper extends GTQTOCMultiblockController {
                         }
                         if (this.progressTime > this.maxProgressTime) {
 
-                            if (LaserAmount >=1000) {
+                            if (LaserAmount >= 1000) {
                                 LaserAmount -= 1000;
                                 this.completeRecipe();
                             }

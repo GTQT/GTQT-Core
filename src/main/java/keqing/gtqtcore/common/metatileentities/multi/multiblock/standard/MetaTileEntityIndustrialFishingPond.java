@@ -66,6 +66,7 @@ public class MetaTileEntityIndustrialFishingPond extends MultiblockWithDisplayBa
     protected IMultipleTankHandler inputFluidInventory;
     protected IItemHandler outputItemInventory;
     private IEnergyContainer energyContainer;
+
     public MetaTileEntityIndustrialFishingPond(ResourceLocation metaTileEntityId) {
         super(metaTileEntityId);
         this.logic = new FishPondLogic(this, GTValues.IV);
@@ -277,6 +278,7 @@ public class MetaTileEntityIndustrialFishingPond extends MultiblockWithDisplayBa
     protected void configureDisplayText(MultiblockUIBuilder builder) {
         builder.addCustom(this::addCustomCapacity);
     }
+
     private void addCustomCapacity(KeyManager keyManager, UISyncer syncer) {
         // 能量信息
         if (energyContainer != null && energyContainer.getEnergyCapacity() > 0) {
@@ -343,8 +345,8 @@ public class MetaTileEntityIndustrialFishingPond extends MultiblockWithDisplayBa
     @Override
     @SideOnly(Side.CLIENT)
     public void addInformation(ItemStack stack, @Nullable World player, List<String> tooltip, boolean advanced) {
+        tooltip.add(TooltipHelper.RAINBOW_SLOW + I18n.format("深海鱼油"));
         super.addInformation(stack, player, tooltip, advanced);
-        tooltip.add(TooltipHelper.RAINBOW_SLOW + I18n.format("深海鱼油", new Object[0]));
         tooltip.add(net.minecraft.client.resources.I18n.format("gtqtcore.tooltip.warning"));
 
     }

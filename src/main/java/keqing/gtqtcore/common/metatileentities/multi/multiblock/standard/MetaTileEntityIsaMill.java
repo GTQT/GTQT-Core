@@ -57,8 +57,8 @@ public class MetaTileEntityIsaMill extends RecipeMapMultiblockController {
 
     @Override
     public void addInformation(ItemStack stack, World player, List<String> tooltip, boolean advanced) {
+        tooltip.add(TooltipHelper.RAINBOW_SLOW + I18n.format("粉碎！粉碎！"));
         super.addInformation(stack, player, tooltip, advanced);
-        tooltip.add(TooltipHelper.RAINBOW_SLOW + I18n.format("粉碎！粉碎！", new Object[0]));
         tooltip.add(I18n.format("gtqtcore.machine.dangote_distillery.tooltip.6"));
         tooltip.add(I18n.format("gtqtcore.machine.dangote_distillery.tooltip.7"));
     }

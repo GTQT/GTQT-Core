@@ -45,7 +45,6 @@ import keqing.gtqtcore.api.capability.IHeatExchanger;
 import keqing.gtqtcore.api.capability.impl.HeatExchangerRecipeLogic;
 import keqing.gtqtcore.api.predicate.TiredTraceabilityPredicate;
 import keqing.gtqtcore.api.recipes.GTQTcoreRecipeMaps;
-import keqing.gtqtcore.api.utils.GTQTLog;
 import keqing.gtqtcore.api.utils.GTQTUtil;
 import keqing.gtqtcore.client.textures.GTQTTextures;
 import keqing.gtsteam.api.metatileentity.multiblock.NoEnergyMultiblockController;
@@ -399,7 +398,7 @@ public class MetaTileEntityHeatExchanger extends NoEnergyMultiblockController im
             // Efficiency line
             IKey efficiency = KeyUtil.number(
                     getNumberColor(number), number, "%");
-            keyManager.add(KeyUtil.lang(TextFormatting.GRAY ,"gregtech.multiblock.large_boiler.efficiency", efficiency));
+            keyManager.add(KeyUtil.lang(TextFormatting.GRAY, "gregtech.multiblock.large_boiler.efficiency", efficiency));
 
             // Throttle line
             IKey throttle = KeyUtil.number(

@@ -30,8 +30,6 @@ import net.minecraft.client.resources.I18n;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.SoundEvent;
-import net.minecraft.util.text.ITextComponent;
-import net.minecraft.util.text.TextComponentTranslation;
 import net.minecraft.util.text.TextFormatting;
 import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
@@ -138,14 +136,15 @@ public class MetaTileEntityLaserChemicalPlant extends RecipeMapLaserMultiblockCo
 
     @Override
     public void addHeatCapacity(KeyManager keyManager, UISyncer syncer) {
-        int temp=getCurrentTemperature();
-        if (isStructureFormed()&&temp!=0) {
+        int temp = getCurrentTemperature();
+        if (isStructureFormed() && temp != 0) {
             var heatString = KeyUtil.number(TextFormatting.RED,
                     syncer.syncInt(this.getTemp() / 1800));
 
-            keyManager.add(KeyUtil.lang(TextFormatting.GRAY,"激光转换化工厂等级：%s", heatString));
+            keyManager.add(KeyUtil.lang(TextFormatting.GRAY, "激光转换化工厂等级：%s", heatString));
         }
     }
+
     @Override
     @SideOnly(Side.CLIENT)
     public void addInformation(ItemStack stack, World world, List<String> tooltip, boolean advanced) {

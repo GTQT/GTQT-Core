@@ -35,8 +35,6 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.network.PacketBuffer;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.SoundEvent;
-import net.minecraft.util.text.ITextComponent;
-import net.minecraft.util.text.TextComponentTranslation;
 import net.minecraft.util.text.TextFormatting;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
@@ -105,7 +103,7 @@ public class MetaTileEntityLargeFluidizedBed extends GTQTRecipeMapMultiblockCont
         Integer syncedCasing = syncer.syncInt(casingTier);
         Integer syncedTube = syncer.syncInt(tubeTier);
 
-        keyManager.add(KeyUtil.lang(TextFormatting.GRAY ,"gtqtcore.coilTire" , syncedCoil));
+        keyManager.add(KeyUtil.lang(TextFormatting.GRAY, "gtqtcore.coilTire", syncedCoil));
         keyManager.add(KeyUtil.lang(TextFormatting.GRAY, "gtqtcore.casingTire", syncedCasing));
         keyManager.add(KeyUtil.lang(TextFormatting.GRAY, "gtqtcore.tubeTire", syncedTube));
 
@@ -113,6 +111,7 @@ public class MetaTileEntityLargeFluidizedBed extends GTQTRecipeMapMultiblockCont
             keyManager.add(KeyUtil.lang(TextFormatting.GRAY, "gtqtcore.equal", syncedCasing, syncedTube));
         }
     }
+
     @Override
     public ICubeRenderer getBaseTexture(IMultiblockPart iMultiblockPart) {
         switch (this.casingTier) {

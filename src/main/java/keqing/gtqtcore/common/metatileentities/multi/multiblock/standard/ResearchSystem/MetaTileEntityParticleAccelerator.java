@@ -60,14 +60,9 @@ import java.util.List;
 
 import static gregtech.api.GTValues.EV;
 import static gregtech.api.unification.material.Materials.Nitrogen;
-import static keqing.gtqtcore.GTQTCoreConfig.MachineSwitch;
 import static keqing.gtqtcore.api.recipes.GTQTcoreRecipeMaps.*;
 
 public class MetaTileEntityParticleAccelerator extends MultiMapMultiblockController implements IOpticalComputationReceiver {
-    @Override
-    public boolean usesMui2() {
-        return false;
-    }
     boolean shuliu;
     boolean bashi;
     boolean hehecheng;
@@ -76,7 +71,6 @@ public class MetaTileEntityParticleAccelerator extends MultiMapMultiblockControl
     private double speed;       //速度
     private int angle;       //角度
     private int Mode = 1;        //加速 稳定 减速模式
-
     public MetaTileEntityParticleAccelerator(ResourceLocation metaTileEntityId) {
         super(metaTileEntityId, new RecipeMap[]{
                 PARTICLE_ACCELERATOR_RECIPES,//粒子加速(单纯的算力消耗+随机路径)
@@ -108,6 +102,11 @@ public class MetaTileEntityParticleAccelerator extends MultiMapMultiblockControl
 
     private static IBlockState getGlassState() {
         return MetaBlocks.TRANSPARENT_CASING.getState(BlockGlassCasing.CasingType.LAMINATED_GLASS);
+    }
+
+    @Override
+    public boolean usesMui2() {
+        return false;
     }
 
     public IOpticalComputationProvider getComputationProvider() {
@@ -611,9 +610,9 @@ public class MetaTileEntityParticleAccelerator extends MultiMapMultiblockControl
 
     }
 
-    public void addInformation(ItemStack stack, World player, List<String> tooltip, boolean advanced) {
-        super.addInformation(stack, player, tooltip, advanced);
-        tooltip.add(TooltipHelper.RAINBOW_SLOW + I18n.format("gtqtcore.pa.tooltip.1", new Object[0]));
+    public void addInformation(ItemStack stack, World world, List<String> tooltip, boolean advanced) {
+        tooltip.add(TooltipHelper.RAINBOW_SLOW + I18n.format("gtqtcore.pa.tooltip.1"));
+        super.addInformation(stack, world, tooltip, advanced);
         tooltip.add(I18n.format("gtqtcore.pa.tooltip.2"));
         tooltip.add(I18n.format("gtqtcore.pa.tooltip.3"));
         tooltip.add(I18n.format("gtqtcore.pa.tooltip.4"));

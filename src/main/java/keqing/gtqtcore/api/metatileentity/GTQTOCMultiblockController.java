@@ -12,16 +12,8 @@ import com.cleanroommc.modularui.value.sync.*;
 import com.cleanroommc.modularui.widgets.ButtonWidget;
 import com.cleanroommc.modularui.widgets.layout.Flow;
 import com.cleanroommc.modularui.widgets.textfield.TextFieldWidget;
-import gregtech.api.capability.GregtechTileCapabilities;
-import gregtech.api.capability.IControllable;
-import gregtech.api.capability.IDistinctBusController;
 import gregtech.api.capability.IOpticalComputationReceiver;
-import gregtech.api.gui.GuiTextures;
-import gregtech.api.gui.ModularUI;
-import gregtech.api.gui.resources.TextureArea;
-import gregtech.api.gui.widgets.*;
 import gregtech.api.metatileentity.multiblock.MultiMapMultiblockController;
-import gregtech.api.metatileentity.multiblock.MultiblockWithDisplayBase;
 import gregtech.api.metatileentity.multiblock.RecipeMapMultiblockController;
 import gregtech.api.metatileentity.multiblock.ui.KeyManager;
 import gregtech.api.metatileentity.multiblock.ui.MultiblockUIBuilder;
@@ -36,24 +28,17 @@ import gregtech.client.utils.TooltipHelper;
 import keqing.gtqtcore.api.capability.impl.ComputationRecipeLogic;
 import keqing.gtqtcore.api.utils.GTQTUtil;
 import net.minecraft.client.resources.I18n;
-import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.network.PacketBuffer;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.math.MathHelper;
-import net.minecraft.util.text.ITextComponent;
-import net.minecraft.util.text.TextComponentTranslation;
 import net.minecraft.util.text.TextFormatting;
 import net.minecraft.world.World;
-import supercritical.api.gui.SCGuiTextures;
 
 import java.util.List;
-import java.util.Objects;
-import java.util.function.BooleanSupplier;
 
 import static gregtech.api.GTValues.V;
-import static gregtech.api.GTValues.VA;
 
 public abstract class GTQTOCMultiblockController extends MultiMapMultiblockController implements IOpticalComputationReceiver {
 
@@ -196,11 +181,14 @@ public abstract class GTQTOCMultiblockController extends MultiMapMultiblockContr
     @Override
     public void addInformation(ItemStack stack, World player, List<String> tooltip, boolean advanced) {
         super.addInformation(stack, player, tooltip, advanced);
-        if(Overclocking==4)tooltip.add(TooltipHelper.RAINBOW_SLOW + I18n.format("gregtech.machine.perfect_oc"));
-        tooltip.add(I18n.format("gregtech.machine.gtqt.oc",Overclocking));
+        tooltip.add(TextFormatting.GREEN + I18n.format("-可升级多方块："));
+        tooltip.add(TextFormatting.GRAY + I18n.format("依赖特定部件结构升级可为多方块带来性能提升，详见tooltips"));
+        tooltip.add(TextFormatting.GRAY + I18n.format("可在机器配置页面调整详细参数,例如可调并行，自持等"));
+        if (Overclocking == 4) tooltip.add(TooltipHelper.RAINBOW_SLOW + I18n.format("gregtech.machine.perfect_oc"));
+        tooltip.add(I18n.format("gregtech.machine.gtqt.oc", Overclocking));
         tooltip.add(I18n.format("gregtech.machine.gtqt.update.1"));
         if (setTier) tooltip.add(I18n.format("gregtech.machine.gtqt.update.2"));
-        if (setTimeReduce) tooltip.add(I18n.format("gregtech.machine.time.reduce","详见机器内部UI"));
+        if (setTimeReduce) tooltip.add(I18n.format("gregtech.machine.time.reduce", "详见机器内部UI"));
         if (setMaxVoltage) tooltip.add(I18n.format("gregtech.machine.gtqt.update.3"));
         if (setMaxParallel) tooltip.add(I18n.format("gtqtcore.machine.parallel.pow.machineTier", 2, "详见机器内部UI"));
         if (setMaxVoltage) tooltip.add(I18n.format("gtqtcore.machine.voltage.num", "外壳等级对应的电压"));
@@ -225,62 +213,6 @@ public abstract class GTQTOCMultiblockController extends MultiMapMultiblockContr
         this.customParallel = MathHelper.clamp(this.customParallel + parallelAmount, 1, getMaxParallel());
     }
 
-
-    protected class GTQTOCMultiblockLogic extends ComputationRecipeLogic {
-        public GTQTOCMultiblockLogic(RecipeMapMultiblockController tileEntity) {
-            super(tileEntity, ComputationType.SPORADIC);
-            this.hasPerfectOC = true;
-        }
-
-        @Override
-        protected double getOverclockingDurationFactor() {
-            return OCFirst ? (double) 1 /Overclocking : 0.5;
-        }
-
-        @Override
-        public long getMaxVoltage() {
-            if (setMaxVoltage) return V[maxVoltage];
-            else return super.getMaxVoltage();
-        }
-
-        @Override
-        public void update() {
-            super.update();
-            if (autoParallelModel) {
-                autoParallel = (int) ((this.getEnergyStored() + energyContainer.getInputPerSec() / 19L) / (getMinVoltage() == 0 ? 1 : getMinVoltage()));
-                autoParallel = Math.max(autoParallel, 0);
-                autoParallel = Math.min(autoParallel, limitAutoParallel);
-                autoParallel = Math.min(autoParallel, getMaxParallel());
-            }
-        }
-
-        public int getMinVoltage() {
-            if ((Math.min(this.getEnergyCapacity() / (energyHatchMaxWork == 0 ? 1 : energyHatchMaxWork), this.getMaxVoltage())) == 0)
-                return 1;
-            return (int) (Math.min(this.getEnergyCapacity() / (energyHatchMaxWork == 0 ? 1 : energyHatchMaxWork), this.getMaxVoltage()));
-        }
-
-        @Override
-        public int getParallelLimit() {
-            return autoParallelModel ? autoParallel : customParallel;
-        }
-
-        @Override
-        public long getMaxParallelVoltage() {
-            if (OCFirst) return super.getMaxParallelVoltage();
-            return super.getMaxVoltage()* getParallelLimit();
-        }
-        @Override
-        public long getMaximumOverclockVoltage() {
-            if (OCFirst)return energyContainer.getInputVoltage();
-            return super.getMaximumOverclockVoltage();
-        }
-        @Override
-        public void setMaxProgress(int maxProgress) {
-            super.setMaxProgress((int) (maxProgress*timeReduce));
-        }
-    }
-
     //////////////////////////////////////////////////////////////////////////////////////////////////////////
     @Override
     protected void configureDisplayText(MultiblockUIBuilder builder) {
@@ -300,7 +232,6 @@ public abstract class GTQTOCMultiblockController extends MultiMapMultiblockContr
         super.configureWarningText(builder);
 
     }
-
 
     @Override
     protected MultiblockUIFactory createUIFactory() {
@@ -325,11 +256,12 @@ public abstract class GTQTOCMultiblockController extends MultiMapMultiblockContr
 
     //留给外部自定义
     public void addCustomData(KeyManager keyManager, UISyncer syncer) {
-        keyManager.add(KeyUtil.lang(TextFormatting.GRAY ,"gui.time_reduction" , syncer.syncDouble(timeReduce)));
+        keyManager.add(KeyUtil.lang(TextFormatting.GRAY, "gui.time_reduction", syncer.syncDouble(timeReduce)));
     }
+
     //新UI
     protected ModularPanel makeThrottlePanel(PanelSyncManager syncManager, IPanelHandler syncHandler) {
-        StringSyncValue throttleValue = new StringSyncValue(() -> "并行限制："+limitAutoParallel, str -> {
+        StringSyncValue throttleValue = new StringSyncValue(() -> "并行限制：" + limitAutoParallel, str -> {
             try {
                 if (str.charAt(str.length() - 1) == '%') {
                     str = str.substring(0, str.length() - 1);
@@ -349,33 +281,37 @@ public abstract class GTQTOCMultiblockController extends MultiMapMultiblockContr
                 // 获取值的方法
                 () -> {
                     if (autoParallelModel) {
-                        return "自动并行："+autoParallel + "/" + limitAutoParallel + "/" + getMaxParallel();
+                        return "自动并行：" + autoParallel + "/" + limitAutoParallel + "/" + getMaxParallel();
                     } else {
-                        return "手动并行："+customParallel + "/" + getMaxParallel();
+                        return "手动并行：" + customParallel + "/" + getMaxParallel();
                     }
                 },
-                str -> {}
+                str -> {
+                }
         );
         StringSyncValue ovValue = new StringSyncValue(
                 // 获取值的方法
                 () -> {
                     if (OCFirst) {
-                        return "超频优先："+Overclocking;
+                        return "超频优先：" + Overclocking;
                     } else {
                         return "并行优先";
                     }
                 },
-                str -> {}
+                str -> {
+                }
         );
         StringSyncValue maxWorkTimeValue = new StringSyncValue(
                 // 获取值的方法
-                () -> "最大自持："+energyHatchMaxWork+"(tick)",
-                str -> {}
+                () -> "最大自持：" + energyHatchMaxWork + "(tick)",
+                str -> {
+                }
         );
         StringSyncValue customParallelValue = new StringSyncValue(
                 // 获取值的方法
-                () -> "手动并行："+customParallel,
-                str -> {}
+                () -> "手动并行：" + customParallel,
+                str -> {
+                }
         );
         BooleanSyncValue autoParallel = new BooleanSyncValue(this::getAutoParallel, this::setAutoParallel);
         syncManager.syncValue("autoParallel", autoParallel);
@@ -488,7 +424,7 @@ public abstract class GTQTOCMultiblockController extends MultiMapMultiblockContr
                                 .height(22)
                                 .tooltip(tooltip -> tooltip
                                         .addLine(IKey.lang("gui.mode_switch")))
-                                .onMousePressed(mouseButton ->{
+                                .onMousePressed(mouseButton -> {
                                     autoParallel.setValue(!autoParallel.getValue());
                                     return true;
                                 })
@@ -511,7 +447,7 @@ public abstract class GTQTOCMultiblockController extends MultiMapMultiblockContr
                                 .height(22)
                                 .tooltip(tooltip -> tooltip
                                         .addLine(IKey.lang("gui.oc_parallel_mode")))
-                                .onMousePressed(mouseButton ->{
+                                .onMousePressed(mouseButton -> {
                                     ocFirstModel.setValue(!ocFirstModel.getValue());
                                     return true;
                                 })
@@ -534,7 +470,7 @@ public abstract class GTQTOCMultiblockController extends MultiMapMultiblockContr
                                 .height(22)
                                 .tooltip(tooltip -> tooltip
                                         .addLine(IKey.lang("gui.reset")))
-                                .onMousePressed(mouseButton ->{
+                                .onMousePressed(mouseButton -> {
                                     energyHatchWorkTime.setValue(32);
                                     return true;
                                 })
@@ -545,10 +481,10 @@ public abstract class GTQTOCMultiblockController extends MultiMapMultiblockContr
                                 .height(22)
                                 .tooltip(tooltip -> tooltip
                                         .addLine(IKey.lang("gui.recommend")))
-                                .onMousePressed(mouseButton ->{
+                                .onMousePressed(mouseButton -> {
                                     int i;
-                                    if(this.energyContainer==null)return true;
-                                    if(this.energyContainer.getInputVoltage()==0)return true;
+                                    if (this.energyContainer == null) return true;
+                                    if (this.energyContainer.getInputVoltage() == 0) return true;
                                     i = (int) (this.energyContainer.getEnergyStored() / this.energyContainer.getInputVoltage());
                                     i = Math.max(1, i);
                                     i = Math.min(i, 128);
@@ -568,59 +504,122 @@ public abstract class GTQTOCMultiblockController extends MultiMapMultiblockContr
                 );
     }
 
-    //控件
-    private void setMaxParallelLimit(int i) {
-
-    }
-
     public int getMaxParallelLimit() {
-        if (autoParallelModel)return limitAutoParallel;
+        if (autoParallelModel) return limitAutoParallel;
         return getMaxParallel();
     }
 
-    private void setCustomParallel(int i) {
-        customParallel = i;
+    //控件
+    private void setMaxParallelLimit(int i) {
+
     }
 
     private int getCustomParallel() {
         return customParallel;
     }
 
-    private void setWorkTime(int time) {
-        energyHatchMaxWork=time;
+    private void setCustomParallel(int i) {
+        customParallel = i;
     }
 
     private int getWorkTime() {
         return energyHatchMaxWork;
     }
 
-    private void setOCFirstModel(boolean ocFirst) {
-        OCFirst=ocFirst;
+    private void setWorkTime(int time) {
+        energyHatchMaxWork = time;
     }
 
     private boolean getOCFirstModel() {
         return OCFirst;
     }
 
-    private void setAutoParallel(boolean autoParallel) {
-        autoParallelModel = autoParallel;
+    private void setOCFirstModel(boolean ocFirst) {
+        OCFirst = ocFirst;
     }
 
     private boolean getAutoParallel() {
         return autoParallelModel;
     }
 
-    private void setLimitAutoParallel(int amount) {
-        this.limitAutoParallel = amount;
+    private void setAutoParallel(boolean autoParallel) {
+        autoParallelModel = autoParallel;
     }
 
     private int getLimitAutoParallel() {
         return this.limitAutoParallel;
     }
 
+    private void setLimitAutoParallel(int amount) {
+        this.limitAutoParallel = amount;
+    }
+
     //文字显示
     public String getParallel() {
-        if (autoParallelModel)return autoParallel+"/"+limitAutoParallel+"/"+getMaxParallel();
-        else return customParallel+"/"+getMaxParallel();
+        if (autoParallelModel) return autoParallel + "/" + limitAutoParallel + "/" + getMaxParallel();
+        else return customParallel + "/" + getMaxParallel();
     }
+
+    @Override
+    public boolean shouldShowBatchModeButton() {
+        return true;
+    }
+
+    protected class GTQTOCMultiblockLogic extends ComputationRecipeLogic {
+        public GTQTOCMultiblockLogic(RecipeMapMultiblockController tileEntity) {
+            super(tileEntity, ComputationType.SPORADIC);
+            this.hasPerfectOC = true;
+        }
+
+        @Override
+        protected double getOverclockingDurationFactor() {
+            return OCFirst ? (double) 1 / Overclocking : 0.5;
+        }
+
+        @Override
+        public long getMaxVoltage() {
+            if (setMaxVoltage) return V[maxVoltage];
+            else return super.getMaxVoltage();
+        }
+
+        @Override
+        public void update() {
+            super.update();
+            if (autoParallelModel) {
+                autoParallel = (int) ((this.getEnergyStored() + energyContainer.getInputPerSec() / 19L) / (getMinVoltage() == 0 ? 1 : getMinVoltage()));
+                autoParallel = Math.max(autoParallel, 0);
+                autoParallel = Math.min(autoParallel, limitAutoParallel);
+                autoParallel = Math.min(autoParallel, getMaxParallel());
+            }
+        }
+
+        public int getMinVoltage() {
+            if ((Math.min(this.getEnergyCapacity() / (energyHatchMaxWork == 0 ? 1 : energyHatchMaxWork), this.getMaxVoltage())) == 0)
+                return 1;
+            return (int) (Math.min(this.getEnergyCapacity() / (energyHatchMaxWork == 0 ? 1 : energyHatchMaxWork), this.getMaxVoltage()));
+        }
+
+        @Override
+        public int getParallelLimit() {
+            return autoParallelModel ? autoParallel : customParallel;
+        }
+
+        @Override
+        public long getMaxParallelVoltage() {
+            if (OCFirst) return super.getMaxParallelVoltage();
+            return super.getMaxVoltage() * getParallelLimit();
+        }
+
+        @Override
+        public long getMaximumOverclockVoltage() {
+            if (OCFirst) return energyContainer.getInputVoltage();
+            return super.getMaximumOverclockVoltage();
+        }
+
+        @Override
+        public void setMaxProgress(int maxProgress) {
+            super.setMaxProgress((int) (maxProgress * timeReduce));
+        }
+    }
+
 }

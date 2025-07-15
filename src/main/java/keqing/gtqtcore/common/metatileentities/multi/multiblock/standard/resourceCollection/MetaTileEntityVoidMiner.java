@@ -51,16 +51,10 @@ import java.util.List;
 
 import static gregtech.api.GTValues.SECOND;
 import static gregtech.api.util.TextFormattingUtil.formatNumbers;
-
 import static keqing.gtqtcore.common.block.blocks.BlockMultiblockCasing6.CasingType.*;
 
 public class MetaTileEntityVoidMiner extends MultiblockWithDisplayBase implements IWorkable, IVoidMinerProvider {
-    @Override
-    public boolean usesMui2() {
-        return false;
-    }
     private final VoidMinerLogic logic;
-
     private final int maxTemperature;
     private final int tier;
     private final long energyConsumed;
@@ -68,7 +62,6 @@ public class MetaTileEntityVoidMiner extends MultiblockWithDisplayBase implement
     protected IMultipleTankHandler exportFluidHandler;
     protected IItemHandlerModifiable outputInventory;
     private IEnergyContainer energyContainer;
-
     /* ------------------------------- MetaTileEntity constructors ------------------------------- */
     public MetaTileEntityVoidMiner(ResourceLocation metaTileEntityId, int tier, int maxTemperature) {
         super(metaTileEntityId);
@@ -76,6 +69,11 @@ public class MetaTileEntityVoidMiner extends MultiblockWithDisplayBase implement
         this.energyConsumed = GTValues.V[tier];
         this.maxTemperature = maxTemperature;
         this.logic = new VoidMinerLogic(this, tier, maxTemperature);
+    }
+
+    @Override
+    public boolean usesMui2() {
+        return false;
     }
 
     @Override

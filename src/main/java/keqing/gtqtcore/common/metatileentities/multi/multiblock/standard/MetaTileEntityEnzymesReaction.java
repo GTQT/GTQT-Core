@@ -15,7 +15,6 @@ import gregtech.api.util.KeyUtil;
 import gregtech.client.renderer.ICubeRenderer;
 import keqing.gtqtcore.api.blocks.impl.WrappedIntTired;
 import keqing.gtqtcore.api.metatileentity.GTQTNoTierMultiblockController;
-import keqing.gtqtcore.api.metatileentity.multiblock.GTQTMultiblockAbility;
 import keqing.gtqtcore.api.predicate.TiredTraceabilityPredicate;
 import keqing.gtqtcore.api.recipes.GTQTcoreRecipeMaps;
 import keqing.gtqtcore.api.recipes.properties.EnzymesReactionProperty;
@@ -54,7 +53,7 @@ public class MetaTileEntityEnzymesReaction extends GTQTNoTierMultiblockControlle
     private int glass_tier;
     private int clean_tier;
     private int tubeTier;
-    
+
     public MetaTileEntityEnzymesReaction(ResourceLocation metaTileEntityId) {
         super(metaTileEntityId, new RecipeMap[]{
                 GTQTcoreRecipeMaps.ENZYMES_REACTION_RECIPES
@@ -154,9 +153,9 @@ public class MetaTileEntityEnzymesReaction extends GTQTNoTierMultiblockControlle
     @Override
     public void addCustomData(KeyManager keyManager, UISyncer syncer) {
         super.addCustomData(keyManager, syncer);
-        keyManager.add(KeyUtil.lang(TextFormatting.GRAY ,"gtqtcore.multiblock.br.3", syncer.syncInt(glass_tier), syncer.syncInt(tubeTier)));
-        keyManager.add(KeyUtil.lang(TextFormatting.GRAY ,"洁净等级:%s", syncer.syncInt(clean_tier)));
-        keyManager.add(KeyUtil.lang(TextFormatting.GRAY ,"组合因子：%s %s %s %s %s", syncer.syncInt(A), syncer.syncInt(B), syncer.syncInt(C), syncer.syncInt(D), syncer.syncInt(E)));
+        keyManager.add(KeyUtil.lang(TextFormatting.GRAY, "gtqtcore.multiblock.br.3", syncer.syncInt(glass_tier), syncer.syncInt(tubeTier)));
+        keyManager.add(KeyUtil.lang(TextFormatting.GRAY, "洁净等级:%s", syncer.syncInt(clean_tier)));
+        keyManager.add(KeyUtil.lang(TextFormatting.GRAY, "组合因子：%s %s %s %s %s", syncer.syncInt(A), syncer.syncInt(B), syncer.syncInt(C), syncer.syncInt(D), syncer.syncInt(E)));
 
     }
 

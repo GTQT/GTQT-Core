@@ -89,10 +89,12 @@ public class MetaTileEntityDimensionallyPlasmFurnace extends MultiMapMultiblockC
     public MetaTileEntity createMetaTileEntity(IGregTechTileEntity tileEntity) {
         return new MetaTileEntityDimensionallyPlasmFurnace(metaTileEntityId);
     }
+
     @Override
     public boolean usesMui2() {
         return false;
     }
+
     @Override
     protected void formStructure(PatternMatchContext context) {
         super.formStructure(context);

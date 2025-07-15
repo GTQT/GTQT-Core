@@ -16,9 +16,7 @@ import gregtech.api.capability.impl.FluidTankList;
 import gregtech.api.capability.impl.ItemHandlerList;
 import gregtech.api.capability.impl.miner.MultiblockMinerLogic;
 import gregtech.api.gui.GuiTextures;
-import gregtech.api.gui.ModularUI;
 import gregtech.api.gui.Widget;
-import gregtech.api.gui.widgets.AdvancedTextWidget;
 import gregtech.api.gui.widgets.ImageCycleButtonWidget;
 import gregtech.api.items.itemhandlers.GTItemStackHandler;
 import gregtech.api.metatileentity.IDataInfoProvider;
@@ -26,7 +24,6 @@ import gregtech.api.metatileentity.MetaTileEntity;
 import gregtech.api.metatileentity.interfaces.IGregTechTileEntity;
 import gregtech.api.metatileentity.multiblock.IMultiblockPart;
 import gregtech.api.metatileentity.multiblock.MultiblockAbility;
-import gregtech.api.metatileentity.multiblock.MultiblockDisplayText;
 import gregtech.api.metatileentity.multiblock.MultiblockWithDisplayBase;
 import gregtech.api.metatileentity.multiblock.ui.MultiblockUIBuilder;
 import gregtech.api.metatileentity.multiblock.ui.MultiblockUIFactory;
@@ -40,7 +37,6 @@ import gregtech.api.unification.material.Material;
 import gregtech.api.unification.material.Materials;
 import gregtech.api.util.GTUtility;
 import gregtech.api.util.KeyUtil;
-import gregtech.api.util.TextComponentUtil;
 import gregtech.client.renderer.ICubeRenderer;
 import gregtech.client.renderer.texture.Textures;
 import gregtech.core.sound.GTSoundEvents;
@@ -59,14 +55,15 @@ import net.minecraft.util.EnumFacing;
 import net.minecraft.util.EnumHand;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.SoundEvent;
-import net.minecraft.util.text.*;
+import net.minecraft.util.text.ITextComponent;
+import net.minecraft.util.text.TextComponentTranslation;
+import net.minecraft.util.text.TextFormatting;
 import net.minecraft.world.World;
 import net.minecraftforge.common.capabilities.Capability;
 import net.minecraftforge.fluids.FluidStack;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 import net.minecraftforge.items.IItemHandlerModifiable;
-
 
 import javax.annotation.Nonnull;
 import java.util.Collections;
@@ -282,18 +279,18 @@ public class MetaTileEntityAdvancedLargeMiner extends MultiblockWithDisplayBase 
                         int workingAreaChunks = syncer.syncInt(this.minerLogic.getCurrentRadius() * 2 / CHUNK_LENGTH);
                         int workingArea = syncer.syncInt(getWorkingArea(minerLogic.getCurrentRadius()));
 
-                        list.add(KeyUtil.lang( "gregtech.machine.miner.mining_at"));
-                        list.add(KeyUtil.lang( "gregtech.machine.miner.mining_pos",
+                        list.add(KeyUtil.lang("gregtech.machine.miner.mining_at"));
+                        list.add(KeyUtil.lang("gregtech.machine.miner.mining_pos",
                                 syncer.syncInt(minerLogic.getMineX().get()),
                                 syncer.syncInt(minerLogic.getMineY().get()),
                                 syncer.syncInt(minerLogic.getMineZ().get())));
 
                         if (syncer.syncBoolean(minerLogic.isChunkMode())) {
-                            list.add(KeyUtil.lang( "gregtech.machine.miner.working_area_chunks",
+                            list.add(KeyUtil.lang("gregtech.machine.miner.working_area_chunks",
                                     workingAreaChunks,
                                     workingAreaChunks));
                         } else {
-                            list.add(KeyUtil.lang( "gregtech.machine.miner.working_area",
+                            list.add(KeyUtil.lang("gregtech.machine.miner.working_area",
                                     workingArea, workingArea));
                         }
 
@@ -302,7 +299,7 @@ public class MetaTileEntityAdvancedLargeMiner extends MultiblockWithDisplayBase 
                         } else if (syncer.syncBoolean(minerLogic.isWorking())) {
                             list.add(KeyUtil.lang(TextFormatting.GOLD, "gregtech.machine.miner.working"));
                         } else if (!syncer.syncBoolean(isWorkingEnabled())) {
-                            list.add(KeyUtil.lang( "gregtech.multiblock.work_paused"));
+                            list.add(KeyUtil.lang("gregtech.multiblock.work_paused"));
                         }
                     }
                 });

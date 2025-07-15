@@ -26,7 +26,6 @@ import gregtech.api.recipes.RecipeMap;
 import gregtech.api.unification.material.Materials;
 import gregtech.api.util.GTUtility;
 import gregtech.api.util.KeyUtil;
-import gregtech.api.util.TextFormattingUtil;
 import gregtech.client.renderer.ICubeRenderer;
 import gregtech.client.utils.TooltipHelper;
 import gregtech.common.blocks.BlockMultiblockCasing;
@@ -44,11 +43,8 @@ import net.minecraft.init.Blocks;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.ResourceLocation;
-import net.minecraft.util.text.ITextComponent;
-import net.minecraft.util.text.TextComponentTranslation;
 import net.minecraft.util.text.TextFormatting;
 import net.minecraft.world.World;
-import net.minecraftforge.fluids.FluidStack;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
@@ -56,8 +52,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import static gregtech.api.GTValues.ZPM;
-import static gregtech.api.unification.material.Materials.Steam;
-import static keqing.gtqtcore.GTQTCoreConfig.MachineSwitch;
 import static keqing.gtqtcore.api.pattern.GTQTTraceabilityPredicate.optionalAbilities;
 import static keqing.gtqtcore.api.pattern.GTQTTraceabilityPredicate.optionalStates;
 import static keqing.gtqtcore.api.recipes.GTQTcoreRecipeMaps.SWARM_ASSEMBLER;
@@ -66,6 +60,8 @@ import static keqing.gtqtcore.api.utils.GTQTUtil.getAccelerateByCWU;
 import static keqing.gtqtcore.common.block.blocks.BlockMultiblockCasing3.CasingType.NAQUADAH_ALLOY_CASING;
 import static keqing.gtqtcore.common.block.blocks.BlockMultiblockCasing3.CasingType.NAQUADRIA_CASING;
 import static keqing.gtqtcore.common.block.blocks.BlockMultiblockCasing4.TurbineCasingType.HYPER_CASING;
+import static net.minecraft.util.text.TextFormatting.GRAY;
+import static net.minecraft.util.text.TextFormatting.GREEN;
 
 public class MetaTileEntityNeutralNetworkNexus extends MultiMapMultiblockController implements IOpticalComputationReceiver {
 
@@ -176,8 +172,9 @@ public class MetaTileEntityNeutralNetworkNexus extends MultiMapMultiblockControl
     }
 
     private void addCustomCapacity(KeyManager keyManager, UISyncer syncer) {
-        keyManager.add(KeyUtil.lang(TextFormatting.YELLOW, "gtqtcore.kqcc_accelerate",syncer.syncInt(requestCWUt), syncer.syncDouble(getAccelerateByCWU(requestCWUt))));
+        keyManager.add(KeyUtil.lang(TextFormatting.YELLOW, "gtqtcore.kqcc_accelerate", syncer.syncInt(requestCWUt), syncer.syncDouble(getAccelerateByCWU(requestCWUt))));
     }
+
     @Override
     protected BlockPattern createStructurePattern() {
         return FactoryBlockPattern.start()
@@ -240,13 +237,15 @@ public class MetaTileEntityNeutralNetworkNexus extends MultiMapMultiblockControl
 
     @Override
     public void addInformation(ItemStack stack, World player, List<String> tooltip, boolean advanced) {
+        tooltip.add(TooltipHelper.RAINBOW_SLOW + I18n.format("马蜂窝"));
         super.addInformation(stack, player, tooltip, advanced);
-        tooltip.add(TooltipHelper.RAINBOW_SLOW + I18n.format("马蜂窝", new Object[0]));
         tooltip.add(TooltipHelper.RAINBOW_SLOW + I18n.format("gregtech.machine.perfect_oc"));
         tooltip.add(I18n.format("gtqtcore.machine.neutral_network_nexus.tooltip.1"));
         tooltip.add(I18n.format("gtqtcore.machine.neutral_network_nexus.tooltip.2"));
-        tooltip.add(I18n.format("gtqtcore.multiblock.kq.acc.tooltip"));
-        tooltip.add(I18n.format("gtqtcore.multiblock.kq.laser.tooltip"));
+        tooltip.add(GREEN + I18n.format("gtqtcore.multiblock.compution_accelerate.enable"));
+        tooltip.add(GRAY + I18n.format("gtqtcore.multiblock.compution_accelerate.tooltip"));
+        tooltip.add(GREEN + I18n.format("gtqtcore.multiblock.laser_hatch.enable"));
+        tooltip.add(GRAY + I18n.format("gtqtcore.multiblock.laser_hatch.tooltip"));
     }
 
     @Override

@@ -159,8 +159,8 @@ public class MetaTileEntityDissolutionTank extends RecipeMapMultiblockController
 
     @Override
     public void addInformation(ItemStack stack, @Nullable World world, @Nonnull List<String> tooltip, boolean advanced) {
-        super.addInformation(stack, world, tooltip, advanced);
         tooltip.add(TooltipHelper.RAINBOW_SLOW + I18n.format("自动化噩梦", new Object[0]));
+        super.addInformation(stack, world, tooltip, advanced);
         tooltip.add(I18n.format("gtqtcore.machine.dissolution_tank.tooltip.1"));
         tooltip.add(I18n.format("gregtech.machine.gtqt.update.1"));
         tooltip.add(I18n.format("gtqtcore.machine.progress_time", "maxProgress * (100 - glass_tier) / 100"));

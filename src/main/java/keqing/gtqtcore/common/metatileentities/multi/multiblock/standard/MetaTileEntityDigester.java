@@ -128,12 +128,12 @@ public class MetaTileEntityDigester extends GTQTNoTierMultiblockController imple
     public void addCustomData(KeyManager keyManager, UISyncer syncer) {
         super.addCustomData(keyManager, syncer);
         if (isStructureFormed())
-            keyManager.add(KeyUtil.lang(TextFormatting.GRAY ,"gregtech.multiblock.cracking_unit.energy", syncer.syncInt(100 - this.coilTier)));
+            keyManager.add(KeyUtil.lang(TextFormatting.GRAY, "gregtech.multiblock.cracking_unit.energy", syncer.syncInt(100 - this.coilTier)));
     }
 
     @Override
     public void addInformation(ItemStack stack, @Nullable World player, @Nonnull List<String> tooltip, boolean advanced) {
-        tooltip.add(TooltipHelper.RAINBOW_SLOW + I18n.format("这是什么，塞进去煮煮", new Object[0]));
+        tooltip.add(TooltipHelper.RAINBOW_SLOW + I18n.format("这是什么，塞进去煮煮"));
         super.addInformation(stack, player, tooltip, advanced);
         tooltip.add(I18n.format("gregtech.machine.electric_blast_furnace.tooltip.1"));
         tooltip.add(I18n.format("gregtech.machine.electric_blast_furnace.tooltip.2"));

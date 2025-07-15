@@ -7,9 +7,7 @@ import gregtech.api.metatileentity.interfaces.IGregTechTileEntity;
 import gregtech.api.metatileentity.multiblock.IMultiblockPart;
 import gregtech.api.metatileentity.multiblock.MultiMapMultiblockController;
 import gregtech.api.metatileentity.multiblock.RecipeMapMultiblockController;
-import gregtech.api.metatileentity.multiblock.ui.KeyManager;
 import gregtech.api.metatileentity.multiblock.ui.MultiblockUIBuilder;
-import gregtech.api.metatileentity.multiblock.ui.UISyncer;
 import gregtech.api.pattern.BlockPattern;
 import gregtech.api.pattern.FactoryBlockPattern;
 import gregtech.api.recipes.RecipeMap;
@@ -34,9 +32,6 @@ import keqing.gtqtcore.client.textures.GTQTTextures;
 import net.minecraft.client.resources.I18n;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.ResourceLocation;
-import net.minecraft.util.text.ITextComponent;
-import net.minecraft.util.text.TextComponentTranslation;
-import net.minecraft.util.text.TextFormatting;
 import net.minecraft.world.World;
 
 import javax.annotation.Nonnull;
@@ -44,7 +39,6 @@ import javax.annotation.Nullable;
 import java.util.List;
 
 import static gregtech.api.recipes.logic.OverclockingLogic.heatingCoilOC;
-import static keqing.gtqtcore.api.utils.GTQTUtil.getAccelerateByCWU;
 
 
 public class MetaTileEntityAdvancedArcFurnace extends MultiMapMultiblockController implements IParallelMultiblock {
@@ -75,7 +69,7 @@ public class MetaTileEntityAdvancedArcFurnace extends MultiMapMultiblockControll
                 .addEnergyTierLine(GTUtility.getTierByVoltage(recipeMapWorkable.getMaxVoltage()))
                 .addCustom((textList, syncer) -> {
                     if (!isStructureFormed()) return;
-                    textList.add(KeyUtil.lang( "电极状态：%s 电极等级：%s", syncer.syncBoolean(checkAvailable()), syncer.syncInt(ElectrodeTier)));
+                    textList.add(KeyUtil.lang("电极状态：%s 电极等级：%s", syncer.syncBoolean(checkAvailable()), syncer.syncInt(ElectrodeTier)));
                 })
                 .addParallelsLine(recipeMapWorkable.getParallelLimit())
                 .addWorkingStatusLine()
@@ -118,8 +112,8 @@ public class MetaTileEntityAdvancedArcFurnace extends MultiMapMultiblockControll
     }
 
     public void addInformation(ItemStack stack, @Nullable World player, List<String> tooltip, boolean advanced) {
-        super.addInformation(stack, player, tooltip, advanced);
         tooltip.add(TooltipHelper.RAINBOW_SLOW + I18n.format("彼岸双生"));
+        super.addInformation(stack, player, tooltip, advanced);
         tooltip.add(TooltipHelper.RAINBOW_SLOW + I18n.format("gregtech.machine.perfect_oc", new Object[0]));
         tooltip.add(I18n.format("gtqtcore.machine.modify_overclock", "Electrode Tier"));
         tooltip.add(I18n.format("gtqtcore.machine.parallel.pow.custom", 2, "Electrode Tier", 64));

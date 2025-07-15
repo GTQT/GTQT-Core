@@ -66,16 +66,16 @@ public class index {
     static ItemStack molecularAssembler = Mods.AppliedEnergistics2.getItem("molecular_assembler");
     //处理器
     //逻辑
-    static ItemStack logicModel = Mods.AppliedEnergistics2.getItem("material", 13, 1);
-    static ItemStack logicBase = Mods.AppliedEnergistics2.getItem("material", 16, 1);
+    public static ItemStack logicModel = Mods.AppliedEnergistics2.getItem("material", 13, 1);
+    public static ItemStack logicBase = Mods.AppliedEnergistics2.getItem("material", 16, 1);
     static ItemStack logicProcessor = Mods.AppliedEnergistics2.getItem("material", 22, 1);
     //运算
-    static ItemStack calculationModel = Mods.AppliedEnergistics2.getItem("material", 14, 1);
-    static ItemStack calculationBase = Mods.AppliedEnergistics2.getItem("material", 17, 1);
+    public static ItemStack calculationModel = Mods.AppliedEnergistics2.getItem("material", 14, 1);
+    public static ItemStack calculationBase = Mods.AppliedEnergistics2.getItem("material", 17, 1);
     static ItemStack calculationProcessor = Mods.AppliedEnergistics2.getItem("material", 23, 1);
     //工程
-    static ItemStack engineeringModel = Mods.AppliedEnergistics2.getItem("material", 15, 1);
-    static ItemStack engineeringBase = Mods.AppliedEnergistics2.getItem("material", 18, 1);
+    public static ItemStack engineeringModel = Mods.AppliedEnergistics2.getItem("material", 15, 1);
+    public static ItemStack engineeringBase = Mods.AppliedEnergistics2.getItem("material", 18, 1);
     static ItemStack engineeringProcessor = Mods.AppliedEnergistics2.getItem("material", 24, 1);
     //硅
     static ItemStack siliconModel = Mods.AppliedEnergistics2.getItem("material", 19, 1);

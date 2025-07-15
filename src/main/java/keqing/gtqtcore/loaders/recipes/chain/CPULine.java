@@ -8,6 +8,7 @@ import gregtech.common.items.MetaItems;
 import keqing.gtqtcore.api.GCYSValues;
 import keqing.gtqtcore.common.block.GTQTMetaBlocks;
 import keqing.gtqtcore.common.metatileentities.GTQTMetaTileEntities;
+import net.minecraft.item.ItemStack;
 
 import static gregtech.api.GTValues.*;
 import static gregtech.api.recipes.RecipeMaps.*;
@@ -24,6 +25,7 @@ import static keqing.gtqtcore.api.unification.ore.GTQTOrePrefix.wrap;
 import static keqing.gtqtcore.common.block.blocks.BlockMultiblockGlass1.CasingType.*;
 import static keqing.gtqtcore.common.block.blocks.BlockStepperCasing.CasingType.*;
 import static keqing.gtqtcore.common.items.GTQTMetaItems.*;
+import static keqing.gtqtcore.loaders.tweak.ae2.index.*;
 import static supercritical.api.unification.material.SCMaterials.BoronTrioxide;
 
 public class CPULine {
@@ -37,30 +39,27 @@ public class CPULine {
     }
 
     private static void AE() {
-        BLAST_RECIPES.recipeBuilder()
+        ALLOY_SMELTER_RECIPES.recipeBuilder()
                 .input(AE_WAFER)
                 .input(dust, Gold, 4)
-                .output(AE_WAFERA)
+                .output(AE_WAFER_LOGIC)
                 .duration(1600)
-                .blastFurnaceTemp(3600)
                 .EUt(120)
                 .buildAndRegister();
 
-        BLAST_RECIPES.recipeBuilder()
+        ALLOY_SMELTER_RECIPES.recipeBuilder()
                 .input(AE_WAFER)
                 .input(dust, Fluix, 4)
-                .output(AE_WAFERB)
+                .output(AE_WAFER_CALCULATION)
                 .duration(1600)
-                .blastFurnaceTemp(3600)
                 .EUt(120)
                 .buildAndRegister();
 
-        BLAST_RECIPES.recipeBuilder()
+        ALLOY_SMELTER_RECIPES.recipeBuilder()
                 .input(AE_WAFER)
                 .input(dust, Diamond, 4)
-                .output(AE_WAFERC)
+                .output(AE_WAFER_ENGINEERING)
                 .duration(1600)
-                .blastFurnaceTemp(3600)
                 .EUt(120)
                 .buildAndRegister();
     }
@@ -519,20 +518,20 @@ public class CPULine {
                     .Laser(tier)
                     .input(getWaferByTier(i))
                     .input(item1)
-                    .output(item2, 1 << (2 * (i - tier))) // 位运算优化：4^n = 2^(2n)
+                    .output(item2, (int)Math.pow(4, i - tier))
                     .output(getReticleByTier(tier))
                     .CWUt(CWT[i])
                     .buildAndRegister();
         }
     }
 
-    public static void StepperAE(int tier, int EU, MetaItem<?>.MetaValueItem item1, MetaItem<?>.MetaValueItem item2, MetaItem<?>.MetaValueItem item3) {
+    public static void StepperAE(int tier, int EU, ItemStack item1, MetaItem<?>.MetaValueItem item2, MetaItem<?>.MetaValueItem item3) {
         //透镜+晶圆+光掩模基板 锡附着=掩模
 
         LASER_ENGRAVING.recipeBuilder().duration(9000).EUt(VA[EU])
                 .input(item3)
                 .input(getReticleBasicByTier(tier))
-                .output(item1)
+                .outputs(item1)
                 .CWUt(CWT[tier])
                 .duration(250 * tier * EU)
                 .buildAndRegister();
@@ -540,11 +539,11 @@ public class CPULine {
 
         for (int i = tier; i <= 7; i++) {
             //掩模-》产品+光掩模基板 无锡附着+液态锡
-            STEPPER_RECIPES.recipeBuilder().duration(9000).EUt(VA[EU+tier-1])
+            STEPPER_RECIPES.recipeBuilder().duration(9000).EUt(VA[EU+i-1])
                     .Laser(tier)
                     .input(getWaferByTier(i))
-                    .input(item1)
-                    .output(item2, 1 << (2 * (i - tier))) // 4^(i-tier)
+                    .inputs(item1)
+                    .output(item2, (int)Math.pow(4, i - tier))
                     .output(getReticleByTier(tier))
                     .CWUt(CWT[i])
                     .buildAndRegister();
@@ -552,9 +551,9 @@ public class CPULine {
     }
 
     private static void LaserStepper() {
-        StepperAE(1, 2, AE_RETICLEA, AE_A, AE_WAFERA);
-        StepperAE(1, 2, AE_RETICLEB, AE_B, AE_WAFERB);
-        StepperAE(1, 2, AE_RETICLEC, AE_C, AE_WAFERC);
+        StepperAE(1, 2, logicModel, AE_LOGIC_CHIP, AE_WAFER_LOGIC);
+        StepperAE(1, 2, calculationModel, AE_CALCULATION_CHIP, AE_WAFER_CALCULATION);
+        StepperAE(1, 2, engineeringModel, AE_ENGINEERING_CHIP, AE_WAFER_ENGINEERING);
 
         Stepper(1, 2, RETICLE_INTEGRATED_LOGIC_CIRCUIT, INTEGRATED_LOGIC_CIRCUIT_WAFER, Color.Blue);
         Stepper(1, 2, RETICLE_RANDOM_ACCESS_MEMORY, RANDOM_ACCESS_MEMORY_WAFER, Color.Red);

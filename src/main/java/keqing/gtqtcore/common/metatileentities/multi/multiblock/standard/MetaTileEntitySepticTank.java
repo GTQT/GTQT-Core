@@ -7,7 +7,10 @@ import gregtech.api.capability.impl.EnergyContainerList;
 import gregtech.api.capability.impl.MultiblockRecipeLogic;
 import gregtech.api.metatileentity.MetaTileEntity;
 import gregtech.api.metatileentity.interfaces.IGregTechTileEntity;
-import gregtech.api.metatileentity.multiblock.*;
+import gregtech.api.metatileentity.multiblock.IMultiblockPart;
+import gregtech.api.metatileentity.multiblock.MultiMapMultiblockController;
+import gregtech.api.metatileentity.multiblock.MultiblockAbility;
+import gregtech.api.metatileentity.multiblock.RecipeMapMultiblockController;
 import gregtech.api.metatileentity.multiblock.ui.KeyManager;
 import gregtech.api.metatileentity.multiblock.ui.MultiblockUIBuilder;
 import gregtech.api.metatileentity.multiblock.ui.UISyncer;
@@ -23,7 +26,6 @@ import gregtech.api.recipes.properties.RecipePropertyStorage;
 import gregtech.api.recipes.properties.impl.TemperatureProperty;
 import gregtech.api.util.GTUtility;
 import gregtech.api.util.KeyUtil;
-import gregtech.api.util.TextComponentUtil;
 import gregtech.api.util.TextFormattingUtil;
 import gregtech.client.renderer.ICubeRenderer;
 import gregtech.client.renderer.texture.Textures;
@@ -59,6 +61,7 @@ import static gregtech.api.recipes.logic.OverclockingLogic.heatingCoilOC;
 public class MetaTileEntitySepticTank extends MultiMapMultiblockController implements IHeatingCoil {
     private int tier;
     private int blastFurnaceTemperature;
+
     public MetaTileEntitySepticTank(ResourceLocation metaTileEntityId) {
         super(metaTileEntityId, new RecipeMap[]{
                 RecipeMaps.FERMENTING_RECIPES,
@@ -105,11 +108,12 @@ public class MetaTileEntitySepticTank extends MultiMapMultiblockController imple
             var heatString = KeyUtil.number(TextFormatting.RED,
                     syncer.syncInt(getCurrentTemperature()), "K");
 
-            keyManager.add(KeyUtil.lang(TextFormatting.GRAY,"gregtech.multiblock.blast_furnace.max_temperature", heatString));
+            keyManager.add(KeyUtil.lang(TextFormatting.GRAY, "gregtech.multiblock.blast_furnace.max_temperature", heatString));
 
-            keyManager.add(KeyUtil.lang(TextFormatting.GRAY,"gtqtcore.tire", syncer.syncInt(tier)));
+            keyManager.add(KeyUtil.lang(TextFormatting.GRAY, "gtqtcore.tire", syncer.syncInt(tier)));
         }
     }
+
     @Override
     protected void formStructure(PatternMatchContext context) {
         super.formStructure(context);
@@ -209,8 +213,8 @@ public class MetaTileEntitySepticTank extends MultiMapMultiblockController imple
     @Override
     public void addInformation(ItemStack stack, World world, List<String> tooltip,
                                boolean advanced) {
-        super.addInformation(stack, world, tooltip, advanced);
         tooltip.add(TooltipHelper.RAINBOW_SLOW + I18n.format("人生就是一场漂流,漂到哪算哪"));
+        super.addInformation(stack, world, tooltip, advanced);
         tooltip.add(I18n.format("gregtech.machine.electric_blast_furnace.tooltip.1"));
         tooltip.add(I18n.format("gregtech.machine.electric_blast_furnace.tooltip.2"));
         tooltip.add(I18n.format("gregtech.machine.electric_blast_furnace.tooltip.3"));

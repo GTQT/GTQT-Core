@@ -30,8 +30,6 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.world.World;
-import net.minecraftforge.fml.relauncher.Side;
-import net.minecraftforge.fml.relauncher.SideOnly;
 
 import javax.annotation.Nonnull;
 import java.util.List;
@@ -55,8 +53,8 @@ public class MetaTileEntityBallMill extends GCYMRecipeMapMultiblockController {
 
     @Override
     public void addInformation(ItemStack stack, World player, List<String> tooltip, boolean advanced) {
-        super.addInformation(stack, player, tooltip, advanced);
         tooltip.add(TooltipHelper.RAINBOW_SLOW + I18n.format("粉碎！粉碎！", new Object[0]));
+        super.addInformation(stack, player, tooltip, advanced);
     }
 
 
@@ -182,7 +180,7 @@ public class MetaTileEntityBallMill extends GCYMRecipeMapMultiblockController {
         @Override
         protected void completeRecipe() {
             super.completeRecipe();
-            if(recipeMapWorkable.recipeMap==ISA_MILL_GRINDER) this.metaTileEntity.getBallHolder().damageGrinder(10);
+            if (recipeMapWorkable.recipeMap == ISA_MILL_GRINDER) this.metaTileEntity.getBallHolder().damageGrinder(10);
         }
     }
 }

@@ -118,8 +118,8 @@ public class MetaTileEntityIndustrialInductionFurnace extends MultiMapMultiblock
 
     @Override
     public void addInformation(ItemStack stack, World player, List<String> tooltip, boolean advanced) {
+        tooltip.add(TooltipHelper.RAINBOW_SLOW + I18n.format("超级熔炼"));
         super.addInformation(stack, player, tooltip, advanced);
-        tooltip.add(TooltipHelper.RAINBOW_SLOW + I18n.format("超级熔炼", new Object[0]));
         tooltip.add(I18n.format("gregtech.machine.iif.1"));
         tooltip.add(I18n.format("gregtech.machine.iif.2"));
         tooltip.add(I18n.format("gregtech.machine.iif.3"));

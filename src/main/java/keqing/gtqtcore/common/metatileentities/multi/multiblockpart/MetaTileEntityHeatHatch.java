@@ -116,7 +116,8 @@ public class MetaTileEntityHeatHatch extends MetaTileEntityMultiblockPart implem
     @Override
     public void addInformation(ItemStack stack, World player, List<String> tooltip, boolean advanced) {
         super.addInformation(stack, player, tooltip, advanced);
-        tooltip.add(TooltipHelper.RAINBOW_SLOW + I18n.format("烫！烫！烫！", new Object[0]));
+        tooltip.add(TooltipHelper.RAINBOW_SLOW + I18n.format("烫！烫！烫！"));
+        super.addInformation(stack, player, tooltip, advanced);
         tooltip.add(I18n.format("配合需要 流体热交换器（Fluid Heat Exchange）的设备使用"));
         tooltip.add(I18n.format("配合需要 电加热器（Fluid Heat Exchange）的设备使用"));
         tooltip.add(I18n.format("需要将流体热交换器控制器背面紧贴热源仓，可热源仓进行加热，降温等操作"));

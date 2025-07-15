@@ -953,8 +953,6 @@ public class GTQTcoreRecipeMaps {
     public static final RecipeMap<LaserComputationRecipeBuilder> STEPPER_RECIPES = new RecipeMapBuilder<>("stepper_recipes", new LaserComputationRecipeBuilder())
             .itemInputs(3)
             .itemOutputs(3)
-            .fluidInputs(3)
-            .fluidOutputs(3)
             .progressBar(GuiTextures.PROGRESS_BAR_ARROW_MULTIPLE, HORIZONTAL)
             .itemSlotOverlay(GuiTextures.CIRCUIT_OVERLAY, false, false)
             .itemSlotOverlay(GuiTextures.CIRCUIT_OVERLAY, false, true)

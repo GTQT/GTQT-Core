@@ -41,10 +41,6 @@ import static keqing.gtqtcore.common.metatileentities.GTQTMetaTileEntities.NICOL
 public class MetaTileEntityNicollDysonBeamer extends MultiMapMultiblockController {
 
     private int casingTier;
-    @Override
-    public boolean shouldDelayCheck() {
-        return true;
-    }
 
     public MetaTileEntityNicollDysonBeamer(ResourceLocation metaTileEntityId) {
         super(metaTileEntityId, new RecipeMap[]{RecipeMaps.BLAST_RECIPES});
@@ -74,6 +70,11 @@ public class MetaTileEntityNicollDysonBeamer extends MultiMapMultiblockControlle
     private static BloomType getBloomType() {
         ConfigHolder.FusionBloom fusionBloom = ConfigHolder.client.shader.fusionBloom;
         return BloomType.fromValue(fusionBloom.useShader ? fusionBloom.bloomStyle : -1);
+    }
+
+    @Override
+    public boolean shouldDelayCheck() {
+        return true;
     }
 
     @Override

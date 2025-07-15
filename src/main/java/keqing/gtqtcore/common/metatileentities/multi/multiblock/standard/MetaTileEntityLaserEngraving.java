@@ -33,8 +33,6 @@ import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.network.PacketBuffer;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.SoundEvent;
-import net.minecraft.util.text.ITextComponent;
-import net.minecraft.util.text.TextComponentTranslation;
 import net.minecraft.util.text.TextFormatting;
 import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
@@ -70,8 +68,8 @@ public class MetaTileEntityLaserEngraving extends GTQTOCMultiblockController {
 
     @Override
     public void addInformation(ItemStack stack, World world, List<String> tooltip, boolean advanced) {
+        tooltip.add(TooltipHelper.RAINBOW_SLOW + I18n.format("不要直视他"));
         super.addInformation(stack, world, tooltip, advanced);
-        tooltip.add(TooltipHelper.RAINBOW_SLOW + I18n.format("不要直视他", new Object[0]));
         tooltip.add(I18n.format("gtqt.machine.ls.1"));
         tooltip.add(I18n.format("gtqt.machine.ls.2"));
         tooltip.add(I18n.format("gtqt.machine.ls.3"));
@@ -97,8 +95,9 @@ public class MetaTileEntityLaserEngraving extends GTQTOCMultiblockController {
     public void addCustomData(KeyManager keyManager, UISyncer syncer) {
         super.addCustomData(keyManager, syncer);
         if (isStructureFormed())
-            keyManager.add(KeyUtil.lang(TextFormatting.GRAY ,"gtqtcore.eleTire2", syncer.syncInt(tier), syncer.syncInt(glass_tier), syncer.syncInt(laser_tier)));
+            keyManager.add(KeyUtil.lang(TextFormatting.GRAY, "gtqtcore.eleTire2", syncer.syncInt(tier), syncer.syncInt(glass_tier), syncer.syncInt(laser_tier)));
     }
+
     public NBTTagCompound writeToNBT(NBTTagCompound data) {
         data.setInteger("tier", tier);
         return super.writeToNBT(data);

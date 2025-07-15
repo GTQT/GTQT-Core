@@ -47,8 +47,6 @@ import net.minecraft.util.EnumFacing;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.SoundEvent;
 import net.minecraft.util.math.BlockPos;
-import net.minecraft.util.text.ITextComponent;
-import net.minecraft.util.text.TextComponentTranslation;
 import net.minecraft.util.text.TextFormatting;
 import net.minecraft.world.World;
 import net.minecraftforge.fluids.IFluidTank;
@@ -180,6 +178,7 @@ public class MetaTileEntityAssemblyLine extends GTQTRecipeMapMultiblockControlle
     protected ICubeRenderer getFrontOverlay() {
         return GTQTTextures.ALGAE_FARM_OVERLAY;
     }
+
     @Override
     public void addCustomData(KeyManager keyManager, UISyncer syncer) {
         super.addCustomData(keyManager, syncer);
@@ -194,6 +193,7 @@ public class MetaTileEntityAssemblyLine extends GTQTRecipeMapMultiblockControlle
         keyManager.add(KeyUtil.lang(TextFormatting.GRAY, "gtqtcore.atier", syncedTier, syncedGlass, syncedLaser, syncedCasing
         ));
     }
+
     @Override
     protected Function<BlockPos, Integer> multiblockPartSorter() {
         // player's right when looking at the controller, but the controller's left

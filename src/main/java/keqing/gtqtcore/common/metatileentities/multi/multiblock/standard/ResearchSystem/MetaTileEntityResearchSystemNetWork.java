@@ -41,12 +41,6 @@ import keqing.gtqtcore.common.metatileentities.multi.multiblock.standard.MetaTil
 import keqing.gtqtcore.common.metatileentities.multi.multiblock.standard.MetaTileEntityGeneMutagenesis;
 import keqing.gtqtcore.common.metatileentities.multi.multiblock.standard.MetaTileEntityPhotolithographyFactory;
 import net.minecraft.block.state.IBlockState;
-import net.minecraft.client.Minecraft;
-import net.minecraft.client.gui.FontRenderer;
-import net.minecraft.client.renderer.BufferBuilder;
-import net.minecraft.client.renderer.GlStateManager;
-import net.minecraft.client.renderer.Tessellator;
-import net.minecraft.client.renderer.vertex.DefaultVertexFormats;
 import net.minecraft.client.resources.I18n;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
@@ -66,21 +60,14 @@ import net.minecraft.util.text.TextFormatting;
 import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
-import org.lwjgl.opengl.GL11;
 
 import javax.annotation.Nonnull;
-import java.util.ArrayList;
 import java.util.List;
 
 import static keqing.gtqtcore.common.block.blocks.BlocksResearchSystem.CasingType.KQCC_COMPUTER_CASING;
 
 
 public class MetaTileEntityResearchSystemNetWork extends RecipeMapMultiblockController implements IOpticalComputationReceiver, IFastRenderMetaTileEntity {
-    @Override
-    public boolean usesMui2() {
-        return false;
-    }
-
     double tier;
     int page = 0;
     int x;
@@ -89,11 +76,17 @@ public class MetaTileEntityResearchSystemNetWork extends RecipeMapMultiblockCont
     int card;
     int[][] io = new int[40][5];
     int thresholdPercentage = 0;
+    int checkTime = 10;
     private IOpticalComputationProvider computationProvider;
 
     public MetaTileEntityResearchSystemNetWork(ResourceLocation metaTileEntityId) {
         super(metaTileEntityId, GTQTcoreRecipeMaps.RESEARCH_SYSTEM_RECIPES);
         this.recipeMapWorkable = new ResearchStationRecipeLogic(this);
+    }
+
+    @Override
+    public boolean usesMui2() {
+        return false;
     }
 
     public NBTTagCompound writeToNBT(NBTTagCompound data) {
@@ -161,7 +154,7 @@ public class MetaTileEntityResearchSystemNetWork extends RecipeMapMultiblockCont
             }
         }
 
-        if(getOffsetTimer()%checkTime==0) {
+        if (getOffsetTimer() % checkTime == 0) {
             //检查 已经赋值的还在不在
             double helpTier = 1;
 
@@ -191,7 +184,7 @@ public class MetaTileEntityResearchSystemNetWork extends RecipeMapMultiblockCont
         }
 
     }
-    int checkTime=10;
+
     @Override
     public boolean onScrewdriverClick(EntityPlayer playerIn,
                                       EnumHand hand,
@@ -201,10 +194,10 @@ public class MetaTileEntityResearchSystemNetWork extends RecipeMapMultiblockCont
     }
 
     private boolean changeCheckTime(EntityPlayer playerIn) {
-        if(getWorld().isRemote) {
+        if (getWorld().isRemote) {
             checkTime += 10;
             if (checkTime >= 200) checkTime = 10;
-            playerIn.sendMessage(new TextComponentString("蓄能变电站调整检测间隔:"+checkTime));
+            playerIn.sendMessage(new TextComponentString("蓄能变电站调整检测间隔:" + checkTime));
         }
         return true;
     }
@@ -220,8 +213,8 @@ public class MetaTileEntityResearchSystemNetWork extends RecipeMapMultiblockCont
 
     @Override
     public void addInformation(ItemStack stack, World player, List<String> tooltip, boolean advanced) {
+        tooltip.add(TooltipHelper.RAINBOW_SLOW + I18n.format("我是真理"));
         super.addInformation(stack, player, tooltip, advanced);
-        tooltip.add(TooltipHelper.RAINBOW_SLOW + I18n.format("我是真理", new Object[0]));
         tooltip.add(I18n.format("gtqtcore.machine.kqnet.tooltip.1"));
         tooltip.add(I18n.format("gtqtcore.machine.kqnet.tooltip.2"));
         tooltip.add(I18n.format("gtqtcore.machine.kqnet.tooltip.3"));

@@ -62,20 +62,13 @@ import static keqing.gtqtcore.common.block.blocks.BlockActiveUniqueCasing1.Activ
 import static keqing.gtqtcore.common.block.blocks.BlockActiveUniqueCasing1.ActiveCasingType.AIRFOIL;
 
 public class MetaTileEntityTurbomolecularPump extends MultiblockWithDisplayBase implements IWorkable {
-    @Override
-    public boolean usesMui2() {
-        return false;
-    }
     public static final int MAX_PROGRESS = 20;
     public static final int FLUID_USE_AMOUNT = 100;
     protected static final FluidStack LUBRICANT = Materials.Lubricant.getFluid(1);
     protected final int tier;
-
     protected final double minPressure;
     protected final double pressureRate;
-
     protected double targetPressure;
-
     protected IMultipleTankHandler inputFluidInventory;
     protected IEnergyContainer energyContainer;
     protected boolean lastActive;
@@ -85,7 +78,6 @@ public class MetaTileEntityTurbomolecularPump extends MultiblockWithDisplayBase 
     private boolean isWorkingEnabled = true;
     private boolean wasActiveAndNeedsUpdate;
     private boolean hasNotEnoughEnergy;
-
     public MetaTileEntityTurbomolecularPump(ResourceLocation metaTileEntityId, int tier, double minPressure, double pressureRate) {
         super(metaTileEntityId);
         this.tier = tier;
@@ -99,6 +91,11 @@ public class MetaTileEntityTurbomolecularPump extends MultiblockWithDisplayBase 
             if (val.isEmpty()) return "" + GCYSValues.EARTH_PRESSURE;
             return val;
         };
+    }
+
+    @Override
+    public boolean usesMui2() {
+        return false;
     }
 
     @Override

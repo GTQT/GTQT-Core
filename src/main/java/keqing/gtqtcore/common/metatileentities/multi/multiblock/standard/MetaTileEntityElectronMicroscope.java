@@ -39,13 +39,8 @@ import java.util.List;
 import static gregtech.api.GTValues.EV;
 
 public class MetaTileEntityElectronMicroscope extends RecipeMapMultiblockController {
-    @Override
-    public boolean usesMui2() {
-        return false;
-    }
     int LENS;
     int SOURCE;
-
     public MetaTileEntityElectronMicroscope(ResourceLocation metaTileEntityId) {
         super(metaTileEntityId, GTQTcoreRecipeMaps.MOLECULAR_TRANSFORMER_RECIPES);
         this.recipeMapWorkable = new ElectronMicroscopeRecipeLogic(this);
@@ -61,6 +56,11 @@ public class MetaTileEntityElectronMicroscope extends RecipeMapMultiblockControl
 
     private static IBlockState getFrameState() {
         return MetaBlocks.FRAMES.get(GTQTMaterials.DarkSteel).getBlock(GTQTMaterials.DarkSteel);
+    }
+
+    @Override
+    public boolean usesMui2() {
+        return false;
     }
 
     @Override
@@ -139,8 +139,8 @@ public class MetaTileEntityElectronMicroscope extends RecipeMapMultiblockControl
 
     @Override
     public void addInformation(ItemStack stack, World player, List<String> tooltip, boolean advanced) {
+        tooltip.add(TooltipHelper.RAINBOW_SLOW + I18n.format("gtqtcore.machine.molecular_transformer.tooltip.1"));
         super.addInformation(stack, player, tooltip, advanced);
-        tooltip.add(TooltipHelper.RAINBOW_SLOW + I18n.format("gtqtcore.machine.molecular_transformer.tooltip.1", new Object[0]));
         tooltip.add(I18n.format("gtqtcore.machine.molecular_transformer.tooltip.2"));
         tooltip.add(I18n.format("gtqtcore.machine.molecular_transformer.tooltip.3"));
     }

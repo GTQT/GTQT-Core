@@ -641,6 +641,9 @@ public class MetaTileEntitySBPRC extends MetaTileEntityBaseWithControl implement
     public void addInformation(ItemStack stack, World world, List<String> tooltip,
                                boolean advanced) {
         super.addInformation(stack, world, tooltip, advanced);
+        tooltip.add(TextFormatting.GREEN + I18n.format("-天基棱镜系统："));
+        tooltip.add(TextFormatting.GRAY + I18n.format("本多方块隶属于天基棱镜系统，无其他用途"));
+        tooltip.add(TextFormatting.GRAY + I18n.format("通过天基棱镜网络可将超高能激光投送至世界各地"));
         tooltip.add(I18n.format("如何高效的传输激光？答：在天上放置一面镜子"));
         tooltip.add(I18n.format("将激光终端绑定至本多方块即可自动进行管理"));
         tooltip.add(I18n.format("默认对所有输出IO进行权重均为1的输出"));

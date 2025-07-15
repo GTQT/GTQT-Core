@@ -774,7 +774,7 @@ gtqtcore.machine.modify_overclock=Overclock Calculation Operator: %s
 gtqtcore.machine.max_voltage=Maximum Operating Voltage: Voltage corresponding to Machine Hull Tier
 gtqtcore.machine.voltage.num=Maximum Operating Voltage: %s EU
 gregtech.machine.gtqt.oc=Overclocking Ratio (Efficiency Increase/Energy Consumption Increase) Overclocking mode: %s, Parallel mode: 2.0
-gregtech.machine.time.reduce=Time-consuming reduction rate：
+gregtech.machine.time.reduce=Time-consuming reduction rate：%s
 # Machines
 recipemap.dryer_recipes.name=Dehydration
 gtqtcore.machine.dryer.lv.name=Basic Chemical Dryer
@@ -5268,7 +5268,6 @@ gtqtcore.machine.gene_mutagenesis.name=Gene Mutagenesis Chamber
 recipemap.gene_mutagenesis.name=Gene Mutagenesis
 
 gtqtcore.machine.industrial_induction_furnace.name=Industrial Induction Furnace
-gtqtcore.machine.industrial_induction_furnace.tooltip=King of Furnaces
 gregtech.machine.iif.1=Energy Consumption: 4 * Math.max(1, parallel / 8 / discount)
 gregtech.machine.iif.2=Parallel Processing: 2^min(heatingCoilLevel, 8)
 gregtech.machine.iif.3=Duration: (256 * parallel) / max(1, parallelLimit)
@@ -6087,20 +6086,18 @@ gtqtcore.material.rich_copper_js=Immersed Enriched Copper Mixture
 
 recipemap.evaporation_pool.name=Electrothermal Evaporation
 gtqtcore.machine.evaporation_pool.name=Evaporation Pool
-gregtech.machine.evaporation_pool.tooltip.info=Maximum internal square is %dx%d, minimum is 1x1. For more details, see the information tag and tool info.
-gregtech.machine.evaporation_pool.tooltip.structure_info=Evaporation pool can be formed with any internal size, from 1x1 to %dx%d, even if not square. To form an effective heated evaporation pool, coils should be placed according to the pattern shown in the preview. For more detailed explanation, check the information tag in JEI.
-gregtech.top.evaporation_pool_heated_preface=Coil Pattern:
-gregtech.top.evaporation_pool_is_heated=Effective; can be heated.
-gregtech.top.evaporation_pool_not_heated=Ineffective; cannot be heated.
-gregtech.top.evaporation_pool.energy_transferred=Heat Energy Transfer:
-gregtech.multiblock.evaporation_pool.rolling_average=Average Energy Input:
-gregtech.multiblock.evaporation_pool.joules_per_tick=Joules per Tick: J/t
-gregtech.top.evaporation_pool.kilojoules=Kilojoules: kJ
-gregtech.multiblock.evaporation_pool.description=Evaporation pools have internal dimensions specified in their descriptions, and an external concrete structure for IO/control placement, with a maximum of two IO types. The controller can be placed anywhere in the front bottom row protrusion. Evaporation pools can operate recipes in both power-off and power-on modes. For power-on mode, the multi-block requires a uniform type of coil formed in a "snake" pattern as shown in the preview. Power-off evaporation pools do not require any coils. The speed of any recipe depends on the heat provided to the multi-block, based on the number of internal blocks exposed to sunlight, the energy provided, and the coil grade. Each exposed block (check required time) generates 1 kJ of heat per second, while the heat provided by coils varies based on coil temperature and quantity. The maximum recipe speed per tick is one-fourth the duration (up to 5 recipes per second). The evaporation pool will attempt to complete as much recipe progress as possible within the available energy, below the aforementioned maximum speed.
-gregtech.multiblock.evaporation_pool.average_speed=Average Speed:
-gregtech.multiblock.evaporation_pool.exposed_blocks=Number of Exposed Blocks:
-gregtech.recipe.evaporation=Theoretical Energy Consumption: %d J/t
-tile.evaporation_bed.dirt.name=Sandy Loam
+gtqtcore.machine.evaporation_pool.tooltip.info=Max square of %1$sx%1$s, minimum %2$sx%2$s. Read info tab and tool info for more details.
+gtqtcore.machine.evaporation_pool.tooltip.structure_info=Evaporation Pools can be formed with any dimensions ranging from a %2$sx%2$s to a %1$sx%1$s, even if it is non-square. To form a valid heated evaporation pool, coils should be placed following the pattern shown in the preview. For a more detailed explanation, view the info tab in JEI.
+gtqtcore.top.evaporation_pool_heated_preface=Heating Coil:
+gtqtcore.top.evaporation_pool.exposed_blocks=Exposed Blocks:
+gtqtcore.top.evaporation_pool.average_speed=Avg Speed:
+gtqtcore.multiblock.evaporation_pool.description=The Evaporation Pool has interior dimensions specified in its description and a concrete exterior for IO/controller placement, with at most two of each IO type. The controller may be placed anywhere along the protruding bottom row "in front" of the interior.            The Evaporation Pool can run recipes both unpowered and powered. In order to power recipes, the multiblock will need to be formed with a "snaking" coil pattern of uniform type, as shown in the preview. Unpowered Evaporation Pools do not require any coils.        The speed of any recipe depends on the heat provided to the multi, which is based off of the number of interior blocks exposed to sunlight, the energy provided, and the tier of coil. [1EU = 10J, currently].                                                                                 Each exposed block (takes time to check) produces 1kJ/s, with heat provided by coils varying based on coil temperature * amount.
+gtqtcore.multiblock.evaporation_pool_heated_preface=Heating Coil: %s
+gtqtcore.multiblock.evaporation_pool.is_heating=On
+gtqtcore.multiblock.evaporation_pool.is_not_heating=Off/Missing
+gtqtcore.multiblock.evaporation_pool.exposed_blocks=Exposed Blocks: %s
+gtqtcore.multiblock.evaporation_pool.average_speed=Avg Speed: %sx
+gtqtcore.multiblock.pattern.error.coils_or_bed=§cAll heating coils or evaporation beds must be the same§r
 
 gtqtcore.machine.maintenance_hatch_sterile_cleanroom_auto.name=Automatic Sterile Filter Maintenance Hatch
 gtqtcore.machine.maintenance_hatch_iso_3_cleanroom_auto.name=Automatic ISO 3 Filter Maintenance Hatch

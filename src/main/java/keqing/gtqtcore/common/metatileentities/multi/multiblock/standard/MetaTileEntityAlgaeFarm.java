@@ -21,8 +21,6 @@ import gregtech.api.pattern.BlockPattern;
 import gregtech.api.pattern.FactoryBlockPattern;
 import gregtech.api.pattern.PatternMatchContext;
 import gregtech.api.util.GTTransferUtils;
-import gregtech.api.util.GTUtility;
-import gregtech.api.util.KeyUtil;
 import gregtech.client.renderer.ICubeRenderer;
 import gregtech.client.utils.TooltipHelper;
 import keqing.gtqtcore.api.capability.impl.AlgaeFarmLogic;
@@ -38,8 +36,6 @@ import net.minecraft.network.PacketBuffer;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.text.ITextComponent;
-import net.minecraft.util.text.TextComponentTranslation;
-import net.minecraft.util.text.TextFormatting;
 import net.minecraft.world.World;
 import net.minecraftforge.common.capabilities.Capability;
 import net.minecraftforge.fml.relauncher.Side;
@@ -52,8 +48,6 @@ import javax.annotation.Nullable;
 import java.util.Collections;
 import java.util.LinkedList;
 import java.util.List;
-
-import static keqing.gtqtcore.api.utils.GTQTUtil.getAccelerateByCWU;
 
 public class MetaTileEntityAlgaeFarm extends MultiblockWithDisplayBase implements IDataInfoProvider, IWorkable, IControllable {
 
@@ -130,8 +124,8 @@ public class MetaTileEntityAlgaeFarm extends MultiblockWithDisplayBase implement
     @Override
     @SideOnly(Side.CLIENT)
     public void addInformation(ItemStack stack, World world, List<String> tooltip, boolean advanced) {
-        super.addInformation(stack, world, tooltip, advanced);
         tooltip.add(TooltipHelper.RAINBOW_SLOW + I18n.format("快乐海藻", new Object[0]));
+        super.addInformation(stack, world, tooltip, advanced);
         tooltip.add(I18n.format("gtqtcore.machine.af.tooltip.1"));
     }
 
@@ -141,6 +135,7 @@ public class MetaTileEntityAlgaeFarm extends MultiblockWithDisplayBase implement
                 .addWorkingStatusLine()
                 .addProgressLine(logic.getProgress(), logic.getMaxProgress());
     }
+
     @Nonnull
     @Override
     protected BlockPattern createStructurePattern() {
@@ -248,7 +243,6 @@ public class MetaTileEntityAlgaeFarm extends MultiblockWithDisplayBase implement
     public boolean isActive() {
         return (isStructureFormed() && this.logic.isActive() && this.logic.isWorkingEnabled());
     }
-
 
 
     @Override

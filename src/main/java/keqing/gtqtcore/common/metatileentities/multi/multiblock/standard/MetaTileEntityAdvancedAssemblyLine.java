@@ -64,6 +64,8 @@ import static keqing.gtqtcore.common.block.blocks.BlockActiveUniqueCasing.Active
 import static keqing.gtqtcore.common.block.blocks.BlockActiveUniqueCasing.ActiveCasingType.ADVANCED_ASSEMBLY_LINE_CASING;
 import static keqing.gtqtcore.common.block.blocks.BlockMultiblockCasing4.TurbineCasingType.ADVANCED_FILTER_CASING;
 import static keqing.gtqtcore.common.block.blocks.BlockMultiblockCasing4.TurbineCasingType.IRIDIUM_CASING;
+import static net.minecraft.util.text.TextFormatting.GRAY;
+import static net.minecraft.util.text.TextFormatting.GREEN;
 
 public class MetaTileEntityAdvancedAssemblyLine extends GTQTNoTierMultiblockController implements IOpticalComputationReceiver {
     private static final ResourceLocation LASER_LOCATION = gregtechId("textures/fx/laser/laser.png");
@@ -408,8 +410,10 @@ public class MetaTileEntityAdvancedAssemblyLine extends GTQTNoTierMultiblockCont
         tooltip.add(I18n.format("gtqtcore.machine.advanced_assembly_line.tooltip.2"));
         tooltip.add(I18n.format("gtqtcore.machine.advanced_assembly_line.tooltip.3"));
         tooltip.add(I18n.format("gtqtcore.machine.advanced_assembly_line.tooltip.4"));
-        tooltip.add(I18n.format("gtqtcore.multiblock.kq.acc.tooltip"));
-        tooltip.add(I18n.format("gtqtcore.multiblock.kq.laser.tooltip"));
+        tooltip.add(GREEN + I18n.format("gtqtcore.multiblock.compution_accelerate.enable"));
+        tooltip.add(GRAY + I18n.format("gtqtcore.multiblock.compution_accelerate.tooltip"));
+        tooltip.add(GREEN + I18n.format("gtqtcore.multiblock.laser_hatch.enable"));
+        tooltip.add(GRAY + I18n.format("gtqtcore.multiblock.laser_hatch.tooltip"));
         if (ConfigHolder.machines.orderedAssembly && ConfigHolder.machines.orderedFluidAssembly) {
             tooltip.add(I18n.format("gregtech.machine.assembly_line.tooltip_ordered_both"));
         } else if (ConfigHolder.machines.orderedAssembly) {
@@ -417,6 +421,11 @@ public class MetaTileEntityAdvancedAssemblyLine extends GTQTNoTierMultiblockCont
         } else if (ConfigHolder.machines.orderedFluidAssembly) {
             tooltip.add(I18n.format("gregtech.machine.assembly_line.tooltip_ordered_fluids"));
         }
+    }
+
+    @Override
+    public boolean shouldShowBatchModeButton() {
+        return false;
     }
 
     @SuppressWarnings("InnerClassMayBeStatic")
@@ -431,4 +440,5 @@ public class MetaTileEntityAdvancedAssemblyLine extends GTQTNoTierMultiblockCont
             super.setMaxProgress((int) (maxProgress * getAccelerateByCWU(requestCWUt)));
         }
     }
+
 }

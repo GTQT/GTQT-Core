@@ -36,8 +36,6 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.math.AxisAlignedBB;
-import net.minecraft.util.text.ITextComponent;
-import net.minecraft.util.text.TextComponentTranslation;
 import net.minecraft.util.text.TextFormatting;
 import net.minecraft.world.World;
 import net.minecraftforge.fml.client.FMLClientHandler;
@@ -57,6 +55,7 @@ public class MetaTileEntityPrimitiveTreeFarmer extends MultiblockWithDisplayBase
     private IItemHandlerModifiable logOut;
     private IItemHandlerModifiable saplingOut;
     private IItemHandlerModifiable itemIn;
+
     public MetaTileEntityPrimitiveTreeFarmer(ResourceLocation metaTileEntityId) {
         super(metaTileEntityId);
         logOut = new NotifiableItemStackHandler(this, 1, this, true);
@@ -84,14 +83,16 @@ public class MetaTileEntityPrimitiveTreeFarmer extends MultiblockWithDisplayBase
         numSaplingsInOutput = data.getInteger("numSaplingsInOutput");
         work = data.getBoolean("work");
     }
+
     @Override
     protected void configureDisplayText(MultiblockUIBuilder builder) {
         builder.addCustom(this::addCustomCapacity);
     }
+
     private void addCustomCapacity(KeyManager keyManager, UISyncer syncer) {
 
         keyManager.add(KeyUtil.lang(TextFormatting.GREEN, "生成耗时：%s / %s", syncer.syncInt(time), syncer.syncInt(saplingsIn * 200)));
-        keyManager.add(KeyUtil.lang(TextFormatting.GREEN, "输出原木：%s / 树苗：%s", syncer.syncInt(saplingsIn), syncer.syncInt(saplingsIn*2)));
+        keyManager.add(KeyUtil.lang(TextFormatting.GREEN, "输出原木：%s / 树苗：%s", syncer.syncInt(saplingsIn), syncer.syncInt(saplingsIn * 2)));
     }
 
     @Override

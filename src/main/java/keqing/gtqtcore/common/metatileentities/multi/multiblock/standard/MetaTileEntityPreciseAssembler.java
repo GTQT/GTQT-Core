@@ -40,8 +40,6 @@ import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.network.PacketBuffer;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.ResourceLocation;
-import net.minecraft.util.text.ITextComponent;
-import net.minecraft.util.text.TextComponentTranslation;
 import net.minecraft.util.text.TextFormatting;
 import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
@@ -55,7 +53,8 @@ import java.util.TreeMap;
 
 import static gregtech.api.GTValues.*;
 import static gregtech.api.recipes.RecipeMaps.ASSEMBLER_RECIPES;
-import static keqing.gtqtcore.api.GTQTAPI.*;
+import static keqing.gtqtcore.api.GTQTAPI.MAP_PA_CASING;
+import static keqing.gtqtcore.api.GTQTAPI.MAP_PA_INTERNAL_CASING;
 import static keqing.gtqtcore.common.metatileentities.GTQTMetaTileEntities.PRECISE_ASSEMBLER;
 
 public class MetaTileEntityPreciseAssembler extends GTQTOCMultiblockController {
@@ -90,10 +89,11 @@ public class MetaTileEntityPreciseAssembler extends GTQTOCMultiblockController {
     @Override
     public void addCustomData(KeyManager keyManager, UISyncer syncer) {
         super.addCustomData(keyManager, syncer);
-        if (isStructureFormed()){
-            keyManager.add(KeyUtil.lang(TextFormatting.GRAY ,"外壳等级：%s 机器方块等级:%s", syncer.syncInt(CasingTier), syncer.syncInt(InternalCasingTier)));
+        if (isStructureFormed()) {
+            keyManager.add(KeyUtil.lang(TextFormatting.GRAY, "外壳等级：%s 机器方块等级:%s", syncer.syncInt(CasingTier), syncer.syncInt(InternalCasingTier)));
         }
     }
+
     @Override
     public boolean canBeDistinct() {
         return true;
@@ -150,22 +150,22 @@ public class MetaTileEntityPreciseAssembler extends GTQTOCMultiblockController {
         MultiblockShapeInfo.Builder builder = null;
         if (Blocks.AIR != null) {
             builder = MultiblockShapeInfo.builder()
-                .aisle("ETCCCCCCC", "F       F", "F       F", "F       F", "XYZCCCCCC")
-                .aisle("CMMMMMMMC", "CGGGGGGGC", "CGGGGGGGC", "CGGGGGGGC", "CCCCCCCCC")
-                .aisle("CMMMMMMMC", "C       C", "C       C", "C       C", "CCCCOCCCC")
-                .aisle("CMMMMMMMC", "CGGGGGGGC", "CGGGGGGGC", "CGGGGGGGC", "CCCCCCCCC")
-                .aisle("CCCISCCCC", "F       F", "F       F", "F       F", "CCCCCCCCC")
-                .where('S', PRECISE_ASSEMBLER, EnumFacing.SOUTH)
-                .where('I', MetaTileEntities.COMPUTATION_HATCH_RECEIVER[LuV], EnumFacing.SOUTH)
-                .where('X', MetaTileEntities.ITEM_IMPORT_BUS[IV], EnumFacing.NORTH)
-                .where('Y', MetaTileEntities.ITEM_EXPORT_BUS[IV], EnumFacing.NORTH)
-                .where('Z', MetaTileEntities.FLUID_IMPORT_HATCH[IV], EnumFacing.NORTH)
-                .where('E', MetaTileEntities.ENERGY_INPUT_HATCH[IV], EnumFacing.NORTH)
-                .where('T', () -> ConfigHolder.machines.enableMaintenance ? MetaTileEntities.MAINTENANCE_HATCH : MetaTileEntities.ENERGY_INPUT_HATCH[LuV], EnumFacing.NORTH)
-                .where('O', MetaTileEntities.MUFFLER_HATCH[LV], EnumFacing.UP)
-                .where('G', getGlassState())
-                .where('F', getFrameState())
-                .where(' ', Blocks.AIR.getDefaultState());
+                    .aisle("ETCCCCCCC", "F       F", "F       F", "F       F", "XYZCCCCCC")
+                    .aisle("CMMMMMMMC", "CGGGGGGGC", "CGGGGGGGC", "CGGGGGGGC", "CCCCCCCCC")
+                    .aisle("CMMMMMMMC", "C       C", "C       C", "C       C", "CCCCOCCCC")
+                    .aisle("CMMMMMMMC", "CGGGGGGGC", "CGGGGGGGC", "CGGGGGGGC", "CCCCCCCCC")
+                    .aisle("CCCISCCCC", "F       F", "F       F", "F       F", "CCCCCCCCC")
+                    .where('S', PRECISE_ASSEMBLER, EnumFacing.SOUTH)
+                    .where('I', MetaTileEntities.COMPUTATION_HATCH_RECEIVER[LuV], EnumFacing.SOUTH)
+                    .where('X', MetaTileEntities.ITEM_IMPORT_BUS[IV], EnumFacing.NORTH)
+                    .where('Y', MetaTileEntities.ITEM_EXPORT_BUS[IV], EnumFacing.NORTH)
+                    .where('Z', MetaTileEntities.FLUID_IMPORT_HATCH[IV], EnumFacing.NORTH)
+                    .where('E', MetaTileEntities.ENERGY_INPUT_HATCH[IV], EnumFacing.NORTH)
+                    .where('T', () -> ConfigHolder.machines.enableMaintenance ? MetaTileEntities.MAINTENANCE_HATCH : MetaTileEntities.ENERGY_INPUT_HATCH[LuV], EnumFacing.NORTH)
+                    .where('O', MetaTileEntities.MUFFLER_HATCH[LV], EnumFacing.UP)
+                    .where('G', getGlassState())
+                    .where('F', getFrameState())
+                    .where(' ', Blocks.AIR.getDefaultState());
         }
         if (builder == null) return shapeInfo;
 
@@ -206,7 +206,6 @@ public class MetaTileEntityPreciseAssembler extends GTQTOCMultiblockController {
 
         return shapeInfo;
     }
-
 
 
     @Nonnull

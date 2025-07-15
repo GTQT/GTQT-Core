@@ -14,8 +14,11 @@ import gregtech.api.capability.impl.FluidTankList;
 import gregtech.api.capability.impl.ItemHandlerList;
 import gregtech.api.metatileentity.MetaTileEntity;
 import gregtech.api.metatileentity.interfaces.IGregTechTileEntity;
-import gregtech.api.metatileentity.multiblock.*;
-import gregtech.api.metatileentity.multiblock.ui.*;
+import gregtech.api.metatileentity.multiblock.IMultiblockPart;
+import gregtech.api.metatileentity.multiblock.MultiblockAbility;
+import gregtech.api.metatileentity.multiblock.ProgressBarMultiblock;
+import gregtech.api.metatileentity.multiblock.ui.MultiblockUIFactory;
+import gregtech.api.metatileentity.multiblock.ui.TemplateBarBuilder;
 import gregtech.api.mui.GTGuiTextures;
 import gregtech.api.pattern.BlockPattern;
 import gregtech.api.pattern.FactoryBlockPattern;
@@ -26,13 +29,9 @@ import gregtech.api.recipes.RecipeMaps;
 import gregtech.api.recipes.properties.impl.FusionEUToStartProperty;
 import gregtech.api.util.GTUtility;
 import gregtech.api.util.KeyUtil;
-import gregtech.api.util.TextComponentUtil;
-import gregtech.api.util.TextFormattingUtil;
-import gregtech.api.util.world.DummyWorld;
 import gregtech.client.renderer.ICubeRenderer;
 import gregtech.client.renderer.texture.Textures;
 import gregtech.client.utils.TooltipHelper;
-import gregtech.common.ConfigHolder;
 import gregtech.common.blocks.BlockGlassCasing;
 import gregtech.common.blocks.MetaBlocks;
 import gregtech.common.metatileentities.multi.multiblockpart.MetaTileEntityLaserHatch;
@@ -46,19 +45,19 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.text.ITextComponent;
-import net.minecraft.util.text.TextComponentString;
-import net.minecraft.util.text.TextComponentTranslation;
 import net.minecraft.util.text.TextFormatting;
 import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.function.UnaryOperator;
 
 import static gregtech.api.GTValues.*;
-import static gregtech.api.capability.GregtechDataCodes.STRUCTURE_FORMED;
 import static keqing.gtqtcore.api.utils.GTQTUtil.getAccelerateByCWU;
+import static net.minecraft.util.text.TextFormatting.GRAY;
+import static net.minecraft.util.text.TextFormatting.GREEN;
 
 public class MetaTileEntityCompressedFusionReactor extends GTQTNoTierMultiblockController implements IOpticalComputationReceiver, ProgressBarMultiblock {
     //  Block State for CFR, for Mark 4 and Mark 5,
@@ -113,6 +112,7 @@ public class MetaTileEntityCompressedFusionReactor extends GTQTNoTierMultiblockC
     public boolean shouldDelayCheck() {
         return true;
     }
+
     @Override
     public boolean canBeDistinct() {
         return true;
@@ -465,7 +465,6 @@ public class MetaTileEntityCompressedFusionReactor extends GTQTNoTierMultiblockC
     protected void sdfsf(List<ITextComponent> textList) {
 
 
-
     }
 
     @Override
@@ -554,8 +553,10 @@ public class MetaTileEntityCompressedFusionReactor extends GTQTNoTierMultiblockC
                 tooltip.add(I18n.format("gtqtcore.machine.compressed_fusion_reactor.perfect_oc"));
             }
         }
-        tooltip.add(I18n.format("gtqtcore.multiblock.kq.laser.tooltip"));
-        tooltip.add(I18n.format("gtqtcore.multiblock.kq.acc.tooltip"));
+        tooltip.add(GREEN + I18n.format("gtqtcore.multiblock.laser_hatch.enable"));
+        tooltip.add(GRAY + I18n.format("gtqtcore.multiblock.laser_hatch.tooltip"));
+        tooltip.add(GREEN + I18n.format("gtqtcore.multiblock.compution_accelerate.enable"));
+        tooltip.add(GRAY + I18n.format("gtqtcore.multiblock.compution_accelerate.tooltip"));
     }
 
     @Override
@@ -666,6 +667,11 @@ public class MetaTileEntityCompressedFusionReactor extends GTQTNoTierMultiblockC
                 })
                 .progress(() -> capacity.getLongValue() > 0 ?
                         1.0 * heat.getLongValue() / capacity.getLongValue() : 0));
+    }
+
+    @Override
+    public boolean shouldShowBatchModeButton() {
+        return false;
     }
 
     private class CompressedFusionReactorRecipeLogic extends GTQTMultiblockLogic {

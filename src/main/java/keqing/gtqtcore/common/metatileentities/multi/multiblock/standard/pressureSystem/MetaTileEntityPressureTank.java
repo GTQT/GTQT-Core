@@ -39,18 +39,18 @@ import java.util.List;
 import static gregtech.api.util.RelativeDirection.*;
 
 public class MetaTileEntityPressureTank extends MultiblockWithDisplayBase {
-    @Override
-    public boolean usesMui2() {
-        return false;
-    }
     private final IPressureContainer pressureContainer;
-
     int tier;
 
     public MetaTileEntityPressureTank(ResourceLocation metaTileEntityId, int tier) {
         super(metaTileEntityId);
         this.tier = tier;
         pressureContainer = new PressureContainer(this, GCYSValues.decreaseDetailP[this.tier], GCYSValues.increaseDetailP[this.tier], 20 * tier);
+    }
+
+    @Override
+    public boolean usesMui2() {
+        return false;
     }
 
     @Override

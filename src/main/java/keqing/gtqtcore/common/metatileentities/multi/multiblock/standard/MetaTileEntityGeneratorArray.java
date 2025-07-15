@@ -49,6 +49,7 @@ import static gregtech.api.GTValues.V;
 public class MetaTileEntityGeneratorArray extends FuelMultiblockController implements IMachineHatchMultiblock {
     private final int tier;
     private boolean machineChanged;
+
     public MetaTileEntityGeneratorArray(ResourceLocation metaTileEntityId, int tier) {
         super(metaTileEntityId, null, tier);
         this.tier = tier;
@@ -253,8 +254,8 @@ public class MetaTileEntityGeneratorArray extends FuelMultiblockController imple
 
     @Override
     public void addInformation(ItemStack stack, World player, List<String> tooltip, boolean advanced) {
+        tooltip.add(TooltipHelper.RAINBOW_SLOW + I18n.format("你的多A动力仓在哪！"));
         super.addInformation(stack, player, tooltip, advanced);
-        tooltip.add(TooltipHelper.RAINBOW_SLOW + I18n.format("你的多A动力仓在哪！", new Object[0]));
         tooltip.add(I18n.format("gregtech.universal.tooltip.parallel", getMachineLimit()));
         tooltip.add(I18n.format("整合机器内的单方块发电机输出能量！"));
         tooltip.add(I18n.format("动力仓增加的能量为小机器等级对应的电压*小机器的数量"));

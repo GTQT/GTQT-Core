@@ -72,13 +72,13 @@ public class MetaTileEntityPrimitiveReactor extends NoEnergyMultiblockController
     @Override
     protected void formStructure(PatternMatchContext context) {
         super.formStructure(context);
-        size= structurePattern.formedRepetitionCount[1];
+        size = structurePattern.formedRepetitionCount[1];
         this.recipeMapWorkable.setParallelLimit(size);
     }
 
     @Override
     protected BlockPattern createStructurePattern() {
-        FactoryBlockPattern pattern = FactoryBlockPattern.start(RIGHT,UP,FRONT)
+        FactoryBlockPattern pattern = FactoryBlockPattern.start(RIGHT, UP, FRONT)
                 .aisle("BBB", "XYX", "XXX")
                 .aisle("BBB", "X&X", "X#X").setRepeatable(1, 8)
                 .aisle("BBB", "XXX", "XXX")
@@ -103,8 +103,8 @@ public class MetaTileEntityPrimitiveReactor extends NoEnergyMultiblockController
 
     @Override
     public void addInformation(ItemStack stack, World player, List<String> tooltip, boolean advanced) {
-        super.addInformation(stack, player, tooltip, advanced);
         tooltip.add(TooltipHelper.RAINBOW_SLOW + I18n.format("村里的大缸（远离司马光）", new Object[0]));
+        super.addInformation(stack, player, tooltip, advanced);
     }
 
     @Override

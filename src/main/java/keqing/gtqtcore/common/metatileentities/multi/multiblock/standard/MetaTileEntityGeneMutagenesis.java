@@ -33,9 +33,6 @@ import net.minecraft.block.state.IBlockState;
 import net.minecraft.client.resources.I18n;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.ResourceLocation;
-import net.minecraft.util.text.ITextComponent;
-import net.minecraft.util.text.TextComponentString;
-import net.minecraft.util.text.TextComponentTranslation;
 import net.minecraft.util.text.TextFormatting;
 import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
@@ -122,6 +119,7 @@ public class MetaTileEntityGeneMutagenesis extends MultiMapMultiblockController 
     protected ICubeRenderer getFrontOverlay() {
         return GTQTTextures.ALGAE_FARM_OVERLAY;
     }
+
     @Override
     protected void configureDisplayText(MultiblockUIBuilder builder) {
         builder.setWorkingStatus(recipeMapWorkable.isWorkingEnabled(), recipeMapWorkable.isActive())
@@ -134,58 +132,58 @@ public class MetaTileEntityGeneMutagenesis extends MultiMapMultiblockController 
                 .addRecipeOutputLine(recipeMapWorkable);
     }
 
-private void addCustomCapacity(KeyManager keyManager, UISyncer syncer) {
-    if (!isStructureFormed()) return;
+    private void addCustomCapacity(KeyManager keyManager, UISyncer syncer) {
+        if (!isStructureFormed()) return;
 
-    IRadiation radiationHatch = getRadiationHatch();
-    if (radiationHatch == null) return;
+        IRadiation radiationHatch = getRadiationHatch();
+        if (radiationHatch == null) return;
 
-    // 第一步：同步所有数值数据
-    Integer syncedTier = syncer.syncInt(radiationHatch.getTier());
-    Integer syncedRadiation = radiationHatch.isAvailable() ?
-        syncer.syncInt(radiationHatch.getRadiation()) : null;
-    String syncedMaterialName = radiationHatch.isAvailable() ?
-        syncer.syncString(radiationHatch.getMaterial().getLocalizedName()) : null;
-    String syncedWorkedTime = radiationHatch.isAvailable() ?
-        syncer.syncString(GTQTDateHelper.getTimeFromTicks(radiationHatch.getRadiation())) : null;
-    String syncedRemainingTime = radiationHatch.isAvailable() ?
-        syncer.syncString(GTQTDateHelper.getTimeFromTicks(
-            radiationHatch.getTotalTick() - radiationHatch.getWorkTime())) : null;
+        // 第一步：同步所有数值数据
+        Integer syncedTier = syncer.syncInt(radiationHatch.getTier());
+        Integer syncedRadiation = radiationHatch.isAvailable() ?
+                syncer.syncInt(radiationHatch.getRadiation()) : null;
+        String syncedMaterialName = radiationHatch.isAvailable() ?
+                syncer.syncString(radiationHatch.getMaterial().getLocalizedName()) : null;
+        String syncedWorkedTime = radiationHatch.isAvailable() ?
+                syncer.syncString(GTQTDateHelper.getTimeFromTicks(radiationHatch.getRadiation())) : null;
+        String syncedRemainingTime = radiationHatch.isAvailable() ?
+                syncer.syncString(GTQTDateHelper.getTimeFromTicks(
+                        radiationHatch.getTotalTick() - radiationHatch.getWorkTime())) : null;
 
-    // 同步玻璃相关数据
-    Integer syncedGlassTier = syncer.syncInt(glass_tier);
-    Double syncedGlassValue = syncer.syncDouble((10 - glass_tier) / 10.0);
+        // 同步玻璃相关数据
+        Integer syncedGlassTier = syncer.syncInt(glass_tier);
+        Double syncedGlassValue = syncer.syncDouble((10 - glass_tier) / 10.0);
 
-    // 第二步：添加放射仓信息
-    if (radiationHatch.isAvailable()) {
+        // 第二步：添加放射仓信息
+        if (radiationHatch.isAvailable()) {
+            keyManager.add(KeyUtil.lang(TextFormatting.GRAY,
+                    "放射仓等级：%s 辐射：%s Sv",
+                    syncedTier,
+                    syncedRadiation));
+
+            keyManager.add(KeyUtil.lang(TextFormatting.GRAY,
+                    "辐射物质: %s",
+                    syncedMaterialName));
+
+            keyManager.add(KeyUtil.lang(TextFormatting.GRAY,
+                    "已经工作: %s",
+                    syncedWorkedTime));
+
+            keyManager.add(KeyUtil.lang(TextFormatting.GRAY,
+                    "剩余时间: %s",
+                    syncedRemainingTime));
+        } else {
+            keyManager.add(KeyUtil.lang(TextFormatting.GRAY,
+                    "放射仓等级：%s",
+                    syncedTier));
+        }
+
+        // 第三步：添加玻璃信息
         keyManager.add(KeyUtil.lang(TextFormatting.GRAY,
-            "放射仓等级：%s 辐射：%s Sv",
-            syncedTier,
-            syncedRadiation));
-
-        keyManager.add(KeyUtil.lang(TextFormatting.GRAY,
-            "辐射物质: %s",
-            syncedMaterialName));
-
-        keyManager.add(KeyUtil.lang(TextFormatting.GRAY,
-            "已经工作: %s",
-            syncedWorkedTime));
-
-        keyManager.add(KeyUtil.lang(TextFormatting.GRAY,
-            "剩余时间: %s",
-            syncedRemainingTime));
-    } else {
-        keyManager.add(KeyUtil.lang(TextFormatting.GRAY,
-            "放射仓等级：%s",
-            syncedTier));
+                "玻璃等级：%s 玻璃储量：%s",
+                syncedGlassTier,
+                syncedGlassValue));
     }
-
-    // 第三步：添加玻璃信息
-    keyManager.add(KeyUtil.lang(TextFormatting.GRAY,
-        "玻璃等级：%s 玻璃储量：%s",
-        syncedGlassTier,
-        syncedGlassValue));
-}
 
 
     public IRadiation getRadiationHatch() {
@@ -206,16 +204,18 @@ private void addCustomCapacity(KeyManager keyManager, UISyncer syncer) {
 
     @Override
     public void addInformation(ItemStack stack, World player, List<String> tooltip, boolean advanced) {
+        tooltip.add(TooltipHelper.RAINBOW_SLOW + I18n.format("轰击基因与DNA"));
         super.addInformation(stack, player, tooltip, advanced);
-        tooltip.add(TooltipHelper.RAINBOW_SLOW + I18n.format("轰击基因与DNA", new Object[0]));
         tooltip.add(I18n.format("gregtech.machine.gene_mutagenesis.gtqtupdate.1"));
         tooltip.add(I18n.format("gregtech.machine.gene_mutagenesis.gtqtupdate.2"));
         tooltip.add(I18n.format("gregtech.machine.gene_mutagenesis.gtqtupdate.3"));
         tooltip.add(I18n.format("gregtech.machine.gene_mutagenesis.gtqtupdate.4"));
     }
-    public boolean checkAvailable(){
+
+    public boolean checkAvailable() {
         return getRadiationHatch().isAvailable();
     }
+
     protected class BiologicalReactionLogic extends MultiblockRecipeLogic {
 
         boolean work = false;
@@ -224,6 +224,7 @@ private void addCustomCapacity(KeyManager keyManager, UISyncer syncer) {
         public BiologicalReactionLogic(RecipeMapMultiblockController tileEntity) {
             super(tileEntity, true);
         }
+
         public int getParallelLimit() {
             IRadiation hatch = getRadiationHatch();
             return hatch != null && hatch.isAvailable() ? (int) Math.pow(2, hatch.getTier()) : 1;

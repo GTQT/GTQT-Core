@@ -63,18 +63,14 @@ import java.util.concurrent.TimeUnit;
 
 import static gregtech.api.GTValues.VA;
 import static gregtech.api.unification.material.Materials.DistilledWater;
-import static keqing.gtqtcore.GTQTCoreConfig.MachineSwitch;
 import static keqing.gtqtcore.api.predicate.TiredTraceabilityPredicate.CP_PAF_CASING;
 import static keqing.gtqtcore.api.unification.GTQTMaterials.*;
-import static keqing.gtqtcore.api.unification.GTQTMaterials.HydrogenSilsesquioxane;
-import static keqing.gtqtcore.api.unification.GTQTMaterials.SU8_Photoresist;
+import static net.minecraft.util.text.TextFormatting.GRAY;
+import static net.minecraft.util.text.TextFormatting.GREEN;
 
 public class MetaTileEntityPhotolithographyFactory extends MetaTileEntityBaseWithControl {
-    @Override
-    public boolean usesMui2() {
-        return false;
-    }
     public int[][] core = {{0, 0, 0, 0, 0}, {0, 0, 0, 0, 0}, {0, 0, 0, 0, 0}, {0, 0, 0, 0, 0}};
+    protected List<IRefreshBeforeConsumption> refreshBeforeConsumptions;
     int laserTier;
     int laserKind;
     int LaserAmount;
@@ -95,24 +91,43 @@ public class MetaTileEntityPhotolithographyFactory extends MetaTileEntityBaseWit
     FluidStack LASER5 = Zrbtmst.getFluid(1000);
     FluidStack WATER = DistilledWater.getFluid(100);
 
-    protected List<IRefreshBeforeConsumption> refreshBeforeConsumptions;
     //核心缓存： wafer等级0 wafer数量1 光刻胶等级2 耗时3
     public MetaTileEntityPhotolithographyFactory(ResourceLocation metaTileEntityId) {
         super(metaTileEntityId);
         this.refreshBeforeConsumptions = new ArrayList<>();
         resetTileAbilities();
     }
+
+    private static IBlockState getCasingState() {
+        return GTQTMetaBlocks.blockMultiblockCasing4.getState(BlockMultiblockCasing4.TurbineCasingType.NQ_TURBINE_CASING);
+    }
+
+    private static IBlockState getFrameState() {
+        return MetaBlocks.FRAMES.get(Materials.Naquadria).getBlock(Materials.Naquadria);
+    }
+
+    private static IBlockState getGlassState() {
+        return MetaBlocks.TRANSPARENT_CASING.getState(BlockGlassCasing.CasingType.FUSION_GLASS);
+    }
+
+    @Override
+    public boolean usesMui2() {
+        return false;
+    }
+
     public void refreshAllBeforeConsumption() {
         for (IRefreshBeforeConsumption refresh : refreshBeforeConsumptions) {
             refresh.refreshBeforeConsumption();
         }
     }
+
     @Override
     public void invalidateStructure() {
         super.invalidateStructure();
         resetTileAbilities();
 
     }
+
     protected void initializeAbilities() {
         List<IItemHandler> inputItems = new ArrayList<>(this.getAbilities(MultiblockAbility.IMPORT_ITEMS));
         inputItems.addAll(getAbilities(MultiblockAbility.DUAL_IMPORT));
@@ -127,7 +142,7 @@ public class MetaTileEntityPhotolithographyFactory extends MetaTileEntityBaseWit
         this.outputInventory = new ItemHandlerList(outputItems);
         List<IMultipleTankHandler> outputFluids = new ArrayList<>(getAbilities(MultiblockAbility.DUAL_EXPORT));
         outputFluids.add(new FluidTankList(false, getAbilities(MultiblockAbility.EXPORT_FLUIDS)));
-        this.outputFluidInventory = GTQTUtility.mergeTankHandlers(outputFluids, false);;
+        this.outputFluidInventory = GTQTUtility.mergeTankHandlers(outputFluids, false);
 
         List<IEnergyContainer> inputEnergy = new ArrayList<>(getAbilities(MultiblockAbility.INPUT_ENERGY));
         inputEnergy.addAll(getAbilities(MultiblockAbility.SUBSTATION_INPUT_ENERGY));
@@ -148,17 +163,6 @@ public class MetaTileEntityPhotolithographyFactory extends MetaTileEntityBaseWit
         this.outputFluidInventory = new FluidTankList(true);
         this.energyContainer = new EnergyContainerList(Lists.newArrayList());
         this.refreshBeforeConsumptions.clear();
-    }
-    private static IBlockState getCasingState() {
-        return GTQTMetaBlocks.blockMultiblockCasing4.getState(BlockMultiblockCasing4.TurbineCasingType.NQ_TURBINE_CASING);
-    }
-
-    private static IBlockState getFrameState() {
-        return MetaBlocks.FRAMES.get(Materials.Naquadria).getBlock(Materials.Naquadria);
-    }
-
-    private static IBlockState getGlassState() {
-        return MetaBlocks.TRANSPARENT_CASING.getState(BlockGlassCasing.CasingType.FUSION_GLASS);
     }
 
     public NBTTagCompound writeToNBT(NBTTagCompound data) {
@@ -669,8 +673,8 @@ public class MetaTileEntityPhotolithographyFactory extends MetaTileEntityBaseWit
     }
 
     public void addInformation(ItemStack stack, World player, List<String> tooltip, boolean advanced) {
+        tooltip.add(TooltipHelper.RAINBOW_SLOW + I18n.format("gtqtcore.pf.tooltip.1"));
         super.addInformation(stack, player, tooltip, advanced);
-        tooltip.add(TooltipHelper.RAINBOW_SLOW + I18n.format("gtqtcore.pf.tooltip.1", new Object[0]));
         tooltip.add(TooltipHelper.BLINKING_CYAN + I18n.format("gtqtcore.pf.tooltip.2", 4));
         tooltip.add(I18n.format("gtqtcore.pf.tooltip.3"));
         tooltip.add(I18n.format("gtqtcore.pf.tooltip.4"));
@@ -678,7 +682,8 @@ public class MetaTileEntityPhotolithographyFactory extends MetaTileEntityBaseWit
         tooltip.add(I18n.format("gtqtcore.pf.tooltip.6"));
         tooltip.add(I18n.format("gtqtcore.pf.tooltip.7"));
         tooltip.add(I18n.format("gtqtcore.pf.tooltip.8"));
-        tooltip.add(I18n.format("gtqtcore.multiblock.kq.laser.tooltip"));
+        tooltip.add(GREEN + I18n.format("gtqtcore.multiblock.laser_hatch.enable"));
+        tooltip.add(GRAY + I18n.format("gtqtcore.multiblock.laser_hatch.tooltip"));
         tooltip.add(I18n.format("如宇宙间最精密的织梦者，以光年丈量着世界的边界，悄然模糊科技与艺术的边界。"));
         tooltip.add(I18n.format("如星辰运转于浩瀚银河之中，光线织工在超高速微电路上起舞绘制出纳米级的电路蓝图。"));
         tooltip.add(I18n.format("如同晨曦中露珠滑过蜘蛛网的细腻，每一滴都承载着光的意志，编织着电子世界的经纬。"));

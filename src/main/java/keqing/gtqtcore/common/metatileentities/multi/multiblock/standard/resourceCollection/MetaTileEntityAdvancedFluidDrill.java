@@ -15,12 +15,13 @@ import gregtech.api.capability.IWorkable;
 import gregtech.api.capability.impl.EnergyContainerList;
 import gregtech.api.capability.impl.FluidDrillLogic;
 import gregtech.api.capability.impl.FluidTankList;
-import gregtech.api.gui.GuiTextures;
-import gregtech.api.gui.resources.TextureArea;
 import gregtech.api.metatileentity.ITieredMetaTileEntity;
 import gregtech.api.metatileentity.MetaTileEntity;
 import gregtech.api.metatileentity.interfaces.IGregTechTileEntity;
-import gregtech.api.metatileentity.multiblock.*;
+import gregtech.api.metatileentity.multiblock.IMultiblockPart;
+import gregtech.api.metatileentity.multiblock.MultiblockAbility;
+import gregtech.api.metatileentity.multiblock.MultiblockWithDisplayBase;
+import gregtech.api.metatileentity.multiblock.ProgressBarMultiblock;
 import gregtech.api.metatileentity.multiblock.ui.MultiblockUIBuilder;
 import gregtech.api.metatileentity.multiblock.ui.TemplateBarBuilder;
 import gregtech.api.mui.GTGuiTextures;
@@ -29,7 +30,10 @@ import gregtech.api.pattern.FactoryBlockPattern;
 import gregtech.api.pattern.PatternMatchContext;
 import gregtech.api.pattern.TraceabilityPredicate;
 import gregtech.api.unification.material.Materials;
-import gregtech.api.util.*;
+import gregtech.api.util.GTTransferUtils;
+import gregtech.api.util.GTUtility;
+import gregtech.api.util.KeyUtil;
+import gregtech.api.util.TextFormattingUtil;
 import gregtech.api.worldgen.bedrockFluids.BedrockFluidVeinHandler;
 import gregtech.client.renderer.ICubeRenderer;
 import gregtech.client.renderer.texture.Textures;
@@ -45,7 +49,6 @@ import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.network.PacketBuffer;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.ResourceLocation;
-import net.minecraft.util.text.ITextComponent;
 import net.minecraft.util.text.TextFormatting;
 import net.minecraft.world.World;
 import net.minecraftforge.common.capabilities.Capability;
@@ -53,7 +56,6 @@ import net.minecraftforge.fluids.Fluid;
 import net.minecraftforge.fluids.FluidStack;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
-
 
 import javax.annotation.Nonnull;
 import java.util.Collections;
@@ -73,6 +75,21 @@ public class MetaTileEntityAdvancedFluidDrill extends MultiblockWithDisplayBase 
     public MetaTileEntityAdvancedFluidDrill(ResourceLocation metaTileEntityId, int tier) {
         super(metaTileEntityId);
         this.tier = tier;
+    }
+
+    private static @Nonnull String getDepletionLang(IntSyncValue operationsValue) {
+        int percent = (int) Math.round(100.0 * operationsValue.getIntValue() /
+                BedrockFluidVeinHandler.MAXIMUM_VEIN_OPERATIONS);
+        if (percent > 40) {
+            return TextFormatting.GREEN + IKey
+                    .lang("gregtech.multiblock.fluid_rig.vein_depletion.high", percent).get();
+        } else if (percent > 10) {
+            return TextFormatting.YELLOW + IKey
+                    .lang("gregtech.multiblock.fluid_rig.vein_depletion.medium", percent).get();
+        } else {
+            return TextFormatting.RED + IKey
+                    .lang("gregtech.multiblock.fluid_rig.vein_depletion.low", percent).get();
+        }
     }
 
     @Override
@@ -406,20 +423,5 @@ public class MetaTileEntityAdvancedFluidDrill extends MultiblockWithDisplayBase 
 
                     t.addLine(KeyUtil.string(() -> getDepletionLang(operationsValue)));
                 }));
-    }
-
-    private static @Nonnull String getDepletionLang(IntSyncValue operationsValue) {
-        int percent = (int) Math.round(100.0 * operationsValue.getIntValue() /
-                BedrockFluidVeinHandler.MAXIMUM_VEIN_OPERATIONS);
-        if (percent > 40) {
-            return TextFormatting.GREEN + IKey
-                    .lang("gregtech.multiblock.fluid_rig.vein_depletion.high", percent).get();
-        } else if (percent > 10) {
-            return TextFormatting.YELLOW + IKey
-                    .lang("gregtech.multiblock.fluid_rig.vein_depletion.medium", percent).get();
-        } else {
-            return TextFormatting.RED + IKey
-                    .lang("gregtech.multiblock.fluid_rig.vein_depletion.low", percent).get();
-        }
     }
 }

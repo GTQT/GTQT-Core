@@ -3,7 +3,6 @@ package keqing.gtqtcore.api.metatileentity.multiblock;
 import codechicken.lib.render.CCRenderState;
 import codechicken.lib.render.pipeline.IVertexOperation;
 import codechicken.lib.vec.Matrix4;
-import gregtech.api.capability.IBatch;
 import gregtech.api.capability.IControllable;
 import gregtech.api.capability.IDistinctBusController;
 import gregtech.api.capability.IMultipleTankHandler;
@@ -26,6 +25,8 @@ import gregtech.common.ConfigHolder;
 import gtqt.api.util.GTQTUtility;
 import keqing.gtqtcore.api.capability.impl.BaseHeatRecipeLogic;
 import keqing.gtqtcore.api.recipes.properties.HeatProperty;
+import net.minecraft.client.resources.I18n;
+import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.network.PacketBuffer;
 import net.minecraft.util.ResourceLocation;
@@ -34,6 +35,7 @@ import net.minecraft.util.text.ITextComponent;
 import net.minecraft.util.text.Style;
 import net.minecraft.util.text.TextComponentTranslation;
 import net.minecraft.util.text.TextFormatting;
+import net.minecraft.world.World;
 import net.minecraftforge.items.IItemHandler;
 import net.minecraftforge.items.IItemHandlerModifiable;
 
@@ -43,7 +45,7 @@ import java.util.List;
 
 import static gregtech.api.GTValues.V;
 
-public abstract class RecipeMapHeatMultiblockController extends MultiblockWithDisplayBase implements IDataInfoProvider, IDistinctBusController, IControllable{
+public abstract class RecipeMapHeatMultiblockController extends MultiblockWithDisplayBase implements IDataInfoProvider, IDistinctBusController, IControllable {
 
     public final RecipeMap<?> recipeMap;
     public int recipeHeat;
@@ -206,7 +208,7 @@ public abstract class RecipeMapHeatMultiblockController extends MultiblockWithDi
         builder.setWorkingStatus(recipeMapWorkable.isWorkingEnabled(), recipeMapWorkable.isActive())
                 .addEnergyTierLine(GTUtility.getTierByVoltage(recipeMapWorkable.getMaxVoltage()))
                 .addCustom((textList, syncer) -> {
-                    textList.add(KeyUtil.lang( "热源温度:%s", syncer.syncInt(heat)));
+                    textList.add(KeyUtil.lang("热源温度:%s", syncer.syncInt(heat)));
                 })
                 .addParallelsLine(recipeMapWorkable.getParallelLimit())
                 .addWorkingStatusLine()
@@ -272,6 +274,15 @@ public abstract class RecipeMapHeatMultiblockController extends MultiblockWithDi
         }
 
         return list;
+    }
+
+    @Override
+    public void addInformation(ItemStack stack, World player, List<String> tooltip, boolean advanced) {
+        super.addInformation(stack, player, tooltip, advanced);
+        tooltip.add(TextFormatting.GREEN + I18n.format("-热学设备："));
+        tooltip.add(TextFormatting.GRAY + I18n.format("使用热源仓接收能量，而非能源仓"));
+        tooltip.add(TextFormatting.GRAY + I18n.format("关于热源仓使用详情查询热源仓本身的Tooltips"));
+        tooltip.add(TextFormatting.GRAY + I18n.format("热学能源如同电学能源一样拥有超频逻辑，更高的温度会带来更快的加工速度"));
     }
 
     @Override

@@ -38,7 +38,6 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 import java.util.Collections;
 import java.util.List;
 
-import static keqing.gtqtcore.GTQTCoreConfig.MachineSwitch;
 import static keqing.gtqtcore.common.block.blocks.BlockMultiblockGlass.CasingType.ANTIMATTER_CONTAINMENT_CASING;
 
 public class MetaTileEntityAntimatterForge extends RecipeMapLaserMultiblockController implements IFastRenderMetaTileEntity {
@@ -177,7 +176,7 @@ public class MetaTileEntityAntimatterForge extends RecipeMapLaserMultiblockContr
                         .or(abilities(GTQTMultiblockAbility.LASER_INPUT))
                 )
                 .where('I', states(getBlackCasingState())
-                        .or(autoAbilities(false,false,true,true,true,true,false))
+                        .or(autoAbilities(false, false, true, true, true, true, false))
                 )
                 .build();
     }

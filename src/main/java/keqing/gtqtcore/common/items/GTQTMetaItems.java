@@ -3,7 +3,6 @@ package keqing.gtqtcore.common.items;
 import gregtech.api.items.armor.ArmorMetaItem;
 import gregtech.api.items.metaitem.MetaItem;
 import keqing.gtqtcore.common.items.armors.GTQTMetaArmor;
-import net.minecraft.item.EnumDyeColor;
 
 import java.util.List;
 
@@ -395,15 +394,12 @@ public class GTQTMetaItems {
     public static MetaItem<?>.MetaValueItem DEBUG_WIRE_TRANS;
     public static MetaItem<?>.MetaValueItem AE_SILICON;
     public static MetaItem<?>.MetaValueItem AE_WAFER;
-    public static MetaItem<?>.MetaValueItem AE_RETICLEA;
-    public static MetaItem<?>.MetaValueItem AE_RETICLEB;
-    public static MetaItem<?>.MetaValueItem AE_RETICLEC;
-    public static MetaItem<?>.MetaValueItem AE_WAFERA;
-    public static MetaItem<?>.MetaValueItem AE_WAFERB;
-    public static MetaItem<?>.MetaValueItem AE_WAFERC;
-    public static MetaItem<?>.MetaValueItem AE_A;
-    public static MetaItem<?>.MetaValueItem AE_B;
-    public static MetaItem<?>.MetaValueItem AE_C;
+    public static MetaItem<?>.MetaValueItem AE_WAFER_LOGIC;
+    public static MetaItem<?>.MetaValueItem AE_WAFER_CALCULATION;
+    public static MetaItem<?>.MetaValueItem AE_WAFER_ENGINEERING;
+    public static MetaItem<?>.MetaValueItem AE_LOGIC_CHIP;
+    public static MetaItem<?>.MetaValueItem AE_CALCULATION_CHIP;
+    public static MetaItem<?>.MetaValueItem AE_ENGINEERING_CHIP;
     public static MetaItem<?>.MetaValueItem HEAT_SHIELD_MKI;
     public static MetaItem<?>.MetaValueItem HEAT_SHIELD_MKII;
     public static MetaItem<?>.MetaValueItem HEAT_SHIELD_MKIII;

@@ -103,7 +103,6 @@ public class AdvancedFluidDrillLogic {
     }
 
     /**
-     *
      * @return the current progress towards producing fluid of the rig
      */
     public int getProgressTime() {
@@ -169,6 +168,13 @@ public class AdvancedFluidDrillLogic {
         return Math.floorDiv(this.metaTileEntity.getPos().getZ(), 16);
     }
 
+    /**
+     * @return whether working is enabled for the logic
+     */
+    public boolean isWorkingEnabled() {
+        return isWorkingEnabled;
+    }
+
     public void setWorkingEnabled(boolean isWorkingEnabled) {
         if (this.isWorkingEnabled != isWorkingEnabled) {
             this.isWorkingEnabled = isWorkingEnabled;
@@ -180,13 +186,6 @@ public class AdvancedFluidDrillLogic {
             }
         }
 
-    }
-    /**
-     *
-     * @return whether working is enabled for the logic
-     */
-    public boolean isWorkingEnabled() {
-        return isWorkingEnabled;
     }
 
     public boolean isWorking() {
@@ -202,7 +201,6 @@ public class AdvancedFluidDrillLogic {
     }
 
     /**
-     *
      * @return whether the inventory is full
      */
     public boolean isInventoryFull() {

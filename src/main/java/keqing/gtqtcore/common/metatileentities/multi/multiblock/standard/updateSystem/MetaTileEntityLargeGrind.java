@@ -23,13 +23,9 @@ import keqing.gtqtcore.client.textures.GTQTTextures;
 import net.minecraft.network.PacketBuffer;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.SoundEvent;
-import net.minecraft.util.text.ITextComponent;
-import net.minecraft.util.text.TextComponentTranslation;
 import net.minecraft.util.text.TextFormatting;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
-
-import java.util.List;
 
 public class MetaTileEntityLargeGrind extends GTQTRecipeMapMultiblockController {
     private int casingTier;
@@ -88,6 +84,7 @@ public class MetaTileEntityLargeGrind extends GTQTRecipeMapMultiblockController 
             keyManager.add(KeyUtil.lang(TextFormatting.GRAY, "gtqtcore.equal", syncedCasing, syncedTube));
         }
     }
+
     @Override
     public ICubeRenderer getBaseTexture(IMultiblockPart iMultiblockPart) {
         switch (this.casingTier) {

@@ -14,7 +14,6 @@ import gregtech.loaders.recipe.CraftingComponent;
 import keqing.gtqtcore.GTQTCore;
 import keqing.gtqtcore.GTQTCoreConfig;
 import keqing.gtqtcore.api.recipes.GTQTcoreRecipeMaps;
-import keqing.gtqtcore.api.recipes.properties.EnzymesReactionProperty;
 import keqing.gtqtcore.api.recipes.properties.NeutronActivatorIOPartProperty;
 import keqing.gtqtcore.api.recipes.properties.PCBFactoryBioUpgradeProperty;
 import keqing.gtqtcore.api.recipes.properties.SwarmTierProperty;
@@ -31,9 +30,7 @@ import keqing.gtqtcore.common.pipelike.pressure.BlockPressurePipe;
 import keqing.gtqtcore.common.pipelike.pressure.ItemBlockPressurePipe;
 import keqing.gtqtcore.common.pipelike.pressure.tile.TileEntityPressurePipe;
 import keqing.gtqtcore.loaders.AddHighTierMaterial;
-import keqing.gtqtcore.loaders.OreDictionaryLoader;
 import keqing.gtqtcore.loaders.recipes.*;
-import keqing.gtqtcore.loaders.recipes.component.ComponentAssemblerRecipes;
 import keqing.gtqtcore.loaders.recipes.component.MaterialComponents;
 import keqing.gtqtcore.loaders.recipes.handlers.*;
 import keqing.gtqtcore.loaders.tweak.tweakRecipesManager;
@@ -92,7 +89,7 @@ public class CommonProxy {
     public static final CreativeTabs GTQTCore_NE = new CreativeTabs("gtqtae") {
         @Override
         public ItemStack createIcon() {
-            return GTQTMetaItems.AE_C.getStackForm();
+            return GTQTMetaItems.AE_ENGINEERING_CHIP.getStackForm();
         }
     };
     public static final CreativeTabs GTQTCore_CH = new CreativeTabs("gtqtch") {

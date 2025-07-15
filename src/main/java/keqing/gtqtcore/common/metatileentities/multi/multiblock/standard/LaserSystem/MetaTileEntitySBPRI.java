@@ -350,6 +350,9 @@ public class MetaTileEntitySBPRI extends MetaTileEntityBaseWithControl {
     public void addInformation(ItemStack stack, World world, List<String> tooltip,
                                boolean advanced) {
         super.addInformation(stack, world, tooltip, advanced);
+        tooltip.add(TextFormatting.GREEN + I18n.format("-天基棱镜系统："));
+        tooltip.add(TextFormatting.GRAY + I18n.format("本多方块隶属于天基棱镜系统，无其他用途"));
+        tooltip.add(TextFormatting.GRAY + I18n.format("通过天基棱镜网络可将超高能激光投送至世界各地"));
         tooltip.add(I18n.format("使用 坐标绑定卡 绑定即可链接至棱镜网络"));
         tooltip.add(I18n.format("最多安装六个IO设备"));
     }

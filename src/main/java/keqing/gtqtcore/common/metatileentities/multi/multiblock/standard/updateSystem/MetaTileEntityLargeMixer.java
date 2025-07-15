@@ -26,11 +26,7 @@ import net.minecraft.block.state.IBlockState;
 import net.minecraft.network.PacketBuffer;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.SoundEvent;
-import net.minecraft.util.text.ITextComponent;
-import net.minecraft.util.text.TextComponentTranslation;
 import net.minecraft.util.text.TextFormatting;
-
-import java.util.List;
 
 public class MetaTileEntityLargeMixer extends GTQTRecipeMapMultiblockController {
     private int casingTier;
@@ -90,6 +86,7 @@ public class MetaTileEntityLargeMixer extends GTQTRecipeMapMultiblockController 
             keyManager.add(KeyUtil.lang(TextFormatting.GRAY, "gtqtcore.equal", syncedCasing, syncedTube));
         }
     }
+
     @Override
     public ICubeRenderer getBaseTexture(IMultiblockPart iMultiblockPart) {
         switch (this.casingTier) {

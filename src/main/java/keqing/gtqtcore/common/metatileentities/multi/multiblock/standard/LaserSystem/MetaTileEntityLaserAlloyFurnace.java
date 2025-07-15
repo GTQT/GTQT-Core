@@ -10,7 +10,6 @@ import gregtech.api.metatileentity.MetaTileEntity;
 import gregtech.api.metatileentity.interfaces.IGregTechTileEntity;
 import gregtech.api.metatileentity.multiblock.IMultiblockPart;
 import gregtech.api.metatileentity.multiblock.MultiblockAbility;
-import gregtech.api.metatileentity.multiblock.MultiblockDisplayText;
 import gregtech.api.pattern.BlockPattern;
 import gregtech.api.pattern.FactoryBlockPattern;
 import gregtech.api.pattern.MultiblockShapeInfo;
@@ -18,7 +17,6 @@ import gregtech.api.pattern.PatternMatchContext;
 import gregtech.api.recipes.Recipe;
 import gregtech.api.recipes.properties.impl.TemperatureProperty;
 import gregtech.api.util.GTUtility;
-import gregtech.api.util.TextComponentUtil;
 import gregtech.api.util.TextFormattingUtil;
 import gregtech.client.renderer.ICubeRenderer;
 import gregtech.client.renderer.texture.Textures;
@@ -194,8 +192,8 @@ public class MetaTileEntityLaserAlloyFurnace extends RecipeMapLaserMultiblockCon
     @Override
     public void addInformation(ItemStack stack, World world, List<String> tooltip,
                                boolean advanced) {
-        super.addInformation(stack, world, tooltip, advanced);
         tooltip.add(TooltipHelper.RAINBOW_SLOW + I18n.format("合金学奇迹", new Object[0]));
+        super.addInformation(stack, world, tooltip, advanced);
         tooltip.add(I18n.format("使用高能激光直接轰击高精粉，将其迅速熔炼为合金液滴。"));
         tooltip.add(I18n.format("相比传统线圈加热方式，此方法无需漫长的等待时间。"));
         tooltip.add(I18n.format("激光熔炼可以在较短时间内冷却至加工需求，大大减少耗时和成本。"));

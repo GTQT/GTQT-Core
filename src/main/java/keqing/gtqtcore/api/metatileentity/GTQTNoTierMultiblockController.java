@@ -142,6 +142,9 @@ public abstract class GTQTNoTierMultiblockController extends MultiMapMultiblockC
     @Override
     public void addInformation(ItemStack stack, World player, List<String> tooltip, boolean advanced) {
         super.addInformation(stack, player, tooltip, advanced);
+        tooltip.add(TextFormatting.GREEN + I18n.format("-可升级多方块："));
+        tooltip.add(TextFormatting.GRAY + I18n.format("依赖特定部件结构升级可为多方块带来性能提升，详见tooltips"));
+        tooltip.add(TextFormatting.GRAY + I18n.format("可在机器配置页面调整详细参数,例如可调并行，自持等"));
         if (Overclocking == 4) tooltip.add(TooltipHelper.RAINBOW_SLOW + I18n.format("gregtech.machine.perfect_oc"));
         tooltip.add(I18n.format("gregtech.machine.gtqt.oc", Overclocking));
         tooltip.add(I18n.format("gregtech.machine.gtqt.update.1"));
@@ -200,7 +203,7 @@ public abstract class GTQTNoTierMultiblockController extends MultiMapMultiblockC
 
     //留给外部自定义
     public void addCustomData(KeyManager keyManager, UISyncer syncer) {
-        keyManager.add(KeyUtil.lang(TextFormatting.GRAY ,"gui.time_reduction", syncer.syncDouble(timeReduce)));
+        keyManager.add(KeyUtil.lang(TextFormatting.GRAY, "gui.time_reduction", syncer.syncDouble(timeReduce)));
     }
 
     //新UI
@@ -504,6 +507,11 @@ public abstract class GTQTNoTierMultiblockController extends MultiMapMultiblockC
         else return customParallel + "/" + getMaxParallel();
     }
 
+    @Override
+    public boolean shouldShowBatchModeButton() {
+        return true;
+    }
+
     protected class GTQTMultiblockLogic extends MultiblockRecipeLogic {
         public GTQTMultiblockLogic(RecipeMapMultiblockController tileEntity) {
             super(tileEntity, true);
@@ -553,6 +561,5 @@ public abstract class GTQTNoTierMultiblockController extends MultiMapMultiblockC
             super.setMaxProgress((int) (maxProgress * timeReduce));
         }
     }
-
 
 }

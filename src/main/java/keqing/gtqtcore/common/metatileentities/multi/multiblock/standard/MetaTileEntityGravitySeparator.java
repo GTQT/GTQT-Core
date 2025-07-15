@@ -1,20 +1,16 @@
 package keqing.gtqtcore.common.metatileentities.multi.multiblock.standard;
 
 import com.cleanroommc.modularui.api.drawable.IKey;
-import com.cleanroommc.modularui.value.sync.DoubleSyncValue;
 import com.cleanroommc.modularui.value.sync.IntSyncValue;
 import com.cleanroommc.modularui.value.sync.PanelSyncManager;
 import gregtech.api.capability.IMultipleTankHandler;
 import gregtech.api.capability.impl.MultiblockRecipeLogic;
-import gregtech.api.gui.GuiTextures;
-import gregtech.api.gui.Widget;
-import gregtech.api.gui.resources.TextureArea;
-import gregtech.api.gui.widgets.ClickButtonWidget;
-import gregtech.api.gui.widgets.ImageCycleButtonWidget;
-import gregtech.api.gui.widgets.WidgetGroup;
 import gregtech.api.metatileentity.MetaTileEntity;
 import gregtech.api.metatileentity.interfaces.IGregTechTileEntity;
-import gregtech.api.metatileentity.multiblock.*;
+import gregtech.api.metatileentity.multiblock.IMultiblockPart;
+import gregtech.api.metatileentity.multiblock.MultiMapMultiblockController;
+import gregtech.api.metatileentity.multiblock.ProgressBarMultiblock;
+import gregtech.api.metatileentity.multiblock.RecipeMapMultiblockController;
 import gregtech.api.metatileentity.multiblock.ui.KeyManager;
 import gregtech.api.metatileentity.multiblock.ui.MultiblockUIBuilder;
 import gregtech.api.metatileentity.multiblock.ui.TemplateBarBuilder;
@@ -25,7 +21,9 @@ import gregtech.api.pattern.FactoryBlockPattern;
 import gregtech.api.pattern.TraceabilityPredicate;
 import gregtech.api.recipes.RecipeMap;
 import gregtech.api.unification.material.Materials;
-import gregtech.api.util.*;
+import gregtech.api.util.GTUtility;
+import gregtech.api.util.KeyUtil;
+import gregtech.api.util.TextFormattingUtil;
 import gregtech.client.renderer.ICubeRenderer;
 import gregtech.client.renderer.texture.Textures;
 import gregtech.client.utils.TooltipHelper;
@@ -38,9 +36,6 @@ import net.minecraft.client.resources.I18n;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.ResourceLocation;
-import net.minecraft.util.math.MathHelper;
-import net.minecraft.util.text.ITextComponent;
-import net.minecraft.util.text.TextComponentTranslation;
 import net.minecraft.util.text.TextFormatting;
 import net.minecraft.world.World;
 import net.minecraftforge.fluids.FluidStack;
@@ -58,6 +53,7 @@ public class MetaTileEntityGravitySeparator extends MultiMapMultiblockController
 
     int[] steam = new int[3];
     FluidStack STEAM = Steam.getFluid(1000);
+
     public MetaTileEntityGravitySeparator(ResourceLocation metaTileEntityId) {
         super(metaTileEntityId, new RecipeMap[]{
                 GRAVITY_SEPARATOR_RECIPES,
@@ -94,13 +90,14 @@ public class MetaTileEntityGravitySeparator extends MultiMapMultiblockController
             keyManager.add(KeyUtil.lang(TextFormatting.GREEN, "gtqtcore.gc.count1", syncer.syncString(TextFormattingUtil.formatNumbers(SteamAmount))));
         }
 
-        keyManager.add(KeyUtil.lang(TextFormatting.GREEN, "gtqtcore.msf.count2",syncer.syncDouble(steam[0] / 1000.0), syncer.syncDouble(steam[1] / 1000.0), syncer.syncDouble(steam[2] / 1000.0)));
+        keyManager.add(KeyUtil.lang(TextFormatting.GREEN, "gtqtcore.msf.count2", syncer.syncDouble(steam[0] / 1000.0), syncer.syncDouble(steam[1] / 1000.0), syncer.syncDouble(steam[2] / 1000.0)));
         if (getStatue()) keyManager.add(KeyUtil.lang(TextFormatting.GREEN,
                 "gtqtcore.msf.good"));
         else keyManager.add(KeyUtil.lang(TextFormatting.YELLOW,
                 "gtqtcore.msf.no"));
 
     }
+
     @Override
     public void update() {
         super.update();
@@ -163,25 +160,25 @@ public class MetaTileEntityGravitySeparator extends MultiMapMultiblockController
 
     @Override
     public void registerBars(List<UnaryOperator<TemplateBarBuilder>> bars, PanelSyncManager syncManager) {
-        for(int i=0;i<3;i++)
-        {
-            IntSyncValue hatch = new IntSyncValue(()->steam[0]);
-            syncManager.syncValue("hatch"+i, hatch);
+        for (int i = 0; i < 3; i++) {
+            IntSyncValue hatch = new IntSyncValue(() -> steam[0]);
+            syncManager.syncValue("hatch" + i, hatch);
 
             bars.add(barTest -> barTest
                     .texture(GTGuiTextures.PROGRESS_BAR_FUSION_HEAT)
                     .tooltipBuilder(tooltip -> {
                         IKey heatInfo = KeyUtil.string(TextFormatting.AQUA,
                                 "%s / %s  kPa",
-                                hatch.getIntValue()+100, 10000);
+                                hatch.getIntValue() + 100, 10000);
                         tooltip.add(KeyUtil.lang(
                                 "仓室压力",
                                 heatInfo));
                     })
                     .progress(() -> hatch.getIntValue() > 0 ?
-                            (double) (hatch.getIntValue() + 1000) /10000 : 0));
+                            (double) (hatch.getIntValue() + 1000) / 10000 : 0));
         }
     }
+
     public MetaTileEntity createMetaTileEntity(IGregTechTileEntity tileEntity) {
         return new MetaTileEntityGravitySeparator(this.metaTileEntityId);
     }
@@ -220,8 +217,8 @@ public class MetaTileEntityGravitySeparator extends MultiMapMultiblockController
 
     @Override
     public void addInformation(ItemStack stack, World player, List<String> tooltip, boolean advanced) {
+        tooltip.add(TooltipHelper.RAINBOW_SLOW + I18n.format("摇臂筛选机"));
         super.addInformation(stack, player, tooltip, advanced);
-        tooltip.add(TooltipHelper.RAINBOW_SLOW + I18n.format("摇臂筛选机", new Object[0]));
         tooltip.add(I18n.format("gregtech.machine.gc.tooltip.4"));
         tooltip.add(I18n.format("gregtech.machine.msf.tooltip.4"));
     }

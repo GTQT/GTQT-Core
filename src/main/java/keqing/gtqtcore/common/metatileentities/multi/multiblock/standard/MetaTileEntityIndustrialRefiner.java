@@ -67,7 +67,7 @@ public class MetaTileEntityIndustrialRefiner extends GTQTNoTierMultiblockControl
 
     @Override
     public void addInformation(ItemStack stack, World player, List<String> tooltip, boolean advanced) {
-        tooltip.add(TooltipHelper.RAINBOW_SLOW + I18n.format("粉碎再粉碎", new Object[0]));
+        tooltip.add(TooltipHelper.RAINBOW_SLOW + I18n.format("粉碎再粉碎"));
         super.addInformation(stack, player, tooltip, advanced);
     }
 

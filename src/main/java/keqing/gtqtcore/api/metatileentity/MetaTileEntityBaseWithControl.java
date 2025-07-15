@@ -34,10 +34,6 @@ import java.util.List;
 
 //万物基类
 public abstract class MetaTileEntityBaseWithControl extends MultiblockWithDisplayBase implements IControllable, IDataInfoProvider, IWorkable {
-    @Override
-    public boolean usesMui2() {
-        return false;
-    }
     protected IItemHandlerModifiable inputInventory;
     protected IItemHandlerModifiable outputInventory;
     protected IMultipleTankHandler inputFluidInventory;
@@ -48,9 +44,13 @@ public abstract class MetaTileEntityBaseWithControl extends MultiblockWithDispla
     private boolean isWorkingEnabled = true;
     private int process;
     private int maxProcess;
-
     public MetaTileEntityBaseWithControl(ResourceLocation metaTileEntityId) {
         super(metaTileEntityId);
+    }
+
+    @Override
+    public boolean usesMui2() {
+        return false;
     }
 
     public IEnergyContainer getEnergyContainer() {

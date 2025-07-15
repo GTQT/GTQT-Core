@@ -37,8 +37,6 @@ import net.minecraft.init.Blocks;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.ResourceLocation;
-import net.minecraft.util.text.ITextComponent;
-import net.minecraft.util.text.TextComponentTranslation;
 import net.minecraft.util.text.TextFormatting;
 import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
@@ -54,6 +52,7 @@ public class MetaTileEntityVacuumDryingFurnace extends GTQTNoTierMultiblockContr
 
     int tier;
     private int temperature;
+
     public MetaTileEntityVacuumDryingFurnace(ResourceLocation metaTileEntityId) {
         super(metaTileEntityId, new RecipeMap[]{
                 GTQTcoreRecipeMaps.DRYER_RECIPES,
@@ -80,8 +79,9 @@ public class MetaTileEntityVacuumDryingFurnace extends GTQTNoTierMultiblockContr
     public void addCustomData(KeyManager keyManager, UISyncer syncer) {
         super.addCustomData(keyManager, syncer);
         if (isStructureFormed())
-            keyManager.add(KeyUtil.lang(TextFormatting.GRAY ,"Temperature : %s", syncer.syncString(TextFormatting.RED + TextFormattingUtil.formatNumbers(temperature) + "K")));
+            keyManager.add(KeyUtil.lang(TextFormatting.GRAY, "Temperature : %s", syncer.syncString(TextFormatting.RED + TextFormattingUtil.formatNumbers(temperature) + "K")));
     }
+
     @Override
     protected void formStructure(PatternMatchContext context) {
         super.formStructure(context);
@@ -131,7 +131,7 @@ public class MetaTileEntityVacuumDryingFurnace extends GTQTNoTierMultiblockContr
 
     @Override
     public void addInformation(ItemStack stack, @Nullable World player, List<String> tooltip, boolean advanced) {
-        tooltip.add(TooltipHelper.RAINBOW_SLOW + I18n.format("顶级桑拿", new Object[0]));
+        tooltip.add(TooltipHelper.RAINBOW_SLOW + I18n.format("顶级桑拿"));
         super.addInformation(stack, player, tooltip, advanced);
     }
 

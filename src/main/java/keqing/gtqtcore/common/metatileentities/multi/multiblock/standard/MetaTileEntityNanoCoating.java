@@ -33,8 +33,6 @@ import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.network.PacketBuffer;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.SoundEvent;
-import net.minecraft.util.text.ITextComponent;
-import net.minecraft.util.text.TextComponentTranslation;
 import net.minecraft.util.text.TextFormatting;
 import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
@@ -120,11 +118,12 @@ public class MetaTileEntityNanoCoating extends GTQTOCMultiblockController implem
     @Override
     public void addCustomData(KeyManager keyManager, UISyncer syncer) {
         super.addCustomData(keyManager, syncer);
-        if (isStructureFormed()){
-            keyManager.add(KeyUtil.lang(TextFormatting.GRAY ,"gtqtcore.eleTire2", syncer.syncInt(tier), syncer.syncInt(glass_tier), syncer.syncInt(laser_tier)));
-            keyManager.add(KeyUtil.lang(TextFormatting.GRAY ,"gtqtcore.eleTire4", syncer.syncInt(clean_tier), syncer.syncInt(radio_tier)));
+        if (isStructureFormed()) {
+            keyManager.add(KeyUtil.lang(TextFormatting.GRAY, "gtqtcore.eleTire2", syncer.syncInt(tier), syncer.syncInt(glass_tier), syncer.syncInt(laser_tier)));
+            keyManager.add(KeyUtil.lang(TextFormatting.GRAY, "gtqtcore.eleTire4", syncer.syncInt(clean_tier), syncer.syncInt(radio_tier)));
         }
     }
+
     @Override
     protected BlockPattern createStructurePattern() {
         return FactoryBlockPattern.start()

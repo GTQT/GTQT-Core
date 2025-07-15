@@ -39,10 +39,6 @@ import static keqing.gtqtcore.common.block.blocks.BlockQuantumCasing.CasingType.
 import static keqing.gtqtcore.common.metatileentities.GTQTMetaTileEntities.SUPRACHRONAL_NEUTRONIUM_FORGE;
 
 public class MetaTileEntitySuprachronalNeutroniumForge extends MultiMapMultiblockController {
-    @Override
-    public boolean usesMui2() {
-        return false;
-    }
     private int casingTier;
 
     public MetaTileEntitySuprachronalNeutroniumForge(ResourceLocation metaTileEntityId) {
@@ -64,6 +60,11 @@ public class MetaTileEntitySuprachronalNeutroniumForge extends MultiMapMultibloc
 
     private static IBlockState getFourthCasingState() {
         return MetaBlocks.COMPUTER_CASING.getState(BlockComputerCasing.CasingType.HIGH_POWER_CASING);
+    }
+
+    @Override
+    public boolean usesMui2() {
+        return false;
     }
 
     @Override

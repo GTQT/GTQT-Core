@@ -17,17 +17,19 @@ import net.minecraft.util.ResourceLocation;
 import java.util.function.Function;
 
 public class PseudoMultiMachineMetaTileEntity extends SimpleMachineMetaTileEntity {
+    private IBlockState targetBlockState;
+
+    public PseudoMultiMachineMetaTileEntity(ResourceLocation metaTileEntityId, RecipeMap<?> recipeMap, ICubeRenderer renderer, int tier, boolean hasFrontFacing, Function<Integer, Integer> tankScalingFunction) {
+        super(metaTileEntityId, recipeMap, renderer, tier, hasFrontFacing, tankScalingFunction);
+    }
+
     @Override
     public boolean usesMui2() {
         return false;
     }
-    private IBlockState targetBlockState;
 
     public IBlockState getTargetBlockState() {
         return targetBlockState;
-    }
-    public PseudoMultiMachineMetaTileEntity(ResourceLocation metaTileEntityId, RecipeMap<?> recipeMap, ICubeRenderer renderer, int tier, boolean hasFrontFacing, Function<Integer, Integer> tankScalingFunction) {
-        super(metaTileEntityId, recipeMap, renderer, tier, hasFrontFacing, tankScalingFunction);
     }
 
     @Override
@@ -40,8 +42,8 @@ public class PseudoMultiMachineMetaTileEntity extends SimpleMachineMetaTileEntit
         return new PseudoMultiRecipeLogic(this, recipeMap, () -> this.energyContainer);
     }
 
-    public void checkAdjacentBlocks(){
-        if(this.getWorld() == null || this.getWorld().isRemote) {
+    public void checkAdjacentBlocks() {
+        if (this.getWorld() == null || this.getWorld().isRemote) {
             targetBlockState = null;
             return;
         }

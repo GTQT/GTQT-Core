@@ -60,6 +60,7 @@ public class MetaTileEntityHeatHatchExchange extends MetaTileEntityBaseWithContr
     int[] exchangeRate = new int[]{1, 1, 1, 1, 1, 1, 1, 1};
     boolean modelHeat;
     MetaTileEntityHeatHatch targetMte = null;
+
     public MetaTileEntityHeatHatchExchange(ResourceLocation metaTileEntityId) {
         super(metaTileEntityId);
         this.containerInventory = new GTItemStackHandler(this, 8);
@@ -112,8 +113,8 @@ public class MetaTileEntityHeatHatchExchange extends MetaTileEntityBaseWithContr
 
     @Override
     public void addInformation(ItemStack stack, World player, List<String> tooltip, boolean advanced) {
+        tooltip.add(TooltipHelper.RAINBOW_SLOW + I18n.format("烫！烫！烫！"));
         super.addInformation(stack, player, tooltip, advanced);
-        tooltip.add(TooltipHelper.RAINBOW_SLOW + I18n.format("烫！烫！烫！", new Object[0]));
         tooltip.add(I18n.format("配合需要 热源仓（Heat Hatch）的设备使用"));
         tooltip.add(I18n.format("需要将控制器背面紧贴热源仓，可热源仓进行加热，降温等操作"));
         tooltip.add(I18n.format("输入水时，为热源仓降温，输出蒸汽"));

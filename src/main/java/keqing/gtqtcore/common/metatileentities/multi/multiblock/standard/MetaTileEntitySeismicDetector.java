@@ -31,12 +31,13 @@ import java.util.List;
 
 public class MetaTileEntitySeismicDetector extends MetaTileEntityBaseWithControl {
 
+    public MetaTileEntitySeismicDetector(ResourceLocation metaTileEntityId) {
+        super(metaTileEntityId);
+    }
+
     @Override
     public boolean usesMui2() {
         return false;
-    }
-    public MetaTileEntitySeismicDetector(ResourceLocation metaTileEntityId) {
-        super(metaTileEntityId);
     }
 
     @Override

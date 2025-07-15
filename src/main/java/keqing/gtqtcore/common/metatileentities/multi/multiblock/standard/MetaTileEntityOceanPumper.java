@@ -37,9 +37,6 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.network.PacketBuffer;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.ResourceLocation;
-import net.minecraft.util.text.ITextComponent;
-import net.minecraft.util.text.Style;
-import net.minecraft.util.text.TextComponentTranslation;
 import net.minecraft.util.text.TextFormatting;
 import net.minecraft.world.World;
 import net.minecraft.world.biome.Biome;
@@ -54,7 +51,6 @@ import java.util.Set;
 import java.util.stream.Stream;
 
 import static gregtech.api.capability.GregtechDataCodes.WORKABLE_ACTIVE;
-import static keqing.gtqtcore.api.utils.GTQTUtil.getAccelerateByCWU;
 
 public class MetaTileEntityOceanPumper extends MultiblockWithDisplayBase implements IControllable {
 
@@ -223,23 +219,25 @@ public class MetaTileEntityOceanPumper extends MultiblockWithDisplayBase impleme
         builder.addCustom(this::addCustomCapacity);
 
     }
+
     private void addCustomCapacity(KeyManager keyManager, UISyncer syncer) {
         if (energyContainers != null && energyContainers.getEnergyCapacity() > 0) {
             int energyContainer = GTUtility.getTierByVoltage(this.energyContainers.getInputVoltage());
             long maxVoltage = GTValues.V[energyContainer] / 2;
             String voltageName = GTValues.VNF[energyContainer];
-            keyManager.add(KeyUtil.lang(TextFormatting.GRAY ,"gregtech.multiblock.max_energy_per_tick", syncer.syncLong(maxVoltage), syncer.syncString(voltageName)));
+            keyManager.add(KeyUtil.lang(TextFormatting.GRAY, "gregtech.multiblock.max_energy_per_tick", syncer.syncLong(maxVoltage), syncer.syncString(voltageName)));
         }
         if (this.isActive() && drainEnergy(true)) {
             keyManager.add((KeyUtil.lang("gregtech.machine.miner.working")));
             keyManager.add((KeyUtil.lang("当前抽取速率：%s", syncer.syncInt(drainRate))));
         } else if (!drainEnergy(true))
-            keyManager.add((KeyUtil.lang(TextFormatting.RED,"gregtech.machine.miner.needspower")));
+            keyManager.add((KeyUtil.lang(TextFormatting.RED, "gregtech.machine.miner.needspower")));
         else if (!this.isWorkingEnabled())
-            keyManager.add((KeyUtil.lang(TextFormatting.RED,"gregtech.multiblock.work_paused")));
+            keyManager.add((KeyUtil.lang(TextFormatting.RED, "gregtech.multiblock.work_paused")));
         else if (!insertFluid(true))
-            keyManager.add((KeyUtil.lang(TextFormatting.RED,"输出仓已满！")));
+            keyManager.add((KeyUtil.lang(TextFormatting.RED, "输出仓已满！")));
     }
+
     @Override
     protected BlockPattern createStructurePattern() {
         // BLYAAAAAAAAAAAAAAAT

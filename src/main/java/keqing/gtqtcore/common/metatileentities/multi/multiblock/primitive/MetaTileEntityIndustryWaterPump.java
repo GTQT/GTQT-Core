@@ -193,8 +193,8 @@ public class MetaTileEntityIndustryWaterPump extends MultiblockControllerBase im
 
     @Override
     public void addInformation(ItemStack stack, World player, List<String> tooltip, boolean advanced) {
-        super.addInformation(stack, player, tooltip, advanced);
         tooltip.add(TooltipHelper.RAINBOW_SLOW + I18n.format("原始水泵Plus（加强六倍）", new Object[0]));
+        super.addInformation(stack, player, tooltip, advanced);
         tooltip.add(I18n.format("在地狱会自己抽岩浆！"));
     }
 

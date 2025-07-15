@@ -43,16 +43,11 @@ import javax.annotation.Nullable;
 import java.util.List;
 
 public class MetaTileEntityIntegratedMiningDivision extends GTQTRecipeMapMultiblockController {
-    @Override
-    public boolean usesMui2() {
-        return false;
-    }
     protected int glass_tier;
     protected int tubeTier;
     protected int casingTier;
     protected int coilType;
     protected int tier;
-
     public MetaTileEntityIntegratedMiningDivision(ResourceLocation metaTileEntityId) {
         super(metaTileEntityId, new RecipeMap[]{
                 GTQTcoreRecipeMaps.INTEGRATED_MINING_DIVISION
@@ -66,6 +61,11 @@ public class MetaTileEntityIntegratedMiningDivision extends GTQTRecipeMapMultibl
         //setTimeReduce(none);
         setTimeReduceFlag(false);
         setOverclocking(3);
+    }
+
+    @Override
+    public boolean usesMui2() {
+        return false;
     }
 
     @Override
@@ -84,13 +84,14 @@ public class MetaTileEntityIntegratedMiningDivision extends GTQTRecipeMapMultibl
         Integer syncedCasing = syncer.syncInt(casingTier);
         Integer syncedTube = syncer.syncInt(tubeTier);
 
-        keyManager.add(KeyUtil.lang(TextFormatting.GRAY ,"gtqtcore.coilTire" , syncedCoil));
+        keyManager.add(KeyUtil.lang(TextFormatting.GRAY, "gtqtcore.coilTire", syncedCoil));
         keyManager.add(KeyUtil.lang(TextFormatting.GRAY, "gtqtcore.casingTire", syncedCasing));
         keyManager.add(KeyUtil.lang(TextFormatting.GRAY, "gtqtcore.tubeTire", syncedTube));
     }
+
     @Override
     public void addInformation(ItemStack stack, @Nullable World player, @Nonnull List<String> tooltip, boolean advanced) {
-        tooltip.add(TooltipHelper.RAINBOW_SLOW + I18n.format("矿石所需要的唯一", new Object[0]));
+        tooltip.add(TooltipHelper.RAINBOW_SLOW + I18n.format("矿石所需要的唯一"));
         super.addInformation(stack, player, tooltip, advanced);
     }
 

@@ -6,7 +6,6 @@ import gregtech.api.capability.IMultipleTankHandler;
 import gregtech.api.capability.IOpticalComputationHatch;
 import gregtech.api.capability.IOpticalComputationProvider;
 import gregtech.api.capability.IOpticalComputationReceiver;
-import gregtech.api.gui.Widget;
 import gregtech.api.metatileentity.MetaTileEntity;
 import gregtech.api.metatileentity.interfaces.IGregTechTileEntity;
 import gregtech.api.metatileentity.multiblock.IMultiblockPart;
@@ -45,8 +44,6 @@ import net.minecraft.util.EnumFacing;
 import net.minecraft.util.EnumHand;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.SoundEvent;
-import net.minecraft.util.text.ITextComponent;
-import net.minecraft.util.text.TextComponentTranslation;
 import net.minecraft.util.text.TextFormatting;
 import net.minecraft.world.World;
 import net.minecraftforge.fluids.FluidStack;
@@ -104,11 +101,11 @@ public class MetaTileEntityLargeEUVMaskAligner extends GCYMRecipeMapMultiblockCo
     @Override
     public void addInformation(ItemStack stack, World world, List<String> tooltip, boolean advanced) {
         tooltip.add(TooltipHelper.RAINBOW_SLOW + I18n.format("谁把我的粒子加速器拆了"));
+        super.addInformation(stack, world, tooltip, advanced);
         tooltip.add(I18n.format("提供不同等级的光刻胶（HSQ Vinylcinnamate SU8_Photoresist Xmt Zrbtmst）获取不同程度的耗时减免"));
         tooltip.add(I18n.format("该耗时减免覆盖GCYM的的耗时减免逻辑"));
         tooltip.add(I18n.format("每工作一轮消耗1000mb光刻胶（无视配方并行数量）"));
         tooltip.add(I18n.format("升级束流器与电磁轭以提升紫外发射等级（加法计算）"));
-        super.addInformation(stack, world, tooltip, advanced);
     }
 
     @Override

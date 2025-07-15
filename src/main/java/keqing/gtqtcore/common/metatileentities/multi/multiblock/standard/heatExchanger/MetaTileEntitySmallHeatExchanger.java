@@ -62,6 +62,7 @@ public class MetaTileEntitySmallHeatExchanger extends NoEnergyMultiblockControll
     private final int heatTime = 150;
     protected HeatExchangerRecipeLogic recipeMapWorkable;
     private int thresholdPercentage = 100;
+
     public MetaTileEntitySmallHeatExchanger(ResourceLocation metaTileEntityId) {
         super(metaTileEntityId, GTQTcoreRecipeMaps.HEAT_EXCHANGE_RECIPES);
         this.recipeMapWorkable = new HeatExchangerRecipeLogic(this);
@@ -259,7 +260,7 @@ public class MetaTileEntitySmallHeatExchanger extends NoEnergyMultiblockControll
             // Efficiency line
             IKey efficiency = KeyUtil.number(
                     getNumberColor(number), number, "%");
-            keyManager.add(KeyUtil.lang(TextFormatting.GRAY ,"gregtech.multiblock.large_boiler.efficiency", efficiency));
+            keyManager.add(KeyUtil.lang(TextFormatting.GRAY, "gregtech.multiblock.large_boiler.efficiency", efficiency));
 
             // Throttle line
             IKey throttle = KeyUtil.number(

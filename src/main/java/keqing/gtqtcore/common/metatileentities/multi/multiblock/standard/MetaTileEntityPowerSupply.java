@@ -45,27 +45,24 @@ import java.util.List;
 import static keqing.gtqtcore.api.metatileentity.multiblock.GTQTMultiblockAbility.POWER_SUPPLY_ABILITY;
 
 public class MetaTileEntityPowerSupply extends MultiblockWithDisplayBase {
-    @Override
-    public boolean usesMui2() {
-        return false;
-    }
     int HatchLength;
     long maxEuStore;
     long EuStore = 0;
     int maxTier;
-
     int chargeHeight = 1;
     int updateTime = 1;
-
     boolean work = true;
     boolean charge = true;//供能模式
     boolean fastCharge = false;//闪充模式
-
     private IEnergyContainer inenergyContainer;
     private IEnergyContainer outenergyContainer;
-
     public MetaTileEntityPowerSupply(ResourceLocation metaTileEntityId) {
         super(metaTileEntityId);
+    }
+
+    @Override
+    public boolean usesMui2() {
+        return false;
     }
 
     public void changeEu(long eu) {
@@ -218,8 +215,8 @@ public class MetaTileEntityPowerSupply extends MultiblockWithDisplayBase {
 
     @Override
     public void addInformation(ItemStack stack, World player, List<String> tooltip, boolean advanced) {
+        tooltip.add(TooltipHelper.RAINBOW_SLOW + I18n.format("谁还需要地板"));
         super.addInformation(stack, player, tooltip, advanced);
-        tooltip.add(TooltipHelper.RAINBOW_SLOW + I18n.format("谁还需要地板", new Object[0]));
         tooltip.add(I18n.format("gtqtcore.machine.powersupply.tooltip.1"));
         tooltip.add(I18n.format("gtqtcore.machine.powersupply.tooltip.2"));
         tooltip.add(I18n.format("gtqtcore.machine.powersupply.tooltip.3"));

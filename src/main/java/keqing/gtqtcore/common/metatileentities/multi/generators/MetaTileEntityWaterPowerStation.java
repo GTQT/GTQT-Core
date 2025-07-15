@@ -221,8 +221,8 @@ public class MetaTileEntityWaterPowerStation extends MultiblockWithDisplayBase {
     }
 
     public void addInformation(ItemStack stack, @Nullable World player, @Nonnull List<String> tooltip, boolean advanced) {
-        super.addInformation(stack, player, tooltip, advanced);
         tooltip.add(TooltipHelper.RAINBOW_SLOW + I18n.format("无中生有！现在！！", new Object[0]));
+        super.addInformation(stack, player, tooltip, advanced);
         tooltip.add(I18n.format("gtqtcore.multiblock.wps.tooltip.1"));
         tooltip.add(I18n.format("gtqtcore.multiblock.wps.tooltip.2"));
         tooltip.add(I18n.format("gtqtcore.multiblock.wps.tooltip.3"));

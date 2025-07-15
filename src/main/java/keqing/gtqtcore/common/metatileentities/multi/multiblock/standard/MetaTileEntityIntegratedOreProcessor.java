@@ -32,7 +32,10 @@ import gregtech.api.util.TextFormattingUtil;
 import gregtech.client.renderer.ICubeRenderer;
 import gregtech.client.renderer.texture.Textures;
 import gregtech.common.ConfigHolder;
-import gregtech.common.blocks.*;
+import gregtech.common.blocks.BlockBoilerCasing;
+import gregtech.common.blocks.BlockGlassCasing;
+import gregtech.common.blocks.BlockTurbineCasing;
+import gregtech.common.blocks.MetaBlocks;
 import gregtech.common.metatileentities.multi.multiblockpart.MetaTileEntityEnergyHatch;
 import gregtech.common.metatileentities.multi.multiblockpart.MetaTileEntityItemBus;
 import gregtech.common.metatileentities.multi.multiblockpart.appeng.MetaTileEntityMEInputBus;
@@ -69,16 +72,11 @@ import java.util.List;
 import static keqing.gtqtcore.common.block.blocks.BlockMultiblockCasing4.TurbineCasingType.NQ_TURBINE_CASING;
 
 public class MetaTileEntityIntegratedOreProcessor extends MultiblockWithDisplayBase implements IDataInfoProvider {
-    @Override
-    public boolean usesMui2() {
-        return false;
-    }
     protected OreProcessorRecipeLogic logic;
     protected IEnergyContainer energyContainer;
     protected IItemHandlerModifiable inputItemInventory;
     protected IItemHandlerModifiable outputItemInventory;
     protected IMultipleTankHandler inputFluidInventory;
-
     public MetaTileEntityIntegratedOreProcessor(ResourceLocation metaTileEntityId) {
         super(metaTileEntityId);
         this.logic = new OreProcessorRecipeLogic(this);
@@ -106,6 +104,11 @@ public class MetaTileEntityIntegratedOreProcessor extends MultiblockWithDisplayB
 
     private static IBlockState getThirdCasingState() {
         return MetaBlocks.TURBINE_CASING.getState(BlockTurbineCasing.TurbineCasingType.TUNGSTENSTEEL_GEARBOX);
+    }
+
+    @Override
+    public boolean usesMui2() {
+        return false;
     }
 
     @Override

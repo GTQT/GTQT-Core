@@ -32,8 +32,6 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.network.PacketBuffer;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.SoundEvent;
-import net.minecraft.util.text.ITextComponent;
-import net.minecraft.util.text.TextComponentTranslation;
 import net.minecraft.util.text.TextFormatting;
 import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
@@ -67,8 +65,8 @@ public class MetaTileEntityThreeDimPrinter extends GTQTOCMultiblockController im
 
     @Override
     public void addInformation(ItemStack stack, World world, List<String> tooltip, boolean advanced) {
-        super.addInformation(stack, world, tooltip, advanced);
         tooltip.add(TooltipHelper.RAINBOW_SLOW + I18n.format("摆脱公差"));
+        super.addInformation(stack, world, tooltip, advanced);
     }
 
     @Override
@@ -102,11 +100,12 @@ public class MetaTileEntityThreeDimPrinter extends GTQTOCMultiblockController im
     @Override
     public void addCustomData(KeyManager keyManager, UISyncer syncer) {
         super.addCustomData(keyManager, syncer);
-        if (isStructureFormed()){
-            keyManager.add(KeyUtil.lang(TextFormatting.GRAY ,"结构等级：%s 玻璃等级：%", syncer.syncInt(casing_tier), syncer.syncInt(glass_tier)));
-            keyManager.add(KeyUtil.lang(TextFormatting.GRAY ,"gtqtcore.eleTire4", syncer.syncInt(clean_tier), syncer.syncInt(radio_tier)));
+        if (isStructureFormed()) {
+            keyManager.add(KeyUtil.lang(TextFormatting.GRAY, "结构等级：%s 玻璃等级：%", syncer.syncInt(casing_tier), syncer.syncInt(glass_tier)));
+            keyManager.add(KeyUtil.lang(TextFormatting.GRAY, "gtqtcore.eleTire4", syncer.syncInt(clean_tier), syncer.syncInt(radio_tier)));
         }
     }
+
     @Override
     protected BlockPattern createStructurePattern() {
         return FactoryBlockPattern.start().aisle("JXXXXXX", "JXXXXXX", "JXXGGGX").aisle("JXXXXXX", "JXXPPPX", "JXXGGGX").aisle("JXXXXXX", "JCSGGGX", "JXXGGGX").where('S', selfPredicate()).where('C', abilities(MultiblockAbility.COMPUTATION_DATA_RECEPTION)).where('X', TiredTraceabilityPredicate.CP_CASING.get().setMinGlobalLimited(24).or(autoAbilities())).where('G', TiredTraceabilityPredicate.CP_LGLASS.get()).where('J', TiredTraceabilityPredicate.CP_ZJ_CASING.get()).where('P', TiredTraceabilityPredicate.CP_TJ_CASING.get()).where('#', air()).build();
