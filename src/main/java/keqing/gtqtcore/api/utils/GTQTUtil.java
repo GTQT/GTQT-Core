@@ -42,7 +42,6 @@ import java.util.function.Supplier;
 
 import static gregtech.api.GTValues.*;
 import static gregtech.common.items.MetaItems.*;
-import static keqing.gtqtcore.common.items.GTQTMetaItems.*;
 import static keqing.gtsteam.common.item.GTSMetaitems.*;
 import static net.minecraft.util.EnumFacing.*;
 

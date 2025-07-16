@@ -31,7 +31,7 @@ public class RocketEngineRecipes {
                 .fluidInputs(Oxygen.getFluid(1000))
                 .fluidOutputs(RP1RocketFuel.getFluid(1000))
                 .EUt(VA[HV])
-                .duration(SECOND - 4)
+                .duration(SECOND * 4)
                 .buildAndRegister();
 
         ROCKET_RECIPES.recipeBuilder()

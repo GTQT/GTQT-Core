@@ -89,77 +89,77 @@ public class MolecularTransformer {
                 .EUt(VA[HV])
                 .CWUt(VA[HV])
                 .Tier(1)
-                .duration(3000)
+                .duration(300)
                 .buildAndRegister();
 
         //  Cu -> Au
         MOLECULAR_TRANSFORMER_RECIPES.recipeBuilder()
-                .input(ingot, Copper)
-                .output(ingot, Gold)
+                .input(dust, Copper)
+                .output(dust, Gold)
                 .EUt(VA[EV])
                 .CWUt(VA[EV])
                 .Tier(2)
-                .duration(6000)
+                .duration(600)
                 .buildAndRegister();
 
         //  Fe -> Co
         MOLECULAR_TRANSFORMER_RECIPES.recipeBuilder()
-                .input(ingot, Iron)
-                .output(ingot, Cobalt)
+                .input(dust, Iron)
+                .output(dust, Cobalt)
                 .EUt(VA[EV])
                 .CWUt(VA[EV])
                 .Tier(2)
-                .duration(6000)
+                .duration(600)
                 .buildAndRegister();
 
         //  Co -> Cu
         MOLECULAR_TRANSFORMER_RECIPES.recipeBuilder()
-                .input(ingot, Cobalt)
-                .output(ingot, Copper)
+                .input(dust, Cobalt)
+                .output(dust, Copper)
                 .EUt(VA[EV])
                 .CWUt(VA[EV])
                 .Tier(2)
-                .duration(6000)
+                .duration(600)
                 .buildAndRegister();
 
         //  Ni -> Cu
         MOLECULAR_TRANSFORMER_RECIPES.recipeBuilder()
-                .input(ingot, Nickel)
-                .output(ingot, Copper)
+                .input(dust, Nickel)
+                .output(dust, Copper)
                 .EUt(VA[EV])
                 .CWUt(VA[EV])
                 .Tier(2)
-                .duration(6000)
+                .duration(600)
                 .buildAndRegister();
 
         //  Cu -> Zn
         MOLECULAR_TRANSFORMER_RECIPES.recipeBuilder()
-                .input(ingot, Copper)
-                .output(ingot, Zinc)
+                .input(dust, Copper)
+                .output(dust, Zinc)
                 .EUt(VA[EV])
                 .CWUt(VA[EV])
                 .Tier(2)
-                .duration(6000)
+                .duration(600)
                 .buildAndRegister();
 
         //  Cu -> As
         MOLECULAR_TRANSFORMER_RECIPES.recipeBuilder()
-                .input(ingot, Zinc)
-                .output(ingot, Arsenic)
+                .input(dust, Zinc)
+                .output(dust, Arsenic)
                 .EUt(VA[EV])
                 .CWUt(VA[EV])
                 .Tier(2)
-                .duration(6000)
+                .duration(600)
                 .buildAndRegister();
 
         //  Sn -> Ag
         MOLECULAR_TRANSFORMER_RECIPES.recipeBuilder()
-                .input(ingot, Tin)
-                .output(ingot, Silver)
+                .input(dust, Tin)
+                .output(dust, Silver)
                 .EUt(VA[EV])
                 .CWUt(VA[EV])
                 .Tier(2)
-                .duration(6000)
+                .duration(600)
                 .buildAndRegister();
 
         //  Graphite -> Graphene
@@ -169,68 +169,96 @@ public class MolecularTransformer {
                 .EUt(VA[EV])
                 .CWUt(VA[EV])
                 .Tier(2)
-                .duration(6000)
+                .duration(600)
                 .buildAndRegister();
 
         //  Cr -> Ti
         MOLECULAR_TRANSFORMER_RECIPES.recipeBuilder()
-                .input(ingot, Chrome)
-                .output(ingot, Titanium)
+                .input(dust, Chrome)
+                .output(dust, Titanium)
                 .EUt(VA[ZPM])
                 .CWUt(VA[ZPM])
                 .Tier(3)
-                .duration(12000)
+                .duration(1200)
                 .buildAndRegister();
 
         //  Sn -> Id
         MOLECULAR_TRANSFORMER_RECIPES.recipeBuilder()
-                .input(ingot, Tin)
-                .output(ingot, Iodine)
+                .input(dust, Tin)
+                .output(dust, Iodine)
                 .EUt(VA[ZPM])
                 .CWUt(VA[ZPM])
                 .Tier(3)
-                .duration(12000)
+                .duration(1200)
                 .buildAndRegister();
 
         //  Au -> Pt
         MOLECULAR_TRANSFORMER_RECIPES.recipeBuilder()
-                .input(ingot, Gold)
-                .output(ingot, Platinum)
+                .input(dust, Gold)
+                .output(dust, Platinum)
                 .EUt(VA[ZPM])
                 .CWUt(VA[ZPM])
                 .Tier(3)
-                .duration(12000)
+                .duration(1200)
                 .buildAndRegister();
 
         //  Pb -> Pd
         MOLECULAR_TRANSFORMER_RECIPES.recipeBuilder()
-                .input(ingot, Lead)
-                .output(ingot, Palladium)
+                .input(dust, Lead)
+                .output(dust, Palladium)
                 .EUt(VA[ZPM])
                 .CWUt(VA[ZPM])
                 .Tier(3)
-                .duration(12000)
+                .duration(1200)
                 .buildAndRegister();
 
         //  Fe -> Ir
         MOLECULAR_TRANSFORMER_RECIPES.recipeBuilder()
-                .input(ingot, Iron)
-                .output(ingot, Iridium)
+                .input(dust, Iron)
+                .output(dust, Iridium)
                 .EUt(VA[UV])
                 .CWUt(VA[UV])
                 .Tier(4)
-                .duration(24000)
+                .duration(2400)
                 .buildAndRegister();
 
         //  Al -> Os
         MOLECULAR_TRANSFORMER_RECIPES.recipeBuilder()
-                .input(ingot, Aluminium)
-                .output(ingot, Osmium)
+                .input(dust, Aluminium)
+                .output(dust, Osmium)
                 .EUt(VA[UV])
                 .CWUt(VA[UV])
                 .Tier(4)
-                .duration(24000)
+                .duration(2400)
                 .buildAndRegister();
 
+        //其他
+        //红石 -> 红宝石
+        MOLECULAR_TRANSFORMER_RECIPES.recipeBuilder()
+                .input(dust, Redstone)
+                .output(dust, Ruby)
+                .EUt(VA[EV])
+                .CWUt(VA[EV])
+                .Tier(2)
+                .duration(600)
+                .buildAndRegister();
+
+        MOLECULAR_TRANSFORMER_RECIPES.recipeBuilder()
+                .input(dust, Lapis)
+                .output(dust, Sapphire)
+                .EUt(VA[EV])
+                .CWUt(VA[EV])
+                .Tier(2)
+                .duration(600)
+                .buildAndRegister();
+
+        MOLECULAR_TRANSFORMER_RECIPES.recipeBuilder()
+                .input(dust, Emerald)
+                .output(dust, GreenSapphire)
+                .EUt(VA[EV])
+                .CWUt(VA[EV])
+                .Tier(2)
+                .duration(600)
+                .buildAndRegister();
     }
 }

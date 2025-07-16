@@ -116,24 +116,17 @@ public class ElementMaterials {
                 .element(gregtech.api.unification.Elements.Fl)
                 .flags(GENERATE_ROD)
                 .build();
+
         //  26012 Cosmic Neutronium
         GTQTMaterials.CosmicNeutronium = new Material.Builder(getMaterialsId(), gtqtcoreId("cosmic_neutronium"))
                 .ingot()
                 .liquid(new FluidBuilder().temperature(2000000000))
                 .color(0x323232)
-                .iconSet(BRIGHT)
-                .flags(NO_SMELTING, NO_SMASHING, GENERATE_PLATE, GENERATE_DOUBLE_PLATE, GENERATE_ROD, GENERATE_LONG_ROD, GENERATE_RING, GENERATE_ROUND, GENERATE_BOLT_SCREW, GENERATE_FRAME, GENERATE_GEAR, GENERATE_SMALL_GEAR, GENERATE_ROTOR)
-                .toolStats(MaterialToolProperty.Builder.of(40.0F, 20.0F, 2560000, 7)
-                        .attackSpeed(0.1F).enchantability(21)
-                        .unbreakable()
-                        .enchantability(33)
-                        .magnetic()
-                        .enchantment(Enchantments.EFFICIENCY, 3)
-                        .enchantment(Enchantments.FORTUNE, 2)
-                        .enchantment(Enchantments.SHARPNESS, 2).build())
+                .iconSet(CUSTOM_COSMIC_NEUTRONIUM)
                 .element(Elements.CosmicNeutronium)
                 .cableProperties(V[UHV], 256, 128, false)
                 .build();
+
         //  26013 Degenerate Rhenium
         DegenerateRhenium = new Material.Builder(getMaterialsId(), gtqtcoreId("degenerate_rhenium"))
                 .dust()

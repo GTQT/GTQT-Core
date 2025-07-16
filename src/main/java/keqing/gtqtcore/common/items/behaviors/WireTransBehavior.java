@@ -54,69 +54,70 @@ public class WireTransBehavior implements IItemBehaviour, ItemUIFactory {
                 Block targetBlock = Block.getBlockFromItem(slotStack.getItem());
 
                 if (targetBlock instanceof BlockCable) {
-                    // 消耗玩家手中的电缆物品
-                    slotStack.shrink(1);
 
                     // 放置新电缆方块
                     if (slotStack.getItem() instanceof ItemBlock itemBlock) {
+                        // 消耗玩家手中的电缆物品
+                        slotStack.shrink(1);
+
                         world.setBlockState(pos, AIR.getDefaultState());
 
                         Block block = itemBlock.getBlock();
-                        state = block.getStateFromMeta(itemBlock.getMetadata(slotStack.copy().splitStack(1).getMetadata()));
+                        state = block.getStateFromMeta(itemBlock.getMetadata(slotStack.copy().getMetadata()));
                         itemBlock.placeBlockAt(slotStack.copy().splitStack(1), player, world, pos, EnumFacing.NORTH, pos.getX(), pos.getY(), pos.getZ(), state);
-                    }
 
-                    // 处理旧电缆物品
-                    if (!player.inventory.addItemStackToInventory(originalCableItem.copy())) {
-                        EntityItem entityItem = new EntityItem(
-                                world,
-                                player.posX,
-                                player.posY + 0.5,
-                                player.posZ,
-                                originalCableItem.copy()
-                        );
-                        entityItem.setNoPickupDelay();
-                        world.spawnEntity(entityItem);
-                    }
-
-                    // 设置新电缆的连接状态
-                    TileEntity newCable = world.getTileEntity(pos);
-                    if (newCable instanceof TileEntityCable) {
-                        Material newMaterial = ((TileEntityCable) newCable).getPipeMaterial();
-                        try {
-                            // 使用反射保留连接状态（建议后续改用公共方法）
-                            Field connectionsField = TileEntityPipeBase.class.getDeclaredField("connections");
-                            connectionsField.setAccessible(true);
-                            connectionsField.setInt(newCable, connections);
-
-                            // 强制同步数据
-                            newCable.markDirty();
-                            world.notifyBlockUpdate(
-                                    pos,
-                                    world.getBlockState(pos),
-                                    world.getBlockState(pos),
-                                    3
+                        // 处理旧电缆物品
+                        if (!player.inventory.addItemStackToInventory(originalCableItem.copy())) {
+                            EntityItem entityItem = new EntityItem(
+                                    world,
+                                    player.posX,
+                                    player.posY + 0.5,
+                                    player.posZ,
+                                    originalCableItem.copy()
                             );
-                        } catch (Exception e) {
-                            player.sendMessage(new TextComponentString("正在尝试替换" + pos + "位置的线缆故障！：电缆连接状态同步失败").setStyle(new Style().setColor(TextFormatting.YELLOW)));
+                            entityItem.setNoPickupDelay();
+                            world.spawnEntity(entityItem);
                         }
-                        player.sendMessage(new TextComponentString("正在尝试替换" + pos + "位置的线缆成功").setStyle(new Style().setColor(TextFormatting.GREEN)));
-                        player.sendMessage(new TextComponentString("参数："+ newMaterial.getLocalizedName() +" "+((TileEntityCable) newCable).getMaxVoltage()+" V/ "+((TileEntityCable) newCable).getMaxAmperage()+" A").setStyle(new Style().setColor(TextFormatting.GREEN)));
+
+                        // 设置新电缆的连接状态
+                        TileEntity newCable = world.getTileEntity(pos);
+                        if (newCable instanceof TileEntityCable) {
+                            Material newMaterial = ((TileEntityCable) newCable).getPipeMaterial();
+                            try {
+                                // 使用反射保留连接状态（建议后续改用公共方法）
+                                Field connectionsField = TileEntityPipeBase.class.getDeclaredField("connections");
+                                connectionsField.setAccessible(true);
+                                connectionsField.setInt(newCable, connections);
+
+                                // 强制同步数据
+                                newCable.markDirty();
+                                world.notifyBlockUpdate(
+                                        pos,
+                                        world.getBlockState(pos),
+                                        world.getBlockState(pos),
+                                        3
+                                );
+                            } catch (Exception e) {
+                                player.sendMessage(new TextComponentString("正在尝试替换" + pos + "位置的线缆故障！：电缆连接状态同步失败").setStyle(new Style().setColor(TextFormatting.YELLOW)));
+                            }
+                            player.sendMessage(new TextComponentString("正在尝试替换" + pos + "位置的线缆成功").setStyle(new Style().setColor(TextFormatting.GREEN)));
+
+                            player.sendMessage(new TextComponentString("参数：" + newMaterial.getLocalizedName() + " " + ((TileEntityCable) newCable).getMaxVoltage() + " V/ " + ((TileEntityCable) newCable).getMaxAmperage() + " A").setStyle(new Style().setColor(TextFormatting.GREEN)));
+                            // 更新客户端显示
+                            world.playSound(
+                                    player,
+                                    pos,
+                                    SoundEvents.BLOCK_METAL_PLACE,
+                                    SoundCategory.BLOCKS,
+                                    1.0F,
+                                    1.0F
+                            );
+                        }
+
                     }
-
-
-                    // 更新客户端显示
-                    world.playSound(
-                            player,
-                            pos,
-                            SoundEvents.BLOCK_METAL_PLACE,
-                            SoundCategory.BLOCKS,
-                            1.0F,
-                            1.0F
-                    );
                     return EnumActionResult.SUCCESS;
                 }
-                player.sendMessage(new TextComponentString("正在尝试替换" + pos + "位置的线缆成功！：背包数量不可用").setStyle(new Style().setColor(TextFormatting.RED)));
+                player.sendMessage(new TextComponentString("正在尝试替换" + pos + "位置的线缆成功！").setStyle(new Style().setColor(TextFormatting.GREEN)));
             }
         }
         return EnumActionResult.PASS;

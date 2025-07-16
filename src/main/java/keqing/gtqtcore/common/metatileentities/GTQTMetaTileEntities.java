@@ -332,7 +332,7 @@ public class GTQTMetaTileEntities {
     public static MetaTileEntityLargeEUVMaskAligner LARGE_EUV_MASK_ALIGNER;
     public static MetaTileEntityPhotolithographyFactory PHOTOLITHOGRAPHY_FACTORY;
     public static MetaTileEntityMicrowaveEnergyReceiverControl MICROWAVE_ENERGY_RECEIVER_CONTROL;
-    public static MetaTileEntityExtremesCVD LARGE_EX_CVD;
+    public static MetaTileEntityExtremesCVD LAGER_EXTREMES_CVD;
     public static MetaTileEntityChemicalReactor LARGE_CHEMICAL_FACTORY;
     public static MetaTileEntityUltravioletLamp LARGE_ULTRAVIOLET_LAMP;
     public static MetaTileEntityMixer LARGE_MIX;
@@ -569,7 +569,7 @@ public class GTQTMetaTileEntities {
         LARGE_CRYOGENIC_REACTOR = registerMetaTileEntity(276, new MetaTileEntityCryoReactor(gtqtcoreId("cryogenic_reactor")));
         LARGE_ION_IMPLANTATOR = registerMetaTileEntity(277, new MetaTileEntityIonImplanter(gtqtcoreId("ion_implantator")));
         LARGE_CZ_PULLER = registerMetaTileEntity(278, new MetaTileEntityCZPuller(gtqtcoreId("cz_puller")));
-        LARGE_EX_CVD = registerMetaTileEntity(279, new MetaTileEntityExtremesCVD(gtqtcoreId("ex_cvd")));
+        LAGER_EXTREMES_CVD = registerMetaTileEntity(279, new MetaTileEntityExtremesCVD(gtqtcoreId("ex_cvd")));
         LARGE_CHEMICAL_FACTORY = registerMetaTileEntity(280, new MetaTileEntityChemicalReactor(gtqtcoreId("chemical_factory")));
         LARGE_ULTRAVIOLET_LAMP = registerMetaTileEntity(281, new MetaTileEntityUltravioletLamp(gtqtcoreId("ultraviolet_lamp")));
         LARGE_MIX = registerMetaTileEntity(282, new MetaTileEntityMixer(gtqtcoreId("large_mix")));

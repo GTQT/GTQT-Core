@@ -131,10 +131,10 @@ public class PetrochemRecipes {
         BLAST_RECIPES.recipeBuilder()
                 .duration(85)
                 .EUt(VA[MV])
-                .input(dust, SodiumHydroxide, 2)
-                .input(dust, GTQTMaterials.Alumina)
+                .input(dust, SodiumHydroxide, 6)
+                .input(dust, GTQTMaterials.Alumina,5)
                 .notConsumable(plate, Nickel)
-                .output(dust, GTQTMaterials.SodiumAluminate, 2)
+                .output(dust, GTQTMaterials.SodiumAluminate, 8)
                 .fluidOutputs(Water.getFluid(1000))
                 .buildAndRegister();
 

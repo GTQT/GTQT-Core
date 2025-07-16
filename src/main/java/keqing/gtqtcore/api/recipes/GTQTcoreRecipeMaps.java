@@ -331,10 +331,10 @@ public class GTQTcoreRecipeMaps {
             .build();
 
     public static final RecipeMap<SimpleRecipeBuilder> PLASMA_CVD_RECIPES = new RecipeMapBuilder<>("plasma_cvd_recipes", new SimpleRecipeBuilder())
-            .itemInputs(4)
-            .itemOutputs(4)
-            .fluidInputs(4)
-            .fluidOutputs(4)
+            .itemInputs(6)
+            .itemOutputs(3)
+            .fluidInputs(3)
+            .fluidOutputs(3)
             .progressBar(GuiTextures.PROGRESS_BAR_ARROW_MULTIPLE, HORIZONTAL)
             .sound(GTSoundEvents.COOLING)
             .build();

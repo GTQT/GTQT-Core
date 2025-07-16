@@ -920,6 +920,36 @@ public class GCYMMultiblockRecipesOverwrite {
                 .buildAndRegister();
 
         /////////////////////////MEGA Machine
+        ASSEMBLY_LINE_RECIPES.recipeBuilder()
+                .inputs(LARGE_CVD_UNIT.getStackForm(64))
+                .inputs(FIELD_GENERATOR_UV.getStackForm(64))
+                .inputs(CONVEYOR_MODULE_UV.getStackForm(64))
+                .inputs(VOLTAGE_COIL_UV.getStackForm(64))
+                .input(CIRCUIT_GOOD_III, 32)
+                .input(frameGt, HMS1J22Alloy, 16)
+                .input(circuit, MarkerMaterials.Tier.UV, 4)
+                .input(circuit, MarkerMaterials.Tier.ZPM, 16)
+                .input(circuit, MarkerMaterials.Tier.LuV, 32)
+                .input(plate, SiliconCarbide, 16)
+                .input(stick, Staballoy, 4)
+                .input(spring, Europium, 4)
+                .input(gearSmall, Stellite, 16)
+                .input(gearSmall, Neutronium, 16)
+                .input(cableGtHex, SiliconCarbide, 64)
+                .fluidInputs(KaptonK.getFluid(L * 32))
+                .fluidInputs(PbB.getFluid(L * 16))
+                .fluidInputs(VanadiumGallium.getFluid(L * 16))
+                .fluidInputs(NaquadahAlloy.getFluid(L * 4))
+                .outputs(LAGER_EXTREMES_CVD.getStackForm())
+                .stationResearch(b -> b
+                        .researchStack(DISK_23.getStackForm())
+                        .CWUt(CWT[IV])
+                        .EUt(VA[LuV]))
+                .EUt(VA[UV])
+                .duration(1200)
+                .cleanroom(CleanroomType.CLEANROOM)
+                .buildAndRegister();
+
         ModHandler.removeRecipeByName("gcym:mega_blast_furnace");
         ASSEMBLY_LINE_RECIPES.recipeBuilder()
                 .inputs(ELECTRIC_BLAST_FURNACE.getStackForm(64))

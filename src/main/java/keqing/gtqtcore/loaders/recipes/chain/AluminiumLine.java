@@ -69,7 +69,7 @@ public class AluminiumLine {
 
 
         ELECTROBATH.recipeBuilder()
-                .input(dust,AluminiumHydroxide,10)
+                .input(dust,AluminiumHydroxide,7)
                 .input(dust,Cryolite,10)
                 .output(dust,Sodium,3)
                 .output(dust,Aluminium,1)

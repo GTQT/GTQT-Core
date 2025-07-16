@@ -7,6 +7,7 @@ import gregtech.api.unification.ore.OrePrefix;
 import gregtech.api.unification.stack.MaterialStack;
 import gregtech.api.unification.stack.RecyclingData;
 import gregtech.client.utils.TooltipHelper;
+import gregtech.common.items.MetaItems;
 import gregtech.common.items.behaviors.TooltipBehavior;
 import keqing.gtqtcore.api.unification.GTQTMaterials;
 import keqing.gtqtcore.client.textures.GTQTTextures;
@@ -848,14 +849,6 @@ public class GTQTMetaItem1 extends StandardMetaItem {
         SUPRACAUSAL_INDUCTOR = this.addItem(919, "component.supracausal_smd.inductor").setCreativeTabs(GTQTCore_TAB);
 
         //  Covers
-        ELECTRIC_MOTOR_MAX = this.addItem(942, "cover.electric_motor.max").setCreativeTabs(GTQTCore_TAB);
-        ELECTRIC_PISTON_MAX = this.addItem(943, "cover.electric_piston.max").setCreativeTabs(GTQTCore_TAB);
-        ELECTRIC_PUMP_MAX = this.addItem(944, "cover.electric_pump.max").setCreativeTabs(GTQTCore_TAB);
-        CONVEYOR_MODULE_MAX = this.addItem(945, "cover.conveyor_module.max").setCreativeTabs(GTQTCore_TAB);
-        ROBOT_ARM_MAX = this.addItem(946, "cover.robot_arm.max").setCreativeTabs(GTQTCore_TAB);
-        EMITTER_MAX = this.addItem(947, "cover.emitter.max").setCreativeTabs(GTQTCore_TAB);
-        SENSOR_MAX = this.addItem(948, "cover.sensor.max").setCreativeTabs(GTQTCore_TAB);
-        FIELD_GENERATOR_MAX = this.addItem(949, "cover.field_generator.max").setCreativeTabs(GTQTCore_TAB);
         COVER_SOLAR_PANEL_MAX = this.addItem(950, "cover.solar_panel.max").addComponents(new TooltipBehavior((lines) -> {
             lines.add(I18n.format("metaitem.cover.solar.panel.tooltip.1"));
             lines.add(I18n.format("metaitem.cover.solar.panel.tooltip.2"));
@@ -1328,6 +1321,41 @@ public class GTQTMetaItem1 extends StandardMetaItem {
         MICROWAVE_ENERGY_RECEIVER_UXV = addItem(4037, "cover.microwave_cover.uxv");
         MICROWAVE_ENERGY_RECEIVER_OpV = addItem(4038, "cover.microwave_cover.opv");
         COVER_ONE_STACK_FILTER = addItem(4039, "cover.one_stack_filter");
+
+
+        //宇宙中子素
+        MetaItems.ELECTRIC_MOTOR_UHV.addComponents(new HaloRenderItemBehavior(10, 0xFF000000, () -> GTQTTextures.HALO, true));
+        MetaItems.CONVEYOR_MODULE_UHV.addComponents(new HaloRenderItemBehavior(10, 0xFF000000, () -> GTQTTextures.HALO, true));
+        MetaItems.EMITTER_UHV.addComponents(new HaloRenderItemBehavior(10, 0xFF000000, () -> GTQTTextures.HALO, true));
+        MetaItems.SENSOR_UHV.addComponents(new HaloRenderItemBehavior(10, 0xFF000000, () -> GTQTTextures.HALO, true));
+        MetaItems.ELECTRIC_PISTON_UHV.addComponents(new HaloRenderItemBehavior(10, 0xFF000000, () -> GTQTTextures.HALO, true));
+        MetaItems.FIELD_GENERATOR_UHV.addComponents(new HaloRenderItemBehavior(10, 0xFF000000, () -> GTQTTextures.HALO, true));
+        MetaItems.ROBOT_ARM_UHV.addComponents(new HaloRenderItemBehavior(10, 0xFF000000, () -> GTQTTextures.HALO, true));
+        MetaItems.ELECTRIC_PUMP_UHV.addComponents(new HaloRenderItemBehavior(10, 0xFF000000, () -> GTQTTextures.HALO, true));
+        MetaItems.FLUID_REGULATOR_UHV.addComponents(new HaloRenderItemBehavior(10, 0xFF000000, () -> GTQTTextures.HALO, true));
+
+        //无尽部件调整
+        MetaItems.ELECTRIC_MOTOR_UEV.addComponents(new HaloRenderItemBehavior(10, 0xFF000000, () -> GTQTTextures.HALO, true));
+        MetaItems.CONVEYOR_MODULE_UEV.addComponents(new HaloRenderItemBehavior(10, 0xFF000000, () -> GTQTTextures.HALO, true));
+        MetaItems.EMITTER_UEV.addComponents(new HaloRenderItemBehavior(10, 0xFF000000, () -> GTQTTextures.HALO, true));
+        MetaItems.SENSOR_UEV.addComponents(new HaloRenderItemBehavior(10, 0xFF000000, () -> GTQTTextures.HALO, true));
+        MetaItems.ELECTRIC_PISTON_UEV.addComponents(new HaloRenderItemBehavior(10, 0xFF000000, () -> GTQTTextures.HALO, true));
+        MetaItems.FIELD_GENERATOR_UEV.addComponents(new HaloRenderItemBehavior(10, 0xFF000000, () -> GTQTTextures.HALO, true));
+        MetaItems.ROBOT_ARM_UEV.addComponents(new HaloRenderItemBehavior(10, 0xFF000000, () -> GTQTTextures.HALO, true));
+        MetaItems.ELECTRIC_PUMP_UEV.addComponents(new HaloRenderItemBehavior(10, 0xFF000000, () -> GTQTTextures.HALO, true));
+        MetaItems.FLUID_REGULATOR_UEV.addComponents(new HaloRenderItemBehavior(10, 0xFF000000, () -> GTQTTextures.HALO, true));
+
+        //旋转部件调整
+        MetaItems.ELECTRIC_MOTOR_UIV.addComponents(new HaloRenderItemBehavior(10, 0xFFFFFFFF, () -> GTQTTextures.HALO, true));
+        MetaItems.CONVEYOR_MODULE_UIV.addComponents(new HaloRenderItemBehavior(10, 0xFFFFFFFF, () -> GTQTTextures.HALO, true));
+        MetaItems.EMITTER_UIV.addComponents(new HaloRenderItemBehavior(10, 0xFFFFFFFF, () -> GTQTTextures.HALO, true));
+        MetaItems.SENSOR_UIV.addComponents(new HaloRenderItemBehavior(10, 0xFFFFFFFF, () -> GTQTTextures.HALO, true));
+        MetaItems.ELECTRIC_PISTON_UIV.addComponents(new HaloRenderItemBehavior(10, 0xFFFFFFFF, () -> GTQTTextures.HALO, true));
+        MetaItems.FIELD_GENERATOR_UIV.addComponents(new HaloRenderItemBehavior(10, 0xFFFFFFFF, () -> GTQTTextures.HALO, true));
+        MetaItems.ROBOT_ARM_UIV.addComponents(new HaloRenderItemBehavior(10, 0xFFFFFFFF, () -> GTQTTextures.HALO, true));
+        MetaItems.ELECTRIC_PUMP_UIV.addComponents(new HaloRenderItemBehavior(10, 0xFFFFFFFF, () -> GTQTTextures.HALO, true));
+        MetaItems.FLUID_REGULATOR_UIV.addComponents(new HaloRenderItemBehavior(10, 0xFFFFFFFF, () -> GTQTTextures.HALO, true));
+
     }
 
 }

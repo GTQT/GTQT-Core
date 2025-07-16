@@ -532,16 +532,7 @@ public class GTQTMetaItems {
     public static MetaItem<?>.MetaValueItem COSMIC_MEMORY_CHIP;
     public static MetaItem<?>.MetaValueItem SUPRACAUSAL_MEMORY_CHIP;
     //  Covers
-    public static MetaItem<?>.MetaValueItem ELECTRIC_MOTOR_MAX;
-    public static MetaItem<?>.MetaValueItem ELECTRIC_PISTON_MAX;
-    public static MetaItem<?>.MetaValueItem ELECTRIC_PUMP_MAX;
-    public static MetaItem<?>.MetaValueItem CONVEYOR_MODULE_MAX;
-    public static MetaItem<?>.MetaValueItem ROBOT_ARM_MAX;
-    public static MetaItem<?>.MetaValueItem EMITTER_MAX;
-    public static MetaItem<?>.MetaValueItem SENSOR_MAX;
-    public static MetaItem<?>.MetaValueItem FIELD_GENERATOR_MAX;
     public static MetaItem<?>.MetaValueItem COVER_SOLAR_PANEL_MAX;
-
 
     // Power Components
     public static MetaItem<?>.MetaValueItem NANO_POWER_IC_WAFER;

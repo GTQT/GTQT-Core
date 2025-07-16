@@ -18,12 +18,6 @@ public class GTQTCoverBehavior {
 
     public static void init() {
 
-        registerBehavior(new ResourceLocation(GTQTCore.MODID, "pump.max"), GTQTMetaItems.ELECTRIC_PUMP_MAX,
-                (def, tile, side) -> new CoverPump(def, tile, side, GTValues.MAX, 1048576));
-        registerBehavior(new ResourceLocation(GTQTCore.MODID, "conveyor.max"), GTQTMetaItems.CONVEYOR_MODULE_MAX,
-                (def, tile, side) -> new CoverConveyor(def, tile, side, GTValues.MAX, 1024));
-        registerBehavior(new ResourceLocation(GTQTCore.MODID, "robot_arm.max"), GTQTMetaItems.ROBOT_ARM_MAX,
-                (def, tile, side) -> new CoverRoboticArm(def, tile, side, GTValues.MAX, 1024));
         registerBehavior(new ResourceLocation(GTQTCore.MODID,  "solar_panel.max"), GTQTMetaItems.COVER_SOLAR_PANEL_MAX,
                 (def, tile, side) -> new CoverSolarPanel(def, tile, side, GTValues.V[GTValues.MAX]));
 

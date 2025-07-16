@@ -10,6 +10,7 @@ import static gregtech.api.unification.material.Materials.*;
 import static gregtech.api.unification.material.info.MaterialFlags.*;
 import static keqing.gtqtcore.api.unification.GTQTMaterials.*;
 import static keqing.gtqtcore.api.unification.material.info.GTQTMaterialFlags.*;
+import static keqing.gtqtcore.api.unification.material.info.GTQTMaterialIconSet.CUSTOM_COSMIC_NEUTRONIUM;
 
 public class MaterialFlagAddition {
 
@@ -232,6 +233,7 @@ public class MaterialFlagAddition {
         Europium.addFlags(GENERATE_CURVED_PLATE);
         Gold.addFlags(GENERATE_CURVED_PLATE);
         Iridium.addFlags(GENERATE_CURVED_PLATE);
+        Iron.addFlags(GENERATE_CURVED_PLATE);
         Lead.addFlags(GENERATE_CURVED_PLATE);
         Naquadah.addFlags(GENERATE_CURVED_PLATE);
         Neutronium.addFlags(GENERATE_CURVED_PLATE);
