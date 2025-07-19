@@ -65,7 +65,7 @@ public class TaraniumProcessing {
         //  Drilling Bedrock dust and smoke in Bedrock
         DRILLING_RECIPES.recipeBuilder()
                 .notConsumable(new ItemStack(Blocks.BEDROCK))
-                .chancedOutput(dust, Bedrock, 100, 0)
+                .chancedOutput(dust, Bedrock, 1000, 1000)
                 .fluidOutputs(BedrockSmoke.getFluid(1000))
                 .duration(20)
                 .EUt(VA[UHV])
@@ -386,7 +386,7 @@ public class TaraniumProcessing {
                 .buildAndRegister();
 
         //  24 Stone Residue + NaOH + H2O -> Selected Stone Residue + Fe3O4 (chanced) + Red Mud
-        ELECTROLYZER_RECIPES.recipeBuilder()
+        ELECTROBATH.recipeBuilder()
                 .input(dust, StoneResidue, 24)
                 .notConsumable(SEPARATION_ELECTROMAGNET)
                 .input(dust, SodiumHydroxide)
@@ -395,6 +395,7 @@ public class TaraniumProcessing {
                 .chancedOutput(dust, Magnetite, 2500, 0)
                 .fluidOutputs(RedMud.getFluid(1000))
                 .EUt(VA[MV])
+                .tier(3)
                 .duration(10 * SECOND)
                 .buildAndRegister();
 

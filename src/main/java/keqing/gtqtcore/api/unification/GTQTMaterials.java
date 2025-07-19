@@ -490,6 +490,19 @@ public class GTQTMaterials {
     public static Material ButyricAcid;
     public static Material PropionateEster;
     public static Material ButyrateEster;
+    public static Material KryptonHexafluoride;
+    public static Material FluoriteBedRock;
+    public static Material SiliconTetrafluoride;
+    public static Material MeltedBedRock;
+    public static Material MeltedLightMetalMixture;
+    public static Material MeltedRareMetalMixture;
+    public static Material MeltedSuperHeavyElementMixture;
+    public static Material SuperHeavyElementRichResidue;
+    public static Material FluorideHydrocarbonMixture;
+    public static Material UniverseFluorideMixture;
+    public static Material UniverseExtractLiquid;
+    public static Material LiBeZrFMoltenSalt;
+    public static Material CrudeUniverse;
     public static Material Enzymesa;
     public static Material Enzymesb;
     public static Material Enzymesc;
@@ -1016,6 +1029,7 @@ public class GTQTMaterials {
     public static Material PrimordialMatter;
     public static Material Astralium;
     public static Material Hikarium;
+    public static Material Universe;
     // First Degree Materials
     public static Material LanthanumOxide;
     public static Material PraseodymiumOxide;

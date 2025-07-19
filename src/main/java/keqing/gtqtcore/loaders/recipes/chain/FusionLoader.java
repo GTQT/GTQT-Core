@@ -2,10 +2,9 @@ package keqing.gtqtcore.loaders.recipes.chain;
 
 
 import static gregtech.api.GTValues.*;
-import static gregtech.api.GTValues.UEV;
-import static gregtech.api.recipes.RecipeMaps.*;
+import static gregtech.api.recipes.RecipeMaps.FUSION_RECIPES;
+import static gregtech.api.recipes.RecipeMaps.PLASMA_GENERATOR_FUELS;
 import static gregtech.api.unification.material.Materials.*;
-import static gregtech.api.unification.material.Materials.Titanium;
 import static gregtechfoodoption.GTFOMaterialHandler.Blood;
 import static keqing.gtqtcore.api.unification.GTQTMaterials.*;
 
@@ -637,6 +636,16 @@ public class FusionLoader {
                 .fluidOutputs(Taranium.getFluid(1))
                 .EUt((int) V[EV])
                 .duration((int) (13.8 * SECOND))
+                .buildAndRegister();
+
+        //合成宇宙中子素 Nt + Sp = SpNt
+        FUSION_RECIPES.recipeBuilder()
+                .fluidInputs(Neutronium.getFluid(L))
+                .fluidInputs(Universe.getFluid(L))
+                .fluidOutputs(CosmicNeutronium.getFluid(L * 2))
+                .EUt(VA[UV])
+                .duration((int) (3.2 * SECOND))
+                .EUToStart(360000000L)
                 .buildAndRegister();
 
         /* -------------------------------- MK4 -------------------------------- */

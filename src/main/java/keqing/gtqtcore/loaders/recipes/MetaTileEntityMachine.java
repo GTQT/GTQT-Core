@@ -50,7 +50,6 @@ import static gregtech.loaders.recipe.CraftingComponent.*;
 import static gregtech.loaders.recipe.MetaTileEntityLoader.registerMachineRecipe;
 import static gtqt.api.util.MaterialHelper.Cable;
 import static keqing.gtqtcore.api.unification.GTQTMaterials.*;
-import static keqing.gtqtcore.api.unification.MaterialHelper.Glue;
 import static keqing.gtqtcore.api.unification.MaterialHelper.*;
 import static keqing.gtqtcore.api.unification.ore.GTQTOrePrefix.plate_curved;
 import static keqing.gtqtcore.common.block.blocks.BlockMultiblockCasing4.TurbineCasingType.FISHING_CASING;
@@ -428,52 +427,29 @@ public class MetaTileEntityMachine {
         }
     }
 
+    public static Material[] SecondPlate = {Iron,GalvanizedSteel,Invar,Magnalium,Talonite,NiobiumTitanium,Naquadah,Europium,Duranium,Trinium,Neutronium};
+    public static Material[] Plastic ={RedAlloy,Rubber,Polyethylene,Epoxy,Polytetrafluoroethylene,Zylon,Polybenzimidazole,Polyetheretherketone,Kevlar,KaptonK,KaptonE};
+
     private static void Hull() {
+        BlockMachineCasing.MachineCasingType[] casingTypes = BlockMachineCasing.MachineCasingType.values();
+
         //机器外壳
         for (int i = 0; i <= UEV; i++) {
-            RecipeMaps.ASSEMBLER_RECIPES.recipeBuilder().duration(100).EUt(VA[1])
+            RecipeMaps.ASSEMBLER_RECIPES.recipeBuilder().duration(100).EUt(VA[i])
                     .inputs(MACHINE_CASING.getItemVariant(MachineCasing[i]))
                     .input(plate, SecondPlate[i], 2)
                     .input(OrePrefix.cableGtSingle, Cable.get(i), 2)
                     .outputs(MetaTileEntities.HULL[i].getStackForm())
-                    .fluidInputs(Glue[i].getFluid(L * 2))
+                    .fluidInputs(Plastic[i].getFluid(L * 2))
                     .buildAndRegister();
+
+            ModHandler.addShapedRecipe(true, VN[i]+"_casing", HULL[i].getStackForm(),
+                    "ABA", "CHC", "ABA",
+                    'H', MACHINE_CASING.getItemVariant(casingTypes[i]),
+                    'C', new UnificationEntry(cableGtSingle, Cable.get(i)),
+                    'B', new UnificationEntry(plate, SecondPlate[i]),
+                    'A', new UnificationEntry(plate, Plastic[i]));
         }
-        //机器外壳
-        ModHandler.addShapedRecipe(true, "ulv_casing", HULL[0].getStackForm(),
-                "ABA", "CHC", "ABA",
-                'H', MACHINE_CASING.getItemVariant(BlockMachineCasing.MachineCasingType.ULV),
-                'C', new UnificationEntry(wireGtSingle, Lead),
-                'B', new UnificationEntry(plate, Iron),
-                'A', new UnificationEntry(plate, RedAlloy));
-
-        ModHandler.addShapedRecipe(true, "lv_casing", HULL[1].getStackForm(),
-                "ABA", "CHC", "ABA",
-                'H', MACHINE_CASING.getItemVariant(BlockMachineCasing.MachineCasingType.LV),
-                'C', new UnificationEntry(cableGtSingle, Tin),
-                'B', new UnificationEntry(plate, GalvanizedSteel),
-                'A', new UnificationEntry(plate, Rubber));
-
-        ModHandler.addShapedRecipe(true, "mv_casing", HULL[2].getStackForm(),
-                "ABA", "CHC", "ABA",
-                'H', MACHINE_CASING.getItemVariant(BlockMachineCasing.MachineCasingType.MV),
-                'C', new UnificationEntry(cableGtSingle, Copper),
-                'B', new UnificationEntry(plate, Invar),
-                'A', new UnificationEntry(plate, Polyethylene));
-
-        ModHandler.addShapedRecipe(true, "hv_casing", HULL[3].getStackForm(),
-                "ABA", "CHC", "ABA",
-                'H', MACHINE_CASING.getItemVariant(BlockMachineCasing.MachineCasingType.HV),
-                'C', new UnificationEntry(cableGtSingle, Gold),
-                'B', new UnificationEntry(plate, Magnalium),
-                'A', new UnificationEntry(plate, Epoxy));
-
-        ModHandler.addShapedRecipe(true, "ev_casing", HULL[4].getStackForm(),
-                "ABA", "CHC", "ABA",
-                'H', MACHINE_CASING.getItemVariant(BlockMachineCasing.MachineCasingType.EV),
-                'C', new UnificationEntry(cableGtSingle, Aluminium),
-                'B', new UnificationEntry(plate, Talonite),
-                'A', new UnificationEntry(plate, Polytetrafluoroethylene));
         //////////////////////////////////////玻璃
         FLUID_SOLIDFICATION_RECIPES.recipeBuilder().duration(120).EUt(120)
                 .fluidInputs(BorosilicateGlass.getFluid(L * 4))

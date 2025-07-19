@@ -421,8 +421,8 @@ public class GTQTMetaTileEntities {
         LARGE_NAQUADAH_REACTOR = registerMetaTileEntity(55, new MetaTileEntityLargeNaquadahReactor(gtqtcoreId("large_naquadah_reactor")));
 
         //大火箭
-        LARGE_ROCKET_ENGIN = registerMetaTileEntity(60, new MetaTileEntityLargeRocketEngine(gtqtcoreId("large_rocket_engin"), LuV));
-        EXTREME_LARGE_ROCKET_ENGIN = registerMetaTileEntity(61, new MetaTileEntityLargeRocketEngine(gtqtcoreId("extreme_large_rocket_engin"), ZPM));
+        LARGE_ROCKET_ENGIN = registerMetaTileEntity(60, new MetaTileEntityLargeRocketEngine(gtqtcoreId("large_rocket_engin"), UV));
+        EXTREME_LARGE_ROCKET_ENGIN = registerMetaTileEntity(61, new MetaTileEntityLargeRocketEngine(gtqtcoreId("extreme_large_rocket_engin"), UHV));
 
         //巨型涡轮
         MEGA_STEAM_TURBINE = registerMetaTileEntity(65, new MetaTileEntityMegaTurbine(gtqtcoreId("mega_turbine.steam"), RecipeMaps.STEAM_TURBINE_FUELS, 3, MetaBlocks.TURBINE_CASING.getState(BlockTurbineCasing.TurbineCasingType.STEEL_TURBINE_CASING), MetaBlocks.TURBINE_CASING.getState(BlockTurbineCasing.TurbineCasingType.STEEL_GEARBOX), Textures.SOLID_STEEL_CASING, false, GTQTTextures.MEGA_TURBINE_OVERLAY));
@@ -441,7 +441,7 @@ public class GTQTMetaTileEntities {
         MEGA_SUPERCRITICAL_STEAM_TURBINE = registerMetaTileEntity(73, new MetaTileEntityMegaTurbine(gtqtcoreId("mega_supercritical_steam_turbine"), GTQTcoreRecipeMaps.SUPERCRITICAL_STEAM_TURBINE_RECIPES, LuV, GTQTMetaBlocks.blockMultiblockCasing1.getState(BlockMultiblockCasing1.CasingType.MaragingSteel250), MetaBlocks.TURBINE_CASING.getState(BlockTurbineCasing.TurbineCasingType.TUNGSTENSTEEL_GEARBOX), GTQTTextures.MaragingSteel250, false, GTQTTextures.MEGA_TURBINE_OVERLAY));
 
         //促燃与生物质的大涡轮
-        LARGE_FUEL_TURBINE = registerMetaTileEntity(75, new MetaTileEntityLargeTurbine(gtqtcoreId("large_turbine.fuel_cell"), GTQTcoreRecipeMaps.FUEL_CELL, 4, GTQTMetaBlocks.blockMultiblockCasing1.getState(HastelloyX78), MetaBlocks.TURBINE_CASING.getState(BlockTurbineCasing.TurbineCasingType.TUNGSTENSTEEL_GEARBOX), GTQTTextures.HastelloyX78, true, Textures.LARGE_GAS_TURBINE_OVERLAY));
+        LARGE_FUEL_TURBINE = registerMetaTileEntity(75, new MetaTileEntityLargeTurbine(gtqtcoreId("large_turbine.fuel_cell"), GTQTcoreRecipeMaps.FUEL_CELL, 7, GTQTMetaBlocks.blockMultiblockCasing1.getState(HastelloyX78), MetaBlocks.TURBINE_CASING.getState(BlockTurbineCasing.TurbineCasingType.TUNGSTENSTEEL_GEARBOX), GTQTTextures.HastelloyX78, true, Textures.LARGE_GAS_TURBINE_OVERLAY));
         LARGE_BIOMASS_GENERATOR = registerMetaTileEntity(76, new MetaTileEntityLargeBiomassGenerator(gtqtcoreId("large_biomass_generator")));
 
         //水电

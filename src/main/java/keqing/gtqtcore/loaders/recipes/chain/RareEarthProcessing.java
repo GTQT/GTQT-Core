@@ -533,7 +533,7 @@ public class RareEarthProcessing {
                 .output(dust, Zircon,4)
                 .output(dust,Thorianite,9)
                 .output(dust,Monazite,2)
-                .duration(600).EUt(VA[EV]).buildAndRegister();
+                .duration(600).EUt(VA[IV]).buildAndRegister();
 
         CENTRIFUGE_RECIPES.recipeBuilder()
                 .fluidInputs(DiluteMonaziteRareEarthMud.getFluid(1000))
@@ -542,13 +542,13 @@ public class RareEarthProcessing {
                 .chancedOutput(dust,SodiumNitrate,8000,0)
                 .chancedOutput(dust,Rutile,2000,0)
                 .chancedOutput(dust,Ilmenite,2000,0)
-                .duration(600).EUt(VA[EV]).buildAndRegister();
+                .duration(600).EUt(VA[IV]).buildAndRegister();
 
         CENTRIFUGE_RECIPES.recipeBuilder()
                 .fluidInputs(SulfuricAcidMonazite.getFluid(1000))
                 .chancedOutput(dust, MonaziteRareEarthFilterResidue,9000,0)
                 .chancedOutput(dust, ThoriumPhosphateFilterCake,9000,0)
-                .duration(600).EUt(VA[EV]).buildAndRegister();
+                .duration(600).EUt(VA[IV]).buildAndRegister();
 
         CHEMICAL_RECIPES.recipeBuilder()
                 .input(dust,SodiumHydroxide)
@@ -562,7 +562,7 @@ public class RareEarthProcessing {
                 .output(dust, ThoriumPhosphateConcentrate,1)
                 .chancedOutput(dust,SodiumNitrate,8000,0)
                 .blastFurnaceTemp(3500)
-                .duration(600).EUt(VA[EV]).buildAndRegister();
+                .duration(600).EUt(VA[IV]).buildAndRegister();
 
         CENTRIFUGE_RECIPES.recipeBuilder()
                 .input(dust, ThoriumPhosphateConcentrate,1)
@@ -593,7 +593,7 @@ public class RareEarthProcessing {
                 .output(dust, DryConcentratedNitrateMonaziteRareEarth,1)
                 .chancedOutput(dust,SodiumNitrate,2000,0)
                 .blastFurnaceTemp(3500)
-                .duration(600).EUt(VA[EV]).buildAndRegister();
+                .duration(600).EUt(VA[IV]).buildAndRegister();
 
         CENTRIFUGE_RECIPES.recipeBuilder()
                 .input(dust, DryConcentratedNitrateMonaziteRareEarth)
@@ -650,7 +650,7 @@ public class RareEarthProcessing {
                 .output(dust, GTQTMaterials.CeriumOxide,5)
                 .fluidOutputs(CarbonMonoxide.getFluid(3000))
                 .blastFurnaceTemp(3500)
-                .duration(600).EUt(VA[EV]).buildAndRegister();
+                .duration(600).EUt(VA[IV]).buildAndRegister();
 
         ELECTROLYZER_RECIPES.recipeBuilder()
                 .input(dust, GTQTMaterials.CeriumOxide,5)

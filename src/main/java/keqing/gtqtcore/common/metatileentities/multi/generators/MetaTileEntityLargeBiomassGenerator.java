@@ -28,15 +28,14 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 
 import java.util.List;
 
-import static gregtech.api.GTValues.LuV;
-import static gregtech.api.GTValues.V;
+import static gregtech.api.GTValues.*;
 import static keqing.gtqtcore.common.block.blocks.BlockMultiblockCasing1.CasingType.Inconel625;
 
 public class MetaTileEntityLargeBiomassGenerator extends FuelMultiblockController {
 
     public MetaTileEntityLargeBiomassGenerator(ResourceLocation metaTileEntityId) {
         super(metaTileEntityId, GTQTcoreRecipeMaps.BIOMASS_GENERATOR_RECIPES, LuV);
-        this.recipeMapWorkable.setMaximumOverclockVoltage(V[LuV]);
+        this.recipeMapWorkable.setMaximumOverclockVoltage(V[ZPM]);
     }
 
     @Override

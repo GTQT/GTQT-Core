@@ -50,9 +50,9 @@ public class MetaTileEntityHyperReactorMkI extends FuelMultiblockController impl
     private boolean boostAllowed;
 
     public MetaTileEntityHyperReactorMkI(ResourceLocation metaTileEntityId) {
-        super(metaTileEntityId, GTQTcoreRecipeMaps.HYPER_REACTOR_MK1_RECIPES, UEV);
+        super(metaTileEntityId, GTQTcoreRecipeMaps.HYPER_REACTOR_MK1_RECIPES, UIV);
         this.recipeMapWorkable = new HyperReactorMark1WorkableHandler(this);
-        this.recipeMapWorkable.setMaximumOverclockVoltage(V[UEV]);
+        this.recipeMapWorkable.setMaximumOverclockVoltage(V[UIV]);
     }
     @Override
     protected void initializeAbilities() {
@@ -75,7 +75,7 @@ public class MetaTileEntityHyperReactorMkI extends FuelMultiblockController impl
         HyperReactorMark1WorkableHandler recipeLogic = (HyperReactorMark1WorkableHandler) this.recipeMapWorkable;
         MultiblockDisplayText.builder(textList, this.isStructureFormed())
                 .setWorkingStatus(recipeLogic.isWorkingEnabled(), recipeLogic.isActive())
-                .addEnergyProductionLine(V[UIV], recipeLogic.getRecipeEUt())
+                .addEnergyProductionLine(V[UXV], recipeLogic.getRecipeEUt())
                 .addFuelNeededLine(recipeLogic.getRecipeFluidInputInfo(), recipeLogic.getPreviousRecipeDuration())
                 .addCustom((tl) -> {
                     if (this.isStructureFormed() && recipeLogic.isBoosted) {
@@ -91,8 +91,8 @@ public class MetaTileEntityHyperReactorMkI extends FuelMultiblockController impl
                                 List<String> tooltip,
                                boolean advanced) {
         super.addInformation(stack, player, tooltip, advanced);
-        tooltip.add(I18n.format("gregtech.universal.tooltip.base_production_eut", GTValues.V[UEV]));
-        tooltip.add(I18n.format("gtqtcore.machine.hyper_reactor_mk1.tooltip.boost", GTValues.V[UEV] * 4L));
+        tooltip.add(I18n.format("gregtech.universal.tooltip.base_production_eut", GTValues.V[UIV]));
+        tooltip.add(I18n.format("gtqtcore.machine.hyper_reactor_mk1.tooltip.boost", GTValues.V[UIV] * 4L));
         tooltip.add(I18n.format("gtqtcore.universal.tooltip.laser_output"));
     }
 
@@ -162,7 +162,7 @@ public class MetaTileEntityHyperReactorMkI extends FuelMultiblockController impl
     protected void formStructure(PatternMatchContext context) {
         super.formStructure(context);
         IEnergyContainer energyContainer = this.getEnergyContainer();
-        this.boostAllowed = energyContainer != null && energyContainer.getOutputVoltage() >= GTValues.V[UIV];
+        this.boostAllowed = energyContainer != null && energyContainer.getOutputVoltage() >= GTValues.V[UXV];
     }
 
     @Override
@@ -290,7 +290,7 @@ public class MetaTileEntityHyperReactorMkI extends FuelMultiblockController impl
 
         @Override
         public long getMaxVoltage() {
-            return this.isBoosted ? V[UEV] * 2L : V[UEV];
+            return this.isBoosted ? V[UIV] * 2L : V[UIV];
         }
 
         @Override

@@ -141,16 +141,18 @@ public class MachineCasingMaterials {
                         .attackSpeed(0.1F).enchantability(21).build())
                 .components(Titanium, 26, Lanthanum, 6, TungstenSteel, 4, Cobalt, 3, Manganese, 2, Phosphorus, 2, Palladium, 2, Niobium, 1, Argon, 5)
                 .build();
+
         //  24510 Talonite
         Talonite = new Material.Builder(getMaterialsId(), gtqtcoreId("talonite"))
                 .ingot()
                 .fluid()
                 .color(0x9991A5)
                 .iconSet(SHINY)
-                .blast(2700, GasTier.LOW)
+                .blast(b -> b.temp(3600, GasTier.MID).blastStats(VA[EV], 1200))
                 .flags(GENERATE_PLATE, GENERATE_ROD, GENERATE_GEAR, GENERATE_SMALL_GEAR, GENERATE_LONG_ROD, GENERATE_DOUBLE_PLATE, GENERATE_DENSE, GENERATE_FRAME)
                 .components(Cobalt, 4, Chrome, 3, Phosphorus, 2, Molybdenum, 1)
                 .build();
+
         //  24511 Black Plutonium
         BlackPlutonium = new Material.Builder(getMaterialsId(), gtqtcoreId("black_plutonium"))
                 .ingot()

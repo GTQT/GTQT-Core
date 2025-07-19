@@ -7,8 +7,6 @@ import gregtech.api.recipes.RecipeBuilder;
 import gregtech.api.recipes.RecipeMap;
 import gregtech.api.recipes.RecipeMaps;
 import gregtech.api.recipes.builders.SimpleRecipeBuilder;
-import gregtech.api.recipes.chance.output.ChancedOutputList;
-import gregtech.api.recipes.chance.output.impl.ChancedItemOutput;
 import gregtech.api.recipes.ingredients.GTRecipeInput;
 import gregtech.api.recipes.ingredients.IntCircuitIngredient;
 import gregtech.api.unification.material.Materials;
@@ -17,18 +15,13 @@ import keqing.gtqtcore.api.recipes.GTQTcoreRecipeMaps;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.fluids.FluidStack;
 
-import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
 import static gregtech.api.GTValues.*;
-import static gregtech.api.GTValues.CWT;
-import static gregtech.api.recipes.RecipeMaps.LATHE_RECIPES;
-import static gregtech.api.recipes.RecipeMaps.*;
-import static gregtech.api.unification.material.Materials.*;
+import static gregtech.api.recipes.RecipeMaps.VACUUM_RECIPES;
+import static gregtech.api.unification.material.Materials.Lubricant;
 import static keqing.gtqtcore.api.recipes.GTQTcoreRecipeMaps.*;
-import static keqing.gtqtcore.api.unification.GTQTMaterials.OverheatedGas;
-import static keqing.gtqtcore.api.utils.GTQTUtil.*;
 
 public class CopyRecipesHandlers {
     public static void init() {
@@ -39,8 +32,8 @@ public class CopyRecipesHandlers {
             List<FluidStack> fluidOutputs = recipe.getFluidOutputs();
             List<GTRecipeInput> itemInputs = recipe.getInputs();
             List<ItemStack> itemOutputs = recipe.getOutputs();
-            int EUt = (int) (recipe.getEUt()*1.5);
-            int baseDuration = recipe.getDuration()/2;
+            int EUt = (int) (recipe.getEUt() * 1.5);
+            int baseDuration = recipe.getDuration() / 2;
 
             LARGE_MIXER_RECIPES.recipeBuilder()
                     .duration(baseDuration)
@@ -58,11 +51,11 @@ public class CopyRecipesHandlers {
             List<GTRecipeInput> itemInputs = recipe.getInputs();
             List<ItemStack> itemOutputs = recipe.getOutputs();
             long EUt = recipe.getEUt();
-            int baseDuration= Math.max((int) (recipe.getDuration()*0.8),1);
+            int baseDuration = Math.max((int) (recipe.getDuration() * 0.8), 1);
 
             TD_PRINT_RECIPES.recipeBuilder()
                     .duration(baseDuration)
-                    .EUt(EUt<=V[LV]?EUt:EUt/4)
+                    .EUt(EUt <= V[LV] ? EUt : EUt / 4)
                     .fluidInputs(fluidInputs)
                     .inputIngredients(itemInputs)
                     .outputs(itemOutputs)
@@ -74,22 +67,22 @@ public class CopyRecipesHandlers {
         Collection<Recipe> DistillationRecipes = RecipeMaps.DISTILLATION_RECIPES.getRecipeList();
         for (Recipe recipe : DistillationRecipes) {
             long EUt = recipe.getEUt();
-            if(EUt>=512)continue;
+            if (EUt >= 512) continue;
 
             List<GTRecipeInput> fluidInputs = recipe.getFluidInputs();
             List<FluidStack> fluidOutputs = recipe.getFluidOutputs();
 
-            int baseDuration= recipe.getDuration()*4;
+            int baseDuration = recipe.getDuration() * 4;
 
             // generate builder
             RecipeBuilder<?> builder;
 
             builder = DISTILLATION_KETTLE.recipeBuilder()
                     .duration(baseDuration)
-                    .Heat((int) (300+EUt));
+                    .Heat((int) (300 + EUt));
 
-            if(fluidInputs!=null)builder.fluidInputs(fluidInputs);
-            if(fluidOutputs!=null) {
+            if (fluidInputs != null) builder.fluidInputs(fluidInputs);
+            if (fluidOutputs != null) {
                 if (fluidOutputs.size() > 9) continue;
                 builder.fluidOutputs(fluidOutputs);
             }
@@ -105,8 +98,8 @@ public class CopyRecipesHandlers {
             List<ItemStack> itemOutputs = recipe.getOutputs();
 
             long EUt = recipe.getEUt() * 4;
-            int baseDuration= recipe.getDuration()/2;
-            int tier=Math.min(5, GTUtility.getTierByVoltage(recipe.getEUt())+1);
+            int baseDuration = recipe.getDuration() / 2;
+            int tier = Math.min(5, GTUtility.getTierByVoltage(recipe.getEUt()) + 1);
 
             // generate builder
             RecipeBuilder<?> builder;
@@ -116,10 +109,10 @@ public class CopyRecipesHandlers {
                     .tier(tier)
                     .EUt(EUt);
 
-            if(fluidInputs!=null)builder.fluidInputs(fluidInputs);
-            if(fluidOutputs!=null)builder.fluidOutputs(fluidOutputs);
+            if (fluidInputs != null) builder.fluidInputs(fluidInputs);
+            if (fluidOutputs != null) builder.fluidOutputs(fluidOutputs);
 
-            if(itemOutputs!=null)builder.outputs(itemOutputs);
+            if (itemOutputs != null) builder.outputs(itemOutputs);
 
             if (itemInputs != null) {
                 builder.inputIngredients(itemInputs);
@@ -156,15 +149,15 @@ public class CopyRecipesHandlers {
 
             PLASMA_CONDENSER_RECIPES.recipeBuilder()
                     .fluidInputs(fluidInputs.get(0).copyWithAmount(1000))
-                    .fluidOutputs(new FluidStack(fluidOutputs.get(0).getFluid(),1000))
+                    .fluidOutputs(new FluidStack(fluidOutputs.get(0).getFluid(), 1000))
                     .duration(baseDuration)
                     .EUt(VA[LuV])
                     .buildAndRegister();
 
             VACUUM_RECIPES.recipeBuilder()
                     .fluidInputs(fluidInputs.get(0).copyWithAmount(1000))
-                    .fluidOutputs(new FluidStack(fluidOutputs.get(0).getFluid(),1000))
-                    .duration(baseDuration*5)
+                    .fluidOutputs(new FluidStack(fluidOutputs.get(0).getFluid(), 1000))
+                    .duration(baseDuration * 5)
                     .EUt(VA[ZPM])
                     .buildAndRegister();
         }
@@ -173,7 +166,7 @@ public class CopyRecipesHandlers {
         for (Recipe recipe : cutterRecipes) {
 
             List<GTRecipeInput> fluidInputs = recipe.getFluidInputs();
-            if(fluidInputs.get(0).getInputFluidStack().getFluid()!=Lubricant.getFluid()) continue;
+            if (fluidInputs.get(0).getInputFluidStack().getFluid() != Lubricant.getFluid()) continue;
 
             List<GTRecipeInput> itemInputs = recipe.getInputs();
             List<ItemStack> itemOutputs = recipe.getOutputs();
@@ -197,17 +190,17 @@ public class CopyRecipesHandlers {
         Collection<Recipe> oilsRecipes = RecipeMaps.COMBUSTION_GENERATOR_FUELS.getRecipeList();
         for (Recipe recipe : oilsRecipes) {
 
-            if(recipe.getEUt()>V[EV])continue;
+            if (recipe.getEUt() > V[EV]) continue;
 
             List<GTRecipeInput> fluidInputs = recipe.getFluidInputs();
             int EUt = (int) GTValues.V[GTValues.LV];
             int baseDuration = (int) (4 * recipe.getDuration() * recipe.getEUt() / EUt);
 
-            if(baseDuration>4000)continue;
+            if (baseDuration > 4000) continue;
 
             GTQTcoreRecipeMaps.FUEL_CELL.recipeBuilder()
                     .fluidInputs(fluidInputs)
-                    .fluidInputs(Materials.Air.getFluid(recipe.getDuration()*8))
+                    .fluidInputs(Materials.Air.getFluid(recipe.getDuration() * 4))
                     .duration(baseDuration)
                     //.fluidOutputs(OverheatedGas.getFluid(baseDuration*50))
                     .EUt(EUt)
@@ -215,7 +208,7 @@ public class CopyRecipesHandlers {
 
             GTQTcoreRecipeMaps.FUEL_CELL.recipeBuilder()
                     .fluidInputs(fluidInputs)
-                    .fluidInputs(Materials.Oxygen.getFluid(FluidStorageKeys.GAS, recipe.getDuration()*4))
+                    .fluidInputs(Materials.Oxygen.getFluid(FluidStorageKeys.GAS, recipe.getDuration() * 2))
                     .duration((int) Math.floor(baseDuration * 1.5))
                     //.fluidOutputs(OverheatedGas.getFluid(baseDuration*75))
                     .EUt(EUt)
@@ -232,17 +225,17 @@ public class CopyRecipesHandlers {
         Collection<Recipe> gasRecipes = RecipeMaps.GAS_TURBINE_FUELS.getRecipeList();
         for (Recipe recipe : gasRecipes) {
 
-            if(recipe.getEUt()>V[EV])continue;
+            if (recipe.getEUt() > V[EV]) continue;
 
             List<GTRecipeInput> fluidInputs = recipe.getFluidInputs();
             int EUt = (int) GTValues.V[GTValues.LV];
             int baseDuration = (int) (4 * recipe.getDuration() * recipe.getEUt() / EUt);
 
-            if(baseDuration>4000)continue;
+            if (baseDuration > 4000) continue;
 
             GTQTcoreRecipeMaps.FUEL_CELL.recipeBuilder()
                     .fluidInputs(fluidInputs)
-                    .fluidInputs(Materials.Air.getFluid(recipe.getDuration()*8))
+                    .fluidInputs(Materials.Air.getFluid(recipe.getDuration() * 4))
                     .duration(baseDuration)
                     //.fluidOutputs(OverheatedGas.getFluid(baseDuration*50))
                     .EUt(EUt)
@@ -250,7 +243,7 @@ public class CopyRecipesHandlers {
 
             GTQTcoreRecipeMaps.FUEL_CELL.recipeBuilder()
                     .fluidInputs(fluidInputs)
-                    .fluidInputs(Materials.Oxygen.getFluid(FluidStorageKeys.GAS,recipe.getDuration()*4))
+                    .fluidInputs(Materials.Oxygen.getFluid(FluidStorageKeys.GAS, recipe.getDuration() * 2))
                     .duration((int) Math.floor(baseDuration * 1.5))
                     //.fluidOutputs(OverheatedGas.getFluid(baseDuration*75))
                     .EUt(EUt)
@@ -266,21 +259,21 @@ public class CopyRecipesHandlers {
 
         }
 
-        processRecipes(RecipeMaps.COMPRESSOR_RECIPES.getRecipeList(), 21,PROCESSING_MODE_A);
-        processRecipes(RecipeMaps.LATHE_RECIPES.getRecipeList(), 22,PROCESSING_MODE_A);
-        processRecipes(RecipeMaps.POLARIZER_RECIPES.getRecipeList(), 23,PROCESSING_MODE_A);
+        processRecipes(RecipeMaps.COMPRESSOR_RECIPES.getRecipeList(), 21, PROCESSING_MODE_A);
+        processRecipes(RecipeMaps.LATHE_RECIPES.getRecipeList(), 22, PROCESSING_MODE_A);
+        processRecipes(RecipeMaps.POLARIZER_RECIPES.getRecipeList(), 23, PROCESSING_MODE_A);
 
-        processRecipes(RecipeMaps.FERMENTING_RECIPES.getRecipeList(), 21,PROCESSING_MODE_B);
-        processRecipes(RecipeMaps.EXTRACTOR_RECIPES.getRecipeList(), 22,PROCESSING_MODE_B);
-        processRecipes(RecipeMaps.CANNER_RECIPES.getRecipeList(), 23,PROCESSING_MODE_B);
+        processRecipes(RecipeMaps.FERMENTING_RECIPES.getRecipeList(), 21, PROCESSING_MODE_B);
+        processRecipes(RecipeMaps.EXTRACTOR_RECIPES.getRecipeList(), 22, PROCESSING_MODE_B);
+        processRecipes(RecipeMaps.CANNER_RECIPES.getRecipeList(), 23, PROCESSING_MODE_B);
 
-        processRecipes(RecipeMaps.LASER_ENGRAVER_RECIPES.getRecipeList(), 21,PROCESSING_MODE_C);
-        processRecipes(RecipeMaps.AUTOCLAVE_RECIPES.getRecipeList(), 22,PROCESSING_MODE_C);
-        processRecipes(RecipeMaps.FLUID_SOLIDFICATION_RECIPES.getRecipeList(), 23,PROCESSING_MODE_C);
+        processRecipes(RecipeMaps.LASER_ENGRAVER_RECIPES.getRecipeList(), 21, PROCESSING_MODE_C);
+        processRecipes(RecipeMaps.AUTOCLAVE_RECIPES.getRecipeList(), 22, PROCESSING_MODE_C);
+        processRecipes(RecipeMaps.FLUID_SOLIDFICATION_RECIPES.getRecipeList(), 23, PROCESSING_MODE_C);
 
     }
 
-    private static void processRecipes(Collection<Recipe> recipeList, int circuitMeta,RecipeMap<SimpleRecipeBuilder> MAP) {
+    private static void processRecipes(Collection<Recipe> recipeList, int circuitMeta, RecipeMap<SimpleRecipeBuilder> MAP) {
         for (Recipe recipe : recipeList) {
             MAP.recipeBuilder()
                     .duration(recipe.getDuration())

@@ -2306,7 +2306,8 @@ public class SecondDegreeMaterials {
                 .components(Carbon, 5, Hydrogen, 10, Oxygen, 2)
                 .flags(DISABLE_DECOMPOSITION)
                 .build()
-                .setFormula("C2H5COOC2H5", true);
+                .setFormula("C2H5COOC2H5", true)
+                .setTooltips("水果香精");
 
         // 丁酸乙酯 (Ethyl Butyrate) 菠萝香精，常用于饮料和糖果
         GTQTMaterials.ButyrateEster = new Material.Builder(getMaterialsId(), gtqtcoreId("butyrate_ester"))
@@ -2315,6 +2316,101 @@ public class SecondDegreeMaterials {
                 .flags(DISABLE_DECOMPOSITION)
                 .components(Carbon, 6, Hydrogen, 12, Oxygen, 2)
                 .build()
-                .setFormula("CH3(CH2)2COOC2H5", true);
+                .setFormula("CH3(CH2)2COOC2H5", true)
+                .setTooltips("菠萝香精");
+
+        // 六氟化氪 KryptonHexafluoride
+        GTQTMaterials.KryptonHexafluoride = new Material.Builder(getMaterialsId(), gtqtcoreId("krypton_hexafluoride"))
+                .fluid()
+                .components(Krypton, 1, Fluorine, 6)
+                .color(0xE6FFFF) // 淡青色
+                .iconSet(SHINY)
+                .build();
+
+        // 氟化基岩 FluoriteBedRock
+        GTQTMaterials.FluoriteBedRock = new Material.Builder(getMaterialsId(), gtqtcoreId("fluorite_bed_rock"))
+                .dust()
+                .color(0x9932CC) // 深兰花紫
+                .iconSet(SHINY)
+                .build();
+
+        // 四氟化硅 SiliconTetrafluoride
+        GTQTMaterials.SiliconTetrafluoride = new Material.Builder(getMaterialsId(), gtqtcoreId("silicon_tetrafluoride"))
+                .fluid()
+                .components(Silicon, 1, Fluorine, 4)
+                .color(0xDCDCDC) // 淡灰色
+                .iconSet(SHINY)
+                .build();
+
+        // 熔融基岩 MeltedBedRock
+        GTQTMaterials.MeltedBedRock = new Material.Builder(getMaterialsId(), gtqtcoreId("melted_bedrock"))
+                .fluid()
+                .color(0xFF4500) // 橙红色
+                .iconSet(SHINY)
+                .build();
+
+        // 熔融轻质金属混合物 MeltedLightMetalMixture
+        GTQTMaterials.MeltedLightMetalMixture = new Material.Builder(getMaterialsId(), gtqtcoreId("melted_light_metal_mixture"))
+                .fluid()
+                .color(0xC0C0C0) // 银色
+                .iconSet(SHINY)
+                .build();
+
+        // 熔融稀土金属混合物 MeltedRareMetalMixture
+        GTQTMaterials.MeltedRareMetalMixture = new Material.Builder(getMaterialsId(), gtqtcoreId("melted_rare_metal_mixture"))
+                .fluid()
+                .color(0x7CFC00) // 黄绿色
+                .iconSet(SHINY)
+                .build();
+
+        // 熔融超重元素混合物 MeltedSuperHeavyElementMixture
+        GTQTMaterials.MeltedSuperHeavyElementMixture = new Material.Builder(getMaterialsId(), gtqtcoreId("melted_super_heavy_element_mixture"))
+                .fluid()
+                .color(0x9400D3) // 深紫罗兰色
+                .iconSet(SHINY)
+                .build();
+
+        // 超重元素富集残渣 SuperHeavyElementRichResidue
+        GTQTMaterials.SuperHeavyElementRichResidue = new Material.Builder(getMaterialsId(), gtqtcoreId("super_heavy_element_rich_residue"))
+                .dust()
+                .color(0x8B0000) // 深红色
+                .iconSet(SHINY)
+                .build();
+
+        // 挥发性氟化物混合气 FluorideHydrocarbonMixture
+        GTQTMaterials.FluorideHydrocarbonMixture = new Material.Builder(getMaterialsId(), gtqtcoreId("fluoride_hydrocarbon_mixture"))
+                .fluid()
+                .color(0xFFFACD) // 柠檬绸色
+                .iconSet(SHINY)
+                .build();
+
+        // 宇宙素氟化混合物
+        GTQTMaterials.UniverseFluorideMixture = new Material.Builder(getMaterialsId(), gtqtcoreId("universe_fluoride_mixture"))
+                .fluid()
+                .color(0x191970) // 午夜蓝
+                .iconSet(SHINY)
+                .build();
+
+        // 宇宙素萃取液
+        GTQTMaterials.UniverseExtractLiquid = new Material.Builder(getMaterialsId(), gtqtcoreId("universe_extract_liquid"))
+                .fluid()
+                .color(0x4B0082) // 靛蓝色
+                .iconSet(SHINY)
+                .build();
+
+        // LiF-BeF2-ZrF4熔盐
+        GTQTMaterials.LiBeZrFMoltenSalt = new Material.Builder(getMaterialsId(), gtqtcoreId("libezrf_molten_salt"))
+                .fluid()
+                .color(0xFFA500) // 橙色
+                .iconSet(SHINY)
+                .build()
+                .setFormula("LiF-BeF₂-ZrF₄", true);
+
+        // 粗宇宙素 crude universe
+        GTQTMaterials.CrudeUniverse = new Material.Builder(getMaterialsId(), gtqtcoreId("crude_universe"))
+                .dust()
+                .color(0x0F0F0F) // 接近黑色
+                .iconSet(SHINY)
+                .build();
     }
 }

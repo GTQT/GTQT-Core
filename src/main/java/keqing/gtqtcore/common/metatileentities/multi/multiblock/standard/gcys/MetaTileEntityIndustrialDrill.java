@@ -3,11 +3,14 @@ package keqing.gtqtcore.common.metatileentities.multi.multiblock.standard.gcys;
 import gregicality.multiblocks.api.unification.GCYMMaterials;
 import gregicality.multiblocks.common.block.GCYMMetaBlocks;
 import gregicality.multiblocks.common.block.blocks.BlockLargeMultiblockCasing;
+import gregtech.api.capability.IEnergyContainer;
+import gregtech.api.capability.impl.EnergyContainerList;
 import gregtech.api.capability.impl.MultiblockRecipeLogic;
 import gregtech.api.capability.impl.NotifiableItemStackHandler;
 import gregtech.api.metatileentity.MetaTileEntity;
 import gregtech.api.metatileentity.interfaces.IGregTechTileEntity;
 import gregtech.api.metatileentity.multiblock.IMultiblockPart;
+import gregtech.api.metatileentity.multiblock.MultiblockAbility;
 import gregtech.api.metatileentity.multiblock.RecipeMapMultiblockController;
 import gregtech.api.pattern.BlockPattern;
 import gregtech.api.pattern.FactoryBlockPattern;
@@ -34,7 +37,11 @@ import net.minecraftforge.items.IItemHandlerModifiable;
 
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
+import java.util.ArrayList;
 import java.util.List;
+
+import static net.minecraft.util.text.TextFormatting.GRAY;
+import static net.minecraft.util.text.TextFormatting.GREEN;
 
 public class MetaTileEntityIndustrialDrill extends RecipeMapMultiblockController {
 
@@ -68,7 +75,11 @@ public class MetaTileEntityIndustrialDrill extends RecipeMapMultiblockController
                 .where('V', states(MetaBlocks.MULTIBLOCK_CASING.getState(BlockMultiblockCasing.MultiblockCasingType.GRATE_CASING)))
                 .where('B', states(MetaBlocks.METAL_CASING.getState(BlockMetalCasing.MetalCasingType.STEEL_SOLID))
                         .setMinGlobalLimited(4)
-                        .or(autoAbilities(true, true, false, true, true, true, true)))
+                        .or(abilities(MultiblockAbility.INPUT_ENERGY)
+                                .setMaxGlobalLimited(2))
+                        .or(abilities(MultiblockAbility.INPUT_LASER)
+                                .setMaxGlobalLimited(1))
+                        .or(autoAbilities(false, true, false, true, true, true, true)))
                 .where('D', states(GTQTMetaBlocks.blockMultiblockCasing2.getState(BlockMultiblockCasing2.CasingType.DRILL_HEAD)))
                 .where('R', bedrockPredicate())
                 .where(' ', any())
@@ -94,6 +105,11 @@ public class MetaTileEntityIndustrialDrill extends RecipeMapMultiblockController
     @Override
     protected void initializeAbilities() {
         super.initializeAbilities();
+
+        List<IEnergyContainer> energyContainer = new ArrayList<>(this.getAbilities(MultiblockAbility.INPUT_ENERGY));
+        energyContainer.addAll(this.getAbilities(MultiblockAbility.INPUT_LASER));
+        this.energyContainer = new EnergyContainerList(energyContainer);
+
         this.inputInventory = new NotifiableItemStackHandler(this, 1, this, false);
     }
 
@@ -128,6 +144,8 @@ public class MetaTileEntityIndustrialDrill extends RecipeMapMultiblockController
         super.addInformation(stack, player, tooltip, advanced);
         tooltip.add(I18n.format("gtqtcore.multiblock.industrial_drill.tooltip.1"));
         tooltip.add(I18n.format("gtqtcore.multiblock.industrial_drill.tooltip.2"));
+        tooltip.add(GREEN + I18n.format("gtqtcore.multiblock.laser_hatch.enable"));
+        tooltip.add(GRAY + I18n.format("gtqtcore.multiblock.laser_hatch.tooltip"));
     }
 
     protected static class IndustrialDrillWorkableHandler extends MultiblockRecipeLogic {

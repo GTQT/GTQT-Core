@@ -34,11 +34,12 @@ public class BouleRecipeHandler {
         // if there are too many components to fit in the crystallizer, do not make a recipe
         // -1 for the not consumable input
         if (material.getMaterialComponents().size() > GTQTcoreRecipeMaps.CRYSTALLIZER_RECIPES.getMaxInputs() - 1 + GTQTcoreRecipeMaps.CRYSTALLIZER_RECIPES.getMaxFluidInputs()) {
+            System.out.println("[GTQT] Material " + material.toCamelCaseString() + " has too many components to fit in the crystallizer!");
             return;
         }
 
         int componentAmount = 0;
-        int temperature = 0;
+        int temperature = 1800;
         List<ItemStack> inputs = new ObjectArrayList<>();
         List<FluidStack> fluidInputs = new ObjectArrayList<>();
 
@@ -48,7 +49,7 @@ public class BouleRecipeHandler {
 
             if (componentMaterial.isSolid() || componentMaterial.hasProperty(PropertyKey.DUST)) {
                 componentAmount += amount;
-                temperature += componentMaterial.getBlastTemperature() * amount;
+                temperature += Math.max(componentMaterial.getBlastTemperature(),200) * amount;
 
                 // if there are too many item inputs, do not make a recipe
                 if (inputs.size() > GTQTcoreRecipeMaps.CRYSTALLIZER_RECIPES.getMaxInputs() - 1) {

@@ -524,6 +524,17 @@ public class ElementMaterials {
                 .flags(GENERATE_PLATE, GENERATE_DOUBLE_PLATE, GENERATE_ROD, GENERATE_SPRING, GENERATE_FINE_WIRE, GENERATE_DENSE)
                 .cableProperties(V[UXV], 64, 32, false)
                 .build();
+
+        //宇宙素
+        GTQTMaterials.Universe = new Material.Builder(getMaterialsId(), gtqtcoreId("universe"))
+                .ingot()
+                .liquid(new FluidBuilder().temperature((int) V[UV]))
+                .blast(8100, BlastProperty.GasTier.HIGH)
+                .color(0x000000)
+                .iconSet(SHINY)
+                .flags(CRYSTALLIZABLE)
+                .element(Elements.Sp)
+                .build();
     }
 
     public static String addObfuscatedFormula() {
