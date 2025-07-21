@@ -1,5 +1,6 @@
 package keqing.gtqtcore.api.unification.matreials;
 
+import gregtech.api.GTValues;
 import gregtech.api.fluids.FluidBuilder;
 import gregtech.api.fluids.attribute.FluidAttributes;
 import gregtech.api.unification.material.Material;
@@ -2412,5 +2413,63 @@ public class SecondDegreeMaterials {
                 .color(0x0F0F0F) // 接近黑色
                 .iconSet(SHINY)
                 .build();
+
+        ActiniumSuperhydride = new Material.Builder(getMaterialsId(), gtqtcoreId("actinium_superhydride"))
+                .dust()
+                .color(Actinium.getMaterialRGB() * 9 / 8)
+                .iconSet(SHINY)
+                .build()
+                .setFormula("AcH12", true);
+
+        TriniumTitanium = new Material.Builder(getMaterialsId(), gtqtcoreId("trinium_titanium"))
+                .ingot(7).liquid()
+                .color(0x9986a3)
+                .iconSet(SHINY)
+                .components(Trinium, 2, Titanium, 1)
+                .blast(11000)
+                .build();
+
+        UEVSuperconductorBase = new Material.Builder(getMaterialsId(), gtqtcoreId("uev_superconductor_base"))
+                .ingot().liquid()
+                .color(0x954fe0)
+                .iconSet(SHINY)
+                .flags(DISABLE_DECOMPOSITION)
+                .components(ActiniumSuperhydride,1,BETSPerrhenate,1,TriniumTitanium,2,Quantum,1,Vibranium,2)
+                .cableProperties(GTValues.V[GTValues.UEV], 8, 1048576)
+                .blast(11150)
+                .build();
+
+        /*
+        UIVSuperconductorBase = new Material.Builder(getMaterialsId(), gtqtcoreId("uiv_superconductor_base"))
+                .ingot().liquid()
+                .color(0x8bf743)
+                .iconSet(SHINY)
+                .flags(DISABLE_DECOMPOSITION)
+                .components(BorocarbideDust,2,FullereneSuperconductiveDust,1,MetastableOganesson,2,ProtoAdamantium,2)
+                .cableProperties(GTValues.V[GTValues.UIV], 16, 4194304)
+                .blast(11600)
+                .build();
+
+        UXVSuperconductorBase = new Material.Builder(getMaterialsId(), gtqtcoreId("uxv_superconductor_base"))
+                .ingot().liquid()
+                .color(0x883afc)
+                .iconSet(SHINY)
+                .flags(DISABLE_DECOMPOSITION)
+                .cableProperties(GTValues.V[GTValues.UXV], 16, 16777216)
+                .components(BlackTitanium,3,SuperheavyHAlloy,2, ChargedCaesiumCeriumCobaltIndium,3,RheniumHassiumThalliumIsophtaloylbisdiethylthioureaHexafluorophosphate,6)
+                .blast(12000)
+                .build();
+
+        OpVSuperconductorBase = new Material.Builder(getMaterialsId(), gtqtcoreId("opv_superconductor_base"))
+                .ingot().liquid()
+                .color(0xe34b5a)
+                .iconSet(SHINY)
+                .flags(DISABLE_DECOMPOSITION)
+                .cableProperties(GTValues.V[OpV], 16, 67108864)
+                .components(Neutronium,4,Legendarium,5,ActiniumSuperhydride,5,LanthanumFullereneNanotubes,4,RheniumHassiumThalliumIsophtaloylbisdiethylthioureaHexafluorophosphate,12)
+                .blast(14000)
+                .build();
+
+         */
     }
 }

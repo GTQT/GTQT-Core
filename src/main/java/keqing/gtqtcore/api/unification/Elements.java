@@ -53,4 +53,6 @@ public class Elements {
 
     //宇宙素
     public static final Element Sp = gregtech.api.unification.Elements.add(1000000, 1000000, -1, null, "Universe", "Sp", false);
+    //Qt
+    public static final Element Qt = gregtech.api.unification.Elements.add(1000000, 1000000, -1, null, "Qt", "Qt", false);
 }

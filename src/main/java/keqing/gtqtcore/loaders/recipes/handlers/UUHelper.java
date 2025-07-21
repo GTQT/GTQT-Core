@@ -49,7 +49,7 @@ public class UUHelper {
     public static void init() {
         casingRecipes();
         UUUtils();
-        initRecycleRecipe();
+        //initRecycleRecipe();
     }
     public static void initRecycleRecipe(){
         for (Item item : ForgeRegistries.ITEMS) {

@@ -340,7 +340,7 @@ public class MachineCasingMaterials {
                 .fluid()
                 .color(0xD6D0F0)
                 .iconSet(DULL)
-                .blast(7600, GasTier.HIGHER)
+                .blast(7000, GasTier.HIGHER)
                 .components(Nickel, 18, Chrome, 16, TinAlloy, 8, Cobalt, 6, Niobium, 4, Aluminium, 4, Silicon, 2, Phosphorus, 2)
                 .flags(GENERATE_PLATE, GENERATE_ROD, GENERATE_RING, GENERATE_BOLT_SCREW, GENERATE_GEAR, GENERATE_ROTOR,
                         GENERATE_FRAME, GENERATE_DOUBLE_PLATE, GENERATE_DENSE, GENERATE_LONG_ROD, GENERATE_ROUND, GENERATE_SMALL_GEAR

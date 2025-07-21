@@ -503,6 +503,8 @@ public class GTQTMaterials {
     public static Material UniverseExtractLiquid;
     public static Material LiBeZrFMoltenSalt;
     public static Material CrudeUniverse;
+    public static Material ActiniumSuperhydride;
+    public static Material TriniumTitanium;
     public static Material Enzymesa;
     public static Material Enzymesb;
     public static Material Enzymesc;
@@ -793,6 +795,12 @@ public class GTQTMaterials {
     public static Material GadoliniumSiliconGermanium;
 
     //superconductors
+    public static Material UHVSuperconductorBase;
+    public static Material UEVSuperconductorBase;
+    public static Material UIVSuperconductorBase;
+    public static Material UXVSuperconductorBase;
+    public static Material OpVSuperconductorBase;
+
     public static Material LVSuperconductor;
     public static Material MVSuperconductor;
     public static Material HVSuperconductor;
@@ -1030,6 +1038,7 @@ public class GTQTMaterials {
     public static Material Astralium;
     public static Material Hikarium;
     public static Material Universe;
+    public static Material Quantum;
     // First Degree Materials
     public static Material LanthanumOxide;
     public static Material PraseodymiumOxide;

@@ -535,6 +535,16 @@ public class ElementMaterials {
                 .flags(CRYSTALLIZABLE)
                 .element(Elements.Sp)
                 .build();
+
+        //量子 Quantum
+        GTQTMaterials.Quantum = new Material.Builder(getMaterialsId(), gtqtcoreId("quantum"))
+                .ingot()
+                .liquid()
+                .color(0x000000)
+                .iconSet(SHINY)
+                .flags(CRYSTALLIZABLE)
+                .element(Elements.Qt)
+                .build();
     }
 
     public static String addObfuscatedFormula() {

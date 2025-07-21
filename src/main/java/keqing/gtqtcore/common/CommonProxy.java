@@ -300,7 +300,7 @@ public class CommonProxy {
         return itemBlock;
     }
 
-    @SubscribeEvent(priority = EventPriority.NORMAL)
+    @SubscribeEvent(priority = EventPriority.LOW)
     public static void registerRecipes(RegistryEvent.Register<IRecipe> event) {
         GTQTLog.logger.info("Registering recipes...");
         AddHighTierMaterial.init();
