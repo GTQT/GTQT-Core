@@ -271,7 +271,6 @@ public class MetaTileEntityMicrowaveEnergyReceiverControl extends MetaTileEntity
                 .addCustom(tl -> {
                     if (isStructureFormed() && circuit + 2 < maxLength) {
                         tl.add(TextComponentUtil.translationWithColor(TextFormatting.GRAY, "序号：%s", circuit + 3));
-                        tl.add(TextComponentUtil.translationWithColor(TextFormatting.GRAY, "V：%s/A：%s", getAmperageVoltage(1, circuit + 2), getAmperageVoltage(0, circuit + 2)));
                     }
                 });
     }
@@ -484,11 +483,11 @@ public class MetaTileEntityMicrowaveEnergyReceiverControl extends MetaTileEntity
         if (PSSmte == null) pssModel = false;
 
         if (pssModel) {
-            if (rangeMetFormMte(new BlockPos(pssPos[0], pssPos[1], pssPos[2]), getPos()) <= range) {
+            if (rangeMetFormMte(new BlockPos(pssPos[0], pssPos[1], pssPos[2]), getPos()) >= range) {
                 pssModel = false;
                 PSSmte = null;
-            }
-            euStore = PSSmte.getStoredLong();
+                euStore = 0;
+            } else euStore = getEnergyBankFromPowerSubstation(PSSmte).getStored().longValue();
         } else {
             euStore = Math.min(euStore, maxStore());
             if (this.energyContainer != null && this.energyContainer.getEnergyStored() > 0 && euStore < maxStore()) {
@@ -569,29 +568,57 @@ public class MetaTileEntityMicrowaveEnergyReceiverControl extends MetaTileEntity
     }
 
     private void addEnergyToContainer(MetaTileEntity mte, long voltage, int amperage) {
-        for (EnumFacing facing : EnumFacing.VALUES) {
-            if (mte.getCapability(GregtechCapabilities.CAPABILITY_ENERGY_CONTAINER, facing) instanceof IEnergyContainer) {
-                IEnergyContainer container = mte.getCapability(GregtechCapabilities.CAPABILITY_ENERGY_CONTAINER, facing);
+        IEnergyContainer container = mte.getCapability(GregtechCapabilities.CAPABILITY_ENERGY_CONTAINER, null);
+        if (container == null) return;
+        // 计算容器所需能量和实际可传输量
+        long energyNeeded = container.getEnergyCapacity() - container.getEnergyStored();
+        if (energyNeeded <= 0) return;
 
-                assert container != null;
-                long energyNeeded = container.getEnergyCapacity() - container.getEnergyStored();
-                if (energyNeeded < voltage * amperage && euStore > energyNeeded) {
-                    container.addEnergy(energyNeeded);
-                    if (pssModel) getEnergyBankFromPowerSubstation(PSSmte).drain(energyNeeded);
-                    else euStore -= energyNeeded;
-                    return;
-                } else if (euStore > voltage * amperage) {
-                    container.addEnergy(voltage * amperage);
-                    if (pssModel) getEnergyBankFromPowerSubstation(PSSmte).drain(voltage * amperage);
-                    else euStore -= voltage * amperage;
-                    return;
-                } else {
-                    container.addEnergy(euStore);
-                    if (pssModel) getEnergyBankFromPowerSubstation(PSSmte).drain(euStore);
-                    else euStore = 0;
-                    return;
-                }
-            }
+        // 计算本次传输量
+        long maxTransfer = voltage * amperage;
+        long transferAmount = Math.min(
+                Math.min(energyNeeded, maxTransfer),
+                getAvailableEnergy() // 获取当前可用能量（PSS模式或本地存储）
+        );
+        if (transferAmount <= 0) return;
+
+        // 先扣除自身能量
+        long drained = drainEnergy(transferAmount);
+        if (drained <= 0) return;
+
+        // 为容器添加能量并处理差额
+        long actualAdded = container.addEnergy(drained);
+        long refund = drained - actualAdded;
+        if (refund > 0) {
+            addEnergy(refund); // 退还未添加的能量
+        }
+
+    }
+
+    //获取当前可用能量
+    private long getAvailableEnergy() {
+        return pssModel
+                ? getEnergyBankFromPowerSubstation(PSSmte).getStored().longValue()
+                : euStore;
+    }
+
+    //扣除自身能量
+    private long drainEnergy(long amount) {
+        if (pssModel) {
+            return getEnergyBankFromPowerSubstation(PSSmte).drain(amount);
+        } else {
+            long drained = Math.min(euStore, amount);
+            euStore -= drained;
+            return drained;
+        }
+    }
+
+    //退还能量到自身存储
+    private void addEnergy(long energy) {
+        if (pssModel) {
+            getEnergyBankFromPowerSubstation(PSSmte).fill(energy);
+        } else {
+            euStore += energy;
         }
     }
 
@@ -604,15 +631,16 @@ public class MetaTileEntityMicrowaveEnergyReceiverControl extends MetaTileEntity
         if (point < 0 || point > maxLength) return;
 
         MetaTileEntity mte = getMetaTileEntity(point);
-        if (mte instanceof MetaTileEntityMicrowaveEnergyReceiver) {
-            ((MetaTileEntityMicrowaveEnergyReceiver) mte).setAmperageVoltage(v, a);
+        if (mte == null) return;
+        if (mte instanceof MetaTileEntityMicrowaveEnergyReceiver receiver) {
+            receiver.setAmperageVoltage(v, a);
             return;
         }
         if (hasCover(mte)) {
             for (EnumFacing facing : EnumFacing.VALUES) {
                 CoverableView coverable = mte.getCapability(GregtechTileCapabilities.CAPABILITY_COVER_HOLDER, facing);
-                if (coverable.getCoverAtSide(facing) instanceof CoverMicrowaveEnergyReceiver) {
-                    ((CoverMicrowaveEnergyReceiver) coverable.getCoverAtSide(facing)).setAmperageVoltage(v, a);
+                if (coverable != null && coverable.getCoverAtSide(facing) instanceof CoverMicrowaveEnergyReceiver receiver) {
+                    receiver.setAmperageVoltage(v, a);
                     return;
                 }
             }
@@ -621,30 +649,22 @@ public class MetaTileEntityMicrowaveEnergyReceiverControl extends MetaTileEntity
 
     public int getEU(int point) {
         if (point < 0 || point > maxLength) return 0;
-
         MetaTileEntity mte = getMetaTileEntity(point);
-        if (mte instanceof MetaTileEntity) {
-            for (EnumFacing facing : EnumFacing.VALUES) {
-                if (mte.getCapability(GregtechCapabilities.CAPABILITY_ENERGY_CONTAINER, facing) instanceof IEnergyContainer) {
-                    IEnergyContainer container = mte.getCapability(GregtechCapabilities.CAPABILITY_ENERGY_CONTAINER, facing);
-                    return (int) container.getEnergyStored();
-                }
-            }
+        if (mte == null) return 0;
+        IEnergyContainer container = mte.getCapability(GregtechCapabilities.CAPABILITY_ENERGY_CONTAINER, null);
+        if (container != null) {
+            return (int) container.getEnergyStored();
         }
         return 0;
     }
 
     public int getMaxEU(int point) {
         if (point < 0 || point > maxLength) return 0;
-
         MetaTileEntity mte = getMetaTileEntity(point);
-        if (mte instanceof MetaTileEntity) {
-            for (EnumFacing facing : EnumFacing.VALUES) {
-                if (mte.getCapability(GregtechCapabilities.CAPABILITY_ENERGY_CONTAINER, facing) instanceof IEnergyContainer) {
-                    IEnergyContainer container = mte.getCapability(GregtechCapabilities.CAPABILITY_ENERGY_CONTAINER, facing);
-                    return (int) container.getEnergyCapacity();
-                }
-            }
+        if (mte == null) return 0;
+        IEnergyContainer container = mte.getCapability(GregtechCapabilities.CAPABILITY_ENERGY_CONTAINER, null);
+        if (container != null) {
+            return (int) container.getEnergyCapacity();
         }
         return 0;
     }
@@ -653,15 +673,16 @@ public class MetaTileEntityMicrowaveEnergyReceiverControl extends MetaTileEntity
         if (point < 0 || point > maxLength) return;
 
         MetaTileEntity mte = getMetaTileEntity(point);
-        if (mte instanceof MetaTileEntityMicrowaveEnergyReceiver) {
-            ((MetaTileEntityMicrowaveEnergyReceiver) mte).setActive(statue);
+        if (mte == null) return;
+        if (mte instanceof MetaTileEntityMicrowaveEnergyReceiver receiver) {
+            receiver.setActive(statue);
             return;
         }
         if (hasCover(mte)) {
             for (EnumFacing facing : EnumFacing.VALUES) {
                 CoverableView coverable = mte.getCapability(GregtechTileCapabilities.CAPABILITY_COVER_HOLDER, facing);
-                if (coverable.getCoverAtSide(facing) instanceof CoverMicrowaveEnergyReceiver) {
-                    ((CoverMicrowaveEnergyReceiver) coverable.getCoverAtSide(facing)).setActive(statue);
+                if (coverable != null && coverable.getCoverAtSide(facing) instanceof CoverMicrowaveEnergyReceiver receiver) {
+                    receiver.setActive(statue);
                     return;
                 }
             }
@@ -672,14 +693,15 @@ public class MetaTileEntityMicrowaveEnergyReceiverControl extends MetaTileEntity
         if (point < 0 || point > maxLength) return false;
 
         MetaTileEntity mte = getMetaTileEntity(point);
-        if (mte instanceof MetaTileEntityMicrowaveEnergyReceiver) {
-            return ((MetaTileEntityMicrowaveEnergyReceiver) mte).active;
+        if (mte == null) return false;
+        if (mte instanceof MetaTileEntityMicrowaveEnergyReceiver receiver) {
+            return receiver.active;
         }
         if (hasCover(mte)) {
             for (EnumFacing facing : EnumFacing.VALUES) {
                 CoverableView coverable = mte.getCapability(GregtechTileCapabilities.CAPABILITY_COVER_HOLDER, facing);
-                if (coverable.getCoverAtSide(facing) instanceof CoverMicrowaveEnergyReceiver) {
-                    return ((CoverMicrowaveEnergyReceiver) coverable.getCoverAtSide(facing)).active;
+                if (coverable != null && coverable.getCoverAtSide(facing) instanceof CoverMicrowaveEnergyReceiver receiver) {
+                    return receiver.active;
                 }
             }
         }
@@ -690,16 +712,17 @@ public class MetaTileEntityMicrowaveEnergyReceiverControl extends MetaTileEntity
         if (point < 0 || point > maxLength) return 0;
 
         MetaTileEntity mte = getMetaTileEntity(point);
-        if (mte instanceof MetaTileEntityMicrowaveEnergyReceiver) {
-            if (num == 1) return ((MetaTileEntityMicrowaveEnergyReceiver) mte).Voltage;
-            else return ((MetaTileEntityMicrowaveEnergyReceiver) mte).Amperage;
+        if (mte == null) return 0;
+        if (mte instanceof MetaTileEntityMicrowaveEnergyReceiver receiver) {
+            if (num == 1) return receiver.Voltage;
+            else return receiver.Amperage;
         }
         if (hasCover(mte)) {
             for (EnumFacing facing : EnumFacing.VALUES) {
                 CoverableView coverable = mte.getCapability(GregtechTileCapabilities.CAPABILITY_COVER_HOLDER, facing);
-                if (coverable.getCoverAtSide(facing) instanceof CoverMicrowaveEnergyReceiver) {
-                    if (num == 1) return ((CoverMicrowaveEnergyReceiver) coverable.getCoverAtSide(facing)).Voltage;
-                    else return ((CoverMicrowaveEnergyReceiver) coverable.getCoverAtSide(facing)).Amperage;
+                if (coverable != null && coverable.getCoverAtSide(facing) instanceof CoverMicrowaveEnergyReceiver receiver) {
+                    if (num == 1) return receiver.Voltage;
+                    else return receiver.Amperage;
                 }
             }
         }
@@ -710,14 +733,15 @@ public class MetaTileEntityMicrowaveEnergyReceiverControl extends MetaTileEntity
         if (point < 0 || point > maxLength) return 0;
 
         MetaTileEntity mte = getMetaTileEntity(point);
-        if (mte instanceof MetaTileEntityMicrowaveEnergyReceiver) {
-            return ((MetaTileEntityMicrowaveEnergyReceiver) mte).getTier();
+        if (mte == null) return 0;
+        if (mte instanceof MetaTileEntityMicrowaveEnergyReceiver receiver) {
+            return receiver.getTier();
         }
         if (hasCover(mte)) {
             for (EnumFacing facing : EnumFacing.VALUES) {
                 CoverableView coverable = mte.getCapability(GregtechTileCapabilities.CAPABILITY_COVER_HOLDER, facing);
-                if (coverable.getCoverAtSide(facing) instanceof CoverMicrowaveEnergyReceiver) {
-                    return ((CoverMicrowaveEnergyReceiver) coverable.getCoverAtSide(facing)).tier;
+                if (coverable != null && coverable.getCoverAtSide(facing) instanceof CoverMicrowaveEnergyReceiver receiver) {
+                    return receiver.tier;
                 }
             }
         }
@@ -728,9 +752,8 @@ public class MetaTileEntityMicrowaveEnergyReceiverControl extends MetaTileEntity
         try {
             return GTUtility.getMetaTileEntity(this.getWorld(), new BlockPos(io[point][1], io[point][2], io[point][3]));
         } catch (Exception ignored) {
-
+            return null;
         }
-        return null;
     }
 
     //距离计算
@@ -817,7 +840,7 @@ public class MetaTileEntityMicrowaveEnergyReceiverControl extends MetaTileEntity
         if (te == null) return false;
         for (EnumFacing facing : EnumFacing.VALUES) {
             CoverableView coverable = te.getCapability(GregtechTileCapabilities.CAPABILITY_COVER_HOLDER, facing);
-            if (coverable.getCoverAtSide(facing) instanceof CoverMicrowaveEnergyReceiver)
+            if (coverable != null && coverable.getCoverAtSide(facing) instanceof CoverMicrowaveEnergyReceiver)
                 return true;
         }
         return false;

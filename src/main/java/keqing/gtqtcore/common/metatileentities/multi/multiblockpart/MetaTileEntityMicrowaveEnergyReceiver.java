@@ -123,7 +123,7 @@ public class MetaTileEntityMicrowaveEnergyReceiver extends MetaTileEntity implem
             long availableAmps = Amperage - ampsUsed;
             long transferredAmps = container.acceptEnergyFromNetwork(
                     opposite,
-                    Voltage,
+                    V[Voltage],
                     availableAmps
             );
 

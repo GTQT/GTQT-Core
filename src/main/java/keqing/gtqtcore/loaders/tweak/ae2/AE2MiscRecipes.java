@@ -719,7 +719,7 @@ public class AE2MiscRecipes {
 
         RecipeMaps.CIRCUIT_ASSEMBLER_RECIPES.recipeBuilder()
                 .input(plate, Materials.Silicon, 4)
-                .outputs(GTUtility.copy(4, logicBase))
+                .inputs(GTUtility.copy(4, logicBase))
                 .input(MetaItems.ADVANCED_SMD_TRANSISTOR, 1)
                 .input(MetaItems.ADVANCED_SMD_RESISTOR, 1)
                 .input(MetaItems.ADVANCED_SMD_DIODE, 1)
@@ -732,7 +732,7 @@ public class AE2MiscRecipes {
 
         RecipeMaps.CIRCUIT_ASSEMBLER_RECIPES.recipeBuilder()
                 .input(plate, Materials.Silicon, 16)
-                .outputs(GTUtility.copy(16, logicBase))
+                .inputs(GTUtility.copy(16, logicBase))
                 .input(GTQTMetaItems.OPTICAL_TRANSISTOR, 1)
                 .input(GTQTMetaItems.OPTICAL_RESISTOR, 1)
                 .input(GTQTMetaItems.OPTICAL_DIODE, 1)
@@ -745,7 +745,7 @@ public class AE2MiscRecipes {
 
         RecipeMaps.CIRCUIT_ASSEMBLER_RECIPES.recipeBuilder()
                 .input(plate, Materials.Silicon, 64)
-                .outputs(GTUtility.copy(64, logicBase))
+                .inputs(GTUtility.copy(64, logicBase))
                 .input(GTQTMetaItems.SPINTRONIC_TRANSISTOR, 1)
                 .input(GTQTMetaItems.SPINTRONIC_RESISTOR, 1)
                 .input(GTQTMetaItems.SPINTRONIC_DIODE, 1)
@@ -771,7 +771,7 @@ public class AE2MiscRecipes {
 
         RecipeMaps.CIRCUIT_ASSEMBLER_RECIPES.recipeBuilder()
                 .input(plate, Materials.Silicon, 4)
-                .outputs(GTUtility.copy(4, calculationBase))
+                .inputs(GTUtility.copy(4, calculationBase))
                 .input(MetaItems.ADVANCED_SMD_TRANSISTOR, 1)
                 .input(MetaItems.ADVANCED_SMD_RESISTOR, 1)
                 .input(MetaItems.ADVANCED_SMD_DIODE, 1)
@@ -783,7 +783,7 @@ public class AE2MiscRecipes {
 
         RecipeMaps.CIRCUIT_ASSEMBLER_RECIPES.recipeBuilder()
                 .input(plate, Materials.Silicon, 16)
-                .outputs(GTUtility.copy(16, calculationBase))
+                .inputs(GTUtility.copy(16, calculationBase))
                 .input(GTQTMetaItems.OPTICAL_TRANSISTOR, 1)
                 .input(GTQTMetaItems.OPTICAL_RESISTOR, 1)
                 .input(GTQTMetaItems.OPTICAL_DIODE, 1)
@@ -795,7 +795,7 @@ public class AE2MiscRecipes {
 
         RecipeMaps.CIRCUIT_ASSEMBLER_RECIPES.recipeBuilder()
                 .input(plate, Materials.Silicon, 64)
-                .outputs(GTUtility.copy(64, calculationBase))
+                .inputs(GTUtility.copy(64, calculationBase))
                 .input(GTQTMetaItems.SPINTRONIC_TRANSISTOR, 1)
                 .input(GTQTMetaItems.SPINTRONIC_RESISTOR, 1)
                 .input(GTQTMetaItems.SPINTRONIC_DIODE, 1)
@@ -820,7 +820,7 @@ public class AE2MiscRecipes {
 
         RecipeMaps.CIRCUIT_ASSEMBLER_RECIPES.recipeBuilder()
                 .input(plate, Materials.Silicon, 4)
-                .outputs(GTUtility.copy(4, engineeringBase))
+                .inputs(GTUtility.copy(4, engineeringBase))
                 .input(MetaItems.ADVANCED_SMD_TRANSISTOR, 1)
                 .input(MetaItems.ADVANCED_SMD_RESISTOR, 1)
                 .input(MetaItems.ADVANCED_SMD_DIODE, 1)
@@ -832,7 +832,7 @@ public class AE2MiscRecipes {
 
         RecipeMaps.CIRCUIT_ASSEMBLER_RECIPES.recipeBuilder()
                 .input(plate, Materials.Silicon, 16)
-                .outputs(GTUtility.copy(16, engineeringBase))
+                .inputs(GTUtility.copy(16, engineeringBase))
                 .input(GTQTMetaItems.OPTICAL_TRANSISTOR, 1)
                 .input(GTQTMetaItems.OPTICAL_RESISTOR, 1)
                 .input(GTQTMetaItems.OPTICAL_DIODE, 1)
@@ -844,7 +844,7 @@ public class AE2MiscRecipes {
 
         RecipeMaps.CIRCUIT_ASSEMBLER_RECIPES.recipeBuilder()
                 .input(plate, Materials.Silicon, 64)
-                .outputs(GTUtility.copy(64, engineeringBase))
+                .inputs(GTUtility.copy(64, engineeringBase))
                 .input(GTQTMetaItems.SPINTRONIC_TRANSISTOR, 1)
                 .input(GTQTMetaItems.SPINTRONIC_RESISTOR, 1)
                 .input(GTQTMetaItems.SPINTRONIC_DIODE, 1)

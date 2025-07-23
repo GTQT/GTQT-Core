@@ -2428,7 +2428,7 @@ public class SecondDegreeMaterials {
                 .components(Trinium, 2, Titanium, 1)
                 .blast(11000)
                 .build();
-
+        /*
         UEVSuperconductorBase = new Material.Builder(getMaterialsId(), gtqtcoreId("uev_superconductor_base"))
                 .ingot().liquid()
                 .color(0x954fe0)
@@ -2439,7 +2439,7 @@ public class SecondDegreeMaterials {
                 .blast(11150)
                 .build();
 
-        /*
+
         UIVSuperconductorBase = new Material.Builder(getMaterialsId(), gtqtcoreId("uiv_superconductor_base"))
                 .ingot().liquid()
                 .color(0x8bf743)

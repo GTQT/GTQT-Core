@@ -9,15 +9,16 @@ import net.minecraft.util.EnumActionResult;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.EnumHand;
 import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.text.TextComponentString;
 import net.minecraft.util.text.TextFormatting;
 import net.minecraft.world.World;
 
 import java.util.List;
-import java.util.Objects;
 
 public class PosBindingCardBehaviors implements IItemBehaviour {
 
-    public PosBindingCardBehaviors() {}
+    public PosBindingCardBehaviors() {
+    }
 
     public void addInformation(ItemStack stack, List<String> lines) {
         if (stack.hasTagCompound()) {
@@ -34,6 +35,7 @@ public class PosBindingCardBehaviors implements IItemBehaviour {
 
         }
     }
+
     @Override
     public EnumActionResult onItemUseFirst(EntityPlayer player, World world, BlockPos pos, EnumFacing side, float hitX, float hitY, float hitZ, EnumHand hand) {
         ItemStack stack = player.getHeldItem(hand);
@@ -54,6 +56,7 @@ public class PosBindingCardBehaviors implements IItemBehaviour {
                 compound.setInteger("dim", player.world.provider.getDimension());
                 stack.setTagCompound(compound);
             }
+            if (world.isRemote) player.sendMessage(new TextComponentString(TextFormatting.GREEN + "坐标已保存！"));
         } else {
             if (stack.hasTagCompound()) {
                 stack.getTagCompound().setBoolean("hasPos", false);
@@ -66,6 +69,7 @@ public class PosBindingCardBehaviors implements IItemBehaviour {
                 compound.setInteger("dim", Integer.MAX_VALUE);
                 stack.setTagCompound(compound);
             }
+            if (world.isRemote) player.sendMessage(new TextComponentString(TextFormatting.RED + "坐标已清空！"));
         }
         return EnumActionResult.SUCCESS;
     }

@@ -1,5 +1,6 @@
 package keqing.gtqtcore;
 
+import gregtech.api.capability.IEnergyContainer;
 import gregtech.common.ConfigHolder;
 import keqing.gtqtcore.api.GTQTAPI;
 import keqing.gtqtcore.api.capability.GTQTTileCapabilities;
@@ -13,6 +14,7 @@ import keqing.gtqtcore.common.MetaEntities;
 import keqing.gtqtcore.common.block.GTQTMetaBlocks;
 import keqing.gtqtcore.common.items.GTQTMetaItems;
 import keqing.gtqtcore.common.metatileentities.GTQTMetaTileEntities;
+import keqing.gtqtcore.common.metatileentities.multi.multiblockpart.MetaTileEntityMicrowaveEnergyReceiver;
 import keqing.gtqtcore.common.worldgen.WorldGenAbandonedBase;
 import keqing.gtqtcore.core.advancement.AdvancementManager;
 import keqing.gtqtcore.core.advancement.AdvancementTriggers;

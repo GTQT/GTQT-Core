@@ -155,7 +155,7 @@ public class RocketEngineRecipes {
                 .buildAndRegister();
 
         ROCKET_RECIPES.recipeBuilder()
-                .fluidInputs(TrihydraziniumGel.getFluid(8))
+                    .fluidInputs(TrihydraziniumGel.getFluid(8))
                 .fluidOutputs(OverheatedGas.getFluid(5 * 1000))
                 .EUt(8192)
                 .duration(6 * SECOND)
