@@ -531,8 +531,6 @@ public class GTQTMetaItems {
     public static MetaItem<?>.MetaValueItem COSMIC_CPU_CHIP;
     public static MetaItem<?>.MetaValueItem COSMIC_MEMORY_CHIP;
     public static MetaItem<?>.MetaValueItem SUPRACAUSAL_MEMORY_CHIP;
-    //  Covers
-    public static MetaItem<?>.MetaValueItem COVER_SOLAR_PANEL_MAX;
 
     // Power Components
     public static MetaItem<?>.MetaValueItem NANO_POWER_IC_WAFER;
@@ -839,29 +837,23 @@ public class GTQTMetaItems {
     public static MetaItem<?>.MetaValueItem DIAPHRAGMATIC;
     public static MetaItem<?>.MetaValueItem ORTHOSTATIC;
     public static MetaItem<?>.MetaValueItem METAMORPHIC;
+    public static MetaItem<?>.MetaValueItem DIABLANK;
+
     public static MetaItem<?>.MetaValueItem BLANK;
     public static MetaItem<?>.MetaValueItem HYDROTHERMAL;
     public static MetaItem<?>.MetaValueItem MAGMATIC_HYDROTHERMAL;
     public static MetaItem<?>.MetaValueItem ALLUVIAL;
+
+    public static MetaItem<?>.MetaValueItem MANTLE_XENOLITH;
+    public static MetaItem<?>.MetaValueItem VOLCANIC_BRECCIA;
+    public static MetaItem<?>.MetaValueItem HIGH_PRESSURE;
+    public static MetaItem<?>.MetaValueItem ANATECTIC;
+
     public static MetaItem<?>.MetaValueItem POS_ORE_CARD;
     public static MetaItem<?>.MetaValueItem ARROW_UP_MKI;
     public static MetaItem<?>.MetaValueItem ARROW_DOWN_MKI;
     public static MetaItem<?>.MetaValueItem ARROW_LEFT_MKI;
     public static MetaItem<?>.MetaValueItem ARROW_RIGHT_MKI;
-    public static MetaItem<?>.MetaValueItem END1;
-    public static MetaItem<?>.MetaValueItem END2;
-    public static MetaItem<?>.MetaValueItem END3;
-    public static MetaItem<?>.MetaValueItem END4;
-
-    public static MetaItem<?>.MetaValueItem BET1;
-    public static MetaItem<?>.MetaValueItem BET2;
-    public static MetaItem<?>.MetaValueItem BET3;
-    public static MetaItem<?>.MetaValueItem BET4;
-
-    public static MetaItem<?>.MetaValueItem BNT1;
-    public static MetaItem<?>.MetaValueItem BNT2;
-    public static MetaItem<?>.MetaValueItem BNT3;
-    public static MetaItem<?>.MetaValueItem BNT4;
 
     public static MetaItem<?>.MetaValueItem ARROW_UP_MKII;
     public static MetaItem<?>.MetaValueItem ARROW_DOWN_MKII;
@@ -911,6 +903,13 @@ public class GTQTMetaItems {
     public static MetaItem<?>.MetaValueItem CHRONIC_SINGULARITY;
     // Process-Specific Components
     public static MetaItem<?>.MetaValueItem MAGNETRON;
+
+    public static MetaItem<?>.MetaValueItem SOLAR_CORE_I;
+    public static MetaItem<?>.MetaValueItem SOLAR_CORE_II;
+    public static MetaItem<?>.MetaValueItem SOLAR_CORE_III;
+    public static MetaItem<?>.MetaValueItem SOLAR_CORE_IV;
+    public static MetaItem<?>.MetaValueItem SOLAR_CORE_V;
+
     public static GTQTMetaItem1 GTQT_META_ITEM;
     public static GTQTBattery GTQT_META_BATTERY;
     public static GTQTMetaArmor GTQT_META_ARMOR;

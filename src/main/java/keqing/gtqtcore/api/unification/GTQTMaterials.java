@@ -384,7 +384,6 @@ public class GTQTMaterials {
     public static Material BariumSulfateSuspension;
     public static Material PotassiumSulfate;
     public static Material Succinimide;
-    public static Material NitrogenMonoxide;
     public static Material NitrosoniumTetrafluoroborate;
     public static Material TetrafluoroboricAcid;
     public static Material Benzaldehyde;
@@ -412,7 +411,7 @@ public class GTQTMaterials {
     public static Material LowPuritySulfuricAcidSuperEnergyNaquadah;
     public static Material LowPuritySulfuricAcidSuperEnergyNaquadahSolution;
     public static Material HighPuritySulfuricAcidSuperEnergyNaquadah;
-    public static Material BetAir;
+    public static Material UnderAir;
     public static Material MarsAir;
     public static Material MagicGas;
     public static Material Ulexite;
@@ -620,7 +619,7 @@ public class GTQTMaterials {
     public static Material SodiumTungstate;
     public static Material SodiumPhosphotungstate;
     public static Material SodiumMolybdate;
-    public static Material BeneathAir;
+    public static Material VenusAir;
     public static Material CelluloseExposureSolution;
     public static Material CelluloseFermentationResidue;
     public static Material FluxedElectrum;

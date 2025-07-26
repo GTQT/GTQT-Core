@@ -118,12 +118,12 @@ public class GTQTMetaItem1 extends StandardMetaItem {
         AE_FLUIX_BOOSTER = this.addItem(88, "ae.fluix_booster").setMaxStackSize(64).setCreativeTabs(CommonProxy.GTQTCore_NE);
 
         //光伏板
-        SOLAR_PLATE_MKI = this.addItem(90, "solar_plate_mki").setMaxStackSize(64).setCreativeTabs(GTQTCore_TAB);
-        SOLAR_PLATE_MKII = this.addItem(91, "solar_plate_mkii").setMaxStackSize(64).setCreativeTabs(GTQTCore_TAB);
-        SOLAR_PLATE_MKIII = this.addItem(92, "solar_plate_mkiii").setMaxStackSize(64).setCreativeTabs(GTQTCore_TAB);
+        SOLAR_PLATE_MKI = this.addItem(90, "solar_plate_mki").setMaxStackSize(64).setCreativeTabs(GTQTCore_GD);
+        SOLAR_PLATE_MKII = this.addItem(91, "solar_plate_mkii").setMaxStackSize(64).setCreativeTabs(GTQTCore_GD);
+        SOLAR_PLATE_MKIII = this.addItem(92, "solar_plate_mkiii").setMaxStackSize(64).setCreativeTabs(GTQTCore_GD);
 
-        TIME_BOTTLE = this.addItem(97, "time_bottle").setMaxStackSize(1).addComponents(new TimeBottleBehavior()).setCreativeTabs(GTQTCore_TAB);
-        WATER_CLEAR = this.addItem(96, "water_clear").setMaxStackSize(1).addComponents(new WaterClearBehavior()).setCreativeTabs(GTQTCore_TAB);
+        TIME_BOTTLE = this.addItem(97, "time_bottle").setMaxStackSize(1).addComponents(new TimeBottleBehavior()).setCreativeTabs(GTQTCore_TO);
+        WATER_CLEAR = this.addItem(96, "water_clear").setMaxStackSize(1).addComponents(new WaterClearBehavior()).setCreativeTabs(GTQTCore_TO);
 
         //电池
         BATTERY_NIMH_EMPTY = addItem(100, "nickel.metal.hydride.battery.empty").setMaxStackSize(64).setCreativeTabs(GTQTCore_TAB);
@@ -190,25 +190,23 @@ public class GTQTMetaItem1 extends StandardMetaItem {
         FIND_ORE_STICK = addItem(159, "find_ore_stick").addComponents(new FindOreStickBehavior()).setMaxStackSize(1).setCreativeTabs(GTQTCore_TO);
         //ROCK
         POS_ORE_CARD = this.addItem(180, "pos_ore_card").setMaxStackSize(1).addComponents(new OreCheckerBehavior()).setCreativeTabs(GTQTCore_TAB);
+
         BLANK = addItem(181, "rock.blank").setMaxStackSize(64).setCreativeTabs(GTQTCore_TAB);
         HYDROTHERMAL = addItem(182, "rock.hydrothermal").setMaxStackSize(64).setCreativeTabs(GTQTCore_TAB);
         MAGMATIC_HYDROTHERMAL = addItem(183, "rock.magmatic_hydrothermal").setMaxStackSize(64).setCreativeTabs(GTQTCore_TAB);
         ALLUVIAL = addItem(184, "rock.alluvial").setMaxStackSize(64).setCreativeTabs(GTQTCore_TAB);
+
+
         DIAPHRAGMATIC = addItem(185, "rock.diaphragmatic").setMaxStackSize(64).setCreativeTabs(GTQTCore_TAB);
         ORTHOSTATIC = addItem(186, "rock.orthostatic").setMaxStackSize(64).setCreativeTabs(GTQTCore_TAB);
         METAMORPHIC = addItem(187, "rock.metamorphic").setMaxStackSize(64).setCreativeTabs(GTQTCore_TAB);
-        END1 = addItem(188, "rock.end1").setMaxStackSize(64).setCreativeTabs(GTQTCore_TAB);
-        END2 = addItem(189, "rock.end2").setMaxStackSize(64).setCreativeTabs(GTQTCore_TAB);
-        END3 = addItem(190, "rock.end3").setMaxStackSize(64).setCreativeTabs(GTQTCore_TAB);
-        END4 = addItem(191, "rock.end4").setMaxStackSize(64).setCreativeTabs(GTQTCore_TAB);
-        BET1 = addItem(192, "rock.bet1").setMaxStackSize(64).setCreativeTabs(GTQTCore_TAB);
-        BET2 = addItem(193, "rock.bet2").setMaxStackSize(64).setCreativeTabs(GTQTCore_TAB);
-        BET3 = addItem(194, "rock.bet3").setMaxStackSize(64).setCreativeTabs(GTQTCore_TAB);
-        BET4 = addItem(195, "rock.bet4").setMaxStackSize(64).setCreativeTabs(GTQTCore_TAB);
-        BNT1 = addItem(196, "rock.bnt1").setMaxStackSize(64).setCreativeTabs(GTQTCore_TAB);
-        BNT2 = addItem(197, "rock.bnt2").setMaxStackSize(64).setCreativeTabs(GTQTCore_TAB);
-        BNT3 = addItem(198, "rock.bnt3").setMaxStackSize(64).setCreativeTabs(GTQTCore_TAB);
-        BNT4 = addItem(199, "rock.bnt4").setMaxStackSize(64).setCreativeTabs(GTQTCore_TAB);
+        DIABLANK = addItem(188, "rock.diablank").setMaxStackSize(64).setCreativeTabs(GTQTCore_TAB);
+
+        MANTLE_XENOLITH = addItem(189, "rock.mantle_xenolith").setMaxStackSize(64).setCreativeTabs(GTQTCore_TAB);
+        VOLCANIC_BRECCIA = addItem(190, "rock.volcanic_breccia").setMaxStackSize(64).setCreativeTabs(GTQTCore_TAB);
+        HIGH_PRESSURE = addItem(191, "rock.high_pressure").setMaxStackSize(64).setCreativeTabs(GTQTCore_TAB);
+        ANATECTIC = addItem(192, "rock.anatectic").setMaxStackSize(64).setCreativeTabs(GTQTCore_TAB);
+
         //神秘农业
         COPPER_CROP = addItem(210, "copper_crop");
         COPPER_CROP.addComponents(new GTQTCropSeedBehaviour(GTQTCrops.COPPER_CROP, COPPER_CROP.getStackForm(), COPPER_CROP.getStackForm())).setCreativeTabs(CommonProxy.GTQTCore_BIO);
@@ -452,7 +450,7 @@ public class GTQTMetaItem1 extends StandardMetaItem {
         DEBUG_HATCH_TRANS = this.addItem(437, "debug.hatch_trans").addComponents(new MEHatchTransBehavior()).setCreativeTabs(GTQTCore_TO);
         DEBUG_WIRE_TRANS = this.addItem(438, "debug.wire_trans").addComponents(new WireTransBehavior()).setCreativeTabs(GTQTCore_TO);
 
-        MTE_COPY_CARD = this.addItem(439, "mte_copy_card").setMaxStackSize(1).addComponents(new MTECopyCardBehaviors()).setCreativeTabs(GTQTCore_TAB);
+        MTE_COPY_CARD = this.addItem(439, "mte_copy_card").setMaxStackSize(1).addComponents(new MTECopyCardBehaviors()).setCreativeTabs(GTQTCore_TO);
 
         //440
         CIRCUIT_GOOD_I = addItem(440, "circuit.good_i").setCreativeTabs(CommonProxy.GTQTCore_HP);
@@ -848,15 +846,15 @@ public class GTQTMetaItem1 extends StandardMetaItem {
         SUPRACAUSAL_TRANSISTOR = this.addItem(918, "component.supracausal_smd.transistor").setCreativeTabs(GTQTCore_TAB);
         SUPRACAUSAL_INDUCTOR = this.addItem(919, "component.supracausal_smd.inductor").setCreativeTabs(GTQTCore_TAB);
 
-        //  Covers
-        COVER_SOLAR_PANEL_MAX = this.addItem(950, "cover.solar_panel.max").addComponents(new TooltipBehavior((lines) -> {
-            lines.add(I18n.format("metaitem.cover.solar.panel.tooltip.1"));
-            lines.add(I18n.format("metaitem.cover.solar.panel.tooltip.2"));
-            lines.add(I18n.format("gregtech.universal.tooltip.voltage_out", GTValues.V[GTValues.MAX], GTValues.VNF[GTValues.MAX]));
-        }));
         // Process-Specific Components: ID 500-999
         MAGNETRON = this.addItem(951, "magnetron").setCreativeTabs(GTQTCore_TAB);
 
+        //太阳能核心
+        SOLAR_CORE_I = this.addItem(955, "solar_core.i").setCreativeTabs(GTQTCore_GD);
+        SOLAR_CORE_II = this.addItem(956, "solar_core.ii").setCreativeTabs(GTQTCore_GD);
+        SOLAR_CORE_III = this.addItem(957, "solar_core.iii").setCreativeTabs(GTQTCore_GD);
+        SOLAR_CORE_IV = this.addItem(958, "solar_core.iv").setCreativeTabs(GTQTCore_GD);
+        SOLAR_CORE_V = this.addItem(959, "solar_core.v").setCreativeTabs(GTQTCore_GD);
         /* -------------------------------------------------------------------- Singularities --------------------------------------------------------------------- */
 
         //Eternitic Singularity Components

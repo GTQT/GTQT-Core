@@ -141,6 +141,17 @@ public class AE2TileRecipes {
     }
 
     private static void EnergyCell() {
+        ModHandler.removeRecipeByName("appliedenergistics2:network/blocks/energy_energy_acceptor");
+        RecipeMaps.ASSEMBLER_RECIPES.recipeBuilder()
+                .input(MetaTileEntities.HULL[HV])
+                .input(OrePrefix.plate, Materials.Titanium, 4)
+                .input(OrePrefix.circuit, MarkerMaterials.Tier.HV, 2)
+                .inputs(engineeringProcessor)
+                .circuitMeta(2)
+                .outputs(energyAcceptor)
+                .EUt(VA[HV])
+                .duration(200)
+                .buildAndRegister();
         ModHandler.removeRecipeByName("appliedenergistics2:network/blocks/energy_energy_cell");
         ModHandler.removeRecipeByName("appliedenergistics2:network/blocks/energy_dense_energy_cell");
         RecipeMaps.ASSEMBLER_RECIPES.recipeBuilder()

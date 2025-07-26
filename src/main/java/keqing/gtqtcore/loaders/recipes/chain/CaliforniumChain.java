@@ -1,5 +1,7 @@
 package keqing.gtqtcore.loaders.recipes.chain;
 
+import keqing.gtqtcore.api.unification.GTQTMaterials;
+
 import static gregtech.api.GTValues.*;
 import static gregtech.api.recipes.RecipeMaps.*;
 import static gregtech.api.unification.material.Materials.*;
@@ -24,7 +26,7 @@ public class CaliforniumChain {
         BLAST_RECIPES.recipeBuilder()
                 .input(dust, CaliforniumNitrite, 3)
                 .output(dust, CaliforniumDioxide)
-                .fluidOutputs(NitrogenMonoxide.getFluid(2000))
+                .fluidOutputs(NitricOxide.getFluid(2000))
                 .EUt(VA[MV])
                 .duration(144)
                 .blastFurnaceTemp(600)

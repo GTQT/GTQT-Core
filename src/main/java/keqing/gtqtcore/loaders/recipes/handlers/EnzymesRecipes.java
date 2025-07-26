@@ -207,7 +207,7 @@ public class EnzymesRecipes {
                 .duration(4000).EUt(VA[HV]).buildAndRegister();
 
         BIO_CENTRIFUGE.recipeBuilder()
-                .fluidInputs(BetAir.getFluid(FluidStorageKeys.LIQUID, 10000))
+                .fluidInputs(UnderAir.getFluid(FluidStorageKeys.LIQUID, 10000))
                 .fluidInputs(DistilledWater.getFluid(1000))
                 .fluidInputs(Ethanesulphonate.getFluid(1000))
                 .fluidOutputs(Enzymesbz.getFluid(100))

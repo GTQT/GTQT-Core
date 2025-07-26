@@ -250,14 +250,6 @@ public class MetaTileEntityLoader {
                 "MC", "ch",
                 'M', new UnificationEntry(block, Steel),
                 'C', new UnificationEntry(valve, Aluminium));
-
-        ModHandler.addShapedRecipe(true, "mte_copy_card", MTE_COPY_CARD.getStackForm(),
-                "SF ", "DPR", "SF ",
-                'R', new UnificationEntry(circuit, MarkerMaterials.Tier.LV),
-                'P', MetaItems.VOLTAGE_COIL_LV,
-                'D', new UnificationEntry(plate, Steel),
-                'S', new UnificationEntry(screw, Bronze),
-                'F', new UnificationEntry(foil, Nickel));
         //3d
         ModHandler.addShapedRecipe(true, "three_d", THREE_DIM_PRINT.getStackForm(),
                 "MCM", "HHH", "PPP",
@@ -1120,15 +1112,74 @@ public class MetaTileEntityLoader {
                 .buildAndRegister();
 
         ASSEMBLER_RECIPES.recipeBuilder()
-                .input(plate, Steel, 16)
+                .input(COVER_SCREEN)
                 .input(stick, Steel, 2)
-                .input(ring, Steel, 4)
+                .input(wireFine, Copper, 16)
                 .input(LAPOTRON_CRYSTAL, 1)
-                .input(circuit, MarkerMaterials.Tier.EV, 1)
+                .input(circuit, MarkerMaterials.Tier.HV, 1)
                 .input(SENSOR_HV, 1)
                 .output(POS_BINDING_CARD)
                 .circuitMeta(2)
                 .duration(600).EUt(VA[3]).buildAndRegister();
+
+        ModHandler.addShapedRecipe(true, "find_ore_stick", FIND_ORE_STICK.getStackForm(),
+                "wCE", "SRC", "RSd",
+                'C', new UnificationEntry(circuit, MarkerMaterials.Tier.ULV),
+                'E', new UnificationEntry(foil, Copper),
+                'S', new UnificationEntry(screw, Iron),
+                'R', new UnificationEntry(stick, Iron));
+
+        ASSEMBLER_RECIPES.recipeBuilder()
+                .input(COVER_SCREEN)
+                .input(ROBOT_ARM_EV, 4)
+                .input(ring, Titanium, 4)
+                .input(battery,MarkerMaterials.Tier.EV, 1)
+                .input(circuit, MarkerMaterials.Tier.EV, 1)
+                .output(DEBUG_HATCH_TRANS)
+                .circuitMeta(1)
+                .duration(600).EUt(VA[EV]).buildAndRegister();
+
+        ASSEMBLER_RECIPES.recipeBuilder()
+                .input(COVER_SCREEN)
+                .input(FIELD_GENERATOR_LV, 4)
+                .input(ring, Aluminium, 4)
+                .input(battery,MarkerMaterials.Tier.LV, 1)
+                .input(circuit, MarkerMaterials.Tier.LV, 1)
+                .output(MTE_COPY_CARD)
+                .circuitMeta(1)
+                .duration(600).EUt(VA[1]).buildAndRegister();
+
+        ASSEMBLER_RECIPES.recipeBuilder()
+                .input(COVER_SCREEN)
+                .input(CONVEYOR_MODULE_EV, 4)
+                .input(ring, Titanium, 4)
+                .input(battery,MarkerMaterials.Tier.EV, 1)
+                .input(circuit, MarkerMaterials.Tier.EV, 1)
+                .output(DEBUG_WIRE_TRANS)
+                .circuitMeta(1)
+                .duration(600).EUt(VA[EV]).buildAndRegister();
+
+        ASSEMBLER_RECIPES.recipeBuilder()
+                .input(COVER_SCREEN)
+                .input(MULTIBLOCK_BUILDER)
+                .input(ring, TungstenSteel, 4)
+                .input(battery,MarkerMaterials.Tier.EV, 1)
+                .input(circuit, MarkerMaterials.Tier.EV, 1)
+                .input(SENSOR_EV, 1)
+                .output(DEBUG_STRUCTURE_BUILDER)
+                .circuitMeta(1)
+                .duration(600).EUt(VA[EV]).buildAndRegister();
+
+        ASSEMBLER_RECIPES.recipeBuilder()
+                .input(COVER_SCREEN)
+                .input(MULTIBLOCK_BUILDER)
+                .input(ring, TungstenSteel, 4)
+                .input(battery,MarkerMaterials.Tier.EV, 1)
+                .input(circuit, MarkerMaterials.Tier.EV, 1)
+                .input(EMITTER_EV, 1)
+                .output(DEBUG_STRUCTURE_WRITER)
+                .circuitMeta(1)
+                .duration(600).EUt(VA[EV]).buildAndRegister();
 
         ModHandler.addShapedRecipe(true, "industrial_drill", INDUSTRIAL_DRILL.getStackForm(),
                 "PKP", "CHC", "MMM",

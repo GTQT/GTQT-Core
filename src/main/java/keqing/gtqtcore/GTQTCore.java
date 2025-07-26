@@ -1,12 +1,10 @@
 package keqing.gtqtcore;
 
-import gregtech.api.capability.IEnergyContainer;
 import gregtech.common.ConfigHolder;
 import keqing.gtqtcore.api.GTQTAPI;
 import keqing.gtqtcore.api.capability.GTQTTileCapabilities;
 import keqing.gtqtcore.api.io.advancement.IAdvancementManager;
 import keqing.gtqtcore.api.module.IModuleManager;
-import keqing.gtqtcore.api.utils.CraftingHandler;
 import keqing.gtqtcore.api.utils.GTQTLog;
 import keqing.gtqtcore.client.ClientProxy;
 import keqing.gtqtcore.common.CommonProxy;
@@ -14,7 +12,6 @@ import keqing.gtqtcore.common.MetaEntities;
 import keqing.gtqtcore.common.block.GTQTMetaBlocks;
 import keqing.gtqtcore.common.items.GTQTMetaItems;
 import keqing.gtqtcore.common.metatileentities.GTQTMetaTileEntities;
-import keqing.gtqtcore.common.metatileentities.multi.multiblockpart.MetaTileEntityMicrowaveEnergyReceiver;
 import keqing.gtqtcore.common.worldgen.WorldGenAbandonedBase;
 import keqing.gtqtcore.core.advancement.AdvancementManager;
 import keqing.gtqtcore.core.advancement.AdvancementTriggers;
@@ -39,7 +36,7 @@ public class GTQTCore {
 
     public static final String MODID = "gtqtcore";
     public static final String NAME = "GTQT Core";
-    public static final String VERSION = "0708(2025/7/16)";
+    public static final String VERSION = "0708(2025/7/26)";
 
     @Mod.Instance(GTQTCore.MODID)
     public static GTQTCore instance;
@@ -58,6 +55,7 @@ public class GTQTCore {
 
     @Getter
     int i = 1;
+
     @Mod.EventHandler
     public void preInit(FMLPreInitializationEvent event) {
         System.out.println("Hello From " + getI());

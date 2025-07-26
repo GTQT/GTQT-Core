@@ -579,6 +579,12 @@ metaitem.singularity_eternitic.tooltip=§oInfinite in palm, moments become etern
 metaitem.singularity_chronic.name=Timeless Void Singularity
 metaitem.singularity_chronic.tooltip=§oI exist among all things...
 # Others
+metaitem.solar_core.i.name=Solar Core I
+metaitem.solar_core.ii.name=Solar Core II
+metaitem.solar_core.iii.name=Solar Core III
+metaitem.solar_core.iv.name=Solar Core IV
+metaitem.solar_core.v.name=Solar Core V
+
 metaitem.magnetron.name=Magnetron
 metaitem.carbon_allotrope.name=Carbon Allotrope Mixture
 metaitem.graphene_aligned.name=Graphene Aligned Carbon Nanotubes
@@ -2105,7 +2111,6 @@ gtqtcore.material.silica_gel_base=Silica Gel Base
 gtqtcore.material.nitronium_tetrafluoroborate=Nitronium Tetrafluoroborate
 gtqtcore.material.nitrosonium_tetrafluoroborate=Nitrosonium Tetrafluoroborate
 gtqtcore.material.tetrafluoroboric_acid=Tetrafluoroboric Acid
-gtqtcore.material.nitrogen_monoxide=Nitrogen Monoxide
 gtqtcore.material.hydroxylammonium_sulfate=Hydroxylammonium Sulfate
 gtqtcore.material.potassium_hydroxylaminedisulfonate=Potassium Hydroxylaminedisulfonate
 gtqtcore.material.potassium_bisulfite=Potassium Bisulfite
@@ -4173,12 +4178,12 @@ gtqtcore.material.bitterncl=Chloride-Type Brine
 gtqtcore.material.bitternso=Sulfate-Type Brine
 gtqtcore.material.bitternco=Carbonate-Type Brine
 gtqtcore.material.gashydrate=Gas Hydrate
-gtqtcore.material.bet_air=Marsh Air
-gtqtcore.material.liquid_bet_air=Liquid Marsh Air
+gtqtcore.material.under_air=Underworld Air
+gtqtcore.material.liquid_under_air=Liquid Underworld Air
 gtqtcore.material.mars_air=Mars Atmosphere
 gtqtcore.material.liquid_mars_air=Liquid Mars Atmosphere
-gtqtcore.material.beneath_air=Beneath Atmosphere
-gtqtcore.material.liquid_beneath_air=Liquid Beneath Atmosphere
+gtqtcore.material.venus_air=Venus Atmosphere
+gtqtcore.material.liquid_venus_air=Liquid Venus Atmosphere
 gtqtcore.material.bitterns=Sulfuric Acidified Brine
 gtqtcore.material.bitterno=Oxidized Brine
 gtqtcore.material.bitternbr=Dispersed Bromine Oxide
@@ -4570,21 +4575,8 @@ metaitem.rock.alluvial.name=Shale Fragment
 metaitem.rock.diaphragmatic.name=Magmatic Impact Rock Fragment
 metaitem.rock.orthostatic.name=Magmatic Sedimentary Rock Fragment
 metaitem.rock.metamorphic.name=Magmatic Intrusive Rock Fragment
+metaitem.rock.diablank.name=岩浆变质岩碎片
 
-metaitem.rock.end1.name=End Metamorphic Rock Fragment
-metaitem.rock.end2.name=End Sedimentary Rock Fragment
-metaitem.rock.end3.name=End Impact Rock Fragment
-metaitem.rock.end4.name=End Shale Fragment
-
-metaitem.rock.bet1.name=Swamp Metamorphic Rock Fragment
-metaitem.rock.bet2.name=Swamp Sedimentary Rock Fragment
-metaitem.rock.bet3.name=Swamp Impact Rock Fragment
-metaitem.rock.bet4.name=Swamp Shale Fragment
-
-metaitem.rock.bnt1.name=Abyssal Metamorphic Rock Fragment
-metaitem.rock.bnt2.name=Abyssal Sedimentary Rock Fragment
-metaitem.rock.bnt3.name=Abyssal Impact Rock Fragment
-metaitem.rock.bnt4.name=Abyssal Shale Fragment
 
 gtqtcore.material.solarium=Solarium
 gtqtcore.material.eternity=Eternity

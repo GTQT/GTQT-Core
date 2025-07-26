@@ -260,5 +260,14 @@ public class MolecularTransformer {
                 .Tier(2)
                 .duration(600)
                 .buildAndRegister();
+
+        MOLECULAR_TRANSFORMER_RECIPES.recipeBuilder()
+                .input(dust, Stone)
+                .output(dust, Glowstone)
+                .EUt(VA[EV])
+                .CWUt(VA[EV])
+                .Tier(2)
+                .duration(600)
+                .buildAndRegister();
     }
 }

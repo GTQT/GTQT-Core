@@ -1,18 +1,15 @@
 package keqing.gtqtcore.api.unification.matreials;
 
-import gregtech.api.GTValues;
 import gregtech.api.fluids.FluidBuilder;
 import gregtech.api.fluids.attribute.FluidAttributes;
 import gregtech.api.unification.material.Material;
 import gregtech.api.unification.material.Materials;
 import gregtech.api.unification.material.info.MaterialIconSet;
-import gregtech.api.unification.material.properties.BlastProperty;
 import gregtech.api.unification.material.properties.PropertyKey;
 import keqing.gtqtcore.api.unification.Elements;
 import keqing.gtqtcore.api.unification.GTQTMaterials;
 import net.minecraft.util.text.TextFormatting;
 
-import static gregtech.api.GTValues.*;
 import static gregtech.api.fluids.attribute.FluidAttributes.ACID;
 import static gregtech.api.unification.material.Materials.*;
 import static gregtech.api.unification.material.info.MaterialFlags.*;
@@ -48,27 +45,36 @@ public class SecondDegreeMaterials {
                 .flags(DISABLE_DECOMPOSITION)
                 .build();
 
-        //交错次元空气
-        GTQTMaterials.BetAir = new Material.Builder(getMaterialsId(), gtqtcoreId("bet_air"))
+        //地下世界空气
+        GTQTMaterials.UnderAir = new Material.Builder(getMaterialsId(), gtqtcoreId("under_air"))
                 .gas()
-                .liquid(new FluidBuilder().temperature(58))
+                .liquid(new FluidBuilder()
+                        .temperature(58)
+                        .name("liquid_under_air")
+                        .translation("gregtech.fluid.liquid_generic"))
                 .color(0x2E8B57)
                 .flags(DISABLE_DECOMPOSITION)
                 .components(Methane, 78, HydrogenSulfide, 21, Neon, 7, Radon, 2)
                 .build();
 
-        //交错次元空气
-        GTQTMaterials.BeneathAir = new Material.Builder(getMaterialsId(), gtqtcoreId("beneath_air"))
+        //金星空气
+        GTQTMaterials.VenusAir = new Material.Builder(getMaterialsId(), gtqtcoreId("venus_air"))
                 .gas()
-                .liquid(new FluidBuilder().temperature(58))
+                .liquid(new FluidBuilder()
+                        .temperature(58)
+                        .name("liquid_venus_air")
+                        .translation("gregtech.fluid.liquid_generic"))
                 .color(0x4A4A4A)
                 .flags(DISABLE_DECOMPOSITION)
                 .components(Oxygen, 80, CarbonDioxide, 20, Argon, 10, Radon, 10, Hydrogen, 10, Nitrogen, 10, MagicGas, 10)
                 .build();
 
-        //交错次元空气
+        //火星空气
         GTQTMaterials.MarsAir = new Material.Builder(getMaterialsId(), gtqtcoreId("mars_air"))
-                .liquid(new FluidBuilder().temperature(58))
+                .liquid(new FluidBuilder()
+                        .temperature(58)
+                        .name("liquid_mars_air")
+                        .translation("gregtech.fluid.liquid_generic"))
                 .gas()
                 .color(0x8B3E2F)
                 .flags(DISABLE_DECOMPOSITION)
@@ -81,7 +87,7 @@ public class SecondDegreeMaterials {
                 .color(0xB2DFEE)
                 .flags(DISABLE_DECOMPOSITION)
                 .build()
-                .setFormula("-KQ-");
+                .setFormula("-Ma-");
 
         //离散态素魔力
         GTQTMaterials.MagicFas = new Material.Builder(getMaterialsId(), gtqtcoreId("magic_fas"))
@@ -89,7 +95,7 @@ public class SecondDegreeMaterials {
                 .color(0xAEEEEE)
                 .flags(DISABLE_DECOMPOSITION)
                 .build()
-                .setFormula("-KQ-");
+                .setFormula("-Ma-");
 
         //离散态纯净魔力
         GTQTMaterials.MagicDas = new Material.Builder(getMaterialsId(), gtqtcoreId("magic_das"))
@@ -97,7 +103,7 @@ public class SecondDegreeMaterials {
                 .color(0x98F5FF)
                 .flags(DISABLE_DECOMPOSITION)
                 .build()
-                .setFormula("-KQ-");
+                .setFormula("-Ma-");
 
         //凝聚态素魔力
         GTQTMaterials.MagicAas = new Material.Builder(getMaterialsId(), gtqtcoreId("magic_aas"))
@@ -105,7 +111,7 @@ public class SecondDegreeMaterials {
                 .color(0x87CEEB)
                 .flags(DISABLE_DECOMPOSITION)
                 .build()
-                .setFormula("-KQ-");
+                .setFormula("-Ma-");
 
         //魔力废液
         GTQTMaterials.MagicRub = new Material.Builder(getMaterialsId(), gtqtcoreId("magic_rub"))
@@ -113,7 +119,7 @@ public class SecondDegreeMaterials {
                 .color(0x87CEFF)
                 .flags(DISABLE_DECOMPOSITION)
                 .build()
-                .setFormula("-KQ-");
+                .setFormula("-Ma-");
 
         //魔力
         GTQTMaterials.Magic = new Material.Builder(getMaterialsId(), gtqtcoreId("magic"))
@@ -130,7 +136,7 @@ public class SecondDegreeMaterials {
                 .iconSet(DULL)
                 .flags(GENERATE_PLATE, GENERATE_DOUBLE_PLATE, GENERATE_ROD, GENERATE_LONG_ROD)
                 .build()
-                .setFormula("*KQ*");
+                .setFormula("*Ma*");
 
         //生物原油
         GTQTMaterials.BioOil = new Material.Builder(getMaterialsId(), gtqtcoreId("biooil"))

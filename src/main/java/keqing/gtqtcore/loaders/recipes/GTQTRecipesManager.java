@@ -64,7 +64,6 @@ public class GTQTRecipesManager {
         AntimatterRecipes.init();
         PPBChain.init();
         BioReactor.init();
-        AirDistillation.init();
         NaquadahFuelChain.init();
         LargeCircuitAssemblyLine.init();
         SodiumChain.init();

@@ -39,7 +39,7 @@ public class Elements {
     public static final Element CrystalMatrix = gregtech.api.unification.Elements.add(888, 888, -1, null, "CrystalMatrix", "◊◇◊", false);
     public static final Element VoidMetal = gregtech.api.unification.Elements.add(165, 281, -1, null, "VoidMetal", "⚶", false);
     public static final Element Mithril = gregtech.api.unification.Elements.add(405, 564, -1, null, "Mithril", "Mh", false);
-    public static final Element Magic = gregtech.api.unification.Elements.add(999, 999, -1, null, "Magic", "Kq", false);
+    public static final Element Magic = gregtech.api.unification.Elements.add(999, 999, -1, null, "Magic", "Ma", false);
     public static final Element So = gregtech.api.unification.Elements.add(159, 278, -1, null, "Solarium", "So", false);
     public static final Element En = gregtech.api.unification.Elements.add(100000, 100000, -1, null, "Eternity", "En⦼", false);
     public static final Element St = gregtech.api.unification.Elements.add(10000, 10000, -1, null, "Spacetime", "*St*", false);

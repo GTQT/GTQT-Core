@@ -876,12 +876,8 @@ public class FirstDegreeMaterials {
                 .components(Carbon, 4, Hydrogen, 5, Nitrogen, 1, Oxygen, 2)
                 .build();
 
-        //  24229 Nitrogen Monoxide
-        GTQTMaterials.NitrogenMonoxide = new Material.Builder(getMaterialsId(), gtqtcoreId("nitrogen_monoxide"))
-                .fluid()
-                .color(0x98BCDA)
-                .components(Nitrogen, 1, Oxygen, 1)
-                .build();
+        //TODO
+        startId++ ;
 
         //  24227 Nitrosonium Tetrafluoroborate
         GTQTMaterials.NitrosoniumTetrafluoroborate = new Material.Builder(getMaterialsId(), gtqtcoreId("nitrosonium_tetrafluoroborate"))
@@ -5200,13 +5196,14 @@ public class FirstDegreeMaterials {
                 .components(Carbon, 10, Hydrogen, 12, Nitrogen, 2, Oxygen, 8, Sodium, 4)
                 .build();
 
-        GTQTMaterials.EthylenediaminetetraaceticAcid = new Material.Builder(getMaterialsId(), gtqtcoreId("ethylenediaminetetraacetic_acid")) //TODO EDTA Tooltip
+        GTQTMaterials.EthylenediaminetetraaceticAcid = new Material.Builder(getMaterialsId(), gtqtcoreId("ethylenediaminetetraacetic_acid"))
                 .fluid()
                 .color(0x87E6D9)
                 .iconSet(MaterialIconSet.ROUGH)
                 .flags(DISABLE_DECOMPOSITION)
                 .components(Carbon, 10, Hydrogen, 16, Nitrogen, 2, Oxygen, 8)
-                .build();
+                .build()
+                .setTooltips("EDTA");
 
         GTQTMaterials.Aniline = new Material.Builder(getMaterialsId(), gtqtcoreId("aniline"))
                 .fluid()

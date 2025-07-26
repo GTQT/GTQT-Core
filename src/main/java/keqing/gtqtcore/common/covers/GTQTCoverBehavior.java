@@ -17,10 +17,6 @@ import static gregtech.api.GTValues.OpV;
 public class GTQTCoverBehavior {
 
     public static void init() {
-
-        registerBehavior(new ResourceLocation(GTQTCore.MODID,  "solar_panel.max"), GTQTMetaItems.COVER_SOLAR_PANEL_MAX,
-                (def, tile, side) -> new CoverSolarPanel(def, tile, side, GTValues.V[GTValues.MAX]));
-
         registerBehavior(new ResourceLocation(GTQTCore.MODID, "microwave_cover.lv"), GTQTMetaItems.MICROWAVE_ENERGY_RECEIVER_LV,
                 (def, tile, side) -> new CoverMicrowaveEnergyReceiver(def, tile, side, GTValues.LV));
         registerBehavior(new ResourceLocation(GTQTCore.MODID, "microwave_cover.mv"), GTQTMetaItems.MICROWAVE_ENERGY_RECEIVER_MV,

@@ -19,7 +19,7 @@ public class MiningDrillProperties extends RecipeProperty<Integer> {
 
     @Override
     public void drawInfo(Minecraft minecraft, int x, int y, int color, Object value) {
-        minecraft.fontRenderer.drawString(I18n.format("矿种编号：%s",
+        minecraft.fontRenderer.drawString(I18n.format("挖掘等级：%s",
                 castValue(value)), x, y, color);
     }
 

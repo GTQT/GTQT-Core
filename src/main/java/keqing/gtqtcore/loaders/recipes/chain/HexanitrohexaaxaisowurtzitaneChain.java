@@ -2,6 +2,7 @@ package keqing.gtqtcore.loaders.recipes.chain;
 
 import gregtech.api.metatileentity.multiblock.CleanroomType;
 import gregtech.api.unification.material.MarkerMaterials;
+import keqing.gtqtcore.api.unification.GTQTMaterials;
 
 import static gregtech.api.GTValues.*;
 import static gregtech.api.recipes.RecipeMaps.*;
@@ -257,22 +258,10 @@ public class HexanitrohexaaxaisowurtzitaneChain {
                 .recipeLevel(5)
                 .buildAndRegister();
 
-
-        //  Nitrogen Monoxide related recipes
-        CHEMICAL_RECIPES.recipeBuilder()
-                .fluidInputs(NitrogenDioxide.getFluid(3000))
-                .fluidInputs(Water.getFluid(1000))
-                .circuitMeta(4)
-                .fluidOutputs(NitrogenMonoxide.getFluid(1000))
-                .fluidOutputs(NitricAcid.getFluid(2000))
-                .EUt(VA[HV])
-                .duration(300)
-                .buildAndRegister();
-
         CHEMICAL_RECIPES.recipeBuilder()
                 .fluidInputs(Ammonia.getFluid(4000))
                 .fluidInputs(Oxygen.getFluid(10000))
-                .fluidOutputs(NitrogenMonoxide.getFluid(4000))
+                .fluidOutputs(NitricOxide.getFluid(4000))
                 .fluidOutputs(Water.getFluid(6000))
                 .EUt(VA[HV])
                 .duration(300)
@@ -285,7 +274,7 @@ public class HexanitrohexaaxaisowurtzitaneChain {
                 .fluidInputs(Water.getFluid(2000))
                 .output(dust, Tetraacetyldinitrosohexaazaisowurtzitane)
                 .fluidOutputs(TetrafluoroboricAcid.getFluid(6000))
-                .fluidOutputs(NitrogenMonoxide.getFluid(4000))
+                .fluidOutputs(NitricOxide.getFluid(4000))
                 .fluidOutputs(Benzaldehyde.getFluid(2000))
                 .EUt(VA[IV])
                 .duration(120)

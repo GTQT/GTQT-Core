@@ -73,12 +73,11 @@ public class MetaTileEntitySolarPlate extends MultiblockWithDisplayBase {
     @Override
     protected BlockPattern createStructurePattern() {
         return FactoryBlockPattern.start()
-                .aisle("CCCCCC")
-                .aisle("CSSSSC")
-                .aisle("CSSSSC")
-                .aisle("CSSSSC")
-                .aisle("CSSSSC")
-                .aisle("XCCCCC")
+                .aisle("CCCCC")
+                .aisle("CSSSC")
+                .aisle("CSSSC")
+                .aisle("CSSSC")
+                .aisle("CCXCC")
                 .where('X', selfPredicate())
                 .where('S', TiredTraceabilityPredicate.CP_SP_CASING.get())
                 .where('C', states(GTQTMetaBlocks.blockElectrolyticBath.getState(BlockElectrolyticBath.CasingType.SOLAR_PLATE_CASING))
