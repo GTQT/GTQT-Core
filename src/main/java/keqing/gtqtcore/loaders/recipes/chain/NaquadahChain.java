@@ -125,7 +125,7 @@ public class NaquadahChain {
         CHEMICAL_RECIPES.recipeBuilder()
                 .input(dust,SodiumOxide,27)
                 .fluidInputs(HighPurityNaquadahSolution.getFluid(5000))
-                .output(dust, NaquadahOxide,30)
+                .output(dust, NaquadahOxides,30)
                 .fluidOutputs(DiethylhexylPhosphoricAcid.getFluid(1000))
                 .duration(200).EUt(VA[IV]).buildAndRegister();
 

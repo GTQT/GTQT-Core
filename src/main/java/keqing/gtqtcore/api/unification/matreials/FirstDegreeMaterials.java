@@ -876,8 +876,12 @@ public class FirstDegreeMaterials {
                 .components(Carbon, 4, Hydrogen, 5, Nitrogen, 1, Oxygen, 2)
                 .build();
 
-        //TODO
-        startId++ ;
+        //硅岩氧化物
+        GTQTMaterials.NaquadahOxides = new Material.Builder(getMaterialsId(), gtqtcoreId("naquadah_oxides"))
+                .ore(true).dust()
+                .color(0x636363)
+                .components(Naquadah, 1, Oxygen, 2)
+                .build();
 
         //  24227 Nitrosonium Tetrafluoroborate
         GTQTMaterials.NitrosoniumTetrafluoroborate = new Material.Builder(getMaterialsId(), gtqtcoreId("nitrosonium_tetrafluoroborate"))
@@ -4371,13 +4375,8 @@ public class FirstDegreeMaterials {
                 .build()
                 .setFormula("Ca(OH)2", true);
 
-        GTQTMaterials.SodiumCyanide = new Material.Builder(getMaterialsId(), gtqtcoreId("sodium_cyanide"))
-                .dust()
-                .color(0x5F7C8C)
-                .iconSet(MaterialIconSet.METALLIC)
-                .flags(DISABLE_DECOMPOSITION)
-                .components(Sodium, 1, Carbon, 1, Nitrogen, 1)
-                .build();
+        //TODO
+        startId++;
 
         GTQTMaterials.ChlorosulfuricAcid = new Material.Builder(getMaterialsId(), gtqtcoreId("chlorosulfuric_acid"))
                 .fluid()

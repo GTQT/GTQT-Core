@@ -932,7 +932,7 @@ public class CPULine {
                 .input(dust, Alumina, 1)
                 .input(dust, BoronTrioxide, 1)
                 .fluidInputs(Lead.getFluid(576))
-                .fluidOutputs(GlassGlaze.getFluid(1000))
+                .fluidOutputs(GlassGlaze.getFluid(4000))
                 .buildAndRegister();
 
         LARGE_CHEMICAL_RECIPES.recipeBuilder()

@@ -399,6 +399,7 @@ public class GTQTMaterials {
     public static Material LeachingNickel;
     public static Material PotassiumMetabisulfite;
     public static Material NaquadahOxide;
+    public static Material NaquadahOxides;
     public static Material LowPurityNaquadahLotion;
     public static Material LowPurityNaquadahSolution;
     public static Material Nqad;

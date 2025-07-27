@@ -352,7 +352,7 @@ public class MetaTileEntityMiningDrill extends RecipeMapMultiblockController {
     @Override
     public boolean checkRecipe(@Nonnull Recipe recipe, boolean consumeIfSuccess) {
         if (recipe.getProperty(MiningDrillProperties.getInstance(), 0) <= drillTier && super.checkRecipe(recipe, consumeIfSuccess)) {
-            return importItems.getStackInSlot(0) == GTQTOreHelper.setOre(dimension, type);
+            return containerInventory.getStackInSlot(0) == GTQTOreHelper.setOre(dimension, type);
         }
         return false;
     }

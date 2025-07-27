@@ -1,6 +1,7 @@
 package keqing.gtqtcore.loaders.recipes.chain;
 
 import gregtech.api.recipes.ingredients.IntCircuitIngredient;
+import gregtechfoodoption.GTFOMaterialHandler;
 import keqing.gtqtcore.api.unification.GTQTMaterials;
 
 import static gregtech.api.GTValues.*;
@@ -78,14 +79,6 @@ public class EDTAChain {
                 .blastFurnaceTemp(4000)
                 .duration(120).EUt(VA[EV]).buildAndRegister();
 
-        // NaOH + HCN -> NaCN + H2O
-        CHEMICAL_RECIPES.recipeBuilder()
-                .input(dust, SodiumHydroxide, 3)
-                .fluidInputs(GTQTMaterials.HydrogenCyanide.getFluid(1000))
-                .output(dust, GTQTMaterials.SodiumCyanide, 3)
-                .fluidOutputs(Water.getFluid(1000))
-                .duration(120).EUt(VA[LV]).buildAndRegister();
-
         // CH3OH -> CH2O + 2H
         BURNER_REACTOR_RECIPES.recipeBuilder()
                 .input(dustTiny, Silver)
@@ -97,7 +90,7 @@ public class EDTAChain {
 
         // C2H4(NH2)2 + 4CH2O + 4NaCN + 6H2O -> C10H12Na4N2O8 + 4NH3 + 2O
         CHEMICAL_RECIPES.recipeBuilder()
-                .input(dust, GTQTMaterials.SodiumCyanide, 12)
+                .input(dust, GTFOMaterialHandler.SodiumCyanide, 12)
                 .fluidInputs(GTQTMaterials.Ethylenediamine.getFluid(1000))
                 .fluidInputs(GTQTMaterials.Formaldehyde.getFluid(4000))
                 .fluidInputs(Water.getFluid(4000))

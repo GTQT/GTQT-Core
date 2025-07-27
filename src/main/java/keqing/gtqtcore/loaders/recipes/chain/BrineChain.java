@@ -2,6 +2,7 @@ package keqing.gtqtcore.loaders.recipes.chain;
 
 import gregtech.api.recipes.ingredients.IntCircuitIngredient;
 import gregtech.api.unification.OreDictUnifier;
+import gregtechfoodoption.GTFOMaterialHandler;
 
 import static gregtech.api.GTValues.*;
 import static gregtech.api.recipes.RecipeMaps.*;
@@ -122,7 +123,7 @@ public class BrineChain {
         // S + NaCN -> NaSCN
         CHEMICAL_RECIPES.recipeBuilder().duration(100).EUt(120)
                 .input(dust, Sulfur)
-                .input(dust,SodiumCyanide)
+                .input(dust, GTFOMaterialHandler.SodiumCyanide)
                 .fluidOutputs(SodiumThiocyanate.getFluid(1000))
                 .buildAndRegister();
 

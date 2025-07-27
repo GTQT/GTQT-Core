@@ -1,5 +1,7 @@
 package keqing.gtqtcore.loaders.recipes.chain;
 
+import gregtechfoodoption.GTFOMaterialHandler;
+
 import static gregtech.api.recipes.RecipeMaps.*;
 import static gregtech.api.unification.material.Materials.*;
 import static gregtech.api.unification.ore.OrePrefix.dust;
@@ -16,7 +18,7 @@ public class GlueChain {
     {
         CHEMICAL_PLANT.recipeBuilder()
                 .input(dust,Quicklime,6)
-                .input(dust,SodiumCyanide,3)
+                .input(dust, GTFOMaterialHandler.SodiumCyanide,3)
                 .fluidInputs(ChloroaceticAcid.getFluid(144))
                 .fluidInputs(HydrochloricAcid.getFluid(1000))
                 .fluidOutputs(Water.getFluid(1000))

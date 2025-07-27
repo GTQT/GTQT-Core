@@ -270,7 +270,7 @@ public class AE2MiscRecipes {
                 .input(plate, NetherQuartz, 4)
                 .inputs(GTUtility.copy(4, logicProcessor))
                 .input(gem, Fluix)
-                .outputs(GTUtility.copy(2, forming))
+                .outputs(GTUtility.copy(4, forming))
                 .EUt(VA[MV])
                 .duration(100)
                 .buildAndRegister();
@@ -279,7 +279,7 @@ public class AE2MiscRecipes {
                 .input(plate, CertusQuartz, 4)
                 .inputs(GTUtility.copy(4, logicProcessor))
                 .input(gem, Fluix)
-                .outputs(GTUtility.copy(2, breaking))
+                .outputs(GTUtility.copy(4, breaking))
                 .EUt(VA[MV])
                 .duration(100)
                 .buildAndRegister();
@@ -288,7 +288,7 @@ public class AE2MiscRecipes {
                 .inputs(GTUtility.copy(4, logicProcessor))
                 .input(MetaItems.SMD_CAPACITOR, 1)
                 .input(gem, Fluix)
-                .outputs(GTUtility.copy(4, forming))
+                .outputs(GTUtility.copy(8, forming))
                 .EUt(VA[HV])
                 .duration(100)
                 .buildAndRegister();
@@ -297,7 +297,7 @@ public class AE2MiscRecipes {
                 .inputs(GTUtility.copy(4, logicProcessor))
                 .input(MetaItems.SMD_CAPACITOR, 1)
                 .input(gem, Fluix)
-                .outputs(GTUtility.copy(4, breaking))
+                .outputs(GTUtility.copy(8, breaking))
                 .EUt(VA[HV])
                 .duration(100)
                 .buildAndRegister();
@@ -306,7 +306,7 @@ public class AE2MiscRecipes {
                 .inputs(GTUtility.copy(4, logicProcessor))
                 .input(MetaItems.ADVANCED_SMD_CAPACITOR, 1)
                 .input(gem, Fluix)
-                .outputs(GTUtility.copy(8, forming))
+                .outputs(GTUtility.copy(16, forming))
                 .EUt(VA[IV])
                 .duration(100)
                 .buildAndRegister();
@@ -315,7 +315,7 @@ public class AE2MiscRecipes {
                 .inputs(GTUtility.copy(4, logicProcessor))
                 .input(MetaItems.ADVANCED_SMD_CAPACITOR, 1)
                 .input(gem, Fluix)
-                .outputs(GTUtility.copy(8, breaking))
+                .outputs(GTUtility.copy(16, breaking))
                 .EUt(VA[IV])
                 .duration(100)
                 .buildAndRegister();
@@ -324,7 +324,7 @@ public class AE2MiscRecipes {
                 .inputs(GTUtility.copy(4, logicProcessor))
                 .input(GTQTMetaItems.OPTICAL_CAPACITOR, 1)
                 .input(gem, Fluix)
-                .outputs(GTUtility.copy(16, forming))
+                .outputs(GTUtility.copy(32, forming))
                 .EUt(VA[UHV])
                 .duration(100)
                 .buildAndRegister();
@@ -333,7 +333,7 @@ public class AE2MiscRecipes {
                 .inputs(GTUtility.copy(4, logicProcessor))
                 .input(GTQTMetaItems.OPTICAL_CAPACITOR, 1)
                 .input(gem, Fluix)
-                .outputs(GTUtility.copy(16, breaking))
+                .outputs(GTUtility.copy(32, breaking))
                 .EUt(VA[UHV])
                 .duration(100)
                 .buildAndRegister();
@@ -342,7 +342,7 @@ public class AE2MiscRecipes {
                 .inputs(GTUtility.copy(4, logicProcessor))
                 .input(GTQTMetaItems.SPINTRONIC_CAPACITOR, 1)
                 .input(gem, Fluix)
-                .outputs(GTUtility.copy(32, forming))
+                .outputs(GTUtility.copy(64, forming))
                 .EUt(VA[UEV])
                 .duration(100)
                 .buildAndRegister();
@@ -351,7 +351,7 @@ public class AE2MiscRecipes {
                 .inputs(GTUtility.copy(4, logicProcessor))
                 .input(GTQTMetaItems.SPINTRONIC_CAPACITOR, 1)
                 .input(gem, Fluix)
-                .outputs(GTUtility.copy(32, breaking))
+                .outputs(GTUtility.copy(64, breaking))
                 .EUt(VA[UEV])
                 .duration(100)
                 .buildAndRegister();
