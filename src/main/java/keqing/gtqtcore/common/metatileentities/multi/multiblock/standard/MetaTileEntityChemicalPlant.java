@@ -141,7 +141,7 @@ public class MetaTileEntityChemicalPlant extends GTQTRecipeMapMultiblockControll
         keyManager.add(KeyUtil.lang(TextFormatting.GRAY, "gtqtcore.voltageTier", syncedVoltage));
 
         // 第三步：条件性添加警告信息
-        if (casingTier != tubeTier) {
+        if (!syncedCasing.equals(syncedTube)) {
             Integer syncedCasingForEqual = syncer.syncInt(casingTier);
             Integer syncedTubeForEqual = syncer.syncInt(tubeTier);
             keyManager.add(KeyUtil.lang(TextFormatting.GRAY, "gtqtcore.equal", syncedCasingForEqual, syncedTubeForEqual

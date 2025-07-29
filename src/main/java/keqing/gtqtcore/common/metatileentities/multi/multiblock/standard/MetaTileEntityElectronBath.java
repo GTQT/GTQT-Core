@@ -82,7 +82,7 @@ public class MetaTileEntityElectronBath extends GTQTRecipeMapMultiblockControlle
                 .aisle(" BBBBB ", " BB BB ", "  B B  ", "  BBB  ")
                 .aisle("  BBB  ", "  BSB  ", "  BBB  ", "       ")
                 .where('S', selfPredicate())
-                .where('B', TiredTraceabilityPredicate.CP_CASING.get()
+                .where('B', TiredTraceabilityPredicate.CP_CASING.get().setMinGlobalLimited(110)
                         .or(autoAbilities())
                 )
                 .where('D', abilities(GTQTMultiblockAbility.ELECTRODE_MULTIBLOCK_ABILITY))
@@ -131,10 +131,17 @@ public class MetaTileEntityElectronBath extends GTQTRecipeMapMultiblockControlle
         super.addCustomData(keyManager, syncer);
         if (!isStructureFormed()) return;
         keyManager.add(KeyUtil.lang(TextFormatting.GRAY, "电极状态：%s 电极等级：%s", syncer.syncBoolean(checkAvailable()), syncer.syncInt(ElectrodeTier)));
-        if (casingTier != tubeTier)
-            keyManager.add(KeyUtil.lang(TextFormatting.GRAY, "gtqtcore.equal", syncer.syncInt(casingTier), syncer.syncInt(tubeTier)));
-    }
 
+        Integer syncedCasing = syncer.syncInt(casingTier);
+        Integer syncedTube = syncer.syncInt(tubeTier);
+
+        keyManager.add(KeyUtil.lang(TextFormatting.GRAY, "gtqtcore.casingTire", syncedCasing));
+        keyManager.add(KeyUtil.lang(TextFormatting.GRAY, "gtqtcore.tubeTire", syncedTube));
+
+        if (!syncedCasing.equals(syncedTube)) {
+            keyManager.add(KeyUtil.lang(TextFormatting.GRAY, "gtqtcore.equal", syncedCasing, syncedTube));
+        }
+    }
     @Override
     public void addInformation(ItemStack stack, World player, List<String> tooltip, boolean advanced) {
         tooltip.add(TooltipHelper.RAINBOW_SLOW + I18n.format("谁还需要电解机"));

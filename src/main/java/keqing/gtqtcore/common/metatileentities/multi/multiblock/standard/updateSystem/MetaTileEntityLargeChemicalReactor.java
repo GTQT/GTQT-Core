@@ -89,7 +89,7 @@ public class MetaTileEntityLargeChemicalReactor extends GTQTRecipeMapMultiblockC
         keyManager.add(KeyUtil.lang(TextFormatting.GRAY, "gtqtcore.casingTire", syncedCasing));
         keyManager.add(KeyUtil.lang(TextFormatting.GRAY, "gtqtcore.tubeTire", syncedTube));
 
-        if (casingTier != tubeTier) {
+        if (!syncedCasing.equals(syncedTube)) {
             keyManager.add(KeyUtil.lang(TextFormatting.GRAY, "gtqtcore.equal", syncedCasing, syncedTube));
         }
     }
