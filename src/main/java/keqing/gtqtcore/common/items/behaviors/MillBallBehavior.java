@@ -15,9 +15,22 @@ import javax.annotation.Nullable;
 import java.util.List;
 
 public class MillBallBehavior extends AbstractMaterialPartBehavior implements IItemMaxStackSizeProvider {
+    @Nullable
+    public static MillBallBehavior getInstanceFor(@Nonnull ItemStack itemStack) {
+        if (!(itemStack.getItem() instanceof MetaItem)) return null;
+
+        MetaItem<?>.MetaValueItem valueItem = ((MetaItem<?>) itemStack.getItem()).getItem(itemStack);
+        if (valueItem == null) return null;
+
+        IItemDurabilityManager durabilityManager = valueItem.getDurabilityManager();
+        if (!(durabilityManager instanceof MillBallBehavior)) return null;
+
+        return (MillBallBehavior) durabilityManager;
+    }
+
     @Override
     public int getPartMaxDurability(ItemStack itemStack) {
-        if(GTQTMetaItems.GRINDBALL_SOAPSTONE.isItemEqual(itemStack))
+        if (GTQTMetaItems.GRINDBALL_SOAPSTONE.isItemEqual(itemStack))
             return 50;
         else
             return 100;
@@ -39,7 +52,7 @@ public class MillBallBehavior extends AbstractMaterialPartBehavior implements II
 
     public void addInformation(ItemStack stack, List<String> lines) {
         Material material;
-        if(GTQTMetaItems.GRINDBALL_SOAPSTONE.isItemEqual(stack))
+        if (GTQTMetaItems.GRINDBALL_SOAPSTONE.isItemEqual(stack))
             material = Materials.Soapstone;
         else
             material = Materials.Aluminium;
@@ -52,18 +65,5 @@ public class MillBallBehavior extends AbstractMaterialPartBehavior implements II
     @Override
     public int getMaxStackSize(ItemStack itemStack, int defaultValue) {
         return 1;
-    }
-
-    @Nullable
-    public static MillBallBehavior getInstanceFor(@Nonnull ItemStack itemStack) {
-        if (!(itemStack.getItem() instanceof MetaItem)) return null;
-
-        MetaItem<?>.MetaValueItem valueItem = ((MetaItem<?>) itemStack.getItem()).getItem(itemStack);
-        if (valueItem == null) return null;
-
-        IItemDurabilityManager durabilityManager = valueItem.getDurabilityManager();
-        if (!(durabilityManager instanceof MillBallBehavior)) return null;
-
-        return (MillBallBehavior) durabilityManager;
     }
 }

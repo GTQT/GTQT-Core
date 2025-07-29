@@ -5,7 +5,6 @@ import gregtech.api.items.metaitem.stats.IItemDurabilityManager;
 import gregtech.api.items.metaitem.stats.IItemMaxStackSizeProvider;
 import gregtech.api.unification.material.Material;
 import gregtech.common.items.behaviors.AbstractMaterialPartBehavior;
-import keqing.gtqtcore.api.utils.GTQTDateHelper;
 import net.minecraft.client.resources.I18n;
 import net.minecraft.item.ItemStack;
 
@@ -18,20 +17,34 @@ public class WrapSwarmBehavior extends AbstractMaterialPartBehavior implements I
     int MaxDurability;
     int WrapSwarmTier;
     Material material;
+
     public WrapSwarmBehavior(int Durability, int WrapSwarmTier, Material material) {
-        this.MaxDurability=Durability;
-        this.material=material;
-        this.WrapSwarmTier=WrapSwarmTier;
+        this.MaxDurability = Durability;
+        this.material = material;
+        this.WrapSwarmTier = WrapSwarmTier;
+    }
+
+    @Nullable
+    public static WrapSwarmBehavior getInstanceFor(@Nonnull ItemStack itemStack) {
+        if (!(itemStack.getItem() instanceof MetaItem)) return null;
+
+        MetaItem<?>.MetaValueItem valueItem = ((MetaItem<?>) itemStack.getItem()).getItem(itemStack);
+        if (valueItem == null) return null;
+
+        IItemDurabilityManager durabilityManager = valueItem.getDurabilityManager();
+        if (!(durabilityManager instanceof WrapSwarmBehavior)) return null;
+
+        return (WrapSwarmBehavior) durabilityManager;
     }
 
     public double getDurabilityPercent(ItemStack itemStack) {
-        return 1- (double) getPartDamage(itemStack) / getPartMaxDurability(itemStack);
+        return 1 - (double) getPartDamage(itemStack) / getPartMaxDurability(itemStack);
     }
-    
-    public int getWrapSwarmTier()
-    {
+
+    public int getWrapSwarmTier() {
         return WrapSwarmTier;
     }
+
     public void applyDamage(ItemStack itemStack, int damageApplied) {
         int Durability = getPartMaxDurability(itemStack);
         int resultDamage = getPartDamage(itemStack) + damageApplied;
@@ -47,8 +60,9 @@ public class WrapSwarmBehavior extends AbstractMaterialPartBehavior implements I
         int damage = getPartDamage(stack);
         lines.add(I18n.format("metaitem.tool.tooltip.durability", maxDurability - damage, maxDurability));
         lines.add(I18n.format("metaitem.tool.tooltip.primary_material", material.getLocalizedName()));
-        lines.add(I18n.format("metaitem.tool.tooltip.tier",WrapSwarmTier));
+        lines.add(I18n.format("metaitem.tool.tooltip.tier", WrapSwarmTier));
     }
+
     @Override
     public int getPartMaxDurability(ItemStack itemStack) {
         return MaxDurability;
@@ -61,17 +75,5 @@ public class WrapSwarmBehavior extends AbstractMaterialPartBehavior implements I
 
     public Material getMaterial() {
         return material;
-    }
-    @Nullable
-    public static WrapSwarmBehavior getInstanceFor(@Nonnull ItemStack itemStack) {
-        if (!(itemStack.getItem() instanceof MetaItem)) return null;
-
-        MetaItem<?>.MetaValueItem valueItem = ((MetaItem<?>) itemStack.getItem()).getItem(itemStack);
-        if (valueItem == null) return null;
-
-        IItemDurabilityManager durabilityManager = valueItem.getDurabilityManager();
-        if (!(durabilityManager instanceof WrapSwarmBehavior)) return null;
-
-        return (WrapSwarmBehavior) durabilityManager;
     }
 }

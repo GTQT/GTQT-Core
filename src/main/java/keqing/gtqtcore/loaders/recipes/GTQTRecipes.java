@@ -14,18 +14,20 @@ import gregtech.api.unification.material.info.MaterialFlags;
 import gregtech.api.unification.material.properties.*;
 import gregtech.api.unification.ore.OrePrefix;
 import gregtech.api.unification.stack.UnificationEntry;
+import gregtech.common.ConfigHolder;
 import gregtech.common.crafting.ToolHeadReplaceRecipe;
 import gregtech.common.items.ToolItems;
+import gregtech.loaders.recipe.handlers.OreRecipeHandler;
 import keqing.gtqtcore.api.recipes.GTQTcoreRecipeMaps;
 import keqing.gtqtcore.api.unification.ore.GTQTOrePrefix;
 import keqing.gtqtcore.common.items.GTQTMetaItems;
 import keqing.gtqtcore.common.items.metaitems.GTQTMetaToolItems;
 import keqing.gtqtcore.loaders.recipes.handlers.BouleRecipeHandler;
-import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.crafting.Ingredient;
 
-import static gregtech.api.GTValues.*;
+import static gregtech.api.GTValues.EV;
+import static gregtech.api.GTValues.HV;
 import static gregtech.api.recipes.RecipeMaps.FLUID_SOLIDFICATION_RECIPES;
 import static gregtech.api.unification.material.Materials.*;
 import static gregtech.api.unification.material.info.MaterialFlags.GENERATE_PLATE;
@@ -62,6 +64,18 @@ public class GTQTRecipes {
         OrePrefix.foil.addProcessingHandler(PropertyKey.INGOT, GTQTRecipes::processFoil);
         OrePrefix.rotor.addProcessingHandler(PropertyKey.INGOT, GTQTRecipes::processRotorA);
         wireGtSingle.addProcessingHandler(PropertyKey.WIRE, GTQTRecipes::processWireSingle);
+        if (ConfigHolder.worldgen.allUniqueStoneTypes) {
+            GTQTOrePrefix.oreGabbro.addProcessingHandler(PropertyKey.ORE, OreRecipeHandler::processOre);
+            GTQTOrePrefix.oreGneiss.addProcessingHandler(PropertyKey.ORE, OreRecipeHandler::processOre);
+            GTQTOrePrefix.oreLimestone.addProcessingHandler(PropertyKey.ORE, OreRecipeHandler::processOre);
+            GTQTOrePrefix.orePhyllite.addProcessingHandler(PropertyKey.ORE, OreRecipeHandler::processOre);
+            GTQTOrePrefix.oreQuartzite.addProcessingHandler(PropertyKey.ORE, OreRecipeHandler::processOre);
+            GTQTOrePrefix.oreShale.addProcessingHandler(PropertyKey.ORE, OreRecipeHandler::processOre);
+            GTQTOrePrefix.oreSlate.addProcessingHandler(PropertyKey.ORE, OreRecipeHandler::processOre);
+            GTQTOrePrefix.oreSoapstone.addProcessingHandler(PropertyKey.ORE, OreRecipeHandler::processOre);
+            GTQTOrePrefix.oreKimberlite.addProcessingHandler(PropertyKey.ORE, OreRecipeHandler::processOre);
+        }
+
         registerMortarRecipes();
     }
 
@@ -184,7 +198,7 @@ public class GTQTRecipes {
                         OreDictUnifier.get(plate_big, material),
                         "SSh", "SSB",
                         'S', new UnificationEntry(plate, material),
-                        'B',"toolSolderingIron");
+                        'B', "toolSolderingIron");
 
                 RecipeMaps.ASSEMBLER_RECIPES.recipeBuilder()
                         .EUt(30).duration(1200)
@@ -248,7 +262,7 @@ public class GTQTRecipes {
                         'S', new UnificationEntry(plate_curved, material),
                         'A', new UnificationEntry(spring, material),
                         'C', new UnificationEntry(round_cover, material),
-                        'B',"toolSolderingIron");
+                        'B', "toolSolderingIron");
 
                 RecipeMaps.ASSEMBLER_RECIPES.recipeBuilder()
                         .EUt(32).duration(40)
@@ -273,7 +287,7 @@ public class GTQTRecipes {
                         'S', new UnificationEntry(stickLong, material),
                         'A', new UnificationEntry(gear, material),
                         'C', new UnificationEntry(springSmall, material),
-                        'B',"toolSolderingIron");
+                        'B', "toolSolderingIron");
 
                 RecipeMaps.ASSEMBLER_RECIPES.recipeBuilder()
                         .EUt(32).duration(40)
@@ -298,7 +312,7 @@ public class GTQTRecipes {
                         'A', new UnificationEntry(gearSmall, material),
                         'L', new UnificationEntry(stick, material),
                         'C', new UnificationEntry(ring, material),
-                        'B',"toolSolderingIron");
+                        'B', "toolSolderingIron");
 
                 RecipeMaps.ASSEMBLER_RECIPES.recipeBuilder()
                         .EUt(32).duration(40)

@@ -15,12 +15,13 @@ import net.minecraftforge.oredict.OreDictionary;
 
 public class FindOreStickBehavior implements IItemBehaviour {
 
-    public FindOreStickBehavior() {}
+    public FindOreStickBehavior() {
+    }
 
     @Override
     public EnumActionResult onItemUseFirst(EntityPlayer player, World world, BlockPos pos, EnumFacing side, float hitX, float hitY, float hitZ, EnumHand hand) {
         if (world.isRemote) return EnumActionResult.SUCCESS;
-        for (int h = Math.max(pos.getY(),0); h >= 0; h--) {
+        for (int h = Math.max(pos.getY(), 0); h >= 0; h--) {
             BlockPos currentPos = new BlockPos(pos.getX(), h, pos.getZ());
             Block block = world.getBlockState(currentPos).getBlock();
 
@@ -33,7 +34,7 @@ public class FindOreStickBehavior implements IItemBehaviour {
                     if (oreName.contains("ore")) {
                         player.sendStatusMessage(new TextComponentTranslation("！发现矿物！"), true);
                         player.sendMessage(new TextComponentString("==============================="));
-                        player.sendMessage(new TextComponentString("坐标 X："+ pos.getX() + " Y："+ pos.getY() + " Z："+ pos.getZ()));
+                        player.sendMessage(new TextComponentString("坐标 X：" + pos.getX() + " Y：" + pos.getY() + " Z：" + pos.getZ()));
                         player.sendMessage(new TextComponentString("发现矿物：").appendSibling(new TextComponentString(oreName)));
                         player.sendMessage(new TextComponentString("==============================="));
                         return EnumActionResult.SUCCESS;

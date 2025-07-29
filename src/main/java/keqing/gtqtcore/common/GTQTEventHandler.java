@@ -4,12 +4,15 @@ import gregtech.api.GregTechAPI;
 import gregtech.api.metatileentity.registry.MTEManager;
 import gregtech.api.unification.material.event.MaterialEvent;
 import gregtech.api.unification.material.event.MaterialRegistryEvent;
+import gregtech.api.util.Mods;
 import gregtech.common.ConfigHolder;
 import keqing.gtqtcore.GTQTCore;
 import keqing.gtqtcore.api.unification.GTQTMaterials;
 import keqing.gtqtcore.api.unification.OrePrefixAdditions;
+import keqing.gtqtcore.api.unification.ore.GTQTStoneTypes;
 import keqing.gtqtcore.api.utils.GTQTLog;
 import keqing.gtqtcore.loaders.recipes.handlers.OreRecipeHandler;
+import net.minecraft.block.Block;
 import net.minecraft.item.crafting.IRecipe;
 import net.minecraft.util.text.TextComponentString;
 import net.minecraftforge.event.RegistryEvent;
@@ -50,6 +53,10 @@ public class GTQTEventHandler {
         OrePrefixAdditions.init();
     }
 
+    @SubscribeEvent(priority = EventPriority.HIGH)
+    public static void registerBlocks(RegistryEvent.Register<Block> event) {
+        GTQTStoneTypes.init();
+    }
     /*
     // override GTCEu fall event to enable piston boots fall damage
     @SubscribeEvent(priority = EventPriority.NORMAL)
@@ -106,11 +113,18 @@ public class GTQTEventHandler {
                 BOLD + "Welcome to GregTech QuantumTransition " + GREEN + PACK + LIGHT_PURPLE + "-" + VERSION,
                 GRAY + "The current game is" + RED + " beta version",
                 GRAY + "All content in this version is for preview only and does not guarantee that the game can be played according to the normal survival mode process.",
-                GRAY + "communication Group 1:" + YELLOW + "1073091808" + GRAY + "(QQ)",
-                GRAY + "Communication Group 2:" + YELLOW + "494136307" + GRAY + "(QQ)",
+                GRAY + "communication Group:" + YELLOW + " 1073091808" + GRAY + " (QQ Group)",
                 GRAY + "Community Link:" + GREEN + " https://www.mcmod.cn/modpack/590.html ",
-                GRAY + "Feedback channel:" + GREEN + " https://github.com/GTQT ",
+                GRAY + "Github channel:" + GREEN + " https://github.com/GTQT ",
+                GRAY + "Wiki Link:" + GREEN + " https://docs.qq.com/aio/DRFhDRXZ5dnV0ZEtu ",
+                GRAY + "Curseforge Link:" + GREEN + " https://www.curseforge.com/minecraft/modpacks/gregtech-quantum-transition ",
                 GOLD + "============================================"
+        };
+        private static final String[] installOpt = {
+                RED + "--------------------------------------------",
+                RED + "！如果你还未安装Optifine，建议安装Optifine以获得更好的游戏体验！",
+                RED + "！注意安装后开启智能动态材质或关闭视频设置-地形动画选项以提升帧数！",
+                RED + "--------------------------------------------"
         };
 
         @SubscribeEvent(priority = EventPriority.HIGHEST)
@@ -120,6 +134,13 @@ public class GTQTEventHandler {
                 for (String line : lines) {
                     event.player.sendMessage(new TextComponentString(line));
                 }
+            }
+            if (!Mods.Optifine.isModLoaded()) {
+                Objects.requireNonNull(event.player);
+                for (String line : installOpt) {
+                    event.player.sendMessage(new TextComponentString(line));
+                }
+
             }
         }
     }

@@ -20,18 +20,32 @@ public class ElectrodeBehavior extends AbstractMaterialPartBehavior implements I
     Material material;
 
     public ElectrodeBehavior(int Durability, int ElectrodeTier, Material material) {
-        this.MaxDurability=Durability;
-        this.material=material;
-        this.ElectrodeTier=ElectrodeTier;
+        this.MaxDurability = Durability;
+        this.material = material;
+        this.ElectrodeTier = ElectrodeTier;
+    }
+
+    @Nullable
+    public static ElectrodeBehavior getInstanceFor(@Nonnull ItemStack itemStack) {
+        if (!(itemStack.getItem() instanceof MetaItem)) return null;
+
+        MetaItem<?>.MetaValueItem valueItem = ((MetaItem<?>) itemStack.getItem()).getItem(itemStack);
+        if (valueItem == null) return null;
+
+        IItemDurabilityManager durabilityManager = valueItem.getDurabilityManager();
+        if (!(durabilityManager instanceof ElectrodeBehavior)) return null;
+
+        return (ElectrodeBehavior) durabilityManager;
     }
 
     public double getDurabilityPercent(ItemStack itemStack) {
-        return 1- (double) getPartDamage(itemStack) / getPartMaxDurability(itemStack);
+        return 1 - (double) getPartDamage(itemStack) / getPartMaxDurability(itemStack);
     }
-    public int getElectrodeTier()
-    {
+
+    public int getElectrodeTier() {
         return ElectrodeTier;
     }
+
     public void applyDamage(ItemStack itemStack, int damageApplied) {
         int Durability = getPartMaxDurability(itemStack);
         int resultDamage = getPartDamage(itemStack) + damageApplied;
@@ -49,8 +63,9 @@ public class ElectrodeBehavior extends AbstractMaterialPartBehavior implements I
         lines.add(I18n.format("metaitem.tool.tooltip.primary_material", material.getLocalizedName()));
         lines.add(I18n.format("电极等级: " + ElectrodeTier));
         lines.add(I18n.format("预计工作: " + GTQTDateHelper.getTimeFromTicks(MaxDurability)));
-        lines.add(I18n.format("距离损坏: " + GTQTDateHelper.getTimeFromTicks(MaxDurability-getPartDamage(stack))));
+        lines.add(I18n.format("距离损坏: " + GTQTDateHelper.getTimeFromTicks(MaxDurability - getPartDamage(stack))));
     }
+
     @Override
     public int getPartMaxDurability(ItemStack itemStack) {
         return MaxDurability;
@@ -63,17 +78,5 @@ public class ElectrodeBehavior extends AbstractMaterialPartBehavior implements I
 
     public Material getMaterial() {
         return material;
-    }
-    @Nullable
-    public static ElectrodeBehavior getInstanceFor(@Nonnull ItemStack itemStack) {
-        if (!(itemStack.getItem() instanceof MetaItem)) return null;
-
-        MetaItem<?>.MetaValueItem valueItem = ((MetaItem<?>) itemStack.getItem()).getItem(itemStack);
-        if (valueItem == null) return null;
-
-        IItemDurabilityManager durabilityManager = valueItem.getDurabilityManager();
-        if (!(durabilityManager instanceof ElectrodeBehavior)) return null;
-
-        return (ElectrodeBehavior) durabilityManager;
     }
 }

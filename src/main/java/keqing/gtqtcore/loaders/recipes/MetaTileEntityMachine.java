@@ -435,10 +435,11 @@ public class MetaTileEntityMachine {
 
         //机器外壳
         for (int i = 0; i <= UEV; i++) {
+            OrePrefix cableType = i==0? wireGtSingle: OrePrefix.cableGtSingle;
             RecipeMaps.ASSEMBLER_RECIPES.recipeBuilder().duration(100).EUt(VA[i])
                     .inputs(MACHINE_CASING.getItemVariant(MachineCasing[i]))
                     .input(plate, SecondPlate[i], 2)
-                    .input(OrePrefix.cableGtSingle, Cable.get(i), 2)
+                    .input(cableType, Cable.get(i), 2)
                     .outputs(MetaTileEntities.HULL[i].getStackForm())
                     .fluidInputs(Plastic[i].getFluid(L * 2))
                     .buildAndRegister();
@@ -446,7 +447,7 @@ public class MetaTileEntityMachine {
             ModHandler.addShapedRecipe(true, VN[i]+"_casing", HULL[i].getStackForm(),
                     "ABA", "CHC", "ABA",
                     'H', MACHINE_CASING.getItemVariant(casingTypes[i]),
-                    'C', new UnificationEntry(cableGtSingle, Cable.get(i)),
+                    'C', new UnificationEntry(cableType, Cable.get(i)),
                     'B', new UnificationEntry(plate, SecondPlate[i]),
                     'A', new UnificationEntry(plate, Plastic[i]));
         }

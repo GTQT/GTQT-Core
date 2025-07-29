@@ -14,7 +14,8 @@ public class CatalystBehavior extends AbstractMaterialPartBehavior implements II
     private boolean isCatalystBed;
     private int tier;
 
-    public CatalystBehavior() {}
+    public CatalystBehavior() {
+    }
 
     public CatalystBehavior(boolean isCatalystBed) {
         this.isCatalystBed = isCatalystBed;
@@ -25,16 +26,7 @@ public class CatalystBehavior extends AbstractMaterialPartBehavior implements II
         this.tier = tier;
     }
 
-    public void applyCatalystDamage(ItemStack stack, int damageApplied) {
-        int catalystDurability = this.getPartMaxDurability(stack);
-        int resultDamage = getPartDamage(stack) + damageApplied;
-        if (resultDamage >= catalystDurability)
-            stack.shrink(1);
-        else
-            this.setPartDamage(stack, resultDamage);
-    }
-
-    public static CatalystBehavior getInstanceFor( ItemStack stack) {
+    public static CatalystBehavior getInstanceFor(ItemStack stack) {
         if (!(stack.getItem() instanceof MetaItem))
             return null;
 
@@ -47,6 +39,15 @@ public class CatalystBehavior extends AbstractMaterialPartBehavior implements II
         if (!(durabilityManager instanceof CatalystBehavior))
             return null;
         return (CatalystBehavior) durabilityManager;
+    }
+
+    public void applyCatalystDamage(ItemStack stack, int damageApplied) {
+        int catalystDurability = this.getPartMaxDurability(stack);
+        int resultDamage = getPartDamage(stack) + damageApplied;
+        if (resultDamage >= catalystDurability)
+            stack.shrink(1);
+        else
+            this.setPartDamage(stack, resultDamage);
     }
 
     @Override

@@ -8,6 +8,8 @@ import gregtech.api.unification.material.Material;
 import gregtech.api.unification.material.Materials;
 import gregtech.api.unification.material.properties.PropertyKey;
 import gregtech.api.unification.ore.OrePrefix;
+import gregtech.api.unification.ore.StoneType;
+import gregtech.api.util.GTControlledRegistry;
 import gregtech.common.crafting.ToolHeadReplaceRecipe;
 import gregtech.integration.crafttweaker.block.CTHeatingCoilBlockStats;
 import gregtech.loaders.recipe.CraftingComponent;
@@ -17,6 +19,7 @@ import keqing.gtqtcore.api.recipes.GTQTcoreRecipeMaps;
 import keqing.gtqtcore.api.recipes.properties.NeutronActivatorIOPartProperty;
 import keqing.gtqtcore.api.recipes.properties.PCBFactoryBioUpgradeProperty;
 import keqing.gtqtcore.api.recipes.properties.SwarmTierProperty;
+import keqing.gtqtcore.api.unification.OrePrefixAdditions;
 import keqing.gtqtcore.api.unification.ore.GTQTStoneTypes;
 import keqing.gtqtcore.api.utils.GTQTLog;
 import keqing.gtqtcore.common.block.GTQTCrops;
@@ -30,7 +33,8 @@ import keqing.gtqtcore.common.pipelike.pressure.BlockPressurePipe;
 import keqing.gtqtcore.common.pipelike.pressure.ItemBlockPressurePipe;
 import keqing.gtqtcore.common.pipelike.pressure.tile.TileEntityPressurePipe;
 import keqing.gtqtcore.loaders.AddHighTierMaterial;
-import keqing.gtqtcore.loaders.recipes.*;
+import keqing.gtqtcore.loaders.recipes.GTQTRecipes;
+import keqing.gtqtcore.loaders.recipes.GTQTRecipesManager;
 import keqing.gtqtcore.loaders.recipes.component.MaterialComponents;
 import keqing.gtqtcore.loaders.recipes.handlers.*;
 import keqing.gtqtcore.loaders.tweak.tweakRecipesManager;
@@ -49,16 +53,20 @@ import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.event.ServerChatEvent;
 import net.minecraftforge.fml.common.Mod;
+import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 import net.minecraftforge.fml.common.eventhandler.EventPriority;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 import net.minecraftforge.registries.IForgeRegistry;
 
 import java.text.DecimalFormat;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 import java.util.function.Function;
 
 import static gregtech.api.GregTechAPI.HEATING_COILS;
+import static gregtech.api.unification.ore.StoneType.STONE_TYPE_REGISTRY;
 import static keqing.gtqtcore.api.utils.ChatCalculatorHelper.eval;
 import static keqing.gtqtcore.common.block.GTQTMetaBlocks.*;
 import static net.minecraft.init.Blocks.DIRT;
@@ -136,6 +144,7 @@ public class CommonProxy {
             return GTQTMetaItems.ALPHA.getStackForm();
         }
     };
+    static List<String> oreNames;
 
     public CommonProxy() {
     }
@@ -299,7 +308,6 @@ public class CommonProxy {
         itemBlock.setRegistryName(Objects.requireNonNull(block.getRegistryName()));
         return itemBlock;
     }
-
     @SubscribeEvent(priority = EventPriority.LOW)
     public static void registerRecipes(RegistryEvent.Register<IRecipe> event) {
         GTQTLog.logger.info("Registering recipes...");
@@ -376,6 +384,57 @@ public class CommonProxy {
         }
     }
 
+    public static List<String> getAllRegisteredNames() {
+        List<String> names = new ArrayList<>();
+        GTControlledRegistry<String, StoneType> registry = STONE_TYPE_REGISTRY;
+
+        // 遍历所有可能的 ID (0 到 maxId-1)
+        for (int id = 0; id < 26; id++) {
+            // 通过 ID 获取 StoneType 对象
+            StoneType stoneType = registry.getObjectById(id);
+
+            if (stoneType != null) {
+                // 通过 StoneType 对象反查注册的 name（键）
+                String name = registry.getNameForObject(stoneType);
+                StringBuilder sb = new StringBuilder();
+                for (String part : name.split("_")) {
+                    if (!part.isEmpty()) {
+                        sb.append(Character.toUpperCase(part.charAt(0)))
+                                .append(part.substring(1));
+                    }
+                }
+                String a = switch (sb.toString()) {
+                    case "RedSandstone" -> "RedSand";
+                    case "Sandstone" -> "Sand";
+                    case "Stone" -> "";
+                    default ->  sb.toString();
+                };
+
+                names.add(a);
+            }
+        }
+        return names;
+    }
+
+    private static void toOreDict(String material) {
+        for (String oreName : oreNames) {
+            StringBuilder sb = new StringBuilder("ore" + oreName);
+            for (String part : material.split("_")) {
+                if (!part.isEmpty()) {
+                    sb.append(Character.toUpperCase(part.charAt(0)))
+                            .append(part.substring(1));
+                }
+            }
+            System.out.println("\"" + sb + "\",");
+        }
+    }
+
+    @SubscribeEvent(priority = EventPriority.HIGHEST)
+    public static void registerMaterialComponents(GregTechAPI.RegisterEvent<CraftingComponent> event) {
+        GTQTLog.logger.info("Registering material components...");
+        MaterialComponents.init();
+    }
+
     public void postInit() {
     }
 
@@ -384,6 +443,7 @@ public class CommonProxy {
 
     public void loadComplete() {
         if (GTQTCoreConfig.debugSwitch.debugSwitch) {
+            oreNames = getAllRegisteredNames();
             for (Material material : GregTechAPI.materialManager.getRegisteredMaterials()) {
                 if (GTQTCoreConfig.debugSwitch.cableDebug) {
                     if (material.hasProperty(PropertyKey.WIRE))
@@ -402,25 +462,29 @@ public class CommonProxy {
                 }
                 if (GTQTCoreConfig.debugSwitch.oreDebug) {
                     if (material.hasProperty(PropertyKey.ORE)) {
-                        GTQTLog.logger.info("Ore Info/Material:" + material + " Name:" + material.getLocalizedName());
+                        if (!GTQTCoreConfig.debugSwitch.onlyExportOreDict)
+                            GTQTLog.logger.info("Ore Info/Material:" + material + " Name:" + material.getLocalizedName());
+                        if (GTQTCoreConfig.debugSwitch.onlyExportOreDict) {
+                            toOreDict(material.toString());
+                        }
                     }
                 }
             }
-            if (GTQTCoreConfig.debugSwitch.crash) throw new RuntimeException("Since you enabled the crash see log option in config, it crashed here, and it's not a bug");
+            if (GTQTCoreConfig.debugSwitch.crash)
+                throw new RuntimeException("Since you enabled the crash see log option in config, it crashed here, and it's not a bug");
         }
     }
 
     public void preInit() {
         GTQTMetaToolItems.init();
         GTQTRecipes.registerTool();
-
         ToolHeadReplaceRecipe.setToolHeadForTool(OrePrefix.toolHeadDrill, GTQTMetaToolItems.SOLDERING_IRON_LV);
         ToolHeadReplaceRecipe.setToolHeadForTool(OrePrefix.toolHeadDrill, GTQTMetaToolItems.SOLDERING_IRON_HV);
         ToolHeadReplaceRecipe.setToolHeadForTool(OrePrefix.toolHeadDrill, GTQTMetaToolItems.SOLDERING_IRON_IV);
     }
 
     public void preLoad() {
-        GTQTStoneTypes.init();
+
         GTQTcoreRecipeMaps.init();
         MinecraftForge.EVENT_BUS.register(new GTQTEventHandler.PlayerLoginEventHandler());
         GameRegistry.registerTileEntity(TileEntityPressurePipe.class, new ResourceLocation(GTQTCore.MODID, "pressure_pipe"));
@@ -436,11 +500,5 @@ public class CommonProxy {
         }
 
         HEATING_COILS.put(DIRT.getDefaultState(), new CTHeatingCoilBlockStats("dirt", 300, 1, 0, 1, Materials.Iron));
-    }
-
-    @SubscribeEvent(priority = EventPriority.HIGHEST)
-    public static void registerMaterialComponents(GregTechAPI.RegisterEvent<CraftingComponent> event) {
-        GTQTLog.logger.info("Registering material components...");
-        MaterialComponents.init();
     }
 }

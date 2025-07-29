@@ -53,7 +53,6 @@ public class GTQTRecipesManager {
         ArgChain.init();
         ChipHelper.init();
         CoverRecipes.init();
-        GTQTOreRecipeHandler.init();
         MolecularTransformer.init();
         StrontiumRadiumChain.init();
         AlgaeChain.init();

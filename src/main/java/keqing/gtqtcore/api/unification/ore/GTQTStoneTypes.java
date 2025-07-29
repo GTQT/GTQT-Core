@@ -12,9 +12,7 @@ import net.minecraft.block.state.IBlockState;
 public class GTQTStoneTypes {
     public static StoneType GABBRO;
     public static StoneType GNEISS;
-    public static StoneType GRAPHITE;
     public static StoneType LIMESTONE;
-    public static StoneType MICA;
     public static StoneType PHYLLITE;
     public static StoneType QUARTZITE;
     public static StoneType SHALE;

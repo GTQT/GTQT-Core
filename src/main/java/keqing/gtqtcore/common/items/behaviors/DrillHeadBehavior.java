@@ -18,19 +18,34 @@ public class DrillHeadBehavior extends AbstractMaterialPartBehavior implements I
     int MaxDurability;
     int DrillTier;
     Material material;
+
     public DrillHeadBehavior(int Durability, int DrillTier, Material material) {
-        this.MaxDurability=Durability;
-        this.material=material;
-        this.DrillTier=DrillTier;
+        this.MaxDurability = Durability;
+        this.material = material;
+        this.DrillTier = DrillTier;
+    }
+
+    @Nullable
+    public static DrillHeadBehavior getInstanceFor(@Nonnull ItemStack itemStack) {
+        if (!(itemStack.getItem() instanceof MetaItem)) return null;
+
+        MetaItem<?>.MetaValueItem valueItem = ((MetaItem<?>) itemStack.getItem()).getItem(itemStack);
+        if (valueItem == null) return null;
+
+        IItemDurabilityManager durabilityManager = valueItem.getDurabilityManager();
+        if (!(durabilityManager instanceof DrillHeadBehavior)) return null;
+
+        return (DrillHeadBehavior) durabilityManager;
     }
 
     public double getDurabilityPercent(ItemStack itemStack) {
-        return 1- (double) getPartDamage(itemStack) / getPartMaxDurability(itemStack);
+        return 1 - (double) getPartDamage(itemStack) / getPartMaxDurability(itemStack);
     }
-    public int getDrillTier()
-    {
+
+    public int getDrillTier() {
         return DrillTier;
     }
+
     public void applyDamage(ItemStack itemStack, int damageApplied) {
         int Durability = getPartMaxDurability(itemStack);
         int resultDamage = getPartDamage(itemStack) + damageApplied;
@@ -47,8 +62,9 @@ public class DrillHeadBehavior extends AbstractMaterialPartBehavior implements I
         lines.add(I18n.format("metaitem.tool.tooltip.durability", maxDurability - damage, maxDurability));
         lines.add(I18n.format("metaitem.tool.tooltip.primary_material", material.getLocalizedName()));
         lines.add(I18n.format("预计工作: " + GTQTDateHelper.getTimeFromTicks(MaxDurability)));
-        lines.add(I18n.format("距离损坏: " + GTQTDateHelper.getTimeFromTicks(MaxDurability-getPartDamage(stack))));
+        lines.add(I18n.format("距离损坏: " + GTQTDateHelper.getTimeFromTicks(MaxDurability - getPartDamage(stack))));
     }
+
     @Override
     public int getPartMaxDurability(ItemStack itemStack) {
         return MaxDurability;
@@ -61,17 +77,5 @@ public class DrillHeadBehavior extends AbstractMaterialPartBehavior implements I
 
     public Material getMaterial() {
         return material;
-    }
-    @Nullable
-    public static DrillHeadBehavior getInstanceFor(@Nonnull ItemStack itemStack) {
-        if (!(itemStack.getItem() instanceof MetaItem)) return null;
-
-        MetaItem<?>.MetaValueItem valueItem = ((MetaItem<?>) itemStack.getItem()).getItem(itemStack);
-        if (valueItem == null) return null;
-
-        IItemDurabilityManager durabilityManager = valueItem.getDurabilityManager();
-        if (!(durabilityManager instanceof DrillHeadBehavior)) return null;
-
-        return (DrillHeadBehavior) durabilityManager;
     }
 }

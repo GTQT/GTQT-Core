@@ -100,8 +100,8 @@ public class MetaTileEntityPyrolysisTower extends RecipeMapHeatMultiblockControl
                 .aisle("XXXXX", "#####", "#####", "#####", "XXXXX", "#CCC#", "#CCC#", "#CCC#", "#CCC#", "#CCC#", "FCCCF", "#CCC#", "#CCC#", "#CCC#", "FCCCF", "#CCC#", "#CCC#", "#CCC#", "FCCCF")
                 .aisle("FXXXF", "F###F", "F###F", "F###F", "FFFFF", "F#F#F", "F#F#F", "F#F#F", "F#F#F", "F#F#F", "FFFFF", "F#F#F", "F#F#F", "F#F#F", "FFFFF", "F#F#F", "F#F#F", "F#F#F", "FFFFF")
                 .where('S', selfPredicate())
-                .where('X', states(getCasingState()).setMinGlobalLimited(50)
-                        .or(abilities(MultiblockAbility.IMPORT_FLUIDS).setExactLimit(1))
+                .where('X', states(getCasingState())
+                        .or(abilities(MultiblockAbility.IMPORT_FLUIDS))
                         .or(abilities(MultiblockAbility.EXPORT_ITEMS).setExactLimit(1))
                         .or(abilities(MultiblockAbility.IMPORT_ITEMS).setExactLimit(1))
                         .or(abilities(MultiblockAbility.MAINTENANCE_HATCH).setExactLimit(1))
@@ -111,7 +111,8 @@ public class MetaTileEntityPyrolysisTower extends RecipeMapHeatMultiblockControl
                 .where('C', states(getCasingState1()))
                 .where('T', states(getCasingState2()))
                 .where('F', states(getFrameState()))
-                .where('O', states(getCasingState()).or(abilities(MultiblockAbility.EXPORT_FLUIDS).setMinGlobalLimited(1).setPreviewCount(8)))
+                .where('O', states(getCasingState())
+                        .or(abilities(MultiblockAbility.EXPORT_FLUIDS)))
                 .where('#', any())
                 .build();
     }

@@ -354,65 +354,65 @@ public class MEMultiblockBuilderBehavior implements IItemBehaviour, ItemUIFactor
                 .widget((new AdvancedTextWidget(15, 11, this::addDisplayText, 16777215))
                         .setMaxWidthLimit(500))
 
-                .widget(new ClickButtonWidget(10, 160, 38, 20, I18n.format("结构升级"), clickData -> this.multiblockTier = MathHelper.clamp(multiblockTier + 1, 0, 10)))
-                .widget(new ClickButtonWidget(48, 160, 38, 20, I18n.format("结构降级"), clickData -> this.multiblockTier = MathHelper.clamp(multiblockTier - 1, 0, 10)))
+                .widget(new ClickButtonWidget(10, 160, 38, 20, "结构升级", clickData -> this.multiblockTier = MathHelper.clamp(multiblockTier + 1, 0, 10)))
+                .widget(new ClickButtonWidget(48, 160, 38, 20, "结构降级", clickData -> this.multiblockTier = MathHelper.clamp(multiblockTier - 1, 0, 10)))
 
-                .widget(new ClickButtonWidget(90, 160, 38, 20, I18n.format("IO明细"), clickData -> this.page = MathHelper.clamp(page + 1, 0, 1)))
-                .widget(new ClickButtonWidget(128, 160, 38, 20, I18n.format("部件总览"), clickData -> this.page = MathHelper.clamp(page - 1, 0, 1)))
+                .widget(new ClickButtonWidget(90, 160, 38, 20, "IO明细", clickData -> this.page = MathHelper.clamp(page + 1, 0, 1)))
+                .widget(new ClickButtonWidget(128, 160, 38, 20, "部件总览", clickData -> this.page = MathHelper.clamp(page - 1, 0, 1)))
 
-                .widget(new ClickButtonWidget(10, 180, 38, 20, I18n.format("放置"), clickData -> placeMultiblock = !placeMultiblock).setTooltipText("确认放置模式，将真实放置多方块"))
-                .widget(new ClickButtonWidget(48, 180, 38, 20, I18n.format("掉落"), clickData -> drop = !drop).setTooltipText("拉取的物品将不再填充玩家背包，而是掉落到玩家周边"))
+                .widget(new ClickButtonWidget(10, 180, 38, 20, "放置", clickData -> placeMultiblock = !placeMultiblock).setTooltipText("确认放置模式，将真实放置多方块"))
+                .widget(new ClickButtonWidget(48, 180, 38, 20, "掉落", clickData -> drop = !drop).setTooltipText("拉取的物品将不再填充玩家背包，而是掉落到玩家周边"))
 
-                .widget(new ClickButtonWidget(90, 180, 38, 20, I18n.format("IG"), clickData -> setHatch = !setHatch).setTooltipText("忽视仓室，只放置非仓室结构"))
-                .widget(new ClickButtonWidget(128, 180, 38, 20, I18n.format("ME"), clickData -> MEPlace = !MEPlace).setTooltipText("将输入/输出 总线/仓 替换为对应的ME仓"))
+                .widget(new ClickButtonWidget(90, 180, 38, 20, "IG", clickData -> setHatch = !setHatch).setTooltipText("忽视仓室，只放置非仓室结构"))
+                .widget(new ClickButtonWidget(128, 180, 38, 20, "ME", clickData -> MEPlace = !MEPlace).setTooltipText("将输入/输出 总线/仓 替换为对应的ME仓"))
 
-                .widget(new ClickButtonWidget(10, 200, 76, 20, I18n.format("自动合成"), clickData -> autoCraft = !autoCraft).setTooltipText("网络库存不足则自动触发下单合成"))
+                .widget(new ClickButtonWidget(10, 200, 76, 20, "自动合成", clickData -> autoCraft = !autoCraft).setTooltipText("网络库存不足则自动触发下单合成"))
 
-                .widget(new ClickButtonWidget(90, 200, 38, 20, I18n.format("+*1"), clickData -> this.multiple = MathHelper.clamp(multiple + 1, 1, 16)).setTooltipText("额外的下单计算数量"))
-                .widget(new ClickButtonWidget(128, 200, 38, 20, I18n.format("-*1"), clickData -> this.multiple = MathHelper.clamp(multiple - 1, 1, 16)).setTooltipText("额外的下单计算数量"))
+                .widget(new ClickButtonWidget(90, 200, 38, 20, "+*1", clickData -> this.multiple = MathHelper.clamp(multiple + 1, 1, 16)).setTooltipText("额外的下单计算数量"))
+                .widget(new ClickButtonWidget(128, 200, 38, 20, "-*1", clickData -> this.multiple = MathHelper.clamp(multiple - 1, 1, 16)).setTooltipText("额外的下单计算数量"))
 
                 .widget((new AdvancedTextWidget(180, 10, this::addDisplayText1, 16777215)).setMaxWidthLimit(500))
 
-                .widget(new ClickButtonWidget(180, 40, 38, 20, I18n.format("II +1"), clickData -> this.perItemInputHatchTier = MathHelper.clamp(perItemInputHatchTier + 1, -1, 9)))
-                .widget(new ClickButtonWidget(220, 40, 38, 20, I18n.format("II -1"), clickData -> this.perItemInputHatchTier = MathHelper.clamp(perItemInputHatchTier - 1, -1, 9)))
-                .widget(new ClickButtonWidget(260, 40, 48, 20, I18n.format("忽视本仓"), clickData -> ignoredItemInputHatch = !ignoredItemInputHatch))
+                .widget(new ClickButtonWidget(180, 40, 38, 20, "II +1", clickData -> this.perItemInputHatchTier = MathHelper.clamp(perItemInputHatchTier + 1, -1, 9)))
+                .widget(new ClickButtonWidget(220, 40, 38, 20, "II -1", clickData -> this.perItemInputHatchTier = MathHelper.clamp(perItemInputHatchTier - 1, -1, 9)))
+                .widget(new ClickButtonWidget(260, 40, 48, 20, "忽视本仓", clickData -> ignoredItemInputHatch = !ignoredItemInputHatch))
 
-                .widget(new ClickButtonWidget(180, 60, 38, 20, I18n.format("IO +1"), clickData -> this.perItemOutputHatchTier = MathHelper.clamp(perItemOutputHatchTier + 1, -1, 9)))
-                .widget(new ClickButtonWidget(220, 60, 38, 20, I18n.format("IO -1"), clickData -> this.perItemOutputHatchTier = MathHelper.clamp(perItemOutputHatchTier - 1, -1, 9)))
-                .widget(new ClickButtonWidget(260, 60, 48, 20, I18n.format("忽视本仓"), clickData -> ignoredItemOutputHatch = !ignoredItemOutputHatch))
+                .widget(new ClickButtonWidget(180, 60, 38, 20, "IO +1", clickData -> this.perItemOutputHatchTier = MathHelper.clamp(perItemOutputHatchTier + 1, -1, 9)))
+                .widget(new ClickButtonWidget(220, 60, 38, 20, "IO -1", clickData -> this.perItemOutputHatchTier = MathHelper.clamp(perItemOutputHatchTier - 1, -1, 9)))
+                .widget(new ClickButtonWidget(260, 60, 48, 20, "忽视本仓", clickData -> ignoredItemOutputHatch = !ignoredItemOutputHatch))
 
-                .widget(new ClickButtonWidget(180, 80, 38, 20, I18n.format("FI +1"), clickData -> this.perFluidInputHatchTier = MathHelper.clamp(perFluidInputHatchTier + 1, -1, 9)))
-                .widget(new ClickButtonWidget(220, 80, 38, 20, I18n.format("FI -1"), clickData -> this.perFluidInputHatchTier = MathHelper.clamp(perFluidInputHatchTier - 1, -1, 9)))
-                .widget(new ClickButtonWidget(260, 80, 48, 20, I18n.format("忽视本仓"), clickData -> ignoredFluidInputHatch = !ignoredFluidInputHatch))
+                .widget(new ClickButtonWidget(180, 80, 38, 20, "FI +1", clickData -> this.perFluidInputHatchTier = MathHelper.clamp(perFluidInputHatchTier + 1, -1, 9)))
+                .widget(new ClickButtonWidget(220, 80, 38, 20, "FI -1", clickData -> this.perFluidInputHatchTier = MathHelper.clamp(perFluidInputHatchTier - 1, -1, 9)))
+                .widget(new ClickButtonWidget(260, 80, 48, 20, "忽视本仓", clickData -> ignoredFluidInputHatch = !ignoredFluidInputHatch))
 
-                .widget(new ClickButtonWidget(180, 100, 38, 20, I18n.format("FO +1"), clickData -> this.perFluidOutputHatchTier = MathHelper.clamp(perFluidOutputHatchTier + 1, -1, 9)))
-                .widget(new ClickButtonWidget(220, 100, 38, 20, I18n.format("FO -1"), clickData -> this.perFluidOutputHatchTier = MathHelper.clamp(perFluidOutputHatchTier - 1, -1, 9)))
-                .widget(new ClickButtonWidget(260, 100, 48, 20, I18n.format("忽视本仓"), clickData -> ignoredFluidOutputHatch = !ignoredFluidOutputHatch))
+                .widget(new ClickButtonWidget(180, 100, 38, 20, "FO +1", clickData -> this.perFluidOutputHatchTier = MathHelper.clamp(perFluidOutputHatchTier + 1, -1, 9)))
+                .widget(new ClickButtonWidget(220, 100, 38, 20, "FO -1", clickData -> this.perFluidOutputHatchTier = MathHelper.clamp(perFluidOutputHatchTier - 1, -1, 9)))
+                .widget(new ClickButtonWidget(260, 100, 48, 20, "忽视本仓", clickData -> ignoredFluidOutputHatch = !ignoredFluidOutputHatch))
 
-                .widget(new ClickButtonWidget(180, 120, 38, 20, I18n.format("EI +1"), clickData -> this.perEnergyInputHatchTier = MathHelper.clamp(perEnergyInputHatchTier + 1, 0, endPos - 1)))
-                .widget(new ClickButtonWidget(220, 120, 38, 20, I18n.format("EI -1"), clickData -> this.perEnergyInputHatchTier = MathHelper.clamp(perEnergyInputHatchTier - 1, 0, endPos - 1)))
-                .widget(new ClickButtonWidget(260, 120, 48, 20, I18n.format("忽视本仓"), clickData -> ignoredEnergyInputHatch = !ignoredEnergyInputHatch))
+                .widget(new ClickButtonWidget(180, 120, 38, 20, "EI +1", clickData -> this.perEnergyInputHatchTier = MathHelper.clamp(perEnergyInputHatchTier + 1, 0, endPos - 1)))
+                .widget(new ClickButtonWidget(220, 120, 38, 20, "EI -1", clickData -> this.perEnergyInputHatchTier = MathHelper.clamp(perEnergyInputHatchTier - 1, 0, endPos - 1)))
+                .widget(new ClickButtonWidget(260, 120, 48, 20, "忽视本仓", clickData -> ignoredEnergyInputHatch = !ignoredEnergyInputHatch))
 
-                .widget(new ClickButtonWidget(180, 140, 38, 20, I18n.format("EO +1"), clickData -> this.perEnergyOutputHatchTier = MathHelper.clamp(perEnergyOutputHatchTier + 1, 0, endPos - 1)))
-                .widget(new ClickButtonWidget(220, 140, 38, 20, I18n.format("EO -1"), clickData -> this.perEnergyOutputHatchTier = MathHelper.clamp(perEnergyOutputHatchTier - 1, 0, endPos - 1)))
-                .widget(new ClickButtonWidget(260, 140, 48, 20, I18n.format("忽视本仓"), clickData -> ignoredEnergyOutputHatch = !ignoredEnergyOutputHatch))
+                .widget(new ClickButtonWidget(180, 140, 38, 20, "EO +1", clickData -> this.perEnergyOutputHatchTier = MathHelper.clamp(perEnergyOutputHatchTier + 1, 0, endPos - 1)))
+                .widget(new ClickButtonWidget(220, 140, 38, 20, "EO -1", clickData -> this.perEnergyOutputHatchTier = MathHelper.clamp(perEnergyOutputHatchTier - 1, 0, endPos - 1)))
+                .widget(new ClickButtonWidget(260, 140, 48, 20, "忽视本仓", clickData -> ignoredEnergyOutputHatch = !ignoredEnergyOutputHatch))
 
-                .widget(new ClickButtonWidget(180, 160, 19, 20, I18n.format("*4"), clickData -> this.amperage = MathHelper.clamp(amperage * 4, 1, 1048576)).setTooltipText("能源仓电流设置"))
-                .widget(new ClickButtonWidget(199, 160, 19, 20, I18n.format("/4"), clickData -> this.amperage = MathHelper.clamp(amperage / 4, 1, 1048576)).setTooltipText("能源仓电流设置"))
-                .widget(new ClickButtonWidget(220, 160, 19, 20, I18n.format("->1"), clickData -> this.size = MathHelper.clamp(size + 1, 1, 4)).setTooltipText("多重仓偏好升级"))
-                .widget(new ClickButtonWidget(239, 160, 19, 20, I18n.format("<-1"), clickData -> this.size = MathHelper.clamp(size - 1, 1, 4)).setTooltipText("多重仓偏好降级"))
-                .widget(new ClickButtonWidget(260, 160, 48, 20, I18n.format("Res"), clickData -> {
+                .widget(new ClickButtonWidget(180, 160, 19, 20, "*4", clickData -> this.amperage = MathHelper.clamp(amperage * 4, 1, 1048576)).setTooltipText("能源仓电流设置"))
+                .widget(new ClickButtonWidget(199, 160, 19, 20, "/4", clickData -> this.amperage = MathHelper.clamp(amperage / 4, 1, 1048576)).setTooltipText("能源仓电流设置"))
+                .widget(new ClickButtonWidget(220, 160, 19, 20, "->1", clickData -> this.size = MathHelper.clamp(size + 1, 1, 4)).setTooltipText("多重仓偏好升级"))
+                .widget(new ClickButtonWidget(239, 160, 19, 20, "<-1", clickData -> this.size = MathHelper.clamp(size - 1, 1, 4)).setTooltipText("多重仓偏好降级"))
+                .widget(new ClickButtonWidget(260, 160, 48, 20, "Res", clickData -> {
                     amperage = 1;
                     size = 1;
                 }))
 
-                .widget(new ClickButtonWidget(180, 180, 38, 20, I18n.format("MF +1"), clickData -> this.perMufflerHatchTier = MathHelper.clamp(perMufflerHatchTier + 1, 0, 8)))
-                .widget(new ClickButtonWidget(220, 180, 38, 20, I18n.format("MF -1"), clickData -> this.perMufflerHatchTier = MathHelper.clamp(perMufflerHatchTier - 1, 0, 8)))
-                .widget(new ClickButtonWidget(260, 180, 48, 20, I18n.format("忽视本仓"), clickData -> ignoredMufflerHatch = !ignoredMufflerHatch))
+                .widget(new ClickButtonWidget(180, 180, 38, 20, "MF +1", clickData -> this.perMufflerHatchTier = MathHelper.clamp(perMufflerHatchTier + 1, 0, 8)))
+                .widget(new ClickButtonWidget(220, 180, 38, 20, "MF -1", clickData -> this.perMufflerHatchTier = MathHelper.clamp(perMufflerHatchTier - 1, 0, 8)))
+                .widget(new ClickButtonWidget(260, 180, 48, 20, "忽视本仓", clickData -> ignoredMufflerHatch = !ignoredMufflerHatch))
 
-                .widget(new ClickButtonWidget(180, 200, 38, 20, I18n.format("MA +1"), clickData -> this.perMaintenanceHatchTier = MathHelper.clamp(perMaintenanceHatchTier + 1, -1, 3)))
-                .widget(new ClickButtonWidget(220, 200, 38, 20, I18n.format("MA -1"), clickData -> this.perMaintenanceHatchTier = MathHelper.clamp(perMaintenanceHatchTier - 1, -1, 3)))
-                .widget(new ClickButtonWidget(260, 200, 48, 20, I18n.format("忽视本仓"), clickData -> ignoredMaintenanceHatch = !ignoredMaintenanceHatch))
+                .widget(new ClickButtonWidget(180, 200, 38, 20, "MA +1", clickData -> this.perMaintenanceHatchTier = MathHelper.clamp(perMaintenanceHatchTier + 1, -1, 3)))
+                .widget(new ClickButtonWidget(220, 200, 38, 20, "MA -1", clickData -> this.perMaintenanceHatchTier = MathHelper.clamp(perMaintenanceHatchTier - 1, -1, 3)))
+                .widget(new ClickButtonWidget(260, 200, 48, 20, "忽视本仓", clickData -> ignoredMaintenanceHatch = !ignoredMaintenanceHatch))
 
                 .build(playerInventoryHolder, entityPlayer);
     }
@@ -426,7 +426,7 @@ public class MEMultiblockBuilderBehavior implements IItemBehaviour, ItemUIFactor
         if (page == 0) {
             if (targetMte != null && targetMte instanceof MultiblockControllerBase mte) {
                 iTextComponents.add(new TextComponentTranslation(mte.getMetaFullName()));
-                    itemStacks = dealWithMultiblock(mte);
+                itemStacks = dealWithMultiblock(mte);
                 for (ItemStack itemStack : this.itemStacks) {
                     iTextComponents.add(new TextComponentTranslation(itemStack.getDisplayName() + " x " + itemStack.getCount()));
                 }

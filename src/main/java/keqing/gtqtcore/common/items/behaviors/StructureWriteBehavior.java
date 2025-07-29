@@ -1,7 +1,6 @@
 package keqing.gtqtcore.common.items.behaviors;
 
 
-
 import gregtech.api.gui.GuiTextures;
 import gregtech.api.gui.ModularUI;
 import gregtech.api.gui.widgets.ClickButtonWidget;
@@ -27,46 +26,6 @@ public class StructureWriteBehavior implements IItemBehaviour, ItemUIFactory {
     public static final StructureWriteBehavior INSTANCE = new StructureWriteBehavior();
 
     protected StructureWriteBehavior() {/**/}
-
-    @Override
-    public ModularUI createUI(PlayerInventoryHolder playerInventoryHolder, EntityPlayer entityPlayer) {
-        return ModularUI.builder(GuiTextures.BACKGROUND, 176, 120)
-                .image(10, 8, 156, 50, GuiTextures.DISPLAY)
-                .dynamicLabel(15, 13, () -> {
-                    int x = 0;
-                    int y = 0;
-                    int z = 0;
-                    if (getPos(playerInventoryHolder.getCurrentItem()) != null) {
-                        BlockPos[] blockPos = getPos(playerInventoryHolder.getCurrentItem());
-                        x = 1 + blockPos[1].getX() - blockPos[0].getX();
-                        y = 1 + blockPos[1].getY() - blockPos[0].getY();
-                        z = 1 + blockPos[1].getZ() - blockPos[0].getZ();
-                    }
-                    return I18n.format("metaitem.debug.structure_writer.structural_scale", x, y, z);
-                }, 0xFAF9F6)
-                .widget(new ClickButtonWidget(10, 68, 77, 20, I18n.format("metaitem.debug.structure_writer.export_to_log"), clickData -> exportLog(playerInventoryHolder)))
-                .widget(new ClickButtonWidget(90, 68, 77, 20, I18n.format("metaitem.debug.structure_writer.export_to_json"), clickData -> exportLog(playerInventoryHolder)))
-                .widget(new ClickButtonWidget(10, 91, 77, 20, I18n.format("metaitem.debug.structure_writer.rotate_along_y_axis"), clickData -> exportLog(playerInventoryHolder)))
-                .widget(new ClickButtonWidget(90, 91, 77, 20, I18n.format("metaitem.debug.structure_writer.ex"), clickData -> exportLog(playerInventoryHolder)))
-                .build(playerInventoryHolder, entityPlayer);
-    }
-
-    private void exportLog(PlayerInventoryHolder playerInventoryHolder) {
-        if (getPos(playerInventoryHolder.getCurrentItem()) != null && !playerInventoryHolder.player.world.isRemote) {
-            BlockPos[] blockPos = getPos(playerInventoryHolder.getCurrentItem());
-            StringBuilder builder = new StringBuilder();
-            JsonBlockPattern blockPattern = new JsonBlockPattern(playerInventoryHolder.player.world, blockPos[0].getX(), blockPos[0].getY(), blockPos[0].getZ(), blockPos[1].getX(), blockPos[1].getY(), blockPos[1].getZ());
-            for (int i = 0; i < blockPattern.pattern.length; i++) {
-                String[] strings = blockPattern.pattern[i];
-                builder.append(".aisle(");
-                for (String string : strings) {
-                    builder.append(String.format("\"%s\", ", string));
-                }
-                builder.append(")\n");
-            }
-            GTQTLog.logger.info(builder.toString());
-        }
-    }
 
     public static boolean isItemStructureWriter(ItemStack stack) {
         if (stack.isEmpty()) return false;
@@ -119,6 +78,46 @@ public class StructureWriteBehavior implements IItemBehaviour, ItemUIFactory {
         tag.removeTag("maxY");
         tag.removeTag("minZ");
         tag.removeTag("maxZ");
+    }
+
+    @Override
+    public ModularUI createUI(PlayerInventoryHolder playerInventoryHolder, EntityPlayer entityPlayer) {
+        return ModularUI.builder(GuiTextures.BACKGROUND, 176, 120)
+                .image(10, 8, 156, 50, GuiTextures.DISPLAY)
+                .dynamicLabel(15, 13, () -> {
+                    int x = 0;
+                    int y = 0;
+                    int z = 0;
+                    if (getPos(playerInventoryHolder.getCurrentItem()) != null) {
+                        BlockPos[] blockPos = getPos(playerInventoryHolder.getCurrentItem());
+                        x = 1 + blockPos[1].getX() - blockPos[0].getX();
+                        y = 1 + blockPos[1].getY() - blockPos[0].getY();
+                        z = 1 + blockPos[1].getZ() - blockPos[0].getZ();
+                    }
+                    return I18n.format("metaitem.debug.structure_writer.structural_scale", x, y, z);
+                }, 0xFAF9F6)
+                .widget(new ClickButtonWidget(10, 68, 77, 20, "输出到日志", clickData -> exportLog(playerInventoryHolder)))
+                //.widget(new ClickButtonWidget(90, 68, 77, 20, I18n.format("metaitem.debug.structure_writer.export_to_json"), clickData -> exportLog(playerInventoryHolder)))
+                //.widget(new ClickButtonWidget(10, 91, 77, 20, I18n.format("metaitem.debug.structure_writer.rotate_along_y_axis"), clickData -> exportLog(playerInventoryHolder)))
+                //.widget(new ClickButtonWidget(90, 91, 77, 20, I18n.format("metaitem.debug.structure_writer.ex"), clickData -> exportLog(playerInventoryHolder)))
+                .build(playerInventoryHolder, entityPlayer);
+    }
+
+    private void exportLog(PlayerInventoryHolder playerInventoryHolder) {
+        if (getPos(playerInventoryHolder.getCurrentItem()) != null && !playerInventoryHolder.player.world.isRemote) {
+            BlockPos[] blockPos = getPos(playerInventoryHolder.getCurrentItem());
+            StringBuilder builder = new StringBuilder();
+            JsonBlockPattern blockPattern = new JsonBlockPattern(playerInventoryHolder.player.world, blockPos[0].getX(), blockPos[0].getY(), blockPos[0].getZ(), blockPos[1].getX(), blockPos[1].getY(), blockPos[1].getZ());
+            for (int i = 0; i < blockPattern.pattern.length; i++) {
+                String[] strings = blockPattern.pattern[i];
+                builder.append(".aisle(");
+                for (String string : strings) {
+                    builder.append(String.format("\"%s\", ", string));
+                }
+                builder.append(")\n");
+            }
+            GTQTLog.logger.info(builder.toString());
+        }
     }
 
     @Override

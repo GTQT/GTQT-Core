@@ -102,11 +102,11 @@ public class MEHatchTransBehavior implements IItemBehaviour, ItemUIFactory {
                 .widget((new AdvancedTextWidget(15, 11, this::addDisplayText, 16777215))
                         .setMaxWidthLimit(500))
 
-                .widget(new ClickButtonWidget(10, 63, 76, 20, I18n.format("仓口升级"), clickData -> this.targetTier = MathHelper.clamp(targetTier + 1, 0, 14)))
-                .widget(new ClickButtonWidget(90, 63, 76, 20, I18n.format("仓口降级"), clickData -> this.targetTier = MathHelper.clamp(targetTier - 1, 0, 14)))
+                .widget(new ClickButtonWidget(10, 63, 76, 20, "仓口升级", clickData -> this.targetTier = MathHelper.clamp(targetTier + 1, 0, 14)))
+                .widget(new ClickButtonWidget(90, 63, 76, 20, "仓口降级", clickData -> this.targetTier = MathHelper.clamp(targetTier - 1, 0, 14)))
 
-                .widget(new ClickButtonWidget(10, 87, 76, 20, I18n.format("网络模式"), clickData -> aeModel = !aeModel).setTooltipText("将从网络内抽取仓室，并将返回物品发送至网络"))
-                .widget(new ClickButtonWidget(90, 87, 76, 20, I18n.format("ME模式"), clickData -> meModel = !meModel).setTooltipText("将输入/输出 总线/仓 替换为对应的ME仓"))
+                .widget(new ClickButtonWidget(10, 87, 76, 20, "网络模式", clickData -> aeModel = !aeModel).setTooltipText("将从网络内抽取仓室，并将返回物品发送至网络"))
+                .widget(new ClickButtonWidget(90, 87, 76, 20, "ME模式", clickData -> meModel = !meModel).setTooltipText("将输入/输出 总线/仓 替换为对应的ME仓"))
                 .build(playerInventoryHolder, entityPlayer);
     }
 

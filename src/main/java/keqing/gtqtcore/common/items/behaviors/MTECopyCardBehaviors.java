@@ -9,7 +9,6 @@ import gregtech.api.items.metaitem.stats.IItemBehaviour;
 import gregtech.api.metatileentity.MetaTileEntity;
 import gregtech.api.metatileentity.SimpleMachineMetaTileEntity;
 import gregtech.api.util.GTUtility;
-import net.minecraft.client.resources.I18n;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
@@ -188,50 +187,50 @@ public class MTECopyCardBehaviors implements IItemBehaviour, ItemUIFactory {
     public ModularUI createUI(PlayerInventoryHolder playerInventoryHolder, EntityPlayer entityPlayer) {
         return ModularUI.builder(GuiTextures.BACKGROUND, 265, 150)
                 .image(10, 8, 154, 65, GuiTextures.DISPLAY)
-                .dynamicLabel(15, 13, () -> I18n.format("编程电路：%s", circuit), 0xFAF9F6)
-                .dynamicLabel(15, 23, () -> I18n.format("物品自动输出：%s", isAutoOutputItems), 0xFAF9F6)
-                .dynamicLabel(15, 33, () -> I18n.format("流体自动输出：%s", isAutoOutputFluids), 0xFAF9F6)
-                .dynamicLabel(15, 43, () -> I18n.format("物品输出面输入：%s", isAllowInputFromOutputSideItems), 0xFAF9F6)
-                .dynamicLabel(15, 53, () -> I18n.format("流体输出面输入：%s", isAllowInputFromOutputSideFluids), 0xFAF9F6)
+                .dynamicLabel(15, 13, () -> "编程电路：" + circuit, 0xFAF9F6)
+                .dynamicLabel(15, 23, () -> "物品自动输出：" + isAutoOutputItems, 0xFAF9F6)
+                .dynamicLabel(15, 33, () -> "流体自动输出：" + isAutoOutputFluids, 0xFAF9F6)
+                .dynamicLabel(15, 43, () -> "物品输出面输入：" + isAllowInputFromOutputSideItems, 0xFAF9F6)
+                .dynamicLabel(15, 53, () -> "流体输出面输入：" + isAllowInputFromOutputSideFluids, 0xFAF9F6)
 
-                .dynamicLabel(100, 13, () -> I18n.format("设备面：%s", frontFacing), 0xFAF9F6)
-                .dynamicLabel(100, 23, () -> I18n.format("物品面：%s", outputFacingItems), 0xFAF9F6)
-                .dynamicLabel(100, 33, () -> I18n.format("流体面：%s", outputFacingFluids), 0xFAF9F6)
+                .dynamicLabel(100, 13, () -> "设备面：" + frontFacing, 0xFAF9F6)
+                .dynamicLabel(100, 23, () -> "物品面：" + outputFacingItems, 0xFAF9F6)
+                .dynamicLabel(100, 33, () -> "流体面：" + outputFacingFluids, 0xFAF9F6)
 
 
-                .widget(new ClickButtonWidget(10, 78, 38, 20, I18n.format("+1"), clickData -> addCircuit(1)))
-                .widget(new ClickButtonWidget(90, 78, 38, 20, I18n.format("-1"), clickData -> addCircuit(-1)))
+                .widget(new ClickButtonWidget(10, 78, 38, 20, "+1", clickData -> addCircuit(1)))
+                .widget(new ClickButtonWidget(90, 78, 38, 20, "-1", clickData -> addCircuit(-1)))
 
-                .widget(new ClickButtonWidget(48, 78, 38, 20, I18n.format("+5"), clickData -> addCircuit(5)))
-                .widget(new ClickButtonWidget(128, 78, 38, 20, I18n.format("-5"), clickData -> addCircuit(-5)))
+                .widget(new ClickButtonWidget(48, 78, 38, 20, "+5", clickData -> addCircuit(5)))
+                .widget(new ClickButtonWidget(128, 78, 38, 20, "-5", clickData -> addCircuit(-5)))
 
-                .widget(new ClickButtonWidget(10, 101, 76, 20, I18n.format("物品自动输出"), clickData -> isAutoOutputItems = !isAutoOutputItems))
-                .widget(new ClickButtonWidget(90, 101, 76, 20, I18n.format("流体自动输出"), clickData -> isAutoOutputFluids = !isAutoOutputFluids))
+                .widget(new ClickButtonWidget(10, 101, 76, 20, "物品自动输出", clickData -> isAutoOutputItems = !isAutoOutputItems))
+                .widget(new ClickButtonWidget(90, 101, 76, 20, "流体自动输出", clickData -> isAutoOutputFluids = !isAutoOutputFluids))
 
-                .widget(new ClickButtonWidget(10, 124, 76, 20, I18n.format("物品输出面输入"), clickData -> isAllowInputFromOutputSideItems = !isAllowInputFromOutputSideItems))
-                .widget(new ClickButtonWidget(90, 124, 76, 20, I18n.format("流体输出面输入"), clickData -> isAllowInputFromOutputSideFluids = !isAllowInputFromOutputSideFluids))
+                .widget(new ClickButtonWidget(10, 124, 76, 20, "物品输出面输入", clickData -> isAllowInputFromOutputSideItems = !isAllowInputFromOutputSideItems))
+                .widget(new ClickButtonWidget(90, 124, 76, 20, "流体输出面输入", clickData -> isAllowInputFromOutputSideFluids = !isAllowInputFromOutputSideFluids))
 
                 //上
-                .widget(new ClickButtonWidget(195, 10, 15, 15, I18n.format("上"), clickData -> frontFacing = UP))
+                .widget(new ClickButtonWidget(195, 10, 15, 15, "上", clickData -> frontFacing = UP))
                 //前
-                .widget(new ClickButtonWidget(195, 25, 15, 15, I18n.format("前"), clickData -> frontFacing = entityPlayer.getHorizontalFacing().getOpposite()))
+                .widget(new ClickButtonWidget(195, 25, 15, 15, "前", clickData -> frontFacing = entityPlayer.getHorizontalFacing().getOpposite()))
                 //下
-                .widget(new ClickButtonWidget(195, 40, 15, 15, I18n.format("下"), clickData -> frontFacing = DOWN))
+                .widget(new ClickButtonWidget(195, 40, 15, 15, "下", clickData -> frontFacing = DOWN))
                 //左
-                .widget(new ClickButtonWidget(180, 25, 15, 15, I18n.format("左"), clickData -> frontFacing = entityPlayer.getHorizontalFacing().getOpposite().rotateY()))
+                .widget(new ClickButtonWidget(180, 25, 15, 15, "左", clickData -> frontFacing = entityPlayer.getHorizontalFacing().getOpposite().rotateY()))
                 //右
-                .widget(new ClickButtonWidget(210, 25, 15, 15, I18n.format("右"), clickData -> frontFacing = entityPlayer.getHorizontalFacing().rotateY()))
+                .widget(new ClickButtonWidget(210, 25, 15, 15, "右", clickData -> frontFacing = entityPlayer.getHorizontalFacing().rotateY()))
                 //后
-                .widget(new ClickButtonWidget(180, 40, 15, 15, I18n.format("后"), clickData -> frontFacing = entityPlayer.getHorizontalFacing()))
+                .widget(new ClickButtonWidget(180, 40, 15, 15, "后", clickData -> frontFacing = entityPlayer.getHorizontalFacing()))
 
                 .image(178, 56, 70, 16, GuiTextures.DISPLAY)
                 .dynamicLabel(180, 60, () -> {
                     String mode = (ItemModel != null) ? (ItemModel ? "物品模式" : "流体模式") : "未初始化";
-                    return I18n.format("模式：%s", mode);
+                    return "模式：" + mode;
                 }, 0xFAF9F6)
 
-                .widget(new ClickButtonWidget(180, 80, 35, 15, I18n.format("I/F"), clickData -> ItemModel = !ItemModel))
-                .widget(new ClickButtonWidget(220, 80, 35, 15, I18n.format("推荐值"), clickData ->
+                .widget(new ClickButtonWidget(180, 80, 35, 15, "I/F", clickData -> ItemModel = !ItemModel))
+                .widget(new ClickButtonWidget(220, 80, 35, 15, "推荐值", clickData ->
                 {
                     frontFacing = entityPlayer.getHorizontalFacing().getOpposite();
                     outputFacingItems = entityPlayer.getHorizontalFacing().rotateAround(Axis.X);
@@ -240,42 +239,42 @@ public class MTECopyCardBehaviors implements IItemBehaviour, ItemUIFactory {
                 ))
 
                 //上
-                .widget(new ClickButtonWidget(195, 95, 15, 15, I18n.format("上"), clickData ->
+                .widget(new ClickButtonWidget(195, 95, 15, 15, "上", clickData ->
                 {
                     if (ItemModel)
                         outputFacingItems = UP;
                     else outputFacingFluids = UP;
                 }))
                 //前
-                .widget(new ClickButtonWidget(195, 110, 15, 15, I18n.format("前"), clickData ->
+                .widget(new ClickButtonWidget(195, 110, 15, 15, "前", clickData ->
                 {
                     if (ItemModel)
                         outputFacingItems = frontFacing;
                     else outputFacingFluids = frontFacing;
                 }))
                 //下
-                .widget(new ClickButtonWidget(195, 125, 15, 15, I18n.format("下"), clickData ->
+                .widget(new ClickButtonWidget(195, 125, 15, 15, "下", clickData ->
                 {
                     if (ItemModel)
                         outputFacingItems = DOWN;
                     else outputFacingFluids = DOWN;
                 }))
                 //左
-                .widget(new ClickButtonWidget(180, 110, 15, 15, I18n.format("左"), clickData ->
+                .widget(new ClickButtonWidget(180, 110, 15, 15, "左", clickData ->
                 {
                     if (ItemModel)
                         outputFacingItems = frontFacing.rotateY();
                     else outputFacingFluids = frontFacing.rotateY();
                 }))
                 //右
-                .widget(new ClickButtonWidget(210, 110, 15, 15, I18n.format("右"), clickData ->
+                .widget(new ClickButtonWidget(210, 110, 15, 15, "右", clickData ->
                 {
                     if (ItemModel)
                         outputFacingItems = frontFacing.rotateY().getOpposite();
                     else outputFacingFluids = frontFacing.rotateY().getOpposite();
                 }))
                 //后
-                .widget(new ClickButtonWidget(180, 125, 15, 15, I18n.format("后"), clickData ->
+                .widget(new ClickButtonWidget(180, 125, 15, 15, "后", clickData ->
                 {
                     if (ItemModel)
                         outputFacingItems = frontFacing.getOpposite();

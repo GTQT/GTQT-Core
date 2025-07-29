@@ -942,8 +942,6 @@ public class GTQTcoreRecipeMaps {
             .build();
 
     public static final RecipeMap<HeatRecipeBuilder> DISTILLATION_KETTLE = new RecipeMapBuilder<>("distillation_kettle", new HeatRecipeBuilder())
-            .itemInputs(0)
-            .itemOutputs(0)
             .fluidInputs(1)
             .fluidOutputs(9)
             .uiBuilder(builder -> builder
@@ -974,7 +972,7 @@ public class GTQTcoreRecipeMaps {
             .itemInputs(1)
             .itemOutputs(1)
             .fluidInputs(1)
-            .fluidOutputs(12)
+            .fluidOutputs(6)
             .uiBuilder(builder -> builder
                     .progressBar(GTGuiTextures.PROGRESS_BAR_SIFT)
             )

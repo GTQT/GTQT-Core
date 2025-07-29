@@ -57,23 +57,22 @@ public class TimeBottleBehavior implements IItemBehaviour, ItemUIFactory {
 
     public void readFromNBT(NBTTagCompound compound) {
         model = compound.getBoolean("model");
-        auto= compound.getBoolean("auto");
+        auto = compound.getBoolean("auto");
         time = compound.getInteger("storedTime");
         accelerateTime = compound.getInteger("accelerateTime");
     }
 
     @Override
     public void onUpdate(ItemStack itemStack, Entity entity) {
-        if (entity instanceof EntityPlayer player)
-        {
-            for (int i = 0; i < player.inventory.getSizeInventory()&&i<48; i++) {
+        if (entity instanceof EntityPlayer player) {
+            for (int i = 0; i < player.inventory.getSizeInventory() && i < 48; i++) {
                 ItemStack invStack = player.inventory.getStackInSlot(i);
                 if (invStack.getItem() == GTQTMetaItems.GTQT_META_ITEM && invStack.getMetadata() == TIME_BOTTLE.getMetaValue()) {
                     if (itemStack.hasTagCompound()) {
                         NBTTagCompound compound = itemStack.getTagCompound();
                         time = compound.getInteger("storedTime");
-                        if(time<maxTime
-                        )time++;
+                        if (time < maxTime
+                        ) time++;
                         compound.setInteger("storedTime", time);
                     } else {
                         NBTTagCompound compound = new NBTTagCompound();
@@ -87,8 +86,8 @@ public class TimeBottleBehavior implements IItemBehaviour, ItemUIFactory {
 
     public void addInformation(ItemStack stack, List<String> lines) {
 
-        lines.add("存储时间："+GTQTDateHelper.getTimeFromTicks(time));
-        lines.add("加速时间："+GTQTDateHelper.getTimeFromSecond(accelerateTime));
+        lines.add("存储时间：" + GTQTDateHelper.getTimeFromTicks(time));
+        lines.add("加速时间：" + GTQTDateHelper.getTimeFromSecond(accelerateTime));
         lines.add(I18n.format("潜行右键打开GUI，可进行模式切换，调整加速时间等操作"));
         lines.add(I18n.format("右键可对机器（包括单方块，多方块），熔炉，作物，树苗等可加速方块进行加速"));
         lines.add(I18n.format("设备模式->无损加速耗电机器（不耗电），也可加速熔炉"));
@@ -97,8 +96,9 @@ public class TimeBottleBehavior implements IItemBehaviour, ItemUIFactory {
     }
 
     public int getRapid() {
-        return 20*accelerateTime;
+        return 20 * accelerateTime;
     }
+
     public int countRapid(int time) {
         if (time < 1200) return 0;
         if (time < 3600) return 60;
@@ -134,10 +134,10 @@ public class TimeBottleBehavior implements IItemBehaviour, ItemUIFactory {
             if (!player.isSneaking()) {
                 //随机刻模式////////////////////////////////////////////////////
                 if (!model) {
-                    handleRandomTickMode(stack,world, pos);
+                    handleRandomTickMode(stack, world, pos);
                 }
                 //设备模式////////////////////////////////////////////////////
-                else if(time>getRapid()){
+                else if (time > getRapid()) {
                     //GT模式////////////////////////////////////////////////////
                     if (GTUtility.getMetaTileEntity(world, pos) instanceof MetaTileEntity) {
                         long cache = 0;
@@ -228,8 +228,7 @@ public class TimeBottleBehavior implements IItemBehaviour, ItemUIFactory {
                             stack.setTagCompound(compound);
                         }
                     }
-                }
-                else  player.sendStatusMessage(new TextComponentTranslation("时长不足，清调整加速时长!"), true);
+                } else player.sendStatusMessage(new TextComponentTranslation("时长不足，清调整加速时长!"), true);
             } else {
                 new PlayerInventoryHolder(player, hand).openUI();
             }
@@ -243,23 +242,23 @@ public class TimeBottleBehavior implements IItemBehaviour, ItemUIFactory {
                 .image(10, 8, 156, 50, GuiTextures.DISPLAY)
                 .dynamicLabel(15, 13, () -> "存储时长" + GTQTDateHelper.getTimeFromTicks(time), 0xFAF9F6)
                 .dynamicLabel(15, 23, () -> "加速时长" + GTQTDateHelper.getTimeFromSecond(accelerateTime), 0xFAF9F6)
-                .dynamicLabel(15, 33, () -> "模式:"+ (model ? "设备模式" : "随机刻模式"), 0xFAF9F6)
-                .dynamicLabel(15, 43, () -> "自动:"+ auto, 0xFAF9F6)
+                .dynamicLabel(15, 33, () -> "模式:" + (model ? "设备模式" : "随机刻模式"), 0xFAF9F6)
+                .dynamicLabel(15, 43, () -> "自动:" + auto, 0xFAF9F6)
                 .widget(new ClickButtonWidget(10, 68, 77, 20, "模式切换", clickData -> model = !model))
-                .widget(new ClickButtonWidget(90, 68, 77, 20, I18n.format("推荐加速时长"), clickData -> auto=!auto))
-                .widget(new ClickButtonWidget(10, 91, 77, 20, I18n.format("加速时长++"), clickData -> accelerateTime = MathHelper.clamp(accelerateTime + 60, 0, time/20)))
-                .widget(new ClickButtonWidget(90, 91, 77, 20, I18n.format("加速时长--"), clickData -> accelerateTime = MathHelper.clamp(accelerateTime - 60, 0, time/20)))
+                .widget(new ClickButtonWidget(90, 68, 77, 20, "推荐加速时长", clickData -> auto = !auto))
+                .widget(new ClickButtonWidget(10, 91, 77, 20, "加速时长++", clickData -> accelerateTime = MathHelper.clamp(accelerateTime + 60, 0, time / 20)))
+                .widget(new ClickButtonWidget(90, 91, 77, 20, "加速时长--", clickData -> accelerateTime = MathHelper.clamp(accelerateTime - 60, 0, time / 20)))
                 .build(playerInventoryHolder, entityPlayer);
     }
 
-    private void handleRandomTickMode(ItemStack stack,World world, BlockPos pos) {
+    private void handleRandomTickMode(ItemStack stack, World world, BlockPos pos) {
         if (time < 1200) return;
         IBlockState state = world.getBlockState(pos);
         Block block = state.getBlock();
         if (block.getTickRandomly()) {
             for (int i = 0; i < 600; i++) block.randomTick(world, pos.toImmutable(), state, world.rand);
         }
-        time-=1200;
+        time -= 1200;
         NBTTagCompound compound = new NBTTagCompound();
         compound.setInteger("storedTime", time);
         stack.setTagCompound(compound);

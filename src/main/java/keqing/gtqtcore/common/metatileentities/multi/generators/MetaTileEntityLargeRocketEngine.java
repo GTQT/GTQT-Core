@@ -57,7 +57,7 @@ public class MetaTileEntityLargeRocketEngine extends FuelMultiblockController im
     public MetaTileEntityLargeRocketEngine(ResourceLocation metaTileEntityId, int tier) {
         super(metaTileEntityId, GTQTcoreRecipeMaps.ROCKET_RECIPES, tier);
         this.tier = tier;
-        this.isExtreme = tier > GTValues.ZPM;
+        this.isExtreme = tier > GTValues.UV;
         this.recipeMapWorkable = new LargeRocketEngineWorkableHandler(this, isExtreme);
         this.recipeMapWorkable.setMaximumOverclockVoltage(GTValues.V[tier]);
 

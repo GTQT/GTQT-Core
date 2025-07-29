@@ -168,6 +168,7 @@ public abstract class RecipeMapHeatMultiblockController extends MultiblockWithDi
         List<IItemHandler> outputItems = new ArrayList<>(this.getAbilities(MultiblockAbility.EXPORT_ITEMS));
         outputItems.addAll(getAbilities(MultiblockAbility.DUAL_EXPORT));
         this.outputInventory = new ItemHandlerList(outputItems);
+
         List<IMultipleTankHandler> outputFluids = new ArrayList<>(getAbilities(MultiblockAbility.DUAL_EXPORT));
         outputFluids.add(new FluidTankList(false, getAbilities(MultiblockAbility.EXPORT_FLUIDS)));
         this.outputFluidInventory = GTQTUtility.mergeTankHandlers(outputFluids, false);
