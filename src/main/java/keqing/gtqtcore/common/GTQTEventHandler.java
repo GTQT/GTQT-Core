@@ -1,5 +1,6 @@
 package keqing.gtqtcore.common;
 
+import com.google.common.collect.Lists;
 import gregtech.api.GregTechAPI;
 import gregtech.api.metatileentity.registry.MTEManager;
 import gregtech.api.unification.material.event.MaterialEvent;
@@ -7,12 +8,15 @@ import gregtech.api.unification.material.event.MaterialRegistryEvent;
 import gregtech.api.util.Mods;
 import gregtech.common.ConfigHolder;
 import keqing.gtqtcore.GTQTCore;
+import keqing.gtqtcore.GTQTCoreConfig;
 import keqing.gtqtcore.api.unification.GTQTMaterials;
 import keqing.gtqtcore.api.unification.OrePrefixAdditions;
 import keqing.gtqtcore.api.unification.ore.GTQTStoneTypes;
 import keqing.gtqtcore.api.utils.GTQTLog;
 import keqing.gtqtcore.loaders.recipes.handlers.OreRecipeHandler;
 import net.minecraft.block.Block;
+import net.minecraft.entity.player.EntityPlayerMP;
+import net.minecraft.item.crafting.CraftingManager;
 import net.minecraft.item.crafting.IRecipe;
 import net.minecraft.util.text.TextComponentString;
 import net.minecraftforge.event.RegistryEvent;
@@ -21,6 +25,7 @@ import net.minecraftforge.fml.common.eventhandler.EventPriority;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.common.gameevent.PlayerEvent;
 
+import java.util.ArrayList;
 import java.util.Objects;
 
 import static keqing.gtqtcore.GTQTCore.PACK;
@@ -57,48 +62,6 @@ public class GTQTEventHandler {
     public static void registerBlocks(RegistryEvent.Register<Block> event) {
         GTQTStoneTypes.init();
     }
-    /*
-    // override GTCEu fall event to enable piston boots fall damage
-    @SubscribeEvent(priority = EventPriority.NORMAL)
-    public static void onEntityLivingFallEvent(LivingFallEvent event) {
-        if (event.getEntity() instanceof EntityPlayerMP player) {
-            ItemStack armor = player.getItemStackFromSlot(EntityEquipmentSlot.FEET);
-            if (player.fallDistance < 3.2F) {
-                return;
-            }
-
-            if (!armor.isEmpty() && armor.getItem() instanceof ArmorMetaItem &&
-                    ((ArmorMetaItem<?>) armor.getItem()).getItem(armor).equals(PISTON_BOOTS)) {
-                ISpecialArmor.ArmorProperties properties = ((ArmorMetaItem<?>) (armor.getItem())).getProperties(player,
-                        armor, DamageSource.FALL, (int) (player.fallDistance), EntityEquipmentSlot.FEET.getSlotIndex());
-                if (properties.AbsorbRatio > 0) {
-                    event.setCanceled(true);
-                    EntityLivingBase entityLivingBase = event.getEntityLiving();
-
-                    PotionEffect potioneffect = event.getEntityLiving().getActivePotionEffect(MobEffects.JUMP_BOOST);
-                    float f = potioneffect == null ? 0.0F : (float) (potioneffect.getAmplifier() + 1);
-                    int i = MathHelper.ceil((properties.AbsorbRatio - f) * event.getDamageMultiplier());
-
-                    if (i > 0) {
-                        entityLivingBase.attackEntityFrom(DamageSource.FALL, (float) i);
-                        int j = MathHelper.floor(entityLivingBase.posX);
-                        int k = MathHelper.floor(entityLivingBase.posY - 0.20000000298023224D);
-                        int l = MathHelper.floor(entityLivingBase.posZ);
-                        IBlockState iblockstate = entityLivingBase.world.getBlockState(new BlockPos(j, k, l));
-
-                        if (iblockstate.getMaterial() != Material.AIR) {
-                            SoundType soundtype = iblockstate.getBlock().getSoundType(iblockstate,
-                                    entityLivingBase.world, new BlockPos(j, k, l), entityLivingBase);
-                            entityLivingBase.playSound(soundtype.getFallSound(), soundtype.getVolume() * 0.5F,
-                                    soundtype.getPitch() * 0.75F);
-                        }
-                    }
-                }
-            }
-        }
-    }
-
-     */
 
     @SubscribeEvent
     public static void registerRecipeHandlers(RegistryEvent.Register<IRecipe> event) {
@@ -126,21 +89,32 @@ public class GTQTEventHandler {
                 RED + "！注意安装后开启智能动态材质或关闭视频设置-地形动画选项以提升帧数！",
                 RED + "--------------------------------------------"
         };
-
+        private static final String[] removeRecipe = {
+                GREEN + "--------------------------------------------",
+                GREEN + "！为并避免配方书检测卡顿，正在自动解锁所有配方！",
+                GREEN + "--------------------------------------------"
+        };
         @SubscribeEvent(priority = EventPriority.HIGHEST)
         public void onPlayerLogin(PlayerEvent.PlayerLoggedInEvent event) {
             if (ConfigHolder.misc.loginMessage) {
                 Objects.requireNonNull(event.player);
-                for (String line : lines) {
+                for (String line : lines)
                     event.player.sendMessage(new TextComponentString(line));
-                }
             }
             if (!Mods.Optifine.isModLoaded()) {
                 Objects.requireNonNull(event.player);
-                for (String line : installOpt) {
+                for (String line : installOpt)
                     event.player.sendMessage(new TextComponentString(line));
+            }
+            if (GTQTCoreConfig.miscSwitch.RecipesForAll) {
+                if (event.player instanceof EntityPlayerMP) {
+                    for (String line : removeRecipe)
+                        event.player.sendMessage(new TextComponentString(line));
+                    ArrayList<IRecipe> recipes = Lists.newArrayList(CraftingManager.REGISTRY);
+                    recipes.removeIf((recipe) -> recipe.getRecipeOutput().isEmpty());
+                    recipes.removeIf((recipe) -> recipe.getIngredients().isEmpty());
+                    event.player.unlockRecipes(recipes);
                 }
-
             }
         }
     }

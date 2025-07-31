@@ -91,11 +91,12 @@ public class PressureMultiblockRecipeLogic extends MultiblockRecipeLogic {
             IPressureContainer container = this.getPressureContainer();
             final double containerPressure = container.getPressure();
             if (pressure > GCYSValues.EARTH_PRESSURE) {
-                if (containerPressure > pressure) return super.checkRecipe(recipe);
+                if (containerPressure >= pressure * 0.95) return super.checkRecipe(recipe);
             }
             if (pressure < GCYSValues.EARTH_PRESSURE) {
-                if (containerPressure < pressure) return super.checkRecipe(recipe);
+                if (containerPressure <= pressure * 1.05) return super.checkRecipe(recipe);
             }
+            if (pressure == GCYSValues.EARTH_PRESSURE) return super.checkRecipe(recipe);
         }
         return false;
     }

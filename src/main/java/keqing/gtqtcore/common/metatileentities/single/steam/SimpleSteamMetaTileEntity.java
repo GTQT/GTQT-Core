@@ -32,7 +32,10 @@ import javax.annotation.Nullable;
 import java.util.Arrays;
 
 public class SimpleSteamMetaTileEntity extends SteamMetaTileEntity implements IGhostSlotConfigurable {
-
+    @Override
+    public boolean usesMui2() {
+        return false;
+    }
     protected SteamProgressIndicator progressIndicator;
     protected boolean isBrickedCasing;
     @Nullable

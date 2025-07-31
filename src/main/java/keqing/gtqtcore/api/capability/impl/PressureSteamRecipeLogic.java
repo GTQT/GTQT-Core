@@ -91,11 +91,14 @@ public class PressureSteamRecipeLogic extends RecipeLogicSteam {
 
             IPressureContainer container = this.getPressureContainer();
             final double containerPressure = container.getPressure();
-            if (pressure > GCYSValues.EARTH_PRESSURE * 0.95) {
-                if (containerPressure >= pressure) return super.checkRecipe(recipe);
+            if (pressure > GCYSValues.EARTH_PRESSURE ) {
+                if (containerPressure >= pressure*0.95) return super.checkRecipe(recipe);
             }
-            if (pressure < GCYSValues.EARTH_PRESSURE * 1.05) {
-                if (containerPressure <= pressure) return super.checkRecipe(recipe);
+            if (pressure < GCYSValues.EARTH_PRESSURE) {
+                if (containerPressure <= pressure*1.05) return super.checkRecipe(recipe);
+            }
+            if (pressure == GCYSValues.EARTH_PRESSURE) {
+                return super.checkRecipe(recipe);
             }
         }
         return false;

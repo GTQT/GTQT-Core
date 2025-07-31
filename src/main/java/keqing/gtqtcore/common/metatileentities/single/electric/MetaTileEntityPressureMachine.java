@@ -39,7 +39,10 @@ import static keqing.gtqtcore.api.GCYSValues.decreaseDetailP;
 import static keqing.gtqtcore.api.GCYSValues.increaseDetailP;
 
 public class MetaTileEntityPressureMachine extends SimpleMachineMetaTileEntity implements IPressureMachine {
-
+    @Override
+    public boolean usesMui2() {
+        return false;
+    }
     private final PressureContainer pressureContainer;
     public int tier;
     boolean isDecrease;
