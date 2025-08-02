@@ -6,9 +6,12 @@ import gregtech.api.unification.material.MarkerMaterials;
 import gregtech.api.unification.ore.OrePrefix;
 import gregtech.api.util.GTUtility;
 import gregtech.common.items.MetaItems;
+import net.minecraft.init.Blocks;
+import org.lwjgl.openal.AL;
 
 import static gregtech.api.GTValues.*;
 import static gregtech.api.unification.material.Materials.*;
+import static gregtech.common.metatileentities.MetaTileEntities.HULL;
 import static keqing.gtqtcore.loaders.tweak.oc.index.*;
 
 public class OCMiscRecipes {
@@ -17,8 +20,40 @@ public class OCMiscRecipes {
         card();
         material();
         component();
+        misc();
     }
+    private static void misc() {
+        RecipeMaps.ASSEMBLER_RECIPES.recipeBuilder()
+                .input(OrePrefix.wireFine,RedAlloy,1)
+                .input(OrePrefix.bolt,Copper,4)
+                .input(Blocks.STONE_BUTTON,6)
+                .circuitMeta(1)
+                .outputs(keyboard1)
+                .EUt(VA[LV])
+                .duration(100)
+                .buildAndRegister();
 
+        RecipeMaps.ASSEMBLER_RECIPES.recipeBuilder()
+                .input(OrePrefix.wireFine,RedAlloy,1)
+                .input(OrePrefix.bolt,Copper,4)
+                .input(Blocks.STONE_BUTTON,4)
+                .circuitMeta(1)
+                .outputs(keyboard2)
+                .EUt(VA[LV])
+                .duration(100)
+                .buildAndRegister();
+
+        RecipeMaps.ASSEMBLER_RECIPES.recipeBuilder()
+                .input(OrePrefix.wireFine,RedAlloy,1)
+                .input(OrePrefix.bolt,Copper,4)
+                .input(Blocks.STONE_BUTTON,9)
+                .circuitMeta(1)
+                .outputs(keyboard3)
+                .EUt(VA[LV])
+                .duration(100)
+                .buildAndRegister();
+
+    }
     private static void component() {
         //组件总线 3个
         //基板+微芯片+控制单元+螺栓
@@ -51,6 +86,34 @@ public class OCMiscRecipes {
                 .inputs(memory_t3)
                 .input(OrePrefix.bolt,Gold,16)
                 .outputs(super_component_bus)
+                .EUt(VA[HV])
+                .duration(100)
+                .buildAndRegister();
+
+        //机箱 3个
+        RecipeMaps.ASSEMBLER_RECIPES.recipeBuilder()
+                .input(HULL[MV])
+                .input(OrePrefix.frameGt, Aluminium)
+                .input(OrePrefix.plate,RedAlloy,4)
+                .outputs(basic_cabinet)
+                .EUt(VA[LV])
+                .duration(100)
+                .buildAndRegister();
+
+        RecipeMaps.ASSEMBLER_RECIPES.recipeBuilder()
+                .input(HULL[HV])
+                .input(OrePrefix.frameGt,StainlessSteel)
+                .input(OrePrefix.plate,Copper,4)
+                .outputs(advanced_cabinet)
+                .EUt(VA[MV])
+                .duration(100)
+                .buildAndRegister();
+
+        RecipeMaps.ASSEMBLER_RECIPES.recipeBuilder()
+                .input(HULL[EV])
+                .input(OrePrefix.frameGt,Titanium)
+                .input(OrePrefix.plate,Gold,4)
+                .outputs(super_cabinet)
                 .EUt(VA[HV])
                 .duration(100)
                 .buildAndRegister();

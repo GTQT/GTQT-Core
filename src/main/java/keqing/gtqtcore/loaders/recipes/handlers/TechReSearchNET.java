@@ -910,8 +910,9 @@ public class TechReSearchNET {
                 .duration(1000).EUt(120).buildAndRegister();
 
         ASSEMBLER_RECIPES.recipeBuilder()
-                .input(frameGt, Polyethylene, 1)
+                .input(frameGt, Steel, 1)
                 .input(plate, Polyethylene, 6)
+                .input(screw,Copper,2)
                 .fluidInputs(Tin.getFluid(L * 4))
                 .outputs(GTQTMetaBlocks.blocksResearchSystem.getItemVariant(KQCC_COMPUTER_CASING))
                 .duration(1000).EUt(120).buildAndRegister();

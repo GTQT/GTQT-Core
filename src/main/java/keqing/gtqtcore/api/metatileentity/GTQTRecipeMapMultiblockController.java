@@ -608,14 +608,14 @@ public abstract class GTQTRecipeMapMultiblockController extends MultiMapMultiblo
 
         @Override
         public long getMaxParallelVoltage() {
-            if (OCFirst) return super.getMaxParallelVoltage();
-            return super.getMaxVoltage() * getParallelLimit();
+            if (OCFirst) return super.getMaxVoltage() * getParallelLimit();
+            return super.getMaxParallelVoltage();
         }
 
         @Override
         public long getMaximumOverclockVoltage() {
-            if (OCFirst) return energyContainer.getInputVoltage();
-            return super.getMaximumOverclockVoltage();
+            if (OCFirst) return super.getMaximumOverclockVoltage();
+            return energyContainer.getInputVoltage();
         }
 
         @Override

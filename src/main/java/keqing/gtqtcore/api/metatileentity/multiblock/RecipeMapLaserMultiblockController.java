@@ -381,7 +381,10 @@ public abstract class RecipeMapLaserMultiblockController extends MultiblockWithD
     public void setWorkingEnabled(boolean isWorkingAllowed) {
         recipeMapWorkable.setWorkingEnabled(isWorkingAllowed);
     }
-
+    @Override
+    public boolean isBatchAllowed() {
+        return true;
+    }
     @Override
     public boolean isBatchEnable() {
         return recipeMapWorkable.isBatchEnable();

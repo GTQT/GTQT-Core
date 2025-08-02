@@ -30,7 +30,7 @@ public class WorldGenAbandonedBase implements IWorldGenerator {
         BlockPos randomPos = new BlockPos(chunkX * 16 + 8, 0, chunkZ * 16 + 8);
 
         if (random.nextInt(WorldGenSwitch.abandonedBaseRarity*100) == 0) {
-            int variantNumber = random.nextInt(7);
+            int variantNumber = random.nextInt(10);
 
 
             Rotation rotation = Rotation.values()[random.nextInt(Rotation.values().length)];

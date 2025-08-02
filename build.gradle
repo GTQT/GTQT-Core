@@ -155,7 +155,7 @@ dependencies {
     implementation rfg.deobf("curse.maven:code-chicken-lib-1-8-242818:2779848")
     implementation rfg.deobf(files("libs/CraftTweaker2-1.12-4.1.20.703.jar"))
     implementation rfg.deobf(files("libs/Supercritical-1.8.0.jar"))
-    implementation rfg.deobf(files("libs/gregtech-1.12.2-2.9.0-181-MeowmelMuku.jar"))
+    implementation rfg.deobf(files("libs/gregtech-1.12.2-2.9.0-182-MeowmelMuku.jar"))
     implementation rfg.deobf(files("libs/gtsteam-1.8.0.jar"))
     implementation rfg.deobf(files("libs/GregicalityMultiblocks-1.8.0-MeowmelMuku.jar"))
     implementation rfg.deobf(files("libs/gregtechfoodoption-1.12.2-1.8.0.jar"))

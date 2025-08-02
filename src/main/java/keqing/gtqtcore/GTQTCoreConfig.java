@@ -13,11 +13,7 @@ public class GTQTCoreConfig {
     public static OBJRenderSwitch OBJRenderSwitch = new OBJRenderSwitch();
     public static DifficultySwitch difficultySwitch = new DifficultySwitch();
     public static DebugSwitch debugSwitch = new DebugSwitch();
-    public static MiscSwitch miscSwitch = new MiscSwitch();
-    public static class MiscSwitch {
-        @Config.Comment({"Recipes for All"})
-        public boolean RecipesForAll = false;
-    }
+
     public static class DebugSwitch {
         @Config.Comment({"Debug Switch"})
         public boolean debugSwitch = false;

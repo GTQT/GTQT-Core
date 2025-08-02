@@ -106,16 +106,6 @@ public class GTQTEventHandler {
                 for (String line : installOpt)
                     event.player.sendMessage(new TextComponentString(line));
             }
-            if (GTQTCoreConfig.miscSwitch.RecipesForAll) {
-                if (event.player instanceof EntityPlayerMP) {
-                    for (String line : removeRecipe)
-                        event.player.sendMessage(new TextComponentString(line));
-                    ArrayList<IRecipe> recipes = Lists.newArrayList(CraftingManager.REGISTRY);
-                    recipes.removeIf((recipe) -> recipe.getRecipeOutput().isEmpty());
-                    recipes.removeIf((recipe) -> recipe.getIngredients().isEmpty());
-                    event.player.unlockRecipes(recipes);
-                }
-            }
         }
     }
 }

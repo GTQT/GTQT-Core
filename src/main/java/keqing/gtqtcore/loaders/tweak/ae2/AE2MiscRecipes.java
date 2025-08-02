@@ -266,6 +266,16 @@ public class AE2MiscRecipes {
         ModHandler.removeRecipeByName("appliedenergistics2:materials/annihilationcore");
         ModHandler.removeRecipeByName("appliedenergistics2:materials/formationcore");
         //原始产出
+        //搅拌出Fluix 红石+赛特斯+金
+        MIXER_RECIPES.recipeBuilder()
+                .input(plate, CertusQuartz, 2)
+                .input(plate, Gold, 1)
+                .input(dust, Redstone, 1)
+                .output(dust, Fluix,4)
+                .EUt(VA[HV])
+                .duration(100)
+                .buildAndRegister();
+
         RecipeMaps.CIRCUIT_ASSEMBLER_RECIPES.recipeBuilder()
                 .input(plate, NetherQuartz, 4)
                 .inputs(GTUtility.copy(4, logicProcessor))
