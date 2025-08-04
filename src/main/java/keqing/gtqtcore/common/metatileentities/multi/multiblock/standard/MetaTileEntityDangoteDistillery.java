@@ -46,6 +46,7 @@ import java.util.function.Function;
 
 import static gregtech.api.GTValues.*;
 import static gregtech.api.util.RelativeDirection.*;
+import static keqing.gtqtcore.api.utils.GTQTUtil.getAccelerateByCWU;
 
 public class MetaTileEntityDangoteDistillery extends MultiMapMultiblockController implements IDistillationTower {
     protected DistillationTowerLogicHandler handler;
@@ -215,11 +216,11 @@ public class MetaTileEntityDangoteDistillery extends MultiMapMultiblockControlle
         @Override
         public void setMaxProgress(int maxProgress) {
             if (isDistilleryMode()) {
-                this.maxProgressTime = maxProgress / 4;
+                super.setMaxProgress(maxProgress /4);
             } else if (isDistillationMode()) {
-                this.maxProgressTime = maxProgress / 2;
+                super.setMaxProgress(maxProgress /2);
             } else {
-                this.maxProgressTime = maxProgress;
+                super.setMaxProgress(maxProgress);
             }
         }
 

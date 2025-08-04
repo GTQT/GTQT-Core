@@ -307,8 +307,8 @@ public class MetaTileEntityLargeEUVMaskAligner extends GCYMRecipeMapMultiblockCo
         }
 
         public void setMaxProgress(int maxProgress) {
-            if (LaserKind == 0) this.maxProgressTime = maxProgress;
-            else this.maxProgressTime = maxProgress / LaserKind;
+            if (LaserKind == 0) super.setMaxProgress(maxProgress);
+            else super.setMaxProgress((int) (maxProgress*1.0 / LaserKind));
         }
 
         @Override

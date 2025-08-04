@@ -134,7 +134,8 @@ public class HigherDegreeMaterials {
                 .flags(DISABLE_DECOMPOSITION)
                 .color(0x636363)
                 .components(Naquadah, 1, Oxygen, 2)
-                .build();
+                .build()
+                .setFormula("NqO2?");
 
         //钠硼解石
         GTQTMaterials.Ulexite = new Material.Builder(getMaterialsId(), gtqtcoreId("ulexite"))

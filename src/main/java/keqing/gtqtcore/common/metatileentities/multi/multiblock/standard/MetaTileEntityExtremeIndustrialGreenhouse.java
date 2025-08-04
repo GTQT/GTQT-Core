@@ -188,9 +188,9 @@ public class MetaTileEntityExtremeIndustrialGreenhouse extends RecipeMapMultiblo
         public void setMaxProgress(int maxProgress) {
             int tier = GTUtility.getTierByVoltage(getMaxVoltage());
             if (tier > IV) {
-                this.maxProgressTime = maxProgress / 2;
+                super.setMaxProgress(maxProgress /2);
             } else {
-                this.maxProgressTime = maxProgress;
+                super.setMaxProgress(maxProgress);
             }
         }
 

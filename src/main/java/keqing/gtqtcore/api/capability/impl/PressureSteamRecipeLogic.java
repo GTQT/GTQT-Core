@@ -126,7 +126,7 @@ public class PressureSteamRecipeLogic extends RecipeLogicSteam {
                 accelerate = (int) Math.log10(recipePressure / containerPressure);
             }
         }
-        this.maxProgressTime = maxProgress * (100 - accelerate * 5) / 100;
+        super.setMaxProgress(maxProgress * (100 - accelerate * 5) / 100);
     }
 
     @Override

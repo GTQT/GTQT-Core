@@ -449,7 +449,7 @@ public class OCMiscRecipes {
                 .inputs(GTUtility.copy(2, advanced_chip))
                 .inputs(memory_t2)
                 .circuitMeta(3)
-                .outputs(basic_graphic_card)
+                .outputs(advanced_graphic_card)
                 .EUt(VA[MV])
                 .duration(100)
                 .buildAndRegister();
@@ -461,7 +461,7 @@ public class OCMiscRecipes {
                 .inputs(GTUtility.copy(4, super_chip))
                 .inputs(memory_t3)
                 .circuitMeta(3)
-                .outputs(basic_graphic_card)
+                .outputs(super_graphic_card)
                 .EUt(VA[HV])
                 .duration(100)
                 .buildAndRegister();

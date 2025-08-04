@@ -122,7 +122,7 @@ public class BoronNitrideChain {
                 .fluidInputs(Oxygen.getFluid(3000))
                 .output(gem, GTQTMaterials.HexagonalBoronNitride, 6)
                 .fluidOutputs(Water.getFluid(3000))
-                .EUt(VA[UV])
+                .EUt(VA[IV])
                 .duration(20 * SECOND)
                 .buildAndRegister();
 
@@ -133,7 +133,7 @@ public class BoronNitrideChain {
                 .input(dust, Boron)
                 .fluidInputs(Nitrogen.getFluid(1000))
                 .output(gem, GTQTMaterials.HexagonalBoronNitride, 2)
-                .EUt(VA[UEV])
+                .EUt(VA[LuV])
                 .duration(4 * SECOND)
                 .temperature(2900)
                 .buildAndRegister();

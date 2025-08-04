@@ -427,8 +427,32 @@ public class MetaTileEntityMachine {
         }
     }
 
-    public static Material[] SecondPlate = {Iron,GalvanizedSteel,Invar,Magnalium,Talonite,NiobiumTitanium,Naquadah,Europium,Duranium,Trinium,Neutronium};
-    public static Material[] Plastic ={RedAlloy,Rubber,Polyethylene,Epoxy,Polytetrafluoroethylene,Zylon,Polybenzimidazole,Polyetheretherketone,Kevlar,KaptonK,KaptonE};
+    public static Material[] SecondPlate = {
+            Iron,
+            GalvanizedSteel,//LV
+            Invar,
+            Magnalium,//HV
+            Talonite,
+            Iridium,//IV
+            HSSS,
+            Duranium,//ZPM
+            Americium,
+            Trinium,//UHV
+            Neutronium
+    };
+    public static Material[] Plastic ={
+            RedAlloy,
+            Rubber,//LV
+            Polyethylene,
+            Epoxy,//HV
+            Polytetrafluoroethylene,
+            Zylon,//IV
+            Polyetheretherketone,
+            Kevlar,//ZPM
+            KaptonK,
+            KaptonE,//UHV
+            FullerenePolymerMatrix
+    };
 
     private static void Hull() {
         BlockMachineCasing.MachineCasingType[] casingTypes = BlockMachineCasing.MachineCasingType.values();
@@ -441,7 +465,7 @@ public class MetaTileEntityMachine {
                     .input(plate, SecondPlate[i], 2)
                     .input(cableType, Cable.get(i), 2)
                     .outputs(MetaTileEntities.HULL[i].getStackForm())
-                    .fluidInputs(Plastic[i].getFluid(L * 2))
+                    .fluidInputs(Plastic[i].getFluid(L * 4))
                     .buildAndRegister();
 
             ModHandler.addShapedRecipe(true, VN[i]+"_casing", HULL[i].getStackForm(),

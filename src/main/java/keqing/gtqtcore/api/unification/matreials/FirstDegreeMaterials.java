@@ -1990,7 +1990,7 @@ public class FirstDegreeMaterials {
                 .build();
 
         GTQTMaterials.SodiumNitrate = new Material.Builder(getMaterialsId(), gtqtcoreId("sodium_nitrate"))
-                .dust().fluid()
+                .dust()
                 .color(0x846684)
                 .iconSet(MaterialIconSet.ROUGH)
                 .components(Sodium, 1, Nitrogen, 1, Oxygen, 3)

@@ -147,14 +147,15 @@ public class PlatinumGroupProcessing {
                 .EUt(VA[HV])
                 .buildAndRegister();
 
-        //  RuRhIr2Os(HNO3)3 + 3NaHSO4 -> RhRu + Ir2Os + 3NaNO3 + 3H2SO4
-        CHEMICAL_BATH_RECIPES.recipeBuilder()
+        //  RuRhIr2Os(HNO3)3 + 3NaHSO4 -> RhRuO4 + Ir2Os + 3NaNO3 + 3H2SO4
+        LARGE_CHEMICAL_RECIPES.recipeBuilder()
                 .input(dust, GTQTMaterials.PlatinumGroupResidue)
-                .input(dust, SodiumHydroxide,21)
+                .input(dust, SodiumBisulfate,21)
+                .fluidInputs(Water.getFluid(1500))
                 .output(dust, InertMetalMixture)
                 .output(dust, RarestMetalMixture)
-                .output(dust, GTQTMaterials.SodiumNitrate, 5)
-                .fluidOutputs(SulfuricAcid.getFluid(3000))
+                .output(dust, GTQTMaterials.SodiumNitrate, 15)
+                .fluidOutputs(DilutedSulfuricAcid.getFluid(4500))
                 .duration(200)
                 .EUt(240)
                 .buildAndRegister();

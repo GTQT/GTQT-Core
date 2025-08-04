@@ -258,8 +258,8 @@ public class MetaTileEntityGravitySeparator extends MultiMapMultiblockController
         @Override
         public void setMaxProgress(int maxProgress) {
             if (getStatue()) {
-                maxProgressTime = maxProgress / 4;
-            } else this.maxProgressTime = maxProgress;
+                super.setMaxProgress(maxProgress/4);
+            } else super.setMaxProgress(maxProgress/4);
         }
 
         public boolean getStatue() {

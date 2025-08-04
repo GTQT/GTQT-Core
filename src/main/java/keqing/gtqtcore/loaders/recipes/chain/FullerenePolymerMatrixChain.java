@@ -24,8 +24,8 @@ public class FullerenePolymerMatrixChain {
                 .input(dust, PalladiumFullereneMatrix)
                 .fluidInputs(PCBS.getFluid(1000))
                 .output(dust, FullerenePolymerMatrix, 2)
-                .EUt(VZ[UEV])
-                .duration(2 * SECOND)
+                .EUt(VZ[UHV])
+                .duration(6 * SECOND)
                 .cleanroom(CleanroomType.CLEANROOM)
                 .buildAndRegister();
     }
@@ -111,8 +111,8 @@ public class FullerenePolymerMatrixChain {
                 .fluidOutputs(HydrochloricAcid.getFluid(24000))
                 .fluidOutputs(Toluene.getFluid(8000))
                 .fluidOutputs(HydrogenSulfide.getFluid(8000))
-                .EUt(VA[UXV])
-                .duration(3 * SECOND)
+                .EUt(VA[UEV])
+                .duration(20 * SECOND)
                 .buildAndRegister();
     }
 
@@ -163,7 +163,7 @@ public class FullerenePolymerMatrixChain {
                 .fluidOutputs(Dichloromethane.getFluid(1000))
                 .fluidOutputs(HydrochloricAcid.getFluid(1000))
                 .EUt(VA[ZPM])
-                .duration(3 * SECOND)
+                .duration(12 * SECOND)
                 .buildAndRegister();
 
         //  3C2H5ONa + C3H7NO2 + C60 + CHCl3 + C10H10Fe -> 3NaCl + C74H19FeN + CO2 + C2H6O
@@ -190,7 +190,7 @@ public class FullerenePolymerMatrixChain {
                 .notConsumable(NitricAcid.getFluid(1))
                 .output(dust, PalladiumFullereneMatrix)
                 .EUt(VZ[UHV])
-                .duration(10 * SECOND)
+                .duration(20 * SECOND)
                 .buildAndRegister();
     }
 }

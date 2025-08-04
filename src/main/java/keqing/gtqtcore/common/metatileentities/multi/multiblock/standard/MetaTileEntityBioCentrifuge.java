@@ -163,7 +163,7 @@ public class MetaTileEntityBioCentrifuge extends MultiMapMultiblockController {
 
         @Override
         public void setMaxProgress(int maxProgress) {
-            this.maxProgressTime = maxProgress / (10 - clean_tier) / 10;
+            super.setMaxProgress(maxProgress / (10 - clean_tier) / 10);
         }
     }
 }

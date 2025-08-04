@@ -182,7 +182,7 @@ public class MetaTileEntityDissolutionTank extends RecipeMapMultiblockController
 
 
         public void setMaxProgress(int maxProgress) {
-            this.maxProgressTime = maxProgress * (100 - glass_tier) / 100;
+            super.setMaxProgress((int) (maxProgress  * (100.0 - glass_tier) / 100));
         }
 
         public long getMaxVoltage() {

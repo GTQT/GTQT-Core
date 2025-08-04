@@ -684,7 +684,7 @@ public class MetaTileEntityPCBFactory extends RecipeMapMultiblockController impl
         @Override
         public void setMaxProgress(int maxProgress) {
             maxProgress = (int) Math.floor(maxProgress * getAccelerateByCWU(requestCWUt));
-            this.maxProgressTime = switch (traceSize) {
+            int time = switch (traceSize) {
                 case 25 -> (int) Math.floor(0.4 * maxProgress);
                 case 50 -> (int) Math.floor(0.6 * maxProgress);
                 case 75 -> (int) Math.floor(0.8 * maxProgress);
@@ -694,6 +694,7 @@ public class MetaTileEntityPCBFactory extends RecipeMapMultiblockController impl
                 case 200 -> (int) Math.floor(1.8 * maxProgress);
                 default -> maxProgress;
             };
+            super.setMaxProgress(time);
         }
 
         @Override

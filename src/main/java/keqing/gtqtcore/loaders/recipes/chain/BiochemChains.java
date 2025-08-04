@@ -296,7 +296,7 @@ public class BiochemChains {
         CHEMICAL_RECIPES.recipeBuilder()
                 .duration(145)
                 .EUt(VA[EV])
-                .input(dust, GTQTMaterials.SodiumNitrate, 4)
+                .input(dust, GTQTMaterials.SodiumNitrate, 5)
                 .fluidInputs(GTQTMaterials.Aniline.getFluid(1000))
                 .fluidInputs(HydrochloricAcid.getFluid(1000))
                 .notConsumable(dust, SodiumSulfide)

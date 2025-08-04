@@ -360,9 +360,9 @@ public class MetaTileEntityLargeCircuitAssemblyLine extends MultiMapMultiblockCo
         @Override
         public void setMaxProgress(int maxProgress) {
             if (isCircAssembler()) {
-                this.maxProgressTime = maxProgress / 2;
+                super.setMaxProgress(maxProgress/2);
             } else {
-                this.maxProgressTime = maxProgress;
+                super.setMaxProgress(maxProgress);
             }
         }
     }

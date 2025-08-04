@@ -54,6 +54,7 @@ import java.util.function.UnaryOperator;
 import static gregtech.api.GTValues.V;
 import static gregtech.api.unification.material.Materials.Steam;
 import static gregtech.api.util.RelativeDirection.*;
+import static keqing.gtqtcore.api.utils.GTQTUtil.getAccelerateByCWU;
 
 //闪蒸
 public class MetaTileEntitySMSF extends MultiMapMultiblockController implements ProgressBarMultiblock {
@@ -337,8 +338,8 @@ public class MetaTileEntitySMSF extends MultiMapMultiblockController implements 
         @Override
         public void setMaxProgress(int maxProgress) {
             if (getStatue()) {
-                maxProgressTime = (int) (maxProgress * 0.6);
-            } else this.maxProgressTime = (int) (maxProgress * 0.8);
+                super.setMaxProgress((int) (maxProgress * 0.6));
+            } else super.setMaxProgress((int) (maxProgress * 0.8));
         }
 
         public boolean getStatue() {

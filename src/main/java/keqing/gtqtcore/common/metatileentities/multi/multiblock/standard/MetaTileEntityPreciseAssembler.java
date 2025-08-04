@@ -299,8 +299,8 @@ public class MetaTileEntityPreciseAssembler extends GTQTOCMultiblockController {
         }
 
         @Override
-        public void update() {
-            super.update();
+        public void forceRecipeRecheck() {
+            super.forceRecipeRecheck();
             if (isPrecise()) {
                 setTimeReduce(1);
                 setMaxParallel(1);

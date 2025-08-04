@@ -140,14 +140,14 @@ public class MetaTileEntityMiningDrill extends RecipeMapMultiblockController {
     @Override
     public void onRemoval() {
         super.onRemoval();
-        for (int i = 0; i < containerInventory.getSlots(); i++) {
+
             var pos = getPos();
-            if (!containerInventory.getStackInSlot(i).isEmpty()) {
-                getWorld().spawnEntity(new EntityItem(getWorld(), pos.getX() + 0.5, pos.getY() + 0.5, pos.getZ() + 0.5, containerInventory.getStackInSlot(i)));
-                containerInventory.extractItem(i, 1, false);
+            if (!containerInventory.getStackInSlot(0).isEmpty()) {
+                getWorld().spawnEntity(new EntityItem(getWorld(), pos.getX() + 0.5, pos.getY() + 0.5, pos.getZ() + 0.5, containerInventory.getStackInSlot(0)));
+                containerInventory.extractItem(0, 1, false);
             }
 
-        }
+
     }
 
     @Override
@@ -351,8 +351,8 @@ public class MetaTileEntityMiningDrill extends RecipeMapMultiblockController {
 
     @Override
     public boolean checkRecipe(@Nonnull Recipe recipe, boolean consumeIfSuccess) {
-        if (recipe.getProperty(MiningDrillProperties.getInstance(), 0) <= drillTier && super.checkRecipe(recipe, consumeIfSuccess)) {
-            return containerInventory.getStackInSlot(0) == GTQTOreHelper.setOre(dimension, type);
+        if (recipe.getProperty(MiningDrillProperties.getInstance(), 0) <= drillTier) {
+            return super.checkRecipe(recipe, consumeIfSuccess);
         }
         return false;
     }
@@ -368,7 +368,7 @@ public class MetaTileEntityMiningDrill extends RecipeMapMultiblockController {
         return getDrillHeadHatch().getTier();
     }
 
-    public boolean checkAvailable() {
+    public boolean  checkAvailable() {
         return getDrillHeadHatch().isAvailable();
     }
 
@@ -399,7 +399,7 @@ public class MetaTileEntityMiningDrill extends RecipeMapMultiblockController {
 
         @Override
         public void setMaxProgress(int maxProgress) {
-            this.maxProgressTime = (int) (maxProgress * (100 - drillTier * 5) / 100.0);
+            super.setMaxProgress((int) (maxProgress * (100 - drillTier * 5) / 100.0));
         }
 
         protected void updateRecipeProgress() {

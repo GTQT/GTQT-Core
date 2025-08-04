@@ -231,7 +231,7 @@ public class MetaTileEntityGeneMutagenesis extends MultiMapMultiblockController 
         }
 
         public void setMaxProgress(int maxProgress) {
-            this.maxProgressTime = (int) (maxProgress * (10 - glass_tier) / 10.0);
+            super.setMaxProgress((int) (maxProgress * (10 - glass_tier) / 10.0));
         }
 
         @Override

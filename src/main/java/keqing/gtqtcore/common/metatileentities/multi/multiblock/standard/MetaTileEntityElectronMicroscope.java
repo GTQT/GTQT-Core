@@ -186,7 +186,7 @@ public class MetaTileEntityElectronMicroscope extends RecipeMapMultiblockControl
 
         @Override
         public void setMaxProgress(int maxProgress) {
-            this.maxProgressTime = maxProgress * (10 - LENS) / 10;
+            super.setMaxProgress((int) (maxProgress  * (10.0 - LENS) / 10));
         }
     }
 }

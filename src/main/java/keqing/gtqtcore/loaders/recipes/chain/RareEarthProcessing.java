@@ -269,7 +269,7 @@ public class RareEarthProcessing {
                 .input(dust, SodiumHydroxide, 3)
                 .fluidInputs(DiethylhexylPhosphoricAcid.getFluid(1000))
                 .fluidInputs(NitratedRareEarthTurbidSolution.getFluid(2000))
-                .output(dust, SodiumNitrate, 3)
+                .output(dust, SodiumNitrate, 5)
                 .fluidOutputs(RareEarthHydroxidesSolution.getFluid(1000))
                 .duration(240)
                 .EUt(VA[IV])

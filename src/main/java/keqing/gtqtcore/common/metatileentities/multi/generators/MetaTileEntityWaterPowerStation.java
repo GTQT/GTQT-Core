@@ -12,7 +12,6 @@ import gregtech.api.metatileentity.MetaTileEntity;
 import gregtech.api.metatileentity.interfaces.IGregTechTileEntity;
 import gregtech.api.metatileentity.multiblock.IMultiblockPart;
 import gregtech.api.metatileentity.multiblock.MultiblockAbility;
-import gregtech.api.metatileentity.multiblock.MultiblockWithDisplayBase;
 import gregtech.api.metatileentity.multiblock.ui.KeyManager;
 import gregtech.api.metatileentity.multiblock.ui.MultiblockUIBuilder;
 import gregtech.api.metatileentity.multiblock.ui.UISyncer;
@@ -28,6 +27,7 @@ import gregtech.client.utils.TooltipHelper;
 import gregtech.common.blocks.BlockMetalCasing;
 import gregtech.common.blocks.BlockWireCoil;
 import gregtech.common.blocks.MetaBlocks;
+import keqing.gtqtcore.api.metatileentity.MetaTileEntityBaseWithControl;
 import keqing.gtqtcore.api.utils.GTQTUtil;
 import keqing.gtqtcore.client.textures.GTQTTextures;
 import keqing.gtqtcore.common.block.GTQTMetaBlocks;
@@ -38,7 +38,6 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.text.ITextComponent;
-import net.minecraft.util.text.TextComponentTranslation;
 import net.minecraft.util.text.TextFormatting;
 import net.minecraft.world.World;
 import net.minecraftforge.fluids.FluidStack;
@@ -47,32 +46,34 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
+import java.util.Collections;
 import java.util.List;
 import java.util.Random;
 
 import static gregtech.api.unification.material.Materials.Lubricant;
 import static gregtech.api.util.RelativeDirection.*;
-import static keqing.gtqtcore.api.unification.GTQTMaterials.Pyrotheum;
 import static keqing.gtqtcore.common.block.blocks.BlockMultiblockCasing4.TurbineCasingType.PD_TURBINE_CASING;
 
 //水电站
-public class MetaTileEntityWaterPowerStation extends MultiblockWithDisplayBase {
+public class MetaTileEntityWaterPowerStation extends MetaTileEntityBaseWithControl {
+    private final MetaTileEntityWaterPowerStationLogic logic;
+    private final FluidStack LUBRICANT_STACK = Lubricant.getFluid(1);
+    int tier;
     private int coilLevel;
     private int number;
     private long outputEu;
     private int water = 0;
-    private boolean isWorkingEnabled;
-    int tier;
-    private final MetaTileEntityWaterPowerStationLogic logic;
     private IEnergyContainer energyContainer;
-    protected IMultipleTankHandler inputFluidInventory;
 
     public MetaTileEntityWaterPowerStation(ResourceLocation metaTileEntityId, int tier) {
         super(metaTileEntityId);
         this.logic = new MetaTileEntityWaterPowerStationLogic(this);
         this.tier = tier;
     }
-
+    @Override
+    public boolean usesMui2() {
+        return true;
+    }
     @Override
     protected void formStructure(PatternMatchContext context) {
         super.formStructure(context);
@@ -85,43 +86,34 @@ public class MetaTileEntityWaterPowerStation extends MultiblockWithDisplayBase {
                 () -> ((IHeatingCoilBlockStats) coilLevel).getLevel(),
                 BlockWireCoil.CoilType.CUPRONICKEL.getLevel());
         this.water = logic.checkWater();
+
+        initializeAbilities();
     }
 
-    public IMultipleTankHandler getInputFluidInventory() {
-        return this.inputFluidInventory;
-    }
     @Override
     protected void configureDisplayText(MultiblockUIBuilder builder) {
         builder.addCustom(this::addCustomCapacity);
     }
+
     private void addCustomCapacity(KeyManager keyManager, UISyncer syncer) {
+        int syncedNumber = syncer.syncInt(number);
+        int syncedCoilLevel = syncer.syncInt(coilLevel);
+        int syncedWater = syncer.syncInt(water);
+        long syncedOutputEu = syncer.syncLong(outputEu);
+        long syncedEuOutput = syncer.syncLong(getEuOutput());
+
+        keyManager.add(KeyUtil.lang(TextFormatting.GRAY, "gtqtcore.wps.count", syncedNumber, syncedCoilLevel));
+        keyManager.add(KeyUtil.lang(TextFormatting.GRAY, "gtqtcore.wps.checkwater", syncedWater,
+                (syncedNumber * 2 + 1) * (syncedNumber * 2 + 1) * 4));
+        keyManager.add(KeyUtil.lang(TextFormatting.GRAY, "gtqtcore.wps.output1", syncedOutputEu));
+        keyManager.add(KeyUtil.lang(TextFormatting.GRAY, "gtqtcore.wps.output2", syncedEuOutput));
+
         if (getInputFluidInventory() != null) {
-            FluidStack fluidStack = getInputFluidInventory().drain(Pyrotheum.getFluid(Integer.MAX_VALUE), false);
+            FluidStack fluidStack = getInputFluidInventory().drain(Lubricant.getFluid(Integer.MAX_VALUE), false);
             int liquidOxygenAmount = syncer.syncInt(fluidStack == null ? 0 : fluidStack.amount);
-            keyManager.add(KeyUtil.lang(TextFormatting.GRAY, "gtqtcore.multiblock.vc.amount", syncer.syncString(TextFormattingUtil.formatNumbers((liquidOxygenAmount)))));
+            keyManager.add(KeyUtil.lang(TextFormatting.GRAY, "gtqtcore.multiblock.ma.amount", syncer.syncString(TextFormattingUtil.formatNumbers((liquidOxygenAmount)))));
         }
-        keyManager.add(KeyUtil.lang(TextFormatting.GREEN, "gtqtcore.wps.count", syncer.syncInt(number), syncer.syncInt(coilLevel)));
-        keyManager.add(KeyUtil.lang(TextFormatting.GREEN, "gtqtcore.wps.checkwater", syncer.syncInt(water), syncer.syncInt((number * 2 + 1) * (number * 2 + 1) * 4)));
-        keyManager.add(KeyUtil.lang(TextFormatting.GREEN, "gtqtcore.wps.output1", syncer.syncLong(outputEu)));
-        keyManager.add(KeyUtil.lang(TextFormatting.GREEN, "gtqtcore.wps.output2", syncer.syncLong(getEuOutput())));
     }
-    @Override
-    protected void addDisplayText(List<ITextComponent> textList) {
-        super.addDisplayText(textList);
-        textList.add(new TextComponentTranslation("======================="));
-        textList.add(new TextComponentTranslation("gtqtcore.wps.count", number, coilLevel));
-        textList.add(new TextComponentTranslation("gtqtcore.wps.checkwater", water, (number * 2 + 1) * (number * 2 + 1) * 4));
-        textList.add(new TextComponentTranslation("gtqtcore.wps.output1", outputEu));
-        textList.add(new TextComponentTranslation("gtqtcore.wps.output2", getEuOutput()));
-        if (getInputFluidInventory() != null) {
-            FluidStack LubricantStack = getInputFluidInventory().drain(Lubricant.getFluid(Integer.MAX_VALUE), false);
-            int liquidOxygenAmount = LubricantStack == null ? 0 : LubricantStack.amount;
-            textList.add(new TextComponentTranslation("gtqtcore.multiblock.ma.amount", TextFormattingUtil.formatNumbers((liquidOxygenAmount))));
-        }
-        textList.add(new TextComponentTranslation("======================="));
-    }
-
-
 
     @Override
     protected void configureWarningText(MultiblockUIBuilder builder) {
@@ -131,12 +123,11 @@ public class MetaTileEntityWaterPowerStation extends MultiblockWithDisplayBase {
                 FluidStack fluidStack = getInputFluidInventory().drain(Lubricant.getFluid(Integer.MAX_VALUE), false);
                 int liquidOxygenAmount = syncer.syncInt(fluidStack == null ? 0 : fluidStack.amount);
                 if (syncer.syncInt(liquidOxygenAmount) == 0) {
-                    manager.add(KeyUtil.lang(TextFormatting.RED, "润滑不足！"));
+                    manager.add(KeyUtil.lang(TextFormatting.RED, "gtqtcore.multiblock.ma.no"));
                 }
             }
         });
     }
-
 
     @Override
     protected void updateFormedValid() {
@@ -147,14 +138,12 @@ public class MetaTileEntityWaterPowerStation extends MultiblockWithDisplayBase {
     private long getEuOutput() {
         Random rand = new Random();
         int randomNum = rand.nextInt(40);
-        return (outputEu/4) * (randomNum + 80) / 160;
+        return (outputEu / 4) * (randomNum + 80) / 160;
     }
-
-    private final FluidStack LUBRICANT_STACK = Lubricant.getFluid(1);
 
     private void generator() {
         IMultipleTankHandler inputTank = this.getInputFluidInventory();
-        isWorkingEnabled = this.energyContainer.getEnergyStored() < this.energyContainer.getEnergyCapacity() && water > 0;
+        boolean isWorkingEnabled = this.energyContainer.getEnergyStored() < this.energyContainer.getEnergyCapacity() && water > 0;
         if (isWorkingEnabled && LUBRICANT_STACK.isFluidStackIdentical(inputTank.drain(LUBRICANT_STACK, false))) {
             inputTank.drain(LUBRICANT_STACK, true);
             this.energyContainer.addEnergy(getEuOutput());
@@ -229,10 +218,6 @@ public class MetaTileEntityWaterPowerStation extends MultiblockWithDisplayBase {
     }
 
 
-    private boolean isWorkingEnabled() {
-        return isWorkingEnabled;
-    }
-
     private IBlockState getCasingAState() {
         if (tier == 1) return MetaBlocks.METAL_CASING.getState(BlockMetalCasing.MetalCasingType.ALUMINIUM_FROSTPROOF);
         if (tier == 2) return MetaBlocks.METAL_CASING.getState(BlockMetalCasing.MetalCasingType.TITANIUM_STABLE);
@@ -243,6 +228,11 @@ public class MetaTileEntityWaterPowerStation extends MultiblockWithDisplayBase {
         if (tier == 1) return MetaBlocks.FRAMES.get(Materials.Aluminium).getBlock(Materials.Aluminium);
         if (tier == 2) return MetaBlocks.FRAMES.get(Materials.Titanium).getBlock(Materials.Titanium);
         return MetaBlocks.FRAMES.get(Materials.RhodiumPlatedPalladium).getBlock(Materials.RhodiumPlatedPalladium);
+    }
+
+    @Override
+    public List<ITextComponent> getDataInfo() {
+        return Collections.emptyList();
     }
 
     protected class MetaTileEntityWaterPowerStationLogic {

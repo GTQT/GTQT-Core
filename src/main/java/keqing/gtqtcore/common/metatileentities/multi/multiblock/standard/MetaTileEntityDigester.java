@@ -36,6 +36,7 @@ import gregtech.common.blocks.*;
 import keqing.gtqtcore.api.metatileentity.GTQTNoTierMultiblockController;
 import keqing.gtqtcore.api.recipes.GTQTcoreRecipeMaps;
 import keqing.gtqtcore.client.textures.GTQTTextures;
+import keqing.gtqtcore.common.block.GTQTMetaBlocks;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.client.resources.I18n;
 import net.minecraft.entity.EntityLivingBase;
@@ -59,6 +60,7 @@ import javax.annotation.Nullable;
 import java.util.List;
 
 import static gregtech.api.recipes.logic.OverclockingLogic.heatingCoilOC;
+import static keqing.gtqtcore.common.block.blocks.BlockMultiblockCasing1.CasingType.Hdcs;
 
 public class MetaTileEntityDigester extends GTQTNoTierMultiblockController implements IHeatingCoil {
     protected int heatingCoilLevel;
@@ -145,22 +147,25 @@ public class MetaTileEntityDigester extends GTQTNoTierMultiblockController imple
     protected BlockPattern createStructurePattern() {
         return FactoryBlockPattern.start()
                 .aisle(" CCCCC ", " LOOOL ", "  CCC  ", "       ")
-                .aisle("CCCCCCC", "LOAAAOL", " HAAAH ", " HLLLH ")
-                .aisle("CCCCCCC", "OAAAAAO", "CAAAAAC", " LAAAL ")
-                .aisle("CCCCCCC", "OAAAAAO", "CAAAAAC", " LAAAL ")
-                .aisle("CCCCCCC", "OAAAAAO", "CAAAAAC", " LAAAL ")
-                .aisle("CCCCCCC", "LOAAAOL", " HAAAH ", " HLLLH ")
+                .aisle("CDDDDDC", "LOAAAOL", " HAAAH ", " HLLLH ")
+                .aisle("CDDDDDC", "OAAAAAO", "CAAAAAC", " LAAAL ")
+                .aisle("CDDDDDC", "OAAAAAO", "CAAAAAC", " LAAAL ")
+                .aisle("CDDDDDC", "OAAAAAO", "CAAAAAC", " LAAAL ")
+                .aisle("CDDDDDC", "LOAAAOL", " HAAAH ", " HLLLH ")
                 .aisle(" CCSCC ", " LOOOL ", "  CCC  ", "       ")
                 .where('S', selfPredicate())
                 .where('C', states(getCasingAState()).setMinGlobalLimited(45).or(autoAbilities()))
                 .where('H', states(getHeatState()))
+                .where('D', states(getCasingState1()))
                 .where('O', heatingCoils())
                 .where('L', states(getCasingBState()))
                 .where('A', air())
                 .where(' ', any())
                 .build();
     }
-
+    protected IBlockState getCasingState1() {
+        return GTQTMetaBlocks.blockMultiblockCasing1.getState(Hdcs);
+    }
     @Override
     public void renderMetaTileEntity(CCRenderState renderState, Matrix4 translation, IVertexOperation[] pipeline) {
         super.renderMetaTileEntity(renderState, translation, pipeline);
