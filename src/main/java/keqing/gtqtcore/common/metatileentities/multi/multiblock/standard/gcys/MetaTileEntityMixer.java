@@ -67,4 +67,8 @@ public class MetaTileEntityMixer extends GCYMAdvanceRecipeMapMultiblockControlle
         return GTQTTextures.LARGE_ROCKET_ENGINE_OVERLAY;
     }
 
+    @Override
+    public boolean isDistinct() {
+        return true;
+    }
 }

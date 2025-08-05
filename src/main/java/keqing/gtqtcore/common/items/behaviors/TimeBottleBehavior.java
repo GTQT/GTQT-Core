@@ -40,6 +40,7 @@ import static keqing.gtqtcore.common.items.GTQTMetaItems.TIME_BOTTLE;
 
 public class TimeBottleBehavior implements IItemBehaviour, ItemUIFactory {
     private final int maxTime = 20 * 3600 * GTQTCoreConfig.difficultySwitch.TimeBottleStoreMaxHour;
+    int t = 0;
     private int time;
     private int accelerateTime;
     private boolean model;
@@ -64,22 +65,25 @@ public class TimeBottleBehavior implements IItemBehaviour, ItemUIFactory {
 
     @Override
     public void onUpdate(ItemStack itemStack, Entity entity) {
-        if (entity instanceof EntityPlayer player) {
+        t++;
+        if (t >= 20 && entity instanceof EntityPlayer player) {
+            t = 0;
             for (int i = 0; i < player.inventory.getSizeInventory() && i < 48; i++) {
                 ItemStack invStack = player.inventory.getStackInSlot(i);
                 if (invStack.getItem() == GTQTMetaItems.GTQT_META_ITEM && invStack.getMetadata() == TIME_BOTTLE.getMetaValue()) {
                     if (itemStack.hasTagCompound()) {
                         NBTTagCompound compound = itemStack.getTagCompound();
                         time = compound.getInteger("storedTime");
-                        if (time < maxTime
-                        ) time++;
+                        if (time < maxTime) time += 20;
                         compound.setInteger("storedTime", time);
                     } else {
                         NBTTagCompound compound = new NBTTagCompound();
                         compound.setInteger("storedTime", time);
                         itemStack.setTagCompound(compound);
                     }
+                    return;
                 }
+
             }
         }
     }
@@ -97,16 +101,6 @@ public class TimeBottleBehavior implements IItemBehaviour, ItemUIFactory {
 
     public int getRapid() {
         return 20 * accelerateTime;
-    }
-
-    public int countRapid(int time) {
-        if (time < 1200) return 0;
-        if (time < 3600) return 60;
-        if (time < 7200) return 120;
-        if (time < 14400) return 180;
-        if (time < 28800) return 240;
-        if (time < 43200) return 300;
-        return 300;
     }
 
     public void addEnergy(World world, BlockPos pos, long cache) {

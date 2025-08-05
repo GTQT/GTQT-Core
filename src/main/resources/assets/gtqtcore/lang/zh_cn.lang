@@ -4532,6 +4532,11 @@ gtqtcore.material.super_glue=超级胶水
 gtqtcore.material.ultra_glue=顶级胶水
 metaitem.find_ore_stick.name=寻矿魔杖
 
+metaitem.travel_stick.lv.name=折跃魔杖 LV
+metaitem.travel_stick.mv.name=折跃魔杖 MV
+metaitem.travel_stick.hv.name=折跃魔杖 HV
+metaitem.travel_stick.ev.name=折跃魔杖 EV
+
 gtqtcore.material.cyanoacetic_acid=氰乙酸
 gtqtcore.material.ethylcyanoacetate=氰乙酸乙酯
 gtqtcore.material.cyanoacrylate=氰基丙烯酸酯聚合物

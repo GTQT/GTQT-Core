@@ -620,7 +620,7 @@ public abstract class GTQTRecipeMapMultiblockController extends MultiMapMultiblo
 
         @Override
         public void setMaxProgress(int maxProgress) {
-            super.setMaxProgress((int) (maxProgress * timeReduce));
+            super.setMaxProgress((int) (maxProgress * (setTimeReduce ? timeReduce : 1)));
         }
     }
 

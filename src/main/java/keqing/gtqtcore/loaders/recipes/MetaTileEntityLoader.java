@@ -1,6 +1,7 @@
 package keqing.gtqtcore.loaders.recipes;
 
 import gregtech.api.GTValues;
+import gregtech.api.items.metaitem.MetaItem;
 import gregtech.api.metatileentity.multiblock.CleanroomType;
 import gregtech.api.recipes.ModHandler;
 import gregtech.api.recipes.RecipeMaps;
@@ -16,6 +17,7 @@ import gregtech.common.blocks.MetaBlocks;
 import gregtech.common.items.MetaItems;
 import gregtech.common.metatileentities.MetaTileEntities;
 import gregtech.loaders.recipe.CraftingComponent;
+import gregtech.loaders.recipe.handlers.ToolRecipeHandler;
 import keqing.gtqtcore.common.block.GTQTMetaBlocks;
 import keqing.gtqtcore.common.block.blocks.BlockElectrolyticBath;
 import keqing.gtqtcore.common.block.blocks.BlockMultiblockCasing6;
@@ -29,6 +31,7 @@ import static gregicality.multiblocks.api.unification.GCYMMaterials.MolybdenumDi
 import static gregicality.multiblocks.api.unification.GCYMMaterials.Stellite100;
 import static gregicality.multiblocks.common.metatileentities.GCYMMetaTileEntities.LARGE_ASSEMBLER;
 import static gregicality.multiblocks.common.metatileentities.GCYMMetaTileEntities.LARGE_DISTILLERY;
+import static gregtech.api.GTValues.EV;
 import static gregtech.api.GTValues.LuV;
 import static gregtech.api.GTValues.UV;
 import static gregtech.api.GTValues.*;
@@ -1133,7 +1136,7 @@ public class MetaTileEntityLoader {
                 .input(COVER_SCREEN)
                 .input(ROBOT_ARM_EV, 4)
                 .input(ring, Titanium, 4)
-                .input(battery,MarkerMaterials.Tier.EV, 1)
+                .input(battery, MarkerMaterials.Tier.EV, 1)
                 .input(circuit, MarkerMaterials.Tier.EV, 1)
                 .output(DEBUG_HATCH_TRANS)
                 .circuitMeta(1)
@@ -1143,7 +1146,7 @@ public class MetaTileEntityLoader {
                 .input(COVER_SCREEN)
                 .input(FIELD_GENERATOR_LV, 4)
                 .input(ring, Aluminium, 4)
-                .input(battery,MarkerMaterials.Tier.LV, 1)
+                .input(battery, MarkerMaterials.Tier.LV, 1)
                 .input(circuit, MarkerMaterials.Tier.LV, 1)
                 .output(MTE_COPY_CARD)
                 .circuitMeta(1)
@@ -1153,7 +1156,7 @@ public class MetaTileEntityLoader {
                 .input(COVER_SCREEN)
                 .input(CONVEYOR_MODULE_EV, 4)
                 .input(ring, Titanium, 4)
-                .input(battery,MarkerMaterials.Tier.EV, 1)
+                .input(battery, MarkerMaterials.Tier.EV, 1)
                 .input(circuit, MarkerMaterials.Tier.EV, 1)
                 .output(DEBUG_WIRE_TRANS)
                 .circuitMeta(1)
@@ -1163,7 +1166,7 @@ public class MetaTileEntityLoader {
                 .input(COVER_SCREEN)
                 .input(MULTIBLOCK_BUILDER)
                 .input(ring, TungstenSteel, 4)
-                .input(battery,MarkerMaterials.Tier.EV, 1)
+                .input(battery, MarkerMaterials.Tier.EV, 1)
                 .input(circuit, MarkerMaterials.Tier.EV, 1)
                 .input(SENSOR_EV, 1)
                 .output(DEBUG_STRUCTURE_BUILDER)
@@ -1174,7 +1177,7 @@ public class MetaTileEntityLoader {
                 .input(COVER_SCREEN)
                 .input(MULTIBLOCK_BUILDER)
                 .input(ring, TungstenSteel, 4)
-                .input(battery,MarkerMaterials.Tier.EV, 1)
+                .input(battery, MarkerMaterials.Tier.EV, 1)
                 .input(circuit, MarkerMaterials.Tier.EV, 1)
                 .input(EMITTER_EV, 1)
                 .output(DEBUG_STRUCTURE_WRITER)
@@ -1782,5 +1785,58 @@ public class MetaTileEntityLoader {
                 .EUt(VA[2])
                 .duration(10 * SECOND)
                 .buildAndRegister();
+
+        registerElectricRecipes();
+    }
+
+    private static void registerElectricRecipes() {
+        for (MetaItem.MetaValueItem batteryItem : ToolRecipeHandler.batteryItems.get(GTValues.LV)) {
+            ModHandler.addShapedEnergyTransferRecipe("travel_stick_lv_" + batteryItem.unlocalizedName,
+                    TRAVEL_STICK_LV.getStackForm(),
+                    batteryItem::isItemEqual, true, true,
+                    "EPS", "CPC", "PBP",
+                    'E', MetaItems.EMITTER_LV.getStackForm(),
+                    'P', new UnificationEntry(OrePrefix.plate, Materials.Steel),
+                    'S', MetaItems.SENSOR_LV.getStackForm(),
+                    'C', new UnificationEntry(OrePrefix.circuit, MarkerMaterials.Tier.LV),
+                    'B', batteryItem.getStackForm());
+
+        }
+
+        for (MetaItem.MetaValueItem batteryItem : ToolRecipeHandler.batteryItems.get(GTValues.MV)) {
+            ModHandler.addShapedEnergyTransferRecipe("travel_stick_mv_" + batteryItem.unlocalizedName,
+                    TRAVEL_STICK_MV.getStackForm(),
+                    batteryItem::isItemEqual, true, true,
+                    "EPS", "CPC", "PBP",
+                    'E', MetaItems.EMITTER_MV.getStackForm(),
+                    'P', new UnificationEntry(OrePrefix.stick, Aluminium),
+                    'S', MetaItems.SENSOR_MV.getStackForm(),
+                    'C', new UnificationEntry(OrePrefix.circuit, MarkerMaterials.Tier.MV),
+                    'B', batteryItem.getStackForm());
+        }
+
+        for (MetaItem.MetaValueItem batteryItem : ToolRecipeHandler.batteryItems.get(GTValues.HV)) {
+            ModHandler.addShapedEnergyTransferRecipe("travel_stick_hv_" + batteryItem.unlocalizedName,
+                    TRAVEL_STICK_HV.getStackForm(),
+                    batteryItem::isItemEqual, true, true,
+                    "EPS", "CPC", "PBP",
+                    'E', MetaItems.EMITTER_HV.getStackForm(),
+                    'P', new UnificationEntry(OrePrefix.stick, Materials.StainlessSteel),
+                    'S', MetaItems.SENSOR_HV.getStackForm(),
+                    'C', new UnificationEntry(OrePrefix.circuit, MarkerMaterials.Tier.HV),
+                    'B', batteryItem.getStackForm());
+        }
+        //ev
+        for (MetaItem.MetaValueItem batteryItem : ToolRecipeHandler.batteryItems.get(EV)) {
+            ModHandler.addShapedEnergyTransferRecipe("travel_stick_ev_" + batteryItem.unlocalizedName,
+                    TRAVEL_STICK_EV.getStackForm(),
+                    batteryItem::isItemEqual, true, true,
+                    "EPS", "CPC", "PBP",
+                    'E', MetaItems.EMITTER_EV.getStackForm(),
+                    'P', new UnificationEntry(stick, Titanium),
+                    'S', MetaItems.SENSOR_EV.getStackForm(),
+                    'C', new UnificationEntry(OrePrefix.circuit, MarkerMaterials.Tier.EV),
+                    'B', batteryItem.getStackForm());
+        }
     }
 }

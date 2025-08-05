@@ -901,21 +901,22 @@ public class TechReSearchNET {
 
         //计算框架
         ASSEMBLER_RECIPES.recipeBuilder()
-                .input(frameGt, Steel, 4)
-                .input(plate, Copper, 4)
+                .input(frameGt, Aluminium, 4)
+                .input(plate, Aluminium, 4)
                 .input(OPTICAL_PIPES[0], 2)
-                .input(plateDense, Aluminium, 4)
+                .input(screw, Copper, 4)
+                .circuitMeta(1)
                 .fluidInputs(Polyethylene.getFluid(L * 8))
                 .outputs(GTQTMetaBlocks.blocksResearchSystem.getItemVariant(COMPUTER_VENT))
-                .duration(1000).EUt(120).buildAndRegister();
+                .duration(800).EUt(120).buildAndRegister();
 
         ASSEMBLER_RECIPES.recipeBuilder()
-                .input(frameGt, Steel, 1)
-                .input(plate, Polyethylene, 6)
-                .input(screw,Copper,2)
-                .fluidInputs(Tin.getFluid(L * 4))
+                .input(frameGt, Aluminium, 4)
+                .input(plate, Polyethylene, 8)
+                .input(screw,Copper,4)
+                .fluidInputs(Tin.getFluid(L * 8))
                 .outputs(GTQTMetaBlocks.blocksResearchSystem.getItemVariant(KQCC_COMPUTER_CASING))
-                .duration(1000).EUt(120).buildAndRegister();
+                .duration(800).EUt(120).buildAndRegister();
 
         //数据仓
         ASSEMBLY_LINE_RECIPES.recipeBuilder()
@@ -1040,21 +1041,23 @@ public class TechReSearchNET {
                 .duration(200).EUt(120).buildAndRegister();
 
         ASSEMBLER_RECIPES.recipeBuilder()
-                .inputs(HULL[2].getStackForm())
-                .input(EMITTER_LV, 8)
+                .inputs(HULL[2].getStackForm(4))
                 .input(DISK_0, 4)
                 .input(COVER_SCREEN)
-                .input(wireFine, Aluminium, 16)
+                .input(EMITTER_LV, 16)
+                .input(SENSOR_LV, 16)
+                .input(circuit, MarkerMaterials.Tier.MV, 32)
+                .input(pipeNormalFluid, Aluminium, 16)
                 .input(OPTICAL_PIPES[0], 8)
-                .fluidInputs(SolderingAlloy.getFluid(L * 4))
+                .fluidInputs(SolderingAlloy.getFluid(L * 16))
                 .output(KQCC)
-                .duration(200).EUt(120).buildAndRegister();
-
+                .duration(1200).EUt(120).buildAndRegister();
 
         ASSEMBLY_LINE_RECIPES.recipeBuilder()
                 .inputs(HULL[4].getStackForm(16))
-                .input(circuit, Tier.EV, 8)
-                .input(EMITTER_EV, 8)
+                .input(circuit, Tier.EV, 32)
+                .input(EMITTER_EV, 16)
+                .input(SENSOR_EV, 16)
                 .input(DISK_0, 16)
                 .input(COVER_SCREEN)
                 .input(OPTICAL_PIPES[0], 16)

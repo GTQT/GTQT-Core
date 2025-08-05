@@ -1,6 +1,7 @@
 package keqing.gtqtcore.common.items.behaviors;
 
 import gregtech.api.items.metaitem.stats.IItemBehaviour;
+import gregtech.common.blocks.BlockOre;
 import net.minecraft.block.Block;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
@@ -25,21 +26,17 @@ public class FindOreStickBehavior implements IItemBehaviour {
             BlockPos currentPos = new BlockPos(pos.getX(), h, pos.getZ());
             Block block = world.getBlockState(currentPos).getBlock();
 
-            if (block.getLocalizedName().contains("ore")) {
-                ItemStack itemStack = new ItemStack(block.getItemDropped(world.getBlockState(currentPos), world.rand, 1));
-                int[] oreIDs = OreDictionary.getOreIDs(itemStack);
+            if(block instanceof BlockOre ore){
+                player.sendStatusMessage(new TextComponentTranslation("！发现矿物！"), true);
+                player.sendMessage(new TextComponentString("==============================="));
+                player.sendMessage(new TextComponentString("坐标 X：" + pos.getX() + " Y：" + pos.getY() + " Z：" + pos.getZ()));
+                player.sendMessage(new TextComponentString("发现矿物："+ore.material.getLocalizedName()));
+                player.sendMessage(new TextComponentString("==============================="));
+                return EnumActionResult.SUCCESS;
+            }
 
-                for (int oreID : oreIDs) {
-                    String oreName = OreDictionary.getOreName(oreID);
-                    if (oreName.contains("ore")) {
-                        player.sendStatusMessage(new TextComponentTranslation("！发现矿物！"), true);
-                        player.sendMessage(new TextComponentString("==============================="));
-                        player.sendMessage(new TextComponentString("坐标 X：" + pos.getX() + " Y：" + pos.getY() + " Z：" + pos.getZ()));
-                        player.sendMessage(new TextComponentString("发现矿物：").appendSibling(new TextComponentString(oreName)));
-                        player.sendMessage(new TextComponentString("==============================="));
-                        return EnumActionResult.SUCCESS;
-                    }
-                }
+            if(h==0){
+                player.sendStatusMessage(new TextComponentTranslation("！没有发现矿物"), true);
             }
         }
 

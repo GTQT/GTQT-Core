@@ -1,13 +1,16 @@
 package keqing.gtqtcore.common.items;
 
 import gregtech.api.GTValues;
+import gregtech.api.items.metaitem.ElectricStats;
 import gregtech.api.items.metaitem.StandardMetaItem;
 import gregtech.api.unification.material.MarkerMaterials;
 import gregtech.api.unification.ore.OrePrefix;
 import gregtech.api.unification.stack.MaterialStack;
 import gregtech.api.unification.stack.RecyclingData;
 import gregtech.client.utils.TooltipHelper;
+import gregtech.common.creativetab.GTCreativeTabs;
 import gregtech.common.items.MetaItems;
+import gregtech.common.items.behaviors.ProspectorScannerBehavior;
 import gregtech.common.items.behaviors.TooltipBehavior;
 import keqing.gtqtcore.api.unification.GTQTMaterials;
 import keqing.gtqtcore.client.textures.GTQTTextures;
@@ -20,6 +23,7 @@ import org.lwjgl.input.Keyboard;
 
 import static gregtech.api.GTValues.*;
 import static gregtech.api.unification.material.Materials.*;
+import static gregtech.common.items.MetaItems.PROSPECTOR_LV;
 import static keqing.gtqtcore.api.unification.GTQTMaterials.*;
 import static keqing.gtqtcore.common.CommonProxy.*;
 import static keqing.gtqtcore.common.items.GTQTMetaItems.*;
@@ -188,6 +192,28 @@ public class GTQTMetaItem1 extends StandardMetaItem {
         ACRYLIC_YARN = addItem(156, "acrylic_yarn").setCreativeTabs(GTQTCore_TAB);
 
         FIND_ORE_STICK = addItem(159, "find_ore_stick").addComponents(new FindOreStickBehavior()).setMaxStackSize(1).setCreativeTabs(GTQTCore_TO);
+
+        TRAVEL_STICK_LV = addItem(160, "travel_stick.lv")
+                .addComponents(ElectricStats.createElectricItem(100_000L, GTValues.LV),
+                        new TravelStickBehavior(GTValues.LV))
+                .setMaxStackSize(1)
+                .setCreativeTabs(GTCreativeTabs.TAB_GREGTECH_TOOLS);
+        TRAVEL_STICK_MV = addItem(161, "travel_stick.mv")
+                .addComponents(ElectricStats.createElectricItem(500_000L, GTValues.MV),
+                        new TravelStickBehavior(GTValues.MV))
+                .setMaxStackSize(1)
+                .setCreativeTabs(GTCreativeTabs.TAB_GREGTECH_TOOLS);
+        TRAVEL_STICK_HV = addItem(162, "travel_stick.hv")
+                .addComponents(ElectricStats.createElectricItem(1_000_000L, GTValues.HV),
+                        new TravelStickBehavior(GTValues.HV))
+                .setMaxStackSize(1)
+                .setCreativeTabs(GTCreativeTabs.TAB_GREGTECH_TOOLS);
+        TRAVEL_STICK_EV = addItem(163, "travel_stick.ev")
+                .addComponents(ElectricStats.createElectricItem(5_000_000L, GTValues.EV),
+                        new TravelStickBehavior(GTValues.EV))
+                .setMaxStackSize(1)
+                .setCreativeTabs(GTCreativeTabs.TAB_GREGTECH_TOOLS);
+
         //ROCK
         POS_ORE_CARD = this.addItem(180, "pos_ore_card").setMaxStackSize(1).addComponents(new OreCheckerBehavior()).setCreativeTabs(GTQTCore_TAB);
 

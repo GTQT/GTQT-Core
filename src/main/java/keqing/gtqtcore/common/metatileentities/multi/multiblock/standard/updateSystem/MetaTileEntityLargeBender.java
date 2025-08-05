@@ -33,7 +33,6 @@ import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
 public class MetaTileEntityLargeBender extends GTQTRecipeMapMultiblockController {
-    private int coilLevel;
     private int casingTier;
     private int tubeTier;
 
@@ -135,12 +134,9 @@ public class MetaTileEntityLargeBender extends GTQTRecipeMapMultiblockController
     @Override
     protected void formStructure(PatternMatchContext context) {
         super.formStructure(context);
-        Object coilType = context.get("CoilType");
         Object casingTier = context.get("ChemicalPlantCasingTieredStats");
         Object tubeTier = context.get("ChemicalPlantTubeTieredStats");
-        this.coilLevel = GTQTUtil.getOrDefault(() -> coilType instanceof IHeatingCoilBlockStats,
-                () -> ((IHeatingCoilBlockStats) coilType).getLevel(),
-                BlockWireCoil.CoilType.CUPRONICKEL.getLevel());
+
         this.casingTier = GTQTUtil.getOrDefault(() -> casingTier instanceof WrappedIntTired,
                 () -> ((WrappedIntTired) casingTier).getIntTier(),
                 0);
@@ -150,7 +146,7 @@ public class MetaTileEntityLargeBender extends GTQTRecipeMapMultiblockController
 
         setTier(Math.min(this.casingTier, this.tubeTier));
         setMaxVoltage(Math.min(this.casingTier, this.tubeTier));
-        setTimeReduce((100 - Math.min(coilLevel, 10) * 5.0) / 100);
+        setTimeReduce((100 - Math.min(this.tubeTier, 10) * 5.0) / 100);
 
         this.writeCustomData(GTQTValue.UPDATE_TIER26, buf -> buf.writeInt(this.casingTier));
     }

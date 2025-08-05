@@ -537,7 +537,7 @@ public class OilChains {
                 .fluidOutputs(WoodGas.getFluid(1000))
                 .fluidOutputs(WoodVinegar.getFluid(2000))
                 .fluidOutputs(Creosote.getFluid(3000))
-                .duration(600).Heat(425)
+                .duration(1200).Heat(425)
                 .buildAndRegister();
 
         PYROLYSIS_TOWER.recipeBuilder()
@@ -549,7 +549,7 @@ public class OilChains {
                 .fluidOutputs(WoodGas.getFluid(1000))
                 .fluidOutputs(WoodVinegar.getFluid(2000))
                 .fluidOutputs(Creosote.getFluid(3000))
-                .duration(600).Heat(500)
+                .duration(1200).Heat(500)
                 .buildAndRegister();
 
 
@@ -562,7 +562,7 @@ public class OilChains {
                 .fluidOutputs(Hydrogen.getFluid(1000))
                 .fluidOutputs(Nitrogen.getFluid(1000))
                 .fluidOutputs(CarbonDioxide.getFluid(2000))
-                .duration(400).Heat(425)
+                .duration(1200).Heat(425)
                 .buildAndRegister();
 
         PYROLYSIS_TOWER.recipeBuilder()
@@ -575,7 +575,7 @@ public class OilChains {
                 .fluidOutputs(Hydrogen.getFluid(1000))
                 .fluidOutputs(Nitrogen.getFluid(1000))
                 .fluidOutputs(CarbonDioxide.getFluid(2000))
-                .duration(400).Heat(500)
+                .duration(1200).Heat(500)
                 .buildAndRegister();
 
         //原始处理
@@ -584,7 +584,7 @@ public class OilChains {
                 .fluidOutputs(Distilledgasoline.getFluid(500))
                 .fluidOutputs(GasOil.getFluid(300))
                 .fluidOutputs(OilHeavy.getFluid(200))
-                .duration(200).Heat(425)
+                .duration(400).Heat(425)
                 .buildAndRegister();
 
         DISTILLATION_KETTLE.recipeBuilder()
@@ -592,7 +592,7 @@ public class OilChains {
                 .fluidOutputs(Distilledgasoline.getFluid(500))
                 .fluidOutputs(GasOil.getFluid(300))
                 .fluidOutputs(OilHeavy.getFluid(200))
-                .duration(200).Heat(425)
+                .duration(400).Heat(425)
                 .buildAndRegister();
 
         DISTILLATION_KETTLE.recipeBuilder()
@@ -600,7 +600,7 @@ public class OilChains {
                 .fluidOutputs(Distilledgasoline.getFluid(500))
                 .fluidOutputs(GasOil.getFluid(300))
                 .fluidOutputs(OilHeavy.getFluid(200))
-                .duration(200).Heat(425)
+                .duration(400).Heat(425)
                 .buildAndRegister();
 
         DISTILLATION_KETTLE.recipeBuilder()
@@ -608,7 +608,7 @@ public class OilChains {
                 .fluidOutputs(Distilledgasoline.getFluid(500))
                 .fluidOutputs(GasOil.getFluid(300))
                 .fluidOutputs(OilHeavy.getFluid(200))
-                .duration(200).Heat(425)
+                .duration(400).Heat(425)
                 .buildAndRegister();
 
         //粗柴油
@@ -640,7 +640,7 @@ public class OilChains {
                 .fluidOutputs(HighlyPurifiedCoalTar.getFluid(100))
                 .fluidOutputs(Creosote.getFluid(100))
                 .fluidOutputs(Phenol.getFluid(100))
-                .duration(400).Heat(425)
+                .duration(800).Heat(425)
                 .buildAndRegister();
     }
 

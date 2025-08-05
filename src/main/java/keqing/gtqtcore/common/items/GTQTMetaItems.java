@@ -206,6 +206,12 @@ public class GTQTMetaItems {
     public static MetaItem<?>.MetaValueItem SODIUM_ETHYLXANTHATE;
     public static MetaItem<?>.MetaValueItem POTASSIUM_ETHYLXANTHATE;
     public static MetaItem<?>.MetaValueItem FIND_ORE_STICK;
+
+    public static MetaItem<?>.MetaValueItem TRAVEL_STICK_LV;
+    public static MetaItem<?>.MetaValueItem TRAVEL_STICK_MV;
+    public static MetaItem<?>.MetaValueItem TRAVEL_STICK_HV;
+    public static MetaItem<?>.MetaValueItem TRAVEL_STICK_EV;
+
     public static MetaItem<?>.MetaValueItem ACRYLIC_YARN;
     public static MetaItem<?>.MetaValueItem HEAVY_METAL_ABSORBING_YARN;
     public static MetaItem<?>.MetaValueItem URANIUM_SATURATED_YARN;

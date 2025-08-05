@@ -4548,6 +4548,11 @@ gtqtcore.material.super_glue=Super Glue
 gtqtcore.material.ultra_glue=Ultra Glue
 metaitem.find_ore_stick.name=Finf Ore Magic Stick
 
+metaitem.travel_stick.lv.name=Fold The Magic Wand LV
+metaitem.travel_stick.mv.name=Fold The Magic Wand MV
+metaitem.travel_stick.hv.name=Fold The Magic Wand HV
+metaitem.travel_stick.ev.name=Fold The Magic Wand EV
+
 gtqtcore.material.cyanoacetic_acid=Cyanoacetic Acid
 gtqtcore.material.ethylcyanoacetate=Ethyl Cyanoacetate
 gtqtcore.material.cyanoacrylate=Cyanoacrylate Polymer
