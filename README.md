@@ -28,7 +28,7 @@ GTQT Core 不仅是拓展了所有终局游戏阶段，而是彻底修改了整�
 
 * GTQTcore 模组本体
     - Copyright (c) MeowmelMuku
-    - [![License](https://img.shields.io/badge/License-GPLv3-blue.svg?style=flat-square)](https://github.com/GTQT/GTQTcore/blob/main/LICENSE)
+    - [![License](https://img.shields.io/badge/License-GPLv3-blue.svg?style=flat-square)](https://github.com/GTQT/GTQT-Core/blob/master/LICENSE)
 
 * GTQT 整合包本体
     - Copyright (c) MeowmelMuku
