@@ -12,6 +12,7 @@ import gregtech.api.util.Mods;
 import gregtech.common.items.MetaItems;
 import keqing.gtqtcore.common.items.GTQTMetaItems;
 import net.minecraft.init.Blocks;
+import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
 
 import static gregtech.api.GTValues.*;
@@ -43,8 +44,17 @@ public class AE2MiscRecipes {
         PanelRecipes();
         //总线
         BusRecipes();
+        //工具
+        Tool();
     }
-
+    private static void Tool() {
+        ModHandler.removeRecipeByName("appliedenergistics2:tools/network_tool");
+        ModHandler.addShapedRecipe("network_tool", wirelessTool,
+                "  R", " RS", "R I",
+                'R', new UnificationEntry(stickLong, StainlessSteel),
+                'S', new UnificationEntry(OrePrefix.circuit, MarkerMaterials.Tier.MV),
+                'I', new UnificationEntry(gem, CertusQuartz));
+    }
     private static void BusRecipes() {
         ModHandler.removeRecipeByName("appliedenergistics2:network/parts/import_bus");
         ModHandler.removeRecipeByName("appliedenergistics2:network/parts/import_bus_fluid");
@@ -268,12 +278,14 @@ public class AE2MiscRecipes {
         //原始产出
         //搅拌出Fluix 红石+赛特斯+金
         MIXER_RECIPES.recipeBuilder()
-                .input(plate, CertusQuartz, 2)
-                .input(plate, Gold, 1)
+                .input(dust, CertusQuartz, 2)
+                .input(dust, Electrum, 1)
                 .input(dust, Redstone, 1)
+                .circuitMeta(1)
+                .fluidInputs(DistilledWater.getFluid(1000))
                 .output(dust, Fluix,4)
-                .EUt(VA[HV])
-                .duration(100)
+                .EUt(VA[MV])
+                .duration(400)
                 .buildAndRegister();
 
         RecipeMaps.CIRCUIT_ASSEMBLER_RECIPES.recipeBuilder()

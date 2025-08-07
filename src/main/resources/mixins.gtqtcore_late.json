@@ -15,15 +15,12 @@
     "gregtech.MixinMetaItem",
     "gregtech.MixinMetaPrefixItem",
     "gregtech.MixinMetaValueItem",
-    "gregtech.MixinSolarBoilerServer",
-    "gregtech.MixinSteamBoilerAccess",
     "gregtech.MetaTileEntityDrumAccessor"
   ],
   "server": [],
   "client": [
     "architecturecraft.MixinGuiSawbench",
     "architecturecraft.MixinRenderRoof",
-    "gregtech.MixinBlockGlassCasing",
-    "gregtech.MixinSolarBoilerClient"
+    "gregtech.MixinBlockGlassCasing"
   ]
 }

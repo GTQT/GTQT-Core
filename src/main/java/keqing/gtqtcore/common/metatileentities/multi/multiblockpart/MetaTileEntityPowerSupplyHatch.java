@@ -184,8 +184,15 @@ public class MetaTileEntityPowerSupplyHatch extends MetaTileEntityMultiblockPart
             tooltip.add(I18n.format("超导矩阵的供能模块，用于填充需要链接用电器的位置，可对用电器进行供能或者用电操作，电学参数取决于多方块的供能模式，注意，本模块供电无视电压限制，"));
         if (Objects.equals(type, "battle"))
             tooltip.add(I18n.format("超导矩阵的蓄能模块，用于提供大量能量缓存，除此以外没有其他实质性功能"));
-
-
+        if (canPartShare()) {
+            tooltip.add(I18n.format("gregtech.universal.enabled"));
+        } else {
+            tooltip.add(I18n.format("gregtech.universal.disabled"));
+        }
+    }
+    @Override
+    public boolean canPartShare() {
+        return false;
     }
 
     @SideOnly(Side.CLIENT)

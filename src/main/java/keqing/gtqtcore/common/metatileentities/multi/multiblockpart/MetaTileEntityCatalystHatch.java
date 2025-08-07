@@ -30,6 +30,7 @@ import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 import net.minecraftforge.items.CapabilityItemHandler;
 import net.minecraftforge.items.ItemStackHandler;
+import org.jetbrains.annotations.NotNull;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -92,6 +93,11 @@ public class MetaTileEntityCatalystHatch extends MetaTileEntityMultiblockPart im
     public void addInformation(ItemStack stack, World world, List<String> tooltip, boolean advanced) {
         super.addInformation(stack, world, tooltip, advanced);
         tooltip.add(I18n.format("只能放置催化剂喵！"));
+        if (canPartShare()) {
+            tooltip.add(I18n.format("gregtech.universal.enabled"));
+        } else {
+            tooltip.add(I18n.format("gregtech.universal.disabled"));
+        }
     }
 
     @SideOnly(Side.CLIENT)
@@ -102,6 +108,10 @@ public class MetaTileEntityCatalystHatch extends MetaTileEntityMultiblockPart im
         super.addToolUsages(stack, world, tooltip, advanced);
     }
 
+    @Override
+    public boolean canPartShare() {
+        return true;
+    }
     @Override
     public void writeInitialSyncData(PacketBuffer buf) {
         super.writeInitialSyncData(buf);

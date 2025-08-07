@@ -403,8 +403,7 @@ public class GTQTUtil {
     }
 
     public static ItemStack setStack(ItemStack itemstack, int amount) {
-        ItemStack itemstack1;
-        itemstack1 = itemstack.copy();
+        ItemStack itemstack1 = itemstack.copy();
         itemstack1.setCount(amount);
         return itemstack1;
     }

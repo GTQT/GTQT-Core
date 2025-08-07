@@ -49,6 +49,7 @@ public class BoronChain {
                 .input(dust,Stone,2)
                 .input(dust,SiliconDioxide,2)
                 .fluidInputs(Concrete.getFluid(200))
+                .circuitMeta(5)
                 .output(GTQTMetaBlocks.blockEvaporationBed.getState(BlockEvaporationBed.EvaporationBedType.DIRT).getBlock())
                 .EUt(VA[LV])
                 .duration(200)

@@ -38,15 +38,6 @@ public class GTQTCoreConfig {
     }
 
     public static class DifficultySwitch {
-        @Config.Comment({"Allows HotIngot to be cooled by throwing it into water.", "Default: true"})
-        public boolean easyCooling = true;
-
-        @Config.Comment({"In cauldron, allow only 3 items to be cleaned in 1B.", "Default: false"})
-        public boolean hardCleaning = false;
-
-        @Config.Comment({"Allows cleaning by water instead of a cauldron.", "Default: true"})
-        public boolean easyCleaning = true;
-
         @Config.Comment({"时间之瓶最大时间储量（单位: 小时）", "Default: 8"})
         public int TimeBottleStoreMaxHour = 8;
     }

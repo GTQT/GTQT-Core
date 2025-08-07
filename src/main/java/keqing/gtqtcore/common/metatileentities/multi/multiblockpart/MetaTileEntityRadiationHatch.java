@@ -23,6 +23,7 @@ import keqing.gtqtcore.api.metatileentity.multiblock.GTQTMultiblockAbility;
 import keqing.gtqtcore.api.utils.GTQTDateHelper;
 import keqing.gtqtcore.client.textures.GTQTTextures;
 import keqing.gtqtcore.common.items.behaviors.RadiationBehavior;
+import net.minecraft.client.resources.I18n;
 import net.minecraft.entity.item.EntityItem;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
@@ -31,11 +32,13 @@ import net.minecraft.util.EnumFacing;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.text.ITextComponent;
 import net.minecraft.util.text.TextComponentString;
+import net.minecraft.world.World;
 import net.minecraftforge.common.capabilities.Capability;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 import net.minecraftforge.items.CapabilityItemHandler;
 import net.minecraftforge.items.ItemStackHandler;
+import org.jetbrains.annotations.NotNull;
 
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
@@ -158,7 +161,21 @@ public class MetaTileEntityRadiationHatch extends MetaTileEntityMultiblockPart i
         if (isAvailable())
             textList.add(new TextComponentString("当前辐射: " + getRadiationBehavior().getRadiation() + " x " + (tier - 3) + " Sv"));
     }
-
+    @Override
+    public void addInformation(ItemStack stack, @org.jetbrains.annotations.Nullable World world, @NotNull List<String> tooltip, boolean advanced) {
+        super.addInformation(stack, world, tooltip, advanced);
+        tooltip.add(I18n.format("在UI内槽位放入辐射源即可激活多方块工作条件"));
+        tooltip.add(I18n.format("辐射源消耗机制见多方块描述"));
+        if (canPartShare()) {
+            tooltip.add(I18n.format("gregtech.universal.enabled"));
+        } else {
+            tooltip.add(I18n.format("gregtech.universal.disabled"));
+        }
+    }
+    @Override
+    public boolean canPartShare() {
+        return false;
+    }
     @Override
     public MetaTileEntity createMetaTileEntity(IGregTechTileEntity iGregTechTileEntity) {
         return new MetaTileEntityRadiationHatch(metaTileEntityId, tier);

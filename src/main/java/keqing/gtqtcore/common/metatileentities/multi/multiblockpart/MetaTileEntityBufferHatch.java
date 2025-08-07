@@ -132,6 +132,11 @@ public class MetaTileEntityBufferHatch extends MetaTileEntityMultiblockPart impl
     public void addInformation(ItemStack stack, @Nullable World player, List<String> tooltip, boolean advanced) {
         tooltip.add(I18n.format("gtqtcore.machine.buffer_hatch.import.tooltip"));
         tooltip.add(I18n.format("gregtech.universal.disabled"));
+        if (canPartShare()) {
+            tooltip.add(I18n.format("gregtech.universal.enabled"));
+        } else {
+            tooltip.add(I18n.format("gregtech.universal.disabled"));
+        }
     }
 
     @Override

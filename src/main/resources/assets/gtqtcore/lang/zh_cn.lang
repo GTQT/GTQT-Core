@@ -6085,6 +6085,7 @@ gtqtcore.material.len_gold_dr=高纯金
 gtqtcore.material.rich_gold_bs=焙烧富集金含杂
 gtqtcore.material.rich_copper_js=沉浸富集铜混合
 
+tile.evaporation_bed.dirt.name=夯实土层
 recipemap.evaporation_pool.name=电热蒸发
 gtqtcore.machine.evaporation_pool.name=蒸发池
 gtqtcore.machine.evaporation_pool.tooltip.info=最大池底面积%1$sx%1$s，最小为%2$sx%2$s。查看JEI信息页面或Tooltip以获取详细信息。

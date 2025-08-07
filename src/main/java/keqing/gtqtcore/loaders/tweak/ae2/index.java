@@ -4,6 +4,8 @@ import gregtech.api.util.Mods;
 import net.minecraft.item.ItemStack;
 
 public class index {
+    //网络工具
+    public static ItemStack wirelessTool = Mods.AppliedEnergistics2.getItem("network_tool");
     //接口
     public static ItemStack controller = Mods.AppliedEnergistics2.getItem("controller");
     //驱动器

@@ -6096,6 +6096,7 @@ gtqtcore.material.len_gold_dr=High Purity Gold
 gtqtcore.material.rich_gold_bs=Roasted Enriched Gold Containing Impurities
 gtqtcore.material.rich_copper_js=Immersed Enriched Copper Mixture
 
+tile.evaporation_bed.dirt.name=Consolidate the soil layer
 recipemap.evaporation_pool.name=Electrothermal Evaporation
 gtqtcore.machine.evaporation_pool.name=Evaporation Pool
 gtqtcore.machine.evaporation_pool.tooltip.info=Max square of %1$sx%1$s, minimum %2$sx%2$s. Read info tab and tool info for more details.
