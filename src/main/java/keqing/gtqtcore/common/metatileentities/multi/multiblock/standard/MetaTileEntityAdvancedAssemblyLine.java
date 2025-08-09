@@ -424,7 +424,7 @@ public class MetaTileEntityAdvancedAssemblyLine extends GTQTNoTierMultiblockCont
     }
 
     @Override
-    public boolean shouldShowBatchModeButton() {
+    public boolean isBatchAllowed() {
         return false;
     }
 

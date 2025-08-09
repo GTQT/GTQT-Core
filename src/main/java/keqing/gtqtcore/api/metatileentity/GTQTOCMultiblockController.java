@@ -560,11 +560,6 @@ public abstract class GTQTOCMultiblockController extends MultiMapMultiblockContr
         else return customParallel + "/" + getMaxParallel();
     }
 
-    @Override
-    public boolean shouldShowBatchModeButton() {
-        return true;
-    }
-
     protected class GTQTOCMultiblockLogic extends ComputationRecipeLogic {
         public GTQTOCMultiblockLogic(RecipeMapMultiblockController tileEntity) {
             super(tileEntity, ComputationType.SPORADIC);

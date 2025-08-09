@@ -670,7 +670,7 @@ public class MetaTileEntityCompressedFusionReactor extends GTQTNoTierMultiblockC
     }
 
     @Override
-    public boolean shouldShowBatchModeButton() {
+    public boolean isBatchAllowed() {
         return false;
     }
 

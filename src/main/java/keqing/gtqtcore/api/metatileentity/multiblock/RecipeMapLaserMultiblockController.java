@@ -271,7 +271,7 @@ public abstract class RecipeMapLaserMultiblockController extends MultiblockWithD
     }
 
     public boolean canBeDistinct() {
-        return false;
+        return true;
     }
 
     public boolean isDistinct() {

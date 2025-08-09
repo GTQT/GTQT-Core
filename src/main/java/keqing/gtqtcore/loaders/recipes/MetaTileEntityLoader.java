@@ -1427,7 +1427,7 @@ public class MetaTileEntityLoader {
                 'S', CraftingComponent.SPRING,
                 'T', CraftingComponent.SAWBLADE,
                 'W', CraftingComponent.CABLE,
-                'O', CraftingComponent.DOUBLE_PLATE);
+                'O', CraftingComponent.CIRCUIT);
 
         //  Biomass Generator
         gregtech.loaders.recipe.MetaTileEntityLoader.registerMachineRecipe(true, ACID_GENERATOR,
@@ -1438,7 +1438,7 @@ public class MetaTileEntityLoader {
                 'S', CraftingComponent.SPRING,
                 'T', CraftingComponent.SAWBLADE,
                 'W', CraftingComponent.CABLE,
-                'O', CraftingComponent.DOUBLE_PLATE);
+                'O', CraftingComponent.CIRCUIT);
 
         //小等离子
         gregtech.loaders.recipe.MetaTileEntityLoader.registerMachineRecipe(true, PLASMA_GENERATOR,
