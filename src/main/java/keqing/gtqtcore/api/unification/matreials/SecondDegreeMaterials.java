@@ -1222,12 +1222,8 @@ public class SecondDegreeMaterials {
                 .build()
                 .setFormula("(CaCO3)(BaSO4)(H2O)2", true);
 
-        // 25022 Advanced Lubricant
-        AdvancedLubricant = new Material.Builder(getMaterialsId(), gtqtcoreId("advanced_lubricant"))
-                .liquid()
-                .color(0xAD968F)
-                .flags(DISABLE_DECOMPOSITION)
-                .build();
+        //todo
+        startId++;
 
         // 20045 Methoxycresol
         Methoxycreosol = new Material.Builder(getMaterialsId(), gtqtcoreId("methoxycreosol"))

@@ -143,26 +143,14 @@ public class MetaTileEntitySMSF extends MultiMapMultiblockController implements 
     }
 
     @Override
-    protected void addWarningText(List<ITextComponent> textList) {
-        super.addWarningText(textList);
-        if (isStructureFormed()) {
-            FluidStack lubricantStack = getInputFluidInventory().drain(Steam.getFluid(Integer.MAX_VALUE), false);
-            if (lubricantStack == null || lubricantStack.amount < 1000) {
-                textList.add(new TextComponentTranslation("gtqtcore.multiblock.sfm.no_water1"));
-            }
-        }
-    }
-
-    //这里是警告
-    @Override
     protected void configureWarningText(MultiblockUIBuilder builder) {
         super.configureWarningText(builder);
         builder.addCustom((manager, syncer) -> {
-            if (isStructureFormed()) {
-                FluidStack lubricantStack = getInputFluidInventory().drain(Steam.getFluid(Integer.MAX_VALUE), false);
-                if (lubricantStack == null || lubricantStack.amount < 1000) {
-                    manager.add(KeyUtil.lang(TextFormatting.RED,
-                            "gtqtcore.multiblock.sfm.no_water1"));
+            if (isStructureFormed() && getInputFluidInventory() != null) {
+                FluidStack fluidStack = getInputFluidInventory().drain(Steam.getFluid(Integer.MAX_VALUE), false);
+                int steamAmount = syncer.syncInt(fluidStack == null ? 0 : fluidStack.amount);
+                if (syncer.syncInt(steamAmount) == 0) {
+                    manager.add(KeyUtil.lang(TextFormatting.RED, "gtqtcore.multiblock.sfm.no_water1"));
                 }
             }
         });
@@ -205,7 +193,7 @@ public class MetaTileEntitySMSF extends MultiMapMultiblockController implements 
         }
 
         keyManager.add(KeyUtil.lang(TextFormatting.GREEN, "gtqtcore.msf.count2", syncer.syncDouble(steam[0] / 1000.0), syncer.syncDouble(steam[1] / 1000.0), syncer.syncDouble(steam[2] / 1000.0)));
-        if (getStatue()) keyManager.add(KeyUtil.lang(TextFormatting.GREEN,
+        if (syncer.syncBoolean(getStatue())) keyManager.add(KeyUtil.lang(TextFormatting.GREEN,
                 "gtqtcore.msf.good"));
         else keyManager.add(KeyUtil.lang(TextFormatting.YELLOW,
                 "gtqtcore.msf.no"));

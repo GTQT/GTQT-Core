@@ -597,14 +597,12 @@ public class MetaTileEntityMachine {
         ModHandler.removeRecipeByName("gregtech:gregtech.machine.distillery.uv");
         ModHandler.removeRecipeByName("gregtech:gregtech.machine.distillery.uhv");
 
-        Component HIGH_TIER_CIRCUIT = new Component(Stream.of(new Object[]{0, new UnificationEntry(OrePrefix.circuit, MarkerMaterials.Tier.LV)}, new Object[]{1, new UnificationEntry(OrePrefix.circuit, MarkerMaterials.Tier.MV)}, new Object[]{2, new UnificationEntry(OrePrefix.circuit, MarkerMaterials.Tier.HV)}, new Object[]{3, new UnificationEntry(OrePrefix.circuit, MarkerMaterials.Tier.EV)}, new Object[]{4, new UnificationEntry(OrePrefix.circuit, MarkerMaterials.Tier.IV)}, new Object[]{5, new UnificationEntry(OrePrefix.circuit, MarkerMaterials.Tier.LuV)}, new Object[]{6, new UnificationEntry(OrePrefix.circuit, MarkerMaterials.Tier.ZPM)}, new Object[]{7, new UnificationEntry(OrePrefix.circuit, MarkerMaterials.Tier.UV)}, new Object[]{8, new UnificationEntry(OrePrefix.circuit, MarkerMaterials.Tier.UHV)}, new Object[]{9, new UnificationEntry(OrePrefix.circuit, MarkerMaterials.Tier.UEV)}, new Object[]{10, new UnificationEntry(OrePrefix.circuit, MarkerMaterials.Tier.UIV)}, new Object[]{11, new UnificationEntry(OrePrefix.circuit, MarkerMaterials.Tier.UXV)}, new Object[]{12, new UnificationEntry(OrePrefix.circuit, MarkerMaterials.Tier.OpV)}, new Object[]{13, new UnificationEntry(OrePrefix.circuit, MarkerMaterials.Tier.MAX)}).collect(Collectors.toMap((data) -> (Integer) data[0], (data) -> data[1])));
-
         registerMachineRecipe(MetaTileEntities.DISTILLERY,
                 "GBG", "CMC", "WPW",
                 'M', CraftingComponent.HULL,
                 'P', PUMP,
                 'B', STICK_DISTILLATION,
-                'C', HIGH_TIER_CIRCUIT,
+                'C', HIGH_CIRCUIT,
                 'W', CABLE,
                 'G', GLASS);
     }

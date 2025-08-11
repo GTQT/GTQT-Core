@@ -109,7 +109,7 @@ public class AdvancedLubricantChain {
                 .fluidInputs(Lubricant.getFluid(1000))
                 .fluidInputs(TricresylPhosphate.getFluid(100))
                 .fluidInputs(PolyethyleneGlycol.getFluid(100))
-                .fluidOutputs(AdvancedLubricant.getFluid(6000))
+                .fluidOutputs(MolybdeniteLubricant.getFluid(6000))
                 .EUt(VA[IV])
                 .duration(10 * SECOND)
                 .buildAndRegister();

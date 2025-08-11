@@ -404,6 +404,7 @@ public class CommonProxy {
                     }
                 }
                 String a = switch (sb.toString()) {
+                    //筛选红砂岩 砂岩 过滤哦热
                     case "RedSandstone" -> "RedSand";
                     case "Sandstone" -> "Sand";
                     case "Stone" -> "";

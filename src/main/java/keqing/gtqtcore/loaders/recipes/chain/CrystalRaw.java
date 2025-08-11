@@ -121,7 +121,7 @@ public class CrystalRaw {
         ////////////////////////////////////////////////////////////////////
         BLAST_RECIPES.recipeBuilder()
                 .input(plate, Prasiolite)
-                .input(dust, Selenium)
+                .input(dust, AntimonyTelluride)
                 .input(RAW_CRYSTAL_CHIP)
                 .fluidInputs(Krypton.getFluid(1000))
                 .output(ENGRAVED_CRYSTAL_CHIP)
@@ -130,7 +130,7 @@ public class CrystalRaw {
 
         BLAST_RECIPES.recipeBuilder()
                 .input(plate, Prasiolite)
-                .input(dust, Selenium)
+                .input(dust, AntimonyTelluride)
                 .input(RAW_CRYSTAL_CHIP)
                 .fluidInputs(Krypton.getFluid(1000))
                 .output(ENGRAVED_CRYSTAL_CHIP)
@@ -141,7 +141,7 @@ public class CrystalRaw {
         LASER_ENGRAVING.recipeBuilder()
                 .input(ENGRAVED_CRYSTAL_CHIP)
                 .notConsumable(lens, MagnetoResonatic)
-                .fluidInputs(Naquadah.getFluid(144))
+                .fluidInputs(Duranium.getFluid(576))
                 .output(CRYSTAL_CENTRAL_PROCESSING_UNIT)
                 .cleanroom(STERILE_CLEANROOM)
                 .CWUt(CWT[IV])

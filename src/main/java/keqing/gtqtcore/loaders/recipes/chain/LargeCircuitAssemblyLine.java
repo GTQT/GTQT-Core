@@ -1,6 +1,7 @@
 package keqing.gtqtcore.loaders.recipes.chain;
 
 
+import keqing.gtqtcore.api.unification.GTQTMaterials;
 import net.minecraftforge.fluids.FluidStack;
 
 import static gregtech.api.GTValues.*;
@@ -55,6 +56,8 @@ public class LargeCircuitAssemblyLine {
 
         //  This recipe is not filled with enough slots, but we can separate some item to meet the visual effect.
         for (FluidStack stack : new FluidStack[] {
+                GTQTMaterials.MutatedLivingSolder.getFluid(18 * 64),
+                HighGradeSolderingAlloy.getFluid(36 * 64),
                 SolderingAlloy.getFluid(72 * 64),
                 Tin.getFluid(144 * 64)
         }) {
@@ -92,6 +95,8 @@ public class LargeCircuitAssemblyLine {
 
     private static void IntegratedCircuits() {
         for (FluidStack stack : new FluidStack[] {
+                GTQTMaterials.MutatedLivingSolder.getFluid(18 * 64),
+                HighGradeSolderingAlloy.getFluid(36 * 64),
                 SolderingAlloy.getFluid(72 * 64),
                 Tin.getFluid(144 * 64)
         }) {
@@ -144,6 +149,8 @@ public class LargeCircuitAssemblyLine {
 
     private static void ProcessorCircuits() {
         for (FluidStack stack : new FluidStack[] {
+                GTQTMaterials.MutatedLivingSolder.getFluid(18 * 64),
+                HighGradeSolderingAlloy.getFluid(36 * 64),
                 SolderingAlloy.getFluid(72 * 64),
                 Tin.getFluid(144 * 64)
         }) {
@@ -224,6 +231,8 @@ public class LargeCircuitAssemblyLine {
         }
 
         for (FluidStack stack : new FluidStack[] {
+                GTQTMaterials.MutatedLivingSolder.getFluid(36 * 64),
+                HighGradeSolderingAlloy.getFluid(72 * 64),
                 SolderingAlloy.getFluid(144 * 64),
                 Tin.getFluid(288 * 64)
         }) {
@@ -259,6 +268,8 @@ public class LargeCircuitAssemblyLine {
         }
 
         for (FluidStack stack : new FluidStack[] {
+                GTQTMaterials.MutatedLivingSolder.getFluid(72 * 64),
+                HighGradeSolderingAlloy.getFluid(144 * 64),
                 SolderingAlloy.getFluid(288 * 64),
                 Tin.getFluid(576 * 64)
         }) {
@@ -296,6 +307,8 @@ public class LargeCircuitAssemblyLine {
 
     private static void NanoCircuits() {
         for (FluidStack stack : new FluidStack[] {
+                GTQTMaterials.MutatedLivingSolder.getFluid(18 * 64),
+                HighGradeSolderingAlloy.getFluid(36 * 64),
                 SolderingAlloy.getFluid(72 * 64),
                 Tin.getFluid(144 * 64)
         }) {
@@ -346,6 +359,8 @@ public class LargeCircuitAssemblyLine {
         }
 
         for (FluidStack stack : new FluidStack[] {
+                GTQTMaterials.MutatedLivingSolder.getFluid(36 * 64),
+                HighGradeSolderingAlloy.getFluid(72 * 64),
                 SolderingAlloy.getFluid(144 * 64),
                 Tin.getFluid(288 * 64)
         }) {
@@ -411,6 +426,8 @@ public class LargeCircuitAssemblyLine {
         }
 
         for (FluidStack stack : new FluidStack[] {
+                GTQTMaterials.MutatedLivingSolder.getFluid(72 * 64),
+                HighGradeSolderingAlloy.getFluid(144 * 64),
                 SolderingAlloy.getFluid(288 * 64),
                 Tin.getFluid(576 * 64)
         }) {
@@ -448,6 +465,8 @@ public class LargeCircuitAssemblyLine {
 
     private static void QuantumCircuits() {
         for (FluidStack stack : new FluidStack[] {
+                GTQTMaterials.MutatedLivingSolder.getFluid(18 * 64),
+                HighGradeSolderingAlloy.getFluid(36 * 64),
                 SolderingAlloy.getFluid(72 * 64),
                 Tin.getFluid(144 * 64)
         }) {
@@ -498,6 +517,8 @@ public class LargeCircuitAssemblyLine {
         }
 
         for (FluidStack stack : new FluidStack[] {
+                GTQTMaterials.MutatedLivingSolder.getFluid(36 * 64),
+                HighGradeSolderingAlloy.getFluid(72 * 64),
                 SolderingAlloy.getFluid(144 * 64),
                 Tin.getFluid(288 * 64)
         }) {
@@ -563,6 +584,8 @@ public class LargeCircuitAssemblyLine {
         }
 
         for (FluidStack stack : new FluidStack[] {
+                GTQTMaterials.MutatedLivingSolder.getFluid(72 * 64),
+                HighGradeSolderingAlloy.getFluid(144 * 64),
                 SolderingAlloy.getFluid(288 * 64),
                 Tin.getFluid(576 * 64)
         }) {
@@ -600,6 +623,8 @@ public class LargeCircuitAssemblyLine {
 
     private static void CrystalCircuits() {
         for (FluidStack stack : new FluidStack[] {
+                GTQTMaterials.MutatedLivingSolder.getFluid(18 * 64),
+                HighGradeSolderingAlloy.getFluid(36 * 64),
                 SolderingAlloy.getFluid(72 * 64),
                 Tin.getFluid(144 * 64)
         }) {
@@ -635,6 +660,8 @@ public class LargeCircuitAssemblyLine {
         }
 
         for (FluidStack stack : new FluidStack[] {
+                GTQTMaterials.MutatedLivingSolder.getFluid(36 * 64),
+                HighGradeSolderingAlloy.getFluid(72 * 64),
                 SolderingAlloy.getFluid(144 * 64),
                 Tin.getFluid(288 * 64)
         }) {
@@ -675,6 +702,8 @@ public class LargeCircuitAssemblyLine {
 
     private static void WetwareCircuits() {
         for (FluidStack stack : new FluidStack[] {
+                GTQTMaterials.MutatedLivingSolder.getFluid(18 * 64),
+                HighGradeSolderingAlloy.getFluid(36 * 64),
                 SolderingAlloy.getFluid(72 * 64),
                 Tin.getFluid(144 * 64)
         }) {
@@ -710,6 +739,8 @@ public class LargeCircuitAssemblyLine {
         }
 
         for (FluidStack stack : new FluidStack[] {
+                GTQTMaterials.MutatedLivingSolder.getFluid(36 * 64),
+                HighGradeSolderingAlloy.getFluid(72 * 64),
                 SolderingAlloy.getFluid(144 * 64),
                 Tin.getFluid(288 * 64)
         }) {
@@ -735,6 +766,8 @@ public class LargeCircuitAssemblyLine {
 
     private static void GoowareCircuits() {
         for (FluidStack stack : new FluidStack[] {
+                GTQTMaterials.MutatedLivingSolder.getFluid(18 * 64),
+                HighGradeSolderingAlloy.getFluid(36 * 64),
                 SolderingAlloy.getFluid(72 * 64),
                 Tin.getFluid(144 * 64)
         }) {
@@ -770,6 +803,8 @@ public class LargeCircuitAssemblyLine {
         }
 
         for (FluidStack stack : new FluidStack[] {
+                GTQTMaterials.MutatedLivingSolder.getFluid(36 * 64),
+                HighGradeSolderingAlloy.getFluid(72 * 64),
                 SolderingAlloy.getFluid(144 * 64),
                 Tin.getFluid(288 * 64)
         }) {

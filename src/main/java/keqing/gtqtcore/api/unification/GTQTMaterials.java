@@ -869,7 +869,6 @@ public class GTQTMaterials {
     public static Material Creosol;
     public static Material TricresylPhosphate;
     public static Material PolyethyleneGlycol;
-    public static Material ChromiumDopedMolybdenite;
     public static Material PolyurethaneResin;
     public static Material NickelTetracarbonyl;
     public static Material PolyurethaneCatalystA;
@@ -880,7 +879,6 @@ public class GTQTMaterials {
     public static Material MercuryDibromide;
     public static Material Pentaerythritol;
     public static Material CrystalKevlar;
-    public static Material AdvancedLubricant;
     public static Material SuperGlue;
     public static Material UltraGlue;
     public static Material CyanoaceticAcid;

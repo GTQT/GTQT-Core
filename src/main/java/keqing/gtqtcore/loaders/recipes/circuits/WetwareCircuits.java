@@ -380,6 +380,13 @@ public class WetwareCircuits {
                         HIGHLY_ADVANCED_SOC.getStackForm(),
                         OreDictUnifier.get(wireFine, YttriumBariumCuprate, 8),
                         OreDictUnifier.get(bolt, Naquadah, 8)},
+                new FluidStack[]{HighGradeSolderingAlloy.getFluid(L / 4)});
+
+        removeRecipesByInputs(CIRCUIT_ASSEMBLER_RECIPES,
+                new ItemStack[]{NEURO_PROCESSOR.getStackForm(),
+                        HIGHLY_ADVANCED_SOC.getStackForm(),
+                        OreDictUnifier.get(wireFine, YttriumBariumCuprate, 8),
+                        OreDictUnifier.get(bolt, Naquadah, 8)},
                 new FluidStack[]{SolderingAlloy.getFluid(L / 2)});
 
         removeRecipesByInputs(CIRCUIT_ASSEMBLER_RECIPES,
