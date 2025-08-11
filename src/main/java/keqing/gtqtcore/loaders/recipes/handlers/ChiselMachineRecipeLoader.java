@@ -33,7 +33,7 @@ public class ChiselMachineRecipeLoader {
                 'W', CABLE,
                 'C', CONVEYOR,
                 'X', "craftingChisel",
-                'Y', CIRCUIT,
+                'Y', LOW_CIRCUIT,
                 'G', GLASS);
 
 
