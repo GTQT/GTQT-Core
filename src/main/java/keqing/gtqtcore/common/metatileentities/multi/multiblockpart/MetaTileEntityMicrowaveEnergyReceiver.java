@@ -6,7 +6,6 @@ import codechicken.lib.render.pipeline.IVertexOperation;
 import codechicken.lib.vec.Matrix4;
 import gregtech.api.capability.GregtechCapabilities;
 import gregtech.api.capability.GregtechDataCodes;
-import gregtech.api.capability.GregtechTileCapabilities;
 import gregtech.api.capability.IEnergyContainer;
 import gregtech.api.capability.impl.EnergyContainerHandler;
 import gregtech.api.gui.GuiTextures;
@@ -95,40 +94,33 @@ public class MetaTileEntityMicrowaveEnergyReceiver extends MetaTileEntity implem
 
         if (!active || Voltage <= 0 || Amperage <= 0) return;  // 检查工作状态
 
-        long ampsUsed = 0;
+        if (energyContainer.getEnergyStored() == 0) return;
+
         // 遍历所有方向传输能量
         for (EnumFacing facing : EnumFacing.VALUES) {
+            if (energyContainer.getEnergyStored() == 0) return;
+
+
             EnumFacing opposite = facing.getOpposite();
             TileEntity tile = getNeighbor(facing);
             if (tile == null) continue;
 
             // 尝试获取能量容器能力
-            IEnergyContainer container = tile.getCapability(
-                    GregtechCapabilities.CAPABILITY_ENERGY_CONTAINER, opposite);
-
-            // 如果未找到则尝试激光能力
-            if (container == null) {
-                container = tile.getCapability(
-                        GregtechTileCapabilities.CAPABILITY_LASER, opposite);
-            }
+            IEnergyContainer container = tile.getCapability(GregtechCapabilities.CAPABILITY_ENERGY_CONTAINER, opposite);
 
             // 验证容器有效性
-            if (container == null ||
-                    !container.inputsEnergy(opposite) ||
-                    container.getEnergyCanBeInserted() == 0) {
+            if (container == null || !container.inputsEnergy(opposite) || container.getEnergyCanBeInserted() == 0) {
                 continue;
             }
 
-            // 计算可传输的电流量（不超过剩余电流上限）
-            long availableAmps = Amperage - ampsUsed;
-            long transferredAmps = container.acceptEnergyFromNetwork(
-                    opposite,
-                    V[Voltage],
-                    availableAmps
-            );
 
-            ampsUsed += transferredAmps;
-            if (ampsUsed >= Amperage) break;  // 达到电流上限时停止
+            long acceptableAmps = Math.min(Amperage, container.getInputAmperage());
+            long acceptableVoltage = Math.min(V[Voltage], container.getInputVoltage());
+            long energyToAdd = Math.min(energyContainer.getEnergyStored(),
+                    acceptableVoltage * acceptableAmps);
+            container.addEnergy(energyToAdd);
+            energyContainer.changeEnergy(-energyToAdd);
+
         }
     }
 

@@ -96,7 +96,7 @@ public class GasChain {
 
         DISTILLATION_RECIPES.recipeBuilder()
                 .fluidInputs(MarsAir.getFluid(FluidStorageKeys.LIQUID, 10000))
-                .fluidOutputs(CarbonDioxide.getFluid(FluidStorageKeys.LIQUID, 2500))
+                .fluidOutputs(CarbonDioxide.getFluid(FluidStorageKeys.LIQUID, 7200))
                 .fluidOutputs(Argon.getFluid(FluidStorageKeys.LIQUID, 1000))
                 .fluidOutputs(Materials.Oxygen.getFluid(FluidStorageKeys.LIQUID, 750))
                 .fluidOutputs(Helium.getFluid(FluidStorageKeys.LIQUID, 750))
@@ -109,14 +109,14 @@ public class GasChain {
         //金星
         DISTILLATION_RECIPES.recipeBuilder()
                 .fluidInputs(VenusAir.getFluid(FluidStorageKeys.GAS, 10000))
-                .fluidOutputs(Oxygen.getFluid(72000))
-                .fluidOutputs(Carbon.getFluid(10000))
-                .fluidOutputs(Argon.getFluid(7500))
-                .fluidOutputs(Helium3.getFluid(7500))
-                .fluidOutputs(Radon.getFluid(2500))
-                .fluidOutputs(Hydrogen.getFluid(500))
-                .fluidOutputs(Nitrogen.getFluid(500))
-                .fluidOutputs(MagicGas.getFluid(500))
+                .fluidOutputs(Oxygen.getFluid(7200))
+                .fluidOutputs(Carbon.getFluid(1000))
+                .fluidOutputs(Argon.getFluid(750))
+                .fluidOutputs(Helium3.getFluid(750))
+                .fluidOutputs(Radon.getFluid(250))
+                .fluidOutputs(Hydrogen.getFluid(50))
+                .fluidOutputs(Nitrogen.getFluid(50))
+                .fluidOutputs(MagicGas.getFluid(50))
                 .duration(2000).EUt(120).buildAndRegister();
 
         DISTILLATION_RECIPES.recipeBuilder()
