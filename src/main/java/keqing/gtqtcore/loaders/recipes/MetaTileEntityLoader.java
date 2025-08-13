@@ -31,10 +31,10 @@ import static gregicality.multiblocks.api.unification.GCYMMaterials.MolybdenumDi
 import static gregicality.multiblocks.api.unification.GCYMMaterials.Stellite100;
 import static gregicality.multiblocks.common.metatileentities.GCYMMetaTileEntities.LARGE_ASSEMBLER;
 import static gregicality.multiblocks.common.metatileentities.GCYMMetaTileEntities.LARGE_DISTILLERY;
+import static gregtech.api.GTValues.*;
 import static gregtech.api.GTValues.EV;
 import static gregtech.api.GTValues.LuV;
 import static gregtech.api.GTValues.UV;
-import static gregtech.api.GTValues.*;
 import static gregtech.api.recipes.RecipeMaps.*;
 import static gregtech.api.unification.material.MarkerMaterials.Tier.HV;
 import static gregtech.api.unification.material.MarkerMaterials.Tier.LV;
@@ -58,10 +58,10 @@ import static keqing.gtqtcore.common.block.blocks.BlockCrucible.CrucibleType.QUA
 import static keqing.gtqtcore.common.block.blocks.BlockIsaCasing.CasingType.ASEPTIC_FARM_CASING;
 import static keqing.gtqtcore.common.block.blocks.BlockMultiblockCasing4.TurbineCasingType.ADVANCED_FILTER_CASING;
 import static keqing.gtqtcore.common.items.GTQTMetaItems.*;
+import static keqing.gtqtcore.common.metatileentities.GTQTMetaTileEntities.*;
 import static keqing.gtqtcore.common.metatileentities.GTQTMetaTileEntities.DISTILLATION_TOWER;
 import static keqing.gtqtcore.common.metatileentities.GTQTMetaTileEntities.GAS_COLLECTOR;
 import static keqing.gtqtcore.common.metatileentities.GTQTMetaTileEntities.PYROLYSE_OVEN;
-import static keqing.gtqtcore.common.metatileentities.GTQTMetaTileEntities.*;
 import static net.minecraft.init.Blocks.FURNACE;
 import static net.minecraft.init.Blocks.IRON_BARS;
 import static supercritical.common.metatileentities.SCMetaTileEntities.DECAY_CHAMBER;
@@ -531,44 +531,6 @@ public class MetaTileEntityLoader {
                 'P', ROBOT_ARM_LuV.getStackForm(),
                 'H', MetaTileEntities.HULL[6].getStackForm()
         );
-
-        ASSEMBLER_RECIPES.recipeBuilder()
-                .circuitMeta(1)
-                .input(ITEM_IMPORT_BUS[GTValues.ULV])
-                .input(gear, Steel, 4)
-                .input(plate, Aluminium, 16)
-                .input(wireFine, Tin, 8)
-                .fluidInputs(SolderingAlloy.getFluid(L * 4))
-                .output(SINGLE_ITEM_INPUT_BUS)
-                .EUt(VA[GTValues.LV])
-                .duration(10 * SECOND)
-                .buildAndRegister();
-
-        //  Single Input Bus
-        ASSEMBLER_RECIPES.recipeBuilder()
-                .circuitMeta(1)
-                .input(ITEM_IMPORT_BUS[GTValues.LV])
-                .input(gear, Steel, 4)
-                .input(plate, Aluminium, 16)
-                .input(wireFine, Tin, 8)
-                .fluidInputs(SolderingAlloy.getFluid(L * 4))
-                .output(SINGLE_INPUT_BUS)
-                .EUt(VA[GTValues.LV])
-                .duration(10 * SECOND)
-                .buildAndRegister();
-
-        //  Super Input Bus
-        ASSEMBLER_RECIPES.recipeBuilder()
-                .circuitMeta(2)
-                .input(ITEM_IMPORT_BUS[GTValues.HV])
-                .input(gear, StainlessSteel, 4)
-                .input(plate, Titanium, 16)
-                .input(wireFine, Platinum, 8)
-                .fluidInputs(SolderingAlloy.getFluid(L * 8))
-                .output(SUPER_INPUT_BUS)
-                .EUt(VA[GTValues.HV])
-                .duration(15 * SECOND)
-                .buildAndRegister();
 
         ModHandler.addShapedRecipe(true, "bio_hatch", BIO_HATCH.getStackForm(),
                 "MhM", "PHP", "McM",

@@ -6648,21 +6648,6 @@ gtqtcore.machine.air_intake_hatch.tooltip.2=正前方必须是空气方块不可
 gtqtcore.machine.air_intake_hatch.tooltip.3=§b空气产出：§f%s/次§7
 gtqtcore.machine.air_intake_hatch.tooltip.4=§9最大容量：§f%s L§7
 
-gtqtcore.machine.single_item_input_bus.name=Single Item Input Bus
-gtqtcore.machine.single_item_input_bus.stack_size=§6Max stack size: §f%,d
-gtqtcore.machine.single_input_bus.name=Super Single Input Bus
-gtqtcore.machine.super_input_bus.name=Super Input Bus
-gtqtcore.machine.super_input_bus.tooltip=Has 16 slots but can hold up to MAX_INT items per slot!
-gtqtcore.machine.super_input_bus.return_items.button.enabled=Stop returning items
-gtqtcore.machine.super_input_bus.return_items.button.disabled=Click to return items to the faced block
-gtqtcore.machine.super_input_bus.return_items.screwdriver.enabled=Started returning items
-gtqtcore.machine.super_input_bus.return_items.screwdriver.disabled=Stopped returning items
-gtqtcore.machine.super_input_bus.auto_pull.enabled=Item auto pulling enabled
-gtqtcore.machine.super_input_bus.auto_pull.disabled=Item auto pulling disabled
-gtqtcore.machine.super_input_bus.slot_limit=Set slot limit
-gtqtcore.machine.super_input_bus.screwdriver=§8Use Screwdriver to toggle sending item back to the faced block
-gtqtcore.machine.super_input_bus.soft_mallet=§8use Soft mallet to toggle auto pulling items
-
 itemGroup.gtqtcore=GTQT| Misc
 itemGroup.gtqtbio=GTQT| Bioengineering
 itemGroup.gtqtae=GTQT| Applied Energistics

@@ -6634,21 +6634,6 @@ gtqtcore.machine.air_intake_hatch.tooltip.2=正前方必须是空气方块不可
 gtqtcore.machine.air_intake_hatch.tooltip.3=§b空气产出：§f%s/次§7
 gtqtcore.machine.air_intake_hatch.tooltip.4=§9最大容量：§f%s L§7
 
-gtqtcore.machine.single_item_input_bus.name=单物品输入总线
-gtqtcore.machine.single_item_input_bus.stack_size=§6最大堆叠数量: §f%,d
-gtqtcore.machine.single_input_bus.name=超级单槽输入总线
-gtqtcore.machine.super_input_bus.name=超级输入总线
-gtqtcore.machine.super_input_bus.tooltip=有 16 个槽位，但每个槽位可以容纳多达 MAX_INT 个物品！
-gtqtcore.machine.super_input_bus.return_items.button.enabled=停止返回物品
-gtqtcore.machine.super_input_bus.return_items.button.disabled=点击将物品返回到面对的方块
-gtqtcore.machine.super_input_bus.return_items.screwdriver.enabled=已开始返回物品
-gtqtcore.machine.super_input_bus.return_items.screwdriver.disabled=已停止返回物品
-gtqtcore.machine.super_input_bus.auto_pull.enabled=已启用物品自动拉取
-gtqtcore.machine.super_input_bus.auto_pull.disabled=已禁用物品自动拉取
-gtqtcore.machine.super_input_bus.slot_limit=设置槽位限制
-gtqtcore.machine.super_input_bus.screwdriver=§8使用螺丝刀切换将物品送回面对的方块
-gtqtcore.machine.super_input_bus.soft_mallet=§8使用软锤切换自动拉取物品
-
 itemGroup.gtqtcore=量子跃迁 | 杂项
 itemGroup.gtqtbio=量子跃迁 | 生物工程
 itemGroup.gtqtae=量子跃迁 | 应用能源

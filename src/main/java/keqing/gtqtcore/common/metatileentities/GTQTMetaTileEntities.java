@@ -30,21 +30,24 @@ import keqing.gtqtcore.common.metatileentities.multi.multiblock.primitive.MetaTi
 import keqing.gtqtcore.common.metatileentities.multi.multiblock.primitive.MetaTileEntityPrimitiveTreeFarmer;
 import keqing.gtqtcore.common.metatileentities.multi.multiblock.standard.LaserSystem.*;
 import keqing.gtqtcore.common.metatileentities.multi.multiblock.standard.*;
+import keqing.gtqtcore.common.metatileentities.multi.multiblock.standard.ResearchSystem.*;
 import keqing.gtqtcore.common.metatileentities.multi.multiblock.standard.endGame.*;
 import keqing.gtqtcore.common.metatileentities.multi.multiblock.standard.gcys.*;
-import keqing.gtqtcore.common.metatileentities.multi.multiblock.standard.giantEquipment.*;
+import keqing.gtqtcore.common.metatileentities.multi.multiblock.standard.giantEquipment.MetaTileEntityAdvancedFusionReactor;
+import keqing.gtqtcore.common.metatileentities.multi.multiblock.standard.giantEquipment.MetaTileEntityHugeBlastFurnace;
+import keqing.gtqtcore.common.metatileentities.multi.multiblock.standard.giantEquipment.MetaTileEntityHugeChemicalReactor;
+import keqing.gtqtcore.common.metatileentities.multi.multiblock.standard.giantEquipment.MetaTileEntityHugeCrackingUnit;
 import keqing.gtqtcore.common.metatileentities.multi.multiblock.standard.heatExchanger.MetaTileEntityHeatExchanger;
 import keqing.gtqtcore.common.metatileentities.multi.multiblock.standard.heatExchanger.MetaTileEntityLargeHeatExchanger;
 import keqing.gtqtcore.common.metatileentities.multi.multiblock.standard.heatExchanger.MetaTileEntitySmallHeatExchanger;
 import keqing.gtqtcore.common.metatileentities.multi.multiblock.standard.heatSystem.*;
-import keqing.gtqtcore.common.metatileentities.multi.multiblock.standard.ResearchSystem.*;
-import keqing.gtqtcore.common.metatileentities.multi.multiblock.standard.updateSystem.*;
 import keqing.gtqtcore.common.metatileentities.multi.multiblock.standard.pressureSystem.MetaTileEntityAxialCompressor;
 import keqing.gtqtcore.common.metatileentities.multi.multiblock.standard.pressureSystem.MetaTileEntityPressureTank;
 import keqing.gtqtcore.common.metatileentities.multi.multiblock.standard.pressureSystem.MetaTileEntityTurbomolecularPump;
 import keqing.gtqtcore.common.metatileentities.multi.multiblock.standard.resourceCollection.MetaTileEntityAdvancedFluidDrill;
 import keqing.gtqtcore.common.metatileentities.multi.multiblock.standard.resourceCollection.MetaTileEntityAdvancedLargeMiner;
 import keqing.gtqtcore.common.metatileentities.multi.multiblock.standard.resourceCollection.MetaTileEntityVoidMiner;
+import keqing.gtqtcore.common.metatileentities.multi.multiblock.standard.updateSystem.*;
 import keqing.gtqtcore.common.metatileentities.multi.multiblockpart.*;
 import keqing.gtqtcore.common.metatileentities.single.electric.*;
 import keqing.gtqtcore.common.metatileentities.single.steam.MetaTileEntityCreativePressurePump;
@@ -55,8 +58,8 @@ import keqing.gtqtcore.common.metatileentities.storage.*;
 import net.minecraftforge.fluids.capability.CapabilityFluidHandler;
 import net.minecraftforge.items.CapabilityItemHandler;
 
-import static gregtech.api.GTValues.UHV;
 import static gregtech.api.GTValues.*;
+import static gregtech.api.GTValues.UHV;
 import static gregtech.api.unification.material.Materials.*;
 import static gregtech.common.metatileentities.MetaTileEntities.registerMetaTileEntity;
 import static gregtech.common.metatileentities.MetaTileEntities.registerSimpleMetaTileEntity;
@@ -70,8 +73,8 @@ import static keqing.gtqtcore.api.utils.MultiblockRegistryHelper.registerSimpleS
 import static keqing.gtqtcore.client.textures.GTQTTextures.*;
 import static keqing.gtqtcore.common.block.blocks.BlockCompressedFusionReactor.CasingType.*;
 import static keqing.gtqtcore.common.block.blocks.BlockMultiblockCasing1.CasingType.HastelloyX78;
-import static keqing.gtqtcore.common.block.blocks.BlockMultiblockCasing3.CasingType.HC_ALLOY_CASING;
 import static keqing.gtqtcore.common.block.blocks.BlockMultiblockCasing3.CasingType.*;
+import static keqing.gtqtcore.common.block.blocks.BlockMultiblockCasing3.CasingType.HC_ALLOY_CASING;
 
 public class GTQTMetaTileEntities {
 
@@ -204,9 +207,6 @@ public class GTQTMetaTileEntities {
     public static MetaTileEntityAirIntakeHatch AIR_INTAKE_HATCH;
     public static MetaTileEntityAirIntakeHatch EXTREME_AIR_INTAKE_HATCH;
     public static MetaTileEntityAirIntakeHatch ULTIMATE_AIR_INTAKE_HATCH;
-    public static MetaTileEntitySingleItemInputBus SINGLE_ITEM_INPUT_BUS;
-    public static MetaTileEntitySuperInputBus SUPER_INPUT_BUS;
-    public static MetaTileEntitySingleInputBus SINGLE_INPUT_BUS;
     public static MetaTileEntitySteamLatexCollector[] STEAM_LATEX_COLLECTOR = new MetaTileEntitySteamLatexCollector[2];
     public static MetaTileEntityLatexCollector[] LATEX_COLLECTOR = new MetaTileEntityLatexCollector[4];
     public static SimpleMachineMetaTileEntity[] ULTRAVIOLET_LAMP_CHAMBER = new SimpleMachineMetaTileEntity[GTValues.V.length - 1];
@@ -834,11 +834,6 @@ public class GTQTMetaTileEntities {
         ULTIMATE_AIR_INTAKE_HATCH = registerMetaTileEntity(1667,
                 new MetaTileEntityAirIntakeHatch(
                         gtqtcoreId("ultimate_air_intake_hatch"), UHV));
-
-        SINGLE_ITEM_INPUT_BUS = registerMetaTileEntity(1670, new MetaTileEntitySingleItemInputBus(gtqtcoreId("single_item_input_bus")));
-        SUPER_INPUT_BUS = registerMetaTileEntity(1671, new MetaTileEntitySuperInputBus(gtqtcoreId("super_input_bus")));
-        SINGLE_INPUT_BUS = registerMetaTileEntity(1672, new MetaTileEntitySingleInputBus(gtqtcoreId("single_input_bus")));
-
         GENERATOR_HATCH = registerMetaTileEntity(1675, new MetaTileEntityGeneratorHatch(gtqtcoreId("generator_hatch"), 2));
 
         ISO3_CLEANING_MAINTENANCE_HATCH = registerMetaTileEntity(1677, new MetaTileEntityISO3CleaningMaintenanceHatch(gtqtcoreId("maintenance_hatch_iso_3_cleanroom_auto")));
