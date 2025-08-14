@@ -537,6 +537,65 @@ metaitem.crystal.system_on_chip.socket.name=Crystal SOC Socket
 metaitem.crystal.system_on_chip.socket.tooltip=Bridging Crystal and Circuit
 
 # Wetware Stuff
+
+metaitem.tool.circuit_pattern.name=Circuit Pattern
+metaitem.tool.circuit_pattern.tooltip=Used to provide etched infos for §6Circuit Assembly Line§7.
+metaitem.tool.circuit_pattern.type=§eEtched Type: §f%s§7
+metaitem.tool.circuit_pattern.type.empty=§eEtched Type: §fEmpty§7
+metaitem.tool.circuit_pattern.type.circuit.vacuum_tube=Vacuum Tube
+metaitem.tool.circuit_pattern.type.circuit.nand_chip=NAND Chip
+metaitem.tool.circuit_pattern.type.circuit.electronic=Electronic Circuit
+metaitem.tool.circuit_pattern.type.circuit.basic_integrated=Integrated Logic Circuit
+metaitem.tool.circuit_pattern.type.circuit.microprocessor=Microprocessor
+metaitem.tool.circuit_pattern.type.circuit.good_electronic=Good Electronic Circuit
+metaitem.tool.circuit_pattern.type.circuit.good_integrated=Good Integrated Circuit
+metaitem.tool.circuit_pattern.type.circuit.processor=Integrated Processor
+metaitem.tool.circuit_pattern.type.circuit.advanced_integrated=Advanced Integrated Circuit
+metaitem.tool.circuit_pattern.type.circuit.assembly=Processor Assembly
+metaitem.tool.circuit_pattern.type.circuit.nano_processor=Nano Processor
+metaitem.tool.circuit_pattern.type.circuit.workstation=Workstation
+metaitem.tool.circuit_pattern.type.circuit.nano_assembly=Nano Assembly
+metaitem.tool.circuit_pattern.type.circuit.quantum_processor=Quantum Processor
+metaitem.tool.circuit_pattern.type.circuit.mainframe=Mainframe
+metaitem.tool.circuit_pattern.type.circuit.nano_computer=Nano Supercomputer
+metaitem.tool.circuit_pattern.type.circuit.quantum_assembly=Quantum Assembly
+metaitem.tool.circuit_pattern.type.circuit.crystal_processor=Crystal Processor
+metaitem.tool.circuit_pattern.type.circuit.nano_mainframe=Nano Mainframe
+metaitem.tool.circuit_pattern.type.circuit.quantum_computer=Quantum Supercomputer
+metaitem.tool.circuit_pattern.type.circuit.crystal_assembly=Crystal Assembly
+metaitem.tool.circuit_pattern.type.circuit.wetware_processor=Wetware Processor
+metaitem.tool.circuit_pattern.type.circuit.quantum_mainframe=Quantum Mainframe
+metaitem.tool.circuit_pattern.type.circuit.crystal_computer=Crystal Supercomputer
+metaitem.tool.circuit_pattern.type.circuit.wetware_assembly=Wetware Assembly
+metaitem.tool.circuit_pattern.type.circuit.gooware_processor=Gooware Processor
+metaitem.tool.circuit_pattern.type.circuit.crystal_mainframe=Crystal Mainframe
+metaitem.tool.circuit_pattern.type.circuit.wetware_computer=Wetware Supercomputer
+metaitem.tool.circuit_pattern.type.circuit.gooware_assembly=Gooware Assembly
+metaitem.tool.circuit_pattern.type.circuit.optical_processor=Optical IMC Processor
+metaitem.tool.circuit_pattern.type.circuit.wetware_mainframe=Wetware Mainframes
+metaitem.tool.circuit_pattern.type.circuit.gooware_computer=Gooware Supercomputer
+metaitem.tool.circuit_pattern.type.circuit.optical_assembly=Optical IMC Assembly
+metaitem.tool.circuit_pattern.type.circuit.spintronic_processor=Spintronic IMC Processor
+metaitem.tool.circuit_pattern.type.circuit.gooware_mainframe=Gooware Mainframes
+metaitem.tool.circuit_pattern.type.circuit.optical_computer=Optical IMC Supercomputer
+metaitem.tool.circuit_pattern.type.circuit.spintronic_assembly=Spintronic IMC Assembly
+metaitem.tool.circuit_pattern.type.circuit.cosmic_processor=Cosmic Planetary Processor Complex
+metaitem.tool.circuit_pattern.type.circuit.optical_mainframe=Optical IMC Mainframes
+metaitem.tool.circuit_pattern.type.circuit.spintronic_computer=Spintronic IMC Supercomputer
+metaitem.tool.circuit_pattern.type.circuit.cosmic_assembly=Cosmic Planetary Assembly Complex
+metaitem.tool.circuit_pattern.type.circuit.supracausal_processor=Supracausal Interstellar Processor Complex
+metaitem.tool.circuit_pattern.type.circuit.spintronic_mainframe=Spintronic IMC Mainframe
+metaitem.tool.circuit_pattern.type.circuit.cosmic_computer=Cosmic Planetary Supercomputer Complex
+metaitem.tool.circuit_pattern.type.circuit.supracausal_assembly=Supracausal Interstellar Assembly Complex
+metaitem.tool.circuit_pattern.type.circuit.cosmic_mainframe=Cosmic Planetary Mainframe Complex
+metaitem.tool.circuit_pattern.type.circuit.supracausal_computer=Supracausal Interstellar Supercomputer Complex
+metaitem.tool.circuit_pattern.type.circuit.supracausal_mainframe=Supracausal Interstellar Mainframe Complex
+
+metaitem.tool.circuit_pattern.type.circuit.component.diamond_modulator=Diamond Modulator
+metaitem.tool.circuit_pattern.type.circuit.component.ruby_modulator=Ruby Modulator
+metaitem.tool.circuit_pattern.type.circuit.component.sapphire_modulator=Sapphire Modulator
+metaitem.tool.circuit_pattern.type.circuit.component.crystal_system_on_chip_socket=Crystal SoC Socket
+
 metaitem.magnetron.name=Magnetron
 metaitem.spinner.name=Spinner
 

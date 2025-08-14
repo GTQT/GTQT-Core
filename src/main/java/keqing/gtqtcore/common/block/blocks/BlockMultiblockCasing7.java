@@ -36,7 +36,9 @@ public class BlockMultiblockCasing7 extends VariantBlock<BlockMultiblockCasing7.
         MAGNETIC_FIELD_CASING("magnetic_field_casing",5),
         GRAVITY_STABILIZATION_CASING("gravity_stabilization_casing",5),
         PROTOMATTER_ACTIVATION_COIL("protomatter_activation_coil",5),
-        ANTIMATTER_ANNIHILATION_MATRIX("antimatter_annihilation_matrix",5);
+        ANTIMATTER_ANNIHILATION_MATRIX("antimatter_annihilation_matrix", 5),
+        ELECTROMAGNETIC_ACCELERATION_PIPE_BOX("electromagnetic_acceleration_pipe_box", 5),
+        ADVANCED_ELECTROMAGNETIC_ACCELERATION_PIPE_BOX("advanced_electromagnetic_acceleration_pipe_box", 5);
 
         private final String name;
         private final int harvestLevel;

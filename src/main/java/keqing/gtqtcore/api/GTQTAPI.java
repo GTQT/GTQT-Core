@@ -1,7 +1,7 @@
 package keqing.gtqtcore.api;
 
-import gregtech.common.blocks.BlockFireboxCasing;
 import gregtech.common.blocks.*;
+import gregtech.common.blocks.BlockFireboxCasing;
 import it.unimi.dsi.fastutil.objects.Object2ObjectOpenHashMap;
 import keqing.gtqtcore.api.blocks.IBlockTier;
 import keqing.gtqtcore.api.blocks.impl.WrappedIntTired;
@@ -10,11 +10,12 @@ import keqing.gtqtcore.common.block.GTQTMetaBlocks;
 import keqing.gtqtcore.common.block.blocks.*;
 import net.minecraft.block.state.IBlockState;
 
+import static gregtech.common.blocks.BlockFusionCasing.CasingType.FUSION_COIL;
+import static gregtech.common.blocks.BlockFusionCasing.CasingType.SUPERCONDUCTOR_COIL;
 import static keqing.gtqtcore.common.block.GTQTMetaBlocks.*;
 import static keqing.gtqtcore.common.block.blocks.BlockCompressedFusionReactor.CasingType.*;
 import static keqing.gtqtcore.common.block.blocks.BlockElectrolyticMicroscope.CasingType.*;
 import static keqing.gtqtcore.common.block.blocks.BlockGravitonCasing.GravitonCasingType.*;
-import static keqing.gtqtcore.common.block.blocks.BlockMultiblockCasing.CasingType.*;
 import static keqing.gtqtcore.common.block.blocks.BlockQuantumCasing.CasingType.*;
 
 public class GTQTAPI {
@@ -87,10 +88,10 @@ public class GTQTAPI {
                 new WrappedIntTired(SOURSE_V, 5));
 
         //  Fusion Coil
-        MAP_FUSION_COIL.put(MetaBlocks.FUSION_CASING.getState(gregtech.common.blocks.BlockFusionCasing.CasingType.SUPERCONDUCTOR_COIL),
-                new WrappedIntTired(gregtech.common.blocks.BlockFusionCasing.CasingType.SUPERCONDUCTOR_COIL, 1));
-        MAP_FUSION_COIL.put(MetaBlocks.FUSION_CASING.getState(gregtech.common.blocks.BlockFusionCasing.CasingType.FUSION_COIL),
-                new WrappedIntTired(gregtech.common.blocks.BlockFusionCasing.CasingType.FUSION_COIL, 2));
+        MAP_FUSION_COIL.put(MetaBlocks.FUSION_CASING.getState(SUPERCONDUCTOR_COIL),
+                new WrappedIntTired(SUPERCONDUCTOR_COIL, 1));
+        MAP_FUSION_COIL.put(MetaBlocks.FUSION_CASING.getState(FUSION_COIL),
+                new WrappedIntTired(FUSION_COIL, 2));
 
         MAP_FUSION_COIL.put(GTQTMetaBlocks.blockCompressedFusionReactor.getState(FUSION_COIL_MKII),
                 new WrappedIntTired(FUSION_COIL_MKII, 3));
@@ -113,12 +114,16 @@ public class GTQTAPI {
         MAP_ND_CASING.put(blockGravitonCasing.getState(CENTRAL_GRAVITON_FLOW_MODULATOR),
                 new WrappedIntTired(CENTRAL_GRAVITON_FLOW_MODULATOR, 3));
 
-        MAP_FU_CASING.put(blockMultiblockCasing.getState(MACHINE_CASING_FUSION),
-                new WrappedIntTired(MACHINE_CASING_FUSION, 1));
-        MAP_FU_CASING.put(blockMultiblockCasing.getState(MACHINE_CASING_FUSION_2),
-                new WrappedIntTired(MACHINE_CASING_FUSION_2, 2));
-        MAP_FU_CASING.put(blockMultiblockCasing.getState(MACHINE_CASING_FUSION_3),
-                new WrappedIntTired(MACHINE_CASING_FUSION_3, 3));
+        MAP_FU_CASING.put(MetaBlocks.FUSION_CASING.getState(SUPERCONDUCTOR_COIL),
+                new WrappedIntTired(SUPERCONDUCTOR_COIL, 1));
+        MAP_FU_CASING.put(MetaBlocks.FUSION_CASING.getState(FUSION_COIL),
+                new WrappedIntTired(FUSION_COIL, 2));
+        MAP_FU_CASING.put(GTQTMetaBlocks.blockCompressedFusionReactor.getState(FUSION_COIL_MKII),
+                new WrappedIntTired(FUSION_COIL_MKII, 3));
+        MAP_FU_CASING.put(GTQTMetaBlocks.blockCompressedFusionReactor.getState(FUSION_COIL_MKIII),
+                new WrappedIntTired(FUSION_COIL_MKIII, 4));
+        MAP_FU_CASING.put(GTQTMetaBlocks.blockCompressedFusionReactor.getState(FUSION_COIL_MKIV),
+                new WrappedIntTired(FUSION_COIL_MKIV, 5));
 
         MAP_PA_CASING.put(GTQTMetaBlocks.blockMultiblockCasing5.getState(BlockMultiblockCasing5.TurbineCasingType.PRECISE_ASSEMBLER_CASING_MK1),
                 new WrappedIntTired(BlockMultiblockCasing5.TurbineCasingType.PRECISE_ASSEMBLER_CASING_MK1, 1));

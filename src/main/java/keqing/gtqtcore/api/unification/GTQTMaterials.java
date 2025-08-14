@@ -505,6 +505,7 @@ public class GTQTMaterials {
     public static Material CrudeUniverse;
     public static Material ActiniumSuperhydride;
     public static Material TriniumTitanium;
+    public static Material HydroselenicAcid;
     public static Material Enzymesa;
     public static Material Enzymesb;
     public static Material Enzymesc;
@@ -863,6 +864,7 @@ public class GTQTMaterials {
     public static Material DrillingMud;
     public static Material UsedDrillingMud;
     public static Material CalciteBariteSlurry;
+    public static Material HydroxyquinolineAluminium;
     public static Material Methoxycreosol;
     public static Material CreosolMixture;
     public static Material Xylenol;
@@ -1076,6 +1078,7 @@ public class GTQTMaterials {
     public static Material ManganeseDifluoride;
     public static Material CalciumCarbide;
     public static Material CalciumHydroxide;
+    public static Material Hydroxyquinoline;
     public static Material ChlorosulfuricAcid;
     public static Material SodiumCyanide;
     public static Material CubicZirconia;
@@ -1215,7 +1218,6 @@ public class GTQTMaterials {
     public static Material ParaXylene;
     public static Material Durene;
     public static Material PyromelliticDianhydride;
-    public static Material Aminophenol;
     public static Material Dimethylformamide;
     public static Material Oxydianiline;
     public static Material KaptonK;
@@ -1399,7 +1401,9 @@ public class GTQTMaterials {
     public static Material AdipicAcid;
     public static Material NitrousAcid;
     public static Material BariumOxide;
+    public static Material CopperGalliumIndiumSelenide;
     public static Material BariumHydroxide;
+    public static Material SamariumCobalt;
     public static Material Cyclopentanone;
     public static Material BenzenesulfonicAcid;
     public static Material TriphenylsulfoniumHexafluoroantimonate;

@@ -34,7 +34,7 @@ public class GTQTGuiTextures {
     public static final TextureArea PROGRESS_BAR_FOCUSING = TextureArea.fullImage("textures/gui/progress_bar/progress_bar_focusing.png");
     public static final TextureArea PROGRESS_BAR_CHISEL = TextureArea.fullImage("textures/gui/progress_bar/progress_bar_chisel.png");
     public static final TextureArea PROGRESS_BAR_REACTION = TextureArea.fullImage("textures/gui/progress_bar/progress_bar_reaction.png");
-
+    public static final TextureArea PROGRESS_BAR_NOVA_EXPLOSION = TextureArea.fullImage("textures/gui/progress_bar/progress_bar_nova_explosion.png");
     // FUSION
     public static final TextureArea FUSION_REACTOR_MK4_TITLE_MUI = TextureArea.fullImage("textures/gui/widget/fusion_reactor_mkiv_title.png");
     public static final TextureArea FUSION_REACTOR_MK5_TITLE_MUI = TextureArea.fullImage("textures/gui/widget/fusion_reactor_mkv_title.png");

@@ -33,8 +33,6 @@ import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
 
 import java.util.Collection;
-import java.util.stream.Collectors;
-import java.util.stream.Stream;
 
 import static gregicality.multiblocks.api.unification.GCYMMaterials.WatertightSteel;
 import static gregtech.api.GTValues.*;
@@ -50,7 +48,7 @@ import static gregtech.loaders.recipe.CraftingComponent.*;
 import static gregtech.loaders.recipe.MetaTileEntityLoader.registerMachineRecipe;
 import static gtqt.api.util.MaterialHelper.Cable;
 import static keqing.gtqtcore.api.unification.GTQTMaterials.*;
-import static keqing.gtqtcore.api.unification.MaterialHelper.*;
+import static keqing.gtqtcore.api.unification.MaterialHelper.MachineCasing;
 import static keqing.gtqtcore.api.unification.ore.GTQTOrePrefix.plate_curved;
 import static keqing.gtqtcore.common.block.blocks.BlockMultiblockCasing4.TurbineCasingType.FISHING_CASING;
 import static keqing.gtqtcore.common.block.blocks.BlockMultiblockCasing5.TurbineCasingType.*;
@@ -215,6 +213,15 @@ public class MetaTileEntityMachine {
                 .output(dust, Soularium, 2)
                 .duration(200).EUt(VA[MV]).buildAndRegister();
 
+        // Samarium Cobalt
+        MIXER_RECIPES.recipeBuilder()
+                .circuitMeta(2)
+                .input(dust, Samarium)
+                .input(dust, Cobalt, 5)
+                .output(dust, SamariumCobalt, 6)
+                .EUt(VA[LuV])
+                .duration(5 * SECOND)
+                .buildAndRegister();
         /*
         MIXER_RECIPES.recipeBuilder()
                 .input(dust, Steel)

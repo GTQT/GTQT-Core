@@ -1,8 +1,6 @@
 package keqing.gtqtcore.loaders.recipes.chain;
 
 import gregtech.api.metatileentity.multiblock.CleanroomType;
-import gregtech.api.recipes.RecipeMap;
-import gregtech.api.recipes.RecipeMaps;
 import gregtech.api.unification.material.MarkerMaterials;
 import gregtech.common.items.MetaItems;
 import keqing.gtqtcore.common.items.GTQTMetaItems;
@@ -12,7 +10,8 @@ import static gregtech.api.recipes.RecipeMaps.*;
 import static gregtech.api.unification.material.Materials.*;
 import static gregtech.api.unification.ore.OrePrefix.*;
 import static gregtech.common.items.MetaItems.*;
-import static keqing.gtqtcore.api.recipes.GTQTcoreRecipeMaps.*;
+import static keqing.gtqtcore.api.recipes.GTQTcoreRecipeMaps.LASER_FUSION_RECIPES;
+import static keqing.gtqtcore.api.recipes.GTQTcoreRecipeMaps.MOLECULAR_TRANSFORMER_RECIPES;
 import static keqing.gtqtcore.api.unification.GTQTMaterials.*;
 import static keqing.gtqtcore.common.items.GTQTMetaItems.*;
 
@@ -101,10 +100,10 @@ public class SolarPanels {
         CIRCUIT_ASSEMBLER_RECIPES.recipeBuilder()
                 .input(SUNNARIUM)
                 .input(CIRCUIT_GOOD_II)
-                .input(GTQTMetaItems.OPTICAL_TRANSISTOR, 4)
-                .input(GTQTMetaItems.OPTICAL_RESISTOR, 4)
-                .input(GTQTMetaItems.OPTICAL_DIODE, 4)
-                .input(GTQTMetaItems.OPTICAL_INDUCTOR, 4)
+                .input(GTQTMetaItems.OPTICAL_SMD_TRANSISTOR, 4)
+                .input(GTQTMetaItems.OPTICAL_SMD_RESISTOR, 4)
+                .input(GTQTMetaItems.OPTICAL_SMD_DIODE, 4)
+                .input(GTQTMetaItems.OPTICAL_SMD_INDUCTOR, 4)
                 .output(SOLAR_CORE_II)
                 .EUt(VA[LuV])
                 .duration(5 * SECOND)
@@ -113,10 +112,10 @@ public class SolarPanels {
         CIRCUIT_ASSEMBLER_RECIPES.recipeBuilder()
                 .input(SUNNARIUM_PLATE)
                 .input(CIRCUIT_GOOD_III)
-                .input(GTQTMetaItems.SPINTRONIC_TRANSISTOR, 4)
-                .input(GTQTMetaItems.SPINTRONIC_RESISTOR, 4)
-                .input(GTQTMetaItems.SPINTRONIC_DIODE, 4)
-                .input(GTQTMetaItems.SPINTRONIC_INDUCTOR, 4)
+                .input(GTQTMetaItems.SPINTRONIC_SMD_TRANSISTOR, 4)
+                .input(GTQTMetaItems.SPINTRONIC_SMD_RESISTOR, 4)
+                .input(GTQTMetaItems.SPINTRONIC_SMD_DIODE, 4)
+                .input(GTQTMetaItems.SPINTRONIC_SMD_INDUCTOR, 4)
                 .output(SOLAR_CORE_III)
                 .EUt(VA[ZPM])
                 .duration(5 * SECOND)
@@ -125,10 +124,10 @@ public class SolarPanels {
         CIRCUIT_ASSEMBLER_RECIPES.recipeBuilder()
                 .input(SUNNARIUM_ENRICHED)
                 .input(CIRCUIT_GOOD_IV)
-                .input(GTQTMetaItems.COSMIC_TRANSISTOR, 4)
-                .input(GTQTMetaItems.COSMIC_RESISTOR, 4)
-                .input(GTQTMetaItems.COSMIC_DIODE, 4)
-                .input(GTQTMetaItems.COSMIC_INDUCTOR, 4)
+                .input(GTQTMetaItems.COSMIC_SMD_TRANSISTOR, 4)
+                .input(GTQTMetaItems.COSMIC_SMD_RESISTOR, 4)
+                .input(GTQTMetaItems.COSMIC_SMD_DIODE, 4)
+                .input(GTQTMetaItems.COSMIC_SMD_INDUCTOR, 4)
                 .output(SOLAR_CORE_IV)
                 .EUt(VA[UV])
                 .duration(5 * SECOND)
@@ -137,10 +136,10 @@ public class SolarPanels {
         CIRCUIT_ASSEMBLER_RECIPES.recipeBuilder()
                 .input(SUNNARIUM_ENRICHED_PLATE)
                 .input(CIRCUIT_GOOD_V)
-                .input(GTQTMetaItems.SUPRACAUSAL_TRANSISTOR, 4)
-                .input(GTQTMetaItems.SUPRACAUSAL_RESISTOR, 4)
-                .input(GTQTMetaItems.SUPRACAUSAL_DIODE, 4)
-                .input(GTQTMetaItems.SUPRACAUSAL_INDUCTOR, 4)
+                .input(GTQTMetaItems.SUPRACAUSAL_SMD_TRANSISTOR, 4)
+                .input(GTQTMetaItems.SUPRACAUSAL_SMD_RESISTOR, 4)
+                .input(GTQTMetaItems.SUPRACAUSAL_SMD_DIODE, 4)
+                .input(GTQTMetaItems.SUPRACAUSAL_SMD_INDUCTOR, 4)
                 .output(SOLAR_CORE_V)
                 .EUt(VA[UHV])
                 .duration(5 * SECOND)

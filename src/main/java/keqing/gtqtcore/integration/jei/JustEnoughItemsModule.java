@@ -1,12 +1,8 @@
 package keqing.gtqtcore.integration.jei;
 
 import gregtech.api.items.metaitem.MetaItem;
-import gregtech.api.items.metaitem.stats.IItemBehaviour;
-import gregtech.api.metatileentity.MetaTileEntity;
-import gregtech.common.metatileentities.MetaTileEntities;
 import gregtech.integration.IntegrationSubmodule;
 import keqing.gtqtcore.api.utils.GTQTCPUHelper;
-import keqing.gtqtcore.common.items.behaviors.ParticleBehavior;
 import keqing.gtqtcore.common.metatileentities.GTQTMetaTileEntities;
 import keqing.gtqtcore.loaders.recipes.handlers.OreRecipeHandler;
 import mezz.jei.api.IGuiHelper;
@@ -21,7 +17,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import static gregtech.common.items.MetaItems.*;
-import static gregtech.common.items.MetaItems.VACUUM_TUBE;
 import static keqing.gtqtcore.GTQTCore.MODID;
 import static keqing.gtqtcore.common.items.GTQTMetaItems.*;
 
@@ -59,11 +54,11 @@ public class JustEnoughItemsModule extends IntegrationSubmodule implements IModP
         MetaItem.MetaValueItem [] tier5={QUANTUM_PROCESSOR_EV,QUANTUM_ASSEMBLY_IV,QUANTUM_COMPUTER_LUV,QUANTUM_MAINFRAME_ZPM};
         MetaItem.MetaValueItem [] tier6={CRYSTAL_PROCESSOR_IV,CRYSTAL_ASSEMBLY_LUV,CRYSTAL_COMPUTER_ZPM,CRYSTAL_MAINFRAME_UV};
         MetaItem.MetaValueItem [] tier7={WETWARE_PROCESSOR_LUV,WETWARE_PROCESSOR_ASSEMBLY_ZPM,WETWARE_SUPER_COMPUTER_UV,WETWARE_MAINFRAME_UHV};
-        MetaItem.MetaValueItem [] tier8={GOOWARE_PROCESSOR,GOOWARE_ASSEMBLY,GOOWARE_COMPUTER,GOOWARE_MAINFRAME};
-        MetaItem.MetaValueItem [] tier9={OPTICAL_PROCESSOR,OPTICAL_ASSEMBLY,OPTICAL_COMPUTER,OPTICAL_MAINFRAME};
-        MetaItem.MetaValueItem [] tier10={SPINTRONIC_PROCESSOR,SPINTRONIC_ASSEMBLY,SPINTRONIC_COMPUTER,SPINTRONIC_MAINFRAME};
-        MetaItem.MetaValueItem [] tier11={COSMIC_PROCESSOR,COSMIC_ASSEMBLY,COSMIC_COMPUTER,COSMIC_MAINFRAME};
-        MetaItem.MetaValueItem [] tier12={SUPRACAUSAL_PROCESSOR,SUPRACAUSAL_ASSEMBLY,SUPRACAUSAL_COMPUTER,SUPRACAUSAL_MAINFRAME};
+        MetaItem.MetaValueItem[] tier8 = {GOOWARE_PROCESSOR_ZPM, GOOWARE_ASSEMBLY_UV, GOOWARE_COMPUTER_UHV, GOOWARE_MAINFRAME_UEV};
+        MetaItem.MetaValueItem[] tier9 = {OPTICAL_PROCESSOR_UV, OPTICAL_ASSEMBLY_UHV, OPTICAL_COMPUTER_UEV, OPTICAL_MAINFRAME_UIV};
+        MetaItem.MetaValueItem[] tier10 = {SPINTRONIC_PROCESSOR_UHV, SPINTRONIC_ASSEMBLY_UEV, SPINTRONIC_COMPUTER_UIV, SPINTRONIC_MAINFRAME_UXV};
+        MetaItem.MetaValueItem[] tier11 = {COSMIC_PROCESSOR_UEV, COSMIC_ASSEMBLY_UIV, COSMIC_COMPUTER_UXV, COSMIC_MAINFRAME_OpV};
+        MetaItem.MetaValueItem[] tier12 = {SUPRACAUSAL_PROCESSOR_UIV, SUPRACAUSAL_ASSEMBLY_UXV, SUPRACAUSAL_COMPUTER_OpV, SUPRACAUSAL_MAINFRAME_MAX};
 
         CircuitInfo.add(new CircuitJei(tier1));
         CircuitInfo.add(new CircuitJei(tier2));

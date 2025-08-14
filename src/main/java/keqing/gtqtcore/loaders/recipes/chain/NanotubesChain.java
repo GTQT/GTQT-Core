@@ -2,12 +2,13 @@ package keqing.gtqtcore.loaders.recipes.chain;
 
 import gregtech.api.metatileentity.multiblock.CleanroomType;
 
-import static keqing.gtqtcore.api.recipes.GTQTcoreRecipeMaps.*;
 import static gregtech.api.GTValues.*;
 import static gregtech.api.recipes.RecipeMaps.*;
 import static gregtech.api.unification.material.Materials.*;
 import static gregtech.api.unification.ore.OrePrefix.*;
-import static gregtech.common.items.MetaItems.*;
+import static gregtech.common.items.MetaItems.SHAPE_EXTRUDER_INGOT;
+import static keqing.gtqtcore.api.recipes.GTQTcoreRecipeMaps.CVD_RECIPES;
+import static keqing.gtqtcore.api.recipes.GTQTcoreRecipeMaps.PLASMA_CVD_RECIPES;
 import static keqing.gtqtcore.api.unification.GTQTMaterials.*;
 import static keqing.gtqtcore.api.unification.ore.GTQTOrePrefix.seedCrystal;
 import static keqing.gtqtcore.common.items.GTQTMetaItems.CARBON_ALLOTROPE_MIXTURE;
@@ -32,6 +33,15 @@ public class NanotubesChain {
                 .output(seedCrystal, Prasiolite)
                 .duration(400)
                 .EUt(VA[IV])
+                .buildAndRegister();
+
+        // Zr + 2O -> c-ZrO2
+        CVD_RECIPES.recipeBuilder()
+                .input(dust, Zirconium)
+                .fluidInputs(Oxygen.getFluid(2000))
+                .output(gem, CubicZirconia)
+                .EUt(VA[IV])
+                .duration(10 * SECOND)
                 .buildAndRegister();
 
         //  3Te + 2Bi -> Be2Te3

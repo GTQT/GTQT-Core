@@ -268,9 +268,10 @@ public class MetaTileEntityDimensionallyTranscendentPlasmaForge extends MultiMap
         super.addInformation(stack, player, tooltip, advanced);
         tooltip.add(TooltipHelper.BLINKING_RED + I18n.format("超越维度的边界"));
         tooltip.add(I18n.format("=============================================="));
-        tooltip.add(I18n.format("本设备支持纳米蜂群仓，每完成一次配方会消耗一点耐久（无视并行）"));
-        tooltip.add(I18n.format("每等级纳米蜂群提供Math.pow(2,tier)*256的并行"));
-        tooltip.add(I18n.format("每等级纳米蜂群提供10%%的耗时减免"));
+        tooltip.add(GREEN + I18n.format("-纳米蜂群仓支持："));
+        tooltip.add(GRAY + I18n.format("本设备支持纳米蜂群仓，每完成一次配方会消耗一点耐久（无视并行）"));
+        tooltip.add(GRAY + I18n.format("每等级纳米蜂群提供Math.pow(2,tier)*256的并行"));
+        tooltip.add(GRAY + I18n.format("每等级纳米蜂群提供10%%的耗时减免"));
         tooltip.add(GREEN + I18n.format("gtqtcore.multiblock.laser_hatch.enable"));
         tooltip.add(GRAY + I18n.format("gtqtcore.multiblock.laser_hatch.tooltip"));
         tooltip.add(I18n.format("=============================================="));

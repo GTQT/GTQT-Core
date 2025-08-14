@@ -19,8 +19,6 @@ import keqing.gtqtcore.api.recipes.GTQTcoreRecipeMaps;
 import keqing.gtqtcore.api.recipes.properties.NeutronActivatorIOPartProperty;
 import keqing.gtqtcore.api.recipes.properties.PCBFactoryBioUpgradeProperty;
 import keqing.gtqtcore.api.recipes.properties.SwarmTierProperty;
-import keqing.gtqtcore.api.unification.OrePrefixAdditions;
-import keqing.gtqtcore.api.unification.ore.GTQTStoneTypes;
 import keqing.gtqtcore.api.utils.GTQTLog;
 import keqing.gtqtcore.common.block.GTQTCrops;
 import keqing.gtqtcore.common.block.GTQTMetaBlocks;
@@ -53,7 +51,6 @@ import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.event.ServerChatEvent;
 import net.minecraftforge.fml.common.Mod;
-import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 import net.minecraftforge.fml.common.eventhandler.EventPriority;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.common.registry.GameRegistry;
@@ -79,7 +76,13 @@ public class CommonProxy {
     public static final CreativeTabs GTQTCore_TAB = new CreativeTabs("gtqtcore") {
         @Override
         public ItemStack createIcon() {
-            return GTQTMetaItems.SUPRACAUSAL_MAINFRAME.getStackForm();
+            return GTQTMetaItems.SUPRACAUSAL_MAINFRAME_MAX.getStackForm();
+        }
+    };
+    public static final CreativeTabs GTQTCore_WRAP = new CreativeTabs("gtqtwrap") {
+        @Override
+        public ItemStack createIcon() {
+            return GTQTMetaItems.WRAP_SPINTRONIC_CIRCUIT_BOARD.getStackForm();
         }
     };
     public static final CreativeTabs GTQTCore_CO = new CreativeTabs("gtqtco") {

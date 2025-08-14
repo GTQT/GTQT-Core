@@ -4,15 +4,10 @@ import gregtech.api.metatileentity.multiblock.CleanroomType;
 import keqing.gtqtcore.api.unification.GTQTMaterials;
 
 import static gregtech.api.GTValues.*;
-import static gregtech.api.GTValues.MAX;
 import static gregtech.api.recipes.RecipeMaps.*;
-import static gregtech.api.recipes.RecipeMaps.CIRCUIT_ASSEMBLER_RECIPES;
 import static gregtech.api.unification.material.Materials.*;
-import static gregtech.api.unification.material.Materials.SolderingAlloy;
 import static gregtech.api.unification.ore.OrePrefix.*;
-import static gregtech.api.unification.ore.OrePrefix.gemExquisite;
 import static gregtech.common.items.MetaItems.*;
-import static gregtech.common.items.MetaItems.ADVANCED_SMD_DIODE;
 import static keqing.gtqtcore.api.unification.GTQTMaterials.BismuthTellurite;
 import static keqing.gtqtcore.api.unification.GTQTMaterials.MagnetoResonatic;
 import static keqing.gtqtcore.common.items.GTQTMetaItems.*;
@@ -183,9 +178,9 @@ public class MagnetoResonaticCircuits {
                 .input(MAGNETO_RESONATIC_CIRCUIT_BOARD, 12)
                 .input(gemExquisite, MagnetoResonatic, 12)
                 .input(MAGNETO_RESONATIC_CIRCUIT_UV)
-                .input(OPTICAL_CAPACITOR, 32)
-                .input(OPTICAL_TRANSISTOR, 32)
-                .input(OPTICAL_DIODE, 32)
+                .input(OPTICAL_SMD_CAPACITOR, 32)
+                .input(OPTICAL_SMD_TRANSISTOR, 32)
+                .input(OPTICAL_SMD_DIODE, 32)
                 .fluidInputs(GTQTMaterials.MutatedLivingSolder.getFluid(5760))
                 .output(MAGNETO_RESONATIC_CIRCUIT_UHV, 4)
                 .EUt(VA[UEV])
@@ -197,9 +192,9 @@ public class MagnetoResonaticCircuits {
                 .input(MAGNETO_RESONATIC_CIRCUIT_BOARD, 18)
                 .input(gemExquisite, MagnetoResonatic, 18)
                 .input(MAGNETO_RESONATIC_CIRCUIT_UHV, 2)
-                .input(SPINTRONIC_CAPACITOR, 32)
-                .input(SPINTRONIC_TRANSISTOR, 32)
-                .input(SPINTRONIC_DIODE, 32)
+                .input(SPINTRONIC_SMD_CAPACITOR, 32)
+                .input(SPINTRONIC_SMD_TRANSISTOR, 32)
+                .input(SPINTRONIC_SMD_DIODE, 32)
                 .fluidInputs(GTQTMaterials.MutatedLivingSolder.getFluid(6336))
                 .output(MAGNETO_RESONATIC_CIRCUIT_UEV, 4)
                 .EUt(VA[UIV])
@@ -211,9 +206,9 @@ public class MagnetoResonaticCircuits {
                 .input(MAGNETO_RESONATIC_CIRCUIT_BOARD, 24)
                 .input(gemExquisite, MagnetoResonatic, 24)
                 .input(MAGNETO_RESONATIC_CIRCUIT_UEV, 4)
-                .input(COSMIC_CAPACITOR, 32)
-                .input(COSMIC_TRANSISTOR, 32)
-                .input(COSMIC_DIODE, 32)
+                .input(COSMIC_SMD_CAPACITOR, 32)
+                .input(COSMIC_SMD_TRANSISTOR, 32)
+                .input(COSMIC_SMD_DIODE, 32)
                 .fluidInputs(GTQTMaterials.MutatedLivingSolder.getFluid(6912))
                 .output(MAGNETO_RESONATIC_CIRCUIT_UIV, 2)
                 .EUt(VA[UXV])
@@ -225,9 +220,9 @@ public class MagnetoResonaticCircuits {
                 .input(MAGNETO_RESONATIC_CIRCUIT_BOARD, 30)
                 .input(gemExquisite, MagnetoResonatic, 30)
                 .input(MAGNETO_RESONATIC_CIRCUIT_UIV, 8)
-                .input(SUPRACAUSAL_CAPACITOR, 32)
-                .input(SUPRACAUSAL_TRANSISTOR, 32)
-                .input(SUPRACAUSAL_DIODE, 32)
+                .input(SUPRACAUSAL_SMD_CAPACITOR, 32)
+                .input(SUPRACAUSAL_SMD_TRANSISTOR, 32)
+                .input(SUPRACAUSAL_SMD_DIODE, 32)
                 .fluidInputs(GTQTMaterials.MutatedLivingSolder.getFluid(7488))
                 .output(MAGNETO_RESONATIC_CIRCUIT_UXV, 2)
                 .EUt(VA[OpV])
@@ -239,9 +234,9 @@ public class MagnetoResonaticCircuits {
                 .input(MAGNETO_RESONATIC_CIRCUIT_BOARD, 36)
                 .input(gemExquisite, MagnetoResonatic, 36)
                 .input(MAGNETO_RESONATIC_CIRCUIT_UXV, 16)
-                .input(SUPRACAUSAL_CAPACITOR, 48)
-                .input(SUPRACAUSAL_TRANSISTOR, 48)
-                .input(SUPRACAUSAL_DIODE, 48)
+                .input(SUPRACAUSAL_SMD_CAPACITOR, 48)
+                .input(SUPRACAUSAL_SMD_TRANSISTOR, 48)
+                .input(SUPRACAUSAL_SMD_DIODE, 48)
                 .fluidInputs(GTQTMaterials.MutatedLivingSolder.getFluid(8064))
                 .output(MAGNETO_RESONATIC_CIRCUIT_OpV)
                 .EUt(VA[MAX])
@@ -253,9 +248,9 @@ public class MagnetoResonaticCircuits {
                 .input(MAGNETO_RESONATIC_CIRCUIT_BOARD, 42)
                 .input(gemExquisite, MagnetoResonatic, 42)
                 .input(MAGNETO_RESONATIC_CIRCUIT_OpV, 32)
-                .input(SUPRACAUSAL_CAPACITOR, 64)
-                .input(SUPRACAUSAL_TRANSISTOR, 64)
-                .input(SUPRACAUSAL_DIODE, 64)
+                .input(SUPRACAUSAL_SMD_CAPACITOR, 64)
+                .input(SUPRACAUSAL_SMD_TRANSISTOR, 64)
+                .input(SUPRACAUSAL_SMD_DIODE, 64)
                 .fluidInputs(GTQTMaterials.MutatedLivingSolder.getFluid(8640))
                 .output(MAGNETO_RESONATIC_CIRCUIT_MAX)
                 .EUt((int) V[MAX])

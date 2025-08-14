@@ -1,8 +1,6 @@
 {
   "parent": "item/generated",
   "textures": {
-    "layer0": "gregtech:items/metaitems/circuit_board.plastic",
-    "layer1": "gtqtcore:items/metaitems/wrap_overlay",
-    "layer2": "gtqtcore:items/metaitems/numbers/3"
+    "layer0": "gtqtcore:items/metaitems/wraps/wrap.circuit_board.plastic"
   }
 }

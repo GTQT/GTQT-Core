@@ -1,12 +1,12 @@
 package keqing.gtqtcore.client;
-import keqing.gtqtcore.client.render.pipe.PressurePipeRenderer;
-import keqing.gtqtcore.client.utils.TextureUtils;
+
 import keqing.gtqtcore.client.render.handler.StructureSelectRenderer;
+import keqing.gtqtcore.client.render.pipe.PressurePipeRenderer;
 import keqing.gtqtcore.client.textures.GTQTTextures;
 import keqing.gtqtcore.client.utils.ShaderUtils;
+import keqing.gtqtcore.client.utils.TextureUtils;
 import keqing.gtqtcore.client.utils.TitleUtils;
 import keqing.gtqtcore.common.CommonProxy;
-
 import keqing.gtqtcore.common.MetaEntities;
 import keqing.gtqtcore.common.block.GTQTMetaBlocks;
 import net.minecraftforge.client.event.ModelRegistryEvent;

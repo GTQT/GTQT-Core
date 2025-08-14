@@ -1,7 +1,0 @@
-{
-  "parent": "item/generated",
-  "textures": {
-    "layer0": "gtqtcore:items/metaitems/component.spintronic_smd.inductor",
-    "layer1": "gtqtcore:items/metaitems/wrap_overlay"
-  }
-}

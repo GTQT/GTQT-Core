@@ -7,12 +7,12 @@ import keqing.gtqtcore.api.recipes.GTQTcoreRecipeMaps;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.fluids.FluidStack;
 
-import static gregtech.api.recipes.RecipeMaps.*;
+import static gregtech.api.recipes.RecipeMaps.CHEMICAL_RECIPES;
+import static gregtech.api.recipes.RecipeMaps.LARGE_CHEMICAL_RECIPES;
 import static gregtech.api.unification.material.Materials.*;
-import static gregtech.api.unification.ore.OrePrefix.*;
-import static keqing.gtqtcore.api.unification.GTQTMaterials.ZincOxide;
+import static gregtech.api.unification.ore.OrePrefix.crushed;
+import static gregtech.api.unification.ore.OrePrefix.dust;
 import static keqing.gtqtcore.api.unification.GTQTMaterials.*;
-import static keqing.gtqtcore.api.unification.ore.GTQTOrePrefix.wrap;
 import static keqing.gtqtcore.common.items.GTQTMetaItems.*;
 
 public class FluidizedBedChain {
@@ -33,7 +33,7 @@ public class FluidizedBedChain {
 
         GTQTcoreRecipeMaps.FLUIDIZED_BED.recipeBuilder()
                 .input(crushed, Materials.Oilsands)
-                .fluidInputs(Materials.OilHeavy.getFluid(2000))
+                .fluidOutputs(Materials.OilHeavy.getFluid(2000))
                 .output(dust, Materials.Stone)
                 .recipeLevel(2)
                 .Catalyst(CATALYST_GAS.getStackForm())

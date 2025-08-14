@@ -3,7 +3,6 @@ package keqing.gtqtcore.loaders.recipes.circuits;
 import gregtech.api.GTValues;
 import gregtech.api.metatileentity.multiblock.CleanroomType;
 import gregtech.api.unification.material.MarkerMaterials;
-import gregtech.common.items.MetaItems;
 import net.minecraftforge.fluids.FluidStack;
 
 import static gregtech.api.GTValues.*;
@@ -11,6 +10,7 @@ import static gregtech.api.recipes.RecipeMaps.*;
 import static gregtech.api.unification.material.Materials.*;
 import static gregtech.api.unification.ore.OrePrefix.*;
 import static gregtech.common.items.MetaItems.*;
+import static gregtechfoodoption.GTFOMaterialHandler.Aminophenol;
 import static gregtechfoodoption.GTFOMaterialHandler.Blood;
 import static keqing.gtqtcore.api.recipes.GTQTcoreRecipeMaps.*;
 import static keqing.gtqtcore.api.unification.GTQTMaterials.*;
@@ -20,12 +20,129 @@ public class GoowareCircuits {
     public static void init() {
         CircuitBoard();
         CircuitComponent();
+        smdRecipes();
         SoC();
         Circuits();
         BacterialCultivation();
         AdvancedGoowareProcessingUnit();
     }
 
+    private static void smdRecipes() {
+        // C6H4(OH)(NH2) + C3H8O3 + O -> C9H7NO + 4H2O
+        CHEMICAL_PLANT.recipeBuilder()
+                .notConsumable(Nitrobenzene.getFluid(1))
+                .fluidInputs(Aminophenol.getFluid(1000))
+                .fluidInputs(Glycerol.getFluid(1000))
+                .fluidInputs(Oxygen.getFluid(1000))
+                .output(dust, Hydroxyquinoline, 18)
+                .fluidOutputs(Water.getFluid(4000))
+                .EUt(VA[IV])
+                .recipeLevel(4)
+                .duration(13 * SECOND)
+                .buildAndRegister();
+
+        // Al + C9H7NO -> Al(C9H7NO)
+        LOW_TEMP_ACTIVATOR_RECIPES.recipeBuilder()
+                .input(dust, Aluminium, 1)
+                .input(dust, Hydroxyquinoline, 18)
+                .output(dust, HydroxyquinolineAluminium, 19)
+                .EUt(VA[ZPM])
+                .duration(8 * SECOND + 10 * TICK)
+                .buildAndRegister();
+
+        // Another recipe for H2SeO3 for these chemistry processing.
+        // Se + H2O + 2O -> H2SeO3
+        CHEMICAL_RECIPES.recipeBuilder()
+                .input(dust, Selenium)
+                .fluidInputs(Water.getFluid(1000))
+                .fluidInputs(Oxygen.getFluid(2000))
+                .output(dust, SelenousAcid, 6)
+                .EUt(VA[HV])
+                .duration(5 * SECOND)
+                .buildAndRegister();
+
+        // H2SeO3 + O -> H2SeO4
+        VACUUM_CHAMBER_RECIPES.recipeBuilder()
+                .input(dust, SelenousAcid, 6)
+                .fluidInputs(Oxygen.getFluid(1000))
+                .fluidOutputs(HydroselenicAcid.getFluid(1000))
+                .EUt(VA[MV])
+                .duration(2 * SECOND)
+                .buildAndRegister();
+
+        // Cu + Ga + In + 2H2SeO4 -> CuGaInSe2 + 2H2O + 6O
+        BURNER_REACTOR_RECIPES.recipeBuilder()
+                .input(dust, Copper)
+                .input(dust, Gallium)
+                .input(dust, Indium)
+                .fluidInputs(HydroselenicAcid.getFluid(2000))
+                .output(dust, CopperGalliumIndiumSelenide, 5)
+                .fluidOutputs(Oxygen.getFluid(6000))
+                .fluidOutputs(Steam.getFluid(2000))
+                .EUt(VA[LuV])
+                .duration(5 * SECOND)
+                .buildAndRegister();
+
+        // Gooware SMD Transistor
+        ASSEMBLER_RECIPES.recipeBuilder()
+                .circuitMeta(5)
+                .input(foil, HydroxyquinolineAluminium)
+                .input(wireFine, CopperGalliumIndiumSelenide, 8)
+                .fluidInputs(KaptonK.getFluid(L))
+                .output(GOOWARE_SMD_TRANSISTOR, 16)
+                .EUt(VA[ZPM])
+                .duration(8 * SECOND)
+                .cleanroom(CleanroomType.CLEANROOM)
+                .buildAndRegister();
+
+        // Gooware SMD Resistor
+        ASSEMBLER_RECIPES.recipeBuilder()
+                .circuitMeta(5)
+                .input(dust, ZBLANGlass)
+                .input(wireFine, Osmiridium, 4)
+                .fluidInputs(KaptonK.getFluid(L * 2))
+                .output(GOOWARE_SMD_RESISTOR, 16)
+                .EUt(VA[ZPM])
+                .duration(8 * SECOND)
+                .cleanroom(CleanroomType.CLEANROOM)
+                .buildAndRegister();
+
+        // Gooware SMD Capacitor
+        ASSEMBLER_RECIPES.recipeBuilder()
+                .circuitMeta(5)
+                .input(foil, PedotPSS)
+                .input(foil, NanometerBariumTitanate)
+                .fluidInputs(KaptonK.getFluid(L / 2))
+                .output(GOOWARE_SMD_CAPACITOR, 16)
+                .EUt(VA[ZPM])
+                .duration(8 * SECOND)
+                .cleanroom(CleanroomType.CLEANROOM)
+                .buildAndRegister();
+
+        // Gooware SMD Diode
+        ASSEMBLER_RECIPES.recipeBuilder()
+                .circuitMeta(5)
+                .input(dust, CubicZirconia)
+                .input(wireFine, PedotTMA, 8)
+                .fluidInputs(KaptonK.getFluid(L * 2))
+                .output(GOOWARE_SMD_DIODE, 64)
+                .EUt(VA[ZPM])
+                .duration(8 * SECOND)
+                .cleanroom(CleanroomType.CLEANROOM)
+                .buildAndRegister();
+
+        // Gooware SMD Inductor
+        ASSEMBLER_RECIPES.recipeBuilder()
+                .circuitMeta(5)
+                .input(ring, SamariumCobalt)
+                .input(wireFine, Europium, 4)
+                .fluidInputs(KaptonK.getFluid(L))
+                .output(GOOWARE_SMD_INDUCTOR, 16)
+                .EUt(VA[ZPM])
+                .duration(8 * SECOND)
+                .cleanroom(CleanroomType.CLEANROOM)
+                .buildAndRegister();
+    }
     private static void BacterialCultivation() {
         GENE_MUTAGENESIS.recipeBuilder()
                 .fluidInputs(SterileGrowthMedium.getFluid(8000))
@@ -456,11 +573,11 @@ public class GoowareCircuits {
                 .input(BIOPROCESSOR_UNIT)
                 .input(NONLINEAR_CHEMICAL_OSCILLATOR)
                 .input(CRYSTAL_CENTRAL_PROCESSING_UNIT)
-                .input(ADVANCED_SMD_CAPACITOR, 16)
-                .input(ADVANCED_SMD_TRANSISTOR, 16)
+                .input(GOOWARE_SMD_CAPACITOR, 16)
+                .input(GOOWARE_SMD_TRANSISTOR, 16)
                 .input(wireFine, Europium, 8)
                 .solderMultiplier(1)
-                .output(GOOWARE_PROCESSOR, 2)
+                .output(GOOWARE_PROCESSOR_ZPM, 2)
                 .EUt(VA[UV])
                 .duration(10 * SECOND)
                 .cleanroom(CleanroomType.CLEANROOM)
@@ -472,7 +589,7 @@ public class GoowareCircuits {
                 .input(wireFine, Europium, 8)
                 .input(bolt, Orichalcum, 8)
                 .solderMultiplier(1)
-                .output(GOOWARE_PROCESSOR, 4)
+                .output(GOOWARE_PROCESSOR_ZPM, 4)
                 .EUt(VA[UHV])
                 .duration(5 * SECOND)
                 .cleanroom(CleanroomType.CLEANROOM)
@@ -481,12 +598,12 @@ public class GoowareCircuits {
         //  Assembly
         CIRCUIT_ASSEMBLER_RECIPES.recipeBuilder()
                 .input(GOOWARE_CIRCUIT_BOARD)
-                .input(GOOWARE_PROCESSOR, 2)
-                .input(ADVANCED_SMD_INDUCTOR, 16)
-                .input(ADVANCED_SMD_CAPACITOR, 32)
+                .input(GOOWARE_PROCESSOR_ZPM, 4)
+                .input(GOOWARE_SMD_INDUCTOR, 16)
+                .input(GOOWARE_SMD_CAPACITOR, 32)
                 .input(RANDOM_ACCESS_MEMORY, 40)
                 .input(wireFine, Europium, 16)
-                .output(GOOWARE_ASSEMBLY, 2)
+                .output(GOOWARE_ASSEMBLY_UV, 2)
                 .solderMultiplier(2)
                 .EUt(VA[UV])
                 .duration(20 * SECOND)
@@ -496,19 +613,19 @@ public class GoowareCircuits {
         //  Computer
         ASSEMBLY_LINE_RECIPES.recipeBuilder()
                 .input(GOOWARE_CIRCUIT_BOARD)
-                .input(GOOWARE_ASSEMBLY, 2)
-                .input(ADVANCED_SMD_DIODE, 10)
+                .input(GOOWARE_ASSEMBLY_UV, 2)
+                .input(GOOWARE_SMD_DIODE, 8)
                 .input(NOR_MEMORY_CHIP, 16)
                 .input(RANDOM_ACCESS_MEMORY, 32)
                 .input(wireFine, Europium, 24)
                 .input(foil, KaptonK, 32)
                 .input(plate, Americium, 4)
                 .fluidInputs(HighGradeSolderingAlloy.getFluid(2304))
-                .output(GOOWARE_COMPUTER)
+                .output(GOOWARE_COMPUTER_UHV)
                 .EUt(VA[UV])
                 .duration(20 * SECOND)
                 .stationResearch(b -> b
-                        .researchStack(GOOWARE_ASSEMBLY.getStackForm())
+                        .researchStack(GOOWARE_ASSEMBLY_UV.getStackForm())
                         .CWUt(32)
                         .EUt(VA[UV]))
                 .buildAndRegister();
@@ -516,12 +633,12 @@ public class GoowareCircuits {
         //  Mainframe
         ASSEMBLY_LINE_RECIPES.recipeBuilder()
                 .input(frameGt, Darmstadtium, 2)
-                .input(GOOWARE_COMPUTER, 2)
-                .input(ADVANCED_SMD_DIODE, 64)
-                .input(ADVANCED_SMD_CAPACITOR, 64)
-                .input(ADVANCED_SMD_TRANSISTOR, 64)
-                .input(ADVANCED_SMD_RESISTOR, 64)
-                .input(ADVANCED_SMD_INDUCTOR, 64)
+                .input(GOOWARE_COMPUTER_UHV, 2)
+                .input(GOOWARE_SMD_DIODE, 64)
+                .input(GOOWARE_SMD_CAPACITOR, 64)
+                .input(GOOWARE_SMD_TRANSISTOR, 64)
+                .input(GOOWARE_SMD_RESISTOR, 64)
+                .input(GOOWARE_SMD_INDUCTOR, 64)
                 .input(foil, KaptonK, 64)
                 .input(RANDOM_ACCESS_MEMORY, 32)
                 .input(wireGtDouble, PedotPSS, 16)
@@ -529,11 +646,11 @@ public class GoowareCircuits {
                 .fluidInputs(HighGradeSolderingAlloy.getFluid(4320))
                 .fluidInputs(KaptonE.getFluid(2304))
                 .fluidInputs(Polyetheretherketone.getFluid(1152))
-                .output(GOOWARE_MAINFRAME)
+                .output(GOOWARE_MAINFRAME_UEV)
                 .EUt(VA[UHV])
                 .duration(40 * SECOND)
                 .stationResearch(b -> b
-                        .researchStack(GOOWARE_COMPUTER.getStackForm())
+                        .researchStack(GOOWARE_COMPUTER_UHV.getStackForm())
                         .CWUt(192)
                         .EUt(VA[UHV]))
                 .buildAndRegister();

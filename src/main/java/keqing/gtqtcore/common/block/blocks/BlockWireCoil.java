@@ -81,12 +81,12 @@ import java.util.List;
 
         public enum CoilType implements IStringSerializable, IHeatingCoilBlockStats {
 
-            NEUTRONIUM("neutronium_coil_block", 12600, 32, 16, Materials.Neutronium),
-            INFINITY("infinity_coil_block", 14400, 64, 32,  GTQTMaterials.Infinity),
-            HYPOGEN("hypogen_coil_block", 16200, 128, 64,  GTQTMaterials.Hypogen),
-            SPACE_TIME("space_time_coil_block", 18000, 256, 128,  GTQTMaterials.Spacetime),
-            ETERNITY("eternity_coil_block", 21600, 512, 256,  GTQTMaterials.Eternity),
-            CUPAR_PROTON_PAIR_COIL("cupar_proton_pair_coil_block", 25200, 1024, 256, Materials.Neutronium);
+            NEUTRONIUM("neutronium_coil_block", 12600, 9, 8, Materials.Neutronium),
+            INFINITY("infinity_coil_block", 14400, 10, 8, GTQTMaterials.Infinity),
+            HYPOGEN("hypogen_coil_block", 16200, 11, 8, GTQTMaterials.Hypogen),
+            SPACE_TIME("space_time_coil_block", 18000, 12, 8, GTQTMaterials.Spacetime),
+            ETERNITY("eternity_coil_block", 21600, 13, 8, GTQTMaterials.Eternity),
+            CUPAR_PROTON_PAIR_COIL("cupar_proton_pair_coil_block", 25200, 14, 8, Materials.Neutronium);
 
             /*
             DRACONIC("draconic", 12600, 18, 10, GTQTMaterials.Draconium),

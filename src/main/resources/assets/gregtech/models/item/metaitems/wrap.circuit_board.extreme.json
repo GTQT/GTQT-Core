@@ -1,8 +1,6 @@
 {
   "parent": "item/generated",
   "textures": {
-    "layer0": "gregtech:items/metaitems/circuit_board.extreme",
-    "layer1": "gtqtcore:items/metaitems/wrap_overlay",
-    "layer2": "gtqtcore:items/metaitems/numbers/5"
+    "layer0": "gtqtcore:items/metaitems/wraps/wrap.circuit_board.extreme"
   }
 }

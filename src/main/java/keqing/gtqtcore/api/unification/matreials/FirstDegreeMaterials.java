@@ -3754,9 +3754,10 @@ public class FirstDegreeMaterials {
 
         GTQTMaterials.BariumHydroxide = new Material.Builder(getMaterialsId(), gtqtcoreId("barium_hydroxide"))
                 .dust()
-                .colorAverage()
-                .components(Barium, 1, Hydrogen, 1, Oxygen, 1)
-                .build();
+                .color(0xFFFFED).iconSet(DULL)
+                .components(Barium, 1, Oxygen, 2, Hydrogen, 2)
+                .build()
+                .setFormula("Ba(OH)2", true);
 
         GTQTMaterials.Cyclopentanone = new Material.Builder(getMaterialsId(), gtqtcoreId("cyclopentanone"))
                 .fluid()
@@ -4376,8 +4377,12 @@ public class FirstDegreeMaterials {
                 .build()
                 .setFormula("Ca(OH)2", true);
 
-        //TODO
-        startId++;
+        //Hydroxyquinoline
+        GTQTMaterials.Hydroxyquinoline = new Material.Builder(getMaterialsId(), gtqtcoreId("hydroxyquinoline"))
+                .dust()
+                .color(0x3A9A71).iconSet(METALLIC)
+                .components(Carbon, 9, Hydrogen, 7, Nitrogen, 1, Oxygen, 1)
+                .build();
 
         GTQTMaterials.ChlorosulfuricAcid = new Material.Builder(getMaterialsId(), gtqtcoreId("chlorosulfuric_acid"))
                 .fluid()
@@ -4720,7 +4725,7 @@ public class FirstDegreeMaterials {
                 .components(Cadmium, 1, Sulfur, 1)
                 .build();
 
-        GTQTMaterials.CadmiumSelenide = new Material.Builder(getMaterialsId(), gtqtcoreId("cadmium_selenide")) //TODO "Quantum Dots" tooltip
+        GTQTMaterials.CadmiumSelenide = new Material.Builder(getMaterialsId(), gtqtcoreId("cadmium_selenide"))
                 .dust()
                 .color(0x983034)
                 .flags(DECOMPOSITION_BY_ELECTROLYZING)
@@ -4798,7 +4803,7 @@ public class FirstDegreeMaterials {
                 .components(Iron, 2, Oxygen, 3)
                 .build();
 
-        GTQTMaterials.BismuthChalcogenide = new Material.Builder(getMaterialsId(), gtqtcoreId("bismuth_chalcogenide")) //TODO "3D Topological Isolator" tooltip
+        GTQTMaterials.BismuthChalcogenide = new Material.Builder(getMaterialsId(), gtqtcoreId("bismuth_chalcogenide"))
                 .ingot()
                 .color(0x91994D).iconSet(MaterialIconSet.SHINY)
                 .flags(GENERATE_PLATE, GENERATE_FOIL, DECOMPOSITION_BY_ELECTROLYZING)
@@ -4842,7 +4847,7 @@ public class FirstDegreeMaterials {
                 .components(Carbon, 60)
                 .build();
 
-        GTQTMaterials.ThalliumCopperChloride = new Material.Builder(getMaterialsId(), gtqtcoreId("thallium_copper_chloride")) //TODO "Antiferromagnetic" Tooltip
+        GTQTMaterials.ThalliumCopperChloride = new Material.Builder(getMaterialsId(), gtqtcoreId("thallium_copper_chloride"))
                 .ingot().fluid()
                 .color(0x3C5CB5)
                 .iconSet(MaterialIconSet.MAGNETIC)
@@ -4963,7 +4968,7 @@ public class FirstDegreeMaterials {
                 .components(GTQTMaterials.Vibranium, 1)
                 .build();
 
-        GTQTMaterials.SiliconCarbide = new Material.Builder(getMaterialsId(), gtqtcoreId("silicon_carbide")) //TODO Carborundum tooltip
+        GTQTMaterials.SiliconCarbide = new Material.Builder(getMaterialsId(), gtqtcoreId("silicon_carbide"))
                 .dust()
                 .fluid()
                 .color(0x4D4D4D)
@@ -5014,7 +5019,7 @@ public class FirstDegreeMaterials {
                 .components(Caesium, 2, Tin, 1, Chlorine, 6)
                 .build();
 
-        GTQTMaterials.HRAMagnesium = new Material.Builder(getMaterialsId(), gtqtcoreId("hra_magnesium")) //TODO "Reike Metal" tooltip
+        GTQTMaterials.HRAMagnesium = new Material.Builder(getMaterialsId(), gtqtcoreId("hra_magnesium"))
                 .dust()
                 .color(Magnesium.getMaterialRGB())
                 .iconSet(MaterialIconSet.SHINY)
@@ -5048,7 +5053,7 @@ public class FirstDegreeMaterials {
                 .components(Iron, 2, Oxygen, 3)
                 .build();
 
-        GTQTMaterials.Tetrahydrofuran = new Material.Builder(getMaterialsId(), gtqtcoreId("tetrahydrofuran")) //TODO "THF" tooltip
+        GTQTMaterials.Tetrahydrofuran = new Material.Builder(getMaterialsId(), gtqtcoreId("tetrahydrofuran"))
                 .fluid()
                 .color(0x3234A8)
                 .components(Carbon, 4, Hydrogen, 8, Oxygen, 1)
@@ -5229,7 +5234,7 @@ public class FirstDegreeMaterials {
                 .build()
                 .setFormula("C6H2(CH3)4", true);
 
-        GTQTMaterials.PyromelliticDianhydride = new Material.Builder(getMaterialsId(), gtqtcoreId("pyromellitic_dianhydride")) //TODO PDMA Tooltip
+        GTQTMaterials.PyromelliticDianhydride = new Material.Builder(getMaterialsId(), gtqtcoreId("pyromellitic_dianhydride"))
                 .dust()
                 .color(0xF0EAD6)
                 .iconSet(MaterialIconSet.ROUGH)
@@ -5238,12 +5243,8 @@ public class FirstDegreeMaterials {
                 .build()
                 .setFormula("C6H2(C2O3)2", true);
 
-        GTQTMaterials.Aminophenol = new Material.Builder(getMaterialsId(), gtqtcoreId("aminophenol"))
-                .fluid()
-                .color(0xFF7F50)
-                .components(Carbon, 6, Hydrogen, 7, Nitrogen, 1, Oxygen, 1)
-                .build()
-                .setFormula("HOC6H4NH2", true);
+        //TODO
+        startId++;
 
         GTQTMaterials.Dimethylformamide = new Material.Builder(getMaterialsId(), gtqtcoreId("dimethylformamide"))
                 .fluid()
@@ -5269,7 +5270,7 @@ public class FirstDegreeMaterials {
                 .build()
                 .setFormula("(C7H2N2O4)(O(C6H4)2)", true);
 
-        GTQTMaterials.BiphenylTetracarboxylicAcidDianhydride = new Material.Builder(getMaterialsId(), gtqtcoreId("biphenyl_tetracarboxylic_acid_dianhydride")) //TODO BPDA Tooltip
+        GTQTMaterials.BiphenylTetracarboxylicAcidDianhydride = new Material.Builder(getMaterialsId(), gtqtcoreId("biphenyl_tetracarboxylic_acid_dianhydride"))
                 .dust()
                 .color(0xFF7F50)
                 .flags(DISABLE_DECOMPOSITION)
@@ -5327,7 +5328,7 @@ public class FirstDegreeMaterials {
                 .components(Carbon, 2, Hydrogen, 2, Bromine, 4)
                 .build();
 
-        GTQTMaterials.TerephthalicAcid = new Material.Builder(getMaterialsId(), gtqtcoreId("terephthalic_acid")) //TODO "PTA" Tooltip
+        GTQTMaterials.TerephthalicAcid = new Material.Builder(getMaterialsId(), gtqtcoreId("terephthalic_acid"))
                 .dust()
                 .color(0x5ACCDA)
                 .iconSet(MaterialIconSet.ROUGH)
@@ -5374,7 +5375,7 @@ public class FirstDegreeMaterials {
                 .build()
                 .setFormula("(C6H4)2(CO)2(NH)2", true);
 
-        GTQTMaterials.TetramethylammoniumHydroxide = new Material.Builder(getMaterialsId(), gtqtcoreId("tetramethylammonium_hydroxide")) //TODO "TMAH" tooltip
+        GTQTMaterials.TetramethylammoniumHydroxide = new Material.Builder(getMaterialsId(), gtqtcoreId("tetramethylammonium_hydroxide"))
                 .fluid() //this should be a solid, however it will be liquid for circuit etching purposes
                 .color(0x40FFD6)
                 .flags(DISABLE_DECOMPOSITION)

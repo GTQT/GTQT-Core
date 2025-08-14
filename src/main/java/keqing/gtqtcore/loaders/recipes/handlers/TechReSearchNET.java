@@ -3,7 +3,6 @@ package keqing.gtqtcore.loaders.recipes.handlers;
 import gregicality.multiblocks.common.metatileentities.GCYMMetaTileEntities;
 import gregtech.api.GTValues;
 import gregtech.api.items.metaitem.MetaItem;
-import gregtech.api.metatileentity.MetaTileEntity;
 import gregtech.api.metatileentity.multiblock.CleanroomType;
 import gregtech.api.recipes.ModHandler;
 import gregtech.api.recipes.ingredients.nbtmatch.NBTCondition;
@@ -17,7 +16,6 @@ import gregtech.common.blocks.BlockCleanroomCasing;
 import gregtech.common.blocks.BlockComputerCasing;
 import gregtech.common.blocks.BlockFusionCasing;
 import gregtech.common.blocks.MetaBlocks;
-import gregtech.common.items.MetaItems;
 import gregtech.common.metatileentities.MetaTileEntities;
 import keqing.gtqtcore.api.recipes.GTQTcoreRecipeMaps;
 import keqing.gtqtcore.common.block.GTQTMetaBlocks;
@@ -33,20 +31,17 @@ import static gregtech.api.recipes.RecipeMaps.*;
 import static gregtech.api.unification.material.MarkerMaterials.Tier;
 import static gregtech.api.unification.material.Materials.*;
 import static gregtech.api.unification.ore.OrePrefix.*;
-import static gregtech.common.blocks.BlockFusionCasing.CasingType.FUSION_COIL;
-import static gregtech.common.blocks.BlockFusionCasing.CasingType.SUPERCONDUCTOR_COIL;
-import static gregtech.common.blocks.MetaBlocks.*;
+import static gregtech.common.blocks.MetaBlocks.COMPUTER_CASING;
+import static gregtech.common.blocks.MetaBlocks.OPTICAL_PIPES;
 import static gregtech.common.items.MetaItems.*;
+import static gregtech.common.metatileentities.MetaTileEntities.*;
 import static gregtech.common.metatileentities.MetaTileEntities.ASSEMBLY_LINE;
 import static gregtech.common.metatileentities.MetaTileEntities.LARGE_CHEMICAL_REACTOR;
-import static gregtech.common.metatileentities.MetaTileEntities.*;
 import static gregtechfoodoption.machines.GTFOTileEntities.GREENHOUSE;
 import static keqing.gtqtcore.api.recipes.GTQTcoreRecipeMaps.VACUUM_CHAMBER_RECIPES;
 import static keqing.gtqtcore.api.unification.GTQTMaterials.*;
 import static keqing.gtqtcore.api.unification.MaterialHelper.Superconductor;
-import static keqing.gtqtcore.api.unification.GTQTMaterials.Polyetheretherketone;
 import static keqing.gtqtcore.api.unification.ore.GTQTOrePrefix.swarm;
-
 import static keqing.gtqtcore.common.block.blocks.BlockActiveUniqueCasing.ActiveCasingType.ADVANCED_FORCE_FIELD_CONSTRAINT_COIL;
 import static keqing.gtqtcore.common.block.blocks.BlockActiveUniqueCasing.ActiveCasingType.FORCE_FIELD_CONSTRAINT_COIL;
 import static keqing.gtqtcore.common.block.blocks.BlockIsaCasing.CasingType.FLOTATION_CASING_GEARBOX;
@@ -1044,9 +1039,9 @@ public class TechReSearchNET {
                 .inputs(HULL[2].getStackForm(4))
                 .input(DISK_0, 4)
                 .input(COVER_SCREEN)
-                .input(EMITTER_LV, 16)
-                .input(SENSOR_LV, 16)
-                .input(circuit, MarkerMaterials.Tier.MV, 32)
+                .input(EMITTER_LV, 8)
+                .input(SENSOR_LV, 8)
+                .input(circuit, MarkerMaterials.Tier.MV, 16)
                 .input(pipeNormalFluid, Aluminium, 16)
                 .input(OPTICAL_PIPES[0], 8)
                 .fluidInputs(SolderingAlloy.getFluid(L * 16))

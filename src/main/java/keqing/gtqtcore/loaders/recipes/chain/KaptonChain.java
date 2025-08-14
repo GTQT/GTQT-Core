@@ -2,11 +2,13 @@ package keqing.gtqtcore.loaders.recipes.chain;
 
 import gregtech.api.recipes.ingredients.IntCircuitIngredient;
 
-import static gregtech.api.recipes.RecipeMaps.*;
-import static keqing.gtqtcore.api.recipes.GTQTcoreRecipeMaps.*;
 import static gregtech.api.GTValues.*;
+import static gregtech.api.recipes.RecipeMaps.CHEMICAL_RECIPES;
+import static gregtech.api.recipes.RecipeMaps.MIXER_RECIPES;
 import static gregtech.api.unification.material.Materials.*;
 import static gregtech.api.unification.ore.OrePrefix.dust;
+import static gregtechfoodoption.GTFOMaterialHandler.Aminophenol;
+import static keqing.gtqtcore.api.recipes.GTQTcoreRecipeMaps.*;
 import static keqing.gtqtcore.api.unification.GTQTMaterials.*;
 
 

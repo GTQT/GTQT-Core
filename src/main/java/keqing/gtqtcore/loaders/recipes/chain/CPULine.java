@@ -21,7 +21,6 @@ import static gregtech.common.metatileentities.MetaTileEntities.HULL;
 import static keqing.gtqtcore.api.recipes.GTQTcoreRecipeMaps.*;
 import static keqing.gtqtcore.api.unification.GTQTMaterials.*;
 import static keqing.gtqtcore.api.unification.ore.GTQTOrePrefix.wrap;
-
 import static keqing.gtqtcore.common.block.blocks.BlockMultiblockGlass1.CasingType.*;
 import static keqing.gtqtcore.common.block.blocks.BlockStepperCasing.CasingType.*;
 import static keqing.gtqtcore.common.items.GTQTMetaItems.*;
@@ -301,13 +300,13 @@ public class CPULine {
 
         ASSEMBLER_RECIPES.recipeBuilder()
                 .inputs(HULL[2].getStackForm(4))
-                .input(EMITTER_LV, 8)
-                .input(FIELD_GENERATOR_LV, 8)
-                .input(circuit, MarkerMaterials.Tier.MV, 16)
+                .input(EMITTER_LV, 4)
+                .input(FIELD_GENERATOR_LV, 4)
+                .input(circuit, MarkerMaterials.Tier.MV, 4)
                 .input(plate, Invar, 32)
                 .input(gear, Aluminium, 8)
                 .input(OPTICAL_PIPES[0], 32)
-                .fluidInputs(PolyvinylChloride.getFluid(L * 16))
+                .fluidInputs(PolyvinylChloride.getFluid(L * 8))
                 .output(GTQTMetaTileEntities.LASER_ENGRAVING)
                 .duration(400).EUt(120).buildAndRegister();
 
@@ -315,7 +314,7 @@ public class CPULine {
         ASSEMBLER_RECIPES.recipeBuilder()
                 .inputs(HULL[1].getStackForm())
                 .input(EMITTER_LV, 8)
-                .input(circuit, MarkerMaterials.Tier.LV, 16)
+                .input(circuit, MarkerMaterials.Tier.LV, 4)
                 .input(screw, Steel, 16)
                 .circuitMeta(3)
                 .fluidInputs(Polyethylene.getFluid(L * 4))
@@ -325,7 +324,7 @@ public class CPULine {
         ASSEMBLER_RECIPES.recipeBuilder()
                 .inputs(HULL[2].getStackForm())
                 .input(EMITTER_MV, 8)
-                .input(circuit, MarkerMaterials.Tier.MV, 16)
+                .input(circuit, MarkerMaterials.Tier.MV, 4)
                 .input(screw, Aluminium, 16)
                 .circuitMeta(3)
                 .fluidInputs(PolyvinylChloride.getFluid(L * 4))
@@ -335,7 +334,7 @@ public class CPULine {
         ASSEMBLER_RECIPES.recipeBuilder()
                 .inputs(HULL[3].getStackForm())
                 .input(EMITTER_HV, 8)
-                .input(circuit, MarkerMaterials.Tier.HV, 16)
+                .input(circuit, MarkerMaterials.Tier.HV, 4)
                 .input(screw, StainlessSteel, 16)
                 .circuitMeta(3)
                 .fluidInputs(Epoxy.getFluid(L * 4))
@@ -345,7 +344,7 @@ public class CPULine {
         ASSEMBLER_RECIPES.recipeBuilder()
                 .inputs(HULL[4].getStackForm())
                 .input(EMITTER_EV, 8)
-                .input(circuit, MarkerMaterials.Tier.EV, 16)
+                .input(circuit, MarkerMaterials.Tier.EV, 4)
                 .input(screw, Titanium, 16)
                 .circuitMeta(3)
                 .fluidInputs(ReinforcedEpoxyResin.getFluid(L * 4))
@@ -355,7 +354,7 @@ public class CPULine {
         ASSEMBLER_RECIPES.recipeBuilder()
                 .inputs(HULL[5].getStackForm())
                 .input(EMITTER_IV, 8)
-                .input(circuit, MarkerMaterials.Tier.IV, 16)
+                .input(circuit, MarkerMaterials.Tier.IV, 4)
                 .input(screw, TungstenSteel, 16)
                 .circuitMeta(3)
                 .fluidInputs(Polytetrafluoroethylene.getFluid(L * 4))
@@ -365,8 +364,8 @@ public class CPULine {
         //射频
         ASSEMBLER_RECIPES.recipeBuilder()
                 .inputs(HULL[1].getStackForm())
-                .input(FIELD_GENERATOR_LV, 8)
-                .input(circuit, MarkerMaterials.Tier.LV, 16)
+                .input(FIELD_GENERATOR_LV, 4)
+                .input(circuit, MarkerMaterials.Tier.LV, 4)
                 .input(spring, Steel, 16)
                 .circuitMeta(3)
                 .fluidInputs(Polyethylene.getFluid(L * 4))
@@ -375,8 +374,8 @@ public class CPULine {
 
         ASSEMBLER_RECIPES.recipeBuilder()
                 .inputs(HULL[2].getStackForm())
-                .input(FIELD_GENERATOR_MV, 8)
-                .input(circuit, MarkerMaterials.Tier.MV, 16)
+                .input(FIELD_GENERATOR_MV, 4)
+                .input(circuit, MarkerMaterials.Tier.MV, 4)
                 .input(spring, Aluminium, 16)
                 .circuitMeta(3)
                 .fluidInputs(PolyvinylChloride.getFluid(L * 4))
@@ -385,8 +384,8 @@ public class CPULine {
 
         ASSEMBLER_RECIPES.recipeBuilder()
                 .inputs(HULL[3].getStackForm())
-                .input(FIELD_GENERATOR_HV, 8)
-                .input(circuit, MarkerMaterials.Tier.HV, 16)
+                .input(FIELD_GENERATOR_HV, 4)
+                .input(circuit, MarkerMaterials.Tier.HV, 4)
                 .input(spring, StainlessSteel, 16)
                 .circuitMeta(3)
                 .fluidInputs(Epoxy.getFluid(L * 4))
@@ -395,8 +394,8 @@ public class CPULine {
 
         ASSEMBLER_RECIPES.recipeBuilder()
                 .inputs(HULL[4].getStackForm())
-                .input(FIELD_GENERATOR_EV, 8)
-                .input(circuit, MarkerMaterials.Tier.EV, 16)
+                .input(FIELD_GENERATOR_EV, 4)
+                .input(circuit, MarkerMaterials.Tier.EV, 4)
                 .input(spring, Titanium, 16)
                 .circuitMeta(3)
                 .fluidInputs(ReinforcedEpoxyResin.getFluid(L * 4))
@@ -405,8 +404,8 @@ public class CPULine {
 
         ASSEMBLER_RECIPES.recipeBuilder()
                 .inputs(HULL[5].getStackForm())
-                .input(FIELD_GENERATOR_IV, 8)
-                .input(circuit, MarkerMaterials.Tier.IV, 16)
+                .input(FIELD_GENERATOR_IV, 4)
+                .input(circuit, MarkerMaterials.Tier.IV, 4)
                 .input(spring, TungstenSteel, 16)
                 .circuitMeta(3)
                 .fluidInputs(Polytetrafluoroethylene.getFluid(L * 4))
@@ -417,8 +416,8 @@ public class CPULine {
         //自净
         ASSEMBLER_RECIPES.recipeBuilder()
                 .inputs(HULL[1].getStackForm())
-                .input(ELECTRIC_MOTOR_LV, 8)
-                .input(circuit, MarkerMaterials.Tier.LV, 4)
+                .input(ELECTRIC_MOTOR_LV, 4)
+                .input(circuit, MarkerMaterials.Tier.LV, 2)
                 .input(rotor, Steel, 16)
                 .circuitMeta(3)
                 .fluidInputs(Polyethylene.getFluid(L * 4))
@@ -427,8 +426,8 @@ public class CPULine {
 
         ASSEMBLER_RECIPES.recipeBuilder()
                 .inputs(HULL[2].getStackForm())
-                .input(ELECTRIC_MOTOR_MV, 8)
-                .input(circuit, MarkerMaterials.Tier.MV, 4)
+                .input(ELECTRIC_MOTOR_MV, 4)
+                .input(circuit, MarkerMaterials.Tier.MV, 2)
                 .input(rotor, Aluminium, 16)
                 .circuitMeta(3)
                 .fluidInputs(PolyvinylChloride.getFluid(L * 4))
@@ -437,8 +436,8 @@ public class CPULine {
 
         ASSEMBLER_RECIPES.recipeBuilder()
                 .inputs(HULL[3].getStackForm())
-                .input(ELECTRIC_MOTOR_HV, 8)
-                .input(circuit, MarkerMaterials.Tier.HV, 4)
+                .input(ELECTRIC_MOTOR_HV, 4)
+                .input(circuit, MarkerMaterials.Tier.HV, 2)
                 .input(rotor, StainlessSteel, 16)
                 .circuitMeta(3)
                 .fluidInputs(Epoxy.getFluid(L * 4))
@@ -447,8 +446,8 @@ public class CPULine {
 
         ASSEMBLER_RECIPES.recipeBuilder()
                 .inputs(HULL[4].getStackForm())
-                .input(ELECTRIC_MOTOR_EV, 8)
-                .input(circuit, MarkerMaterials.Tier.EV, 4)
+                .input(ELECTRIC_MOTOR_EV, 4)
+                .input(circuit, MarkerMaterials.Tier.EV, 2)
                 .input(rotor, Titanium, 16)
                 .circuitMeta(3)
                 .fluidInputs(ReinforcedEpoxyResin.getFluid(L * 4))
@@ -457,8 +456,8 @@ public class CPULine {
 
         ASSEMBLER_RECIPES.recipeBuilder()
                 .inputs(HULL[5].getStackForm())
-                .input(ELECTRIC_MOTOR_IV, 8)
-                .input(circuit, MarkerMaterials.Tier.IV, 4)
+                .input(ELECTRIC_MOTOR_IV, 4)
+                .input(circuit, MarkerMaterials.Tier.IV, 2)
                 .input(rotor, TungstenSteel, 16)
                 .circuitMeta(3)
                 .fluidInputs(Polytetrafluoroethylene.getFluid(L * 4))

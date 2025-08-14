@@ -11,8 +11,6 @@ import static gregtech.api.unification.material.Materials.*;
 import static gregtech.api.unification.ore.OrePrefix.*;
 import static keqing.gtqtcore.api.recipes.GTQTcoreRecipeMaps.CHEMICAL_PLANT;
 import static keqing.gtqtcore.api.unification.GTQTMaterials.*;
-import static keqing.gtqtcore.api.unification.GTQTMaterials.BariumOxide;
-import static keqing.gtqtcore.api.unification.GTQTMaterials.SodiumAcetate;
 import static keqing.gtqtcore.common.items.GTQTMetaItems.CATALYST_FRAMEWORK_I;
 
 public class TitanateChain {
@@ -43,7 +41,6 @@ public class TitanateChain {
                 .blastFurnaceTemp(Titanium.getBlastTemperature() + 200)
                 .buildAndRegister();
 
-
         //纳米钛酸钡
         CHEMICAL_RECIPES.recipeBuilder().duration(400).EUt(VA[HV])
                 .fluidInputs(BariumAcetate.getFluid(1000))
@@ -51,12 +48,32 @@ public class TitanateChain {
                 .output(dust,NanometerBariumTitanate)
                 .buildAndRegister();
 
+        //BariumCarbonate受热分解
+        BLAST_RECIPES.recipeBuilder()
+                .input(dust, BariumCarbonate, 5)
+                .fluidOutputs(CarbonDioxide.getFluid(1000))
+                .output(dust, BariumOxide, 2)
+                .blastFurnaceTemp(1800)
+                .duration(400)
+                .EUt(VA[HV])
+                .buildAndRegister();
+
+        //BariumHydroxide受热分解
+        BLAST_RECIPES.recipeBuilder()
+                .input(dust, BariumHydroxide, 5)
+                .fluidOutputs(Water.getFluid(1000))
+                .output(dust, BariumOxide, 2)
+                .blastFurnaceTemp(1800)
+                .duration(400)
+                .EUt(VA[HV])
+                .buildAndRegister();
+
         //硫酸钡浊液
         CHEMICAL_PLANT.recipeBuilder()
                 .Catalyst(CATALYST_FRAMEWORK_I.getStackForm())
                 .duration(400).EUt(VA[IV])
                 .fluidInputs(SulfuricAcid.getFluid(1000))
-                .input(dust, BariumOxide)
+                .input(dust, BariumOxide, 2)
                 .fluidOutputs(BariumSulfateSuspension.getFluid(1000))
                 .buildAndRegister();
 
@@ -75,6 +92,7 @@ public class TitanateChain {
                 .fluidInputs(Oxygen.getFluid(2000))
                 .blastFurnaceTemp(Titanium.getBlastTemperature() + 200)
                 .buildAndRegister();
+
         //氧化钛+硫酸 电力高炉 == 酸性钛
         BLAST_RECIPES.recipeBuilder().duration(800).EUt(VA[HV])
                 .input(ingot, TitaniumOxide,1)
@@ -82,18 +100,21 @@ public class TitanateChain {
                 .fluidOutputs(AcidicTitanium.getFluid(1000))
                 .blastFurnaceTemp(Titanium.getBlastTemperature() + 200)
                 .buildAndRegister();
+
         //酸性钛+乙烯酮 = 含杂酰化钛
         CHEMICAL_RECIPES.recipeBuilder().duration(400).EUt(VA[HV])
                 .fluidInputs(Ethenone.getFluid(1000))
                 .fluidInputs(AcidicTitanium.getFluid(1000))
                 .fluidOutputs(ImpureTitaniumAcylate.getFluid(1000))
                 .buildAndRegister();
+
         //含杂酰化钛 + 氢氧化钠 =酰化钛沉淀
         CHEMICAL_RECIPES.recipeBuilder().duration(400).EUt(VA[HV])
                 .fluidInputs(ImpureTitaniumAcylate.getFluid(1000))
                 .input(dust,SodiumHydroxide,2)
                 .output(dust, TitaniumAcylatePrecipitation)
                 .buildAndRegister();
+
         //酰化钛沉淀 + 硫酸 = 粗制酰化钛
         CHEMICAL_RECIPES.recipeBuilder().duration(400).EUt(VA[HV])
                 .input(dust, TitaniumAcylatePrecipitation)
@@ -101,6 +122,7 @@ public class TitanateChain {
                 .fluidOutputs(CrudeTitaniumAcylate.getFluid(1000))
                 .fluidOutputs(SodiumPersulfate.getFluid(1000))
                 .buildAndRegister();
+
         //蒸馏 酰化钛
         DISTILLATION_RECIPES.recipeBuilder().duration(200).EUt(VA[HV])
                 .fluidInputs(CrudeTitaniumAcylate.getFluid(1000))

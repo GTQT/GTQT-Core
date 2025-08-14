@@ -37,8 +37,6 @@ import net.minecraft.client.resources.I18n;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.ResourceLocation;
-import net.minecraft.util.text.ITextComponent;
-import net.minecraft.util.text.TextComponentTranslation;
 import net.minecraft.util.text.TextFormatting;
 import net.minecraft.world.World;
 import net.minecraftforge.fluids.FluidStack;
@@ -54,7 +52,6 @@ import java.util.function.UnaryOperator;
 import static gregtech.api.GTValues.V;
 import static gregtech.api.unification.material.Materials.Steam;
 import static gregtech.api.util.RelativeDirection.*;
-import static keqing.gtqtcore.api.utils.GTQTUtil.getAccelerateByCWU;
 
 //闪蒸
 public class MetaTileEntitySMSF extends MultiMapMultiblockController implements ProgressBarMultiblock {
@@ -221,10 +218,10 @@ public class MetaTileEntitySMSF extends MultiMapMultiblockController implements 
                 .where('Y', states(getCasingAState()))
                 .where('U', states(getCasingBState()))
                 .where('H', states(getCasingAState())
-                        .or(abilities(MultiblockAbility.MAINTENANCE_HATCH).setExactLimit(1).setPreviewCount(1))
-                        .or(abilities(MultiblockAbility.INPUT_ENERGY).setMinGlobalLimited(1).setMaxGlobalLimited(2).setPreviewCount(2))
-                        .or(abilities(MultiblockAbility.IMPORT_ITEMS).setExactLimit(1).setPreviewCount(1))
-                        .or(abilities(MultiblockAbility.IMPORT_FLUIDS).setMinGlobalLimited(1).setMaxGlobalLimited(4).setPreviewCount(2))
+                        .or(autoAbilities(true, true))
+                        .or(abilities(MultiblockAbility.INPUT_ENERGY).setMinGlobalLimited(1).setMaxGlobalLimited(2))
+                        .or(abilities(MultiblockAbility.IMPORT_ITEMS).setMinGlobalLimited(1).setMaxGlobalLimited(2))
+                        .or(abilities(MultiblockAbility.IMPORT_FLUIDS).setMinGlobalLimited(1).setMaxGlobalLimited(4))
                 )
                 .where('B', (abilities(MultiblockAbility.EXPORT_ITEMS)))
                 .where('O', metaTileEntities(MultiblockAbility.REGISTRY.get(MultiblockAbility.EXPORT_FLUIDS).stream()
@@ -257,7 +254,7 @@ public class MetaTileEntitySMSF extends MultiMapMultiblockController implements 
     }
 
     public boolean hasMufflerMechanics() {
-        return false;
+        return true;
     }
 
     @SideOnly(Side.CLIENT)

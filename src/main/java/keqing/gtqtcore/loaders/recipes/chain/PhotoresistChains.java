@@ -2,11 +2,13 @@ package keqing.gtqtcore.loaders.recipes.chain;
 
 import keqing.gtqtcore.api.unification.GTQTMaterials;
 
-import static keqing.gtqtcore.api.recipes.GTQTcoreRecipeMaps.CHEMICAL_PLANT;
 import static gregtech.api.GTValues.*;
 import static gregtech.api.recipes.RecipeMaps.*;
 import static gregtech.api.unification.material.Materials.*;
-import static gregtech.api.unification.ore.OrePrefix.*;
+import static gregtech.api.unification.ore.OrePrefix.dust;
+import static gregtech.api.unification.ore.OrePrefix.dustSmall;
+import static keqing.gtqtcore.api.recipes.GTQTcoreRecipeMaps.CHEMICAL_PLANT;
+import static keqing.gtqtcore.api.unification.GTQTMaterials.BariumHydroxide;
 
 public class PhotoresistChains {
 
@@ -55,27 +57,21 @@ public class PhotoresistChains {
                 .output(dust, GTQTMaterials.AdipicAcid, 2)
                 .buildAndRegister();
 
+        // Ba + 2H2O -> Ba(OH)2 + 2H
         CHEMICAL_RECIPES.recipeBuilder()
-                .EUt(VA[MV])
-                .duration(120)
                 .input(dust, Barium)
-                .fluidInputs(Oxygen.getFluid(1000))
-                .output(dust, GTQTMaterials.BariumOxide)
-                .buildAndRegister();
-
-        CHEMICAL_RECIPES.recipeBuilder()
+                .fluidInputs(Water.getFluid(2000))
+                .output(dust, BariumHydroxide, 5)
+                .fluidOutputs(Hydrogen.getFluid(2000))
                 .EUt(VA[MV])
-                .duration(80)
-                .input(dust, GTQTMaterials.BariumOxide)
-                .fluidInputs(Water.getFluid(1000))
-                .output(dust, GTQTMaterials.BariumHydroxide)
+                .duration(4 * SECOND + 10 * TICK)
                 .buildAndRegister();
 
         LARGE_CHEMICAL_RECIPES.recipeBuilder()
                 .EUt(VA[HV])
                 .duration(80)
                 .input(dust, GTQTMaterials.AdipicAcid)
-                .notConsumable(dust, GTQTMaterials.BariumHydroxide)
+                .notConsumable(dust, BariumHydroxide)
                 .fluidOutputs(GTQTMaterials.Cyclopentanone.getFluid(1000))
                 .fluidOutputs(Water.getFluid(1000))
                 .fluidOutputs(CarbonDioxide.getFluid(1000))

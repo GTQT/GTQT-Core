@@ -1,8 +1,6 @@
 package keqing.gtqtcore.api.recipes;
 
 import gregtech.api.GTValues;
-import gregtech.api.gui.GuiTextures;
-import gregtech.api.gui.widgets.ProgressWidget;
 import gregtech.api.mui.GTGuiTextures;
 import gregtech.api.recipes.RecipeMap;
 import gregtech.api.recipes.RecipeMapBuilder;
@@ -10,11 +8,10 @@ import gregtech.api.recipes.RecipeMaps;
 import gregtech.api.recipes.builders.*;
 import gregtech.api.recipes.ui.impl.DistillationTowerUI;
 import gregtech.core.sound.GTSoundEvents;
-import keqing.gtqtcore.api.gui.GTQTGuiTextures;
 import keqing.gtqtcore.api.recipes.builder.*;
 import keqing.gtqtcore.api.recipes.ui.*;
+import keqing.gtqtcore.client.sound.GTQTSoundHandler;
 
-import static gregtech.api.gui.widgets.ProgressWidget.MoveType.CIRCULAR;
 import static gregtech.api.gui.widgets.ProgressWidget.MoveType.HORIZONTAL;
 import static gregtech.api.recipes.RecipeMaps.*;
 import static keqing.gtqtcore.api.gui.GTQTGuiTextures.*;
@@ -245,11 +242,11 @@ public class GTQTcoreRecipeMaps {
             .sound(GTSoundEvents.MACERATOR)
             .build();
 
-    public static final RecipeMap<ComputationRecipeBuilder> LARGE_CIRCUIT_ASSEMBLY_LINE_RECIPES = new RecipeMapBuilder<>("large_circuit_assembly_line", new ComputationRecipeBuilder())
-            .itemInputs(7)
-            .itemOutputs(1)
+    public static final RecipeMap<CircuitAssemblyLineRecipeBuilder> LARGE_CIRCUIT_ASSEMBLY_LINE_RECIPES = new RecipeMapBuilder<>("large_circuit_assembly_line", new CircuitAssemblyLineRecipeBuilder())
+            .itemInputs(6)
+            .itemOutputs(6)
             .fluidInputs(1)
-            .ui(LargeCircuitAssemblyLineUI::new)
+            //.ui(LargeCircuitAssemblyLineUI::new)
             .sound(GTSoundEvents.ASSEMBLER)
             .build();
 
@@ -1173,6 +1170,16 @@ public class GTQTcoreRecipeMaps {
             .sound(GTSoundEvents.ARC)
             .build();
 
+    public static final RecipeMap<BlastRecipeBuilder> STELLAR_FORGE_RECIPES = new RecipeMapBuilder<>("stellar_forge_recipes", new BlastRecipeBuilder())
+            .itemInputs(9)
+            .itemOutputs(9)
+            .fluidInputs(9)
+            .fluidOutputs(9)
+            .ui(StellarForgeUI::new)
+            .sound(GTQTSoundHandler.STELLAR_FORGE)
+            .build();
+
+
     //超维度搅拌
     public static final RecipeMap<SimpleRecipeBuilder> EXTRADIMENSIONAL_MIXING_RECIPES = new RecipeMapBuilder<>("extradimensional_mixing_recipes", new SimpleRecipeBuilder())
             .itemInputs(1)
@@ -1184,6 +1191,7 @@ public class GTQTcoreRecipeMaps {
             )
             .sound(GTSoundEvents.MINER)
             .build();
+
     public static RecipeMap<EOHRecipeBuilder> VIRTUAL_COSMOS_SIMULATOR_RECIPES = new RecipeMapBuilder<>("virtual_cosmos_simulator_recipes", new EOHRecipeBuilder())
             .itemInputs(1)
             .itemOutputs(81)

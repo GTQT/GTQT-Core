@@ -1,5 +1,6 @@
 package keqing.gtqtcore;
 
+import gregtech.api.sound.ISoundManager;
 import gregtech.common.ConfigHolder;
 import keqing.gtqtcore.api.GTQTAPI;
 import keqing.gtqtcore.api.capability.GTQTTileCapabilities;
@@ -7,6 +8,8 @@ import keqing.gtqtcore.api.io.advancement.IAdvancementManager;
 import keqing.gtqtcore.api.module.IModuleManager;
 import keqing.gtqtcore.api.utils.GTQTLog;
 import keqing.gtqtcore.client.ClientProxy;
+import keqing.gtqtcore.client.sound.GTQTSoundHandler;
+import keqing.gtqtcore.client.sound.SoundManager;
 import keqing.gtqtcore.common.CommonProxy;
 import keqing.gtqtcore.common.MetaEntities;
 import keqing.gtqtcore.common.block.GTQTMetaBlocks;
@@ -52,6 +55,7 @@ public class GTQTCore {
     public static IModuleManager moduleManager;
     // Will be available at the Pre-Initialization stage.
     public static IAdvancementManager advancementManager;
+    public static ISoundManager soundManager;
 
     @Getter
     int i = 1;
@@ -73,6 +77,9 @@ public class GTQTCore {
         proxy.preLoad();
         proxy.preInit();
         MetaEntities.init();
+
+        GTQTCore.soundManager = SoundManager.getInstance();
+        GTQTSoundHandler.register();
     }
 
     @Mod.EventHandler

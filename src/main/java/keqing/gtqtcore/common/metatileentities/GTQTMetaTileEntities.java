@@ -273,6 +273,7 @@ public class GTQTMetaTileEntities {
     public static MetaTileEntityMSF MSF;
     public static MetaTileEntityNicollDysonBeamer NICOLL_DYSON_BEAMER;
     public static MetaTileEntityEyeOfHarmony EOH;
+    public static MetaTileEntityStellarForge STELLAR_FORGE;
     public static MetaTileEntityLargeBiomassGenerator LARGE_BIOMASS_GENERATOR;
     public static MetaTileEntityFluidRubbishBin FLUID_RUBBISH_BIN;
     public static MetaTileEntityParticleAcceleratorIO[] PARTICLE_ACCELERATOR_IO = new MetaTileEntityParticleAcceleratorIO[4];
@@ -642,7 +643,7 @@ public class GTQTMetaTileEntities {
             DIMENSIONAL_PLASMA_FURNACE = registerMetaTileEntity(602, new MetaTileEntityDimensionallyPlasmFurnace(gtqtcoreId("dimensional_plasma_furnace")));
 
         EOH = registerMetaTileEntity(603, new MetaTileEntityEyeOfHarmony(gtqtcoreId("eye_of_harmony")));
-
+        STELLAR_FORGE = registerMetaTileEntity(604, new MetaTileEntityStellarForge(gtqtcoreId("stellar_forge")));
         //NICOLL_DYSON_BEAMER = registerMetaTileEntity(604, new MetaTileEntityNicollDysonBeamer(gtqtcoreId("nicoll_dyson_beamer")));
         if (GTQTCoreConfig.MachineSwitch.EndGameSwitch)
             SUPRACHRONAL_NEUTRONIUM_FORGE = registerMetaTileEntity(605, new MetaTileEntitySuprachronalNeutroniumForge(gtqtcoreId("suprachronal_neutronium_forge")));

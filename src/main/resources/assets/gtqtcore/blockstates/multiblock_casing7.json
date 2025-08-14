@@ -37,6 +37,18 @@
         "textures": {
           "all": "gregtech:blocks/multiblock/casing/antimatter_annihilation_matrix"
         }
+      },
+      "electromagnetic_acceleration_pipe_box": {
+        "model": "minecraft:cube_all",
+        "textures": {
+          "all": "gregtech:blocks/multiblock/casing/electromagnetic_acceleration_pipe_box"
+        }
+      },
+      "advanced_electromagnetic_acceleration_pipe_box": {
+        "model": "minecraft:cube_all",
+        "textures": {
+          "all": "gregtech:blocks/multiblock/casing/advanced_electromagnetic_acceleration_pipe_box"
+        }
       }
     }
   }

@@ -5,11 +5,13 @@ import gregtech.api.fluids.attribute.FluidAttributes;
 import gregtech.api.unification.material.Material;
 import gregtech.api.unification.material.Materials;
 import gregtech.api.unification.material.info.MaterialIconSet;
+import gregtech.api.unification.material.properties.BlastProperty;
 import gregtech.api.unification.material.properties.PropertyKey;
 import keqing.gtqtcore.api.unification.Elements;
 import keqing.gtqtcore.api.unification.GTQTMaterials;
 import net.minecraft.util.text.TextFormatting;
 
+import static gregtech.api.GTValues.*;
 import static gregtech.api.fluids.attribute.FluidAttributes.ACID;
 import static gregtech.api.unification.material.Materials.*;
 import static gregtech.api.unification.material.info.MaterialFlags.*;
@@ -559,7 +561,7 @@ public class SecondDegreeMaterials {
 
         //  13085 Fluorinated Ethylene Propylene
         GTQTMaterials.FluorinatedEthylenePropylene = new Material.Builder(getMaterialsId(), gtqtcoreId("fluorinated_ethylene_propylene"))
-                .liquid() // TODO polymer?
+                .liquid()
                 .color(0xC8C8C8)
                 .iconSet(DULL)
                 .components(Carbon, 5, Fluorine, 10)
@@ -1222,8 +1224,15 @@ public class SecondDegreeMaterials {
                 .build()
                 .setFormula("(CaCO3)(BaSO4)(H2O)2", true);
 
-        //todo
-        startId++;
+        //HydroxyquinolineAluminium
+        HydroxyquinolineAluminium = new Material.Builder(getMaterialsId(), gtqtcoreId("hydroxyquinoline_aluminium"))
+                .ingot()
+                .color(0x3F5A9F).iconSet(SHINY)
+                .components(Aluminium, 1, Carbon, 9, Hydrogen, 7, Nitrogen, 1, Oxygen, 1)
+                .flags(STD_METAL, DISABLE_DECOMPOSITION, GENERATE_FOIL)
+                .build()
+                .setFormula("(C9H7NO)Al", true);
+
 
         // 20045 Methoxycresol
         Methoxycreosol = new Material.Builder(getMaterialsId(), gtqtcoreId("methoxycreosol"))
@@ -1973,7 +1982,6 @@ public class SecondDegreeMaterials {
                 .components(Zinc, 1, GTQTMaterials.GermaniumDioxide, 1)
                 .build();
 
-        //TODO move to first degree
         GTQTMaterials.WaelzSlag = new Material.Builder(getMaterialsId(), gtqtcoreId("waelz_slag"))
                 .dust()
                 .color(0xAC8B5C)
@@ -2009,7 +2017,7 @@ public class SecondDegreeMaterials {
                 .build()
                 .setFormula("(ZrF4)5(BaF2)2(LaF3)(AlF3)(NaF)2Pr", true);
 
-        GTQTMaterials.NdYAG = new Material.Builder(getMaterialsId(), gtqtcoreId("nd_yag")) //TODO "Yttrium-Aluminium-Garnet" Tooltip
+        GTQTMaterials.NdYAG = new Material.Builder(getMaterialsId(), gtqtcoreId("nd_yag"))
                 .gem()
                 .color(0xD99DE4)
                 .iconSet(MaterialIconSet.GEM_VERTICAL)
@@ -2018,7 +2026,7 @@ public class SecondDegreeMaterials {
                 .build()
                 .setFormula("NdY2Al5O12", true);
 
-        GTQTMaterials.BismuthFerrite = new Material.Builder(getMaterialsId(), gtqtcoreId("bismuth_ferrite")) //TODO "Multiferroic!" tooltip
+        GTQTMaterials.BismuthFerrite = new Material.Builder(getMaterialsId(), gtqtcoreId("bismuth_ferrite"))
                 .gem()
                 .color(0x43634B)
                 .iconSet(MaterialIconSet.MAGNETIC)
@@ -2429,6 +2437,40 @@ public class SecondDegreeMaterials {
                 .iconSet(SHINY)
                 .components(Trinium, 2, Titanium, 1)
                 .blast(11000)
+                .build();
+
+        HydroselenicAcid = new Material.Builder(getMaterialsId(), gtqtcoreId("hydroselenic_acid"))
+                .liquid(new FluidBuilder().attribute(FluidAttributes.ACID))
+                .color(0xDBC3B5)
+                .components(Hydrogen, 2, Selenium, 1, Oxygen, 4)
+                .flags(DISABLE_DECOMPOSITION)
+                .build();
+
+        // 2144 Copper Gallium Indium Selenide
+        CopperGalliumIndiumSelenide = new Material.Builder(getMaterialsId(), gtqtcoreId("copper_gallium_indium_selenide"))
+                .ingot()
+                .colorAverage().iconSet(SHINY)
+                .components(Copper, 1, Gallium, 1, Indium, 1, Selenium, 2)
+                .flags(STD_METAL, DISABLE_DECOMPOSITION, GENERATE_FOIL, GENERATE_FINE_WIRE)
+                .blast(b ->
+                        b.temp(6000, BlastProperty.GasTier.MID) // Naquadah (HSS-G)
+                                .blastStats(VA[EV], 30 * SECOND)
+                                .vacuumStats(VA[MV], 10 * SECOND)
+                )
+                .build();
+
+        //Samarium Cobalt
+        SamariumCobalt = new Material.Builder(getMaterialsId(), gtqtcoreId("samarium_cobalt"))
+                .ingot()
+                .fluid()
+                .color(0xB3D683).iconSet(MAGNETIC)
+                .components(Samarium, 1, Cobalt, 5)
+                .flags(GENERATE_ROD, GENERATE_LONG_ROD, GENERATE_RING)
+                .blast(b ->
+                        b.temp(5000, BlastProperty.GasTier.HIGH) // HSS-G (RTM Alloy)
+                                .blastStats(VA[IV], 45 * SECOND)
+                                .vacuumStats(VA[HV], 20 * SECOND)
+                )
                 .build();
         /*
         UEVSuperconductorBase = new Material.Builder(getMaterialsId(), gtqtcoreId("uev_superconductor_base"))

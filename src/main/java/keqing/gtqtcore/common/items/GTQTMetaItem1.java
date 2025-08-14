@@ -10,7 +10,6 @@ import gregtech.api.unification.stack.RecyclingData;
 import gregtech.client.utils.TooltipHelper;
 import gregtech.common.creativetab.GTCreativeTabs;
 import gregtech.common.items.MetaItems;
-import gregtech.common.items.behaviors.ProspectorScannerBehavior;
 import gregtech.common.items.behaviors.TooltipBehavior;
 import keqing.gtqtcore.api.unification.GTQTMaterials;
 import keqing.gtqtcore.client.textures.GTQTTextures;
@@ -23,7 +22,6 @@ import org.lwjgl.input.Keyboard;
 
 import static gregtech.api.GTValues.*;
 import static gregtech.api.unification.material.Materials.*;
-import static gregtech.common.items.MetaItems.PROSPECTOR_LV;
 import static keqing.gtqtcore.api.unification.GTQTMaterials.*;
 import static keqing.gtqtcore.common.CommonProxy.*;
 import static keqing.gtqtcore.common.items.GTQTMetaItems.*;
@@ -414,22 +412,6 @@ public class GTQTMetaItem1 extends StandardMetaItem {
         VOLTAGE_COIL_UXV = this.addItem(397, "voltage_coil.uxv").setRecyclingData(new RecyclingData(new MaterialStack(MercuryCadmiumTelluride, M * 2), new MaterialStack(ChromiumGermaniumTellurideMagnetic, M / 2))).setCreativeTabs(GTQTCore_TAB);
         VOLTAGE_COIL_OpV = this.addItem(398, "voltage_coil.opv").setRecyclingData(new RecyclingData(new MaterialStack(MercuryCadmiumTelluride, M * 2), new MaterialStack(ChromiumGermaniumTellurideMagnetic, M / 2))).setCreativeTabs(GTQTCore_TAB);
         VOLTAGE_COIL_MAX = this.addItem(399, "voltage_coil.max").setRecyclingData(new RecyclingData(new MaterialStack(MercuryCadmiumTelluride, M * 2), new MaterialStack(ChromiumGermaniumTellurideMagnetic, M / 2))).setCreativeTabs(GTQTCore_TAB);
-        //封装电路板
-        WRAP_CIRCUIT_ULV = this.addItem(400, "wrap.circuit.ulv").setCreativeTabs(GTQTCore_TAB);
-        WRAP_CIRCUIT_LV = this.addItem(401, "wrap.circuit.lv").setCreativeTabs(GTQTCore_TAB);
-        WRAP_CIRCUIT_MV = this.addItem(402, "wrap.circuit.mv").setCreativeTabs(GTQTCore_TAB);
-        WRAP_CIRCUIT_HV = this.addItem(403, "wrap.circuit.hv").setCreativeTabs(GTQTCore_TAB);
-        WRAP_CIRCUIT_EV = this.addItem(404, "wrap.circuit.ev").setCreativeTabs(GTQTCore_TAB);
-        WRAP_CIRCUIT_IV = this.addItem(405, "wrap.circuit.iv").setCreativeTabs(GTQTCore_TAB);
-        WRAP_CIRCUIT_LuV = this.addItem(406, "wrap.circuit.luv").setCreativeTabs(GTQTCore_TAB);
-        WRAP_CIRCUIT_ZPM = this.addItem(407, "wrap.circuit.zpm").setCreativeTabs(GTQTCore_TAB);
-        WRAP_CIRCUIT_UV = this.addItem(408, "wrap.circuit.uv").setCreativeTabs(GTQTCore_TAB);
-        WRAP_CIRCUIT_UHV = this.addItem(409, "wrap.circuit.uhv").setCreativeTabs(GTQTCore_TAB);
-        WRAP_CIRCUIT_UEV = this.addItem(410, "wrap.circuit.uev").setCreativeTabs(GTQTCore_TAB);
-        WRAP_CIRCUIT_UIV = this.addItem(411, "wrap.circuit.uiv").setCreativeTabs(GTQTCore_TAB);
-        WRAP_CIRCUIT_UXV = this.addItem(412, "wrap.circuit.uxv").setCreativeTabs(GTQTCore_TAB);
-        WRAP_CIRCUIT_OpV = this.addItem(413, "wrap.circuit.opv").setCreativeTabs(GTQTCore_TAB);
-        WRAP_CIRCUIT_MAX = this.addItem(414, "wrap.circuit.max").setCreativeTabs(GTQTCore_TAB);
 
         POS_BINDING_CARD = this.addItem(417, "pos_binding_card").setMaxStackSize(1).addComponents(new PosBindingCardBehaviors()).setCreativeTabs(GTQTCore_TAB);
 
@@ -531,30 +513,30 @@ public class GTQTMetaItem1 extends StandardMetaItem {
         MAGNETO_RESONATIC_BOARD = this.addItem(498, "board.magneto_resonatic").setCreativeTabs(CommonProxy.GTQTCore_GD);
         MAGNETO_RESONATIC_CIRCUIT_BOARD = this.addItem(499, "circuit_board.magneto_resonatic").setCreativeTabs(CommonProxy.GTQTCore_GD);
         // Circuits: ID 0-49
-        GOOWARE_PROCESSOR = this.addItem(500, "circuit.gooware_processor").setUnificationData(OrePrefix.circuit, MarkerMaterials.Tier.ZPM).setCreativeTabs(GTQTCore_TAB);
-        GOOWARE_ASSEMBLY = this.addItem(501, "circuit.gooware_assembly").setUnificationData(OrePrefix.circuit, MarkerMaterials.Tier.UV).setCreativeTabs(GTQTCore_TAB);
-        GOOWARE_COMPUTER = this.addItem(502, "circuit.gooware_computer").setUnificationData(OrePrefix.circuit, MarkerMaterials.Tier.UHV).setCreativeTabs(GTQTCore_TAB);
-        GOOWARE_MAINFRAME = this.addItem(503, "circuit.gooware_mainframe").setUnificationData(OrePrefix.circuit, MarkerMaterials.Tier.UEV).setCreativeTabs(GTQTCore_TAB);
+        GOOWARE_PROCESSOR_ZPM = this.addItem(500, "circuit.gooware_processor").setUnificationData(OrePrefix.circuit, MarkerMaterials.Tier.ZPM).setCreativeTabs(GTQTCore_TAB);
+        GOOWARE_ASSEMBLY_UV = this.addItem(501, "circuit.gooware_assembly").setUnificationData(OrePrefix.circuit, MarkerMaterials.Tier.UV).setCreativeTabs(GTQTCore_TAB);
+        GOOWARE_COMPUTER_UHV = this.addItem(502, "circuit.gooware_computer").setUnificationData(OrePrefix.circuit, MarkerMaterials.Tier.UHV).setCreativeTabs(GTQTCore_TAB);
+        GOOWARE_MAINFRAME_UEV = this.addItem(503, "circuit.gooware_mainframe").setUnificationData(OrePrefix.circuit, MarkerMaterials.Tier.UEV).setCreativeTabs(GTQTCore_TAB);
 
-        OPTICAL_PROCESSOR = this.addItem(504, "circuit.optical_processor").setUnificationData(OrePrefix.circuit, MarkerMaterials.Tier.UV).setCreativeTabs(GTQTCore_TAB);
-        OPTICAL_ASSEMBLY = this.addItem(505, "circuit.optical_assembly").setUnificationData(OrePrefix.circuit, MarkerMaterials.Tier.UHV).setCreativeTabs(GTQTCore_TAB);
-        OPTICAL_COMPUTER = this.addItem(506, "circuit.optical_computer").setUnificationData(OrePrefix.circuit, MarkerMaterials.Tier.UEV).setCreativeTabs(GTQTCore_TAB);
-        OPTICAL_MAINFRAME = this.addItem(507, "circuit.optical_mainframe").setUnificationData(OrePrefix.circuit, MarkerMaterials.Tier.UIV).setCreativeTabs(GTQTCore_TAB);
+        OPTICAL_PROCESSOR_UV = this.addItem(504, "circuit.optical_processor").setUnificationData(OrePrefix.circuit, MarkerMaterials.Tier.UV).setCreativeTabs(GTQTCore_TAB);
+        OPTICAL_ASSEMBLY_UHV = this.addItem(505, "circuit.optical_assembly").setUnificationData(OrePrefix.circuit, MarkerMaterials.Tier.UHV).setCreativeTabs(GTQTCore_TAB);
+        OPTICAL_COMPUTER_UEV = this.addItem(506, "circuit.optical_computer").setUnificationData(OrePrefix.circuit, MarkerMaterials.Tier.UEV).setCreativeTabs(GTQTCore_TAB);
+        OPTICAL_MAINFRAME_UIV = this.addItem(507, "circuit.optical_mainframe").setUnificationData(OrePrefix.circuit, MarkerMaterials.Tier.UIV).setCreativeTabs(GTQTCore_TAB);
 
-        SPINTRONIC_PROCESSOR = this.addItem(508, "circuit.spintronic_processor").setUnificationData(OrePrefix.circuit, MarkerMaterials.Tier.UHV).setCreativeTabs(GTQTCore_TAB);
-        SPINTRONIC_ASSEMBLY = this.addItem(509, "circuit.spintronic_assembly").setUnificationData(OrePrefix.circuit, MarkerMaterials.Tier.UEV).setCreativeTabs(GTQTCore_TAB);
-        SPINTRONIC_COMPUTER = this.addItem(510, "circuit.spintronic_computer").setUnificationData(OrePrefix.circuit, MarkerMaterials.Tier.UIV).setCreativeTabs(GTQTCore_TAB);
-        SPINTRONIC_MAINFRAME = this.addItem(511, "circuit.spintronic_mainframe").setUnificationData(OrePrefix.circuit, MarkerMaterials.Tier.UXV).setCreativeTabs(GTQTCore_TAB);
+        SPINTRONIC_PROCESSOR_UHV = this.addItem(508, "circuit.spintronic_processor").setUnificationData(OrePrefix.circuit, MarkerMaterials.Tier.UHV).setCreativeTabs(GTQTCore_TAB);
+        SPINTRONIC_ASSEMBLY_UEV = this.addItem(509, "circuit.spintronic_assembly").setUnificationData(OrePrefix.circuit, MarkerMaterials.Tier.UEV).setCreativeTabs(GTQTCore_TAB);
+        SPINTRONIC_COMPUTER_UIV = this.addItem(510, "circuit.spintronic_computer").setUnificationData(OrePrefix.circuit, MarkerMaterials.Tier.UIV).setCreativeTabs(GTQTCore_TAB);
+        SPINTRONIC_MAINFRAME_UXV = this.addItem(511, "circuit.spintronic_mainframe").setUnificationData(OrePrefix.circuit, MarkerMaterials.Tier.UXV).setCreativeTabs(GTQTCore_TAB);
 
-        COSMIC_PROCESSOR = this.addItem(512, "circuit.cosmic_processor").setUnificationData(OrePrefix.circuit, MarkerMaterials.Tier.UEV).setCreativeTabs(GTQTCore_TAB);
-        COSMIC_ASSEMBLY = this.addItem(513, "circuit.cosmic_assembly").setUnificationData(OrePrefix.circuit, MarkerMaterials.Tier.UIV).setCreativeTabs(GTQTCore_TAB);
-        COSMIC_COMPUTER = this.addItem(514, "circuit.cosmic_computer").setUnificationData(OrePrefix.circuit, MarkerMaterials.Tier.UXV).setCreativeTabs(GTQTCore_TAB);
-        COSMIC_MAINFRAME = this.addItem(515, "circuit.cosmic_mainframe").setUnificationData(OrePrefix.circuit, MarkerMaterials.Tier.OpV).setCreativeTabs(GTQTCore_TAB);
+        COSMIC_PROCESSOR_UEV = this.addItem(512, "circuit.cosmic_processor").setUnificationData(OrePrefix.circuit, MarkerMaterials.Tier.UEV).setCreativeTabs(GTQTCore_TAB);
+        COSMIC_ASSEMBLY_UIV = this.addItem(513, "circuit.cosmic_assembly").setUnificationData(OrePrefix.circuit, MarkerMaterials.Tier.UIV).setCreativeTabs(GTQTCore_TAB);
+        COSMIC_COMPUTER_UXV = this.addItem(514, "circuit.cosmic_computer").setUnificationData(OrePrefix.circuit, MarkerMaterials.Tier.UXV).setCreativeTabs(GTQTCore_TAB);
+        COSMIC_MAINFRAME_OpV = this.addItem(515, "circuit.cosmic_mainframe").setUnificationData(OrePrefix.circuit, MarkerMaterials.Tier.OpV).setCreativeTabs(GTQTCore_TAB);
 
-        SUPRACAUSAL_PROCESSOR = this.addItem(516, "circuit.supracausal_processor").setUnificationData(OrePrefix.circuit, MarkerMaterials.Tier.UIV).setCreativeTabs(GTQTCore_TAB);
-        SUPRACAUSAL_ASSEMBLY = this.addItem(517, "circuit.supracausal_assembly").setUnificationData(OrePrefix.circuit, MarkerMaterials.Tier.UXV).setCreativeTabs(GTQTCore_TAB);
-        SUPRACAUSAL_COMPUTER = this.addItem(518, "circuit.supracausal_computer").setUnificationData(OrePrefix.circuit, MarkerMaterials.Tier.OpV).setCreativeTabs(GTQTCore_TAB);
-        SUPRACAUSAL_MAINFRAME = this.addItem(519, "circuit.supracausal_mainframe").setUnificationData(OrePrefix.circuit, MarkerMaterials.Tier.MAX).setCreativeTabs(GTQTCore_TAB);
+        SUPRACAUSAL_PROCESSOR_UIV = this.addItem(516, "circuit.supracausal_processor").setUnificationData(OrePrefix.circuit, MarkerMaterials.Tier.UIV).setCreativeTabs(GTQTCore_TAB);
+        SUPRACAUSAL_ASSEMBLY_UXV = this.addItem(517, "circuit.supracausal_assembly").setUnificationData(OrePrefix.circuit, MarkerMaterials.Tier.UXV).setCreativeTabs(GTQTCore_TAB);
+        SUPRACAUSAL_COMPUTER_OpV = this.addItem(518, "circuit.supracausal_computer").setUnificationData(OrePrefix.circuit, MarkerMaterials.Tier.OpV).setCreativeTabs(GTQTCore_TAB);
+        SUPRACAUSAL_MAINFRAME_MAX = this.addItem(519, "circuit.supracausal_mainframe").setUnificationData(OrePrefix.circuit, MarkerMaterials.Tier.MAX).setCreativeTabs(GTQTCore_TAB);
 
         SUPRACHRONAL_ULV = this.addItem(520, "circuit.suprachronal.ulv").setUnificationData(OrePrefix.circuit, MarkerMaterials.Tier.ULV).setCreativeTabs(CommonProxy.GTQTCore_HP);
         SUPRACHRONAL_LV = this.addItem(521, "circuit.suprachronal.lv").setUnificationData(OrePrefix.circuit, MarkerMaterials.Tier.LV).setCreativeTabs(CommonProxy.GTQTCore_HP);
@@ -696,7 +678,7 @@ public class GTQTMetaItem1 extends StandardMetaItem {
         HELIUM_NEON_LASER = this.addItem(709, "laser.helium_neon").setCreativeTabs(CommonProxy.GTQTCore_GD);
         ND_YAG_LASER = this.addItem(710, "laser.nd_yag").setCreativeTabs(CommonProxy.GTQTCore_GD);
         OPTICAL_LASER_CONTROL_UNIT = this.addItem(711, "optical_laser_control_unit").setCreativeTabs(CommonProxy.GTQTCore_GD);
-        OPTICAL_PROCESSING_CORE = this.addItem(712, "optical_processing_core").setCreativeTabs(CommonProxy.GTQTCore_GD);
+        OPTOELECTRONIC_SYSTEM_ON_CHIP = this.addItem(712, "optoelectronic_system_on_chip").setCreativeTabs(CommonProxy.GTQTCore_GD);
 
 
         // Spintronic Circuit Components: ID 220-239
@@ -704,86 +686,9 @@ public class GTQTMetaItem1 extends StandardMetaItem {
         BOSE_EINSTEIN_CONDENSATE_CONTAINMENT_UNIT = this.addItem(722, "containment_unit.bose_einstein_condensate").setCreativeTabs(CommonProxy.GTQTCore_HP);
         BOSE_EINSTEIN_CONDENSATE = this.addItem(723, "bose_einstein_condensate").setCreativeTabs(CommonProxy.GTQTCore_HP);
         ESR_COMPUTATION_UNIT = this.addItem(724, "esr_computation_unit").setCreativeTabs(CommonProxy.GTQTCore_HP);
-        //  ID 750: Wrap Circuit Boards
-        WRAP_BASIC_CIRCUIT_BOARD = this.addItem(750, "wrap.circuit_board.basic").setCreativeTabs(GTQTCore_TAB);
 
-        WRAP_GOOD_CIRCUIT_BOARD = this.addItem(751, "wrap.circuit_board.good").setCreativeTabs(GTQTCore_TAB);
 
-        WRAP_PLASTIC_CIRCUIT_BOARD = this.addItem(752, "wrap.circuit_board.plastic").setCreativeTabs(GTQTCore_TAB);
 
-        WRAP_ADVANCED_CIRCUIT_BOARD = this.addItem(753, "wrap.circuit_board.advanced").setCreativeTabs(GTQTCore_TAB);
-
-        WRAP_EXTREME_CIRCUIT_BOARD = this.addItem(754, "wrap.circuit_board.extreme").setCreativeTabs(GTQTCore_TAB);
-
-        WRAP_ELITE_CIRCUIT_BOARD = this.addItem(755, "wrap.circuit_board.elite").setCreativeTabs(GTQTCore_TAB);
-
-        WRAP_WETWARE_CIRCUIT_BOARD = this.addItem(756, "wrap.circuit_board.wetware").setCreativeTabs(GTQTCore_TAB);
-
-        WRAP_GOOWARE_CIRCUIT_BOARD = this.addItem(757, "wrap.circuit_board.gooware").setCreativeTabs(GTQTCore_TAB);
-
-        WRAP_OPTICAL_CIRCUIT_BOARD = this.addItem(758, "wrap.circuit_board.optical").setCreativeTabs(GTQTCore_TAB);
-
-        WRAP_SPINTRONIC_CIRCUIT_BOARD = this.addItem(759, "wrap.circuit_board.spintronic").setCreativeTabs(GTQTCore_TAB);
-
-        WRAP_SMD_TRANSISTOR = this.addItem(760, "wrap.smd.transistor").setCreativeTabs(GTQTCore_TAB);
-
-        WRAP_SMD_RESISTOR = this.addItem(761, "wrap.smd.resistor").setCreativeTabs(GTQTCore_TAB);
-
-        WRAP_SMD_CAPACITOR = this.addItem(762, "wrap.smd.capacitor").setCreativeTabs(GTQTCore_TAB);
-
-        WRAP_SMD_DIODE = this.addItem(763, "wrap.smd.diode").setCreativeTabs(GTQTCore_TAB);
-
-        WRAP_SMD_INDUCTOR = this.addItem(764, "wrap.smd.inductor").setCreativeTabs(GTQTCore_TAB);
-
-        WRAP_ADVANCED_SMD_TRANSISTOR = this.addItem(765, "wrap.advanced_smd.transistor").setCreativeTabs(GTQTCore_TAB);
-
-        WRAP_ADVANCED_SMD_RESISTOR = this.addItem(766, "wrap.advanced_smd.resistor").setCreativeTabs(GTQTCore_TAB);
-
-        WRAP_ADVANCED_SMD_CAPACITOR = this.addItem(767, "wrap.advanced_smd.capacitor").setCreativeTabs(GTQTCore_TAB);
-
-        WRAP_ADVANCED_SMD_DIODE = this.addItem(768, "wrap.advanced_smd.diode").setCreativeTabs(GTQTCore_TAB);
-
-        WRAP_ADVANCED_SMD_INDUCTOR = this.addItem(769, "wrap.advanced_smd.inductor").setCreativeTabs(GTQTCore_TAB);
-
-        WRAP_OPTICAL_SMD_TRANSISTOR = this.addItem(770, "wrap.optical_smd.transistor").setCreativeTabs(GTQTCore_TAB);
-
-        WRAP_OPTICAL_SMD_RESISTOR = this.addItem(771, "wrap.optical_smd.resistor").setCreativeTabs(GTQTCore_TAB);
-
-        WRAP_OPTICAL_SMD_CAPACITOR = this.addItem(772, "wrap.optical_smd.capacitor").setCreativeTabs(GTQTCore_TAB);
-
-        WRAP_OPTICAL_SMD_DIODE = this.addItem(773, "wrap.optical_smd.diode").setCreativeTabs(GTQTCore_TAB);
-
-        WRAP_OPTICAL_SMD_INDUCTOR = this.addItem(774, "wrap.optical_smd.inductor").setCreativeTabs(GTQTCore_TAB);
-
-        WRAP_SPINTRONIC_SMD_TRANSISTOR = this.addItem(775, "wrap.spintronic_smd.transistor").setCreativeTabs(GTQTCore_TAB);
-
-        WRAP_SPINTRONIC_SMD_RESISTOR = this.addItem(776, "wrap.spintronic_smd.resistor").setCreativeTabs(GTQTCore_TAB);
-
-        WRAP_SPINTRONIC_SMD_CAPACITOR = this.addItem(777, "wrap.spintronic_smd.capacitor").setCreativeTabs(GTQTCore_TAB);
-
-        WRAP_SPINTRONIC_SMD_DIODE = this.addItem(778, "wrap.spintronic_smd.diode").setCreativeTabs(GTQTCore_TAB);
-
-        WRAP_SPINTRONIC_SMD_INDUCTOR = this.addItem(779, "wrap.spintronic_smd.inductor").setCreativeTabs(GTQTCore_TAB);
-
-        WRAP_COSMIC_SMD_TRANSISTOR = this.addItem(780, "wrap.cosmic_smd.transistor").setCreativeTabs(GTQTCore_TAB);
-
-        WRAP_COSMIC_SMD_RESISTOR = this.addItem(781, "wrap.cosmic_smd.resistor").setCreativeTabs(GTQTCore_TAB);
-
-        WRAP_COSMIC_SMD_CAPACITOR = this.addItem(782, "wrap.cosmic_smd.capacitor").setCreativeTabs(GTQTCore_TAB);
-
-        WRAP_COSMIC_SMD_DIODE = this.addItem(783, "wrap.cosmic_smd.diode").setCreativeTabs(GTQTCore_TAB);
-
-        WRAP_COSMIC_SMD_INDUCTOR = this.addItem(784, "wrap.cosmic_smd.inductor").setCreativeTabs(GTQTCore_TAB);
-
-        WRAP_SUPRACAUSAL_SMD_TRANSISTOR = this.addItem(785, "wrap.supracausal_smd.transistor").setCreativeTabs(GTQTCore_TAB);
-
-        WRAP_SUPRACAUSAL_SMD_RESISTOR = this.addItem(786, "wrap.supracausal_smd.resistor").setCreativeTabs(GTQTCore_TAB);
-
-        WRAP_SUPRACAUSAL_SMD_CAPACITOR = this.addItem(787, "wrap.supracausal_smd.capacitor").setCreativeTabs(GTQTCore_TAB);
-
-        WRAP_SUPRACAUSAL_SMD_DIODE = this.addItem(788, "wrap.supracausal_smd.diode").setCreativeTabs(GTQTCore_TAB);
-
-        WRAP_SUPRACAUSAL_SMD_INDUCTOR = this.addItem(789, "wrap.supracausal_smd.inductor").setCreativeTabs(GTQTCore_TAB);
 
         //核物理 800
         NAQUADAH_ROD = this.addItem(800, "naquadah_rod").setCreativeTabs(CommonProxy.GTQTCore_NC);
@@ -841,38 +746,48 @@ public class GTQTMetaItem1 extends StandardMetaItem {
         SUPRACAUSAL_MEMORY_CHIP = this.addItem(878, "wafer.chip.supracausal_memory").setCreativeTabs(CommonProxy.GTQTCore_HP);
 
         // Circuit Boards: ID 380-419
-        GOOWARE_BOARD = this.addItem(894, "board.gooware").setCreativeTabs(GTQTCore_TAB);
-        OPTICAL_BOARD = this.addItem(895, "board.optical").setCreativeTabs(GTQTCore_TAB);
-        SPINTRONIC_BOARD = this.addItem(896, "board.spintronic").setCreativeTabs(GTQTCore_TAB);
-        GOOWARE_CIRCUIT_BOARD = this.addItem(897, "circuit_board.gooware").setCreativeTabs(GTQTCore_TAB);
-        OPTICAL_CIRCUIT_BOARD = this.addItem(898, "circuit_board.optical").setCreativeTabs(GTQTCore_TAB);
-        SPINTRONIC_CIRCUIT_BOARD = this.addItem(899, "circuit_board.spintronic").setCreativeTabs(GTQTCore_TAB);
+        GOOWARE_BOARD = this.addItem(900, "board.gooware").setCreativeTabs(GTQTCore_TAB);
+        OPTICAL_BOARD = this.addItem(901, "board.optical").setCreativeTabs(GTQTCore_TAB);
+        SPINTRONIC_BOARD = this.addItem(902, "board.spintronic").setCreativeTabs(GTQTCore_TAB);
+        GOOWARE_CIRCUIT_BOARD = this.addItem(903, "circuit_board.gooware").setCreativeTabs(GTQTCore_TAB);
+        OPTICAL_CIRCUIT_BOARD = this.addItem(904, "circuit_board.optical").setCreativeTabs(GTQTCore_TAB);
+        SPINTRONIC_CIRCUIT_BOARD = this.addItem(905, "circuit_board.spintronic").setCreativeTabs(GTQTCore_TAB);
         // SMDs: ID 420-479
-        OPTICAL_CAPACITOR = this.addItem(900, "component.optical_smd.capacitor").setCreativeTabs(GTQTCore_TAB);
-        OPTICAL_DIODE = this.addItem(901, "component.optical_smd.diode").setCreativeTabs(GTQTCore_TAB);
-        OPTICAL_RESISTOR = this.addItem(902, "component.optical_smd.resistor").setCreativeTabs(GTQTCore_TAB);
-        OPTICAL_TRANSISTOR = this.addItem(903, "component.optical_smd.transistor").setCreativeTabs(GTQTCore_TAB);
-        OPTICAL_INDUCTOR = this.addItem(904, "component.optical_smd.inductor").setCreativeTabs(GTQTCore_TAB);
+        GOOWARE_SMD_TRANSISTOR = this.addItem(910, "component.gooware_smd.transistor").setCreativeTabs(GTQTCore_TAB);
+        GOOWARE_SMD_RESISTOR = this.addItem(911, "component.gooware_smd.resistor").setCreativeTabs(GTQTCore_TAB);
+        GOOWARE_SMD_CAPACITOR = this.addItem(912, "component.gooware_smd.capacitor").setCreativeTabs(GTQTCore_TAB);
+        GOOWARE_SMD_DIODE = this.addItem(913, "component.gooware_smd.diode").setCreativeTabs(GTQTCore_TAB);
+        GOOWARE_SMD_INDUCTOR = this.addItem(914, "component.gooware_smd.inductor").setCreativeTabs(GTQTCore_TAB);
 
-        SPINTRONIC_CAPACITOR = this.addItem(905, "component.spintronic_smd.capacitor").setCreativeTabs(GTQTCore_TAB);
-        SPINTRONIC_DIODE = this.addItem(906, "component.spintronic_smd.diode").setCreativeTabs(GTQTCore_TAB);
-        SPINTRONIC_RESISTOR = this.addItem(907, "component.spintronic_smd.resistor").setCreativeTabs(GTQTCore_TAB);
-        SPINTRONIC_TRANSISTOR = this.addItem(908, "component.spintronic_smd.transistor").setCreativeTabs(GTQTCore_TAB);
-        SPINTRONIC_INDUCTOR = this.addItem(909, "component.spintronic_smd.inductor").setCreativeTabs(GTQTCore_TAB);
+        OPTICAL_SMD_CAPACITOR = this.addItem(915, "component.optical_smd.capacitor").setCreativeTabs(GTQTCore_TAB);
+        OPTICAL_SMD_DIODE = this.addItem(916, "component.optical_smd.diode").setCreativeTabs(GTQTCore_TAB);
+        OPTICAL_SMD_RESISTOR = this.addItem(917, "component.optical_smd.resistor").setCreativeTabs(GTQTCore_TAB);
+        OPTICAL_SMD_TRANSISTOR = this.addItem(918, "component.optical_smd.transistor").setCreativeTabs(GTQTCore_TAB);
+        OPTICAL_SMD_INDUCTOR = this.addItem(919, "component.optical_smd.inductor").setCreativeTabs(GTQTCore_TAB);
 
-        COSMIC_CAPACITOR = this.addItem(910, "component.cosmic_smd.capacitor").setCreativeTabs(GTQTCore_TAB);
-        COSMIC_DIODE = this.addItem(911, "component.cosmic_smd.diode").setCreativeTabs(GTQTCore_TAB);
-        COSMIC_RESISTOR = this.addItem(912, "component.cosmic_smd.resistor").setCreativeTabs(GTQTCore_TAB);
-        COSMIC_TRANSISTOR = this.addItem(913, "component.cosmic_smd.transistor").setCreativeTabs(GTQTCore_TAB);
-        COSMIC_INDUCTOR = this.addItem(914, "component.cosmic_smd.inductor").setCreativeTabs(GTQTCore_TAB);
+        SPINTRONIC_SMD_CAPACITOR = this.addItem(920, "component.spintronic_smd.capacitor").setCreativeTabs(GTQTCore_TAB);
+        SPINTRONIC_SMD_DIODE = this.addItem(921, "component.spintronic_smd.diode").setCreativeTabs(GTQTCore_TAB);
+        SPINTRONIC_SMD_RESISTOR = this.addItem(922, "component.spintronic_smd.resistor").setCreativeTabs(GTQTCore_TAB);
+        SPINTRONIC_SMD_TRANSISTOR = this.addItem(923, "component.spintronic_smd.transistor").setCreativeTabs(GTQTCore_TAB);
+        SPINTRONIC_SMD_INDUCTOR = this.addItem(924, "component.spintronic_smd.inductor").setCreativeTabs(GTQTCore_TAB);
 
-        SUPRACAUSAL_CAPACITOR = this.addItem(915, "component.supracausal_smd.capacitor").setCreativeTabs(GTQTCore_TAB);
-        SUPRACAUSAL_DIODE = this.addItem(916, "component.supracausal_smd.diode").setCreativeTabs(GTQTCore_TAB);
-        SUPRACAUSAL_RESISTOR = this.addItem(917, "component.supracausal_smd.resistor").setCreativeTabs(GTQTCore_TAB);
-        SUPRACAUSAL_TRANSISTOR = this.addItem(918, "component.supracausal_smd.transistor").setCreativeTabs(GTQTCore_TAB);
-        SUPRACAUSAL_INDUCTOR = this.addItem(919, "component.supracausal_smd.inductor").setCreativeTabs(GTQTCore_TAB);
+        COSMIC_SMD_CAPACITOR = this.addItem(925, "component.cosmic_smd.capacitor").setCreativeTabs(GTQTCore_TAB);
+        COSMIC_SMD_DIODE = this.addItem(926, "component.cosmic_smd.diode").setCreativeTabs(GTQTCore_TAB);
+        COSMIC_SMD_RESISTOR = this.addItem(927, "component.cosmic_smd.resistor").setCreativeTabs(GTQTCore_TAB);
+        COSMIC_SMD_TRANSISTOR = this.addItem(928, "component.cosmic_smd.transistor").setCreativeTabs(GTQTCore_TAB);
+        COSMIC_SMD_INDUCTOR = this.addItem(929, "component.cosmic_smd.inductor").setCreativeTabs(GTQTCore_TAB);
+
+        SUPRACAUSAL_SMD_CAPACITOR = this.addItem(930, "component.supracausal_smd.capacitor").setCreativeTabs(GTQTCore_TAB);
+        SUPRACAUSAL_SMD_DIODE = this.addItem(931, "component.supracausal_smd.diode").setCreativeTabs(GTQTCore_TAB);
+        SUPRACAUSAL_SMD_RESISTOR = this.addItem(932, "component.supracausal_smd.resistor").setCreativeTabs(GTQTCore_TAB);
+        SUPRACAUSAL_SMD_TRANSISTOR = this.addItem(933, "component.supracausal_smd.transistor").setCreativeTabs(GTQTCore_TAB);
+        SUPRACAUSAL_SMD_INDUCTOR = this.addItem(934, "component.supracausal_smd.inductor").setCreativeTabs(GTQTCore_TAB);
+
 
         // Process-Specific Components: ID 500-999
+        CIRCUIT_PATTERN = addItem(950, "tool.circuit_pattern")
+                .addComponents(new CircuitPatternBehavior()).setCreativeTabs(GTQTCore_TO);
+
         MAGNETRON = this.addItem(951, "magnetron").setCreativeTabs(GTQTCore_TAB);
 
         //太阳能核心
@@ -1330,6 +1245,118 @@ public class GTQTMetaItem1 extends StandardMetaItem {
         ARROW_DOWN_MKIII = this.addItem(3009, "arrow_down_mkiii").setCreativeTabs(CommonProxy.GTQTCore_DISK);
         ARROW_LEFT_MKIII = this.addItem(3010, "arrow_left_mkiii").setCreativeTabs(CommonProxy.GTQTCore_DISK);
         ARROW_RIGHT_MKIII = this.addItem(3011, "arrow_right_mkiii").setCreativeTabs(CommonProxy.GTQTCore_DISK);
+
+        WRAP_COATED_BOARD = this.addItem(3500, "wrap.board.coated").setCreativeTabs(GTQTCore_WRAP);
+        WRAP_PHENOLIC_BOARD = this.addItem(3501, "wrap.board.phenolic").setCreativeTabs(GTQTCore_WRAP);
+        WRAP_PLASTIC_BOARD = this.addItem(3502, "wrap.board.plastic").setCreativeTabs(GTQTCore_WRAP);
+        WRAP_EPOXY_BOARD = this.addItem(3503, "wrap.board.epoxy").setCreativeTabs(GTQTCore_WRAP);
+        WRAP_FIBER_BOARD = this.addItem(3504, "wrap.board.fiber_reinforced").setCreativeTabs(GTQTCore_WRAP);
+        WRAP_MULTILAYER_FIBER_BOARD = this.addItem(3505, "wrap.board.multilayer_fiber_reinforced").setCreativeTabs(GTQTCore_WRAP);
+        WRAP_WETWARE_BOARD = this.addItem(3506, "wrap.board.wetware").setCreativeTabs(GTQTCore_WRAP);
+        WRAP_GOOWARE_BOARD = this.addItem(3507, "wrap.board.gooware").setCreativeTabs(GTQTCore_WRAP);
+        WRAP_OPTICAL_BOARD = this.addItem(3508, "wrap.board.optical").setCreativeTabs(GTQTCore_WRAP);
+        WRAP_SPINTRONIC_BOARD = this.addItem(3509, "wrap.board.spintronic").setCreativeTabs(GTQTCore_WRAP);
+
+        WRAP_BASIC_CIRCUIT_BOARD = this.addItem(3510, "wrap.circuit_board.basic").setCreativeTabs(GTQTCore_WRAP);
+        WRAP_GOOD_CIRCUIT_BOARD = this.addItem(3511, "wrap.circuit_board.good").setCreativeTabs(GTQTCore_WRAP);
+        WRAP_PLASTIC_CIRCUIT_BOARD = this.addItem(3512, "wrap.circuit_board.plastic").setCreativeTabs(GTQTCore_WRAP);
+        WRAP_ADVANCED_CIRCUIT_BOARD = this.addItem(3513, "wrap.circuit_board.advanced").setCreativeTabs(GTQTCore_WRAP);
+        WRAP_EXTREME_CIRCUIT_BOARD = this.addItem(3514, "wrap.circuit_board.extreme").setCreativeTabs(GTQTCore_WRAP);
+        WRAP_ELITE_CIRCUIT_BOARD = this.addItem(3515, "wrap.circuit_board.elite").setCreativeTabs(GTQTCore_WRAP);
+        WRAP_WETWARE_CIRCUIT_BOARD = this.addItem(3516, "wrap.circuit_board.wetware").setCreativeTabs(GTQTCore_WRAP);
+        WRAP_GOOWARE_CIRCUIT_BOARD = this.addItem(3517, "wrap.circuit_board.gooware").setCreativeTabs(GTQTCore_WRAP);
+        WRAP_OPTICAL_CIRCUIT_BOARD = this.addItem(3518, "wrap.circuit_board.optical").setCreativeTabs(GTQTCore_WRAP);
+        WRAP_SPINTRONIC_CIRCUIT_BOARD = this.addItem(3519, "wrap.circuit_board.spintronic").setCreativeTabs(GTQTCore_WRAP);
+
+        WRAP_SMD_TRANSISTOR = this.addItem(3520, "wrap.component.smd.transistor").setCreativeTabs(GTQTCore_WRAP);
+        WRAP_SMD_RESISTOR = this.addItem(3521, "wrap.component.smd.resistor").setCreativeTabs(GTQTCore_WRAP);
+        WRAP_SMD_CAPACITOR = this.addItem(3522, "wrap.component.smd.capacitor").setCreativeTabs(GTQTCore_WRAP);
+        WRAP_SMD_DIODE = this.addItem(3523, "wrap.component.smd.diode").setCreativeTabs(GTQTCore_WRAP);
+        WRAP_SMD_INDUCTOR = this.addItem(3524, "wrap.component.smd.inductor").setCreativeTabs(GTQTCore_WRAP);
+        WRAP_ADVANCED_SMD_TRANSISTOR = this.addItem(3525, "wrap.component.advanced_smd.transistor").setCreativeTabs(GTQTCore_WRAP);
+        WRAP_ADVANCED_SMD_RESISTOR = this.addItem(3526, "wrap.component.advanced_smd.resistor").setCreativeTabs(GTQTCore_WRAP);
+        WRAP_ADVANCED_SMD_CAPACITOR = this.addItem(3527, "wrap.component.advanced_smd.capacitor").setCreativeTabs(GTQTCore_WRAP);
+        WRAP_ADVANCED_SMD_DIODE = this.addItem(3528, "wrap.component.advanced_smd.diode").setCreativeTabs(GTQTCore_WRAP);
+        WRAP_ADVANCED_SMD_INDUCTOR = this.addItem(3529, "wrap.component.advanced_smd.inductor").setCreativeTabs(GTQTCore_WRAP);
+        WRAP_GOOWARE_SMD_TRANSISTOR = this.addItem(3530, "wrap.component.gooware_smd.transistor").setCreativeTabs(GTQTCore_WRAP);
+        WRAP_GOOWARE_SMD_RESISTOR = this.addItem(3531, "wrap.component.gooware_smd.resistor").setCreativeTabs(GTQTCore_WRAP);
+        WRAP_GOOWARE_SMD_CAPACITOR = this.addItem(3532, "wrap.component.gooware_smd.capacitor").setCreativeTabs(GTQTCore_WRAP);
+        WRAP_GOOWARE_SMD_DIODE = this.addItem(3533, "wrap.component.gooware_smd.diode").setCreativeTabs(GTQTCore_WRAP);
+        WRAP_GOOWARE_SMD_INDUCTOR = this.addItem(3534, "wrap.component.gooware_smd.inductor").setCreativeTabs(GTQTCore_WRAP);
+        WRAP_OPTICAL_SMD_TRANSISTOR = this.addItem(3535, "wrap.component.optical_smd.transistor").setCreativeTabs(GTQTCore_WRAP);
+        WRAP_OPTICAL_SMD_RESISTOR = this.addItem(3536, "wrap.component.optical_smd.resistor").setCreativeTabs(GTQTCore_WRAP);
+        WRAP_OPTICAL_SMD_CAPACITOR = this.addItem(3537, "wrap.component.optical_smd.capacitor").setCreativeTabs(GTQTCore_WRAP);
+        WRAP_OPTICAL_SMD_DIODE = this.addItem(3538, "wrap.component.optical_smd.diode").setCreativeTabs(GTQTCore_WRAP);
+        WRAP_OPTICAL_SMD_INDUCTOR = this.addItem(3539, "wrap.component.optical_smd.inductor").setCreativeTabs(GTQTCore_WRAP);
+        WRAP_SPINTRONIC_SMD_TRANSISTOR = this.addItem(3540, "wrap.component.spintronic_smd.transistor").setCreativeTabs(GTQTCore_WRAP);
+        WRAP_SPINTRONIC_SMD_RESISTOR = this.addItem(3541, "wrap.component.spintronic_smd.resistor").setCreativeTabs(GTQTCore_WRAP);
+        WRAP_SPINTRONIC_SMD_CAPACITOR = this.addItem(3542, "wrap.component.spintronic_smd.capacitor").setCreativeTabs(GTQTCore_WRAP);
+        WRAP_SPINTRONIC_SMD_DIODE = this.addItem(3543, "wrap.component.spintronic_smd.diode").setCreativeTabs(GTQTCore_WRAP);
+        WRAP_SPINTRONIC_SMD_INDUCTOR = this.addItem(3544, "wrap.component.spintronic_smd.inductor").setCreativeTabs(GTQTCore_WRAP);
+        WRAP_COSMIC_SMD_TRANSISTOR = this.addItem(3545, "wrap.component.cosmic_smd.transistor").setCreativeTabs(GTQTCore_WRAP);
+        WRAP_COSMIC_SMD_RESISTOR = this.addItem(3546, "wrap.component.cosmic_smd.resistor").setCreativeTabs(GTQTCore_WRAP);
+        WRAP_COSMIC_SMD_CAPACITOR = this.addItem(3547, "wrap.component.cosmic_smd.capacitor").setCreativeTabs(GTQTCore_WRAP);
+        WRAP_COSMIC_SMD_DIODE = this.addItem(3548, "wrap.component.cosmic_smd.diode").setCreativeTabs(GTQTCore_WRAP);
+        WRAP_COSMIC_SMD_INDUCTOR = this.addItem(3549, "wrap.component.cosmic_smd.inductor").setCreativeTabs(GTQTCore_WRAP);
+        WRAP_SUPRACAUSAL_SMD_TRANSISTOR = this.addItem(3550, "wrap.component.supracausal_smd.transistor").setCreativeTabs(GTQTCore_WRAP);
+        WRAP_SUPRACAUSAL_SMD_RESISTOR = this.addItem(3551, "wrap.component.supracausal_smd.resistor").setCreativeTabs(GTQTCore_WRAP);
+        WRAP_SUPRACAUSAL_SMD_CAPACITOR = this.addItem(3552, "wrap.component.supracausal_smd.capacitor").setCreativeTabs(GTQTCore_WRAP);
+        WRAP_SUPRACAUSAL_SMD_DIODE = this.addItem(3553, "wrap.component.supracausal_smd.diode").setCreativeTabs(GTQTCore_WRAP);
+        WRAP_SUPRACAUSAL_SMD_INDUCTOR = this.addItem(3554, "wrap.component.supracausal_smd.inductor").setCreativeTabs(GTQTCore_WRAP);
+
+        WRAP_CPU_CHIP = this.addItem(3555, "wrap.wafer.chip.central_processing_unit").setCreativeTabs(GTQTCore_WRAP);
+        WRAP_RAM_CHIP = this.addItem(3556, "wrap.wafer.chip.random_access_memory").setCreativeTabs(GTQTCore_WRAP);
+        WRAP_ILC_CHIP = this.addItem(3557, "wrap.wafer.chip.integrated_logic_circuit").setCreativeTabs(GTQTCore_WRAP);
+        WRAP_NANO_CPU_CHIP = this.addItem(3558, "wrap.wafer.chip.nano_central_processing_unit").setCreativeTabs(GTQTCore_WRAP);
+        WRAP_QUBIT_CPU_CHIP = this.addItem(3559, "wrap.wafer.chip.qubit_central_processing_unit").setCreativeTabs(GTQTCore_WRAP);
+        WRAP_SIMPLE_SOC_CHIP = this.addItem(3560, "wrap.wafer.chip.simple_system_on_chip").setCreativeTabs(GTQTCore_WRAP);
+        WRAP_SOC_CHIP = this.addItem(3561, "wrap.wafer.chip.system_on_chip").setCreativeTabs(GTQTCore_WRAP);
+        WRAP_ADVANCED_SOC_CHIP = this.addItem(3562, "wrap.wafer.chip.advanced_system_on_chip").setCreativeTabs(GTQTCore_WRAP);
+        WRAP_HIGHLY_ADVANCED_SOC_CHIP = this.addItem(3563, "wrap.wafer.chip.highly_advanced_system_on_chip").setCreativeTabs(GTQTCore_WRAP);
+        WRAP_NAND_CHIP = this.addItem(3564, "wrap.wafer.chip.nand_memory_chip").setCreativeTabs(GTQTCore_WRAP);
+        WRAP_NOR_CHIP = this.addItem(3565, "wrap.wafer.chip.nor_memory_chip").setCreativeTabs(GTQTCore_WRAP);
+        WRAP_ULPIC_CHIP = this.addItem(3566, "wrap.wafer.chip.ultra_low_power_integrated_circuit").setCreativeTabs(GTQTCore_WRAP);
+        WRAP_LPIC_CHIP = this.addItem(3567, "wrap.wafer.chip.low_power_integrated_circuit").setCreativeTabs(GTQTCore_WRAP);
+        WRAP_PIC_CHIP = this.addItem(3568, "wrap.wafer.chip.power_integrated_circuit").setCreativeTabs(GTQTCore_WRAP);
+        WRAP_HPIC_CHIP = this.addItem(3569, "wrap.wafer.chip.high_power_integrated_circuit").setCreativeTabs(GTQTCore_WRAP);
+        WRAP_UHPIC_CHIP = this.addItem(3570, "wrap.wafer.chip.ultra_high_power_integrated_circuit").setCreativeTabs(GTQTCore_WRAP);
+        WRAP_NPIC_CHIP = this.addItem(3571, "wrap.wafer.chip.nano_power_integrated_circuit").setCreativeTabs(GTQTCore_WRAP);
+        WRAP_PPIC_CHIP = this.addItem(3572, "wrap.wafer.chip.pico_power_integrated_circuit").setCreativeTabs(GTQTCore_WRAP);
+        WRAP_FPIC_CHIP = this.addItem(3573, "wrap.wafer.chip.femto_power_integrated_circuit").setCreativeTabs(GTQTCore_WRAP);
+        WRAP_APIC_CHIP = this.addItem(3574, "wrap.wafer.chip.atto_power_integrated_circuit").setCreativeTabs(GTQTCore_WRAP);
+        WRAP_ZPIC_CHIP = this.addItem(3575, "wrap.wafer.chip.zepto_power_integrated_circuit").setCreativeTabs(GTQTCore_WRAP);
+        WRAP_UHASOC_CHIP = this.addItem(3576, "wrap.wafer.chip.ultra_highly_advanced_system_on_chip").setCreativeTabs(GTQTCore_WRAP);
+        WRAP_CRYSTAL_INTERFACE_CHIP = this.addItem(3577, "wrap.wafer.chip.crystal_interface").setCreativeTabs(GTQTCore_WRAP);
+
+        WRAP_ENGRAVED_LAPOTRON_CHIP = this.addItem(3578, "wrap.circuit.component.engraved_lapotron_chip").setCreativeTabs(GTQTCore_WRAP);
+        WRAP_ENGRAVED_DIAMOND_CHIP = this.addItem(3579, "wrap.circuit.component.engraved_diamond_chip").setCreativeTabs(GTQTCore_WRAP);
+        WRAP_ENGRAVED_RUBY_CHIP = this.addItem(3580, "wrap.circuit.component.engraved_ruby_chip").setCreativeTabs(GTQTCore_WRAP);
+        WRAP_ENGRAVED_SAPPHIRE_CHIP = this.addItem(3581, "wrap.circuit.component.engraved_sapphire_chip").setCreativeTabs(GTQTCore_WRAP);
+
+        WRAP_CRYSTAL_CPU = this.addItem(3582, "wrap.crystal.central_processing_unit").setCreativeTabs(GTQTCore_WRAP);
+        WRAP_CRYSTAL_SOC = this.addItem(3583, "wrap.crystal.system_on_chip").setCreativeTabs(GTQTCore_WRAP);
+        WRAP_NEURO_PROCESSOR = this.addItem(3584, "wrap.circuit.component.neuro_processor").setCreativeTabs(GTQTCore_WRAP);
+        WRAP_NONLINEAR_CHEMICAL_OSCILLATOR = this.addItem(3585, "wrap.circuit.component.nonlinear_chemical_oscillator").setCreativeTabs(GTQTCore_WRAP);
+        WRAP_OPTICAL_LASER_CONTROL_UNIT = this.addItem(3586, "wrap.circuit.component.optical_laser_control_unit").setCreativeTabs(GTQTCore_WRAP);
+        WRAP_OPTOELECTRONIC_SYSTEM_ON_CHIP = this.addItem(3587, "wrap.circuit.component.optoelectronic_system_on_chip").setCreativeTabs(GTQTCore_WRAP);
+        WRAP_ESR_COMPUTATION_UNIT = this.addItem(3588, "wrap.circuit.component.esr_computation_unit").setCreativeTabs(GTQTCore_WRAP);
+        WRAP_EXOTIC_SYSTEM_ON_CHIP = this.addItem(3589, "wrap.circuit.component.exotic_system_on_chip").setCreativeTabs(GTQTCore_WRAP);
+
+        WRAP_CIRCUIT_ULV = addItem(3590, "wrap.circuit.generic.ulv").setCreativeTabs(GTQTCore_WRAP);
+        WRAP_CIRCUIT_LV = addItem(3591, "wrap.circuit.generic.lv").setCreativeTabs(GTQTCore_WRAP);
+        WRAP_CIRCUIT_MV = addItem(3592, "wrap.circuit.generic.mv").setCreativeTabs(GTQTCore_WRAP);
+        WRAP_CIRCUIT_HV = addItem(3593, "wrap.circuit.generic.hv").setCreativeTabs(GTQTCore_WRAP);
+        WRAP_CIRCUIT_EV = addItem(3594, "wrap.circuit.generic.ev").setCreativeTabs(GTQTCore_WRAP);
+        WRAP_CIRCUIT_IV = addItem(3595, "wrap.circuit.generic.iv").setCreativeTabs(GTQTCore_WRAP);
+        WRAP_CIRCUIT_LuV = addItem(3596, "wrap.circuit.generic.luv").setCreativeTabs(GTQTCore_WRAP);
+        WRAP_CIRCUIT_ZPM = addItem(3597, "wrap.circuit.generic.zpm").setCreativeTabs(GTQTCore_WRAP);
+        WRAP_CIRCUIT_UV = addItem(3598, "wrap.circuit.generic.uv").setCreativeTabs(GTQTCore_WRAP);
+        WRAP_CIRCUIT_UHV = addItem(3599, "wrap.circuit.generic.uhv").setCreativeTabs(GTQTCore_WRAP);
+        WRAP_CIRCUIT_UEV = addItem(3600, "wrap.circuit.generic.uev").setCreativeTabs(GTQTCore_WRAP);
+        WRAP_CIRCUIT_UIV = addItem(3601, "wrap.circuit.generic.uiv").setCreativeTabs(GTQTCore_WRAP);
+        WRAP_CIRCUIT_UXV = addItem(3602, "wrap.circuit.generic.uxv").setCreativeTabs(GTQTCore_WRAP);
+        WRAP_CIRCUIT_OpV = addItem(3603, "wrap.circuit.generic.opv").setCreativeTabs(GTQTCore_WRAP);
+        WRAP_CIRCUIT_MAX = addItem(3604, "wrap.circuit.generic.max").setCreativeTabs(GTQTCore_WRAP);
 
         MICROWAVE_ENERGY_RECEIVER_LV = addItem(4026, "cover.microwave_cover.lv");
         MICROWAVE_ENERGY_RECEIVER_MV = addItem(4027, "cover.microwave_cover.mv");

@@ -18,6 +18,7 @@ import gregtech.api.metatileentity.multiblock.RecipeMapMultiblockController;
 import gregtech.api.pattern.BlockPattern;
 import gregtech.api.pattern.FactoryBlockPattern;
 import gregtech.api.pattern.PatternMatchContext;
+import gregtech.api.recipes.Recipe;
 import gregtech.api.recipes.RecipeMap;
 import gregtech.api.recipes.RecipeMaps;
 import gregtech.api.util.GTUtility;
@@ -32,6 +33,7 @@ import gregtech.common.blocks.BlockGlassCasing;
 import gregtech.common.blocks.MetaBlocks;
 import gregtech.core.sound.GTSoundEvents;
 import keqing.gtqtcore.api.recipes.GTQTcoreRecipeMaps;
+import keqing.gtqtcore.api.recipes.properties.CircuitPatternProperty;
 import keqing.gtqtcore.client.textures.GTQTTextures;
 import keqing.gtqtcore.common.block.GTQTMetaBlocks;
 import keqing.gtqtcore.common.block.blocks.BlockMultiblockCasing4;
@@ -53,6 +55,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.function.Function;
 
+import static keqing.gtqtcore.api.recipes.GTQTcoreRecipeMaps.LARGE_CIRCUIT_ASSEMBLY_LINE_RECIPES;
 import static keqing.gtqtcore.common.block.blocks.BlockActiveUniqueCasing.ActiveCasingType.CIRCUIT_ASSEMBLY_CONTROL_CASING;
 import static keqing.gtqtcore.common.block.blocks.BlockActiveUniqueCasing.ActiveCasingType.CIRCUIT_ASSEMBLY_LINE_CASING;
 
@@ -74,7 +77,7 @@ public class MetaTileEntityLargeCircuitAssemblyLine extends MultiMapMultiblockCo
     public MetaTileEntityLargeCircuitAssemblyLine(ResourceLocation metaTileEntityId) {
         super(metaTileEntityId, new RecipeMap[]{
                 RecipeMaps.CIRCUIT_ASSEMBLER_RECIPES,
-                GTQTcoreRecipeMaps.LARGE_CIRCUIT_ASSEMBLY_LINE_RECIPES});
+                LARGE_CIRCUIT_ASSEMBLY_LINE_RECIPES});
         this.recipeMapWorkable = new LargeCircuitAssemblyLineRecipeLogic(this);
     }
 
@@ -333,6 +336,33 @@ public class MetaTileEntityLargeCircuitAssemblyLine extends MultiMapMultiblockCo
         return itemInputInventory.size();
     }
 
+    public boolean checkRecipe(Recipe recipe, boolean consumeIfSuccess) {
+        if (getRecipeMap() == GTQTcoreRecipeMaps.LARGE_CIRCUIT_ASSEMBLY_LINE_RECIPES) {
+            List<IItemHandlerModifiable> itemInputs = this.getAbilities(MultiblockAbility.IMPORT_ITEMS);
+            ItemStack targetStack = recipe.getProperty(CircuitPatternProperty.getInstance(), null);
+            boolean hasTargetCircuitPattern = false;
+
+            if (targetStack != null) {
+                for (IItemHandlerModifiable handler : itemInputs) {
+                    int slots = handler.getSlots();
+                    for (int i = 0; i < slots; i++) {
+                        ItemStack currentStack = handler.getStackInSlot(i);
+                        if (ItemStack.areItemsEqual(currentStack, targetStack)) {
+                            hasTargetCircuitPattern = true;
+                            break;
+                        }
+                    }
+                    if (hasTargetCircuitPattern) break;
+                }
+            }
+
+            return super.checkRecipe(recipe, consumeIfSuccess) && hasTargetCircuitPattern;
+        } else {
+            return super.checkRecipe(recipe, consumeIfSuccess);
+        }
+    }
+
+
     private class LargeCircuitAssemblyLineRecipeLogic extends ComputationRecipeLogic {
 
         public LargeCircuitAssemblyLineRecipeLogic(RecipeMapMultiblockController tileEntity) {
@@ -360,7 +390,7 @@ public class MetaTileEntityLargeCircuitAssemblyLine extends MultiMapMultiblockCo
         @Override
         public void setMaxProgress(int maxProgress) {
             if (isCircAssembler()) {
-                super.setMaxProgress(maxProgress/2);
+                super.setMaxProgress(maxProgress / 2);
             } else {
                 super.setMaxProgress(maxProgress);
             }

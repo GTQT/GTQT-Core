@@ -126,6 +126,7 @@ public class MetaTileEntityOceanPumper extends MultiblockWithDisplayBase impleme
     }
 
     public boolean drainEnergy(boolean simulate) {
+        if (!isInValidLocation()) return false;
         long energyToDrain = getEnergyConsumedPerPump();
         long resultEnergy = energyContainers.getEnergyStored() - energyToDrain;
         if (resultEnergy > 0L && resultEnergy <= energyContainers.getEnergyCapacity()) {

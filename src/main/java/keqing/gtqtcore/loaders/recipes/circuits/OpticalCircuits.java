@@ -2,22 +2,17 @@ package keqing.gtqtcore.loaders.recipes.circuits;
 
 import gregtech.api.metatileentity.multiblock.CleanroomType;
 import gregtech.api.recipes.ingredients.IntCircuitIngredient;
-import gregtech.api.unification.material.MarkerMaterials;
 import net.minecraftforge.fluids.FluidStack;
 
 import static gregicality.multiblocks.api.recipes.GCYMRecipeMaps.ALLOY_BLAST_RECIPES;
-import static gregtech.common.items.MetaItems.*;
-import static gregtech.common.items.MetaItems.SHAPE_EXTRUDER_WIRE;
-import static keqing.gtqtcore.api.GCYSValues.increaseDetailP;
-import static keqing.gtqtcore.api.recipes.GTQTcoreRecipeMaps.*;
 import static gregtech.api.GTValues.*;
 import static gregtech.api.recipes.RecipeMaps.*;
 import static gregtech.api.unification.material.Materials.*;
 import static gregtech.api.unification.ore.OrePrefix.*;
-import static keqing.gtqtcore.api.unification.GTQTMaterials.ElectrolyteReflectorMixture;
+import static gregtech.common.items.MetaItems.*;
+import static keqing.gtqtcore.api.GCYSValues.increaseDetailP;
+import static keqing.gtqtcore.api.recipes.GTQTcoreRecipeMaps.*;
 import static keqing.gtqtcore.api.unification.GTQTMaterials.*;
-import static keqing.gtqtcore.api.unification.GTQTMaterials.Polyetheretherketone;
-
 import static keqing.gtqtcore.common.items.GTQTMetaItems.*;
 public class OpticalCircuits {
     public static void init() {
@@ -351,7 +346,7 @@ public class OpticalCircuits {
                 .input(wireFine, Naquadah, 4)
                 .input(dust, CadmiumSulfide)
                 .fluidInputs(KaptonE.getFluid(L * 2))
-                .output(OPTICAL_RESISTOR, 16)
+                .output(OPTICAL_SMD_RESISTOR, 16)
                 .EUt(VA[UV])
                 .duration(8 * SECOND)
                 .cleanroom(CleanroomType.CLEANROOM)
@@ -361,7 +356,7 @@ public class OpticalCircuits {
                 .input(wireFine, Iridium, 8)
                 .input(foil, Germanium)
                 .fluidInputs(KaptonE.getFluid(L))
-                .output(OPTICAL_TRANSISTOR, 16)
+                .output(OPTICAL_SMD_TRANSISTOR, 16)
                 .EUt(VA[UV])
                 .duration(8 * SECOND)
                 .cleanroom(CleanroomType.CLEANROOM)
@@ -371,7 +366,7 @@ public class OpticalCircuits {
                 .input(OPTICAL_FIBER, 2)
                 .input(plate, ErbiumDopedZBLANGlass)
                 .fluidInputs(KaptonE.getFluid(L / 4))
-                .output(OPTICAL_CAPACITOR, 16)
+                .output(OPTICAL_SMD_CAPACITOR, 16)
                 .EUt(VA[UV])
                 .duration(8 * SECOND)
                 .cleanroom(CleanroomType.CLEANROOM)
@@ -381,7 +376,7 @@ public class OpticalCircuits {
                 .input(dust, Terbium)
                 .input(wireFine, BorosilicateGlass, 4)
                 .fluidInputs(KaptonE.getFluid(L / 2))
-                .output(OPTICAL_DIODE, 16)
+                .output(OPTICAL_SMD_DIODE, 16)
                 .EUt(VA[UV])
                 .duration(8 * SECOND)
                 .cleanroom(CleanroomType.CLEANROOM)
@@ -391,7 +386,7 @@ public class OpticalCircuits {
                 .input(dust, Silver, 4)
                 .input(plate, PMMA)
                 .fluidInputs(KaptonE.getFluid(L))
-                .output(OPTICAL_INDUCTOR, 16)
+                .output(OPTICAL_SMD_INDUCTOR, 16)
                 .EUt(VA[UV])
                 .duration(8 * SECOND)
                 .cleanroom(CleanroomType.CLEANROOM)
@@ -404,7 +399,7 @@ public class OpticalCircuits {
                 .input(wireFine, NiobiumTitanium, 4)
                 .input(plate, KaptonE, 4)
                 .input(bolt, HSSS, 6)
-                .output(OPTICAL_PROCESSING_CORE,16)
+                .output(OPTOELECTRONIC_SYSTEM_ON_CHIP, 16)
                 .fluidInputs(MutantActiveSolder.getFluid(1440))
                 .stationResearch(b -> b
                         .researchStack(BIOPROCESSOR_UNIT.getStackForm())
@@ -417,12 +412,12 @@ public class OpticalCircuits {
         //  Processor
         CIRCUIT_ASSEMBLER_RECIPES.recipeBuilder()
                 .input(OPTICAL_LASER_CONTROL_UNIT)
-                .input(OPTICAL_PROCESSING_CORE)
-                .input(OPTICAL_RESISTOR, 8)
-                .input(OPTICAL_CAPACITOR, 8)
-                .input(OPTICAL_TRANSISTOR, 8)
+                .input(OPTOELECTRONIC_SYSTEM_ON_CHIP)
+                .input(OPTICAL_SMD_RESISTOR, 8)
+                .input(OPTICAL_SMD_CAPACITOR, 8)
+                .input(OPTICAL_SMD_TRANSISTOR, 8)
                 .input(OPTICAL_FIBER, 8)
-                .output(OPTICAL_PROCESSOR, 2)
+                .output(OPTICAL_PROCESSOR_UV, 2)
                 .solderMultiplier(1)
                 .EUt(VA[UHV])
                 .duration(10 * SECOND)
@@ -434,7 +429,7 @@ public class OpticalCircuits {
                 .input(PHOTOELECTRON_SOC)
                 .input(wireFine, PedotPSS, 8)
                 .input(bolt, Adamantium, 8)
-                .output(OPTICAL_PROCESSOR, 4)
+                .output(OPTICAL_PROCESSOR_UV, 4)
                 .solderMultiplier(1)
                 .EUt(VA[UEV])
                 .duration(5 * SECOND)
@@ -444,12 +439,12 @@ public class OpticalCircuits {
         //  Assembly
         CIRCUIT_ASSEMBLER_RECIPES.recipeBuilder()
                 .input(OPTICAL_CIRCUIT_BOARD)
-                .input(OPTICAL_PROCESSOR, 2)
-                .input(OPTICAL_INDUCTOR, 6)
-                .input(OPTICAL_CAPACITOR, 12)
+                .input(OPTICAL_PROCESSOR_UV, 2)
+                .input(OPTICAL_SMD_INDUCTOR, 6)
+                .input(OPTICAL_SMD_CAPACITOR, 12)
                 .input(PHASE_CHANGE_MEMORY, 24)
                 .input(OPTICAL_FIBER, 16)
-                .output(OPTICAL_ASSEMBLY, 2)
+                .output(OPTICAL_ASSEMBLY_UHV, 2)
                 .solderMultiplier(2)
                 .EUt(VA[UHV])
                 .duration(20 * SECOND)
@@ -459,8 +454,8 @@ public class OpticalCircuits {
         //  Computer
         ASSEMBLY_LINE_RECIPES.recipeBuilder()
                 .input(OPTICAL_CIRCUIT_BOARD)
-                .input(OPTICAL_ASSEMBLY, 2)
-                .input(OPTICAL_DIODE, 8)
+                .input(OPTICAL_ASSEMBLY_UHV, 2)
+                .input(OPTICAL_SMD_DIODE, 8)
                 .input(OPTICAL_NOR_MEMORY_CHIP, 16)
                 .input(PHASE_CHANGE_MEMORY, 32)
                 .input(OPTICAL_FIBER, 24)
@@ -469,11 +464,11 @@ public class OpticalCircuits {
                 .fluidInputs(HighGradeSolderingAlloy.getFluid(4320))
                 .fluidInputs(Polyetheretherketone.getFluid(2304))
                 .fluidInputs(Vibranium.getFluid(1152))
-                .output(OPTICAL_COMPUTER)
+                .output(OPTICAL_COMPUTER_UEV)
                 .EUt(VA[UHV])
                 .duration(20 * SECOND)
                 .stationResearch(b -> b
-                        .researchStack(OPTICAL_ASSEMBLY.getStackForm())
+                        .researchStack(OPTICAL_ASSEMBLY_UHV.getStackForm())
                         .CWUt(64)
                         .EUt(VA[UHV]))
                 .buildAndRegister();
@@ -481,12 +476,12 @@ public class OpticalCircuits {
         //  Mainframe
         ASSEMBLY_LINE_RECIPES.recipeBuilder()
                 .input(frameGt, Orichalcum, 2)
-                .input(OPTICAL_COMPUTER, 2)
-                .input(OPTICAL_DIODE, 16)
-                .input(OPTICAL_CAPACITOR, 16)
-                .input(OPTICAL_TRANSISTOR, 16)
-                .input(OPTICAL_RESISTOR, 16)
-                .input(OPTICAL_INDUCTOR, 16)
+                .input(OPTICAL_COMPUTER_UEV, 2)
+                .input(OPTICAL_SMD_DIODE, 16)
+                .input(OPTICAL_SMD_CAPACITOR, 16)
+                .input(OPTICAL_SMD_TRANSISTOR, 16)
+                .input(OPTICAL_SMD_RESISTOR, 16)
+                .input(OPTICAL_SMD_INDUCTOR, 16)
                 .input(foil, KaptonE, 64)
                 .input(PHASE_CHANGE_MEMORY, 32)
                 .input(wireGtDouble, Tritanium, 16)
@@ -495,11 +490,11 @@ public class OpticalCircuits {
                 .fluidInputs(Polyetheretherketone.getFluid(4320))
                 .fluidInputs(Vibranium.getFluid(2304))
                 .fluidInputs(KaptonK.getFluid(1152))
-                .output(OPTICAL_MAINFRAME)
+                .output(OPTICAL_MAINFRAME_UIV)
                 .EUt(VA[UEV])
                 .duration(MINUTE)
                 .stationResearch(b -> b
-                        .researchStack(OPTICAL_COMPUTER.getStackForm())
+                        .researchStack(OPTICAL_COMPUTER_UEV.getStackForm())
                         .CWUt(384)
                         .EUt(VA[UEV]))
                 .buildAndRegister();

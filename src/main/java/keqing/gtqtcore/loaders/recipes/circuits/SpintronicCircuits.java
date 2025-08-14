@@ -5,16 +5,14 @@ import gregtech.common.blocks.BlockGlassCasing;
 import gregtech.common.blocks.MetaBlocks;
 import net.minecraftforge.fluids.FluidStack;
 
-import static keqing.gtqtcore.api.recipes.GTQTcoreRecipeMaps.*;
-import static keqing.gtqtcore.api.unification.GTQTMaterials.*;
-import static keqing.gtqtcore.api.unification.GTQTMaterials.Polyetheretherketone;
-
-import static keqing.gtqtcore.common.items.GTQTMetaItems.*;
 import static gregtech.api.GTValues.*;
 import static gregtech.api.recipes.RecipeMaps.*;
 import static gregtech.api.unification.material.Materials.*;
 import static gregtech.api.unification.ore.OrePrefix.*;
 import static gregtech.common.items.MetaItems.*;
+import static keqing.gtqtcore.api.recipes.GTQTcoreRecipeMaps.*;
+import static keqing.gtqtcore.api.unification.GTQTMaterials.*;
+import static keqing.gtqtcore.common.items.GTQTMetaItems.*;
 
 public class SpintronicCircuits {
     public static void init() {
@@ -162,7 +160,7 @@ public class SpintronicCircuits {
         CVD_RECIPES.recipeBuilder()
                 .input(wireFine, MercuryCadmiumTelluride, 4)
                 .input(gem, HexagonalBoronNitride)
-                .output(SPINTRONIC_RESISTOR, 16)
+                .output(SPINTRONIC_SMD_RESISTOR, 16)
                 .fluidInputs(Kevlar.getFluid(L * 2))
                 .EUt(VA[UHV])
                 .duration(8 * SECOND)
@@ -173,7 +171,7 @@ public class SpintronicCircuits {
                 .input(wireFine, CarbonNanotube, 8)
                 .input(plate, AmorphousBoronNitride)
                 .fluidInputs(Kevlar.getFluid(L))
-                .output(SPINTRONIC_TRANSISTOR, 16)
+                .output(SPINTRONIC_SMD_TRANSISTOR, 16)
                 .EUt(VA[UHV])
                 .duration(8 * SECOND)
                 .cleanroom(CleanroomType.CLEANROOM)
@@ -183,7 +181,7 @@ public class SpintronicCircuits {
                 .input(wireGtSingle, CarbonNanotube, 2)
                 .input(plate, CubicBoronNitride)
                 .fluidInputs(Kevlar.getFluid(L / 4))
-                .output(SPINTRONIC_CAPACITOR, 16)
+                .output(SPINTRONIC_SMD_CAPACITOR, 16)
                 .EUt(VA[UHV])
                 .duration(8 * SECOND)
                 .cleanroom(CleanroomType.CLEANROOM)
@@ -193,7 +191,7 @@ public class SpintronicCircuits {
                 .input(dust, CadmiumSelenide)
                 .input(wireFine, CarbonNanotube, 4)
                 .fluidInputs(Kevlar.getFluid(L / 2))
-                .output(SPINTRONIC_DIODE, 16)
+                .output(SPINTRONIC_SMD_DIODE, 16)
                 .EUt(VA[UHV])
                 .duration(8 * SECOND)
                 .cleanroom(CleanroomType.CLEANROOM)
@@ -203,7 +201,7 @@ public class SpintronicCircuits {
                 .input(ring, Fullerene)
                 .input(wireFine, ThalliumCopperChloride, 4)
                 .fluidInputs(Kevlar.getFluid(L))
-                .output(SPINTRONIC_INDUCTOR, 16)
+                .output(SPINTRONIC_SMD_INDUCTOR, 16)
                 .EUt(VA[UHV])
                 .duration(8 * SECOND)
                 .cleanroom(CleanroomType.CLEANROOM)
@@ -374,11 +372,11 @@ public class SpintronicCircuits {
         CIRCUIT_ASSEMBLER_RECIPES.recipeBuilder()
                 .input(ESR_COMPUTATION_UNIT)
                 .input(CRYSTAL_SYSTEM_ON_CHIP)
-                .input(SPINTRONIC_RESISTOR, 8)
-                .input(SPINTRONIC_CAPACITOR, 8)
-                .input(SPINTRONIC_TRANSISTOR, 8)
+                .input(SPINTRONIC_SMD_RESISTOR, 8)
+                .input(SPINTRONIC_SMD_CAPACITOR, 8)
+                .input(SPINTRONIC_SMD_TRANSISTOR, 8)
                 .input(wireFine, CarbonNanotube, 8)
-                .output(SPINTRONIC_PROCESSOR, 2)
+                .output(SPINTRONIC_PROCESSOR_UHV, 2)
                 .duration(10 * SECOND)
                 .EUt(VA[UEV])
                 .cleanroom(CleanroomType.CLEANROOM)
@@ -389,7 +387,7 @@ public class SpintronicCircuits {
                 .input(EXOTIC_SOC)
                 .input(wireFine, PedotTMA, 8)
                 .input(bolt, Infinity, 8)
-                .output(SPINTRONIC_PROCESSOR, 4)
+                .output(SPINTRONIC_PROCESSOR_UHV, 4)
                 .duration(5 * SECOND)
                 .EUt(VA[UIV])
                 .cleanroom(CleanroomType.CLEANROOM)
@@ -398,12 +396,12 @@ public class SpintronicCircuits {
         //  Spintronic Assembly
         CIRCUIT_ASSEMBLER_RECIPES.recipeBuilder()
                 .input(SPINTRONIC_CIRCUIT_BOARD)
-                .input(SPINTRONIC_PROCESSOR, 2)
-                .input(SPINTRONIC_INDUCTOR, 6)
-                .input(SPINTRONIC_CAPACITOR, 12)
+                .input(SPINTRONIC_PROCESSOR_UHV, 2)
+                .input(SPINTRONIC_SMD_INDUCTOR, 6)
+                .input(SPINTRONIC_SMD_CAPACITOR, 12)
                 .input(SPIN_TRANSFER_TORQUE_MEMORY, 24)
                 .input(wireFine, CarbonNanotube, 16)
-                .output(SPINTRONIC_ASSEMBLY, 2)
+                .output(SPINTRONIC_ASSEMBLY_UEV, 2)
                 .solderMultiplier(2)
                 .duration(20 * SECOND)
                 .EUt(VA[UEV])
@@ -413,8 +411,8 @@ public class SpintronicCircuits {
         //  Spintronic Computer
         ASSEMBLY_LINE_RECIPES.recipeBuilder()
                 .input(SPINTRONIC_CIRCUIT_BOARD)
-                .input(SPINTRONIC_ASSEMBLY, 2)
-                .input(SPINTRONIC_DIODE, 8)
+                .input(SPINTRONIC_ASSEMBLY_UEV, 2)
+                .input(SPINTRONIC_SMD_DIODE, 8)
                 .input(SPINTRONIC_NAND_MEMORY_CHIP, 16)
                 .input(SPIN_TRANSFER_TORQUE_MEMORY, 32)
                 .input(wireFine, CarbonNanotube, 24)
@@ -424,23 +422,23 @@ public class SpintronicCircuits {
                 .fluidInputs(Polyetheretherketone.getFluid(4608))
                 .fluidInputs(Kevlar.getFluid(2304))
                 .fluidInputs(Adamantium.getFluid(1152))
-                .output(SPINTRONIC_COMPUTER)
+                .output(SPINTRONIC_COMPUTER_UIV)
                 .duration(20 * SECOND)
                 .EUt(VA[UEV])
                 .stationResearch(b -> b
-                        .researchStack(SPINTRONIC_ASSEMBLY.getStackForm())
+                        .researchStack(SPINTRONIC_ASSEMBLY_UEV.getStackForm())
                         .CWUt(128)
                         .EUt(VA[UEV]))
                 .buildAndRegister();
 
         ASSEMBLY_LINE_RECIPES.recipeBuilder()
                 .input(frameGt, Fullerene, 2)
-                .input(SPINTRONIC_COMPUTER, 2)
-                .input(SPINTRONIC_DIODE, 16)
-                .input(SPINTRONIC_CAPACITOR, 16)
-                .input(SPINTRONIC_TRANSISTOR, 16)
-                .input(SPINTRONIC_RESISTOR, 16)
-                .input(SPINTRONIC_INDUCTOR, 16)
+                .input(SPINTRONIC_COMPUTER_UIV, 2)
+                .input(SPINTRONIC_SMD_DIODE, 16)
+                .input(SPINTRONIC_SMD_CAPACITOR, 16)
+                .input(SPINTRONIC_SMD_TRANSISTOR, 16)
+                .input(SPINTRONIC_SMD_RESISTOR, 16)
+                .input(SPINTRONIC_SMD_INDUCTOR, 16)
                 .input(foil, CarbonNanotube, 16)
                 .input(SPIN_TRANSFER_TORQUE_MEMORY, 32)
                 .input(wireGtDouble, FullereneSuperconductor, 16)
@@ -449,11 +447,11 @@ public class SpintronicCircuits {
                 .fluidInputs(Kevlar.getFluid(8640))
                 .fluidInputs(Zylon.getFluid(4608))
                 .fluidInputs(Adamantium.getFluid(2304))
-                .output(SPINTRONIC_MAINFRAME)
+                .output(SPINTRONIC_MAINFRAME_UXV)
                 .duration(MINUTE + 20 * SECOND)
                 .EUt(VA[UIV])
                 .stationResearch(b -> b
-                        .researchStack(SPINTRONIC_COMPUTER.getStackForm())
+                        .researchStack(SPINTRONIC_COMPUTER_UIV.getStackForm())
                         .CWUt(768)
                         .EUt(VA[UIV]))
                 .buildAndRegister();

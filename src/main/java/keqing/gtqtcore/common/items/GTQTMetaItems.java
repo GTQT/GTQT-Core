@@ -135,6 +135,7 @@ public class GTQTMetaItems {
     public static MetaItem<?>.MetaValueItem SODIUM_ETHYLATE;
     public static MetaItem<?>.MetaValueItem PINE_CONE;
     public static MetaItem<?>.MetaValueItem PINE_FRAGMENT;
+
     public static MetaItem<?>.MetaValueItem WRAP_CIRCUIT_ULV;
     public static MetaItem<?>.MetaValueItem WRAP_CIRCUIT_LV;
     public static MetaItem<?>.MetaValueItem WRAP_CIRCUIT_MV;
@@ -150,6 +151,18 @@ public class GTQTMetaItems {
     public static MetaItem<?>.MetaValueItem WRAP_CIRCUIT_UXV;
     public static MetaItem<?>.MetaValueItem WRAP_CIRCUIT_OpV;
     public static MetaItem<?>.MetaValueItem WRAP_CIRCUIT_MAX;
+
+    public static MetaItem<?>.MetaValueItem WRAP_COATED_BOARD;
+    public static MetaItem<?>.MetaValueItem WRAP_PHENOLIC_BOARD;
+    public static MetaItem<?>.MetaValueItem WRAP_PLASTIC_BOARD;
+    public static MetaItem<?>.MetaValueItem WRAP_EPOXY_BOARD;
+    public static MetaItem<?>.MetaValueItem WRAP_FIBER_BOARD;
+    public static MetaItem<?>.MetaValueItem WRAP_MULTILAYER_FIBER_BOARD;
+    public static MetaItem<?>.MetaValueItem WRAP_WETWARE_BOARD;
+    public static MetaItem<?>.MetaValueItem WRAP_GOOWARE_BOARD;
+    public static MetaItem<?>.MetaValueItem WRAP_OPTICAL_BOARD;
+    public static MetaItem<?>.MetaValueItem WRAP_SPINTRONIC_BOARD;
+
     public static MetaItem<?>.MetaValueItem WRAP_BASIC_CIRCUIT_BOARD;
     public static MetaItem<?>.MetaValueItem WRAP_GOOD_CIRCUIT_BOARD;
     public static MetaItem<?>.MetaValueItem WRAP_PLASTIC_CIRCUIT_BOARD;
@@ -165,31 +178,81 @@ public class GTQTMetaItems {
     public static MetaItem<?>.MetaValueItem WRAP_SMD_CAPACITOR;
     public static MetaItem<?>.MetaValueItem WRAP_SMD_DIODE;
     public static MetaItem<?>.MetaValueItem WRAP_SMD_INDUCTOR;
+
     public static MetaItem<?>.MetaValueItem WRAP_ADVANCED_SMD_TRANSISTOR;
     public static MetaItem<?>.MetaValueItem WRAP_ADVANCED_SMD_RESISTOR;
     public static MetaItem<?>.MetaValueItem WRAP_ADVANCED_SMD_CAPACITOR;
     public static MetaItem<?>.MetaValueItem WRAP_ADVANCED_SMD_DIODE;
     public static MetaItem<?>.MetaValueItem WRAP_ADVANCED_SMD_INDUCTOR;
+
+    public static MetaItem<?>.MetaValueItem WRAP_GOOWARE_SMD_TRANSISTOR;
+    public static MetaItem<?>.MetaValueItem WRAP_GOOWARE_SMD_RESISTOR;
+    public static MetaItem<?>.MetaValueItem WRAP_GOOWARE_SMD_CAPACITOR;
+    public static MetaItem<?>.MetaValueItem WRAP_GOOWARE_SMD_DIODE;
+    public static MetaItem<?>.MetaValueItem WRAP_GOOWARE_SMD_INDUCTOR;
+    
     public static MetaItem<?>.MetaValueItem WRAP_OPTICAL_SMD_TRANSISTOR;
     public static MetaItem<?>.MetaValueItem WRAP_OPTICAL_SMD_RESISTOR;
     public static MetaItem<?>.MetaValueItem WRAP_OPTICAL_SMD_CAPACITOR;
     public static MetaItem<?>.MetaValueItem WRAP_OPTICAL_SMD_DIODE;
     public static MetaItem<?>.MetaValueItem WRAP_OPTICAL_SMD_INDUCTOR;
+
     public static MetaItem<?>.MetaValueItem WRAP_SPINTRONIC_SMD_TRANSISTOR;
     public static MetaItem<?>.MetaValueItem WRAP_SPINTRONIC_SMD_RESISTOR;
     public static MetaItem<?>.MetaValueItem WRAP_SPINTRONIC_SMD_CAPACITOR;
     public static MetaItem<?>.MetaValueItem WRAP_SPINTRONIC_SMD_DIODE;
     public static MetaItem<?>.MetaValueItem WRAP_SPINTRONIC_SMD_INDUCTOR;
+
     public static MetaItem<?>.MetaValueItem WRAP_COSMIC_SMD_TRANSISTOR;
     public static MetaItem<?>.MetaValueItem WRAP_COSMIC_SMD_RESISTOR;
     public static MetaItem<?>.MetaValueItem WRAP_COSMIC_SMD_CAPACITOR;
     public static MetaItem<?>.MetaValueItem WRAP_COSMIC_SMD_DIODE;
     public static MetaItem<?>.MetaValueItem WRAP_COSMIC_SMD_INDUCTOR;
+
     public static MetaItem<?>.MetaValueItem WRAP_SUPRACAUSAL_SMD_TRANSISTOR;
     public static MetaItem<?>.MetaValueItem WRAP_SUPRACAUSAL_SMD_RESISTOR;
     public static MetaItem<?>.MetaValueItem WRAP_SUPRACAUSAL_SMD_CAPACITOR;
     public static MetaItem<?>.MetaValueItem WRAP_SUPRACAUSAL_SMD_DIODE;
     public static MetaItem<?>.MetaValueItem WRAP_SUPRACAUSAL_SMD_INDUCTOR;
+
+    public static MetaItem<?>.MetaValueItem WRAP_CPU_CHIP;
+    public static MetaItem<?>.MetaValueItem WRAP_RAM_CHIP;
+    public static MetaItem<?>.MetaValueItem WRAP_ILC_CHIP;
+    public static MetaItem<?>.MetaValueItem WRAP_NANO_CPU_CHIP;
+    public static MetaItem<?>.MetaValueItem WRAP_QUBIT_CPU_CHIP;
+    public static MetaItem<?>.MetaValueItem WRAP_SIMPLE_SOC_CHIP;
+    public static MetaItem<?>.MetaValueItem WRAP_SOC_CHIP;
+    public static MetaItem<?>.MetaValueItem WRAP_ADVANCED_SOC_CHIP;
+    public static MetaItem<?>.MetaValueItem WRAP_HIGHLY_ADVANCED_SOC_CHIP;
+    public static MetaItem<?>.MetaValueItem WRAP_NAND_CHIP;
+    public static MetaItem<?>.MetaValueItem WRAP_NOR_CHIP;
+    public static MetaItem<?>.MetaValueItem WRAP_ULPIC_CHIP;
+    public static MetaItem<?>.MetaValueItem WRAP_LPIC_CHIP;
+    public static MetaItem<?>.MetaValueItem WRAP_PIC_CHIP;
+    public static MetaItem<?>.MetaValueItem WRAP_HPIC_CHIP;
+    public static MetaItem<?>.MetaValueItem WRAP_UHPIC_CHIP;
+    public static MetaItem<?>.MetaValueItem WRAP_NPIC_CHIP;
+    public static MetaItem<?>.MetaValueItem WRAP_PPIC_CHIP;
+    public static MetaItem<?>.MetaValueItem WRAP_FPIC_CHIP;
+    public static MetaItem<?>.MetaValueItem WRAP_APIC_CHIP;
+    public static MetaItem<?>.MetaValueItem WRAP_ZPIC_CHIP;
+    public static MetaItem<?>.MetaValueItem WRAP_UHASOC_CHIP;
+    public static MetaItem<?>.MetaValueItem WRAP_CRYSTAL_INTERFACE_CHIP;
+    public static MetaItem<?>.MetaValueItem WRAP_NONLINEAR_CHEMICAL_OSCILLATOR;
+    public static MetaItem<?>.MetaValueItem WRAP_OPTICAL_LASER_CONTROL_UNIT;
+    public static MetaItem<?>.MetaValueItem WRAP_ESR_COMPUTATION_UNIT;
+
+    public static MetaItem<?>.MetaValueItem WRAP_ENGRAVED_LAPOTRON_CHIP;
+    public static MetaItem<?>.MetaValueItem WRAP_ENGRAVED_DIAMOND_CHIP;
+    public static MetaItem<?>.MetaValueItem WRAP_ENGRAVED_RUBY_CHIP;
+    public static MetaItem<?>.MetaValueItem WRAP_ENGRAVED_SAPPHIRE_CHIP;
+
+    public static MetaItem<?>.MetaValueItem WRAP_CRYSTAL_CPU;
+    public static MetaItem<?>.MetaValueItem WRAP_CRYSTAL_SOC;
+    public static MetaItem<?>.MetaValueItem WRAP_NEURO_PROCESSOR;
+    public static MetaItem<?>.MetaValueItem WRAP_OPTOELECTRONIC_SYSTEM_ON_CHIP;
+    public static MetaItem<?>.MetaValueItem WRAP_EXOTIC_SYSTEM_ON_CHIP;
+    
     public static MetaItem<?>.MetaValueItem WIND_ROTOR_STEEL;
     public static MetaItem<?>.MetaValueItem WIND_ROTOR_ALUMINIUM;
     public static MetaItem<?>.MetaValueItem WIND_ROTOR_STAINLESSSTEEL;
@@ -236,11 +299,7 @@ public class GTQTMetaItems {
     public static MetaItem<?>.MetaValueItem BRONZE_CROP;
     public static MetaItem<?>.MetaValueItem CARBON_CROP;
     public static MetaItem<?>.MetaValueItem GOLD_CROP;
-    public static MetaItem<?>.MetaValueItem COSMIC_CAPACITOR;
-    public static MetaItem<?>.MetaValueItem COSMIC_DIODE;
-    public static MetaItem<?>.MetaValueItem COSMIC_RESISTOR;
-    public static MetaItem<?>.MetaValueItem COSMIC_TRANSISTOR;
-    public static MetaItem<?>.MetaValueItem COSMIC_INDUCTOR;
+
     public static MetaItem<?>.MetaValueItem SCRAP;
     public static MetaItem<?>.MetaValueItem CD_ROM;
     public static MetaItem<?>.MetaValueItem UU_MATER;
@@ -314,11 +373,6 @@ public class GTQTMetaItems {
     public static MetaItem<?>.MetaValueItem DRILL_HEAD_STAINLESSSTEEL;
     public static MetaItem<?>.MetaValueItem DRILL_HEAD_TITANIUM;
     public static MetaItem<?>.MetaValueItem DRILL_HEAD_TUNGSTENSTEEL;
-    public static MetaItem<?>.MetaValueItem SUPRACAUSAL_CAPACITOR;
-    public static MetaItem<?>.MetaValueItem SUPRACAUSAL_DIODE;
-    public static MetaItem<?>.MetaValueItem SUPRACAUSAL_RESISTOR;
-    public static MetaItem<?>.MetaValueItem SUPRACAUSAL_TRANSISTOR;
-    public static MetaItem<?>.MetaValueItem SUPRACAUSAL_INDUCTOR;
     public static MetaItem<?>.MetaValueItem COSMIC_INFORMATION_MODULE;
     public static MetaItem<?>.MetaValueItem HOLOGRAPHIC_INFORMATION_IMC;
     public static MetaItem<?>.MetaValueItem SPACETIME_CONDENSER;
@@ -422,30 +476,30 @@ public class GTQTMetaItems {
     public static MetaItem<?>.MetaValueItem VOLTAGE_COIL_MAX;
     // Circuits
     // Gooware
-    public static MetaItem<?>.MetaValueItem GOOWARE_PROCESSOR;
-    public static MetaItem<?>.MetaValueItem GOOWARE_ASSEMBLY;
-    public static MetaItem<?>.MetaValueItem GOOWARE_COMPUTER;
-    public static MetaItem<?>.MetaValueItem GOOWARE_MAINFRAME;
+    public static MetaItem<?>.MetaValueItem GOOWARE_PROCESSOR_ZPM;
+    public static MetaItem<?>.MetaValueItem GOOWARE_ASSEMBLY_UV;
+    public static MetaItem<?>.MetaValueItem GOOWARE_COMPUTER_UHV;
+    public static MetaItem<?>.MetaValueItem GOOWARE_MAINFRAME_UEV;
     // Optical
-    public static MetaItem<?>.MetaValueItem OPTICAL_PROCESSOR;
-    public static MetaItem<?>.MetaValueItem OPTICAL_ASSEMBLY;
-    public static MetaItem<?>.MetaValueItem OPTICAL_COMPUTER;
-    public static MetaItem<?>.MetaValueItem OPTICAL_MAINFRAME;
+    public static MetaItem<?>.MetaValueItem OPTICAL_PROCESSOR_UV;
+    public static MetaItem<?>.MetaValueItem OPTICAL_ASSEMBLY_UHV;
+    public static MetaItem<?>.MetaValueItem OPTICAL_COMPUTER_UEV;
+    public static MetaItem<?>.MetaValueItem OPTICAL_MAINFRAME_UIV;
     // Spintronic
-    public static MetaItem<?>.MetaValueItem SPINTRONIC_PROCESSOR;
-    public static MetaItem<?>.MetaValueItem SPINTRONIC_ASSEMBLY;
-    public static MetaItem<?>.MetaValueItem SPINTRONIC_COMPUTER;
-    public static MetaItem<?>.MetaValueItem SPINTRONIC_MAINFRAME;
+    public static MetaItem<?>.MetaValueItem SPINTRONIC_PROCESSOR_UHV;
+    public static MetaItem<?>.MetaValueItem SPINTRONIC_ASSEMBLY_UEV;
+    public static MetaItem<?>.MetaValueItem SPINTRONIC_COMPUTER_UIV;
+    public static MetaItem<?>.MetaValueItem SPINTRONIC_MAINFRAME_UXV;
     // Cosmic, name TBD
-    public static MetaItem<?>.MetaValueItem COSMIC_PROCESSOR;
-    public static MetaItem<?>.MetaValueItem COSMIC_ASSEMBLY;
-    public static MetaItem<?>.MetaValueItem COSMIC_COMPUTER;
-    public static MetaItem<?>.MetaValueItem COSMIC_MAINFRAME;
+    public static MetaItem<?>.MetaValueItem COSMIC_PROCESSOR_UEV;
+    public static MetaItem<?>.MetaValueItem COSMIC_ASSEMBLY_UIV;
+    public static MetaItem<?>.MetaValueItem COSMIC_COMPUTER_UXV;
+    public static MetaItem<?>.MetaValueItem COSMIC_MAINFRAME_OpV;
     // Supra-causal
-    public static MetaItem<?>.MetaValueItem SUPRACAUSAL_PROCESSOR;
-    public static MetaItem<?>.MetaValueItem SUPRACAUSAL_ASSEMBLY;
-    public static MetaItem<?>.MetaValueItem SUPRACAUSAL_COMPUTER;
-    public static MetaItem<?>.MetaValueItem SUPRACAUSAL_MAINFRAME;
+    public static MetaItem<?>.MetaValueItem SUPRACAUSAL_PROCESSOR_UIV;
+    public static MetaItem<?>.MetaValueItem SUPRACAUSAL_ASSEMBLY_UXV;
+    public static MetaItem<?>.MetaValueItem SUPRACAUSAL_COMPUTER_OpV;
+    public static MetaItem<?>.MetaValueItem SUPRACAUSAL_MAINFRAME_MAX;
     // Supra-chronal
     public static MetaItem<?>.MetaValueItem SUPRACHRONAL_ULV;
     public static MetaItem<?>.MetaValueItem SUPRACHRONAL_LV;
@@ -520,7 +574,7 @@ public class GTQTMetaItems {
     public static MetaItem<?>.MetaValueItem HELIUM_NEON_LASER;
     public static MetaItem<?>.MetaValueItem ND_YAG_LASER;
     public static MetaItem<?>.MetaValueItem OPTICAL_LASER_CONTROL_UNIT;
-    public static MetaItem<?>.MetaValueItem OPTICAL_PROCESSING_CORE;
+    public static MetaItem<?>.MetaValueItem OPTOELECTRONIC_SYSTEM_ON_CHIP;
 
     public static MetaItem<?>.MetaValueItem AE_FLUIX_FIRM;
     public static MetaItem<?>.MetaValueItem AE_FLUIX_BOOSTER;
@@ -681,16 +735,35 @@ public class GTQTMetaItems {
     public static MetaItem<?>.MetaValueItem SPINTRONIC_CIRCUIT_BOARD;
 
     // SMDs
-    public static MetaItem<?>.MetaValueItem OPTICAL_CAPACITOR;
-    public static MetaItem<?>.MetaValueItem OPTICAL_DIODE;
-    public static MetaItem<?>.MetaValueItem OPTICAL_RESISTOR;
-    public static MetaItem<?>.MetaValueItem OPTICAL_TRANSISTOR;
-    public static MetaItem<?>.MetaValueItem OPTICAL_INDUCTOR;
-    public static MetaItem<?>.MetaValueItem SPINTRONIC_CAPACITOR;
-    public static MetaItem<?>.MetaValueItem SPINTRONIC_DIODE;
-    public static MetaItem<?>.MetaValueItem SPINTRONIC_RESISTOR;
-    public static MetaItem<?>.MetaValueItem SPINTRONIC_TRANSISTOR;
-    public static MetaItem<?>.MetaValueItem SPINTRONIC_INDUCTOR;
+    public static MetaItem<?>.MetaValueItem GOOWARE_SMD_TRANSISTOR;
+    public static MetaItem<?>.MetaValueItem GOOWARE_SMD_RESISTOR;
+    public static MetaItem<?>.MetaValueItem GOOWARE_SMD_CAPACITOR;
+    public static MetaItem<?>.MetaValueItem GOOWARE_SMD_DIODE;
+    public static MetaItem<?>.MetaValueItem GOOWARE_SMD_INDUCTOR;
+
+    public static MetaItem<?>.MetaValueItem OPTICAL_SMD_CAPACITOR;
+    public static MetaItem<?>.MetaValueItem OPTICAL_SMD_DIODE;
+    public static MetaItem<?>.MetaValueItem OPTICAL_SMD_RESISTOR;
+    public static MetaItem<?>.MetaValueItem OPTICAL_SMD_TRANSISTOR;
+    public static MetaItem<?>.MetaValueItem OPTICAL_SMD_INDUCTOR;
+
+    public static MetaItem<?>.MetaValueItem SPINTRONIC_SMD_CAPACITOR;
+    public static MetaItem<?>.MetaValueItem SPINTRONIC_SMD_DIODE;
+    public static MetaItem<?>.MetaValueItem SPINTRONIC_SMD_RESISTOR;
+    public static MetaItem<?>.MetaValueItem SPINTRONIC_SMD_TRANSISTOR;
+    public static MetaItem<?>.MetaValueItem SPINTRONIC_SMD_INDUCTOR;
+
+    public static MetaItem<?>.MetaValueItem COSMIC_SMD_CAPACITOR;
+    public static MetaItem<?>.MetaValueItem COSMIC_SMD_DIODE;
+    public static MetaItem<?>.MetaValueItem COSMIC_SMD_RESISTOR;
+    public static MetaItem<?>.MetaValueItem COSMIC_SMD_TRANSISTOR;
+    public static MetaItem<?>.MetaValueItem COSMIC_SMD_INDUCTOR;
+
+    public static MetaItem<?>.MetaValueItem SUPRACAUSAL_SMD_CAPACITOR;
+    public static MetaItem<?>.MetaValueItem SUPRACAUSAL_SMD_DIODE;
+    public static MetaItem<?>.MetaValueItem SUPRACAUSAL_SMD_RESISTOR;
+    public static MetaItem<?>.MetaValueItem SUPRACAUSAL_SMD_TRANSISTOR;
+    public static MetaItem<?>.MetaValueItem SUPRACAUSAL_SMD_INDUCTOR;
 
     public static MetaItem<?>.MetaValueItem BARNARDA_C_CHLORELLA;
     public static MetaItem<?>.MetaValueItem BARNARDA_C_BRYOPSIS_HYPNOIDES;
@@ -908,6 +981,7 @@ public class GTQTMetaItems {
     public static MetaItem<?>.MetaValueItem ETERNITIC_SINGULARITY;
     public static MetaItem<?>.MetaValueItem CHRONIC_SINGULARITY;
     // Process-Specific Components
+    public static MetaItem<?>.MetaValueItem CIRCUIT_PATTERN;
     public static MetaItem<?>.MetaValueItem MAGNETRON;
 
     public static MetaItem<?>.MetaValueItem SOLAR_CORE_I;
