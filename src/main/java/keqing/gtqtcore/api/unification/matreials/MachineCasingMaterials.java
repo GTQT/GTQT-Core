@@ -14,7 +14,6 @@ import static gregtech.api.GTValues.*;
 import static gregtech.api.unification.material.Materials.*;
 import static gregtech.api.unification.material.info.MaterialFlags.*;
 import static gregtech.api.unification.material.info.MaterialIconSet.*;
-import static gregtech.api.util.GTUtility.gregtechId;
 import static keqing.gtqtcore.api.GTQTValue.gtqtcoreId;
 import static keqing.gtqtcore.api.unification.GTQTMaterials.*;
 
@@ -102,7 +101,7 @@ public class MachineCasingMaterials {
                 .iconSet(SHINY)
                 .toolStats(new MaterialToolProperty(20.0F, 10.0F, 180000, 4))
                 .blast(4625, GasTier.HIGHER)
-                .components(TungstenSteel, 12, HSSS, 9, HSSG, 6, Ruridit, 3, MagnetoResonatic, 2, Plutonium241, 1)
+                .components(TungstenSteel, 12, HSSS, 9, HSSG, 6, Ruridit, 3, Zircon, 2, Plutonium241, 1)
                 .flags(GENERATE_PLATE, GENERATE_ROD, GENERATE_RING, GENERATE_BOLT_SCREW, GENERATE_GEAR, GENERATE_ROTOR,
                         GENERATE_FRAME, GENERATE_DOUBLE_PLATE, GENERATE_DENSE, GENERATE_LONG_ROD, GENERATE_ROUND, GENERATE_SMALL_GEAR
                         , GENERATE_SPRING, GENERATE_SPRING_SMALL, GENERATE_FOIL)

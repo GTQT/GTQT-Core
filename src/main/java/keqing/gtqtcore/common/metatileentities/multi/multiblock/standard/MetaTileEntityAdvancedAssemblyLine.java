@@ -8,7 +8,6 @@ import gregtech.api.capability.*;
 import gregtech.api.capability.impl.EnergyContainerList;
 import gregtech.api.capability.impl.FluidTankList;
 import gregtech.api.capability.impl.ItemHandlerList;
-import gregtech.api.capability.impl.MultiblockRecipeLogic;
 import gregtech.api.metatileentity.IDataInfoProvider;
 import gregtech.api.metatileentity.MetaTileEntity;
 import gregtech.api.metatileentity.interfaces.IGregTechTileEntity;
@@ -429,7 +428,7 @@ public class MetaTileEntityAdvancedAssemblyLine extends GTQTNoTierMultiblockCont
     }
 
     @SuppressWarnings("InnerClassMayBeStatic")
-    private class AdvancedAssemblyLineRecipeLogic extends MultiblockRecipeLogic {
+    private class AdvancedAssemblyLineRecipeLogic extends GTQTMultiblockLogic {
 
         public AdvancedAssemblyLineRecipeLogic(RecipeMapMultiblockController tileEntity) {
             super(tileEntity);

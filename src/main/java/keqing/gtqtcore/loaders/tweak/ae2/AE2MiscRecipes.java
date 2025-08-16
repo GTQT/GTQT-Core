@@ -269,6 +269,33 @@ public class AE2MiscRecipes {
                     .buildAndRegister();
         }
         //部分卡的配方需要改动
+        //量子链接卡
+        ASSEMBLER_RECIPES.recipeBuilder()
+                .inputs(advancedCard)
+                .inputs(GTUtility.copy(2, quarzOre))
+                .outputs(quantumLinkCard)
+                .EUt(VA[IV])
+                .duration(200)
+                .buildAndRegister();
+
+        //磁引卡 60
+        ASSEMBLER_RECIPES.recipeBuilder()
+                .inputs(basicCard)
+                .input(stick, NeodymiumMagnetic, 2)
+                .outputs(magnetCard)
+                .EUt(VA[IV])
+                .duration(200)
+                .buildAndRegister();
+
+        ModHandler.removeRecipeByName("appliedenergistics2:materials/cardspeed");
+        ASSEMBLER_RECIPES.recipeBuilder()
+                .inputs(advancedCard)
+                .inputs(logicProcessor)
+                .inputs(calculationProcessor)
+                .outputs(speedCard)
+                .EUt(VA[HV])
+                .duration(200)
+                .buildAndRegister();
     }
 
     private static void FormingAndDestructionCoreRecipes() {

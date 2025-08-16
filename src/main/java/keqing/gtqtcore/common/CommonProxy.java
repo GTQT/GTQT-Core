@@ -112,7 +112,7 @@ public class CommonProxy {
     public static final CreativeTabs GTQTCore_NC = new CreativeTabs("gtqtnc") {
         @Override
         public ItemStack createIcon() {
-            return GTQTMetaItems.NAQUADAH_ROD_QUAD.getStackForm();
+            return GTQTMetaItems.RADIATION_U235.getStackForm();
         }
     };
 

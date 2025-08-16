@@ -100,10 +100,18 @@ public class index {
     //智能线缆 40-56
     public static ItemStack meCableSmart = Mods.AppliedEnergistics2.getItem("part", 56, 1);
 
+    //奇点 47
+    public static ItemStack quarzOre = Mods.AppliedEnergistics2.getItem("material", 47, 1);
     //基础卡 25
     public static ItemStack basicCard = Mods.AppliedEnergistics2.getItem("material", 25, 1);
     //高级卡 28
     public static ItemStack advancedCard = Mods.AppliedEnergistics2.getItem("material", 28, 1);
+    //量子链接卡 59
+    public static ItemStack quantumLinkCard = Mods.AppliedEnergistics2.getItem("material", 59, 1);
+    //磁引卡 60
+    public static ItemStack magnetCard = Mods.AppliedEnergistics2.getItem("material", 60, 1);
+    //加速卡 30
+    public static ItemStack speedCard = Mods.AppliedEnergistics2.getItem("material", 30, 1);
 
     //空白样板
     public static ItemStack blankPattern = Mods.AppliedEnergistics2.getItem("material", 52, 1);
