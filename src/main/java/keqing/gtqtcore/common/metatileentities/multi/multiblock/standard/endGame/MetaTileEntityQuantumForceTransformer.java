@@ -275,8 +275,9 @@ public class MetaTileEntityQuantumForceTransformer extends RecipeMapMultiblockCo
                                World player,
                                List<String> tooltip,
                                boolean advanced) {
-        super.addInformation(stack, player, tooltip, advanced);
         tooltip.add(TooltipHelper.BLINKING_RED + I18n.format("上帝的化学反应釜"));
+        tooltip.add(I18n.format("=============================================="));
+        super.addInformation(stack, player, tooltip, advanced);
         tooltip.add(I18n.format("=============================================="));
         tooltip.add(I18n.format("gtqtcore.machine.quantum_force_transformer.tooltip.1"));
         tooltip.add(I18n.format("gtqtcore.machine.quantum_force_transformer.tooltip.2"));

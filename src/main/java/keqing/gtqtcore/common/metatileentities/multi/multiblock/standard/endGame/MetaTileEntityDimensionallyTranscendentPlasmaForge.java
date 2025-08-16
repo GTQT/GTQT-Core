@@ -265,8 +265,9 @@ public class MetaTileEntityDimensionallyTranscendentPlasmaForge extends MultiMap
                                World player,
                                List<String> tooltip,
                                boolean advanced) {
-        super.addInformation(stack, player, tooltip, advanced);
         tooltip.add(TooltipHelper.BLINKING_RED + I18n.format("超越维度的边界"));
+        tooltip.add(I18n.format("=============================================="));
+        super.addInformation(stack, player, tooltip, advanced);
         tooltip.add(I18n.format("=============================================="));
         tooltip.add(GREEN + I18n.format("-纳米蜂群仓支持："));
         tooltip.add(GRAY + I18n.format("本设备支持纳米蜂群仓，每完成一次配方会消耗一点耐久（无视并行）"));

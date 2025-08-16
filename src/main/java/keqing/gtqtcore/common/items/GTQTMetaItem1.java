@@ -691,27 +691,10 @@ public class GTQTMetaItem1 extends StandardMetaItem {
 
 
         //核物理 800
-        NAQUADAH_ROD = this.addItem(800, "naquadah_rod").setCreativeTabs(CommonProxy.GTQTCore_NC);
-        NAQUADAH_ROD_DUAL = this.addItem(801, "naquadah_rod_dual").setCreativeTabs(CommonProxy.GTQTCore_NC);
-        NAQUADAH_ROD_QUAD = this.addItem(802, "naquadah_rod_quad").setCreativeTabs(CommonProxy.GTQTCore_NC);
+        HIGH_DENSITY_THORIUM = this.addItem(820, "high_density_thorium").setCreativeTabs(GTQTCore_NC);
+        HIGH_DENSITY_URANIUM = this.addItem(821, "high_density_uranium").setCreativeTabs(GTQTCore_NC);
+        HIGH_DENSITY_PLUTONIUM = this.addItem(822, "high_density_plutonium").setCreativeTabs(GTQTCore_NC);
 
-        POOR_NAQUADAH_ROD = this.addItem(803, "poor_naquadah_rod").setCreativeTabs(CommonProxy.GTQTCore_NC);
-        POOR_NAQUADAH_ROD_DUAL = this.addItem(804, "poor_naquadah_rod_dual").setCreativeTabs(CommonProxy.GTQTCore_NC);
-        POOR_NAQUADAH_ROD_QUAD = this.addItem(805, "poor_naquadah_rod_quad").setCreativeTabs(CommonProxy.GTQTCore_NC);
-
-        THORIUM_ROD = this.addItem(806, "thorium_rod").setCreativeTabs(CommonProxy.GTQTCore_NC);
-        THORIUM_ROD_DUAL = this.addItem(807, "thorium_rod_dual").setCreativeTabs(CommonProxy.GTQTCore_NC);
-        THORIUM_ROD_QUAD = this.addItem(808, "thorium_rod_quad").setCreativeTabs(CommonProxy.GTQTCore_NC);
-
-        POOR_THORIUM_ROD = this.addItem(809, "poor_thorium_rod").setCreativeTabs(CommonProxy.GTQTCore_NC);
-        POOR_THORIUM_ROD_DUAL = this.addItem(810, "poor_thorium_rod_dual").setCreativeTabs(CommonProxy.GTQTCore_NC);
-        POOR_THORIUM_ROD_QUAD = this.addItem(811, "poor_thorium_rod_quad").setCreativeTabs(CommonProxy.GTQTCore_NC);
-
-        /* -------------------------------------------------------------------- Nuclear Items --------------------------------------------------------------------- */
-
-        HIGH_DENSITY_THORIUM = this.addItem(820, "high_density_thorium");
-        HIGH_DENSITY_URANIUM = this.addItem(821, "high_density_uranium");
-        HIGH_DENSITY_PLUTONIUM = this.addItem(822, "high_density_plutonium");
         // Power Components: ID 356-379
         NANO_POWER_IC_WAFER = this.addItem(840, "wafer.nano_power_integrated_circuit").setCreativeTabs(GTQTCore_TAB);
         PICO_POWER_IC_WAFER = this.addItem(841, "wafer.pico_power_integrated_circuit").setCreativeTabs(GTQTCore_TAB);
@@ -1229,22 +1212,6 @@ public class GTQTMetaItem1 extends StandardMetaItem {
         CONTAINED_KERR_SINGULARITY = this.addItem(2612, "contained_kerr_singularity").setCreativeTabs(CommonProxy.GTQTCore_HP);
         CONTAINED_HIGH_DENSITY_PROTONIC_MATTER = this.addItem(2613, "contained_high_density_protonic_matter").setCreativeTabs(CommonProxy.GTQTCore_HP);
         CONTAINED_EXOTIC_MATTER = this.addItem(2614, "contained_exotic_matter").setCreativeTabs(CommonProxy.GTQTCore_HP);
-
-        //科研
-        ARROW_UP_MKI = this.addItem(3000, "arrow_up_mki").setCreativeTabs(CommonProxy.GTQTCore_DISK);
-        ARROW_DOWN_MKI = this.addItem(3001, "arrow_down_mki").setCreativeTabs(CommonProxy.GTQTCore_DISK);
-        ARROW_LEFT_MKI = this.addItem(3002, "arrow_left_mki").setCreativeTabs(CommonProxy.GTQTCore_DISK);
-        ARROW_RIGHT_MKI = this.addItem(3003, "arrow_right_mki").setCreativeTabs(CommonProxy.GTQTCore_DISK);
-
-        ARROW_UP_MKII = this.addItem(3004, "arrow_up_mkii").setCreativeTabs(CommonProxy.GTQTCore_DISK);
-        ARROW_DOWN_MKII = this.addItem(3005, "arrow_down_mkii").setCreativeTabs(CommonProxy.GTQTCore_DISK);
-        ARROW_LEFT_MKII = this.addItem(3006, "arrow_left_mkii").setCreativeTabs(CommonProxy.GTQTCore_DISK);
-        ARROW_RIGHT_MKII = this.addItem(3007, "arrow_right_mkii").setCreativeTabs(CommonProxy.GTQTCore_DISK);
-
-        ARROW_UP_MKIII = this.addItem(3008, "arrow_up_mkiii").setCreativeTabs(CommonProxy.GTQTCore_DISK);
-        ARROW_DOWN_MKIII = this.addItem(3009, "arrow_down_mkiii").setCreativeTabs(CommonProxy.GTQTCore_DISK);
-        ARROW_LEFT_MKIII = this.addItem(3010, "arrow_left_mkiii").setCreativeTabs(CommonProxy.GTQTCore_DISK);
-        ARROW_RIGHT_MKIII = this.addItem(3011, "arrow_right_mkiii").setCreativeTabs(CommonProxy.GTQTCore_DISK);
 
         WRAP_COATED_BOARD = this.addItem(3500, "wrap.board.coated").setCreativeTabs(GTQTCore_WRAP);
         WRAP_PHENOLIC_BOARD = this.addItem(3501, "wrap.board.phenolic").setCreativeTabs(GTQTCore_WRAP);

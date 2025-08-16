@@ -285,8 +285,9 @@ public class MetaTileEntityEyeOfHarmony extends RecipeMapMultiblockController {
                                World player,
                                List<String> tooltip,
                                boolean advanced) {
-        super.addInformation(stack, player, tooltip, advanced);
         tooltip.add(TooltipHelper.BLINKING_RED + I18n.format("创造一颗星球，然后毁灭他"));
+        tooltip.add(I18n.format("=============================================="));
+        super.addInformation(stack, player, tooltip, advanced);
         tooltip.add(I18n.format("=============================================="));
         tooltip.add(I18n.format("模拟大爆炸奇点：启动量子真空涨落协议，重现宇宙原初时空结构"));
         tooltip.add(I18n.format("注入基础重子物质流（H/He），触发引力坍缩，锻造新生星球胚胎"));

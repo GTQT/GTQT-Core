@@ -197,8 +197,9 @@ public class MetaTileEntityStellarForge extends MultiMapMultiblockController {
 
     @Override
     public void addInformation(ItemStack stack, World player, List<String> tooltip, boolean advanced) {
-        super.addInformation(stack, player, tooltip, advanced);
         tooltip.add(TooltipHelper.BLINKING_RED + I18n.format("聚爆反应堆驱动，创生简并态星浆与时空拓扑元件"));
+        tooltip.add(I18n.format("=============================================="));
+        super.addInformation(stack, player, tooltip, advanced);
         tooltip.add(I18n.format("=============================================="));
         tooltip.add(GREEN + I18n.format("-聚变线圈升级："));
         tooltip.add(GRAY + I18n.format("每一级聚变线圈提供2500k的温度"));

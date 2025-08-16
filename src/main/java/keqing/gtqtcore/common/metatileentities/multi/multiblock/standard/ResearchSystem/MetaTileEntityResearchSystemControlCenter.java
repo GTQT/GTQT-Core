@@ -141,7 +141,7 @@ public class MetaTileEntityResearchSystemControlCenter extends MultiblockWithDis
                 .where('X', abilities(MultiblockAbility.COMPUTATION_DATA_TRANSMISSION))
                 .where('N', states(getCasingState())
                         .or(abilities(MultiblockAbility.MAINTENANCE_HATCH).setExactLimit(1))
-                        .or(abilities(MultiblockAbility.IMPORT_FLUIDS).setMinGlobalLimited(1).setPreviewCount(1))
+                        .or(abilities(MultiblockAbility.IMPORT_FLUIDS).setMinGlobalLimited(1).setMaxGlobalLimited(3))
                         .or(abilities(MultiblockAbility.INPUT_ENERGY).setMinGlobalLimited(1).setMaxGlobalLimited(2).setPreviewCount(1)))
                 .where('A', abilities(GTQTMultiblockAbility.KQCC_MULTIBLOCK_ABILITY)
                         .or(states(getVentState()))

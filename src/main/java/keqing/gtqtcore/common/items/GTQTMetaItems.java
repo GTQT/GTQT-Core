@@ -616,18 +616,6 @@ public class GTQTMetaItems {
     public static MetaItem<?>.MetaValueItem DNA_DECODER;
     public static MetaItem<?>.MetaValueItem DNA_DECODE_ENCODER;
 
-    public static MetaItem<?>.MetaValueItem NAQUADAH_ROD;
-    public static MetaItem<?>.MetaValueItem NAQUADAH_ROD_DUAL;
-    public static MetaItem<?>.MetaValueItem NAQUADAH_ROD_QUAD;
-    public static MetaItem<?>.MetaValueItem POOR_NAQUADAH_ROD;
-    public static MetaItem<?>.MetaValueItem POOR_NAQUADAH_ROD_DUAL;
-    public static MetaItem<?>.MetaValueItem POOR_NAQUADAH_ROD_QUAD;
-    public static MetaItem<?>.MetaValueItem THORIUM_ROD;
-    public static MetaItem<?>.MetaValueItem THORIUM_ROD_DUAL;
-    public static MetaItem<?>.MetaValueItem THORIUM_ROD_QUAD;
-    public static MetaItem<?>.MetaValueItem POOR_THORIUM_ROD;
-    public static MetaItem<?>.MetaValueItem POOR_THORIUM_ROD_DUAL;
-    public static MetaItem<?>.MetaValueItem POOR_THORIUM_ROD_QUAD;
     //  Nuclear Items
     public static MetaItem<?>.MetaValueItem HIGH_DENSITY_THORIUM;
     public static MetaItem<?>.MetaValueItem HIGH_DENSITY_URANIUM;
@@ -929,21 +917,6 @@ public class GTQTMetaItems {
     public static MetaItem<?>.MetaValueItem ANATECTIC;
 
     public static MetaItem<?>.MetaValueItem POS_ORE_CARD;
-    public static MetaItem<?>.MetaValueItem ARROW_UP_MKI;
-    public static MetaItem<?>.MetaValueItem ARROW_DOWN_MKI;
-    public static MetaItem<?>.MetaValueItem ARROW_LEFT_MKI;
-    public static MetaItem<?>.MetaValueItem ARROW_RIGHT_MKI;
-
-    public static MetaItem<?>.MetaValueItem ARROW_UP_MKII;
-    public static MetaItem<?>.MetaValueItem ARROW_DOWN_MKII;
-    public static MetaItem<?>.MetaValueItem ARROW_LEFT_MKII;
-    public static MetaItem<?>.MetaValueItem ARROW_RIGHT_MKII;
-
-    public static MetaItem<?>.MetaValueItem ARROW_UP_MKIII;
-    public static MetaItem<?>.MetaValueItem ARROW_DOWN_MKIII;
-    public static MetaItem<?>.MetaValueItem ARROW_LEFT_MKIII;
-    public static MetaItem<?>.MetaValueItem ARROW_RIGHT_MKIII;
-
     public static MetaItem<?>.MetaValueItem ASTRAL_ARRAY;
 
     public static MetaItem<?>.MetaValueItem MICROWAVE_ENERGY_RECEIVER_LV;
