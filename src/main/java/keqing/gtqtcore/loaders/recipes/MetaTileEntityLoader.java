@@ -842,16 +842,6 @@ public class MetaTileEntityLoader {
                 'C', new UnificationEntry(OrePrefix.circuit, LV),
                 'F', MetaItems.ELECTRIC_PUMP_LV);
 
-        //  Heat Exchanger
-        ModHandler.addShapedRecipe(true, "heat_exchanger", SMALL_HEAT_EXCHANGER.getStackForm(),
-                "XRX", "PHP", "pSp",
-                'H', HULL[GTValues.HV].getStackForm(),
-                'R', new UnificationEntry(rotor, Aluminium),
-                'P', ELECTRIC_PUMP_EV,
-                'X', new UnificationEntry(cableGtQuadruple, Gold),
-                'p', new UnificationEntry(plate, StainlessSteel),
-                'S', new UnificationEntry(spring, Invar));
-
         ModHandler.addShapedRecipe(true, "septic_tank", GTQTMetaTileEntities.SEPTIC_TANK.getStackForm(),
                 "BFB", "CMC", "BFB",
                 'M', MetaTileEntities.HULL[GTValues.LV].getStackForm(),

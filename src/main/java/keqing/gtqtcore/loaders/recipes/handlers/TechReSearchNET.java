@@ -2010,6 +2010,25 @@ public class TechReSearchNET {
                         .EUt(VA[IV]))
                 .buildAndRegister();
 
+        //热交换
+        ASSEMBLY_LINE_RECIPES.recipeBuilder()
+                .EUt(VA[HV])
+                .input(HULL[HV], 1)
+                .input(circuit, Tier.HV, 8)
+                .input(rotor, Aluminium, 4)
+                .input(ELECTRIC_PUMP_HV, 8)
+                .input(cableGtQuadruple, Gold, 16)
+                .input(plate, StainlessSteel, 4)
+                .input(spring, Invar, 8)
+                .fluidInputs(Polyethylene.getFluid(L * 8))
+                .outputs(SMALL_HEAT_EXCHANGER.getStackForm())
+                .scannerResearch(b -> b
+                        .researchStack(DISK_2.getStackForm())
+                        .duration(1200)
+                        .EUt(VA[EV]))
+                .duration(600)
+                .buildAndRegister();
+
         //火箭
         ASSEMBLY_LINE_RECIPES.recipeBuilder()
                 .EUt(VA[HV])

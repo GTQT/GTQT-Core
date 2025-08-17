@@ -1018,7 +1018,7 @@ public class GTQTcoreRecipeMaps {
     public static final RecipeMap<ComputationRecipeBuilder> PRECISION_SPINNING = new RecipeMapBuilder<>("precision_spinning", new ComputationRecipeBuilder())
             .itemInputs(3)
             .itemOutputs(3)
-            .fluidInputs(1)
+            .fluidInputs(3)
             .fluidOutputs(0)
             .uiBuilder(builder -> builder
                     .progressBar(GTGuiTextures.PROGRESS_BAR_ARROW_MULTIPLE)

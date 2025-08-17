@@ -3,7 +3,6 @@ package keqing.gtqtcore.common.metatileentities.multi.multiblock.standard.update
 import gregtech.api.capability.IDistillationTower;
 import gregtech.api.capability.IMultipleTankHandler;
 import gregtech.api.capability.impl.DistillationTowerLogicHandler;
-import gregtech.api.capability.impl.MultiblockRecipeLogic;
 import gregtech.api.metatileentity.MetaTileEntity;
 import gregtech.api.metatileentity.interfaces.IGregTechTileEntity;
 import gregtech.api.metatileentity.multiblock.IMultiblockPart;
@@ -245,7 +244,7 @@ public class MetaTileEntityDistillationTower extends GTQTRecipeMapMultiblockCont
         else return super.getFluidOutputLimit();
     }
 
-    protected class DistillationTowerRecipeLogic extends MultiblockRecipeLogic {
+    protected class DistillationTowerRecipeLogic extends GTQTMultiblockLogic {
 
         public DistillationTowerRecipeLogic(MetaTileEntityDistillationTower tileEntity) {
             super(tileEntity);

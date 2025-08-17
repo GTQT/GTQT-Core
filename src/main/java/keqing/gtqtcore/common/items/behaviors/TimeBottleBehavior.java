@@ -49,20 +49,6 @@ public class TimeBottleBehavior implements IItemBehaviour, ItemUIFactory {
     public TimeBottleBehavior() {
     }
 
-    public void writeToNBT(NBTTagCompound compound) {
-        compound.setBoolean("model", model);
-        compound.setBoolean("auto", auto);
-        compound.setInteger("storedTime", time);
-        compound.setInteger("accelerateTime", accelerateTime);
-    }
-
-    public void readFromNBT(NBTTagCompound compound) {
-        model = compound.getBoolean("model");
-        auto = compound.getBoolean("auto");
-        time = compound.getInteger("storedTime");
-        accelerateTime = compound.getInteger("accelerateTime");
-    }
-
     @Override
     public void onUpdate(ItemStack itemStack, Entity entity) {
         t++;

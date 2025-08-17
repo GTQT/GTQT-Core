@@ -4,7 +4,7 @@ import gregtech.api.recipes.RecipeMaps;
 import gregtech.api.unification.material.MarkerMaterials;
 import keqing.gtqtcore.common.metatileentities.GTQTMetaTileEntities;
 
-import static gregtech.api.GTValues.*;
+import static gregtech.api.GTValues.L;
 import static gregtech.api.recipes.RecipeMaps.*;
 import static gregtech.api.unification.material.Materials.*;
 import static gregtech.api.unification.ore.OrePrefix.*;
@@ -46,7 +46,7 @@ public class Electrolyzer {
                 .EUt(30)
                 .input(IMPREGNATED_GRAPHITE_RODS)
                 .input(dust, Carbon, 8)
-                .fluidInputs(Asphalt.getFluid(400))
+                .fluidInputs(Asphalt.getFluid(2000))
                 .output(IMPREGNATED_GRAPHITE_RODSA)
                 .buildAndRegister();
 
@@ -54,13 +54,14 @@ public class Electrolyzer {
                 .duration(1000)
                 .EUt(120)
                 .blastFurnaceTemp(1800)
-                .input(IMPREGNATED_GRAPHITE_RODSA, 4)
+                .input(IMPREGNATED_GRAPHITE_RODSA, 8)
                 .input(dust, Diamond, 16)
                 .output(ELECTRODE_GRAPHITE)
                 .buildAndRegister();
 
         RecipeMaps.ASSEMBLER_RECIPES.recipeBuilder()
                 .EUt(7680).duration(800)
+                .input(IMPREGNATED_GRAPHITE_RODSA)
                 .input(plate, Platinum, 8)
                 .input(stick, Platinum, 4)
                 .input(dust, Graphite, 16)
@@ -71,6 +72,7 @@ public class Electrolyzer {
 
         RecipeMaps.ASSEMBLER_RECIPES.recipeBuilder()
                 .EUt(120).duration(800)
+                .input(IMPREGNATED_GRAPHITE_RODSA)
                 .input(plate, Silver, 8)
                 .input(stick, Silver, 4)
                 .input(dust, Graphite, 16)
@@ -81,6 +83,7 @@ public class Electrolyzer {
 
         RecipeMaps.ASSEMBLER_RECIPES.recipeBuilder()
                 .EUt(1960).duration(800)
+                .input(IMPREGNATED_GRAPHITE_RODSA)
                 .input(plate, Gold, 8)
                 .input(stick, Gold, 4)
                 .input(dust, Graphite, 16)
@@ -91,6 +94,7 @@ public class Electrolyzer {
 
         RecipeMaps.ASSEMBLER_RECIPES.recipeBuilder()
                 .EUt(480).duration(800)
+                .input(IMPREGNATED_GRAPHITE_RODSA)
                 .input(plate, Molybdenum, 8)
                 .input(stick, Molybdenum, 4)
                 .input(dust, Graphite, 16)
@@ -109,6 +113,6 @@ public class Electrolyzer {
                 .input(spring, Steel, 4)
                 .fluidInputs(Tin.getFluid(L * 8))
                 .outputs(GTQTMetaTileEntities.ELECTROBATH.getStackForm())
-                .duration(200).EUt(30).buildAndRegister();
+                .duration(400).EUt(30).buildAndRegister();
     }
 }
