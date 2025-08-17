@@ -4,8 +4,6 @@ import gregtech.api.GTValues;
 import gregtech.api.capability.GregtechCapabilities;
 import gregtech.api.capability.IEnergyContainer;
 import gregtech.api.capability.IMultipleTankHandler;
-import gregtech.api.capability.impl.EnergyContainerList;
-import gregtech.api.capability.impl.FluidTankList;
 import gregtech.api.capability.impl.MultiblockFuelRecipeLogic;
 import gregtech.api.gui.GuiTextures;
 import gregtech.api.gui.resources.TextureArea;
@@ -39,7 +37,6 @@ import net.minecraftforge.fluids.FluidStack;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import static gregtech.api.GTValues.*;
@@ -54,14 +51,6 @@ public class MetaTileEntityHyperReactorMkIII extends FuelMultiblockController im
         super(metaTileEntityId, GTQTcoreRecipeMaps.HYPER_REACTOR_MK3_RECIPES, OpV);
         this.recipeMapWorkable = new HyperReactorMark3WorkableHandler(this);
         this.recipeMapWorkable.setMaximumOverclockVoltage(V[OpV]);
-    }
-    @Override
-    protected void initializeAbilities() {
-        this.inputFluidInventory = new FluidTankList(this.allowSameFluidFillForOutputs(), this.getAbilities(MultiblockAbility.IMPORT_FLUIDS));
-        this.outputFluidInventory = new FluidTankList(this.allowSameFluidFillForOutputs(), this.getAbilities(MultiblockAbility.EXPORT_FLUIDS));
-        List<IEnergyContainer> energyContainer = new ArrayList<>(this.getAbilities(MultiblockAbility.OUTPUT_LASER));
-        energyContainer.addAll(this.getAbilities(MultiblockAbility.OUTPUT_LASER));
-        this.energyContainer = new EnergyContainerList(energyContainer);
     }
     @Override
     public MetaTileEntity createMetaTileEntity(IGregTechTileEntity tileEntity) {

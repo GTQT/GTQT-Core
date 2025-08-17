@@ -3,10 +3,10 @@ package keqing.gtqtcore.common.metatileentities.multi.multiblock.standard.giantE
 import gregtech.api.GTValues;
 import gregtech.api.GregTechAPI;
 import gregtech.api.block.IHeatingCoilBlockStats;
-import gregtech.api.capability.*;
-import gregtech.api.capability.impl.EnergyContainerList;
-import gregtech.api.capability.impl.FluidTankList;
-import gregtech.api.capability.impl.ItemHandlerList;
+import gregtech.api.capability.IHeatingCoil;
+import gregtech.api.capability.IOpticalComputationHatch;
+import gregtech.api.capability.IOpticalComputationProvider;
+import gregtech.api.capability.IOpticalComputationReceiver;
 import gregtech.api.metatileentity.MetaTileEntity;
 import gregtech.api.metatileentity.interfaces.IGregTechTileEntity;
 import gregtech.api.metatileentity.multiblock.IMultiblockPart;
@@ -97,17 +97,6 @@ public class MetaTileEntityHugeChemicalReactor extends GTQTNoTierMultiblockContr
         setTimeReduceFlag(true);
 
         setOverclocking(4);
-    }
-
-    @Override
-    protected void initializeAbilities() {
-        this.inputInventory = new ItemHandlerList(this.getAbilities(MultiblockAbility.IMPORT_ITEMS));
-        this.inputFluidInventory = new FluidTankList(this.allowSameFluidFillForOutputs(), this.getAbilities(MultiblockAbility.IMPORT_FLUIDS));
-        this.outputInventory = new ItemHandlerList(this.getAbilities(MultiblockAbility.EXPORT_ITEMS));
-        this.outputFluidInventory = new FluidTankList(this.allowSameFluidFillForOutputs(), this.getAbilities(MultiblockAbility.EXPORT_FLUIDS));
-        List<IEnergyContainer> energyContainer = new ArrayList<>(this.getAbilities(MultiblockAbility.INPUT_ENERGY));
-        energyContainer.addAll(this.getAbilities(MultiblockAbility.INPUT_LASER));
-        this.energyContainer = new EnergyContainerList(energyContainer);
     }
 
     public MetaTileEntity createMetaTileEntity(IGregTechTileEntity metaTileEntityHolder) {

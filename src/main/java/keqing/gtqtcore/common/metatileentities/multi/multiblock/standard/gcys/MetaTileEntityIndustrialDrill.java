@@ -3,8 +3,6 @@ package keqing.gtqtcore.common.metatileentities.multi.multiblock.standard.gcys;
 import gregicality.multiblocks.api.unification.GCYMMaterials;
 import gregicality.multiblocks.common.block.GCYMMetaBlocks;
 import gregicality.multiblocks.common.block.blocks.BlockLargeMultiblockCasing;
-import gregtech.api.capability.IEnergyContainer;
-import gregtech.api.capability.impl.EnergyContainerList;
 import gregtech.api.capability.impl.MultiblockRecipeLogic;
 import gregtech.api.capability.impl.NotifiableItemStackHandler;
 import gregtech.api.metatileentity.MetaTileEntity;
@@ -37,7 +35,6 @@ import net.minecraftforge.items.IItemHandlerModifiable;
 
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
-import java.util.ArrayList;
 import java.util.List;
 
 import static net.minecraft.util.text.TextFormatting.GRAY;
@@ -105,11 +102,6 @@ public class MetaTileEntityIndustrialDrill extends RecipeMapMultiblockController
     @Override
     protected void initializeAbilities() {
         super.initializeAbilities();
-
-        List<IEnergyContainer> energyContainer = new ArrayList<>(this.getAbilities(MultiblockAbility.INPUT_ENERGY));
-        energyContainer.addAll(this.getAbilities(MultiblockAbility.INPUT_LASER));
-        this.energyContainer = new EnergyContainerList(energyContainer);
-
         this.inputInventory = new NotifiableItemStackHandler(this, 1, this, false);
     }
 
