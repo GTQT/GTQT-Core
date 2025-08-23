@@ -601,7 +601,7 @@ public class HigherDegreeMaterials {
                 .color(0xE165A7)
                 .flags(DISABLE_DECOMPOSITION, GENERATE_FINE_WIRE)
                 .components(GTQTMaterials.Edot, 1, GTQTMaterials.PolystyreneSulfonate, 1)
-                .cableProperties(V[UHV], 24, 0, true)
+                .cableProperties(V[ZPM], 6, 1)
                 .build();
 
         GTQTMaterials.PedotTMA = new Material.Builder(getMaterialsId(), gtqtcoreId("pedot_tma"))
@@ -609,7 +609,7 @@ public class HigherDegreeMaterials {
                 .color(0x5E9EE1)
                 .flags(DISABLE_DECOMPOSITION, GENERATE_ROUND, GENERATE_FINE_WIRE, GENERATE_FRAME, GENERATE_ROTOR, GENERATE_GEAR, GENERATE_SMALL_GEAR, GENERATE_BOLT_SCREW, GENERATE_PLATE, GENERATE_SPRING_SMALL, GENERATE_SPRING, GENERATE_RING)
                 .components(GTQTMaterials.Edot, 1, GTQTMaterials.PMMA, 2)
-                .cableProperties(V[UEV], 8, 6)
+                .cableProperties(V[UV], 8, 4)
                 .build();
 
         GTQTMaterials.CarbonNanotube = new Material.Builder(getMaterialsId(), gtqtcoreId("carbon_nanotube"))

@@ -1404,6 +1404,17 @@ public class GTQTMaterials {
     public static Material CopperGalliumIndiumSelenide;
     public static Material BariumHydroxide;
     public static Material SamariumCobalt;
+    public static Material BismuthRuthenate;
+    public static Material BismuthIridiate;
+    public static Material BismuthNitrateSoluton;
+    public static Material CopperSulfateSolution;
+    public static Material GermaniumTungstenNitride;
+    public static Material SodiumHypochlorite;
+    public static Material SodiumRuthenate;
+    public static Material SodiumIodate;
+    public static Material SodiumPeriodate;
+    public static Material SodiumIodide;
+    public static Material IridiumDioxide;
     public static Material Cyclopentanone;
     public static Material BenzenesulfonicAcid;
     public static Material TriphenylsulfoniumHexafluoroantimonate;

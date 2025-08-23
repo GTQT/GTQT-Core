@@ -51,6 +51,7 @@ public class TimeBottleBehavior implements IItemBehaviour, ItemUIFactory {
 
     @Override
     public void onUpdate(ItemStack itemStack, Entity entity) {
+        if (entity.world.isRemote) return;
         t++;
         if (t >= 20 && entity instanceof EntityPlayer player) {
             t = 0;

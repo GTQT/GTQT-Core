@@ -4,14 +4,12 @@ import gregtech.api.unification.material.Material;
 import keqing.gtqtcore.api.recipes.GTQTcoreRecipeMaps;
 import keqing.gtqtcore.api.unification.GTQTMaterials;
 
-import static gregtech.api.unification.material.Materials.Hafnium;
-import static gregtech.api.unification.ore.OrePrefix.*;
-import static keqing.gtqtcore.api.recipes.GTQTcoreRecipeMaps.*;
 import static gregtech.api.GTValues.*;
 import static gregtech.api.recipes.RecipeMaps.*;
 import static gregtech.api.unification.material.Materials.*;
+import static gregtech.api.unification.ore.OrePrefix.*;
+import static keqing.gtqtcore.api.recipes.GTQTcoreRecipeMaps.*;
 import static keqing.gtqtcore.api.unification.GTQTMaterials.*;
-import static keqing.gtqtcore.api.unification.GTQTMaterials.SodiumFluoride;
 import static keqing.gtqtcore.api.unification.ore.GTQTOrePrefix.swarm;
 
 
@@ -96,84 +94,85 @@ public class RareEarthProcessing {
                 Lanthanum,
                 LanthanumExtractingNanoResin,
                 FilledLanthanumExtractingNanoResin);
-
+        OxideReversal(Lanthanum, LanthanumOxide);
         addNanoExtractingRecipe(
                 Praseodymium,
                 PraseodymiumExtractingNanoResin,
                 FilledPraseodymiumExtractingNanoResin);
-
+        OxideReversal(Praseodymium, PraseodymiumOxide);
         addNanoExtractingRecipe(
                 Neodymium,
                 NeodymiumExtractingNanoResin,
                 FilledNeodymiumExtractingNanoResin);
-
+        OxideReversal(Neodymium, NeodymiumOxide);
         addNanoExtractingRecipe(
                 Cerium,
                 CeriumExtractingNanoResin,
                 FilledCeriumExtractingNanoResin);
-
+        OxideReversal(Cerium, CeriumOxide);
         //  Scandium (Sc)-Europium (Eu)-Gadolinium (Gd)-Samarium(Sm)
         addNanoExtractingRecipe(
                 Scandium,
                 ScandiumExtractingNanoResin,
                 FilledScandiumExtractingNanoResin);
-
+        OxideReversal(Scandium, ScandiumOxide);
         addNanoExtractingRecipe(
                 Europium,
                 EuropiumExtractingNanoResin,
                 FilledEuropiumExtractingNanoResin);
-
+        OxideReversal(Europium, EuropiumOxide);
         addNanoExtractingRecipe(
                 Gadolinium,
                 GadoliniumExtractingNanoResin,
                 FilledGadoliniumExtractingNanoResin);
-
+        OxideReversal(Gadolinium, GadoliniumOxide);
         addNanoExtractingRecipe(
                 Samarium,
                 SamariumExtractingNanoResin,
                 FilledSamariumExtractingNanoResin);
-
+        OxideReversal(Samarium, SamariumOxide);
         //  Yttrium (Y)-Terbium (Tb)-Dysprosium (Dy)-Holmium (Ho)
         addNanoExtractingRecipe(
                 Yttrium,
                 YttriumExtractingNanoResin,
                 FilledYttriumExtractingNanoResin);
-
+        OxideReversal(Yttrium, YttriumOxide);
         addNanoExtractingRecipe(
                 Terbium,
                 TerbiumExtractingNanoResin,
                 FilledTerbiumExtractingNanoResin);
-
+        OxideReversal(Terbium, TerbiumOxide);
         addNanoExtractingRecipe(
                 Dysprosium,
                 DysprosiumExtractingNanoResin,
                 FilledDysprosiumExtractingNanoResin);
-
+        OxideReversal(Dysprosium, DysprosiumOxide);
         addNanoExtractingRecipe(
                 Holmium,
                 HolmiumExtractingNanoResin,
                 FilledHolmiumExtractingNanoResin);
-
+        OxideReversal(Holmium, HolmiumOxide);
         //  Erbium (Er)-Thulium (Tm)-Ytterbium (Yb)-Lutetium (Lu)
         addNanoExtractingRecipe(
                 Erbium,
                 ErbiumExtractingNanoResin,
                 FilledErbiumExtractingNanoResin);
-
+        OxideReversal(Erbium, ErbiumOxide);
         addNanoExtractingRecipe(
                 Thulium,
                 ThuliumExtractingNanoResin,
                 FilledThuliumExtractingNanoResin);
-
+        OxideReversal(Thulium, ThuliumOxide);
         addNanoExtractingRecipe(
                 Ytterbium,
                 YtterbiumExtractingNanoResin,
                 FilledYtterbiumExtractingNanoResin);
-
+        OxideReversal(Ytterbium, YtterbiumOxide);
         addNanoExtractingRecipe(
                 Lutetium,
                 LutetiumExtractingNanoResin,
                 FilledLutetiumExtractingNanoResin);
+        OxideReversal(Lutetium, LutetiumOxide);
     }
 
     private static void addNanoExtractingRecipe(Material material,
@@ -647,8 +646,9 @@ public class RareEarthProcessing {
         BLAST_RECIPES.recipeBuilder()
                 .input(dust, CeriumOxalate,5)
                 .input(dust,Carbon,3)
-                .output(dust, GTQTMaterials.CeriumOxide,5)
+                .output(dust, Cerium, 2)
                 .fluidOutputs(CarbonMonoxide.getFluid(3000))
+                .fluidOutputs(Oxygen.getFluid(3000))
                 .blastFurnaceTemp(3500)
                 .duration(600).EUt(VA[IV]).buildAndRegister();
 
@@ -722,5 +722,14 @@ public class RareEarthProcessing {
                 .fluidOutputs(DiethylhexylPhosphoricAcid.getFluid(2000))
                 .fluidOutputs(Butane.getFluid(2000))
                 .duration(600).EUt(VA[EV]).buildAndRegister();
+    }
+
+    //氧化物反合成
+    private static void OxideReversal(Material material, Material resinMaterial) {
+        ION_IMPLANTATOR_RECIPES.recipeBuilder()
+                .input(dust, material, 2)
+                .fluidInputs(Oxygen.getFluid(3 * 1000))
+                .output(dust, resinMaterial, 5)
+                .duration(600).EUt(VA[LuV]).buildAndRegister();
     }
 }

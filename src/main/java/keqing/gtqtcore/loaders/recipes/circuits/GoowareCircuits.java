@@ -83,11 +83,118 @@ public class GoowareCircuits {
                 .duration(5 * SECOND)
                 .buildAndRegister();
 
+        // Bi + 6HNO3 -> [Bi(NO3)3 + H2O] + 3NO2 + 2H2O
+        LARGE_CHEMICAL_RECIPES.recipeBuilder().duration(350).EUt(30)
+                .input(dust, Bismuth)
+                .fluidInputs(NitricAcid.getFluid(6000))
+                .fluidOutputs(BismuthNitrateSoluton.getFluid(1000))
+                .fluidOutputs(NitrogenDioxide.getFluid(3000))
+                .fluidOutputs(Water.getFluid(2000))
+                .buildAndRegister();
+
+        // Ir + 2O -> IrO2
+        BLAST_RECIPES.recipeBuilder().duration(280).EUt(120).blastFurnaceTemp(700)
+                .notConsumable(dust, Salt)
+                .input(dust, Iridium)
+                .fluidInputs(Oxygen.getFluid(2000))
+                .output(dust, IridiumDioxide, 3)
+                .buildAndRegister();
+
+        // 2IrO2 + 2[Bi(NO3)3 + H2O] + H -> Bi2Ir2O7 + 5HNO2 + NO2
+        CHEMICAL_RECIPES.recipeBuilder().duration(300).EUt(1920)
+                .input(dust, IridiumDioxide, 6)
+                .fluidInputs(BismuthNitrateSoluton.getFluid(2000))
+                .fluidInputs(Hydrogen.getFluid(1000))
+                .output(dust, BismuthIridiate, 11)
+                .fluidOutputs(NitricAcid.getFluid(5000))
+                .fluidOutputs(NitrogenDioxide.getFluid(1000))
+                .buildAndRegister();
+
+        // HClO + NaOH -> H2O + NaClO
+        CHEMICAL_RECIPES.recipeBuilder().duration(90).EUt(120)
+                .fluidInputs(HypochlorousAcid.getFluid(1000))
+                .input(dust, SodiumHydroxide, 3)
+                .circuitMeta(10)
+                .fluidOutputs(Water.getFluid(1000))
+                .output(dust, SodiumHypochlorite, 3)
+                .buildAndRegister();
+
+        // 2 NaClO + CO2 + H2O -> 2 HClO + Na2CO3
+        CHEMICAL_RECIPES.recipeBuilder().duration(90).EUt(120)
+                .input(dust, SodiumHypochlorite, 6)
+                .fluidInputs(CarbonDioxide.getFluid(1000))
+                .fluidInputs(Water.getFluid(1000))
+                .output(dust, SodaAsh, 6)
+                .fluidOutputs(HypochlorousAcid.getFluid(2000))
+                .buildAndRegister();
+
+        // 6I + 6[NaOH + H2O] -> NaIO3 + 5NaI + 9H2O
+        ELECTROLYZER_RECIPES.recipeBuilder().duration(260).EUt(1920)
+                .input(dust, Iodine, 6)
+                .fluidInputs(SodiumHydroxideSolution.getFluid(6000))
+                .output(dust, SodiumIodate, 5)
+                .output(dust, SodiumIodide, 10)
+                .fluidOutputs(Water.getFluid(9000))
+                .buildAndRegister();
+
+        // NaIO3 + NaClO -> NaIO4 + NaCl
+        LARGE_CHEMICAL_RECIPES.recipeBuilder().duration(240).EUt(1920)
+                .input(dust, SodiumIodate, 5)
+                .input(dust, SodiumHypochlorite, 3)
+                .output(dust, SodiumPeriodate, 6)
+                .output(dust, Salt, 2)
+                .buildAndRegister();
+
+        // 3NaIO4 + 4Ru + 8NaOH -> 3NaI + 4Na2RuO4 + 4H2O
+        LARGE_CHEMICAL_RECIPES.recipeBuilder().duration(220).EUt(480)
+                .input(dust, SodiumPeriodate, 18)
+                .input(dust, Ruthenium, 4)
+                .input(dust, SodiumHydroxide, 24)
+                .output(dust, SodiumIodide, 6)
+                .output(dust, SodiumRuthenate, 28)
+                .fluidOutputs(Water.getFluid(4000))
+                .buildAndRegister();
+
+        // Cu + O + H2SO4 = [CuSO4 + H2O]
+        CHEMICAL_RECIPES.recipeBuilder()
+                .input(dust, Copper)
+                .fluidInputs(Oxygen.getFluid(1000))
+                .fluidInputs(SulfuricAcid.getFluid(1000))
+                .fluidOutputs(CopperSulfateSolution.getFluid(1000))
+                .EUt(480)
+                .duration(300)
+                .buildAndRegister();
+
+        // 3[Cu + H2SO4] + 6NaOH + NaI + 3SO3 -> NaIO3 + 3Cu + 3Na + 3NaSO4 + 6H2O + 3SO2
+        LARGE_CHEMICAL_RECIPES.recipeBuilder().duration(290).EUt(1920)
+                .fluidInputs(CopperSulfateSolution.getFluid(3000))
+                .fluidInputs(SulfurTrioxide.getFluid(3000))
+                .input(dust, SodiumIodide, 2)
+                .input(dust, SodiumHydroxide, 18)
+                .output(dust, SodiumIodate, 5)
+                .output(dust, Copper, 3)
+                .output(dust, Sodium, 3)
+                .fluidOutputs(SodiumSulfateSolution.getFluid(3000))
+                .fluidOutputs(Water.getFluid(6000))
+                .fluidOutputs(SulfurDioxide.getFluid(3000))
+                .buildAndRegister();
+
+        // 2Na2O4Ru + 2[Bi(NO3)3 + H2O] -> Bi2Ru2O7 + 4NaNO3 + N2H4 + 9O
+        LARGE_CHEMICAL_RECIPES.recipeBuilder().duration(320).EUt(480)
+                .input(dust, SodiumRuthenate, 14)
+                .fluidInputs(BismuthNitrateSoluton.getFluid(2000))
+                .fluidOutputs(Hydrazine.getFluid(1000))
+                .fluidOutputs(Oxygen.getFluid(9000))
+                .output(dust, BismuthRuthenate, 11)
+                .output(dust, SodiumNitrate, 20)
+                .buildAndRegister();
+
         // Gooware SMD Transistor
         ASSEMBLER_RECIPES.recipeBuilder()
                 .circuitMeta(5)
-                .input(foil, HydroxyquinolineAluminium)
-                .input(wireFine, CopperGalliumIndiumSelenide, 8)
+                .input(foil, GermaniumTungstenNitride, 4)
+                .input(dust, HydroxyquinolineAluminium)
+                .input(dust, CopperGalliumIndiumSelenide)
                 .fluidInputs(KaptonK.getFluid(L))
                 .output(GOOWARE_SMD_TRANSISTOR, 16)
                 .EUt(VA[ZPM])
@@ -98,8 +205,9 @@ public class GoowareCircuits {
         // Gooware SMD Resistor
         ASSEMBLER_RECIPES.recipeBuilder()
                 .circuitMeta(5)
-                .input(dust, ZBLANGlass)
                 .input(wireFine, Osmiridium, 4)
+                .input(plate, BismuthRuthenate)
+                .input(plate, BismuthIridiate)
                 .fluidInputs(KaptonK.getFluid(L * 2))
                 .output(GOOWARE_SMD_RESISTOR, 16)
                 .EUt(VA[ZPM])
@@ -110,7 +218,8 @@ public class GoowareCircuits {
         // Gooware SMD Capacitor
         ASSEMBLER_RECIPES.recipeBuilder()
                 .circuitMeta(5)
-                .input(foil, PedotPSS)
+                .input(wireFine, NaquadahAlloy, 8)
+                .input(foil, Polytetrafluoroethylene, 4)
                 .input(foil, NanometerBariumTitanate)
                 .fluidInputs(KaptonK.getFluid(L / 2))
                 .output(GOOWARE_SMD_CAPACITOR, 16)

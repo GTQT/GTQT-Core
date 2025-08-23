@@ -3,10 +3,14 @@ package keqing.gtqtcore.common.metatileentities.multi.multiblock.standard;
 import gregtech.api.metatileentity.MetaTileEntity;
 import gregtech.api.metatileentity.interfaces.IGregTechTileEntity;
 import gregtech.api.metatileentity.multiblock.IMultiblockPart;
+import gregtech.api.metatileentity.multiblock.ui.KeyManager;
+import gregtech.api.metatileentity.multiblock.ui.MultiblockUIBuilder;
+import gregtech.api.metatileentity.multiblock.ui.UISyncer;
 import gregtech.api.pattern.BlockPattern;
 import gregtech.api.pattern.FactoryBlockPattern;
 import gregtech.api.recipes.RecipeMap;
 import gregtech.api.unification.material.Materials;
+import gregtech.api.util.KeyUtil;
 import gregtech.client.renderer.ICubeRenderer;
 import gregtech.client.renderer.texture.Textures;
 import gregtech.client.utils.TooltipHelper;
@@ -25,8 +29,7 @@ import net.minecraft.client.resources.I18n;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.ResourceLocation;
-import net.minecraft.util.text.ITextComponent;
-import net.minecraft.util.text.TextComponentTranslation;
+import net.minecraft.util.text.TextFormatting;
 import net.minecraft.world.World;
 
 import javax.annotation.Nonnull;
@@ -55,14 +58,20 @@ public class MetaTileEntityClarifier extends NoEnergyMultiblockController {
     }
 
     @Override
-    protected void addDisplayText(List<ITextComponent> textList) {
-        super.addDisplayText(textList);
-        if (isStructureFormed()) {
-            textList.add(new TextComponentTranslation("时间：%s 阳光直射：%s", getWorld().isDaytime(), this.getWorld().canSeeSky(getPos().up())));
-            textList.add(new TextComponentTranslation("反应池稳定度：%s", heat));
-        }
+    protected void configureDisplayText(MultiblockUIBuilder builder) {
+        builder.setWorkingStatus(recipeMapWorkable.isWorkingEnabled(), recipeMapWorkable.isActive())
+                .addCustom(this::addCustomData)
+                .addWorkingStatusLine()
+                .addRecipeOutputLine(recipeMapWorkable);
     }
 
+
+    public void addCustomData(KeyManager keyManager, UISyncer syncer) {
+        if (isStructureFormed()) {
+            keyManager.add(KeyUtil.lang(TextFormatting.GRAY, "时间：%s 阳光直射：%s", syncer.syncBoolean(getWorld().isDaytime()), syncer.syncBoolean(this.getWorld().canSeeSky(getPos().up()))));
+            keyManager.add(KeyUtil.lang(TextFormatting.GRAY, "反应池稳定度：%s", syncer.syncInt(heat)));
+        }
+    }
     @Override
     public void addInformation(ItemStack stack, World player, List<String> tooltip, boolean advanced) {
         super.addInformation(stack, player, tooltip, advanced);

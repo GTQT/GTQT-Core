@@ -6,9 +6,14 @@ import gregtech.api.metatileentity.MetaTileEntity;
 import gregtech.api.metatileentity.interfaces.IGregTechTileEntity;
 import gregtech.api.metatileentity.multiblock.IMultiblockPart;
 import gregtech.api.metatileentity.multiblock.RecipeMapMultiblockController;
+import gregtech.api.metatileentity.multiblock.ui.KeyManager;
+import gregtech.api.metatileentity.multiblock.ui.MultiblockUIBuilder;
+import gregtech.api.metatileentity.multiblock.ui.UISyncer;
 import gregtech.api.pattern.*;
 import gregtech.api.recipes.Recipe;
 import gregtech.api.util.BlockInfo;
+import gregtech.api.util.GTUtility;
+import gregtech.api.util.KeyUtil;
 import gregtech.client.renderer.ICubeRenderer;
 import gregtech.common.blocks.BlockGlassCasing;
 import gregtech.common.blocks.BlockWireCoil;
@@ -22,6 +27,7 @@ import net.minecraft.block.state.IBlockState;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.text.ITextComponent;
 import net.minecraft.util.text.TextComponentTranslation;
+import net.minecraft.util.text.TextFormatting;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
@@ -49,10 +55,6 @@ public class MetaTileEntityNeutronActivator extends RecipeMapMultiblockControlle
         return MetaBlocks.FRAMES.get(GTQTMaterials.MARM200Steel).getBlock(GTQTMaterials.MARM200Steel);
     }
 
-    @Override
-    public boolean usesMui2() {
-        return false;
-    }
 
     @Override
     public boolean canBeDistinct() {
@@ -74,6 +76,31 @@ public class MetaTileEntityNeutronActivator extends RecipeMapMultiblockControlle
         textList.add(new TextComponentTranslation("gtqtcore.multiblock.na.tooltips2", (int) pamin, (int) pa, (int) pamax));
     }
 
+    @Override
+    protected void configureDisplayText(MultiblockUIBuilder builder) {
+        builder.setWorkingStatus(recipeMapWorkable.isWorkingEnabled(), recipeMapWorkable.isActive())
+                .addEnergyUsageLine(this.getEnergyContainer())
+                .addEnergyTierLine(GTUtility.getTierByVoltage(recipeMapWorkable.getMaxVoltage()))
+                .addCustom(this::addCustomCapacity)
+                .addParallelsLine(recipeMapWorkable.getParallelLimit())
+                .addWorkingStatusLine()
+                .addProgressLine(recipeMapWorkable.getProgress(), recipeMapWorkable.getMaxProgress())
+                .addRecipeOutputLine(recipeMapWorkable);
+    }
+
+    private void addCustomCapacity(KeyManager keyManager, UISyncer syncer) {
+        if (isStructureFormed()) {
+
+            Integer syncedCoilHeight = syncer.syncInt(coilHeight);
+            Integer syncedHeatingCoilLevel = syncer.syncInt(heatingCoilLevel);
+            double syncedPamin = syncer.syncDouble(pamin);
+            double syncedPa = syncer.syncDouble(pa);
+            double syncedPamax = syncer.syncDouble(pamax);
+
+            keyManager.add(KeyUtil.lang(TextFormatting.GRAY, "gtqtcore.multiblock.na.tooltips1", syncedCoilHeight, syncedHeatingCoilLevel));
+            keyManager.add(KeyUtil.lang(TextFormatting.GRAY, "gtqtcore.multiblock.na.tooltips2", (int) syncedPamin, (int) syncedPa, (int) syncedPamax));
+        }
+    }
     @Override
     public void update() {
         super.update();

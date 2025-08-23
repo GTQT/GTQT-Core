@@ -1,19 +1,19 @@
 package keqing.gtqtcore.loaders.recipes.handlers;
 
 
-
+import gregtech.api.metatileentity.multiblock.CleanroomType;
+import gregtech.common.items.MetaItems;
 import keqing.gtqtcore.common.block.GTQTMetaBlocks;
 import keqing.gtqtcore.common.block.blocks.BlockTransparentCasing;
 
 import static gregtech.api.GTValues.*;
-import static gregtech.api.GTValues.LV;
 import static gregtech.api.recipes.RecipeMaps.*;
 import static gregtech.api.unification.material.Materials.*;
-import static gregtech.api.unification.material.Materials.NetherStar;
 import static gregtech.api.unification.ore.OrePrefix.*;
 import static gregtech.common.items.MetaItems.*;
 import static java.util.Calendar.SECOND;
 import static keqing.gtqtcore.api.recipes.GTQTcoreRecipeMaps.CRYSTALLIZER_RECIPES;
+import static keqing.gtqtcore.api.recipes.GTQTcoreRecipeMaps.VACUUM_CHAMBER_RECIPES;
 import static keqing.gtqtcore.api.unification.GTQTMaterials.*;
 import static keqing.gtqtcore.api.unification.ore.GTQTOrePrefix.boule;
 import static keqing.gtqtcore.api.unification.ore.GTQTOrePrefix.seedCrystal;
@@ -342,9 +342,48 @@ public class MiscRecipes {
     }
 
     private static void metaBlockRecipes() {
-        COMPRESSOR_RECIPES.recipeBuilder()
+//  BPA Polycarbonate Glass
+        VACUUM_CHAMBER_RECIPES.recipeBuilder()
+                .input(plate, BPAPolycarbonate, 4)
+                .notConsumable(MetaItems.SHAPE_MOLD_BLOCK)
+                .fluidInputs(SolderingAlloy.getFluid(L))
+                .outputs(GTQTMetaBlocks.blockTransparentCasing.getItemVariant(BlockTransparentCasing.CasingType.BPA_POLYCARBONATE_GLASS))
+                .EUt(VA[EV])
+                .duration(200)
+                .cleanroom(CleanroomType.CLEANROOM)
+                .buildAndRegister();
+
+        //  PMMA Glass
+        VACUUM_CHAMBER_RECIPES.recipeBuilder()
                 .input(plate, PMMA, 4)
+                .notConsumable(MetaItems.SHAPE_MOLD_BLOCK)
+                .fluidInputs(SolderingAlloy.getFluid(L))
                 .outputs(GTQTMetaBlocks.blockTransparentCasing.getItemVariant(BlockTransparentCasing.CasingType.PMMA_GLASS))
-                .duration(400).EUt(2).buildAndRegister();
+                .EUt(VA[IV])
+                .duration(200)
+                .cleanroom(CleanroomType.CLEANROOM)
+                .buildAndRegister();
+
+        //  CBDO Polycarbonate Glass
+        VACUUM_CHAMBER_RECIPES.recipeBuilder()
+                .input(plate, CBDOPolycarbonate, 4)
+                .notConsumable(MetaItems.SHAPE_MOLD_BLOCK)
+                .fluidInputs(SolderingAlloy.getFluid(L))
+                .outputs(GTQTMetaBlocks.blockTransparentCasing.getItemVariant(BlockTransparentCasing.CasingType.CBDO_POLYCARBONATE_GLASS))
+                .EUt(VA[LuV])
+                .duration(200)
+                .cleanroom(CleanroomType.CLEANROOM)
+                .buildAndRegister();
+
+        //  Infinity Glass
+        VACUUM_CHAMBER_RECIPES.recipeBuilder()
+                .input(plate, Infinity, 4)
+                .notConsumable(MetaItems.SHAPE_MOLD_BLOCK)
+                .fluidInputs(SolderingAlloy.getFluid(L))
+                .outputs(GTQTMetaBlocks.blockTransparentCasing.getItemVariant(BlockTransparentCasing.CasingType.INFINITY_GLASS))
+                .EUt(VA[ZPM])
+                .duration(200)
+                .cleanroom(CleanroomType.CLEANROOM)
+                .buildAndRegister();
     }
 }

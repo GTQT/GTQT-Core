@@ -8,7 +8,6 @@ import net.minecraft.item.ItemStack;
 import net.minecraftforge.fluids.FluidStack;
 
 import static gregtech.api.GTValues.*;
-import static gregtech.api.GTValues.HV;
 import static gregtech.api.recipes.RecipeMaps.BLAST_RECIPES;
 import static gregtech.api.recipes.RecipeMaps.WIREMILL_RECIPES;
 import static gregtech.api.unification.material.Materials.*;
@@ -16,7 +15,7 @@ import static gregtech.api.unification.ore.OrePrefix.dust;
 import static gregtech.api.unification.ore.OrePrefix.ingot;
 import static keqing.gtqtcore.api.recipes.GTQTcoreRecipeMaps.BURNER_REACTOR_RECIPES;
 import static keqing.gtqtcore.api.recipes.GTQTcoreRecipeMaps.POLYMERIZATION_RECIPES;
-import static keqing.gtqtcore.api.utils.GTQTUniversUtil.*;
+import static keqing.gtqtcore.api.utils.GTQTUniversUtil.removeChemicalRecipe;
 
 public class PlasticChain {
 
@@ -232,5 +231,4 @@ public class PlasticChain {
                 .buildAndRegister();
 
     }
-
 }

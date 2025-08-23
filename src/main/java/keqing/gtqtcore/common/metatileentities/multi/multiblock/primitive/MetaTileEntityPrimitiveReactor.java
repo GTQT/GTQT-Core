@@ -6,17 +6,15 @@ import codechicken.lib.render.pipeline.IVertexOperation;
 import codechicken.lib.texture.TextureUtils;
 import codechicken.lib.vec.Cuboid6;
 import codechicken.lib.vec.Matrix4;
-import gregtech.api.capability.impl.PrimitiveRecipeLogic;
 import gregtech.api.metatileentity.MetaTileEntity;
 import gregtech.api.metatileentity.interfaces.IGregTechTileEntity;
 import gregtech.api.metatileentity.multiblock.IMultiblockPart;
 import gregtech.api.metatileentity.multiblock.MultiblockAbility;
-import gregtech.api.metatileentity.multiblock.RecipeMapPrimitiveMultiblockController;
+import gregtech.api.mui.GTGuiTheme;
 import gregtech.api.pattern.BlockPattern;
 import gregtech.api.pattern.FactoryBlockPattern;
 import gregtech.api.pattern.PatternMatchContext;
 import gregtech.api.pattern.TraceabilityPredicate;
-import gregtech.api.recipes.RecipeMap;
 import gregtech.api.util.GTUtility;
 import gregtech.client.renderer.CubeRendererState;
 import gregtech.client.renderer.ICubeRenderer;
@@ -83,11 +81,11 @@ public class MetaTileEntityPrimitiveReactor extends NoEnergyMultiblockController
                 .aisle("BBB", "X&X", "X#X").setRepeatable(1, 8)
                 .aisle("BBB", "XXX", "XXX")
                 .where('B', states(GTQTMetaBlocks.blockMultiblockCasing6.getState(BlockMultiblockCasing6.CasingType.REINFORCED_TREATED_WOOD_BOTTOM)))
-                .where('X', states(GTQTMetaBlocks.blockMultiblockCasing6.getState(BlockMultiblockCasing6.CasingType.REINFORCED_TREATED_WOOD_WALL))
-                        .or(abilities(MultiblockAbility.IMPORT_ITEMS).setPreviewCount(1).setMaxGlobalLimited(3))
-                        .or(abilities(MultiblockAbility.IMPORT_FLUIDS).setPreviewCount(1).setMaxGlobalLimited(3))
-                        .or(abilities(MultiblockAbility.EXPORT_FLUIDS).setPreviewCount(1).setMaxGlobalLimited(3))
-                        .or(abilities(MultiblockAbility.EXPORT_ITEMS).setPreviewCount(1).setMaxGlobalLimited(3)))
+                .where('X', states(GTQTMetaBlocks.blockMultiblockCasing6.getState(BlockMultiblockCasing6.CasingType.REINFORCED_TREATED_WOOD_WALL)).setMinGlobalLimited(6)
+                        .or(abilities(MultiblockAbility.IMPORT_ITEMS).setPreviewCount(1))
+                        .or(abilities(MultiblockAbility.IMPORT_FLUIDS).setPreviewCount(1))
+                        .or(abilities(MultiblockAbility.EXPORT_FLUIDS).setPreviewCount(1))
+                        .or(abilities(MultiblockAbility.EXPORT_ITEMS).setPreviewCount(1)))
                 .where('#', air())
                 .where('&', air().or(SNOW_PREDICATE)) // this won't stay in the structure, and will be broken while
                 // running
@@ -133,6 +131,10 @@ public class MetaTileEntityPrimitiveReactor extends NoEnergyMultiblockController
         return Textures.PRIMITIVE_PUMP_OVERLAY;
     }
 
+    @Override
+    public GTGuiTheme getUITheme() {
+        return GTGuiTheme.PRIMITIVE;
+    }
     @Override
     public boolean hasMaintenanceMechanics() {
         return false;

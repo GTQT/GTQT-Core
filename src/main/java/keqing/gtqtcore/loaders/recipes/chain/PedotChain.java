@@ -71,7 +71,7 @@ public class PedotChain {
                 .fluidInputs(GTQTMaterials.Polystyrene.getFluid(L))
                 .fluidInputs(SulfurTrioxide.getFluid(1000))
                 .fluidOutputs(GTQTMaterials.PolystyreneSulfonate.getFluid(L))
-                .EUt(VA[UV])
+                .EUt(VA[LuV])
                 .duration(8 * SECOND)
                 .buildAndRegister();
 

@@ -31,8 +31,6 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.network.PacketBuffer;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.SoundEvent;
-import net.minecraft.util.text.ITextComponent;
-import net.minecraft.util.text.TextComponentTranslation;
 import net.minecraft.util.text.TextFormatting;
 import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
@@ -61,11 +59,6 @@ public class MetaTileEntityIntegratedMiningDivision extends GTQTRecipeMapMultibl
         //setTimeReduce(none);
         setTimeReduceFlag(false);
         setOverclocking(3);
-    }
-
-    @Override
-    public boolean usesMui2() {
-        return false;
     }
 
     @Override

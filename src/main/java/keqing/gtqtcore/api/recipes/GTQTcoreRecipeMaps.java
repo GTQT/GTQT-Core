@@ -485,8 +485,6 @@ public class GTQTcoreRecipeMaps {
             .uiBuilder(builder -> builder
                     .itemSlotOverlay(GTGuiTextures.LENS_OVERLAY, false, false)
                     .itemSlotOverlay(GTGuiTextures.LENS_OVERLAY, false, true)
-                    .itemSlotOverlay(GTGuiTextures.MOLECULAR_OVERLAY_3, false, true)
-                    .itemSlotOverlay(GTGuiTextures.MOLECULAR_OVERLAY_4, false, true)
                     .itemSlotOverlay(GTGuiTextures.VIAL_OVERLAY_1, true, false)
                     .itemSlotOverlay(GTGuiTextures.VIAL_OVERLAY_2, true, true)
                     .progressBar(GTGuiTextures.PROGRESS_BAR_COMPRESS)

@@ -434,7 +434,7 @@ public class FirstDegreeMaterials {
                 .dust()
                 .color(0xF2F2F2).iconSet(SHINY)
                 .components(Cerium, 2, Oxygen, 3)
-                .flags(DISABLE_DECOMPOSITION)
+                .flags(DISABLE_CRYSTALLIZATION)
                 .build();
 
         //  24147 Barium Carbonate

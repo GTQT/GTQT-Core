@@ -311,97 +311,115 @@ public class AE2MiscRecipes {
                 .fluidInputs(DistilledWater.getFluid(1000))
                 .output(dust, Fluix,4)
                 .EUt(VA[MV])
+                .duration(200)
+                .buildAndRegister();
+
+        RecipeMaps.CIRCUIT_ASSEMBLER_RECIPES.recipeBuilder()
+                .input(plate, NetherQuartz, 1)
+                .inputs(GTUtility.copy(1, logicProcessor))
+                .input(gem, Fluix)
+                .outputs(GTUtility.copy(1, forming))
+                .EUt(VA[MV])
                 .duration(400)
                 .buildAndRegister();
 
         RecipeMaps.CIRCUIT_ASSEMBLER_RECIPES.recipeBuilder()
-                .input(plate, NetherQuartz, 4)
+                .input(plate, CertusQuartz, 1)
+                .inputs(GTUtility.copy(1, logicProcessor))
+                .input(gem, Fluix)
+                .outputs(GTUtility.copy(1, breaking))
+                .EUt(VA[MV])
+                .duration(400)
+                .buildAndRegister();
+
+        RecipeMaps.CIRCUIT_ASSEMBLER_RECIPES.recipeBuilder()
                 .inputs(GTUtility.copy(4, logicProcessor))
+                .input(MetaItems.SMD_CAPACITOR, 1)
                 .input(gem, Fluix)
                 .outputs(GTUtility.copy(4, forming))
-                .EUt(VA[MV])
-                .duration(100)
+                .EUt(VA[HV])
+                .duration(400)
                 .buildAndRegister();
 
         RecipeMaps.CIRCUIT_ASSEMBLER_RECIPES.recipeBuilder()
-                .input(plate, CertusQuartz, 4)
                 .inputs(GTUtility.copy(4, logicProcessor))
+                .input(MetaItems.SMD_DIODE, 1)
                 .input(gem, Fluix)
                 .outputs(GTUtility.copy(4, breaking))
-                .EUt(VA[MV])
-                .duration(100)
+                .EUt(VA[HV])
+                .duration(400)
                 .buildAndRegister();
 
         RecipeMaps.CIRCUIT_ASSEMBLER_RECIPES.recipeBuilder()
-                .inputs(GTUtility.copy(4, logicProcessor))
-                .input(MetaItems.SMD_CAPACITOR, 1)
+                .inputs(GTUtility.copy(8, logicProcessor))
+                .input(MetaItems.ADVANCED_SMD_CAPACITOR, 1)
                 .input(gem, Fluix)
                 .outputs(GTUtility.copy(8, forming))
-                .EUt(VA[HV])
-                .duration(100)
+                .EUt(VA[IV])
+                .duration(400)
                 .buildAndRegister();
 
         RecipeMaps.CIRCUIT_ASSEMBLER_RECIPES.recipeBuilder()
-                .inputs(GTUtility.copy(4, logicProcessor))
-                .input(MetaItems.SMD_CAPACITOR, 1)
+                .inputs(GTUtility.copy(8, logicProcessor))
+                .input(MetaItems.ADVANCED_SMD_DIODE, 1)
                 .input(gem, Fluix)
                 .outputs(GTUtility.copy(8, breaking))
-                .EUt(VA[HV])
-                .duration(100)
+                .EUt(VA[IV])
+                .duration(400)
                 .buildAndRegister();
 
         RecipeMaps.CIRCUIT_ASSEMBLER_RECIPES.recipeBuilder()
-                .inputs(GTUtility.copy(4, logicProcessor))
-                .input(MetaItems.ADVANCED_SMD_CAPACITOR, 1)
+                .inputs(GTUtility.copy(16, logicProcessor))
+                .input(GOOWARE_SMD_CAPACITOR, 1)
                 .input(gem, Fluix)
                 .outputs(GTUtility.copy(16, forming))
-                .EUt(VA[IV])
-                .duration(100)
+                .EUt(VA[UHV])
+                .duration(400)
                 .buildAndRegister();
 
         RecipeMaps.CIRCUIT_ASSEMBLER_RECIPES.recipeBuilder()
-                .inputs(GTUtility.copy(4, logicProcessor))
-                .input(MetaItems.ADVANCED_SMD_CAPACITOR, 1)
+                .inputs(GTUtility.copy(16, logicProcessor))
+                .input(GOOWARE_SMD_DIODE, 1)
                 .input(gem, Fluix)
                 .outputs(GTUtility.copy(16, breaking))
-                .EUt(VA[IV])
-                .duration(100)
+                .EUt(VA[UHV])
+                .duration(400)
                 .buildAndRegister();
 
         RecipeMaps.CIRCUIT_ASSEMBLER_RECIPES.recipeBuilder()
-                .inputs(GTUtility.copy(4, logicProcessor))
-                .input(GTQTMetaItems.OPTICAL_SMD_CAPACITOR, 1)
+                .inputs(GTUtility.copy(32, logicProcessor))
+                .input(OPTICAL_SMD_CAPACITOR, 1)
                 .input(gem, Fluix)
                 .outputs(GTUtility.copy(32, forming))
-                .EUt(VA[UHV])
-                .duration(100)
+                .EUt(VA[UEV])
+                .duration(400)
                 .buildAndRegister();
 
         RecipeMaps.CIRCUIT_ASSEMBLER_RECIPES.recipeBuilder()
-                .inputs(GTUtility.copy(4, logicProcessor))
-                .input(GTQTMetaItems.OPTICAL_SMD_CAPACITOR, 1)
+                .inputs(GTUtility.copy(32, logicProcessor))
+                .input(OPTICAL_SMD_DIODE, 1)
                 .input(gem, Fluix)
                 .outputs(GTUtility.copy(32, breaking))
-                .EUt(VA[UHV])
-                .duration(100)
+                .EUt(VA[UEV])
+                .duration(400)
                 .buildAndRegister();
 
         RecipeMaps.CIRCUIT_ASSEMBLER_RECIPES.recipeBuilder()
-                .inputs(GTUtility.copy(4, logicProcessor))
-                .input(GTQTMetaItems.SPINTRONIC_SMD_CAPACITOR, 1)
+                .inputs(GTUtility.copy(64, logicProcessor))
+                .input(SUPRACAUSAL_SMD_CAPACITOR, 1)
                 .input(gem, Fluix)
                 .outputs(GTUtility.copy(64, forming))
-                .EUt(VA[UEV])
-                .duration(100)
+                .EUt(VA[UIV])
+                .duration(400)
                 .buildAndRegister();
 
         RecipeMaps.CIRCUIT_ASSEMBLER_RECIPES.recipeBuilder()
-                .inputs(GTUtility.copy(4, logicProcessor))
-                .input(GTQTMetaItems.SPINTRONIC_SMD_CAPACITOR, 1)
+                .inputs(GTUtility.copy(64, logicProcessor))
+                .input(SUPRACAUSAL_SMD_DIODE, 1)
                 .input(gem, Fluix)
                 .outputs(GTUtility.copy(64, breaking))
-                .EUt(VA[UEV])
-                .duration(100)
+                .EUt(VA[UIV])
+                .duration(400)
                 .buildAndRegister();
     }
 
@@ -412,21 +430,21 @@ public class AE2MiscRecipes {
                 .input(plate, Materials.Quartzite)
                 .outputs(siliconFiber)
                 .EUt(VA[LV])
-                .duration(80)
+                .duration(400)
                 .buildAndRegister();
 
         RecipeMaps.WIREMILL_RECIPES.recipeBuilder()
                 .input(plate, Materials.NetherQuartz)
                 .outputs(GTUtility.copy(4, siliconFiber))
                 .EUt(VA[LV])
-                .duration(80)
+                .duration(200)
                 .buildAndRegister();
 
         RecipeMaps.WIREMILL_RECIPES.recipeBuilder()
                 .input(plate, Materials.CertusQuartz)
                 .outputs(GTUtility.copy(16, siliconFiber))
                 .EUt(VA[LV])
-                .duration(80)
+                .duration(200)
                 .buildAndRegister();
 
         ModHandler.removeRecipeByName("appliedenergistics2:network/cables/glass_fluix");
@@ -757,12 +775,10 @@ public class AE2MiscRecipes {
                 .inputs(logicBase)
                 .input(MetaItems.SMD_TRANSISTOR, 1)
                 .input(MetaItems.SMD_RESISTOR, 1)
-                .input(MetaItems.SMD_DIODE, 1)
                 .input(MetaItems.SMD_INDUCTOR, 1)
-                .fluidInputs(Materials.Redstone.getFluid(288))
                 .outputs(logicProcessor)
                 .EUt(VA[HV])
-                .duration(200)
+                .duration(400)
                 .buildAndRegister();
 
         RecipeMaps.CIRCUIT_ASSEMBLER_RECIPES.recipeBuilder()
@@ -770,25 +786,32 @@ public class AE2MiscRecipes {
                 .inputs(GTUtility.copy(4, logicBase))
                 .input(MetaItems.ADVANCED_SMD_TRANSISTOR, 1)
                 .input(MetaItems.ADVANCED_SMD_RESISTOR, 1)
-                .input(MetaItems.ADVANCED_SMD_DIODE, 1)
                 .input(MetaItems.ADVANCED_SMD_INDUCTOR, 1)
-                .fluidInputs(Materials.Redstone.getFluid(288 * 4))
                 .outputs(GTUtility.copy(4, logicProcessor))
-                .EUt(VA[LuV])
-                .duration(200)
+                .EUt(VA[IV])
+                .duration(400)
                 .buildAndRegister();
 
         RecipeMaps.CIRCUIT_ASSEMBLER_RECIPES.recipeBuilder()
                 .input(plate, Materials.Silicon, 16)
                 .inputs(GTUtility.copy(16, logicBase))
+                .input(GTQTMetaItems.GOOWARE_SMD_TRANSISTOR, 1)
+                .input(GTQTMetaItems.GOOWARE_SMD_RESISTOR, 1)
+                .input(GTQTMetaItems.GOOWARE_SMD_INDUCTOR, 1)
+                .outputs(GTUtility.copy(16, logicProcessor))
+                .EUt(VA[ZPM])
+                .duration(400)
+                .buildAndRegister();
+
+        RecipeMaps.CIRCUIT_ASSEMBLER_RECIPES.recipeBuilder()
+                .input(plate, Materials.Silicon, 32)
+                .inputs(GTUtility.copy(32, logicBase))
                 .input(GTQTMetaItems.OPTICAL_SMD_TRANSISTOR, 1)
                 .input(GTQTMetaItems.OPTICAL_SMD_RESISTOR, 1)
-                .input(GTQTMetaItems.OPTICAL_SMD_DIODE, 1)
                 .input(GTQTMetaItems.OPTICAL_SMD_INDUCTOR, 1)
-                .fluidInputs(Materials.Redstone.getFluid(288 * 16))
-                .outputs(GTUtility.copy(16, logicProcessor))
+                .outputs(GTUtility.copy(32, logicProcessor))
                 .EUt(VA[UHV])
-                .duration(200)
+                .duration(400)
                 .buildAndRegister();
 
         RecipeMaps.CIRCUIT_ASSEMBLER_RECIPES.recipeBuilder()
@@ -796,13 +819,12 @@ public class AE2MiscRecipes {
                 .inputs(GTUtility.copy(64, logicBase))
                 .input(GTQTMetaItems.SPINTRONIC_SMD_TRANSISTOR, 1)
                 .input(GTQTMetaItems.SPINTRONIC_SMD_RESISTOR, 1)
-                .input(GTQTMetaItems.SPINTRONIC_SMD_DIODE, 1)
                 .input(GTQTMetaItems.SPINTRONIC_SMD_INDUCTOR, 1)
-                .fluidInputs(Materials.Redstone.getFluid(288 * 64))
                 .outputs(GTUtility.copy(64, logicProcessor))
-                .EUt(VA[UXV])
-                .duration(200)
+                .EUt(VA[UIV])
+                .duration(400)
                 .buildAndRegister();
+
 
         //运算
         RecipeMaps.CIRCUIT_ASSEMBLER_RECIPES.recipeBuilder()
@@ -810,11 +832,10 @@ public class AE2MiscRecipes {
                 .inputs(calculationBase)
                 .input(MetaItems.SMD_TRANSISTOR, 1)
                 .input(MetaItems.SMD_RESISTOR, 1)
-                .input(MetaItems.SMD_DIODE, 1)
                 .input(MetaItems.SMD_INDUCTOR, 1)
                 .outputs(calculationProcessor)
                 .EUt(VA[HV])
-                .duration(200)
+                .duration(400)
                 .buildAndRegister();
 
         RecipeMaps.CIRCUIT_ASSEMBLER_RECIPES.recipeBuilder()
@@ -822,23 +843,32 @@ public class AE2MiscRecipes {
                 .inputs(GTUtility.copy(4, calculationBase))
                 .input(MetaItems.ADVANCED_SMD_TRANSISTOR, 1)
                 .input(MetaItems.ADVANCED_SMD_RESISTOR, 1)
-                .input(MetaItems.ADVANCED_SMD_DIODE, 1)
                 .input(MetaItems.ADVANCED_SMD_INDUCTOR, 1)
                 .outputs(GTUtility.copy(4, calculationProcessor))
-                .EUt(VA[LuV])
-                .duration(200)
+                .EUt(VA[IV])
+                .duration(400)
                 .buildAndRegister();
 
         RecipeMaps.CIRCUIT_ASSEMBLER_RECIPES.recipeBuilder()
                 .input(plate, Materials.Silicon, 16)
                 .inputs(GTUtility.copy(16, calculationBase))
+                .input(GTQTMetaItems.GOOWARE_SMD_TRANSISTOR, 1)
+                .input(GTQTMetaItems.GOOWARE_SMD_RESISTOR, 1)
+                .input(GTQTMetaItems.GOOWARE_SMD_INDUCTOR, 1)
+                .outputs(GTUtility.copy(16, calculationProcessor))
+                .EUt(VA[ZPM])
+                .duration(400)
+                .buildAndRegister();
+
+        RecipeMaps.CIRCUIT_ASSEMBLER_RECIPES.recipeBuilder()
+                .input(plate, Materials.Silicon, 32)
+                .inputs(GTUtility.copy(32, calculationBase))
                 .input(GTQTMetaItems.OPTICAL_SMD_TRANSISTOR, 1)
                 .input(GTQTMetaItems.OPTICAL_SMD_RESISTOR, 1)
-                .input(GTQTMetaItems.OPTICAL_SMD_DIODE, 1)
                 .input(GTQTMetaItems.OPTICAL_SMD_INDUCTOR, 1)
-                .outputs(GTUtility.copy(16, calculationProcessor))
+                .outputs(GTUtility.copy(32, calculationProcessor))
                 .EUt(VA[UHV])
-                .duration(200)
+                .duration(400)
                 .buildAndRegister();
 
         RecipeMaps.CIRCUIT_ASSEMBLER_RECIPES.recipeBuilder()
@@ -846,11 +876,10 @@ public class AE2MiscRecipes {
                 .inputs(GTUtility.copy(64, calculationBase))
                 .input(GTQTMetaItems.SPINTRONIC_SMD_TRANSISTOR, 1)
                 .input(GTQTMetaItems.SPINTRONIC_SMD_RESISTOR, 1)
-                .input(GTQTMetaItems.SPINTRONIC_SMD_DIODE, 1)
                 .input(GTQTMetaItems.SPINTRONIC_SMD_INDUCTOR, 1)
                 .outputs(GTUtility.copy(64, calculationProcessor))
-                .EUt(VA[UXV])
-                .duration(200)
+                .EUt(VA[UIV])
+                .duration(400)
                 .buildAndRegister();
 
         //工程
@@ -859,11 +888,10 @@ public class AE2MiscRecipes {
                 .inputs(engineeringBase)
                 .input(MetaItems.SMD_TRANSISTOR, 1)
                 .input(MetaItems.SMD_RESISTOR, 1)
-                .input(MetaItems.SMD_DIODE, 1)
                 .input(MetaItems.SMD_INDUCTOR, 1)
                 .outputs(engineeringProcessor)
                 .EUt(VA[HV])
-                .duration(200)
+                .duration(400)
                 .buildAndRegister();
 
         RecipeMaps.CIRCUIT_ASSEMBLER_RECIPES.recipeBuilder()
@@ -871,23 +899,32 @@ public class AE2MiscRecipes {
                 .inputs(GTUtility.copy(4, engineeringBase))
                 .input(MetaItems.ADVANCED_SMD_TRANSISTOR, 1)
                 .input(MetaItems.ADVANCED_SMD_RESISTOR, 1)
-                .input(MetaItems.ADVANCED_SMD_DIODE, 1)
                 .input(MetaItems.ADVANCED_SMD_INDUCTOR, 1)
                 .outputs(GTUtility.copy(4, engineeringProcessor))
-                .EUt(VA[LuV])
-                .duration(200)
+                .EUt(VA[IV])
+                .duration(400)
                 .buildAndRegister();
 
         RecipeMaps.CIRCUIT_ASSEMBLER_RECIPES.recipeBuilder()
                 .input(plate, Materials.Silicon, 16)
                 .inputs(GTUtility.copy(16, engineeringBase))
+                .input(GTQTMetaItems.GOOWARE_SMD_TRANSISTOR, 1)
+                .input(GTQTMetaItems.GOOWARE_SMD_RESISTOR, 1)
+                .input(GTQTMetaItems.GOOWARE_SMD_INDUCTOR, 1)
+                .outputs(GTUtility.copy(16, engineeringProcessor))
+                .EUt(VA[ZPM])
+                .duration(400)
+                .buildAndRegister();
+
+        RecipeMaps.CIRCUIT_ASSEMBLER_RECIPES.recipeBuilder()
+                .input(plate, Materials.Silicon, 32)
+                .inputs(GTUtility.copy(32, engineeringBase))
                 .input(GTQTMetaItems.OPTICAL_SMD_TRANSISTOR, 1)
                 .input(GTQTMetaItems.OPTICAL_SMD_RESISTOR, 1)
-                .input(GTQTMetaItems.OPTICAL_SMD_DIODE, 1)
                 .input(GTQTMetaItems.OPTICAL_SMD_INDUCTOR, 1)
-                .outputs(GTUtility.copy(16, engineeringProcessor))
+                .outputs(GTUtility.copy(32, engineeringProcessor))
                 .EUt(VA[UHV])
-                .duration(200)
+                .duration(400)
                 .buildAndRegister();
 
         RecipeMaps.CIRCUIT_ASSEMBLER_RECIPES.recipeBuilder()
@@ -895,11 +932,10 @@ public class AE2MiscRecipes {
                 .inputs(GTUtility.copy(64, engineeringBase))
                 .input(GTQTMetaItems.SPINTRONIC_SMD_TRANSISTOR, 1)
                 .input(GTQTMetaItems.SPINTRONIC_SMD_RESISTOR, 1)
-                .input(GTQTMetaItems.SPINTRONIC_SMD_DIODE, 1)
                 .input(GTQTMetaItems.SPINTRONIC_SMD_INDUCTOR, 1)
                 .outputs(GTUtility.copy(64, engineeringProcessor))
-                .EUt(VA[UXV])
-                .duration(200)
+                .EUt(VA[UIV])
+                .duration(400)
                 .buildAndRegister();
     }
 }

@@ -272,23 +272,21 @@ public class MetaTileEntityQuantumForceTransformer extends RecipeMapMultiblockCo
                                List<String> tooltip,
                                boolean advanced) {
         tooltip.add(TooltipHelper.BLINKING_RED + I18n.format("上帝的化学反应釜"));
-        tooltip.add(I18n.format("=============================================="));
         super.addInformation(stack, player, tooltip, advanced);
-        tooltip.add(I18n.format("=============================================="));
-        tooltip.add(I18n.format("gtqtcore.machine.quantum_force_transformer.tooltip.1"));
-        tooltip.add(I18n.format("gtqtcore.machine.quantum_force_transformer.tooltip.2"));
-        tooltip.add(I18n.format("gtqtcore.machine.quantum_force_transformer.tooltip.3"));
-        tooltip.add(I18n.format("=============================================="));
-        tooltip.add(I18n.format("本设备支持催化剂仓，在运行含催化剂的配方时需将催化剂放置在仓内"));
-        tooltip.add(I18n.format("会在配方检查时无视并行数量消耗一点耐久，加工中途失败需重新消耗耐久"));
-        tooltip.add(GREEN + I18n.format("gtqtcore.multiblock.laser_hatch.enable"));
-        tooltip.add(GRAY + I18n.format("gtqtcore.multiblock.laser_hatch.tooltip"));
-        tooltip.add(I18n.format("=============================================="));
         tooltip.add(GREEN + I18n.format("-纳米蜂群仓支持："));
         tooltip.add(GRAY + I18n.format("本设备支持纳米蜂群仓，每完成一次配方会消耗一点耐久（无视并行）"));
         tooltip.add(GRAY + I18n.format("配方等级：由脉冲控制器等级决定"));
         tooltip.add(GRAY + I18n.format("并行数量：Math.pow(4,聚焦等级与纳米蜂群等级的较小值)"));
         tooltip.add(GRAY + I18n.format("耗时减免：每等级玻璃与纳米蜂群（取较小值）减免10%%"));
+        tooltip.add(GREEN + I18n.format("-催化剂仓支持："));
+        tooltip.add(GRAY + I18n.format("本设备支持催化剂仓，在运行含催化剂的配方时需将催化剂放置在仓内"));
+        tooltip.add(GRAY + I18n.format("会在配方检查时无视并行数量消耗一点耐久，加工中途失败需重新消耗耐久"));
+        tooltip.add(GREEN + I18n.format("gtqtcore.multiblock.laser_hatch.enable"));
+        tooltip.add(GRAY + I18n.format("gtqtcore.multiblock.laser_hatch.tooltip"));
+        tooltip.add(I18n.format("=============================================="));
+        tooltip.add(I18n.format("gtqtcore.machine.quantum_force_transformer.tooltip.1"));
+        tooltip.add(I18n.format("gtqtcore.machine.quantum_force_transformer.tooltip.2"));
+        tooltip.add(I18n.format("gtqtcore.machine.quantum_force_transformer.tooltip.3"));
         tooltip.add(I18n.format("=============================================="));
         tooltip.add(I18n.format("每次消耗100 *Math.pow(2,聚焦等级)mb的镎等离子提供一次无损超频"));
         tooltip.add(I18n.format("每次消耗100 *Math.pow(2,聚焦等级)mb的镄等离子提供一次双倍产出"));
@@ -297,7 +295,8 @@ public class MetaTileEntityQuantumForceTransformer extends RecipeMapMultiblockCo
 
     @Override
     protected void configureDisplayText(MultiblockUIBuilder builder) {
-        builder.setWorkingStatus(recipeMapWorkable.isWorkingEnabled(), recipeMapWorkable.isActive())
+        if (isStructureFormed())
+            builder.setWorkingStatus(recipeMapWorkable.isWorkingEnabled(), recipeMapWorkable.isActive())
                 .addEnergyUsageLine(getEnergyContainer())
                 .addEnergyTierLine(GTUtility.getTierByVoltage(recipeMapWorkable.getMaxVoltage()))
 

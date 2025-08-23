@@ -13,6 +13,7 @@ import gregtech.api.metatileentity.multiblock.MultiblockWithDisplayBase;
 import gregtech.api.metatileentity.multiblock.ui.KeyManager;
 import gregtech.api.metatileentity.multiblock.ui.MultiblockUIBuilder;
 import gregtech.api.metatileentity.multiblock.ui.UISyncer;
+import gregtech.api.mui.GTGuiTheme;
 import gregtech.api.pattern.BlockPattern;
 import gregtech.api.pattern.FactoryBlockPattern;
 import gregtech.api.pattern.PatternMatchContext;
@@ -264,4 +265,8 @@ public class MetaTileEntityPrimitiveTreeFarmer extends MultiblockWithDisplayBase
         tooltip.add(I18n.format("生成完毕后输出两倍树苗与原木"));
     }
 
+    @Override
+    public GTGuiTheme getUITheme() {
+        return GTGuiTheme.PRIMITIVE;
+    }
 }

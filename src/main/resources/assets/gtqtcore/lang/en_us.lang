@@ -1801,6 +1801,7 @@ gtqtcore.material.iodine_brine_mixture=Concentrated Iodine Brine Mixture
 gtqtcore.material.sodium_iodate=Sodium Iodate
 gtqtcore.material.sodium_iodide=Sodium Iodide
 gtqtcore.material.sodium_hypochlorite=Sodium Hypochlorite
+gtqtcore.material.sodium_ruthenate=Sodium Ruthenate
 gtqtcore.material.sodium_periodate=Sodium Periodate
 gtqtcore.material.bromine_sulfate_solution=Bromine Sulfate Solution
 gtqtcore.material.overheated_bromine_sulfate_solution=Overheated Bromine Sulfate Solution
@@ -1834,7 +1835,11 @@ gtqtcore.material.bismuth_vanadate=Bismuth Vanadate
 gtqtcore.material.bismuth_vanadate_solution=Bismuth Vanadate Solution
 gtqtcore.material.ammonium_vanadate=Ammonium Vanadate
 gtqtcore.material.vanadium_slag=Vanadium Slag
+gtqtcore.material.bismuth_ruthenate=Bismuth Ruthenate
+gtqtcore.material.bismuth_iridiate=Bismuth Iridiate
 gtqtcore.material.bismuth_nitrate_solution=Bismuth Nitrate Solution
+gtqtcore.material.copper_sulfate_solution=Copper Sulfate Solution
+gtqtcore.material.germanium_tungsten_nitride=Germanium Tungsten Nitride
 gtqtcore.material.sodium_vanadate=Sodium Vanadate
 gtqtcore.material.cinnamic_acid=Cinnamic Acid
 gtqtcore.material.ethyl_cinnamate=Ethyl Cinnamate
@@ -6607,6 +6612,26 @@ item.material.oreprefix.plate_big=%s Welding Plate
 tile.stnt.name=Mini Nuclear Bomb
 tile.stnt.drops_tooltip=I'm very laggy, think twice
 entity.STNT.name=Mini Nuclear Bomb
+
+entity.naquadria_charge.name=超能硅岩爆弹
+tile.naquadria_charge.name=超能硅岩爆弹
+tile.naquadria_charge.tooltip.1=以高能爆炸物诱导超能硅岩释放巨量的能量。
+tile.naquadria_charge.tooltip.2=§c警告：§f被爆炸摧毁的方块将被§4彻底摧毁§f。
+
+entity.taranium_charge.name=塔兰金属爆弹
+tile.taranium_charge.name=塔兰金属爆弹
+tile.taranium_charge.tooltip.1=驱役已知宇宙中能量密度最高的物质塔兰金属产生爆炸。
+tile.taranium_charge.tooltip.2=§c警告：§f被爆炸摧毁的方块将被§4彻底摧毁§f。
+
+entity.leptonic_charge.name=轻子爆弹
+tile.leptonic_charge.name=轻子爆弹
+tile.leptonic_charge.tooltip.1=在微观层面上彻底撕裂强相互作用以带来实质性的毁灭。
+tile.leptonic_charge.tooltip.2=§c警告：§f被爆炸摧毁的方块将被§4彻底摧毁§f。
+
+entity.quantum_chromodynamic_charge.name=量子色动力学爆弹
+tile.quantum_chromodynamic_charge.name=量子色动力学爆弹
+tile.quantum_chromodynamic_charge.tooltip.1=将夸克禁闭爆破以破坏原子核的基本结构来彻底抹杀物质。
+tile.quantum_chromodynamic_charge.tooltip.2=§c警告：§f被爆炸摧毁的方块将被§4彻底摧毁§f。
 #cover
 metaitem.cover.dual_cover.lv.name=LV Dual Cover
 metaitem.cover.dual_cover.mv.name=MV Dual Cover

@@ -160,7 +160,7 @@ public abstract class GTQTNoTierMultiblockController extends MultiMapMultiblockC
         this.maxParallel = maxParallel;
     }
 
-    //////////////////////////////////////////////////////////////////////////////////////////////////////////
+    /// ///////////////////////////////////////////////////////////////////////////////////////////////////////
     @Override
     protected void configureDisplayText(MultiblockUIBuilder builder) {
         builder.setWorkingStatus(recipeMapWorkable.isWorkingEnabled(), recipeMapWorkable.isActive())
@@ -521,17 +521,17 @@ public abstract class GTQTNoTierMultiblockController extends MultiMapMultiblockC
         public void update() {
             super.update();
             if (autoParallelModel) {
-                autoParallel = (int) ((this.getEnergyStored() + energyContainer.getInputPerSec() / 19L) / (getMinVoltage() == 0 ? 1 : getMinVoltage()));
-                autoParallel = Math.max(autoParallel, 0);
+                if (OCFirst) autoParallel = Math.toIntExact(getMinVoltage() / this.getMaximumOverclockVoltage());
+                else autoParallel = Math.toIntExact(getMinVoltage() / super.getMaxVoltage());
+                autoParallel = Math.max(autoParallel, 1);
                 autoParallel = Math.min(autoParallel, limitAutoParallel);
                 autoParallel = Math.min(autoParallel, getMaxParallel());
             }
         }
 
-        public int getMinVoltage() {
-            if ((Math.min(this.getEnergyCapacity() / (energyHatchMaxWork == 0 ? 1 : energyHatchMaxWork), this.getMaxVoltage())) == 0)
-                return 1;
-            return (int) (Math.min(this.getEnergyCapacity() / (energyHatchMaxWork == 0 ? 1 : energyHatchMaxWork), this.getMaxVoltage()));
+        public long getMinVoltage() {
+            long totalInput = this.getEnergyStored() + energyHatchMaxWork * energyContainer.getInputPerSec() / 20L;
+            return Math.max(1, totalInput / energyHatchMaxWork);
         }
 
         @Override
@@ -541,14 +541,14 @@ public abstract class GTQTNoTierMultiblockController extends MultiMapMultiblockC
 
         @Override
         public long getMaxParallelVoltage() {
-            if (OCFirst) return super.getMaxVoltage() * getParallelLimit();
-            return super.getMaxParallelVoltage();
+            if (OCFirst) return super.getMaxParallelVoltage();
+            return super.getMaxVoltage() * getParallelLimit();
         }
 
         @Override
         public long getMaximumOverclockVoltage() {
             if (OCFirst) return super.getMaximumOverclockVoltage();
-            return energyContainer.getInputVoltage();
+            return super.getMaxVoltage();
         }
 
         @Override

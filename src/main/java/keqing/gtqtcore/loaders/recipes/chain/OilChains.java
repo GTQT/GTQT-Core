@@ -33,49 +33,49 @@ public class OilChains {
                 .fluidInputs(Hydrogen.getFluid(200))
                 .fluidOutputs(HydrogenSulfide.getFluid(100))
                 .fluidOutputs(HeavyFuel.getFluid(800))
-                .duration(20).EUt(VA[LV]).buildAndRegister();
+                .duration(10).EUt(VA[LV]).buildAndRegister();
 
         DESULPHURIZATION_RECIPES.recipeBuilder()
                 .fluidInputs(SulfuricLightFuel.getFluid(1200))
                 .fluidInputs(Hydrogen.getFluid(200))
                 .fluidOutputs(HydrogenSulfide.getFluid(100))
                 .fluidOutputs(LightFuel.getFluid(1200))
-                .duration(20).EUt(VA[LV]).buildAndRegister();
+                .duration(10).EUt(VA[LV]).buildAndRegister();
 
         DESULPHURIZATION_RECIPES.recipeBuilder()
                 .fluidInputs(SulfuricNaphtha.getFluid(1200))
                 .fluidInputs(Hydrogen.getFluid(200))
                 .fluidOutputs(HydrogenSulfide.getFluid(100))
                 .fluidOutputs(Naphtha.getFluid(1200))
-                .duration(20).EUt(VA[LV]).buildAndRegister();
+                .duration(10).EUt(VA[LV]).buildAndRegister();
 
         DESULPHURIZATION_RECIPES.recipeBuilder()
                 .fluidInputs(SulfuricGas.getFluid(1600))
                 .fluidInputs(Hydrogen.getFluid(200))
                 .fluidOutputs(HydrogenSulfide.getFluid(100))
                 .fluidOutputs(RefineryGas.getFluid(1600))
-                .duration(20).EUt(VA[LV]).buildAndRegister();
+                .duration(10).EUt(VA[LV]).buildAndRegister();
 
         DESULPHURIZATION_RECIPES.recipeBuilder()
                 .fluidInputs(NaturalGas.getFluid(1600))
                 .fluidInputs(Hydrogen.getFluid(200))
                 .fluidOutputs(HydrogenSulfide.getFluid(100))
                 .fluidOutputs(RefineryGas.getFluid(1600))
-                .duration(20).EUt(VA[LV]).buildAndRegister();
+                .duration(10).EUt(VA[LV]).buildAndRegister();
 
         DESULPHURIZATION_RECIPES.recipeBuilder()
-                .fluidInputs(SDieselLight.getFluid(1600))
+                .fluidInputs(SDieselHeavy.getFluid(800))
                 .fluidInputs(Hydrogen.getFluid(200))
                 .fluidOutputs(HydrogenSulfide.getFluid(100))
-                .fluidOutputs(DieselLight.getFluid(1600))
-                .duration(20).EUt(VA[LV]).buildAndRegister();
+                .fluidOutputs(DieselHeavy.getFluid(800))
+                .duration(10).EUt(VA[LV]).buildAndRegister();
 
         DESULPHURIZATION_RECIPES.recipeBuilder()
-                .fluidInputs(SDieselHeavy.getFluid(1600))
+                .fluidInputs(SDieselLight.getFluid(800))
                 .fluidInputs(Hydrogen.getFluid(200))
                 .fluidOutputs(HydrogenSulfide.getFluid(100))
-                .fluidOutputs(DieselHeavy.getFluid(1600))
-                .duration(20).EUt(VA[LV]).buildAndRegister();
+                .fluidOutputs(DieselLight.getFluid(800))
+                .duration(10).EUt(VA[LV]).buildAndRegister();
     }
 
     private static void Chemical() {

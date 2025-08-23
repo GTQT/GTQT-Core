@@ -8,6 +8,7 @@ import static gregtech.api.unification.material.Materials.*;
 import static gregtech.api.unification.ore.OrePrefix.dust;
 import static gregtechfoodoption.GTFOMaterialHandler.AceticAnhydride;
 import static gregtechfoodoption.GTFOMaterialHandler.IsopropylChloride;
+import static keqing.gtqtcore.api.recipes.GTQTcoreRecipeMaps.BURNER_REACTOR_RECIPES;
 import static keqing.gtqtcore.api.recipes.GTQTcoreRecipeMaps.CHEMICAL_PLANT;
 import static keqing.gtqtcore.api.unification.GTQTMaterials.*;
 
@@ -74,6 +75,37 @@ public class ZylonChain {
                 .fluidOutputs(HydrogenPeroxide.getFluid(1000))
                 .EUt(VA[EV])
                 .duration(200)
+                .buildAndRegister();
+
+        // 2Na + O -> Na2O
+        BURNER_REACTOR_RECIPES.recipeBuilder().duration(80).EUt(VA[HV])
+                .circuitMeta(1)
+                .input(dust, Sodium, 2)
+                .fluidInputs(Oxygen.getFluid(1000))
+                .output(dust, SodiumOxide, 3)
+                .buildAndRegister();
+
+        // Na2O -> 2Na + O
+        ELECTROLYZER_RECIPES.recipeBuilder().duration(240).EUt(30)
+                .input(dust, SodiumOxide, 3)
+                .output(dust, Sodium, 2)
+                .fluidOutputs(Oxygen.getFluid(1000))
+                .buildAndRegister();
+
+        // Na2O + O2 -> Na2O2
+        BURNER_REACTOR_RECIPES.recipeBuilder().duration(80).EUt(VA[HV])
+                .circuitMeta(2)
+                .input(dust, SodiumOxide, 3)
+                .fluidInputs(Oxygen.getFluid(1000))
+                .output(dust, SodiumPeroxide, 4)
+                .buildAndRegister();
+
+        // Na2O2 + 2H2O -> 2NaOH + H2O2
+        CHEMICAL_RECIPES.recipeBuilder().duration(120).EUt(VA[LV])
+                .circuitMeta(1)
+                .input(dust, SodiumOxide, 3)
+                .fluidInputs(Water.getFluid(1000))
+                .output(dust, SodiumHydroxide, 4)
                 .buildAndRegister();
 
         //  Dinitrodipropanyloxybenzene

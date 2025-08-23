@@ -41,8 +41,8 @@ import static keqing.gtqtcore.api.utils.GTQTUniversUtil.copyAmountUnsafe;
  * @author Gate Guardian
  *
  * <p>
- *     Based on my friend Gate Guardian's work.
- *     Some code reference <a href="https://github.com/GTNewHorizons/GT5-Unofficial/">GT5u</a>.
+ * Based on my friend Gate Guardian's work.
+ * Some code reference <a href="https://github.com/GTNewHorizons/GT5-Unofficial/">GT5u</a>.
  * </p>
  */
 public class OreProcessorRecipeLogic implements IWorkable {
@@ -56,14 +56,13 @@ public class OreProcessorRecipeLogic implements IWorkable {
     private static final HashSet<Integer> isCrushedOre = new HashSet<>();
     private static final HashSet<Integer> isCrushedPureOre = new HashSet<>();
     private static final HashSet<Integer> isThermalOre = new HashSet<>();
-
-    private ItemStack[] midProduct;
-
+    private static final boolean init = false;
+    private final MetaTileEntityIntegratedOreProcessor metaTileEntity;
+    public int mode = 0;
+    public boolean furnace = false;
+    public boolean isVoidStone = false;
     protected int[] overclockResults;
-
-    private int progressTime = 0;
     protected int maxProgressTime;
-    private boolean isActive;
     protected boolean canRecipeProgress = true;
     protected int recipeEUt;
     protected NonNullList<ItemStack> itemOutputs;
@@ -71,47 +70,14 @@ public class OreProcessorRecipeLogic implements IWorkable {
     protected boolean hasNotEnoughEnergy;
     protected boolean wasActiveAndNeedsUpdate;
     protected boolean isOutputsFull;
-
-    public int mode = 0;
-    public boolean furnace= false;
-    private static final boolean init = false;
-    public boolean isVoidStone = false;
-    private final MetaTileEntityIntegratedOreProcessor metaTileEntity;
+    private ItemStack[] midProduct;
+    private int progressTime = 0;
+    private boolean isActive;
 
     public OreProcessorRecipeLogic(MetaTileEntityIntegratedOreProcessor tileEntity) {
         this.metaTileEntity = tileEntity;
         if (!init)
             initHash(); //  init Hash set of ore types.
-    }
-
-    //  get initialized abilities of metatileentity.
-    public IEnergyContainer getEnergyContainer() {
-        return metaTileEntity.getEnergyContainer();
-    }
-
-    protected IItemHandlerModifiable getInputInventory() {
-        return metaTileEntity.getInputInventory();
-    }
-
-    protected IItemHandlerModifiable getOutputInventory() {
-        return metaTileEntity.getOutputInventory();
-    }
-
-    protected IMultipleTankHandler getInputTank() {
-        return metaTileEntity.getInputFluidInventory();
-    }
-
-    protected long getEnergyCapacity() {
-        return getEnergyContainer().getEnergyCapacity();
-    }
-
-    //  fluid depleted from recipes
-    private void depleteInput(FluidStack fluid) {
-        if (fluid == null)
-            return;
-        IMultipleTankHandler inputTank = this.getInputTank();
-        if (fluid.isFluidStackIdentical(inputTank.drain(fluid, false)))
-            inputTank.drain(fluid, true);
     }
 
     //  initialized hash set
@@ -143,8 +109,56 @@ public class OreProcessorRecipeLogic implements IWorkable {
                 for (ItemStack stack : OreDictionary.getOres(name)) {
                     isOre.add(GTQTUniversUtil.stackToInt(stack));
                 }
+            } else if (name.startsWith("raw")) { // ore
+                for (ItemStack stack : OreDictionary.getOres(name)) {
+                    isOre.add(GTQTUniversUtil.stackToInt(stack));
+                }
             }
         }
+    }
+
+    private static int getDuration(int mode, boolean furnace) {
+        int i;
+        if (furnace) i = 2;
+        else i = 1;
+        return switch (mode) {
+            case 0 -> 30 * 20 * i;
+            case 1 -> 15 * 20 * i;
+            case 2 -> 10 * 20 * i;
+            case 3 -> 20 * 20 * i;
+            case 4 -> 17 * 20 * i;
+            default -> 1000000000;
+        };
+    }
+
+    //  get initialized abilities of metatileentity.
+    public IEnergyContainer getEnergyContainer() {
+        return metaTileEntity.getEnergyContainer();
+    }
+
+    protected IItemHandlerModifiable getInputInventory() {
+        return metaTileEntity.getInputInventory();
+    }
+
+    protected IItemHandlerModifiable getOutputInventory() {
+        return metaTileEntity.getOutputInventory();
+    }
+
+    protected IMultipleTankHandler getInputTank() {
+        return metaTileEntity.getInputFluidInventory();
+    }
+
+    protected long getEnergyCapacity() {
+        return getEnergyContainer().getEnergyCapacity();
+    }
+
+    //  fluid depleted from recipes
+    private void depleteInput(FluidStack fluid) {
+        if (fluid == null)
+            return;
+        IMultipleTankHandler inputTank = this.getInputTank();
+        if (fluid.isFluidStackIdentical(inputTank.drain(fluid, false)))
+            inputTank.drain(fluid, true);
     }
 
     //  check mid-product, add t_product to outputs (if empty, then add stack to t_product).
@@ -293,7 +307,6 @@ public class OreProcessorRecipeLogic implements IWorkable {
         return t_amount;
     }
 
-
     private void recipeProcessing() {
         int tCharged = MAX_PARALLEL;
         List<FluidStack> tInputFluid = GTUtility.fluidHandlerToList(getInputTank());
@@ -318,11 +331,11 @@ public class OreProcessorRecipeLogic implements IWorkable {
         List<ItemStack> tOres = new ArrayList<>();
         int tRealUsed = 0;
 
-        for (int i = 0;i<this.getInputInventory().getSlots(); i++) {
+        for (int i = 0; i < this.getInputInventory().getSlots(); i++) {
             if (tCharged <= 0)
                 break;
             ItemStack ore = this.getInputInventory().getStackInSlot(i);
-            if(ore.isEmpty()) continue;
+            if (ore.isEmpty()) continue;
             int t_id = GTQTUniversUtil.stackToInt(ore);
             if (t_id == 0)
                 continue;
@@ -382,7 +395,8 @@ public class OreProcessorRecipeLogic implements IWorkable {
                     doMacerator(isCrushedOre, isCrushedPureOre);
                     doCentrifuge(isImpureOre, isPureOre);
                 }
-                default -> {}
+                default -> {
+                }
             }
 
             if (itemOutputs == null) {
@@ -392,18 +406,14 @@ public class OreProcessorRecipeLogic implements IWorkable {
             progressTime = 1;
             maxProgressTime = overclockResults[0];
             recipeEUt = overclockResults[1];
-            if(furnace)
-            {
-                for(ItemStack stack : midProduct)
-                {
+            if (furnace) {
+                for (ItemStack stack : midProduct) {
                     Recipe recipe = RecipeMaps.FURNACE_RECIPES.findRecipe(GTValues.V[GTValues.MAX], Collections.singletonList(stack), Collections.emptyList());
                     if (recipe != null) {
                         itemOutputs.addAll(getOutputStack(recipe, stack.getCount()));
-                    }
-                    else itemOutputs.addAll(Arrays.asList(midProduct));
+                    } else itemOutputs.addAll(Arrays.asList(midProduct));
                 }
-            }
-            else itemOutputs.addAll(Arrays.asList(midProduct));
+            } else itemOutputs.addAll(Arrays.asList(midProduct));
         }
     }
 
@@ -411,23 +421,9 @@ public class OreProcessorRecipeLogic implements IWorkable {
         long recipeVoltage = parallel * 30L;
         int overclock = (int) Math.floor(Math.log((double) (getMaxVoltage() / recipeVoltage)) / Math.log(4));
         int[] overclockResult = new int[2];
-        overclockResult[0] = (int) (getDuration(mode,furnace) / Math.pow(2, overclock));
+        overclockResult[0] = (int) (getDuration(mode, furnace) / Math.pow(2, overclock));
         overclockResult[1] = (int) (recipeVoltage * Math.pow(4, overclock));
         return overclockResult;
-    }
-
-    private static int getDuration(int mode,boolean furnace) {
-        int i;
-        if(furnace) i=2;
-        else i=1;
-        return switch (mode) {
-            case 0 -> 30 * 20*i;
-            case 1 -> 15 * 20*i;
-            case 2 -> 10 * 20*i;
-            case 3 -> 20 * 20*i;
-            case 4 -> 17 * 20*i;
-            default -> 1000000000;
-        };
     }
 
     protected long getEnergyInputPerSecond() {
@@ -443,7 +439,7 @@ public class OreProcessorRecipeLogic implements IWorkable {
         long resultEnergy = getEnergyStored() - recipeEUt;
         if (resultEnergy >= 0L && resultEnergy <= getEnergyCapacity()) {
             if (!simulate)
-                getEnergyContainer().changeEnergy(- recipeEUt);
+                getEnergyContainer().changeEnergy(-recipeEUt);
             return true;
         } else
             return false;
@@ -573,7 +569,6 @@ public class OreProcessorRecipeLogic implements IWorkable {
 
         return outputStacks;
     }
-
 
 
     //  t_product to midProduct

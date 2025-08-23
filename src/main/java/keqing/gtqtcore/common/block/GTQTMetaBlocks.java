@@ -4,7 +4,7 @@ import gregtech.client.model.SimpleStateMapper;
 import gregtech.common.blocks.MetaBlocks;
 import keqing.gtqtcore.client.render.pipe.PressurePipeRenderer;
 import keqing.gtqtcore.common.block.blocks.*;
-import keqing.gtqtcore.common.block.explosive.BlockSTNT;
+import keqing.gtqtcore.common.block.explosive.*;
 import keqing.gtqtcore.common.block.wood.BlockPineLeaves;
 import keqing.gtqtcore.common.block.wood.BlockPineLog;
 import keqing.gtqtcore.common.block.wood.BlockPineSapling;
@@ -21,9 +21,14 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 
 import java.util.EnumMap;
 
+import static keqing.gtqtcore.common.CommonProxy.GTQTCore_CH;
+
 public class GTQTMetaBlocks {
     public static final BlockPressurePipe[] PRESSURE_PIPES = new BlockPressurePipe[PressurePipeType.values().length];
-
+    public static final BlockPineLeaves BLOCK_PINE_LEAVES = new BlockPineLeaves();
+    public static final BlockPineLog BLOCK_PINE_LOG = new BlockPineLog();
+    public static final BlockPineSapling BLOCK_PINE_SAPLING = new BlockPineSapling();
+    public static final EnumMap<GTQTStoneVariantBlock.StoneVariant, GTQTStoneVariantBlock> GTQT_STONE_BLOCKS = new EnumMap<>(GTQTStoneVariantBlock.StoneVariant.class);
     public static BlockActiveUniqueCasing blockActiveUniqueCasing;
     public static BlockActiveUniqueCasing1 blockActiveUniqueCasing1;
     public static BlockCleanroomCasing blockCleanroomCasing;
@@ -63,14 +68,14 @@ public class GTQTMetaBlocks {
     public static BlockSpacetimeCompression blockSpacetimeCompression;
     public static BlockStabilization blockStabilization;
     public static BlockTimeAcceleration blockTimeAcceleration;
-    public static BlockSTNT STNT;
+    public static BlockNuclearTNT STNT;
+    public static BlockNaquadriaCharge NAQUADRIA_CHARGE;
+    public static BlockTaraniumCharge TARANIUM_CHARGE;
+    public static BlockLeptonicCharge LEPTONIC_CHARGE;
+    public static BlockQuantumChromodynamicCharge QUANTUM_CHROMODYNAMIC_CHARGE;
 
-    public static final BlockPineLeaves BLOCK_PINE_LEAVES = new BlockPineLeaves();
-    public static final BlockPineLog BLOCK_PINE_LOG = new BlockPineLog();
-    public static final BlockPineSapling BLOCK_PINE_SAPLING = new BlockPineSapling();
-
-    public static final EnumMap<GTQTStoneVariantBlock.StoneVariant, GTQTStoneVariantBlock> GTQT_STONE_BLOCKS = new EnumMap<>(GTQTStoneVariantBlock.StoneVariant.class);
-    private GTQTMetaBlocks() {}
+    private GTQTMetaBlocks() {
+    }
 
     public static void init() {
 
@@ -164,7 +169,7 @@ public class GTQTMetaBlocks {
         blockQuantumCasing = new BlockQuantumCasing();
         blockQuantumCasing.setRegistryName("quantum_casing");
 
-        blockNicollDysonCasing= new BlockNicollDysonCasing();
+        blockNicollDysonCasing = new BlockNicollDysonCasing();
         blockNicollDysonCasing.setRegistryName("nicoll_dyson_casing");
 
         blockQuantumForceTransformerCasing = new BlockQuantumForceTransformerCasing();
@@ -191,8 +196,30 @@ public class GTQTMetaBlocks {
         blockTimeAcceleration = new BlockTimeAcceleration();
         blockTimeAcceleration.setRegistryName("time_acceleration_field_generator");
 
-        STNT = new BlockSTNT();
-        STNT.setRegistryName("stnt").setTranslationKey("stnt");
+        STNT = new BlockNuclearTNT();
+        STNT.setRegistryName("stnt");
+        STNT.setTranslationKey("stnt");
+        STNT.setCreativeTab(GTQTCore_CH);
+
+        NAQUADRIA_CHARGE = new BlockNaquadriaCharge();
+        NAQUADRIA_CHARGE.setTranslationKey("naquadria_charge");
+        NAQUADRIA_CHARGE.setRegistryName("naquadria_charge");
+        NAQUADRIA_CHARGE.setCreativeTab(GTQTCore_CH);
+
+        TARANIUM_CHARGE = new BlockTaraniumCharge();
+        TARANIUM_CHARGE.setTranslationKey("taranium_charge");
+        TARANIUM_CHARGE.setRegistryName("taranium_charge");
+        TARANIUM_CHARGE.setCreativeTab(GTQTCore_CH);
+
+        LEPTONIC_CHARGE = new BlockLeptonicCharge();
+        LEPTONIC_CHARGE.setTranslationKey("leptonic_charge");
+        LEPTONIC_CHARGE.setRegistryName("leptonic_charge");
+        LEPTONIC_CHARGE.setCreativeTab(GTQTCore_CH);
+
+        QUANTUM_CHROMODYNAMIC_CHARGE = new BlockQuantumChromodynamicCharge();
+        QUANTUM_CHROMODYNAMIC_CHARGE.setTranslationKey("quantum_chromodynamic_charge");
+        QUANTUM_CHROMODYNAMIC_CHARGE.setRegistryName("quantum_chromodynamic_charge");
+        QUANTUM_CHROMODYNAMIC_CHARGE.setCreativeTab(GTQTCore_CH);
 
         for (GTQTStoneVariantBlock.StoneVariant shape : GTQTStoneVariantBlock.StoneVariant.values()) {
             GTQT_STONE_BLOCKS.put(shape, new GTQTStoneVariantBlock(shape));
@@ -248,6 +275,12 @@ public class GTQTMetaBlocks {
         registerItemModel(blockTimeAcceleration);
 
         registerItemModel(STNT);
+
+        registerItemModel(NAQUADRIA_CHARGE);
+        registerItemModel(TARANIUM_CHARGE);
+        registerItemModel(LEPTONIC_CHARGE);
+        registerItemModel(QUANTUM_CHROMODYNAMIC_CHARGE);
+
         registerItemModel(BLOCK_PINE_LEAVES);
         registerItemModel(BLOCK_PINE_LOG);
         registerItemModel(BLOCK_PINE_SAPLING);

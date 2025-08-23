@@ -686,15 +686,29 @@ public class MetaTileEntityCompressedFusionReactor extends GTQTNoTierMultiblockC
         }
 
         @Override
-        public long getMaxParallelVoltage() {
-            if (OCFirst) return super.getMaxParallelVoltage();
-            return super.getMaxVoltage() * getParallelLimit();
+        public long getMaximumOverclockVoltage() {
+            if (OCFirst) return this.getInputEnergyVoltage();
+            return super.getMaxVoltage();
         }
 
-        @Override
-        public long getMaximumOverclockVoltage() {
-            if (OCFirst) return inputEnergyContainers.getInputVoltage();
-            return super.getMaximumOverclockVoltage();
+        public long getInputEnergyVoltage() {
+            if (!isStructureFormed()) return super.getMaximumOverclockVoltage();
+            IEnergyContainer energyContainer = inputEnergyContainers;
+            if (energyContainer instanceof EnergyContainerList) {
+                long voltage;
+                long amperage;
+                if (energyContainer.getInputVoltage() > energyContainer.getOutputVoltage()) {
+                    voltage = energyContainer.getInputVoltage();
+                    amperage = energyContainer.getInputAmperage();
+                } else {
+                    voltage = energyContainer.getOutputVoltage();
+                    amperage = energyContainer.getOutputAmperage();
+                }
+
+                return amperage == 1L ? GTValues.VOC[GTUtility.getFloorTierByVoltage(voltage)] : voltage;
+            } else {
+                return Math.max(energyContainer.getInputVoltage(), energyContainer.getOutputVoltage());
+            }
         }
 
         @Override

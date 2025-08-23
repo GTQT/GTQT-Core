@@ -313,9 +313,9 @@ public class CPULine {
         //紫外
         ASSEMBLER_RECIPES.recipeBuilder()
                 .inputs(HULL[1].getStackForm())
-                .input(EMITTER_LV, 8)
+                .input(EMITTER_LV, 2)
                 .input(circuit, MarkerMaterials.Tier.LV, 4)
-                .input(screw, Steel, 16)
+                .input(screw, Steel, 4)
                 .circuitMeta(3)
                 .fluidInputs(Polyethylene.getFluid(L * 4))
                 .outputs(GTQTMetaBlocks.blockStepperCasing.getItemVariant(LASER_MKI))
@@ -323,9 +323,9 @@ public class CPULine {
 
         ASSEMBLER_RECIPES.recipeBuilder()
                 .inputs(HULL[2].getStackForm())
-                .input(EMITTER_MV, 8)
+                .input(EMITTER_MV, 2)
                 .input(circuit, MarkerMaterials.Tier.MV, 4)
-                .input(screw, Aluminium, 16)
+                .input(screw, Aluminium, 4)
                 .circuitMeta(3)
                 .fluidInputs(PolyvinylChloride.getFluid(L * 4))
                 .outputs(GTQTMetaBlocks.blockStepperCasing.getItemVariant(LASER_MKII))
@@ -333,9 +333,9 @@ public class CPULine {
 
         ASSEMBLER_RECIPES.recipeBuilder()
                 .inputs(HULL[3].getStackForm())
-                .input(EMITTER_HV, 8)
+                .input(EMITTER_HV, 2)
                 .input(circuit, MarkerMaterials.Tier.HV, 4)
-                .input(screw, StainlessSteel, 16)
+                .input(screw, StainlessSteel, 4)
                 .circuitMeta(3)
                 .fluidInputs(Epoxy.getFluid(L * 4))
                 .outputs(GTQTMetaBlocks.blockStepperCasing.getItemVariant(LASER_MKIII))
@@ -343,9 +343,9 @@ public class CPULine {
 
         ASSEMBLER_RECIPES.recipeBuilder()
                 .inputs(HULL[4].getStackForm())
-                .input(EMITTER_EV, 8)
+                .input(EMITTER_EV, 2)
                 .input(circuit, MarkerMaterials.Tier.EV, 4)
-                .input(screw, Titanium, 16)
+                .input(screw, Titanium, 4)
                 .circuitMeta(3)
                 .fluidInputs(ReinforcedEpoxyResin.getFluid(L * 4))
                 .outputs(GTQTMetaBlocks.blockStepperCasing.getItemVariant(LASER_MKIV))
@@ -353,9 +353,9 @@ public class CPULine {
 
         ASSEMBLER_RECIPES.recipeBuilder()
                 .inputs(HULL[5].getStackForm())
-                .input(EMITTER_IV, 8)
+                .input(EMITTER_IV, 2)
                 .input(circuit, MarkerMaterials.Tier.IV, 4)
-                .input(screw, TungstenSteel, 16)
+                .input(screw, TungstenSteel, 4)
                 .circuitMeta(3)
                 .fluidInputs(Polytetrafluoroethylene.getFluid(L * 4))
                 .outputs(GTQTMetaBlocks.blockStepperCasing.getItemVariant(LASER_MKV))
@@ -364,9 +364,9 @@ public class CPULine {
         //射频
         ASSEMBLER_RECIPES.recipeBuilder()
                 .inputs(HULL[1].getStackForm())
-                .input(FIELD_GENERATOR_LV, 4)
+                .input(FIELD_GENERATOR_LV, 2)
                 .input(circuit, MarkerMaterials.Tier.LV, 4)
-                .input(spring, Steel, 16)
+                .input(spring, Steel, 4)
                 .circuitMeta(3)
                 .fluidInputs(Polyethylene.getFluid(L * 4))
                 .outputs(GTQTMetaBlocks.blockStepperCasing.getItemVariant(F_LASER_MKI))
@@ -374,9 +374,9 @@ public class CPULine {
 
         ASSEMBLER_RECIPES.recipeBuilder()
                 .inputs(HULL[2].getStackForm())
-                .input(FIELD_GENERATOR_MV, 4)
+                .input(FIELD_GENERATOR_MV, 2)
                 .input(circuit, MarkerMaterials.Tier.MV, 4)
-                .input(spring, Aluminium, 16)
+                .input(spring, Aluminium, 4)
                 .circuitMeta(3)
                 .fluidInputs(PolyvinylChloride.getFluid(L * 4))
                 .outputs(GTQTMetaBlocks.blockStepperCasing.getItemVariant(F_LASER_MKII))
@@ -384,9 +384,9 @@ public class CPULine {
 
         ASSEMBLER_RECIPES.recipeBuilder()
                 .inputs(HULL[3].getStackForm())
-                .input(FIELD_GENERATOR_HV, 4)
+                .input(FIELD_GENERATOR_HV, 2)
                 .input(circuit, MarkerMaterials.Tier.HV, 4)
-                .input(spring, StainlessSteel, 16)
+                .input(spring, StainlessSteel, 4)
                 .circuitMeta(3)
                 .fluidInputs(Epoxy.getFluid(L * 4))
                 .outputs(GTQTMetaBlocks.blockStepperCasing.getItemVariant(F_LASER_MKIII))
@@ -394,9 +394,9 @@ public class CPULine {
 
         ASSEMBLER_RECIPES.recipeBuilder()
                 .inputs(HULL[4].getStackForm())
-                .input(FIELD_GENERATOR_EV, 4)
+                .input(FIELD_GENERATOR_EV, 2)
                 .input(circuit, MarkerMaterials.Tier.EV, 4)
-                .input(spring, Titanium, 16)
+                .input(spring, Titanium, 4)
                 .circuitMeta(3)
                 .fluidInputs(ReinforcedEpoxyResin.getFluid(L * 4))
                 .outputs(GTQTMetaBlocks.blockStepperCasing.getItemVariant(F_LASER_MKIV))
@@ -404,9 +404,9 @@ public class CPULine {
 
         ASSEMBLER_RECIPES.recipeBuilder()
                 .inputs(HULL[5].getStackForm())
-                .input(FIELD_GENERATOR_IV, 4)
+                .input(FIELD_GENERATOR_IV, 2)
                 .input(circuit, MarkerMaterials.Tier.IV, 4)
-                .input(spring, TungstenSteel, 16)
+                .input(spring, TungstenSteel, 4)
                 .circuitMeta(3)
                 .fluidInputs(Polytetrafluoroethylene.getFluid(L * 4))
                 .outputs(GTQTMetaBlocks.blockStepperCasing.getItemVariant(F_LASER_MKV))
@@ -416,9 +416,9 @@ public class CPULine {
         //自净
         ASSEMBLER_RECIPES.recipeBuilder()
                 .inputs(HULL[1].getStackForm())
-                .input(ELECTRIC_MOTOR_LV, 4)
+                .input(ELECTRIC_MOTOR_LV, 2)
                 .input(circuit, MarkerMaterials.Tier.LV, 2)
-                .input(rotor, Steel, 16)
+                .input(rotor, Steel, 4)
                 .circuitMeta(3)
                 .fluidInputs(Polyethylene.getFluid(L * 4))
                 .outputs(GTQTMetaBlocks.blockStepperCasing.getItemVariant(CLEAN_MKI))
@@ -426,9 +426,9 @@ public class CPULine {
 
         ASSEMBLER_RECIPES.recipeBuilder()
                 .inputs(HULL[2].getStackForm())
-                .input(ELECTRIC_MOTOR_MV, 4)
+                .input(ELECTRIC_MOTOR_MV, 2)
                 .input(circuit, MarkerMaterials.Tier.MV, 2)
-                .input(rotor, Aluminium, 16)
+                .input(rotor, Aluminium, 4)
                 .circuitMeta(3)
                 .fluidInputs(PolyvinylChloride.getFluid(L * 4))
                 .outputs(GTQTMetaBlocks.blockStepperCasing.getItemVariant(CLEAN_MKII))
@@ -436,9 +436,9 @@ public class CPULine {
 
         ASSEMBLER_RECIPES.recipeBuilder()
                 .inputs(HULL[3].getStackForm())
-                .input(ELECTRIC_MOTOR_HV, 4)
+                .input(ELECTRIC_MOTOR_HV, 2)
                 .input(circuit, MarkerMaterials.Tier.HV, 2)
-                .input(rotor, StainlessSteel, 16)
+                .input(rotor, StainlessSteel, 4)
                 .circuitMeta(3)
                 .fluidInputs(Epoxy.getFluid(L * 4))
                 .outputs(GTQTMetaBlocks.blockStepperCasing.getItemVariant(CLEAN_MKIII))
@@ -446,9 +446,9 @@ public class CPULine {
 
         ASSEMBLER_RECIPES.recipeBuilder()
                 .inputs(HULL[4].getStackForm())
-                .input(ELECTRIC_MOTOR_EV, 4)
+                .input(ELECTRIC_MOTOR_EV, 2)
                 .input(circuit, MarkerMaterials.Tier.EV, 2)
-                .input(rotor, Titanium, 16)
+                .input(rotor, Titanium, 4)
                 .circuitMeta(3)
                 .fluidInputs(ReinforcedEpoxyResin.getFluid(L * 4))
                 .outputs(GTQTMetaBlocks.blockStepperCasing.getItemVariant(CLEAN_MKIV))
@@ -456,9 +456,9 @@ public class CPULine {
 
         ASSEMBLER_RECIPES.recipeBuilder()
                 .inputs(HULL[5].getStackForm())
-                .input(ELECTRIC_MOTOR_IV, 4)
+                .input(ELECTRIC_MOTOR_IV, 2)
                 .input(circuit, MarkerMaterials.Tier.IV, 2)
-                .input(rotor, TungstenSteel, 16)
+                .input(rotor, TungstenSteel, 4)
                 .circuitMeta(3)
                 .fluidInputs(Polytetrafluoroethylene.getFluid(L * 4))
                 .outputs(GTQTMetaBlocks.blockStepperCasing.getItemVariant(CLEAN_MKV))
@@ -577,24 +577,24 @@ public class CPULine {
                 .input(CARBON_FIBERS, 16)
                 .fluidInputs(Glowstone.getFluid(L * 4))
                 .output(NANO_CENTRAL_PROCESSING_UNIT_WAFER)
-                .CWUt(120)
-                .duration(200).EUt(VA[EV]).buildAndRegister();
+                .CWUt(CWT[EV])
+                .duration(400).EUt(VA[EV]).buildAndRegister();
 
         PRECISION_SPINNING.recipeBuilder()
                 .input(NANO_CENTRAL_PROCESSING_UNIT_WAFER)
                 .input(QUANTUM_EYE, 2)
                 .fluidInputs(GalliumArsenide.getFluid(L * 2))
                 .output(QUBIT_CENTRAL_PROCESSING_UNIT_WAFER)
-                .CWUt(120)
-                .duration(200).EUt(VA[EV]).buildAndRegister();
+                .CWUt(CWT[EV])
+                .duration(400).EUt(VA[EV]).buildAndRegister();
 
         PRECISION_SPINNING.recipeBuilder()
                 .input(NANO_CENTRAL_PROCESSING_UNIT_WAFER)
                 .input(dust, IndiumGalliumPhosphide)
                 .fluidInputs(Radon.getFluid(50))
                 .output(QUBIT_CENTRAL_PROCESSING_UNIT_WAFER)
-                .CWUt(120)
-                .duration(200).EUt(VA[EV]).buildAndRegister();
+                .CWUt(CWT[EV])
+                .duration(400).EUt(VA[EV]).buildAndRegister();
 
         //pic
         PRECISION_SPINNING.recipeBuilder()
@@ -602,16 +602,16 @@ public class CPULine {
                 .input(dust, IndiumGalliumPhosphide, 2)
                 .fluidInputs(VanadiumGallium.getFluid(L * 2))
                 .output(HIGH_POWER_INTEGRATED_CIRCUIT_WAFER)
-                .CWUt(240)
-                .duration(200).EUt(VA[IV]).buildAndRegister();
+                .CWUt(CWT[IV])
+                .duration(400).EUt(VA[IV]).buildAndRegister();
 
         PRECISION_SPINNING.recipeBuilder()
                 .input(HIGH_POWER_INTEGRATED_CIRCUIT_WAFER)
                 .input(dust, IndiumGalliumPhosphide, 8)
                 .fluidInputs(Naquadah.getFluid(L * 4))
                 .output(ULTRA_HIGH_POWER_INTEGRATED_CIRCUIT_WAFER)
-                .CWUt(480)
-                .duration(200).EUt(VA[LuV]).buildAndRegister();
+                .CWUt(CWT[LuV])
+                .duration(400).EUt(VA[LuV]).buildAndRegister();
         //TODO gcys pic
 
     }

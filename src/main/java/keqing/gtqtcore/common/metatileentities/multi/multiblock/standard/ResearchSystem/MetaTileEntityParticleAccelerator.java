@@ -60,6 +60,7 @@ import java.util.List;
 
 import static gregtech.api.GTValues.EV;
 import static gregtech.api.unification.material.Materials.Nitrogen;
+import static gregtech.api.util.RelativeDirection.*;
 import static keqing.gtqtcore.api.recipes.GTQTcoreRecipeMaps.*;
 
 public class MetaTileEntityParticleAccelerator extends MultiMapMultiblockController implements IOpticalComputationReceiver {
@@ -155,7 +156,7 @@ public class MetaTileEntityParticleAccelerator extends MultiMapMultiblockControl
     @SuppressWarnings("SpellCheckingInspection")
     @Override
     protected BlockPattern createStructurePattern() {
-        return FactoryBlockPattern.start()
+        return FactoryBlockPattern.start(LEFT, DOWN, FRONT)
                 .aisle("                                               ", "                                               ", "                    CAAAAAC                    ", "                    CAADAAC                    ", "                    CAAAAAC                    ", "                                               ", "                                               ")
                 .aisle("                                               ", "                    CADDDAC                    ", "                   AA     AAfffffffffffffdddddf", "                   AA     AAfffffffffffffdddddf", "                   AA     AAfffffffffffffdddddf", "                    CADDDAC                    ", "                                               ")
                 .aisle("                    CADDDAC                    ", "                   AA     AAffffffffffffddddddf", "                AAAAA     AAAAA          gggggf", "                AAAGGGGGGGGGAAAhhhhhhhhhhgggggf", "                AAAAA     AAAAA          gggggf", "                   AA     AAffffffffffffddddddf", "                    CADDDAC                    ")
@@ -380,7 +381,7 @@ public class MetaTileEntityParticleAccelerator extends MultiMapMultiblockControl
         long resultEnergy = energyContainer.getEnergyStored() - energyToDrain;
         if (this.getRecipeMap() == PARTICLE_ACCELERATOR_RECIPES) return;
         if ((this.getRecipeMap() == NUCLEOSYNTHESIS && bashi) || (this.getRecipeMap() == TARGET_CHAMBER && hehecheng)) {
-            FluidStack HEAT_STACK = Nitrogen.getFluid(FluidStorageKeys.LIQUID, d);
+
             //待机默认减速
             if (speed >= 0) {
                 speed = speed - 1;
@@ -402,6 +403,7 @@ public class MetaTileEntityParticleAccelerator extends MultiMapMultiblockControl
                 speed = speed - 1;
                 d = 8;
             }
+            FluidStack HEAT_STACK = Nitrogen.getFluid(FluidStorageKeys.LIQUID, d);
 
             //加速模式
             if (Mode == 3) {

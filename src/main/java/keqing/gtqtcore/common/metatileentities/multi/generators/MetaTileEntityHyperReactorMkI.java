@@ -57,10 +57,6 @@ public class MetaTileEntityHyperReactorMkI extends FuelMultiblockController impl
         return new MetaTileEntityHyperReactorMkI(metaTileEntityId);
     }
     @Override
-    public boolean usesMui2() {
-        return false;
-    }
-    @Override
     protected void addDisplayText(List<ITextComponent> textList) {
         HyperReactorMark1WorkableHandler recipeLogic = (HyperReactorMark1WorkableHandler) this.recipeMapWorkable;
         MultiblockDisplayText.builder(textList, this.isStructureFormed())

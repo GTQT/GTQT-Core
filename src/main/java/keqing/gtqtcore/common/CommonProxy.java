@@ -227,6 +227,10 @@ public class CommonProxy {
         registry.register(GTQTCrops.CARBON_CROP);
 
         registry.register(STNT);
+        registry.register(NAQUADRIA_CHARGE);
+        registry.register(TARANIUM_CHARGE);
+        registry.register(LEPTONIC_CHARGE);
+        registry.register(QUANTUM_CHROMODYNAMIC_CHARGE);
 
         BLOCK_PINE_LOG.setCreativeTab(GTQTCore_TAB);
         BLOCK_PINE_SAPLING.setCreativeTab(GTQTCore_TAB);
@@ -294,6 +298,10 @@ public class CommonProxy {
         registry.register(createItemBlock(blockCleanroomCasing, VariantItemBlock::new));
 
         registry.register(createItemBlock(STNT, ItemBlock::new));
+        registry.register(createItemBlock(NAQUADRIA_CHARGE, ItemBlock::new));
+        registry.register(createItemBlock(TARANIUM_CHARGE, ItemBlock::new));
+        registry.register(createItemBlock(LEPTONIC_CHARGE, ItemBlock::new));
+        registry.register(createItemBlock(QUANTUM_CHROMODYNAMIC_CHARGE, ItemBlock::new));
 
         registry.register(createItemBlock(BLOCK_PINE_LOG, ItemBlock::new));
         registry.register(createItemBlock(BLOCK_PINE_SAPLING, ItemBlock::new));

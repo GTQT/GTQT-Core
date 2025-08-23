@@ -154,7 +154,7 @@ public class MetaTileEntityDigester extends GTQTNoTierMultiblockController imple
                 .aisle("CDDDDDC", "LOAAAOL", " HAAAH ", " HLLLH ")
                 .aisle(" CCSCC ", " LOOOL ", "  CCC  ", "       ")
                 .where('S', selfPredicate())
-                .where('C', states(getCasingAState()).setMinGlobalLimited(45).or(autoAbilities()))
+                .where('C', states(getCasingAState()).setMinGlobalLimited(20).or(autoAbilities()))
                 .where('H', states(getHeatState()))
                 .where('D', states(getCasingState1()))
                 .where('O', heatingCoils())

@@ -10,6 +10,7 @@ import gregtech.api.metatileentity.multiblock.IMultiblockPart;
 import gregtech.api.metatileentity.multiblock.IPrimitivePump;
 import gregtech.api.metatileentity.multiblock.MultiblockAbility;
 import gregtech.api.metatileentity.multiblock.MultiblockControllerBase;
+import gregtech.api.mui.GTGuiTheme;
 import gregtech.api.pattern.BlockPattern;
 import gregtech.api.pattern.FactoryBlockPattern;
 import gregtech.api.pattern.PatternMatchContext;
@@ -211,6 +212,10 @@ public class MetaTileEntityIndustryWaterPump extends MultiblockControllerBase im
         return biomeModifier * hatchModifier * (isRainingInBiome() ? 9 : 6);
     }
 
+    @Override
+    public GTGuiTheme getUITheme() {
+        return GTGuiTheme.PRIMITIVE;
+    }
     @Override
     public boolean allowsExtendedFacing() {
         return false;

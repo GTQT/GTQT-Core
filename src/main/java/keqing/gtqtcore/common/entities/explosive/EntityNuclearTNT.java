@@ -1,20 +1,19 @@
-package keqing.gtqtcore.common.entities;
+package keqing.gtqtcore.common.entities.explosive;
 
 import gregtech.common.entities.EntityGTExplosive;
+import keqing.gtqtcore.common.block.GTQTMetaBlocks;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.world.World;
 
-import static keqing.gtqtcore.common.block.GTQTMetaBlocks.STNT;
+public class EntityNuclearTNT extends EntityGTExplosive {
 
-public class STNTEntity extends EntityGTExplosive {
-
-    public STNTEntity(World world, double x, double y, double z, EntityLivingBase exploder) {
+    public EntityNuclearTNT(World world, double x, double y, double z, EntityLivingBase exploder) {
         super(world, x, y, z, exploder);
     }
 
     @SuppressWarnings("unused")
-    public STNTEntity(World world) {
+    public EntityNuclearTNT(World world) {
         super(world);
     }
 
@@ -35,6 +34,6 @@ public class STNTEntity extends EntityGTExplosive {
 
     @Override
     public  IBlockState getExplosiveState() {
-        return STNT.getDefaultState();
+        return GTQTMetaBlocks.STNT.getDefaultState();
     }
 }

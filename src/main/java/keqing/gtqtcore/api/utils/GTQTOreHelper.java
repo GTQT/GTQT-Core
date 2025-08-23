@@ -47,10 +47,10 @@ public class GTQTOreHelper {
 
 
         if (dimension == 41) {
-            if (type == 1) return new ItemStack(GTQTMetaItems.MANTLE_XENOLITH.getMetaItem(), 1, 196);
-            if (type == 2) return new ItemStack(GTQTMetaItems.VOLCANIC_BRECCIA.getMetaItem(), 1, 197);
-            if (type == 3) return new ItemStack(GTQTMetaItems.HIGH_PRESSURE.getMetaItem(), 1, 198);
-            if (type == 4) return new ItemStack(GTQTMetaItems.ANATECTIC.getMetaItem(), 1, 199);
+            if (type == 1) return new ItemStack(GTQTMetaItems.MANTLE_XENOLITH.getMetaItem(), 1, 189);
+            if (type == 2) return new ItemStack(GTQTMetaItems.VOLCANIC_BRECCIA.getMetaItem(), 1, 190);
+            if (type == 3) return new ItemStack(GTQTMetaItems.HIGH_PRESSURE.getMetaItem(), 1, 191);
+            if (type == 4) return new ItemStack(GTQTMetaItems.ANATECTIC.getMetaItem(), 1, 192);
         }
 
         return ItemStack.EMPTY;

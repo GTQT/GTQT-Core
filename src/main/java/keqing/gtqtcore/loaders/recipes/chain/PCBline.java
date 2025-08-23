@@ -16,15 +16,13 @@ import static gregicality.multiblocks.api.unification.GCYMMaterials.Trinaquadall
 import static gregicality.multiblocks.common.metatileentities.GCYMMetaTileEntities.MEGA_VACUUM_FREEZER;
 import static gregtech.api.GTValues.*;
 import static gregtech.api.recipes.RecipeMaps.ASSEMBLY_LINE_RECIPES;
-import static gregtech.api.unification.ore.OrePrefix.*;
 import static gregtech.api.unification.material.Materials.*;
+import static gregtech.api.unification.ore.OrePrefix.*;
 import static gregtech.common.items.MetaItems.*;
 import static gregtech.common.metatileentities.MetaTileEntities.*;
 import static keqing.gtqtcore.api.recipes.GTQTcoreRecipeMaps.PCB_FACTORY_RECIPES;
 import static keqing.gtqtcore.api.unification.GTQTMaterials.*;
-import static keqing.gtqtcore.api.unification.GTQTMaterials.Polyetheretherketone;
 import static keqing.gtqtcore.api.unification.ore.GTQTOrePrefix.swarm;
-
 import static keqing.gtqtcore.common.items.GTQTMetaItems.*;
 import static keqing.gtqtcore.common.metatileentities.GTQTMetaTileEntities.*;
 
@@ -112,7 +110,7 @@ public class PCBline {
         //4级  Biological Sterile Machine Casing (Bio Chamber Casing)
         ASSEMBLY_LINE_RECIPES.recipeBuilder()
                 .input(CHEMICAL_REACTOR[8])
-                .input(frameGt, Trinaquadalloy,2)
+                .input(frameGt, BlackTitanium, 2)
                 .input(CIRCUIT_GOOD_I)
                 .input(circuit, MarkerMaterials.Tier.UHV, 1)
                 .input(circuit, MarkerMaterials.Tier.UV, 2)

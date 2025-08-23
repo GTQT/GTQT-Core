@@ -2,9 +2,7 @@ package keqing.gtqtcore.common.block.explosive;
 
 import gregtech.common.blocks.explosive.BlockGTExplosive;
 import gregtech.common.entities.EntityGTExplosive;
-import gregtech.common.entities.ITNTEntity;
-
-import keqing.gtqtcore.common.entities.STNTEntity;
+import keqing.gtqtcore.common.entities.explosive.EntityNuclearTNT;
 import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.resources.I18n;
@@ -16,19 +14,22 @@ import net.minecraft.world.World;
 
 import java.util.List;
 
-public class BlockSTNT extends BlockGTExplosive {
+public class BlockNuclearTNT extends BlockGTExplosive {
 
-    public BlockSTNT() {
+    public BlockNuclearTNT() {
         super(Material.TNT, true, true, 40);
         setHardness(0);
         setSoundType(SoundType.PLANT);
     }
 
     @Override
-    protected EntityGTExplosive createEntity(World world, BlockPos pos, EntityLivingBase exploder) {
-        float x = pos.getX() + 0.5F, y = pos.getY(), z = pos.getZ() + 0.5F;
-        return new STNTEntity(world, x, y, z, exploder);
+    public EntityGTExplosive createEntity(World world, BlockPos pos, EntityLivingBase exploder) {
+        float x = pos.getX() + 0.5f;
+        float y = pos.getY();
+        float z = pos.getZ() + 0.5f;
+        return new EntityNuclearTNT(world, x, y, z, exploder);
     }
+
 
     @Override
     public void addInformation( ItemStack stack,  World world,  List<String> tooltip,

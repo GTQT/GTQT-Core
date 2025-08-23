@@ -73,6 +73,7 @@ import static gregtech.api.GTValues.LuV;
 import static gregtech.api.GTValues.ZPM;
 import static gregtech.api.unification.material.Materials.Gold;
 import static gregtech.api.unification.material.Materials.Silver;
+import static gregtech.api.util.RelativeDirection.*;
 import static keqing.gtqtcore.api.pattern.GTQTTraceabilityPredicate.optionalStates;
 import static keqing.gtqtcore.api.unification.GTQTMaterials.SiliconCarbide;
 import static keqing.gtqtcore.api.unification.ore.GTQTOrePrefix.swarm;
@@ -238,7 +239,7 @@ public class MetaTileEntityPCBFactory extends RecipeMapMultiblockController impl
     @Nonnull
     @Override
     protected BlockPattern createStructurePattern() {
-        return FactoryBlockPattern.start()
+        return FactoryBlockPattern.start(LEFT, DOWN, FRONT)
                 .aisle("              gHHHg  nTTTn       ", "              gPPPg  nQQQn       ", "              g   g  n   n       ", "              g   g  n   n       ", "              gJJJg  nRRRn       ", "              g   g  n   n       ", "              g   g  n   n       ", "              g   g  n   n       ", "              g   g  n   n       ", "              gIIIg  nTTTn       ", "                                 ", "                                 ", "                                 ", "                                 ", "                                 ", "                                 ", "                                 ", "                                 ", "                                 ", "                                 ", "                                 ", "                                 ")
                 .aisle("              HHHHH  TTTTT       ", "              PIIIP  QOOOQ       ", "               III    OOO        ", "               III    OOO        ", "              JIIIJ  ROOOR       ", "               III    OOO        ", "               III    OOO        ", "               PPP    QQQ        ", "               III    TTT        ", "              I###I  T###T       ", "                                 ", "                                 ", "                                 ", "                                 ", "                                 ", "                                 ", "                                 ", "                                 ", "                                 ", "                                 ", "                                 ", "                                 ")
                 .aisle("              HHHHH  TTTTT       ", "              PI*IP  QOUOQ       ", "               I#I    OUO        ", "               I#I    OUO        ", "              JI#IJ  ROUOR       ", "               I#I    OUO        ", "               I#I    OUO        ", "               P#P    QUQ        ", "               I#I    TUT        ", "              I###I  T###T       ", "                                 ", "                                 ", "                                 ", "                                 ", "                                 ", "                                 ", "                                 ", "                                 ", "                                 ", "                                 ", "                                 ", "                                 ")

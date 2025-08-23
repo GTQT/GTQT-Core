@@ -3,26 +3,31 @@ package keqing.gtqtcore.common.metatileentities.multi.multiblockpart;
 import codechicken.lib.render.CCRenderState;
 import codechicken.lib.render.pipeline.IVertexOperation;
 import codechicken.lib.vec.Matrix4;
+import com.cleanroommc.modularui.api.drawable.IKey;
+import com.cleanroommc.modularui.drawable.GuiDraw;
+import com.cleanroommc.modularui.factory.PosGuiData;
+import com.cleanroommc.modularui.screen.ModularPanel;
+import com.cleanroommc.modularui.screen.RichTooltip;
+import com.cleanroommc.modularui.value.sync.PanelSyncManager;
+import com.cleanroommc.modularui.value.sync.SyncHandlers;
+import com.cleanroommc.modularui.widgets.ItemSlot;
+import com.cleanroommc.modularui.widgets.SlotGroupWidget;
 import gregtech.api.capability.impl.NotifiableItemStackHandler;
-import gregtech.api.gui.GuiTextures;
-import gregtech.api.gui.ModularUI;
-import gregtech.api.gui.resources.IGuiTexture;
-import gregtech.api.gui.widgets.BlockableSlotWidget;
 import gregtech.api.metatileentity.IMachineHatchMultiblock;
 import gregtech.api.metatileentity.MetaTileEntity;
 import gregtech.api.metatileentity.interfaces.IGregTechTileEntity;
 import gregtech.api.metatileentity.multiblock.*;
+import gregtech.api.mui.GTGuis;
 import gregtech.api.util.GTUtility;
 import gregtech.api.util.ItemStackHashStrategy;
 import gregtech.client.renderer.texture.Textures;
 import gregtech.common.metatileentities.multi.multiblockpart.MetaTileEntityMultiblockNotifiablePart;
+import keqing.gtqtcore.common.metatileentities.multi.multiblock.standard.MetaTileEntityGeneratorArray;
 import net.minecraft.client.resources.I18n;
-import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.world.World;
 import net.minecraftforge.items.IItemHandlerModifiable;
-
 
 import javax.annotation.Nonnull;
 import java.util.List;
@@ -58,10 +63,36 @@ public class MetaTileEntityGeneratorHatch extends MetaTileEntityMultiblockNotifi
         return machineHandler;
     }
 
-    protected ModularUI createUI(EntityPlayer entityPlayer) {
-        ModularUI.Builder builder = ModularUI.builder(GuiTextures.BACKGROUND, 176, 130).label(10, 5, this.getMetaFullName());
-        builder.widget((new BlockableSlotWidget(this.machineHandler, 0, 81, 18, true, true)).setIsBlocked(this::isSlotBlocked).setBackgroundTexture(GuiTextures.SLOT));
-        return builder.bindPlayerInventory(entityPlayer.inventory, GuiTextures.SLOT, 7, 48).build(this.getHolder(), entityPlayer);
+    @Override
+    public boolean usesMui2() {
+        return true;
+    }
+
+    @Override
+    public ModularPanel buildUI(PosGuiData guiData, PanelSyncManager guiSyncManager) {
+        guiSyncManager.registerSlotGroup("item_inv", 1);
+
+        // TODO: Change the position of the name when it's standardized.
+        return GTGuis.createPanel(this, 176, 18 + 18 + 94)
+                .child(IKey.lang(getMetaFullName()).asWidget().pos(5, 5))
+                .child(SlotGroupWidget.playerInventory().left(7).bottom(7))
+                .child(new ItemSlot()
+                        .slot(SyncHandlers.itemSlot(machineHandler, 0)
+                                .slotGroup("item_inv"))
+                        .tooltip(t -> t.setAutoUpdate(false))
+                        .onUpdateListener(itemSlot -> {
+                            RichTooltip tooltip = itemSlot.tooltip();
+                            tooltip.buildTooltip();
+                            if (isSlotBlocked()) {
+                                tooltip.clearText();
+                            }
+                        })
+                        .overlay((context, x, y, width, height, widgetTheme) -> {
+                            if (isSlotBlocked()) {
+                                GuiDraw.drawRect(x, y, width, height, 0x80404040);
+                            }
+                        })
+                        .left(79).top(18));
     }
 
     @Override
@@ -98,7 +129,7 @@ public class MetaTileEntityGeneratorHatch extends MetaTileEntityMultiblockNotifi
 
     private boolean isSlotBlocked() {
         if (getController() instanceof RecipeMapMultiblockController controller) {
-            return controller.isActive();
+            return controller.isWorkingEnabled();
         }
         return false;
     }
@@ -171,9 +202,9 @@ public class MetaTileEntityGeneratorHatch extends MetaTileEntityMultiblockNotifi
                     ItemStackHashStrategy.comparingAllButCount().equals(this.getStackInSlot(slot), stack);
 
             MultiblockControllerBase controller = getController();
-            if (controller instanceof IMachineHatchMultiblock)
+            if (controller instanceof MetaTileEntityGeneratorArray generatorArray)
                 return slotMatches && GTUtility.isMachineValidForMachineHatch(stack,
-                        ((IMachineHatchMultiblock) controller).getBlacklist());
+                        generatorArray.getBlacklist());
 
             // If the controller is null, this part is not attached to any Multiblock
             return slotMatches;

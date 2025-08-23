@@ -1226,10 +1226,10 @@ public class SecondDegreeMaterials {
 
         //HydroxyquinolineAluminium
         HydroxyquinolineAluminium = new Material.Builder(getMaterialsId(), gtqtcoreId("hydroxyquinoline_aluminium"))
-                .ingot()
+                .dust()
                 .color(0x3F5A9F).iconSet(SHINY)
                 .components(Aluminium, 1, Carbon, 9, Hydrogen, 7, Nitrogen, 1, Oxygen, 1)
-                .flags(STD_METAL, DISABLE_DECOMPOSITION, GENERATE_FOIL)
+                .flags(DISABLE_DECOMPOSITION)
                 .build()
                 .setFormula("(C9H7NO)Al", true);
 
@@ -2448,10 +2448,10 @@ public class SecondDegreeMaterials {
 
         // 2144 Copper Gallium Indium Selenide
         CopperGalliumIndiumSelenide = new Material.Builder(getMaterialsId(), gtqtcoreId("copper_gallium_indium_selenide"))
-                .ingot()
+                .dust()
                 .colorAverage().iconSet(SHINY)
                 .components(Copper, 1, Gallium, 1, Indium, 1, Selenium, 2)
-                .flags(STD_METAL, DISABLE_DECOMPOSITION, GENERATE_FOIL, GENERATE_FINE_WIRE)
+                .flags(DISABLE_DECOMPOSITION)
                 .blast(b ->
                         b.temp(6000, BlastProperty.GasTier.MID) // Naquadah (HSS-G)
                                 .blastStats(VA[EV], 30 * SECOND)
@@ -2471,6 +2471,89 @@ public class SecondDegreeMaterials {
                                 .blastStats(VA[IV], 45 * SECOND)
                                 .vacuumStats(VA[HV], 20 * SECOND)
                 )
+                .build();
+
+        SodiumHypochlorite = new Material.Builder(getMaterialsId(), gtqtcoreId("sodium_hypochlorite"))
+                .dust()
+                .color(0x6cff50)
+                .iconSet(SHINY)
+                .build()
+                .setFormula("NaClO", true);
+
+        SodiumRuthenate = new Material.Builder(getMaterialsId(), gtqtcoreId("sodium_ruthenate"))
+                .dust(2)
+                .color(0x3A40CB)
+                .flags(DISABLE_DECOMPOSITION)
+                .iconSet(SHINY)
+                .components(Sodium, 2, Oxygen, 4, Ruthenium, 1)
+                .build();
+
+        SodiumIodate = new Material.Builder(getMaterialsId(), gtqtcoreId("sodium_iodate"))
+                .dust()
+                .color(0x11116d)
+                .iconSet(ROUGH)
+                .build()
+                .setFormula("NaIO3", true);
+
+        SodiumPeriodate = new Material.Builder(getMaterialsId(), gtqtcoreId("sodium_periodate"))
+                .dust()
+                .color(0x11116d)
+                .iconSet(SHINY)
+                .build()
+                .setFormula("NaIO4", true);
+
+        SodiumIodide = new Material.Builder(getMaterialsId(), gtqtcoreId("sodium_iodide"))
+                .dust()
+                .color(0x555588)
+                .iconSet(ROUGH)
+                .build()
+                .setFormula("NaI", true);
+
+        IridiumDioxide = new Material.Builder(getMaterialsId(), gtqtcoreId("iridium_dioxide"))
+                .dust()
+                .color((Iridium.getMaterialRGB() + Oxygen.getMaterialRGB()) / 2)
+                .flags(EXCLUDE_BLOCK_CRAFTING_RECIPES, DISABLE_DECOMPOSITION)
+                .iconSet(DULL)
+                .components(Iridium, 1, Oxygen, 2)
+                .build();
+
+        BismuthRuthenate = new Material.Builder(getMaterialsId(), gtqtcoreId("bismuth_ruthenate"))
+                .ingot(2)
+                .color(0x94cf5c)
+                .iconSet(DULL)
+                .flags(DISABLE_DECOMPOSITION)
+                .components(Bismuth, 2, Ruthenium, 2, Oxygen, 7)
+                .build();
+
+        BismuthIridiate = new Material.Builder(getMaterialsId(), gtqtcoreId("bismuth_iridiate"))
+                .ingot(22)
+                .color(0x478a6b)
+                .iconSet(DULL)
+                .flags(DISABLE_DECOMPOSITION)
+                .components(Bismuth, 2, Iridium, 2, Oxygen, 7)
+                .build();
+
+        BismuthNitrateSoluton = new Material.Builder(getMaterialsId(), gtqtcoreId("bismuth_nitrate_solution"))
+                .liquid()
+                .color((Bismuth.getMaterialRGB() + Chlorine.getMaterialRGB()) / 2)
+                .iconSet(FLUID)
+                .build()
+                .setFormula("(H2O)Bi(NO3)3", true);
+
+        CopperSulfateSolution = new Material.Builder(getMaterialsId(), gtqtcoreId("copper_sulfate_solution"))
+                .liquid()
+                .color(4761024)
+                .iconSet(FLUID)
+                .components(Copper, 1, Sulfur, 1, Oxygen, 4, Water, 5)
+                .build();
+
+        GermaniumTungstenNitride = new Material.Builder(getMaterialsId(), gtqtcoreId("germanium_tungsten_nitride"))
+                .ingot(2)
+                .color(0x8f8fcf)
+                .iconSet(DULL)
+                .flags(GENERATE_PLATE)
+                .components(Germanium, 3, Tungsten, 3, Nitrogen, 10)
+                .blast(5400)
                 .build();
         /*
         UEVSuperconductorBase = new Material.Builder(getMaterialsId(), gtqtcoreId("uev_superconductor_base"))

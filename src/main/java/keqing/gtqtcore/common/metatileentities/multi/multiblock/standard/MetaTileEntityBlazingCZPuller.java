@@ -277,16 +277,17 @@ public class MetaTileEntityBlazingCZPuller extends GTQTNoTierMultiblockControlle
         public void update() {
             super.update();
             if (autoParallelModel) {
-                autoParallel = (int) ((this.getEnergyStored() + energyContainer.getInputPerSec() / 19L) / (getMinVoltage() == 0 ? 1 : getMinVoltage()));
+                if (OCFirst) autoParallel = Math.toIntExact(getMinVoltage() / this.getMaximumOverclockVoltage());
+                else autoParallel = Math.toIntExact(getMinVoltage() / super.getMaxVoltage());
+                autoParallel = Math.max(autoParallel, 1);
                 autoParallel = Math.min(autoParallel, limitAutoParallel);
                 autoParallel = Math.min(autoParallel, getMaxParallel());
             }
         }
 
-        public int getMinVoltage() {
-            if ((Math.min(this.getEnergyCapacity() / (energyHatchMaxWork == 0 ? 1 : energyHatchMaxWork), this.getMaxVoltage())) == 0)
-                return 1;
-            return (int) (Math.min(this.getEnergyCapacity() / (energyHatchMaxWork == 0 ? 1 : energyHatchMaxWork), this.getMaxVoltage()));
+        public long getMinVoltage() {
+            long totalInput = this.getEnergyStored() + energyHatchMaxWork * energyContainer.getInputPerSec() / 20L;
+            return Math.max(1, totalInput / energyHatchMaxWork);
         }
 
         @Override
@@ -302,8 +303,8 @@ public class MetaTileEntityBlazingCZPuller extends GTQTNoTierMultiblockControlle
 
         @Override
         public long getMaximumOverclockVoltage() {
-            if (OCFirst) return energyContainer.getInputVoltage();
-            return super.getMaximumOverclockVoltage();
+            if (OCFirst) return super.getMaximumOverclockVoltage();
+            return super.getMaxVoltage();
         }
 
         @Override

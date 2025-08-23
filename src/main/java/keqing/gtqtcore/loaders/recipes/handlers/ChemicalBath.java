@@ -6,7 +6,6 @@ import gregtech.api.unification.ore.OrePrefix;
 import static gregtech.api.GTValues.MV;
 import static gregtech.api.GTValues.VA;
 import static gregtech.api.recipes.RecipeMaps.CHEMICAL_BATH_RECIPES;
-import static gregtech.api.unification.material.Materials.Kanthal;
 import static gregtech.api.unification.material.Materials.*;
 import static gregtech.api.unification.ore.OrePrefix.ingotHot;
 import static keqing.gtqtcore.api.unification.GTQTMaterials.*;
@@ -15,9 +14,15 @@ public class ChemicalBath {
     public static void init()
     {
         ChemicalBathRecipes(StainlessSteel);
-        ChemicalBathRecipes(Polysilicon);
+        ChemicalBathRecipes(RedstoneAlloy);
+        ChemicalBathRecipes(PulsatingIron);
+        ChemicalBathRecipes(ConductiveIron);
+        ChemicalBathRecipes(EnergeticAlloy);
         ChemicalBathRecipes(VibrantAlloy);
-        ChemicalBathRecipes( Talonite);
+        ChemicalBathRecipes(Soularium);
+        ChemicalBathRecipes(ElectricalSteel);
+        ChemicalBathRecipes(EndSteel);
+        ChemicalBathRecipes(Talonite);
         ChemicalBathRecipes(MagnesiumDiboride);
     }
     public static void ChemicalBathRecipes(Material material)

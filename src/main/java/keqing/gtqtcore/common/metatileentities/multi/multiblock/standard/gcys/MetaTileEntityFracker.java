@@ -18,10 +18,12 @@ import gregtech.api.metatileentity.interfaces.IGregTechTileEntity;
 import gregtech.api.metatileentity.multiblock.IMultiblockPart;
 import gregtech.api.metatileentity.multiblock.MultiblockAbility;
 import gregtech.api.metatileentity.multiblock.MultiblockWithDisplayBase;
+import gregtech.api.metatileentity.multiblock.ui.MultiblockUIBuilder;
 import gregtech.api.pattern.BlockPattern;
 import gregtech.api.pattern.FactoryBlockPattern;
 import gregtech.api.pattern.PatternMatchContext;
 import gregtech.api.util.GTUtility;
+import gregtech.api.util.KeyUtil;
 import gregtech.api.util.TextFormattingUtil;
 import gregtech.api.worldgen.bedrockFluids.BedrockFluidVeinHandler;
 import gregtech.api.worldgen.config.BedrockFluidDepositDefinition;
@@ -37,10 +39,6 @@ import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.network.PacketBuffer;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.ResourceLocation;
-import net.minecraft.util.text.ITextComponent;
-import net.minecraft.util.text.Style;
-import net.minecraft.util.text.TextComponentTranslation;
-import net.minecraft.util.text.TextFormatting;
 import net.minecraft.world.World;
 import net.minecraftforge.common.capabilities.Capability;
 import net.minecraftforge.fluids.FluidStack;
@@ -251,36 +249,29 @@ public class MetaTileEntityFracker extends MultiblockWithDisplayBase implements 
     }
 
     @Override
-    public boolean usesMui2() {
-        return false;
+    protected void configureDisplayText(MultiblockUIBuilder builder) {
+        builder.addCustom((textList, syncer) -> {
+            if (!isStructureFormed()) return;
+
+            if (energyContainer != null && energyContainer.getEnergyCapacity() > 0) {
+                long maxVoltage = syncer.syncLong(Math.max(energyContainer.getInputVoltage(), energyContainer.getOutputVoltage()));
+                String voltageName = syncer.syncString(GTValues.VNF[GTUtility.getTierByVoltage(maxVoltage)]);
+                textList.add(KeyUtil.lang("gregtech.multiblock.max_energy_per_tick", maxVoltage, voltageName));
+            }
+            if (!this.isWorkingEnabled()) {
+
+                textList.add(KeyUtil.lang("gregtech.multiblock.work_paused"));
+            } else if (this.isActive()) {
+                textList.add(KeyUtil.lang("gregtech.multiblock.running"));
+                textList.add(KeyUtil.lang("gregtech.multiblock.progress", syncer.syncDouble(getProgressPercent() * 100)));
+            } else {
+                textList.add(KeyUtil.lang("gregtech.multiblock.idling"));
+            }
+            if (!drainEnergy(true)) {
+                textList.add(KeyUtil.lang("gregtech.multiblock.not_enough_energy"));
+            }
+        });
     }
-
-    @Override
-    protected void addDisplayText(List<ITextComponent> textList) {
-        super.addDisplayText(textList);
-        if (!isStructureFormed()) return;
-
-        if (energyContainer != null && energyContainer.getEnergyCapacity() > 0) {
-            long maxVoltage = Math.max(energyContainer.getInputVoltage(), energyContainer.getOutputVoltage());
-            String voltageName = GTValues.VNF[GTUtility.getTierByVoltage(maxVoltage)];
-            textList.add(new TextComponentTranslation("gregtech.multiblock.max_energy_per_tick", maxVoltage, voltageName));
-        }
-
-        if (!this.isWorkingEnabled()) {
-            textList.add(new TextComponentTranslation("gregtech.multiblock.work_paused"));
-
-        } else if (this.isActive()) {
-            textList.add(new TextComponentTranslation("gregtech.multiblock.running"));
-            textList.add(new TextComponentTranslation("gregtech.multiblock.progress", (int) (getProgressPercent() * 100)));
-        } else {
-            textList.add(new TextComponentTranslation("gregtech.multiblock.idling"));
-        }
-
-        if (!drainEnergy(true)) {
-            textList.add(new TextComponentTranslation("gregtech.multiblock.not_enough_energy").setStyle(new Style().setColor(TextFormatting.RED)));
-        }
-    }
-
     @Override
     public void addInformation(ItemStack stack, @Nullable World player, List<String> tooltip, boolean advanced) {
         super.addInformation(stack, player, tooltip, advanced);
