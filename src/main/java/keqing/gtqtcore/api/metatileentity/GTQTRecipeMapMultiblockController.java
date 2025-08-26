@@ -226,7 +226,8 @@ public abstract class GTQTRecipeMapMultiblockController extends MultiMapMultiblo
                 .addProgressLine(recipeMapWorkable.getProgress(), recipeMapWorkable.getMaxProgress())
                 .addRecipeOutputLine(recipeMapWorkable);
     }
-    //////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+    /// ///////////////////////////////////////////////////////////////////////////////////////////////////////
 
     //这里是警告
     @Override
@@ -452,6 +453,7 @@ public abstract class GTQTRecipeMapMultiblockController extends MultiMapMultiblo
                                         .addLine(IKey.lang("gui.oc_parallel_mode")))
                                 .onMousePressed(mouseButton -> {
                                     ocFirstModel.setValue(!ocFirstModel.getValue());
+                                    recipeMapWorkable.invalidate();
                                     return true;
                                 })
                                 .onUpdateListener((w -> w.overlay(IKey.str("超频/并行模式优先").color(Color.WHITE.main))))
@@ -575,7 +577,7 @@ public abstract class GTQTRecipeMapMultiblockController extends MultiMapMultiblo
 
         @Override
         public long getMaxVoltage() {
-            if (setMaxVoltage) return V[maxVoltage];
+            if (setMaxVoltage) return Math.min(super.getMaxVoltage(), V[maxVoltage]);
             else return super.getMaxVoltage();
         }
 
@@ -583,17 +585,19 @@ public abstract class GTQTRecipeMapMultiblockController extends MultiMapMultiblo
         public void update() {
             super.update();
             if (autoParallelModel) {
-                if (OCFirst) autoParallel = Math.toIntExact(getMinVoltage() / this.getMaximumOverclockVoltage());
-                else autoParallel = Math.toIntExact(getMinVoltage() / super.getMaxVoltage());
-                autoParallel = Math.max(autoParallel, 1);
-                autoParallel = Math.min(autoParallel, limitAutoParallel);
-                autoParallel = Math.min(autoParallel, getMaxParallel());
+                if (!OCFirst) autoParallel = Math.min(limitAutoParallel, getMaxParallel());
+                else {
+                    autoParallel = Math.toIntExact(getMinVoltage() / Math.max(1, getMaxVoltage()));
+                    autoParallel = Math.max(autoParallel, 1);
+                    autoParallel = Math.min(autoParallel, limitAutoParallel);
+                    autoParallel = Math.min(autoParallel, getMaxParallel());
+                }
             }
         }
 
         public long getMinVoltage() {
             long totalInput = this.getEnergyStored() + energyHatchMaxWork * energyContainer.getInputPerSec() / 20L;
-            return Math.max(1, totalInput / energyHatchMaxWork);
+            return Math.max(1, totalInput);
         }
 
         @Override
@@ -603,14 +607,8 @@ public abstract class GTQTRecipeMapMultiblockController extends MultiMapMultiblo
 
         @Override
         public long getMaxParallelVoltage() {
-            if (OCFirst) return super.getMaxParallelVoltage();
-            return super.getMaxVoltage() * getParallelLimit();
-        }
-
-        @Override
-        public long getMaximumOverclockVoltage() {
-            if (OCFirst) return super.getMaximumOverclockVoltage();
-            return super.getMaxVoltage();
+            if (OCFirst) return this.getMaxVoltage() * getParallelLimit();
+            return super.getMaxParallelVoltage();
         }
 
         @Override

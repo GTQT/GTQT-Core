@@ -241,11 +241,16 @@ public abstract class RecipeMapHeatMultiblockController extends MultiblockWithDi
 
     @Override
     public void setDistinct(boolean isDistinct) {
+        if (isWorkingEnabled()) return;
         this.isDistinct = isDistinct;
         recipeMapWorkable.onDistinctChanged();
-        //mark buses as changed on distinct toggle
+        getMultiblockParts().forEach(part -> part.onDistinctChange(isDistinct));
+        // mark buses as changed on distinct toggle
         if (this.isDistinct) {
-            this.notifiedItemInputList.addAll(this.getAbilities(MultiblockAbility.IMPORT_ITEMS));
+            this.notifiedItemInputList
+                    .addAll(this.getAbilities(MultiblockAbility.IMPORT_ITEMS));
+            this.notifiedItemInputList
+                    .addAll(this.getAbilities(MultiblockAbility.DUAL_IMPORT));
         } else {
             this.notifiedItemInputList.add(this.inputInventory);
         }

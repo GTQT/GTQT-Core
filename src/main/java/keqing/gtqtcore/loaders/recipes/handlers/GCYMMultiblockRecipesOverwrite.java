@@ -80,7 +80,7 @@ public class GCYMMultiblockRecipesOverwrite {
                 .buildAndRegister();
 
         ASSEMBLY_LINE_RECIPES.recipeBuilder()
-                .input(CIRCUIT_GOOD_I, 8)
+                .input(circuit, MarkerMaterials.Tier.IV, 8)
                 .input(BURNER_REACTOR[EV], 8)
                 .input(VOLTAGE_COIL_EV, 8)
                 .input(ELECTRIC_MOTOR_EV, 8)
@@ -89,7 +89,7 @@ public class GCYMMultiblockRecipesOverwrite {
                 .input(wireFine, Ruridit, 32)
                 .input(cableGtSingle, Aluminium, 64)
                 .fluidInputs(Zylon.getFluid(L * 32))
-                .fluidInputs(PbB.getFluid(L * 32))
+                .fluidInputs(Polytetrafluoroethylene.getFluid(L * 32))
                 .fluidInputs(Lubricant.getFluid(4000))
                 .fluidInputs(SolderingAlloy.getFluid(L * 20))
                 .output(GTQTMetaTileEntities.LARGE_ROASTER)

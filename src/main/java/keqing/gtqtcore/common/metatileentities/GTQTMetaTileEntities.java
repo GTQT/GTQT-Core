@@ -739,15 +739,8 @@ public class GTQTMetaTileEntities {
         registerSimpleMetaTileEntity(CVD_UNIT, 1040, "cvd_unit", CVD_RECIPES, CVD_UNIT_OVERLAY, true, GTQTUtil::gtqtId, GTUtility.hvCappedTankSizeFunction);
         registerSimpleMetaTileEntity(FLOTATION_CELL, 1055, "flotation_cell", FLOTATION_RECIPES, FLOTATION_CELL_OVERLAY, true, GTQTUtil::gtqtId, GTUtility.hvCappedTankSizeFunction);
         registerSimpleMetaTileEntity(CATALYTIC_REFORMER, 1070, "catalytic_reformer", CATALYTIC_REFORMER_RECIPES, CATALYTIC_REFORMER_OVERLAY, true, GTQTUtil::gtqtId, GTUtility.hvCappedTankSizeFunction);
-
-        registerSimpleMetaTileEntity(CONDENSER, 1085, "condenser", CONDENSER_RECIPES, CONDENSER_OVERLAY, true, GTQTUtil::gtqtId, GTUtility.genericGeneratorTankSizeFunction);
-
-        for (int i = 0; i < 13; i++) {
-            int id = 1100 + i;
-            String name = String.format("burner_reactor.%s", GTValues.VN[i + 1]);
-            BURNER_REACTOR[i] = registerMetaTileEntity(id, new MetaTileEntityPressureMachine(gtqtcoreId(name), BURNER_REACTOR_RECIPES, BURNER_REACTOR_OVERLAY, i + 1, true));
-        }
-
+        registerSimpleMetaTileEntity(CONDENSER, 1085, "condenser", CONDENSER_RECIPES, CONDENSER_OVERLAY, true, GTQTUtil::gtqtId, GTUtility.hvCappedTankSizeFunction);
+        registerSimpleMetaTileEntity(BURNER_REACTOR, 1100, "burner_reactor", BURNER_REACTOR_RECIPES, BURNER_REACTOR_OVERLAY, true, GTQTUtil::gtqtId, GTUtility.hvCappedTankSizeFunction);
         registerSimpleMetaTileEntity(SPINNER, 1115, "spinner", SPINNER_RECIPES, GTQTTextures.SPINNER_OVERL, true, GTQTUtil::gtqtId, GTUtility.hvCappedTankSizeFunction);
         registerSimpleMetaTileEntity(POLYMERIZATION_TANK, 1130, "polymerization_tank", POLYMERIZATION_RECIPES, POLYMERIZATION_TANK_OVERLAY, true, GTQTUtil::gtqtId, GTUtility.hvCappedTankSizeFunction);
         registerSimpleMetaTileEntity(LOW_TEMP_ACTIVATOR, 1145, "low_temperature_activator", LOW_TEMP_ACTIVATOR_RECIPES, LOW_TEMP_ACTIVATOR_OVERLAY, true, GTQTUtil::gtqtId, GTUtility.hvCappedTankSizeFunction);

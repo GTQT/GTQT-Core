@@ -8,8 +8,6 @@ import keqing.gtqtcore.api.io.advancement.IAdvancementManager;
 import keqing.gtqtcore.api.module.IModuleManager;
 import keqing.gtqtcore.api.utils.GTQTLog;
 import keqing.gtqtcore.client.ClientProxy;
-import keqing.gtqtcore.client.sound.GTQTSoundHandler;
-import keqing.gtqtcore.client.sound.SoundManager;
 import keqing.gtqtcore.common.CommonProxy;
 import keqing.gtqtcore.common.MetaEntities;
 import keqing.gtqtcore.common.block.GTQTMetaBlocks;
@@ -35,11 +33,11 @@ import net.minecraftforge.fml.common.registry.GameRegistry;
                 "after:gregtechfoodoption@[1.8.0,);"
 )
 public class GTQTCore {
-    public static final String PACK = "1.8.4";
+    public static final String PACK = "1.8.5";
 
     public static final String MODID = "gtqtcore";
     public static final String NAME = "GTQT Core";
-    public static final String VERSION = "0804(2025/8/24)";
+    public static final String VERSION = "0831(2025/8/31)";
 
     @Mod.Instance(GTQTCore.MODID)
     public static GTQTCore instance;
@@ -78,8 +76,7 @@ public class GTQTCore {
         proxy.preInit();
         MetaEntities.init();
 
-        GTQTCore.soundManager = SoundManager.getInstance();
-        GTQTSoundHandler.register();
+
     }
 
     @Mod.EventHandler

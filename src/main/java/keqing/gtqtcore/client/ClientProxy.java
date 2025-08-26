@@ -1,7 +1,10 @@
 package keqing.gtqtcore.client;
 
+import keqing.gtqtcore.GTQTCore;
 import keqing.gtqtcore.client.render.handler.StructureSelectRenderer;
 import keqing.gtqtcore.client.render.pipe.PressurePipeRenderer;
+import keqing.gtqtcore.client.sound.GTQTSoundHandler;
+import keqing.gtqtcore.client.sound.SoundManager;
 import keqing.gtqtcore.client.textures.GTQTTextures;
 import keqing.gtqtcore.client.utils.ShaderUtils;
 import keqing.gtqtcore.client.utils.TextureUtils;
@@ -32,6 +35,9 @@ public class ClientProxy extends CommonProxy {
     public void preInit() {
         super.preInit();
         TitleUtils.setRandomTitle("*PreInit*");
+
+        GTQTCore.soundManager = SoundManager.getInstance();
+        GTQTSoundHandler.register();
     }
     public void init() {
         super.init();

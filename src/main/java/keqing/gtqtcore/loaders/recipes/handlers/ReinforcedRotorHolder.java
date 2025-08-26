@@ -10,10 +10,7 @@ import static gregtech.api.unification.material.Materials.*;
 import static gregtech.api.unification.ore.OrePrefix.*;
 import static gregtech.common.items.MetaItems.*;
 import static gregtech.common.metatileentities.MetaTileEntities.HULL;
-import static keqing.gtqtcore.api.unification.GTQTMaterials.CubicBoronNitride;
-import static keqing.gtqtcore.api.unification.GTQTMaterials.Orichalcum;
 import static keqing.gtqtcore.api.unification.GTQTMaterials.*;
-import static keqing.gtqtcore.api.unification.GTQTMaterials.Polyetheretherketone;
 import static keqing.gtqtcore.common.metatileentities.GTQTMetaTileEntities.REINFORCED_ROTOR_HOLDER;
 
 public class ReinforcedRotorHolder {
@@ -73,7 +70,8 @@ public class ReinforcedRotorHolder {
                 .input(gear, BlueSteel, 2)
                 .input(rotor, Chrome, 2)
                 .input(stickLong, StainlessSteel, 2)
-                .circuitMeta(7)
+                .fluidInputs(SolderingAlloy.getFluid(16 * L))
+                .fluidInputs(Lubricant.getFluid(4000))
                 .output(REINFORCED_ROTOR_HOLDER[2])
                 .EUt(VA[HV])
                 .duration(200)
@@ -91,7 +89,8 @@ public class ReinforcedRotorHolder {
                 .input(gear, Ultimet, 2)
                 .input(rotor, Staballoy, 2)
                 .input(stickLong, Titanium, 2)
-                .circuitMeta(7)
+                .fluidInputs(SolderingAlloy.getFluid(16 * L))
+                .fluidInputs(Lubricant.getFluid(4000))
                 .output(REINFORCED_ROTOR_HOLDER[3])
                 .EUt(VA[EV])
                 .duration(250)
@@ -109,7 +108,8 @@ public class ReinforcedRotorHolder {
                 .input(gear, TungstenCarbide, 2)
                 .input(rotor, Inconel792, 2)
                 .input(stickLong, TungstenSteel, 2)
-                .circuitMeta(7)
+                .fluidInputs(SolderingAlloy.getFluid(16 * L))
+                .fluidInputs(Lubricant.getFluid(4000))
                 .output(REINFORCED_ROTOR_HOLDER[4])
                 .EUt(VA[IV])
                 .duration(300)

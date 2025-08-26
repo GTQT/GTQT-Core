@@ -274,22 +274,26 @@ public abstract class RecipeMapLaserMultiblockController extends MultiblockWithD
         return true;
     }
 
+    @Override
     public boolean isDistinct() {
-        return this.isDistinct;
+        return isDistinct;
     }
 
+    @Override
     public void setDistinct(boolean isDistinct) {
+        if (isWorkingEnabled()) return;
         this.isDistinct = isDistinct;
-        this.recipeMapWorkable.onDistinctChanged();
-        this.getMultiblockParts().forEach((part) -> {
-            part.onDistinctChange(isDistinct);
-        });
+        recipeMapWorkable.onDistinctChanged();
+        getMultiblockParts().forEach(part -> part.onDistinctChange(isDistinct));
+        // mark buses as changed on distinct toggle
         if (this.isDistinct) {
-            this.notifiedItemInputList.addAll(this.getAbilities(MultiblockAbility.IMPORT_ITEMS));
+            this.notifiedItemInputList
+                    .addAll(this.getAbilities(MultiblockAbility.IMPORT_ITEMS));
+            this.notifiedItemInputList
+                    .addAll(this.getAbilities(MultiblockAbility.DUAL_IMPORT));
         } else {
             this.notifiedItemInputList.add(this.inputInventory);
         }
-
     }
 
     public SoundEvent getSound() {

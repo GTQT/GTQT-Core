@@ -3,11 +3,12 @@ package keqing.gtqtcore.loaders.recipes.chain;
 import gregtech.api.recipes.ingredients.IntCircuitIngredient;
 import keqing.gtqtcore.api.unification.GTQTMaterials;
 
-import static keqing.gtqtcore.api.recipes.GTQTcoreRecipeMaps.*;
 import static gregtech.api.GTValues.*;
 import static gregtech.api.recipes.RecipeMaps.*;
 import static gregtech.api.unification.material.Materials.*;
 import static gregtech.api.unification.ore.OrePrefix.dust;
+import static keqing.gtqtcore.api.recipes.GTQTcoreRecipeMaps.BURNER_REACTOR_RECIPES;
+import static keqing.gtqtcore.api.recipes.GTQTcoreRecipeMaps.LOW_TEMP_ACTIVATOR_RECIPES;
 
 /**
  * The Belousov-Zhabotinsky Reaction
@@ -63,7 +64,6 @@ public class BZChain {
                 .fluidInputs(Chlorine.getFluid(1000))
                 .fluidOutputs(GTQTMaterials.Trichloroethylene.getFluid(1000))
                 .fluidOutputs(Hydrogen.getFluid(3000))
-                .blastFurnaceTemp(4500)
                 .duration(100).EUt(VA[EV]).buildAndRegister();
 
         // C2HCl3 + 2H2O -> C2H3ClO2 + 2HCl

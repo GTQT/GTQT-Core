@@ -406,23 +406,8 @@ public class CommonProxy {
 
             if (stoneType != null) {
                 // 通过 StoneType 对象反查注册的 name（键）
-                String name = registry.getNameForObject(stoneType);
-                StringBuilder sb = new StringBuilder();
-                for (String part : name.split("_")) {
-                    if (!part.isEmpty()) {
-                        sb.append(Character.toUpperCase(part.charAt(0)))
-                                .append(part.substring(1));
-                    }
-                }
-                String a = switch (sb.toString()) {
-                    //筛选红砂岩 砂岩 过滤哦热
-                    case "RedSandstone" -> "RedSand";
-                    case "Sandstone" -> "Sand";
-                    case "Stone" -> "";
-                    default ->  sb.toString();
-                };
-
-                names.add(a);
+                String name = stoneType.processingPrefix.name;
+                names.add(name);
             }
         }
         return names;
@@ -430,7 +415,7 @@ public class CommonProxy {
 
     private static void toOreDict(String material) {
         for (String oreName : oreNames) {
-            StringBuilder sb = new StringBuilder("ore" + oreName);
+            StringBuilder sb = new StringBuilder(oreName);
             for (String part : material.split("_")) {
                 if (!part.isEmpty()) {
                     sb.append(Character.toUpperCase(part.charAt(0)))

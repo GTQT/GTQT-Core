@@ -449,6 +449,7 @@ public abstract class GTQTOCMultiblockController extends MultiMapMultiblockContr
                                         .addLine(IKey.lang("gui.oc_parallel_mode")))
                                 .onMousePressed(mouseButton -> {
                                     ocFirstModel.setValue(!ocFirstModel.getValue());
+                                    recipeMapWorkable.invalidate();
                                     return true;
                                 })
                                 .onUpdateListener((w -> w.overlay(IKey.str("超频/并行模式优先").color(Color.WHITE.main))))
@@ -581,8 +582,9 @@ public abstract class GTQTOCMultiblockController extends MultiMapMultiblockContr
         public void update() {
             super.update();
             if (autoParallelModel) {
-                if (OCFirst) autoParallel = Math.toIntExact(getMinVoltage() / this.getMaximumOverclockVoltage());
-                else autoParallel = Math.toIntExact(getMinVoltage() / super.getMaxVoltage());
+                if (OCFirst)
+                    autoParallel = Math.toIntExact(getMinVoltage() / Math.max(1, this.getMaximumOverclockVoltage()));
+                else autoParallel = Math.toIntExact(getMinVoltage() / Math.max(1, super.getMaxVoltage()));
                 autoParallel = Math.max(autoParallel, 1);
                 autoParallel = Math.min(autoParallel, limitAutoParallel);
                 autoParallel = Math.min(autoParallel, getMaxParallel());
@@ -591,7 +593,7 @@ public abstract class GTQTOCMultiblockController extends MultiMapMultiblockContr
 
         public long getMinVoltage() {
             long totalInput = this.getEnergyStored() + energyHatchMaxWork * energyContainer.getInputPerSec() / 20L;
-            return Math.max(1, totalInput / energyHatchMaxWork);
+            return Math.max(1, totalInput);
         }
 
         @Override
