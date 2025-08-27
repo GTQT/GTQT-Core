@@ -224,9 +224,11 @@ public class MetaTileEntityProcessingArray extends RecipeMapMultiblockController
     public TraceabilityPredicate autoAbilities(boolean checkEnergyIn, boolean checkMaintenance, boolean checkItemIn,
                                                boolean checkItemOut, boolean checkFluidIn, boolean checkFluidOut,
                                                boolean checkMuffler) {
-        TraceabilityPredicate predicate = super.autoAbilities(checkMaintenance, checkMuffler)
-                .or(checkEnergyIn ? abilities(MultiblockAbility.INPUT_ENERGY).setMinGlobalLimited(1)
-                        .setMaxGlobalLimited(4).setPreviewCount(1) : new TraceabilityPredicate());
+        TraceabilityPredicate predicate = super.autoAbilities(checkMaintenance, checkMuffler);
+
+        predicate = predicate.or(checkEnergyIn ? abilities(MultiblockAbility.INPUT_ENERGY).setMaxGlobalLimited(4).setPreviewCount(1) : new TraceabilityPredicate());
+
+        predicate = predicate.or(checkEnergyIn ? abilities(MultiblockAbility.INPUT_LASER).setMaxGlobalLimited(1) : new TraceabilityPredicate());
 
         predicate = predicate.or(abilities(MultiblockAbility.IMPORT_ITEMS).setPreviewCount(1));
 
@@ -236,9 +238,12 @@ public class MetaTileEntityProcessingArray extends RecipeMapMultiblockController
 
         predicate = predicate.or(abilities(MultiblockAbility.EXPORT_FLUIDS).setPreviewCount(1));
 
+        predicate = predicate.or(abilities(MultiblockAbility.DUAL_IMPORT).setPreviewCount(1));
+
+        predicate = predicate.or(abilities(MultiblockAbility.DUAL_EXPORT).setPreviewCount(1));
+
         return predicate;
     }
-
     @Override
     public void addInformation(ItemStack stack, World player, List<String> tooltip, boolean advanced) {
         tooltip.add(TooltipHelper.RAINBOW_SLOW + I18n.format("一个顶俩喵！"));

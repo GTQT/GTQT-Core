@@ -3,13 +3,11 @@ package keqing.gtqtcore.loaders.recipes.chain;
 import gregtech.common.items.MetaItems;
 import keqing.gtqtcore.api.unification.GTQTMaterials;
 
-import static keqing.gtqtcore.api.recipes.GTQTcoreRecipeMaps.*;
 import static gregtech.api.GTValues.*;
 import static gregtech.api.recipes.RecipeMaps.*;
 import static gregtech.api.unification.material.Materials.*;
 import static gregtech.api.unification.ore.OrePrefix.*;
-
-
+import static keqing.gtqtcore.api.recipes.GTQTcoreRecipeMaps.*;
 import static supercritical.api.unification.material.SCMaterials.BoronTrioxide;
 
 public class BoronNitrideChain {
@@ -73,10 +71,10 @@ public class BoronNitrideChain {
                 .duration(32 * SECOND)
                 .buildAndRegister();
 
-        // LiBF4 -> BF3 + LiH (cycle)
+        // LiBF4 -> BF3 + LiF
         DRYER_RECIPES.recipeBuilder()
                 .input(dust, GTQTMaterials.LithiumTetrafluoroborate, 6)
-                .output(ingot, GTQTMaterials.LithiumHydride, 2)
+                .output(ingot, GTQTMaterials.LithiumFluoride, 2)
                 .fluidOutputs(GTQTMaterials.BoronTrifluoride.getFluid(1000))
                 .EUt(VA[LV])
                 .duration(4 * SECOND)

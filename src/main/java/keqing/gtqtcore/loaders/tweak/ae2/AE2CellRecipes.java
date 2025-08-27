@@ -15,7 +15,6 @@ import static gregtech.api.unification.ore.OrePrefix.*;
 import static gtqt.api.util.MaterialHelper.*;
 import static keqing.gtqtcore.api.unification.GTQTMaterials.Fluix;
 import static keqing.gtqtcore.loaders.tweak.ae2.index.*;
-import static keqing.gtqtcore.loaders.tweak.ae2.index.securityStation;
 
 public class AE2CellRecipes {
     public static void init() {
@@ -228,7 +227,6 @@ public class AE2CellRecipes {
         RecipeMaps.ALLOY_SMELTER_RECIPES.recipeBuilder()
                 .input(OrePrefix.dust, Materials.NetherQuartz, 16)
                 .input(Blocks.GLASS,4)
-                .outputs(quartzGlass)
                 .outputs(GTUtility.copy(4, quartzGlass))
                 .EUt(VA[MV])
                 .duration(80)
@@ -237,11 +235,11 @@ public class AE2CellRecipes {
         RecipeMaps.ALLOY_SMELTER_RECIPES.recipeBuilder()
                 .input(OrePrefix.dust, Materials.CertusQuartz, 4)
                 .input(Blocks.GLASS,4)
-                .outputs(quartzGlass)
                 .outputs(GTUtility.copy(4, quartzGlass))
                 .EUt(VA[MV])
                 .duration(80)
                 .buildAndRegister();
+
         //空白样板
         for(int i=0;i<7;i++) {
             RecipeMaps.ASSEMBLER_RECIPES.recipeBuilder()

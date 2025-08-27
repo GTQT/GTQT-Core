@@ -350,6 +350,13 @@ public class BrineChain {
                 .fluidOutputs(SaltWater.getFluid(1000))
                 .buildAndRegister();
 
+        // LiAlH4 -> LiH + AlH3
+        BLAST_RECIPES.recipeBuilder().duration(260).EUt(120).blastFurnaceTemp(1600)
+                .input(dust, LithiumAluminiumHydride, 6)
+                .output(dust, LithiumHydride, 2)
+                .output(dust, AluminiumHydride, 4)
+                .buildAndRegister();
+
         // C12H22O11 + H2O -> C6H12O6 + C6H12O6
         // Input 2 sugar, 45 is too hard
         CHEMICAL_BATH_RECIPES.recipeBuilder().duration(300).EUt(480)

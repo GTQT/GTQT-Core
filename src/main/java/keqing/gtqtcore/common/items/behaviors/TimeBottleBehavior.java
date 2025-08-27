@@ -33,6 +33,8 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.util.text.TextComponentTranslation;
 import net.minecraft.world.World;
+import net.minecraftforge.fluids.FluidStack;
+import net.minecraftforge.fluids.IFluidTank;
 
 import java.util.List;
 
@@ -126,7 +128,7 @@ public class TimeBottleBehavior implements IItemBehaviour, ItemUIFactory {
                         if (mte instanceof MultiblockControllerBase mcb) {
                             if (mcb.isStructureFormed() && mcb.isValid()) {
                                 final var inenergy = mcb.getAbilities(MultiblockAbility.INPUT_ENERGY);
-                                if (inenergy.size() > 0) {
+                                if (!inenergy.isEmpty()) {
                                     long[] energys = new long[inenergy.size()];
                                     for (int j = 0; j < inenergy.size(); j++) {
                                         energys[j] = inenergy.get(j).getEnergyStored();
@@ -145,25 +147,22 @@ public class TimeBottleBehavior implements IItemBehaviour, ItemUIFactory {
                                         stack.setTagCompound(compound);
                                     }
                                 } else if (mte instanceof RecipeMapSteamMultiblockController smte) {
-                                    final var fin = smte.getSteamFluidTank();
-                                    int[] energys = new int[fin.getTanks()];
-                                    for (int j = 0; j < fin.getTanks(); j++) {
-                                        energys[j] = fin.getTankAt(j).getFluidAmount();
-                                    }
-                                    if (te instanceof ITickable) {
-                                        for (int i = 0; i < time; i++) {
-                                            ((ITickable) te).update();
-                                            for (int j = 0; j < fin.getTanks(); j++) {
-                                                if (fin.getTankAt(j).getFluidAmount() < energys[j]) {
-                                                    fin.getTankAt(j).fill(Materials.Steam.getFluid(energys[j] - fin.getTankAt(j).getFluidAmount()), true);
-                                                }
+                                    final var hatch = smte.getAbilities(MultiblockAbility.STEAM);
+                                    if (!hatch.isEmpty()) {
+                                        IFluidTank steamTank = hatch.get(0);
+                                        int steam = steamTank.getFluidAmount();
 
+                                        if (te instanceof ITickable) {
+                                            for (int i = 0; i < time; i++) {
+                                                ((ITickable) te).update();
+                                                if (steamTank.getFluidAmount() < steam)
+                                                    steamTank.fill(new FluidStack(Materials.Steam.getFluid(), steam - steamTank.getFluidAmount()), true);
                                             }
+                                            time -= getRapid();
+                                            NBTTagCompound compound = new NBTTagCompound();
+                                            compound.setInteger("storedTime", time);
+                                            stack.setTagCompound(compound);
                                         }
-                                        time -= getRapid();
-                                        NBTTagCompound compound = new NBTTagCompound();
-                                        compound.setInteger("storedTime", time);
-                                        stack.setTagCompound(compound);
                                     }
                                 } else {
                                     for (int i = 0; i < getRapid(); i++) {
