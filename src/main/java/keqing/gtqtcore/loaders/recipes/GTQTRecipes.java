@@ -10,6 +10,7 @@ import gregtech.api.recipes.RecipeMaps;
 import gregtech.api.unification.OreDictUnifier;
 import gregtech.api.unification.material.MarkerMaterials;
 import gregtech.api.unification.material.Material;
+import gregtech.api.unification.material.Materials;
 import gregtech.api.unification.material.info.MaterialFlags;
 import gregtech.api.unification.material.properties.*;
 import gregtech.api.unification.ore.OrePrefix;
@@ -38,6 +39,7 @@ import static gregtech.loaders.recipe.handlers.ToolRecipeHandler.powerUnitItems;
 import static keqing.gtqtcore.api.recipes.GTQTcoreRecipeMaps.*;
 import static keqing.gtqtcore.api.unification.GTQTMaterials.*;
 import static keqing.gtqtcore.api.unification.material.info.GTQTMaterialFlags.GENERATE_CURVED_PLATE;
+import static keqing.gtqtcore.api.unification.matreials.SoftToolAddition.softMaterialsGTQT;
 import static keqing.gtqtcore.api.unification.ore.GTQTOrePrefix.*;
 import static keqing.gtqtcore.common.items.metaitems.GTQTMetaToolItems.*;
 
@@ -77,6 +79,31 @@ public class GTQTRecipes {
         }
 
         registerMortarRecipes();
+        registerSoftToolRecipes();
+    }
+
+    private static void registerSoftToolRecipes() {
+
+        final UnificationEntry stick = new UnificationEntry(OrePrefix.stick, Materials.Wood);
+
+        for (Material material : softMaterialsGTQT) {
+            if (ModHandler.isMaterialWood(material)) {
+                addToolRecipe(material, ToolItems.SOFT_MALLET, true,
+                        "II ", "IIS", "II ",
+                        'I', new UnificationEntry(OrePrefix.plank, material),
+                        'S', stick);
+            } else {
+                addToolRecipe(material, ToolItems.SOFT_MALLET, true,
+                        "II ", "IIS", "II ",
+                        'I', new UnificationEntry(OrePrefix.ingot, material),
+                        'S', stick);
+
+                addToolRecipe(material, ToolItems.PLUNGER, true,
+                        "xPP", " SP", "S f",
+                        'P', new UnificationEntry(OrePrefix.plate, material),
+                        'S', stick);
+            }
+        }
     }
 
     private static void registerMortarRecipes() {

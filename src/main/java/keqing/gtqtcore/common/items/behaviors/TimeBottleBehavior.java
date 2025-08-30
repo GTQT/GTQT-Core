@@ -53,10 +53,10 @@ public class TimeBottleBehavior implements IItemBehaviour, ItemUIFactory {
 
     @Override
     public void onUpdate(ItemStack itemStack, Entity entity) {
-        if (!entity.world.isRemote) return;
+        if (entity.world.isRemote) return;
         if (++t >= 20 && entity instanceof EntityPlayer player) {
             t = 0;
-            for (int i = 0; i < player.inventory.getSizeInventory() && i < 48; i++) {
+            for (int i = 0; i < player.inventory.getSizeInventory(); i++) {
                 ItemStack invStack = player.inventory.getStackInSlot(i);
                 if (invStack.getItem() == GTQTMetaItems.GTQT_META_ITEM && invStack.getMetadata() == TIME_BOTTLE.getMetaValue()) {
                     if (itemStack.hasTagCompound()) {

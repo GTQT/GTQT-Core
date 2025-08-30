@@ -307,11 +307,37 @@ public class AE2MiscRecipes {
                 .input(dust, CertusQuartz, 2)
                 .input(dust, Electrum, 1)
                 .input(dust, Redstone, 1)
-                .circuitMeta(1)
+                .circuitMeta(4)
                 .fluidInputs(DistilledWater.getFluid(1000))
                 .output(dust, Fluix,4)
                 .EUt(VA[MV])
                 .duration(200)
+                .buildAndRegister();
+
+        MACERATOR_RECIPES.recipeBuilder()
+                .input("crystalFluix")
+                .output(dust, Fluix, 1)
+                .EUt(2)
+                .duration(20)
+                .buildAndRegister();
+        MACERATOR_RECIPES.recipeBuilder()
+                .input("crystalPureFluix")
+                .output(dust, Fluix, 1)
+                .EUt(2)
+                .duration(20)
+                .buildAndRegister();
+
+        MACERATOR_RECIPES.recipeBuilder()
+                .input("crystalCertusQuartz")
+                .output(dust, CertusQuartz, 1)
+                .EUt(2)
+                .duration(20)
+                .buildAndRegister();
+        MACERATOR_RECIPES.recipeBuilder()
+                .input("crystalPureCertusQuartz")
+                .output(dust, CertusQuartz, 1)
+                .EUt(2)
+                .duration(20)
                 .buildAndRegister();
 
         RecipeMaps.CIRCUIT_ASSEMBLER_RECIPES.recipeBuilder()

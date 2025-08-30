@@ -14,7 +14,9 @@ import gregtech.api.mui.GTGuiTextures;
 import gregtech.api.pattern.BlockPattern;
 import gregtech.api.pattern.FactoryBlockPattern;
 import gregtech.api.pattern.PatternMatchContext;
+import gregtech.api.recipes.Recipe;
 import gregtech.api.recipes.RecipeMaps;
+import gregtech.api.recipes.properties.impl.DimensionProperty;
 import gregtech.client.renderer.ICubeRenderer;
 import gregtech.client.renderer.texture.Textures;
 import gregtech.client.utils.TooltipHelper;
@@ -31,11 +33,10 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.SoundEvent;
-import net.minecraft.util.text.ITextComponent;
-import net.minecraft.util.text.TextComponentTranslation;
 import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
+import org.jetbrains.annotations.NotNull;
 
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
@@ -127,12 +128,6 @@ public class MetaTileEntityGasCollector extends RecipeMapMultiblockController {
                 0);
     }
 
-    @Override
-    protected void addDisplayText(List<ITextComponent> textList) {
-        super.addDisplayText(textList);
-        textList.add(new TextComponentTranslation("普适集气：%s", gasModel));
-    }
-
     public IBlockState getIntakeState() {
         return MetaBlocks.BOILER_CASING.getState(BlockBoilerCasing.BoilerCasingType.STEEL_PIPE);
     }
@@ -187,6 +182,16 @@ public class MetaTileEntityGasCollector extends RecipeMapMultiblockController {
 
         public GasCollectorWorkableHandler(RecipeMapMultiblockController tileEntity) {
             super(tileEntity);
+        }
+
+        @Override
+        protected boolean checkDimensionRequirement(@NotNull Recipe recipe) {
+            DimensionProperty.DimensionPropertyList list = recipe.getProperty(DimensionProperty.getInstance(), null);
+            if (list == null) {
+                return true;
+            }
+            if (gasModel) return list.checkDimension(0);
+            return list.checkDimension(this.getMetaTileEntity().getWorld().provider.getDimension());
         }
 
         @Override

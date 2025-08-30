@@ -131,8 +131,8 @@ public class MetaTileEntityMicrowaveEnergyReceiverControl extends MetaTileEntity
     public void addInformation(ItemStack stack, @Nullable World world, @Nonnull List<String> tooltip, boolean advanced) {
         super.addInformation(stack, world, tooltip, advanced);
         tooltip.add(I18n.format("本多方块允许使用能源仓，激光仓；最多可放置4个能源仓与一个激光仓。"));
-        tooltip.add(I18n.format("本多方块允许使用数据卡绑定蓄能变电站（PSS）"));
-        tooltip.add(I18n.format("在输入总线放置绑定微波仓（覆盖板）的数据卡来将其存入系统对其供能，绑定的微波仓需要在多方块的供能范围内，否则不会存入系统"));
+        tooltip.add(I18n.format("本多方块允许使用坐标绑定卡（id：417）绑定蓄能变电站（PSS）"));
+        tooltip.add(I18n.format("在输入总线放置绑定微波仓（覆盖板）的坐标绑定卡（id：417）来将其存入系统对其供能，绑定的微波仓需要在多方块的供能范围内，否则不会存入系统"));
         tooltip.add(I18n.format("升级结构来获得更大的供能范围与缓存电量,最大容量为 V[Math.min(heatingCoilLevel,9)]*16*coilHeight EU"));
         tooltip.add(I18n.format("最多管理：%s 个设备,升级线圈获得更多的管理容量", 64));
         tooltip.add(I18n.format("使用螺丝刀右键可以调整设备更新时间间隔(过大的时间间隔可能导致机器检测迟钝！)"));

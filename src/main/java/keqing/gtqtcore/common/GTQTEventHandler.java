@@ -1,6 +1,5 @@
 package keqing.gtqtcore.common;
 
-import com.google.common.collect.Lists;
 import gregtech.api.GregTechAPI;
 import gregtech.api.metatileentity.registry.MTEManager;
 import gregtech.api.unification.material.event.MaterialEvent;
@@ -8,15 +7,13 @@ import gregtech.api.unification.material.event.MaterialRegistryEvent;
 import gregtech.api.util.Mods;
 import gregtech.common.ConfigHolder;
 import keqing.gtqtcore.GTQTCore;
-import keqing.gtqtcore.GTQTCoreConfig;
 import keqing.gtqtcore.api.unification.GTQTMaterials;
 import keqing.gtqtcore.api.unification.OrePrefixAdditions;
+import keqing.gtqtcore.api.unification.matreials.SoftToolAddition;
 import keqing.gtqtcore.api.unification.ore.GTQTStoneTypes;
 import keqing.gtqtcore.api.utils.GTQTLog;
 import keqing.gtqtcore.loaders.recipes.handlers.OreRecipeHandler;
 import net.minecraft.block.Block;
-import net.minecraft.entity.player.EntityPlayerMP;
-import net.minecraft.item.crafting.CraftingManager;
 import net.minecraft.item.crafting.IRecipe;
 import net.minecraft.util.text.TextComponentString;
 import net.minecraftforge.event.RegistryEvent;
@@ -25,7 +22,6 @@ import net.minecraftforge.fml.common.eventhandler.EventPriority;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.common.gameevent.PlayerEvent;
 
-import java.util.ArrayList;
 import java.util.Objects;
 
 import static keqing.gtqtcore.GTQTCore.PACK;
@@ -56,6 +52,7 @@ public class GTQTEventHandler {
     public static void registerMaterials(MaterialEvent event) {
         GTQTMaterials.register();
         OrePrefixAdditions.init();
+        SoftToolAddition.register();
     }
 
     @SubscribeEvent(priority = EventPriority.HIGH)

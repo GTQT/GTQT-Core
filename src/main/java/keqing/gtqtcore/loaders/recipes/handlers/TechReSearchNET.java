@@ -1469,7 +1469,7 @@ public class TechReSearchNET {
                 .fluidInputs(Lubricant.getFluid(1000))
                 .output(MINI_DATE_BANK)
                 .scannerResearch(b -> b
-                        .researchStack(DATA_ACCESS_HATCH[3].getStackForm())
+                        .researchStack(DATA_ACCESS_HATCH[1].getStackForm())
                         .duration(1200)
                         .EUt(VA[EV]))
                 .duration(1200).EUt(4000).buildAndRegister();

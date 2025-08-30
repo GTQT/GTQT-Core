@@ -5051,10 +5051,10 @@ gtqtcore.multiblock.kqn.threshold_increment1=§a选取向后 10
 gtqtcore.multiblock.kqn.thresholdPercentage=研究序号：%s 研究大类：%s
 gtqtcore.machine.research_system_network.name=科研计算机
 
-gtqtcore.machine.kqnet.tooltip.1=提供算力，研究对象与数据卡，选定好研究项目即可开始研究
+gtqtcore.machine.kqnet.tooltip.1=提供算力，研究对象与数据绑定卡（），选定好研究项目即可开始研究
 gtqtcore.machine.kqnet.tooltip.2=在界面内使用按钮进行操作，在研究界面内可通过切换类型转换研究对象
-gtqtcore.machine.kqnet.tooltip.3=使用数据卡绑定附属结构控制器坐标后（须在控制器半径48格内）放入输入总线即可完成绑定，可在接入拓展列表内查看
-gtqtcore.machine.kqnet.tooltip.4=使用数据卡绑定数据库，计算机等结构可升级科研等级，可在科技等级列表内查看
+gtqtcore.machine.kqnet.tooltip.3=使用坐标绑定卡（id：417）绑定附属结构控制器坐标后（须在控制器半径48格内）放入输入总线即可完成绑定，可在接入拓展列表内查看
+gtqtcore.machine.kqnet.tooltip.4=使用坐标绑定卡（id：417）绑定数据库，计算机等结构可升级科研等级，可在科技等级列表内查看
 
 gtqtcore.multiblock.kqn.nb0=欢迎界面
 gtqtcore.multiblock.kqn.nx0=欢迎使用KQCC科研计算机集成系统！

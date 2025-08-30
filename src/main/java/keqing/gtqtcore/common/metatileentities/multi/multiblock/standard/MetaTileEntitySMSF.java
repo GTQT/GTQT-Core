@@ -49,7 +49,7 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.function.UnaryOperator;
 
-import static gregtech.api.GTValues.V;
+import static gregtech.api.GTValues.*;
 import static gregtech.api.unification.material.Materials.Steam;
 import static gregtech.api.util.RelativeDirection.*;
 
@@ -87,7 +87,7 @@ public class MetaTileEntitySMSF extends MultiMapMultiblockController implements 
             IMultipleTankHandler inputTank = getInputFluidInventory();
             if (STEAM.isFluidStackIdentical(inputTank.drain(STEAM, false))) {
                 inputTank.drain(STEAM, true);
-                steam[0] = steam[0] + 2000 * coilLevel;
+                steam[0] = steam[0] + 4000 * coilLevel;
 
             }
         }
@@ -190,10 +190,9 @@ public class MetaTileEntitySMSF extends MultiMapMultiblockController implements 
         }
 
         keyManager.add(KeyUtil.lang(TextFormatting.GREEN, "gtqtcore.msf.count2", syncer.syncDouble(steam[0] / 1000.0), syncer.syncDouble(steam[1] / 1000.0), syncer.syncDouble(steam[2] / 1000.0)));
-        if (syncer.syncBoolean(getStatue())) keyManager.add(KeyUtil.lang(TextFormatting.GREEN,
-                "gtqtcore.msf.good"));
-        else keyManager.add(KeyUtil.lang(TextFormatting.YELLOW,
-                "gtqtcore.msf.no"));
+        if (getStatue())
+            keyManager.add(KeyUtil.lang(TextFormatting.GREEN, "gtqtcore.msf.good"));
+        else keyManager.add(KeyUtil.lang(TextFormatting.YELLOW, "gtqtcore.msf.no"));
 
     }
 
@@ -316,10 +315,6 @@ public class MetaTileEntitySMSF extends MultiMapMultiblockController implements 
             return number;
         }
 
-        public long getMaxVoltage() {
-            return V[9];
-        }
-
         @Override
         public void setMaxProgress(int maxProgress) {
             if (getStatue()) {
@@ -341,6 +336,16 @@ public class MetaTileEntitySMSF extends MultiMapMultiblockController implements 
                     completeRecipe();
                 }
             }
+        }
+
+        @Override
+        public long getMaxVoltage() {
+            return Math.min(super.getMaxVoltage(), VA[UV]);
+        }
+
+        @Override
+        public long getMaximumOverclockVoltage() {
+            return Math.min(super.getMaximumOverclockVoltage(), VA[UHV]);
         }
     }
 }

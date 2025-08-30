@@ -48,7 +48,7 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.function.UnaryOperator;
 
-import static gregtech.api.GTValues.V;
+import static gregtech.api.GTValues.*;
 import static gregtech.api.unification.material.Materials.Steam;
 import static gregtech.api.util.RelativeDirection.*;
 
@@ -190,10 +190,9 @@ public class MetaTileEntityMSF extends MultiMapMultiblockController implements P
         }
 
         keyManager.add(KeyUtil.lang(TextFormatting.GREEN, "gtqtcore.msf.count2", syncer.syncDouble(steam[0] / 1000.0), syncer.syncDouble(steam[1] / 1000.0), syncer.syncDouble(steam[2] / 1000.0)));
-        if (syncer.syncBoolean(getStatue())) keyManager.add(KeyUtil.lang(TextFormatting.GREEN,
-                "gtqtcore.msf.good"));
-        else keyManager.add(KeyUtil.lang(TextFormatting.YELLOW,
-                "gtqtcore.msf.no"));
+        if (getStatue())
+            keyManager.add(KeyUtil.lang(TextFormatting.GREEN, "gtqtcore.msf.good"));
+        else keyManager.add(KeyUtil.lang(TextFormatting.YELLOW, "gtqtcore.msf.no"));
 
     }
 
@@ -309,15 +308,11 @@ public class MetaTileEntityMSF extends MultiMapMultiblockController implements P
             return number;
         }
 
-        public long getMaxVoltage() {
-            return V[5];
-        }
-
         @Override
         public void setMaxProgress(int maxProgress) {
             if (getStatue()) {
-                super.setMaxProgress((int) (maxProgress * 0.6));
-            } else super.setMaxProgress((int) (maxProgress * 0.8));
+                super.setMaxProgress((int) (maxProgress * 0.8));
+            } else super.setMaxProgress((int) (maxProgress * 0.9));
         }
 
         public boolean getStatue() {
@@ -334,6 +329,16 @@ public class MetaTileEntityMSF extends MultiMapMultiblockController implements P
                     completeRecipe();
                 }
             }
+        }
+
+        @Override
+        public long getMaxVoltage() {
+            return Math.min(super.getMaxVoltage(), VA[EV]);
+        }
+
+        @Override
+        public long getMaximumOverclockVoltage() {
+            return Math.min(super.getMaximumOverclockVoltage(), VA[IV]);
         }
     }
 }

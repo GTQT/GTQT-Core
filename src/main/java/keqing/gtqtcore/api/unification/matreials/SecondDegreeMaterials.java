@@ -1281,15 +1281,8 @@ public class SecondDegreeMaterials {
                 .flags(DISABLE_DECOMPOSITION)
                 .build();
 
-        // 5047 Chromium Doped Molybdenite
-        ChromiumDopedMolybdenite = new Material.Builder(getMaterialsId(), gtqtcoreId("chromium_doped_molybdenite"))
-                .dust()
-                .color(0x9C5fB5)
-                .iconSet(ROUGH)
-                .flags(DISABLE_DECOMPOSITION)
-                .components(Chrome, 1, Molybdenite, 1)
-                .build()
-                .setFormula("Cr:MoS2", true);
+        //TODO
+        startId++;
 
         // 20018 Polyurethane Resin
         PolyurethaneResin = new Material.Builder(getMaterialsId(), gtqtcoreId("polyurethane_resin"))
