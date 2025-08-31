@@ -178,9 +178,11 @@ public class AlgaeFarmLogic {
         }
 
         CountOutMultiplier();
+
         progressTime++;
-        if (progressTime % (int)(MAX_PROGRESS /Math.pow(2,(double) this.CasingTier-1)) != 0)
+        if (progressTime <= (int)(MAX_PROGRESS / Math.pow(2,(double) this.CasingTier-1)))
             return;
+
         progressTime = 0;
         int x = new Random().nextInt(5);
         //褐藻

@@ -7,6 +7,7 @@ import gregtech.api.metatileentity.multiblock.MultiblockAbility;
 import gregtech.api.pattern.BlockPattern;
 import gregtech.api.pattern.FactoryBlockPattern;
 import gregtech.api.pattern.PatternMatchContext;
+import gregtech.api.recipes.Recipe;
 import gregtech.api.recipes.RecipeMaps;
 import gregtech.client.renderer.ICubeRenderer;
 import gregtech.client.renderer.texture.Textures;
@@ -47,6 +48,11 @@ public class MetaTileEntityHeatFurnace extends RecipeMapHeatMultiblockController
         tooltip.add(TooltipHelper.RAINBOW_SLOW + I18n.format("黄焖鸡米饭"));
         super.addInformation(stack, player, tooltip, advanced);
         tooltip.add(I18n.format("拥有32并行，熔炉配方默认最低温度500k"));
+    }
+
+    public boolean checkRecipe(@Nonnull Recipe recipe, boolean consumeIfSuccess) {
+        if (getHeat() < 500) return false;
+        return super.checkRecipe(recipe, consumeIfSuccess);
     }
 
     @Override
