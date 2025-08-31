@@ -193,6 +193,7 @@ public class PlatinumGroupProcessing {
                 .notConsumable(dust, SodiumHydroxide)
                 .fluidInputs(Methanol.getFluid(1000))
                 .fluidInputs(CarbonMonoxide.getFluid(1000))
+                .circuitMeta(2)
                 .fluidOutputs(GTQTMaterials.MethylFormate.getFluid(1000))
                 .duration(16)
                 .EUt(VA[LV])

@@ -158,7 +158,7 @@ public class PhotoresistChains {
                 .EUt(VA[LV])
                 .fluidInputs(HydrochloricAcid.getFluid(2000))
                 .fluidInputs(Chloromethane.getFluid(1000))
-                .input(dustSmall, Silicon,9)
+                .input(dust, Silicon,1)
                 .circuitMeta(2)
                 .fluidOutputs(Hydrogen.getFluid(2000))
                 .fluidOutputs(GTQTMaterials.Methyltrichlorosilane.getFluid(1000))
