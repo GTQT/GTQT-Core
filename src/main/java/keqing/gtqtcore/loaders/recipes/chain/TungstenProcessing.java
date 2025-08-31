@@ -4,14 +4,14 @@ import gregtech.api.recipes.GTRecipeHandler;
 import gregtech.api.recipes.RecipeMaps;
 import gregtech.api.unification.OreDictUnifier;
 
-import static gregtech.api.recipes.RecipeMaps.*;
-import static keqing.gtqtcore.api.recipes.GTQTcoreRecipeMaps.DRYER_RECIPES;
-import static keqing.gtqtcore.api.recipes.GTQTcoreRecipeMaps.SFM;
 import static gregtech.api.GTValues.EV;
 import static gregtech.api.GTValues.VA;
+import static gregtech.api.recipes.RecipeMaps.*;
 import static gregtech.api.unification.material.Materials.*;
 import static gregtech.api.unification.ore.OrePrefix.dust;
 import static gregtech.api.unification.ore.OrePrefix.ingotHot;
+import static keqing.gtqtcore.api.recipes.GTQTcoreRecipeMaps.DRYER_RECIPES;
+import static keqing.gtqtcore.api.recipes.GTQTcoreRecipeMaps.SFM;
 import static keqing.gtqtcore.api.unification.GTQTMaterials.*;
 
 /**
@@ -40,24 +40,26 @@ public class TungstenProcessing {
 
     private static void tungstenChain() {
         //1倍
-        // 化反H2O(WO3) +氨气+水=钨酸铵
+        // 化反H2O(WO3) +氨气+水=钨酸铵 （NH4)6W7024•6H20
         CHEMICAL_RECIPES.recipeBuilder()
                 .input(dust, TungsticAcid, 7)
                 .fluidInputs(Ammonia.getFluid(6000))
                 .fluidInputs(Water.getFluid(6000))
                 .fluidOutputs(AmmoniumTungstate.getFluid(7000))
                 .duration(200).EUt(480).buildAndRegister();
+
         // 结晶 钨酸铵 = 钨酸铵晶体
         AUTOCLAVE_RECIPES.recipeBuilder()
                 .fluidInputs(AmmoniumTungstate.getFluid(7000))
                 .output(dust,CammoniumTungstate,7)
                 .duration(400).EUt(480).buildAndRegister();
+
         // 钨酸铵-> WO3 + H2O
         BLAST_RECIPES.recipeBuilder()
                 .input(dust, CammoniumTungstate, 7)
                 .output(dust, TungstenTrioxide, 4)
                 .fluidOutputs(Water.getFluid(6000))
-                .fluidInputs(Ammonia.getFluid(6000))
+                .fluidOutputs(Ammonia.getFluid(6000))
                 .blastFurnaceTemp(3600)
                 .duration(400).EUt(480).buildAndRegister();
 

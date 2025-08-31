@@ -3,7 +3,6 @@ package keqing.gtqtcore.loaders.recipes.chain;
 import gregtech.api.metatileentity.multiblock.CleanroomType;
 import gregtech.api.recipes.GTRecipeHandler;
 
-
 import static gregtech.api.GTValues.*;
 import static gregtech.api.recipes.RecipeMaps.*;
 import static gregtech.api.unification.material.Materials.*;
@@ -82,7 +81,7 @@ public class NaquadahChain {
 
         CHEMICAL_RECIPES.recipeBuilder()
                 .fluidInputs(WasteFluorine.getFluid(1500))
-                .input(dust,Quicklime,30)
+                .input(dust, Quicklime, 20)
                 .fluidOutputs(WasteLiquid.getFluid(1000))
                 .output(dust,CalciumDifluoride,30)
                 .duration(1000).EUt(VA[IV]).buildAndRegister();

@@ -56,7 +56,7 @@ public class PEEKChain {
                 .fluidInputs(Propene.getFluid(1000))
                 .fluidInputs(Benzene.getFluid(1000))
                 .fluidInputs(Oxygen.getFluid(3000))
-                .circuitMeta(0)
+                .circuitMeta(10)
                 .fluidOutputs(GTQTMaterials.Hydroquinone.getFluid(1000))
                 .fluidOutputs(GTQTMaterials.Resorcinol.getFluid(1000))
                 .fluidOutputs(Acetone.getFluid(1000))
