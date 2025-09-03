@@ -431,7 +431,7 @@ public class OilChains {
 
         OIL_POOL.recipeBuilder()
                 .fluidInputs(OilHeavy.getFluid(4000))
-                .fluidInputs(Demulsifier.getFluid(25))
+                .fluidInputs(Demulsifier.getFluid(100))
                 .fluidOutputs(PreTreatedCrudeOilContainingImpurities.getFluid(4000))
                 .fluidOutputs(SaltWater.getFluid(200))
                 .duration(100)
@@ -439,7 +439,7 @@ public class OilChains {
 
         OIL_POOL.recipeBuilder()
                 .fluidInputs(OilLight.getFluid(4000))
-                .fluidInputs(Demulsifier.getFluid(25))
+                .fluidInputs(Demulsifier.getFluid(100))
                 .fluidOutputs(PreTreatedCrudeOilContainingImpurities.getFluid(4000))
                 .fluidOutputs(SaltWater.getFluid(200))
                 .duration(100)
@@ -447,7 +447,7 @@ public class OilChains {
 
         OIL_POOL.recipeBuilder()
                 .fluidInputs(Oil.getFluid(4000))
-                .fluidInputs(Demulsifier.getFluid(25))
+                .fluidInputs(Demulsifier.getFluid(100))
                 .fluidOutputs(PreTreatedCrudeOilContainingImpurities.getFluid(4000))
                 .fluidOutputs(SaltWater.getFluid(200))
                 .duration(100)
@@ -486,40 +486,41 @@ public class OilChains {
                 .duration(40)
                 .EUt(480)
                 .buildAndRegister();
+
         //
         CLARIFIER.recipeBuilder()
                 .input(dust,Alunite)
-                .fluidInputs(RawOil.getFluid(8000))
+                .fluidInputs(RawOil.getFluid(16000))
                 .fluidInputs(Demulsifier.getFluid(10))
-                .fluidOutputs(PreTreatedCrudeOil.getFluid(8000))
-                .fluidOutputs(SaltWater.getFluid(400))
+                .fluidOutputs(PreTreatedCrudeOil.getFluid(16000))
+                .fluidOutputs(SaltWater.getFluid(800))
                 .duration(6400)
                 .buildAndRegister();
 
         CLARIFIER.recipeBuilder()
                 .input(dust,Alunite)
-                .fluidInputs(OilHeavy.getFluid(8000))
+                .fluidInputs(OilHeavy.getFluid(16000))
                 .fluidInputs(Demulsifier.getFluid(10))
-                .fluidOutputs(PreTreatedCrudeOil.getFluid(8000))
-                .fluidOutputs(SaltWater.getFluid(400))
+                .fluidOutputs(PreTreatedCrudeOil.getFluid(16000))
+                .fluidOutputs(SaltWater.getFluid(800))
                 .duration(6400)
                 .buildAndRegister();
 
         CLARIFIER.recipeBuilder()
                 .input(dust,Alunite)
-                .fluidInputs(OilLight.getFluid(8000))
+                .fluidInputs(OilLight.getFluid(16000))
                 .fluidInputs(Demulsifier.getFluid(10))
-                .fluidOutputs(PreTreatedCrudeOil.getFluid(8000))
-                .fluidOutputs(SaltWater.getFluid(400))
+                .fluidOutputs(PreTreatedCrudeOil.getFluid(16000))
+                .fluidOutputs(SaltWater.getFluid(800))
                 .duration(6400)
                 .buildAndRegister();
 
         CLARIFIER.recipeBuilder()
                 .input(dust,Alunite)
-                .fluidInputs(Oil.getFluid(8000))
+                .fluidInputs(Oil.getFluid(16000))
                 .fluidInputs(Demulsifier.getFluid(10))
-                .fluidOutputs(PreTreatedCrudeOil.getFluid(8000))
-                .fluidOutputs(SaltWater.getFluid(400))
+                .fluidOutputs(PreTreatedCrudeOil.getFluid(16000))
+                .fluidOutputs(SaltWater.getFluid(800))
                 .duration(6400)
                 .buildAndRegister();
 

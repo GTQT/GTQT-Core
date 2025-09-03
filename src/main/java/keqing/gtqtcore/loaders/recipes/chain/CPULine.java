@@ -290,7 +290,7 @@ public class CPULine {
                 .inputs(HULL[2].getStackForm(4))
                 .input(EMITTER_LV, 8)
                 .input(SENSOR_LV, 8)
-                .input(circuit, MarkerMaterials.Tier.MV, 16)
+                .input(circuit, MarkerMaterials.Tier.MV, 4)
                 .input(plate, Invar, 32)
                 .input(gear, Aluminium, 8)
                 .input(OPTICAL_PIPES[0], 32)

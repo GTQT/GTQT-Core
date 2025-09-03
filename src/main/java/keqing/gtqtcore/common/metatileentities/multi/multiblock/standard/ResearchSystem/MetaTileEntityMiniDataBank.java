@@ -102,7 +102,7 @@ public class MetaTileEntityMiniDataBank extends MultiblockWithDisplayBase implem
 
     @Override
     protected void updateFormedValid() {
-        if (!isWorkingEnabled) {
+        if (!this.isWorkingEnabled) {
             this.hasNotEnoughEnergy = false;
             setActive(false);
             return;

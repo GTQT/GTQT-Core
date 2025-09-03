@@ -7,7 +7,6 @@ import gregicality.multiblocks.common.block.blocks.BlockUniqueCasing;
 import gregtech.api.GTValues;
 import gregtech.api.block.IHeatingCoilBlockStats;
 import gregtech.api.capability.IHeatingCoil;
-import gregtech.api.capability.IMultipleTankHandler;
 import gregtech.api.metatileentity.MetaTileEntity;
 import gregtech.api.metatileentity.interfaces.IGregTechTileEntity;
 import gregtech.api.metatileentity.multiblock.IMultiblockPart;
@@ -217,11 +216,10 @@ public class MetaTileEntityBlazingCZPuller extends GTQTNoTierMultiblockControlle
     }
 
     public boolean drainPyrotheum(boolean sim) {
-        IMultipleTankHandler inputTank = getInputFluidInventory();
         if (!sim && !isStructureFormed()) return false;
-        if (inputTank != null) {
-            if (pyrotheumFluid.isFluidStackIdentical(inputTank.drain(pyrotheumFluid, false))) {
-                inputTank.drain(pyrotheumFluid, sim);
+        if (getInputFluidInventory() != null) {
+            if (pyrotheumFluid.isFluidStackIdentical(getInputFluidInventory().drain(pyrotheumFluid, false))) {
+                getInputFluidInventory().drain(pyrotheumFluid, sim);
                 return true;
             }
         }

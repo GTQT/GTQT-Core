@@ -40,104 +40,104 @@ public class GTQTMetaItem1 extends StandardMetaItem {
     public void registerSubItems() {
 
         //基础材料
-        IMPREGNATED_GRAPHITE_RODSA = this.addItem(1, "item.impregnated_graphite_rodsa").setMaxStackSize(64).setCreativeTabs(CommonProxy.GTQTCore_CH);
-        IMPREGNATED_GRAPHITE_RODS = this.addItem(2, "item.impregnated_graphite_rods").setMaxStackSize(64).setCreativeTabs(CommonProxy.GTQTCore_CH);
+        IMPREGNATED_GRAPHITE_RODSA = this.addItem(1, "item.impregnated_graphite_rodsa").setCreativeTabs(CommonProxy.GTQTCore_CH);
+        IMPREGNATED_GRAPHITE_RODS = this.addItem(2, "item.impregnated_graphite_rods").setCreativeTabs(CommonProxy.GTQTCore_CH);
         //绝缘云母
-        INSULATINGMICA = this.addItem(3, "item.insulatingmica").setMaxStackSize(64).setCreativeTabs(CommonProxy.GTQTCore_CH);
+        INSULATINGMICA = this.addItem(3, "item.insulatingmica").setCreativeTabs(CommonProxy.GTQTCore_CH);
 
         //其他燃料
-        JIAO_XIAN_REN_ZHANG = this.addItem(20, "fuel.jiaoxianrenzhang").setBurnValue(9600).setMaxStackSize(64).setCreativeTabs(CommonProxy.GTQTCore_BIO);
-        NONG_SUO_XIAN_REN_ZHANG = this.addItem(21, "fuel.nongsuoxianrenzhang").setBurnValue(16000).setMaxStackSize(64).setCreativeTabs(CommonProxy.GTQTCore_BIO);
-        JIAO_TANG_JIAO = this.addItem(22, "fuel.tangjiao").setBurnValue(9600).setMaxStackSize(64).setCreativeTabs(CommonProxy.GTQTCore_BIO);
-        NONG_SUO_TANG_JIAO = this.addItem(23, "fuel.tangtan").setBurnValue(16000).setMaxStackSize(64).setCreativeTabs(CommonProxy.GTQTCore_BIO);
-        ZHU_TAN = this.addItem(24, "fuel.zhutan").setBurnValue(12800).setMaxStackSize(64).setCreativeTabs(CommonProxy.GTQTCore_BIO);
+        JIAO_XIAN_REN_ZHANG = this.addItem(20, "fuel.jiaoxianrenzhang").setBurnValue(9600).setCreativeTabs(CommonProxy.GTQTCore_BIO);
+        NONG_SUO_XIAN_REN_ZHANG = this.addItem(21, "fuel.nongsuoxianrenzhang").setBurnValue(16000).setCreativeTabs(CommonProxy.GTQTCore_BIO);
+        JIAO_TANG_JIAO = this.addItem(22, "fuel.tangjiao").setBurnValue(9600).setCreativeTabs(CommonProxy.GTQTCore_BIO);
+        NONG_SUO_TANG_JIAO = this.addItem(23, "fuel.tangtan").setBurnValue(16000).setCreativeTabs(CommonProxy.GTQTCore_BIO);
+        ZHU_TAN = this.addItem(24, "fuel.zhutan").setBurnValue(12800).setCreativeTabs(CommonProxy.GTQTCore_BIO);
 
         //
-        SCRAP = this.addItem(27, "scrap").setCreativeTabs(CommonProxy.GTQTCore_HP).setMaxStackSize(64);
+        SCRAP = this.addItem(27, "scrap").setCreativeTabs(CommonProxy.GTQTCore_HP);
         CD_ROM = this.addItem(28, "cd_rom").setCreativeTabs(CommonProxy.GTQTCore_HP).setMaxStackSize(16).addComponents(new DataItemBehavior(true));
-        UU_MATER = this.addItem(29, "uu_mater").setCreativeTabs(CommonProxy.GTQTCore_HP).setMaxStackSize(64);
+        UU_MATER = this.addItem(29, "uu_mater").setCreativeTabs(CommonProxy.GTQTCore_HP);
         //快乐海藻
-        COMMON_ALGAE = this.addItem(30, "algae.common").setMaxStackSize(64).setCreativeTabs(CommonProxy.GTQTCore_BIO).addOreDict("algaeOrdinary");
-        GREEN_ALGAE = this.addItem(31, "algae.green").setMaxStackSize(64).setCreativeTabs(CommonProxy.GTQTCore_BIO).addOreDict("algaeGreen");
-        RED_ALGAE = this.addItem(32, "algae.red").setMaxStackSize(64).setCreativeTabs(CommonProxy.GTQTCore_BIO).addOreDict("algaeRed");
-        BROWN_ALGAE = this.addItem(33, "algae.brown").setMaxStackSize(64).setCreativeTabs(CommonProxy.GTQTCore_BIO).addOreDict("algaeBrown");
-        GOLD_ALGAE = this.addItem(34, "algae.gold").setMaxStackSize(64).setCreativeTabs(CommonProxy.GTQTCore_BIO).addOreDict("algaeGold");
-        T_ALGAE = this.addItem(35, "algae.t").setMaxStackSize(64).setCreativeTabs(CommonProxy.GTQTCore_BIO);
+        COMMON_ALGAE = this.addItem(30, "algae.common").setCreativeTabs(CommonProxy.GTQTCore_BIO).addOreDict("algaeOrdinary");
+        GREEN_ALGAE = this.addItem(31, "algae.green").setCreativeTabs(CommonProxy.GTQTCore_BIO).addOreDict("algaeGreen");
+        RED_ALGAE = this.addItem(32, "algae.red").setCreativeTabs(CommonProxy.GTQTCore_BIO).addOreDict("algaeRed");
+        BROWN_ALGAE = this.addItem(33, "algae.brown").setCreativeTabs(CommonProxy.GTQTCore_BIO).addOreDict("algaeBrown");
+        GOLD_ALGAE = this.addItem(34, "algae.gold").setCreativeTabs(CommonProxy.GTQTCore_BIO).addOreDict("algaeGold");
+        T_ALGAE = this.addItem(35, "algae.t").setCreativeTabs(CommonProxy.GTQTCore_BIO);
 
-        BIOLOGY_INTEGRATED_CIRCUIT = this.addItem(40, "item.biology_integrated_circuit").setMaxStackSize(64).setCreativeTabs(CommonProxy.GTQTCore_BIO).addComponents(new IntBcircuitBehavior());
-        ROUGH_BIOLOGY_RESIN = this.addItem(41, "item.biology_resin").setMaxStackSize(64).setCreativeTabs(CommonProxy.GTQTCore_BIO);
-        PURIFIED_ALUMINIUM_MIXTURE = this.addItem(42, "item.aluminium_mixture").setMaxStackSize(64).setCreativeTabs(CommonProxy.GTQTCore_BIO);
-        CELLULOSE_PULP = this.addItem(43, "item.cellulose_pulp").setMaxStackSize(64).setCreativeTabs(CommonProxy.GTQTCore_BIO);
-        CELLULOSE_FIBER_GREEN = this.addItem(44, "item.cellulose_fiber_green").setMaxStackSize(64).setCreativeTabs(CommonProxy.GTQTCore_BIO);
-        CELLULOSE_FIBER_RED = this.addItem(45, "item.cellulose_fiber_red").setMaxStackSize(64).setCreativeTabs(CommonProxy.GTQTCore_BIO);
-        CELLULOSE_FIBER_YELLOW = this.addItem(46, "item.cellulose_fiber_yellow").setMaxStackSize(64).setCreativeTabs(CommonProxy.GTQTCore_BIO);
-        PINE_CONE = this.addItem(47, "item.pine_cone").setMaxStackSize(64).setCreativeTabs(CommonProxy.GTQTCore_BIO);
-        PINE_FRAGMENT = this.addItem(48, "item.pine_fragment").setMaxStackSize(64).setCreativeTabs(CommonProxy.GTQTCore_BIO);
-        COMPOST = this.addItem(49, "item.compost").setMaxStackSize(64).setCreativeTabs(CommonProxy.GTQTCore_BIO);
-        ALGAE_ACID = this.addItem(50, "item.algae_acid").setMaxStackSize(64).setCreativeTabs(CommonProxy.GTQTCore_BIO);
-        WOOD_PELLETS = this.addItem(51, "item.wood_pellets").setMaxStackSize(64).setCreativeTabs(CommonProxy.GTQTCore_BIO);
-        PELLETS_MOULD = this.addItem(52, "item.pellets_mould").setMaxStackSize(64).setCreativeTabs(CommonProxy.GTQTCore_BIO);
-        ALUMINIUM_PELLETS = this.addItem(53, "item.aluminium_pellets").setMaxStackSize(64).setCreativeTabs(CommonProxy.GTQTCore_BIO);
-        POTASSIUM_ETHYLATE = this.addItem(54, "item.potassium.ethylate").setMaxStackSize(64).setCreativeTabs(CommonProxy.GTQTCore_BIO);
-        POTASSIUM_ETHYLXANTHATE = this.addItem(55, "item.potassium.ethylxanthate").setMaxStackSize(64).setCreativeTabs(CommonProxy.GTQTCore_BIO);
-        SODIUM_ETHYLXANTHATE = this.addItem(56, "item.sodium.ethylxanthate").setMaxStackSize(64).setCreativeTabs(CommonProxy.GTQTCore_BIO);
-        SODIUM_ETHYLATE = this.addItem(57, "item.sodium.ethylate").setMaxStackSize(64).setCreativeTabs(CommonProxy.GTQTCore_BIO);
+        BIOLOGY_INTEGRATED_CIRCUIT = this.addItem(40, "item.biology_integrated_circuit").setCreativeTabs(CommonProxy.GTQTCore_BIO).addComponents(new IntBcircuitBehavior());
+        ROUGH_BIOLOGY_RESIN = this.addItem(41, "item.biology_resin").setCreativeTabs(CommonProxy.GTQTCore_BIO);
+        PURIFIED_ALUMINIUM_MIXTURE = this.addItem(42, "item.aluminium_mixture").setCreativeTabs(CommonProxy.GTQTCore_BIO);
+        CELLULOSE_PULP = this.addItem(43, "item.cellulose_pulp").setCreativeTabs(CommonProxy.GTQTCore_BIO);
+        CELLULOSE_FIBER_GREEN = this.addItem(44, "item.cellulose_fiber_green").setCreativeTabs(CommonProxy.GTQTCore_BIO);
+        CELLULOSE_FIBER_RED = this.addItem(45, "item.cellulose_fiber_red").setCreativeTabs(CommonProxy.GTQTCore_BIO);
+        CELLULOSE_FIBER_YELLOW = this.addItem(46, "item.cellulose_fiber_yellow").setCreativeTabs(CommonProxy.GTQTCore_BIO);
+        PINE_CONE = this.addItem(47, "item.pine_cone").setCreativeTabs(CommonProxy.GTQTCore_BIO);
+        PINE_FRAGMENT = this.addItem(48, "item.pine_fragment").setCreativeTabs(CommonProxy.GTQTCore_BIO);
+        COMPOST = this.addItem(49, "item.compost").setCreativeTabs(CommonProxy.GTQTCore_BIO);
+        ALGAE_ACID = this.addItem(50, "item.algae_acid").setCreativeTabs(CommonProxy.GTQTCore_BIO);
+        WOOD_PELLETS = this.addItem(51, "item.wood_pellets").setCreativeTabs(CommonProxy.GTQTCore_BIO);
+        PELLETS_MOULD = this.addItem(52, "item.pellets_mould").setCreativeTabs(CommonProxy.GTQTCore_BIO);
+        ALUMINIUM_PELLETS = this.addItem(53, "item.aluminium_pellets").setCreativeTabs(CommonProxy.GTQTCore_BIO);
+        POTASSIUM_ETHYLATE = this.addItem(54, "item.potassium.ethylate").setCreativeTabs(CommonProxy.GTQTCore_BIO);
+        POTASSIUM_ETHYLXANTHATE = this.addItem(55, "item.potassium.ethylxanthate").setCreativeTabs(CommonProxy.GTQTCore_BIO);
+        SODIUM_ETHYLXANTHATE = this.addItem(56, "item.sodium.ethylxanthate").setCreativeTabs(CommonProxy.GTQTCore_BIO);
+        SODIUM_ETHYLATE = this.addItem(57, "item.sodium.ethylate").setCreativeTabs(CommonProxy.GTQTCore_BIO);
 
-        RETICLE_ADVANCED_SYSTEM_ON_CHIP = this.addItem(58, "reticle.advanced_system_on_chip").setMaxStackSize(64).setCreativeTabs(CommonProxy.GTQTCore_CO);
-        RETICLE_CENTRAL_PROCESSING_UNIT = this.addItem(59, "reticle.central_processing_unit").setMaxStackSize(64).setCreativeTabs(CommonProxy.GTQTCore_CO);
-        //RETICLE_HIGH_POWER_INTEGRATED_CIRCUIT = this.addItem(60, "reticle.high_power_integrated_circuit").setMaxStackSize(64).setCreativeTabs(CommonProxy.GTQTCore_CO);
-        RETICLE_HIGHLY_ADVANCED_SYSTEM_ON_CHIP = this.addItem(61, "reticle.highly_advanced_system_on_chip").setMaxStackSize(64).setCreativeTabs(CommonProxy.GTQTCore_CO);
-        RETICLE_INTEGRATED_LOGIC_CIRCUIT = this.addItem(62, "reticle.integrated_logic_circuit").setMaxStackSize(64).setCreativeTabs(CommonProxy.GTQTCore_CO);
-        RETICLE_LOW_POWER_INTEGRATED_CIRCUIT = this.addItem(63, "reticle.low_power_integrated_circuit").setMaxStackSize(64).setCreativeTabs(CommonProxy.GTQTCore_CO);
-        RETICLE_NAND_MEMORY_CHIP = this.addItem(64, "reticle.nand_memory_chip").setMaxStackSize(64).setCreativeTabs(CommonProxy.GTQTCore_CO);
-        //RETICLE_NANO_CENTRAL_PROCESSING_UNIT = this.addItem(65, "reticle.nano_central_processing_unit").setMaxStackSize(64).setCreativeTabs(CommonProxy.GTQTCore_CO);
-        RETICLE_NOR_MEMORY_CHIP = this.addItem(66, "reticle.nor_memory_chip").setMaxStackSize(64).setCreativeTabs(CommonProxy.GTQTCore_CO);
-        RETICLE_POWER_INTEGRATED_CIRCUIT = this.addItem(67, "reticle.power_integrated_circuit").setMaxStackSize(64).setCreativeTabs(CommonProxy.GTQTCore_CO);
-        //RETICLE_QBIT_CENTRAL_PROCESSING_UNIT = this.addItem(68, "reticle.qbit_central_processing_unit").setMaxStackSize(64).setCreativeTabs(CommonProxy.GTQTCore_CO);
-        RETICLE_RANDOM_ACCESS_MEMORY = this.addItem(69, "reticle.random_access_memory").setMaxStackSize(64).setCreativeTabs(CommonProxy.GTQTCore_CO);
-        RETICLE_SIMPLE_SYSTEM_ON_CHIP = this.addItem(70, "reticle.simple_system_on_chip").setMaxStackSize(64).setCreativeTabs(CommonProxy.GTQTCore_CO);
-        RETICLE_SYSTEM_ON_CHIP = this.addItem(71, "reticle.system_on_chip").setMaxStackSize(64).setCreativeTabs(CommonProxy.GTQTCore_CO);
-        //RETICLE_ULTRA_HIGH_POWER_INTEGRATED_CIRCUIT = this.addItem(72, "reticle.ultra_high_power_integrated_circuit").setMaxStackSize(64).setCreativeTabs(CommonProxy.GTQTCore_CO);
-        RETICLE_ULTRA_LOW_POWER_INTEGRATED_CIRCUIT = this.addItem(73, "reticle.ultra_low_power_integrated_circuit").setMaxStackSize(64).setCreativeTabs(CommonProxy.GTQTCore_CO);
-        RETICLE_SILICON = this.addItem(74, "reticle.silicon").setMaxStackSize(64).setCreativeTabs(CommonProxy.GTQTCore_CO);
+        RETICLE_ADVANCED_SYSTEM_ON_CHIP = this.addItem(58, "reticle.advanced_system_on_chip").setCreativeTabs(CommonProxy.GTQTCore_CO);
+        RETICLE_CENTRAL_PROCESSING_UNIT = this.addItem(59, "reticle.central_processing_unit").setCreativeTabs(CommonProxy.GTQTCore_CO);
+        //RETICLE_HIGH_POWER_INTEGRATED_CIRCUIT = this.addItem(60, "reticle.high_power_integrated_circuit").setCreativeTabs(CommonProxy.GTQTCore_CO);
+        RETICLE_HIGHLY_ADVANCED_SYSTEM_ON_CHIP = this.addItem(61, "reticle.highly_advanced_system_on_chip").setCreativeTabs(CommonProxy.GTQTCore_CO);
+        RETICLE_INTEGRATED_LOGIC_CIRCUIT = this.addItem(62, "reticle.integrated_logic_circuit").setCreativeTabs(CommonProxy.GTQTCore_CO);
+        RETICLE_LOW_POWER_INTEGRATED_CIRCUIT = this.addItem(63, "reticle.low_power_integrated_circuit").setCreativeTabs(CommonProxy.GTQTCore_CO);
+        RETICLE_NAND_MEMORY_CHIP = this.addItem(64, "reticle.nand_memory_chip").setCreativeTabs(CommonProxy.GTQTCore_CO);
+        //RETICLE_NANO_CENTRAL_PROCESSING_UNIT = this.addItem(65, "reticle.nano_central_processing_unit").setCreativeTabs(CommonProxy.GTQTCore_CO);
+        RETICLE_NOR_MEMORY_CHIP = this.addItem(66, "reticle.nor_memory_chip").setCreativeTabs(CommonProxy.GTQTCore_CO);
+        RETICLE_POWER_INTEGRATED_CIRCUIT = this.addItem(67, "reticle.power_integrated_circuit").setCreativeTabs(CommonProxy.GTQTCore_CO);
+        //RETICLE_QBIT_CENTRAL_PROCESSING_UNIT = this.addItem(68, "reticle.qbit_central_processing_unit").setCreativeTabs(CommonProxy.GTQTCore_CO);
+        RETICLE_RANDOM_ACCESS_MEMORY = this.addItem(69, "reticle.random_access_memory").setCreativeTabs(CommonProxy.GTQTCore_CO);
+        RETICLE_SIMPLE_SYSTEM_ON_CHIP = this.addItem(70, "reticle.simple_system_on_chip").setCreativeTabs(CommonProxy.GTQTCore_CO);
+        RETICLE_SYSTEM_ON_CHIP = this.addItem(71, "reticle.system_on_chip").setCreativeTabs(CommonProxy.GTQTCore_CO);
+        //RETICLE_ULTRA_HIGH_POWER_INTEGRATED_CIRCUIT = this.addItem(72, "reticle.ultra_high_power_integrated_circuit").setCreativeTabs(CommonProxy.GTQTCore_CO);
+        RETICLE_ULTRA_LOW_POWER_INTEGRATED_CIRCUIT = this.addItem(73, "reticle.ultra_low_power_integrated_circuit").setCreativeTabs(CommonProxy.GTQTCore_CO);
+        RETICLE_SILICON = this.addItem(74, "reticle.silicon").setCreativeTabs(CommonProxy.GTQTCore_CO);
 
         //AE
         //神秘硅束
-        AE_SILICON = this.addItem(75, "ae.silicon").setMaxStackSize(64).setCreativeTabs(CommonProxy.GTQTCore_NE);
+        AE_SILICON = this.addItem(75, "ae.silicon").setCreativeTabs(CommonProxy.GTQTCore_NE);
         //神秘硅晶
-        AE_WAFER = this.addItem(76, "ae.wafer").setMaxStackSize(64).setCreativeTabs(CommonProxy.GTQTCore_NE);
+        AE_WAFER = this.addItem(76, "ae.wafer").setCreativeTabs(CommonProxy.GTQTCore_NE);
         //掺杂晶圆*3
-        AE_WAFER_LOGIC = this.addItem(80, "ae.wafera").setMaxStackSize(64).setCreativeTabs(CommonProxy.GTQTCore_NE);
-        AE_WAFER_CALCULATION = this.addItem(81, "ae.waferb").setMaxStackSize(64).setCreativeTabs(CommonProxy.GTQTCore_NE);
-        AE_WAFER_ENGINEERING = this.addItem(82, "ae.waferc").setMaxStackSize(64).setCreativeTabs(CommonProxy.GTQTCore_NE);
+        AE_WAFER_LOGIC = this.addItem(80, "ae.wafera").setCreativeTabs(CommonProxy.GTQTCore_NE);
+        AE_WAFER_CALCULATION = this.addItem(81, "ae.waferb").setCreativeTabs(CommonProxy.GTQTCore_NE);
+        AE_WAFER_ENGINEERING = this.addItem(82, "ae.waferc").setCreativeTabs(CommonProxy.GTQTCore_NE);
         //蚀刻后*3
-        AE_LOGIC_CHIP = this.addItem(83, "ae.a").setMaxStackSize(64).setCreativeTabs(CommonProxy.GTQTCore_NE);
-        AE_CALCULATION_CHIP = this.addItem(84, "ae.b").setMaxStackSize(64).setCreativeTabs(CommonProxy.GTQTCore_NE);
-        AE_ENGINEERING_CHIP = this.addItem(85, "ae.c").setMaxStackSize(64).setCreativeTabs(CommonProxy.GTQTCore_NE);
+        AE_LOGIC_CHIP = this.addItem(83, "ae.a").setCreativeTabs(CommonProxy.GTQTCore_NE);
+        AE_CALCULATION_CHIP = this.addItem(84, "ae.b").setCreativeTabs(CommonProxy.GTQTCore_NE);
+        AE_ENGINEERING_CHIP = this.addItem(85, "ae.c").setCreativeTabs(CommonProxy.GTQTCore_NE);
         //fluix束能器
-        AE_FLUIX_FIRM = this.addItem(86, "ae.fluix_firm").setMaxStackSize(64).setCreativeTabs(CommonProxy.GTQTCore_NE);
-        AE_FLUIX_NET = this.addItem(87, "ae.fluix_net").setMaxStackSize(64).setCreativeTabs(CommonProxy.GTQTCore_NE);
-        AE_FLUIX_BOOSTER = this.addItem(88, "ae.fluix_booster").setMaxStackSize(64).setCreativeTabs(CommonProxy.GTQTCore_NE);
+        AE_FLUIX_FIRM = this.addItem(86, "ae.fluix_firm").setCreativeTabs(CommonProxy.GTQTCore_NE);
+        AE_FLUIX_NET = this.addItem(87, "ae.fluix_net").setCreativeTabs(CommonProxy.GTQTCore_NE);
+        AE_FLUIX_BOOSTER = this.addItem(88, "ae.fluix_booster").setCreativeTabs(CommonProxy.GTQTCore_NE);
 
         //光伏板
-        SOLAR_PLATE_MKI = this.addItem(90, "solar_plate_mki").setMaxStackSize(64).setCreativeTabs(GTQTCore_GD);
-        SOLAR_PLATE_MKII = this.addItem(91, "solar_plate_mkii").setMaxStackSize(64).setCreativeTabs(GTQTCore_GD);
-        SOLAR_PLATE_MKIII = this.addItem(92, "solar_plate_mkiii").setMaxStackSize(64).setCreativeTabs(GTQTCore_GD);
+        SOLAR_PLATE_MKI = this.addItem(90, "solar_plate_mki").setCreativeTabs(GTQTCore_GD);
+        SOLAR_PLATE_MKII = this.addItem(91, "solar_plate_mkii").setCreativeTabs(GTQTCore_GD);
+        SOLAR_PLATE_MKIII = this.addItem(92, "solar_plate_mkiii").setCreativeTabs(GTQTCore_GD);
 
         TIME_BOTTLE = this.addItem(97, "time_bottle").setMaxStackSize(1).addComponents(new TimeBottleBehavior()).setCreativeTabs(GTQTCore_TO);
         WATER_CLEAR = this.addItem(96, "water_clear").setMaxStackSize(1).addComponents(new WaterClearBehavior()).setCreativeTabs(GTQTCore_TO);
 
         //电池
-        BATTERY_NIMH_EMPTY = addItem(100, "nickel.metal.hydride.battery.empty").setMaxStackSize(64).setCreativeTabs(GTQTCore_TAB);
-        BATTERY_SMALL_LITHIUM_ION_EMPTY = addItem(102, "small.lithium.ion.battery.empty").setMaxStackSize(64).setCreativeTabs(GTQTCore_TAB);
-        BATTERY_MEDIUM_LITHIUM_ION_EMPTY = addItem(104, "medium.lithium.ion.battery.empty").setMaxStackSize(64).setCreativeTabs(GTQTCore_TAB);
-        BATTERY_LARGE_LITHIUM_ION_EMPTY = addItem(106, "large.lithium.ion.battery.empty").setMaxStackSize(64).setCreativeTabs(GTQTCore_TAB);
-        BATTERY_SMALL_LIS_EMPTY = addItem(108, "small.lithium.sulfide.battery.empty").setMaxStackSize(64).setCreativeTabs(GTQTCore_TAB);
-        BATTERY_MEDIUM_LIS_EMPTY = addItem(110, "medium.lithium.sulfide.battery.empty").setMaxStackSize(64).setCreativeTabs(GTQTCore_TAB);
-        BATTERY_LARGE_LIS_EMPTY = addItem(112, "large.lithium.sulfide.battery.empty").setMaxStackSize(64).setCreativeTabs(GTQTCore_TAB);
-        BATTERY_SMALL_FLUORIDE_EMPTY = addItem(114, "small.fluoride.battery.empty").setMaxStackSize(64).setCreativeTabs(GTQTCore_TAB);
-        BATTERY_MEDIUM_FLUORIDE_EMPTY = addItem(116, "medium.fluoride.battery.empty").setMaxStackSize(64).setCreativeTabs(GTQTCore_TAB);
-        BATTERY_LARGE_FLUORIDE_EMPTY = addItem(118, "large.fluoride.battery.empty").setMaxStackSize(64).setCreativeTabs(GTQTCore_TAB);
+        BATTERY_NIMH_EMPTY = addItem(100, "nickel.metal.hydride.battery.empty").setCreativeTabs(GTQTCore_TAB);
+        BATTERY_SMALL_LITHIUM_ION_EMPTY = addItem(102, "small.lithium.ion.battery.empty").setCreativeTabs(GTQTCore_TAB);
+        BATTERY_MEDIUM_LITHIUM_ION_EMPTY = addItem(104, "medium.lithium.ion.battery.empty").setCreativeTabs(GTQTCore_TAB);
+        BATTERY_LARGE_LITHIUM_ION_EMPTY = addItem(106, "large.lithium.ion.battery.empty").setCreativeTabs(GTQTCore_TAB);
+        BATTERY_SMALL_LIS_EMPTY = addItem(108, "small.lithium.sulfide.battery.empty").setCreativeTabs(GTQTCore_TAB);
+        BATTERY_MEDIUM_LIS_EMPTY = addItem(110, "medium.lithium.sulfide.battery.empty").setCreativeTabs(GTQTCore_TAB);
+        BATTERY_LARGE_LIS_EMPTY = addItem(112, "large.lithium.sulfide.battery.empty").setCreativeTabs(GTQTCore_TAB);
+        BATTERY_SMALL_FLUORIDE_EMPTY = addItem(114, "small.fluoride.battery.empty").setCreativeTabs(GTQTCore_TAB);
+        BATTERY_MEDIUM_FLUORIDE_EMPTY = addItem(116, "medium.fluoride.battery.empty").setCreativeTabs(GTQTCore_TAB);
+        BATTERY_LARGE_FLUORIDE_EMPTY = addItem(118, "large.fluoride.battery.empty").setCreativeTabs(GTQTCore_TAB);
 
         //120新光掩模
         //光掩模格栅
@@ -146,11 +146,11 @@ public class GTQTMetaItem1 extends StandardMetaItem {
         RETICLE_GRID_MKIII = addItem(122, "reticle_grid.iii").setMaxStackSize(1).setCreativeTabs(CommonProxy.GTQTCore_CO);
         RETICLE_GRID_MKIV = addItem(123, "reticle_grid.iv").setMaxStackSize(1).setCreativeTabs(CommonProxy.GTQTCore_CO);
         //光掩模基板
-        RETICLE_BASE = addItem(124, "reticle_base").setMaxStackSize(64).setCreativeTabs(CommonProxy.GTQTCore_CO);
+        RETICLE_BASE = addItem(124, "reticle_base").setCreativeTabs(CommonProxy.GTQTCore_CO);
         //锡覆贴片
-        RETICLE_TIN = addItem(125, "reticle_tin").setMaxStackSize(64).setCreativeTabs(CommonProxy.GTQTCore_CO);
+        RETICLE_TIN = addItem(125, "reticle_tin").setCreativeTabs(CommonProxy.GTQTCore_CO);
         //光掩模基板（镀锡）
-        RETICLE_BASE_TIN = addItem(126, "reticle_base.tin").setMaxStackSize(64).setCreativeTabs(CommonProxy.GTQTCore_CO);
+        RETICLE_BASE_TIN = addItem(126, "reticle_base.tin").setCreativeTabs(CommonProxy.GTQTCore_CO);
 
         //光掩模基板 锡附着
         RETICLE_BASE_TIN_MKI = addItem(127, "reticle_base.tin.i").setMaxStackSize(1).setCreativeTabs(CommonProxy.GTQTCore_CO);
@@ -175,10 +175,10 @@ public class GTQTMetaItem1 extends StandardMetaItem {
         UV_LIGHT_EMPTY_MKIII = addItem(141, "uv_light.empty.iii").setMaxStackSize(1).setCreativeTabs(CommonProxy.GTQTCore_CO);
 
         //光掩模玻璃基板
-        RETICLE_GLASS_MKI = addItem(142, "reticle_glass.i").setMaxStackSize(64).setCreativeTabs(CommonProxy.GTQTCore_CO);
-        RETICLE_GLASS_MKII = addItem(143, "reticle_glass.ii").setMaxStackSize(64).setCreativeTabs(CommonProxy.GTQTCore_CO);
-        RETICLE_GLASS_MKIII = addItem(144, "reticle_glass.iii").setMaxStackSize(64).setCreativeTabs(CommonProxy.GTQTCore_CO);
-        RETICLE_GLASS_MKIV = addItem(145, "reticle_glass.iv").setMaxStackSize(64).setCreativeTabs(CommonProxy.GTQTCore_CO);
+        RETICLE_GLASS_MKI = addItem(142, "reticle_glass.i").setCreativeTabs(CommonProxy.GTQTCore_CO);
+        RETICLE_GLASS_MKII = addItem(143, "reticle_glass.ii").setCreativeTabs(CommonProxy.GTQTCore_CO);
+        RETICLE_GLASS_MKIII = addItem(144, "reticle_glass.iii").setCreativeTabs(CommonProxy.GTQTCore_CO);
+        RETICLE_GLASS_MKIV = addItem(145, "reticle_glass.iv").setCreativeTabs(CommonProxy.GTQTCore_CO);
 
 
         HEAVY_METAL_ABSORBING_YARN = addItem(150, "heavy_metal_absorbing_yarn").setMaxStackSize(1).setCreativeTabs(GTQTCore_TAB);
@@ -215,21 +215,21 @@ public class GTQTMetaItem1 extends StandardMetaItem {
         //ROCK
         POS_ORE_CARD = this.addItem(180, "pos_ore_card").setMaxStackSize(1).addComponents(new OreCheckerBehavior()).setCreativeTabs(GTQTCore_TAB);
 
-        BLANK = addItem(181, "rock.blank").setMaxStackSize(64).setCreativeTabs(GTQTCore_TAB);
-        HYDROTHERMAL = addItem(182, "rock.hydrothermal").setMaxStackSize(64).setCreativeTabs(GTQTCore_TAB);
-        MAGMATIC_HYDROTHERMAL = addItem(183, "rock.magmatic_hydrothermal").setMaxStackSize(64).setCreativeTabs(GTQTCore_TAB);
-        ALLUVIAL = addItem(184, "rock.alluvial").setMaxStackSize(64).setCreativeTabs(GTQTCore_TAB);
+        BLANK = addItem(181, "rock.blank").setCreativeTabs(GTQTCore_TAB);
+        HYDROTHERMAL = addItem(182, "rock.hydrothermal").setCreativeTabs(GTQTCore_TAB);
+        MAGMATIC_HYDROTHERMAL = addItem(183, "rock.magmatic_hydrothermal").setCreativeTabs(GTQTCore_TAB);
+        ALLUVIAL = addItem(184, "rock.alluvial").setCreativeTabs(GTQTCore_TAB);
 
 
-        DIAPHRAGMATIC = addItem(185, "rock.diaphragmatic").setMaxStackSize(64).setCreativeTabs(GTQTCore_TAB);
-        ORTHOSTATIC = addItem(186, "rock.orthostatic").setMaxStackSize(64).setCreativeTabs(GTQTCore_TAB);
-        METAMORPHIC = addItem(187, "rock.metamorphic").setMaxStackSize(64).setCreativeTabs(GTQTCore_TAB);
-        DIABLANK = addItem(188, "rock.diablank").setMaxStackSize(64).setCreativeTabs(GTQTCore_TAB);
+        DIAPHRAGMATIC = addItem(185, "rock.diaphragmatic").setCreativeTabs(GTQTCore_TAB);
+        ORTHOSTATIC = addItem(186, "rock.orthostatic").setCreativeTabs(GTQTCore_TAB);
+        METAMORPHIC = addItem(187, "rock.metamorphic").setCreativeTabs(GTQTCore_TAB);
+        DIABLANK = addItem(188, "rock.diablank").setCreativeTabs(GTQTCore_TAB);
 
-        MANTLE_XENOLITH = addItem(189, "rock.mantle_xenolith").setMaxStackSize(64).setCreativeTabs(GTQTCore_TAB);
-        VOLCANIC_BRECCIA = addItem(190, "rock.volcanic_breccia").setMaxStackSize(64).setCreativeTabs(GTQTCore_TAB);
-        HIGH_PRESSURE = addItem(191, "rock.high_pressure").setMaxStackSize(64).setCreativeTabs(GTQTCore_TAB);
-        ANATECTIC = addItem(192, "rock.anatectic").setMaxStackSize(64).setCreativeTabs(GTQTCore_TAB);
+        MANTLE_XENOLITH = addItem(189, "rock.mantle_xenolith").setCreativeTabs(GTQTCore_TAB);
+        VOLCANIC_BRECCIA = addItem(190, "rock.volcanic_breccia").setCreativeTabs(GTQTCore_TAB);
+        HIGH_PRESSURE = addItem(191, "rock.high_pressure").setCreativeTabs(GTQTCore_TAB);
+        ANATECTIC = addItem(192, "rock.anatectic").setCreativeTabs(GTQTCore_TAB);
 
         //神秘农业
         COPPER_CROP = addItem(210, "copper_crop");
@@ -325,7 +325,7 @@ public class GTQTMetaItem1 extends StandardMetaItem {
         BIO_CELL = this.addItem(286, "component.gooware.bio_cell").setCreativeTabs(CommonProxy.GTQTCore_BIO);
         BIO_DISH = this.addItem(287, "component.gooware.bio_dish").setCreativeTabs(CommonProxy.GTQTCore_BIO);
 
-        NANOSILICON_CATHODE = addItem(289, "nanosilicon.cathode").setMaxStackSize(64).setCreativeTabs(GTQTCore_TAB);
+        NANOSILICON_CATHODE = addItem(289, "nanosilicon.cathode").setCreativeTabs(GTQTCore_TAB);
         //催化剂
         //沸石催化剂
         CATALYST_GAS = this.addItem(290, "catalyst.gas").addComponents(new CatalystBehavior(true, 4)).setCreativeTabs(CommonProxy.GTQTCore_CH);
@@ -345,30 +345,30 @@ public class GTQTMetaItem1 extends StandardMetaItem {
         CATALYST_RH = this.addItem(297, "catalyst.rh").addComponents(new CatalystBehavior(true, 4)).setCreativeTabs(CommonProxy.GTQTCore_CH);
 
         //快乐模具
-        MOLD_GAS = this.addItem(300, "mold.gas").setMaxStackSize(64).setCreativeTabs(GTQTCore_TAB);
-        MOLD_MOTOR = this.addItem(301, "mold.motor").setMaxStackSize(64).setCreativeTabs(GTQTCore_TAB);
-        MOLD_VALUE = this.addItem(302, "mold.value").setMaxStackSize(64).setCreativeTabs(GTQTCore_TAB);
+        MOLD_GAS = this.addItem(300, "mold.gas").setCreativeTabs(GTQTCore_TAB);
+        MOLD_MOTOR = this.addItem(301, "mold.motor").setCreativeTabs(GTQTCore_TAB);
+        MOLD_VALUE = this.addItem(302, "mold.value").setCreativeTabs(GTQTCore_TAB);
 
         //阳光化合物们
-        SUN_MATTER = this.addItem(320, "sun_matter").setMaxStackSize(64).setCreativeTabs(CommonProxy.GTQTCore_HP);
-        SUNLINSE = this.addItem(321, "sunlinse").setMaxStackSize(64).setCreativeTabs(CommonProxy.GTQTCore_HP);
+        SUN_MATTER = this.addItem(320, "sun_matter").setCreativeTabs(CommonProxy.GTQTCore_HP);
+        SUNLINSE = this.addItem(321, "sunlinse").setCreativeTabs(CommonProxy.GTQTCore_HP);
 
-        SUNNARIUMPART = this.addItem(322, "sunnariumpart").setMaxStackSize(64).setCreativeTabs(CommonProxy.GTQTCore_HP);
-        SUNNARIUM = this.addItem(323, "sunnarium").setMaxStackSize(64).setCreativeTabs(CommonProxy.GTQTCore_HP);
-        SUNNARIUM_PLATE = this.addItem(324, "sunnarium_plate").setMaxStackSize(64).setCreativeTabs(CommonProxy.GTQTCore_HP);
+        SUNNARIUMPART = this.addItem(322, "sunnariumpart").setCreativeTabs(CommonProxy.GTQTCore_HP);
+        SUNNARIUM = this.addItem(323, "sunnarium").setCreativeTabs(CommonProxy.GTQTCore_HP);
+        SUNNARIUM_PLATE = this.addItem(324, "sunnarium_plate").setCreativeTabs(CommonProxy.GTQTCore_HP);
 
-        SUNNARIUM_ENRICHED = this.addItem(325, "sunnarium_enriched").setMaxStackSize(64).setCreativeTabs(CommonProxy.GTQTCore_HP);
-        SUNNARIUM_ENRICHED_PLATE = this.addItem(326, "sunnarium_enriched_plate").setMaxStackSize(64).setCreativeTabs(CommonProxy.GTQTCore_HP);
+        SUNNARIUM_ENRICHED = this.addItem(325, "sunnarium_enriched").setCreativeTabs(CommonProxy.GTQTCore_HP);
+        SUNNARIUM_ENRICHED_PLATE = this.addItem(326, "sunnarium_enriched_plate").setCreativeTabs(CommonProxy.GTQTCore_HP);
 
 
         //
         SPINNER = this.addItem(330, "spinner").addOreDict("toolSpinner").addOreDict("craftingToolSpinner").addComponents(new SpinnerBehavior()).setCreativeTabs(GTQTCore_TO);
 
         //升级
-        ADV_ENERGY_STORAGE = this.addItem(350, "adv_energy_storage").setMaxStackSize(64).setCreativeTabs(GTQTCore_TAB);
-        ADV_CAPACITOR = this.addItem(351, "adv_capacitor").setMaxStackSize(64).setCreativeTabs(GTQTCore_TAB);
-        ADV_COMPONENT_VENT = this.addItem(352, "adv_component_vent").setMaxStackSize(64).setCreativeTabs(GTQTCore_TAB);
-        ADV_HEAT_EXCHANGE = this.addItem(353, "adv_heat_exchange").setMaxStackSize(64).setCreativeTabs(GTQTCore_TAB);
+        ADV_ENERGY_STORAGE = this.addItem(350, "adv_energy_storage").setCreativeTabs(GTQTCore_TAB);
+        ADV_CAPACITOR = this.addItem(351, "adv_capacitor").setCreativeTabs(GTQTCore_TAB);
+        ADV_COMPONENT_VENT = this.addItem(352, "adv_component_vent").setCreativeTabs(GTQTCore_TAB);
+        ADV_HEAT_EXCHANGE = this.addItem(353, "adv_heat_exchange").setCreativeTabs(GTQTCore_TAB);
 
         //电极注册（5个）
         //石墨
@@ -588,23 +588,23 @@ public class GTQTMetaItem1 extends StandardMetaItem {
 
 
         //570 高级基板
-        IMPREGNATED_SUBSTRATE = this.addItem(570, "item.impregnated_substrate").setMaxStackSize(64).setCreativeTabs(CommonProxy.GTQTCore_CH);
-        IMPREGNATED_PLASTIC_SUBSTRATE = this.addItem(571, "item.impregnated_plastic_substrate").setMaxStackSize(64).setCreativeTabs(CommonProxy.GTQTCore_CH);
-        IMPREGNATED_EPOXY = this.addItem(572, "item.impregnated_epoxy").setMaxStackSize(64).setCreativeTabs(CommonProxy.GTQTCore_CH);
-        IMPREGNATED_FIBER = this.addItem(573, "item.impregnated_fiber").setMaxStackSize(64).setCreativeTabs(CommonProxy.GTQTCore_CH);
-        IMPREGNATED_MULTILAYER_FIBER = this.addItem(574, "item.impregnated_multilayer_fiber").setMaxStackSize(64).setCreativeTabs(CommonProxy.GTQTCore_CH);
-        IMPREGNATED_BIO_BOARD = this.addItem(575, "item.impregnated_bio_fiber").setMaxStackSize(64).setCreativeTabs(CommonProxy.GTQTCore_CH);
-        IMPREGNATED_GENE_BOARD = this.addItem(576, "item.impregnated_gene_fiber").setMaxStackSize(64).setCreativeTabs(CommonProxy.GTQTCore_CH);
-        IMPREGNATED_OPTICAL_BOARD = this.addItem(577, "item.impregnated_optical_fiber").setMaxStackSize(64).setCreativeTabs(CommonProxy.GTQTCore_CH);
+        IMPREGNATED_SUBSTRATE = this.addItem(570, "item.impregnated_substrate").setCreativeTabs(CommonProxy.GTQTCore_CH);
+        IMPREGNATED_PLASTIC_SUBSTRATE = this.addItem(571, "item.impregnated_plastic_substrate").setCreativeTabs(CommonProxy.GTQTCore_CH);
+        IMPREGNATED_EPOXY = this.addItem(572, "item.impregnated_epoxy").setCreativeTabs(CommonProxy.GTQTCore_CH);
+        IMPREGNATED_FIBER = this.addItem(573, "item.impregnated_fiber").setCreativeTabs(CommonProxy.GTQTCore_CH);
+        IMPREGNATED_MULTILAYER_FIBER = this.addItem(574, "item.impregnated_multilayer_fiber").setCreativeTabs(CommonProxy.GTQTCore_CH);
+        IMPREGNATED_BIO_BOARD = this.addItem(575, "item.impregnated_bio_fiber").setCreativeTabs(CommonProxy.GTQTCore_CH);
+        IMPREGNATED_GENE_BOARD = this.addItem(576, "item.impregnated_gene_fiber").setCreativeTabs(CommonProxy.GTQTCore_CH);
+        IMPREGNATED_OPTICAL_BOARD = this.addItem(577, "item.impregnated_optical_fiber").setCreativeTabs(CommonProxy.GTQTCore_CH);
 
-        LAMINATION_WD = this.addItem(580, "item.lamination_wd").setMaxStackSize(64).setCreativeTabs(CommonProxy.GTQTCore_CH);
-        LAMINATION_FG = this.addItem(581, "item.lamination_fg").setMaxStackSize(64).setCreativeTabs(CommonProxy.GTQTCore_CH);
-        LAMINATION_CA = this.addItem(582, "item.lamination_ca").setMaxStackSize(64).setCreativeTabs(CommonProxy.GTQTCore_CH);
-        LAMINATION_GE = this.addItem(583, "item.lamination_ge").setMaxStackSize(64).setCreativeTabs(CommonProxy.GTQTCore_CH);
-        LAMINATION_IR = this.addItem(584, "item.insulating_ir").setMaxStackSize(64).setCreativeTabs(CommonProxy.GTQTCore_CH);
-        LAMINATION_YR = this.addItem(585, "item.insulating_yr").setMaxStackSize(64).setCreativeTabs(CommonProxy.GTQTCore_CH);
-        LAMINATION_IN = this.addItem(586, "item.insulating_in").setMaxStackSize(64).setCreativeTabs(CommonProxy.GTQTCore_CH);
-        LAMINATION_EU = this.addItem(587, "item.insulating_eu").setMaxStackSize(64).setCreativeTabs(CommonProxy.GTQTCore_CH);
+        LAMINATION_WD = this.addItem(580, "item.lamination_wd").setCreativeTabs(CommonProxy.GTQTCore_CH);
+        LAMINATION_FG = this.addItem(581, "item.lamination_fg").setCreativeTabs(CommonProxy.GTQTCore_CH);
+        LAMINATION_CA = this.addItem(582, "item.lamination_ca").setCreativeTabs(CommonProxy.GTQTCore_CH);
+        LAMINATION_GE = this.addItem(583, "item.lamination_ge").setCreativeTabs(CommonProxy.GTQTCore_CH);
+        LAMINATION_IR = this.addItem(584, "item.insulating_ir").setCreativeTabs(CommonProxy.GTQTCore_CH);
+        LAMINATION_YR = this.addItem(585, "item.insulating_yr").setCreativeTabs(CommonProxy.GTQTCore_CH);
+        LAMINATION_IN = this.addItem(586, "item.insulating_in").setCreativeTabs(CommonProxy.GTQTCore_CH);
+        LAMINATION_EU = this.addItem(587, "item.insulating_eu").setCreativeTabs(CommonProxy.GTQTCore_CH);
 
         //  ID 206-211: High Tier Boule and Wafers
         EUROPIUM_BOULE = this.addItem(610, "boule.europium").setCreativeTabs(CommonProxy.GTQTCore_GD);

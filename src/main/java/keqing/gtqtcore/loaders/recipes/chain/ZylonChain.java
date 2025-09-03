@@ -79,7 +79,7 @@ public class ZylonChain {
 
         // 2Na + O -> Na2O
         BURNER_REACTOR_RECIPES.recipeBuilder().duration(80).EUt(VA[HV])
-                .circuitMeta(1)
+                .circuitMeta(3)
                 .input(dust, Sodium, 2)
                 .fluidInputs(Oxygen.getFluid(1000))
                 .output(dust, SodiumOxide, 3)

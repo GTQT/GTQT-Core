@@ -1,14 +1,12 @@
 package keqing.gtqtcore.common.metatileentities.multi.multiblock.standard.gcys;
 
 import gregicality.multiblocks.api.capability.impl.GCYMHeatCoilRecipeLogic;
-import gregicality.multiblocks.api.capability.impl.GCYMMultiblockRecipeLogic;
 import gregicality.multiblocks.api.metatileentity.GCYMAdvanceRecipeMapMultiblockController;
 import gregtech.api.capability.IHeatingCoil;
 import gregtech.api.metatileentity.MetaTileEntity;
 import gregtech.api.metatileentity.interfaces.IGregTechTileEntity;
 import gregtech.api.metatileentity.multiblock.IMultiblockPart;
 import gregtech.api.metatileentity.multiblock.MultiblockAbility;
-import gregtech.api.metatileentity.multiblock.RecipeMapMultiblockController;
 import gregtech.api.metatileentity.multiblock.ui.KeyManager;
 import gregtech.api.metatileentity.multiblock.ui.UISyncer;
 import gregtech.api.pattern.BlockPattern;
@@ -17,11 +15,6 @@ import gregtech.api.pattern.MultiblockShapeInfo;
 import gregtech.api.pattern.PatternMatchContext;
 import gregtech.api.recipes.Recipe;
 import gregtech.api.recipes.RecipeMap;
-import gregtech.api.recipes.logic.OCParams;
-import gregtech.api.recipes.logic.OCResult;
-import gregtech.api.recipes.logic.OverclockingLogic;
-import gregtech.api.recipes.properties.RecipePropertyStorage;
-import gregtech.api.recipes.properties.impl.TemperatureProperty;
 import gregtech.api.util.KeyUtil;
 import gregtech.api.util.TextFormattingUtil;
 import gregtech.client.renderer.ICubeRenderer;
@@ -60,11 +53,8 @@ import java.util.List;
 
 import static gregtech.api.GTValues.EV;
 import static gregtech.api.GTValues.LV;
-import static gregtech.api.recipes.logic.OverclockingLogic.heatingCoilOC;
 import static keqing.gtqtcore.api.GTQTAPI.MAP_FIREBOX_CASING;
 import static keqing.gtqtcore.common.block.blocks.BlockMultiblockCasing1.CasingType.MaragingSteel250;
-import static net.minecraft.util.text.TextFormatting.GRAY;
-import static net.minecraft.util.text.TextFormatting.GREEN;
 
 public class MetaTileEntityBurnerReactor extends GCYMAdvanceRecipeMapMultiblockController implements IHeatingCoil {
 
@@ -183,8 +173,6 @@ public class MetaTileEntityBurnerReactor extends GCYMAdvanceRecipeMapMultiblockC
         tooltip.add(I18n.format("gregtech.machine.electric_blast_furnace.tooltip.1"));
         tooltip.add(I18n.format("gregtech.machine.electric_blast_furnace.tooltip.2"));
         tooltip.add(I18n.format("gregtech.machine.electric_blast_furnace.tooltip.3"));
-        tooltip.add(GREEN + I18n.format("gtqtcore.multiblock.laser_hatch.enable"));
-        tooltip.add(GRAY + I18n.format("gtqtcore.multiblock.laser_hatch.tooltip"));
     }
 
     @Override
@@ -237,28 +225,5 @@ public class MetaTileEntityBurnerReactor extends GCYMAdvanceRecipeMapMultiblockC
                 .sorted(Comparator.comparingInt(entry -> ((WrappedIntTired) entry.getValue()).getIntTier()))
                 .forEach(entry -> shapeInfo.add(finalBuilder.where('B', entry.getKey()).build()));
         return shapeInfo;
-    }
-
-    public static class IndustrialRoasterRecipeLogic extends GCYMMultiblockRecipeLogic {
-
-        public IndustrialRoasterRecipeLogic(RecipeMapMultiblockController tileEntity) {
-            super(tileEntity);
-        }
-
-        @Override
-        protected void modifyOverclockPre(OCParams ocParams, RecipePropertyStorage storage) {
-            super.modifyOverclockPre(ocParams, storage);
-            // coil EU/t discount
-            ocParams.setEut(OverclockingLogic.applyCoilEUtDiscount(ocParams.eut(),
-                    ((IHeatingCoil) metaTileEntity).getCurrentTemperature(),
-                    storage.get(TemperatureProperty.getInstance(), 0)));
-        }
-
-        @Override
-        protected void runOverclockingLogic(OCParams ocParams, OCResult ocResult,
-                                            RecipePropertyStorage propertyStorage, long maxVoltage) {
-            heatingCoilOC(ocParams, ocResult, maxVoltage, ((IHeatingCoil) metaTileEntity).getCurrentTemperature(),
-                    propertyStorage.get(TemperatureProperty.getInstance(), 0));
-        }
     }
 }

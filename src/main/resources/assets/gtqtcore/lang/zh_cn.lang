@@ -2716,7 +2716,7 @@ recipemap.laser_fusion.name=超高能激光聚变
 gtqtcore.machine.antimatter_forge.name=半稳定反物质脉冲序列器
 gtqtcore.machine.antimatter_generator.name=屏蔽拉格朗日湮灭超核心矩阵
 recipemap.antimatter_generator.name=反物质发电
-gtqtcore.machine.blazing_blast_furnace.name=炽焱冶炼炉
+gtqtcore.machine.blazing_blast_furnace.name=炽焰冶炼炉
 gtqtcore.machine.huge_turbine.plasma.name=大型超临界等离子涡轮
 gtqtcore.machine.huge_turbine.gas.name=大型超临界燃气涡轮
 gtqtcore.machine.huge_turbine.steam.name=大型超临界蒸汽涡轮
@@ -6741,6 +6741,7 @@ gtqtcore.veins.ore.slate_sphere=板岩岩球
 gtqtcore.veins.ore.soapstoneo_sphere=皂石岩球
 gtqtcore.veins.ore.kimberlite_sphere=金伯利球
 
+gtqtcore.veins.ore.ulexite=钠硼解石矿脉
 gtqtcore.veins.ore.lignite=褐煤矿脉
 gtqtcore.veins.ore.cryolite=冰晶石矿脉
 gtqtcore.veins.ore.gashydrate=可燃冰矿脉

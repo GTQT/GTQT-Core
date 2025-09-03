@@ -59,13 +59,6 @@ public class PressureMultiblockRecipeLogic extends MultiblockRecipeLogic {
         else return true;
 
         if (pressure > GCYSValues.EARTH_PRESSURE) pressureToChange = -pressureToChange;
-
-        final double newPressure = containerPressure + pressureToChange;
-        // pressure must be within +/- 1 exponent of the target
-        if (newPressure < pressure / 10 || newPressure > pressure * 10) {
-            return false;
-        }
-
         // P * V = n
         return container.changeParticles(pressureToChange * container.getVolume(), simulate);
     }

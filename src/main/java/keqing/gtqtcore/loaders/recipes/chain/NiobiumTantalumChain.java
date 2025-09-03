@@ -2,14 +2,14 @@ package keqing.gtqtcore.loaders.recipes.chain;
 
 import gregtech.api.unification.ore.OrePrefix;
 
-import static gregtech.api.GTValues.*;
-import static gregtech.api.recipes.RecipeMaps.*;
-import static keqing.gtqtcore.api.recipes.GTQTcoreRecipeMaps.*;
+import static gregtech.api.GTValues.EV;
+import static gregtech.api.GTValues.VA;
+import static gregtech.api.recipes.RecipeMaps.CHEMICAL_RECIPES;
 import static gregtech.api.unification.material.Materials.*;
 import static gregtech.api.unification.ore.OrePrefix.dust;
+import static keqing.gtqtcore.api.recipes.GTQTcoreRecipeMaps.BURNER_REACTOR_RECIPES;
+import static keqing.gtqtcore.api.recipes.GTQTcoreRecipeMaps.SFM;
 import static keqing.gtqtcore.api.unification.GTQTMaterials.*;
-import static keqing.gtqtcore.api.unification.GTQTMaterials.PotassiumFluorideRefractoryMixture;
-import static keqing.gtqtcore.api.unification.GTQTMaterials.SodiumFluoride;
 
 /**
  * The Niobium-Tantalum Process
@@ -118,7 +118,7 @@ public class NiobiumTantalumChain {
                 .fluidInputs(PotassiumHeptafluorotanate.getFluid(1000))
                 .fluidInputs(Oxygen.getFluid(5000))
                 .input(dust,Sodium,1)
-                .circuitMeta(1)
+                .circuitMeta(2)
                 .output(dust,SodiumFluoride,2)
                 .output(dust,TantalumPentoxide,7)
                 .fluidOutputs(PotassiumFluorideRefractoryMixture.getFluid(1000))

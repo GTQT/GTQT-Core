@@ -1,17 +1,17 @@
 package keqing.gtqtcore.loaders.recipes.chain;
 
-import static keqing.gtqtcore.api.recipes.GTQTcoreRecipeMaps.*;
-import static gregtech.api.GTValues.*;
-import static gregtech.api.recipes.RecipeMaps.*;
-import static gregtech.api.unification.material.Materials.*;
-import static gregtech.api.unification.ore.OrePrefix.*;
-import static keqing.gtqtcore.api.unification.GTQTMaterials.*;
-
 import gregtech.api.recipes.GTRecipeHandler;
 import gregtech.api.unification.OreDictUnifier;
 import gregtech.api.unification.material.Material;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.fluids.FluidStack;
+
+import static gregtech.api.GTValues.*;
+import static gregtech.api.recipes.RecipeMaps.*;
+import static gregtech.api.unification.material.Materials.*;
+import static gregtech.api.unification.ore.OrePrefix.*;
+import static keqing.gtqtcore.api.recipes.GTQTcoreRecipeMaps.*;
+import static keqing.gtqtcore.api.unification.GTQTMaterials.*;
 
 
 public class MaterialOreChains {
@@ -310,12 +310,12 @@ public class MaterialOreChains {
     private static void ZirconiumHafnium() {
         GTRecipeHandler.removeRecipesByInputs(BLAST_RECIPES, OreDictUnifier.get(dust, Hafnium));
         GTRecipeHandler.removeRecipesByInputs(BLAST_RECIPES, OreDictUnifier.get(dust, Zirconium));
+
         MIXER_RECIPES.recipeBuilder()
                 .duration(30)
                 .EUt(VA[LV])
                 .input(dust, Aluminium, 6)
-                .fluidInputs(HydrochloricAcid.getFluid(4500))
-                .fluidInputs(Water.getFluid(5000))
+                .fluidInputs(DilutedHydrochloricAcid.getFluid(5000))
                 .fluidOutputs(BauxiteSlurry.getFluid(1000))
                 .buildAndRegister();
 

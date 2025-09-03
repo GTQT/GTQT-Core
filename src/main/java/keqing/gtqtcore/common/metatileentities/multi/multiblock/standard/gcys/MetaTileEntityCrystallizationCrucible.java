@@ -70,6 +70,7 @@ public class MetaTileEntityCrystallizationCrucible extends GCYMAdvanceRecipeMapM
         return GCYMMetaBlocks.UNIQUE_CASING.getState(BlockUniqueCasing.UniqueCasingType.HEAT_VENT);
     }
 
+    @Override
     public void refreshThread(int thread) {
         if (!this.checkWorkingEnable()) {
             this.recipeMapWorkable = new ArrayList();

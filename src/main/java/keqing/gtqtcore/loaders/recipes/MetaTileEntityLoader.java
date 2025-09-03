@@ -64,7 +64,6 @@ import static keqing.gtqtcore.common.metatileentities.GTQTMetaTileEntities.GAS_C
 import static keqing.gtqtcore.common.metatileentities.GTQTMetaTileEntities.PYROLYSE_OVEN;
 import static net.minecraft.init.Blocks.FURNACE;
 import static net.minecraft.init.Blocks.IRON_BARS;
-import static supercritical.common.metatileentities.SCMetaTileEntities.DECAY_CHAMBER;
 
 
 public class MetaTileEntityLoader {
@@ -1171,15 +1170,6 @@ public class MetaTileEntityLoader {
                 'P', CraftingComponent.PUMP,
                 'G', CraftingComponent.GLASS,
                 'H', CraftingComponent.HULL);
-
-        gregtech.loaders.recipe.MetaTileEntityLoader.registerMachineRecipe(true, DECAY_CHAMBER,
-                "CFC", "RHR", "WFW",
-                'H', CraftingComponent.HULL,
-                'R', CraftingComponent.DOUBLE_PLATE,
-                'F', CraftingComponent.FIELD_GENERATOR,
-                'C', CraftingComponent.CIRCUIT,
-                'W', CraftingComponent.CABLE);
-
 
         gregtech.loaders.recipe.MetaTileEntityLoader.registerMachineRecipe(true, COMPONENT_ASSEMBLER,
                 "PPP", "CHR", "WXW",

@@ -9,6 +9,7 @@ import gregtech.api.metatileentity.interfaces.IGregTechTileEntity;
 import gregtech.api.metatileentity.multiblock.IMultiblockPart;
 import gregtech.api.pattern.BlockPattern;
 import gregtech.api.pattern.FactoryBlockPattern;
+import gregtech.api.recipes.RecipeMap;
 import gregtech.client.renderer.ICubeRenderer;
 import gregtech.client.renderer.texture.cube.OrientedOverlayRenderer;
 import gregtech.common.blocks.BlockGlassCasing;
@@ -33,7 +34,9 @@ public class MetaTileEntityCVDUnit extends GCYMRecipeMapMultiblockController imp
     private IPressureContainer container;
 
     public MetaTileEntityCVDUnit(ResourceLocation metaTileEntityId) {
-        super(metaTileEntityId, GTQTcoreRecipeMaps.CVD_RECIPES);
+        super(metaTileEntityId, new RecipeMap[]{
+                GTQTcoreRecipeMaps.CVD_RECIPES,
+                GTQTcoreRecipeMaps.VACUUM_CHAMBER_RECIPES});
         this.recipeMapWorkable = new PressureMultiblockRecipeLogic(this);
     }
 
