@@ -560,10 +560,10 @@ public class MetaTileEntityMicrowaveEnergyReceiverControl extends MetaTileEntity
             return; // 避免 NullPointerException
 
         if (hasCover(mte) && getStatue(point))
-            addEnergyToContainer(mte, getAmperageVoltage(1, point), getAmperageVoltage(0, point));
+            addEnergyToContainer(mte, V[getAmperageVoltage(1, point)], getAmperageVoltage(0, point));
 
         if (mte instanceof MetaTileEntityMicrowaveEnergyReceiver)
-            addEnergyToContainer(mte, eu * 16L, 16); // 使用常量代替硬编码
+            addEnergyToContainer(mte, eu, 16);
 
     }
 
@@ -886,7 +886,7 @@ public class MetaTileEntityMicrowaveEnergyReceiverControl extends MetaTileEntity
             this.heatingCoilLevel = BlockWireCoil.CoilType.CUPRONICKEL.getLevel();
         }
         range = coilHeight * heatingCoilLevel;
-        maxLength = Math.min(heatingCoilLevel, 16) * 4;
+        maxLength = (int) Math.min(64, Math.pow(2, heatingCoilLevel));
     }
 
     private TraceabilityPredicate coilPredicate() {

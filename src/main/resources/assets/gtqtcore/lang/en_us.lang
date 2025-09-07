@@ -2686,7 +2686,7 @@ gtqtcore.material.dnal=Self-Heating DNA Targeted Cell
 gtqtcore.material.dnap=Diffusion DNA Targeted Cell
 gtqtcore.material.dnaw=Fiber DNA Targeted Cell
 gtqtcore.material.dnan=Starburst DNA Targeted Cell
-gtqtcore.material.wool=Animal Fiber Powder
+gtqtcore.material.animal_fiber=Animal Fiber
 gtqtcore.material.high_pressure_steam=High Pressure Steam
 gtqtcore.material.stellar_material=Stellar Material
 gtqtcore.material.stellar_material_residue_a=Stellar Material Refining Residue - α
@@ -6248,8 +6248,8 @@ tile.wire_coil.cupar_proton_pair_coil_block.name=*-Cooper Proton Pair Coil (I)-*
 tile.wire_coil.cupara_proton_pair_coil.name=*-Cooper Proton Pair Coil (II)-*
 tile.wire_coil.cuparb_proton_pair_coil.name=*-Cooper Proton Pair Coil (III)-*
 
-tile.computer_competent.computer_vent.name=Empty Computing Frame
-tile.computer_competent.computer_casing.name=Null Computing Framework
+tile.computer_competent.computer_vent.name=Empty Calculation Hatch
+tile.computer_competent.computer_casing.name=Computer Enclosures
 
 gtqtcore.machine.kqcc_hatch.ram.1.name=Data Caching Module I
 gtqtcore.machine.kqcc_hatch.ram.2.name=Data Caching Module II

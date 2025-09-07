@@ -124,7 +124,6 @@ public class HigherDegreeMaterials {
         GTQTMaterials.Thorianite = new Material.Builder(getMaterialsId(), gtqtcoreId("thorianite"))
                 .ore(true).dust()
                 .color(0x8FBC8F)
-                .flags(DISABLE_DECOMPOSITION)
                 .components(Thorium, 1, Oxygen, 2)
                 .build();
 

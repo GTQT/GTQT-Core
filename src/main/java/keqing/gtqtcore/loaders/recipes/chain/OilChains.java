@@ -241,7 +241,7 @@ public class OilChains {
         RecipeMaps.COMBUSTION_GENERATOR_FUELS.recipeBuilder()
                 .fluidInputs(BioDiesel.getFluid(1))
                 .fluidOutputs(HighTemperatureGas.getFluid(800))
-                .duration(16)
+                .duration(24)
                 .EUt(V[LV])
                 .buildAndRegister();
 
@@ -622,6 +622,7 @@ public class OilChains {
                 .fluidOutputs(SDieselLight.getFluid(800))
                 .fluidOutputs(SDieselHeavy.getFluid(800))
                 .fluidOutputs(SulfuricGas.getFluid(400))
+                .fluidOutputs(SulfuricNaphtha.getFluid(400))
                 .fluidOutputs(Butane.getFluid(200))
                 .fluidOutputs(Propene.getFluid(200))
                 .fluidOutputs(Butene.getFluid(200))
@@ -678,12 +679,13 @@ public class OilChains {
 
         //减压部分
         DISTILLATION_RECIPES.recipeBuilder()
-                .fluidInputs(AtmosphericResidue.getFluid(5000))
+                .fluidInputs(AtmosphericResidue.getFluid(6000))
                 .chancedOutput(dust, Ash, 5000, 0)
-                .fluidOutputs(SulfuricNaphtha.getFluid(600))
                 .fluidOutputs(SulfuricLightFuel.getFluid(800))
                 .fluidOutputs(SulfuricHeavyFuel.getFluid(800))
                 .fluidOutputs(Asphalt.getFluid(800))
+                .fluidOutputs(SulfuricGas.getFluid(800))
+                .fluidOutputs(SulfuricNaphtha.getFluid(600))
                 .fluidOutputs(GasOil.getFluid(600))
                 .fluidOutputs(WaxOil.getFluid(600))
                 .fluidOutputs(VacuumResidue.getFluid(600))

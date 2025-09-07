@@ -2666,7 +2666,7 @@ gtqtcore.material.dnal=自热DNA定向细胞
 gtqtcore.material.dnap=扩散DNA定向细胞
 gtqtcore.material.dnaw=纤维DNA定向细胞
 gtqtcore.material.dnan=闪星DNA定向细胞
-gtqtcore.material.wool=动物纤维粉末
+gtqtcore.material.animal_fiber=动物纤维
 gtqtcore.material.high_pressure_steam=高压蒸汽
 gtqtcore.material.stellar_material=恒星物质
 gtqtcore.material.stellar_material_residue_a=恒星物质精炼残留-α
@@ -6223,8 +6223,8 @@ tile.wire_coil.cupar_proton_pair_coil_block.name=*-库珀质子对线圈(I)-*
 tile.wire_coil.cupara_proton_pair_coil.name=*-库珀质子对线圈(II)-*
 tile.wire_coil.cuparb_proton_pair_coil.name=*-库珀质子对线圈(III)-*
 
-tile.computer_competent.computer_vent.name=空计算框架
-tile.computer_competent.computer_casing.name=空计算框架
+tile.computer_competent.computer_vent.name=空计算仓
+tile.computer_competent.computer_casing.name=计算机外壳
 
 gtqtcore.machine.kqcc_hatch.ram.1.name=数据缓存模块I
 gtqtcore.machine.kqcc_hatch.ram.2.name=数据缓存模块II

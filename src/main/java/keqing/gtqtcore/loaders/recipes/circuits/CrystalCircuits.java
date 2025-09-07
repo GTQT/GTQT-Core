@@ -8,7 +8,6 @@ import gregtech.api.unification.material.MarkerMaterials;
 import keqing.gtqtcore.api.recipes.GTQTcoreRecipeMaps;
 import keqing.gtqtcore.api.unification.GTQTMaterials;
 
-
 import static gregtech.api.GTValues.*;
 import static gregtech.api.recipes.RecipeMaps.*;
 import static gregtech.api.unification.material.Materials.*;
@@ -18,7 +17,6 @@ import static keqing.gtqtcore.api.recipes.GTQTcoreRecipeMaps.PLASMA_CVD_RECIPES;
 import static keqing.gtqtcore.api.recipes.GTQTcoreRecipeMaps.PRECISE_ASSEMBLER_RECIPES;
 import static keqing.gtqtcore.api.unification.GTQTMaterials.CeLAG;
 import static keqing.gtqtcore.api.unification.GTQTMaterials.CeriumOxide;
-
 import static keqing.gtqtcore.common.items.GTQTMetaItems.*;
 
 public class CrystalCircuits {
@@ -179,7 +177,7 @@ public class CrystalCircuits {
                 .fluidInputs(MolybdeniteLubricant.getFluid(250))
                 .output(CRYSTAL_SYSTEM_ON_CHIP_SOCKET, 2)
                 .EUt(VA[UV])
-                .CWUt(CWT[UV])
+                .CWUt(CWT[ZPM])
                 .duration(200)
                 .Tier(3) // UV
                 .buildAndRegister();

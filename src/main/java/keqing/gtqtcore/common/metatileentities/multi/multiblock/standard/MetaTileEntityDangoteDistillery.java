@@ -23,7 +23,6 @@ import gregtech.client.renderer.ICubeRenderer;
 import gregtech.client.renderer.texture.Textures;
 import gregtech.common.blocks.BlockGlassCasing;
 import gregtech.common.blocks.MetaBlocks;
-import gregtech.common.metatileentities.multi.electric.MetaTileEntityDistillationTower;
 import gregtech.common.metatileentities.multi.multiblockpart.MetaTileEntityFluidHatch;
 import gregtech.core.sound.GTSoundEvents;
 import keqing.gtqtcore.api.recipes.GTQTcoreRecipeMaps;
@@ -72,7 +71,7 @@ public class MetaTileEntityDangoteDistillery extends MultiMapMultiblockControlle
 
     @Override
     public MetaTileEntity createMetaTileEntity(IGregTechTileEntity tileEntity) {
-        return new MetaTileEntityDistillationTower(metaTileEntityId, this.handler != null);
+        return new MetaTileEntityDangoteDistillery(metaTileEntityId, this.handler != null);
     }
 
     /**

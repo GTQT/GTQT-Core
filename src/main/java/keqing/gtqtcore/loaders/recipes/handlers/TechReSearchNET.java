@@ -896,20 +896,20 @@ public class TechReSearchNET {
 
         //计算框架
         ASSEMBLER_RECIPES.recipeBuilder()
-                .input(frameGt, Aluminium, 4)
+                .input(frameGt, Aluminium, 1)
                 .input(plate, Aluminium, 4)
                 .input(OPTICAL_PIPES[0], 2)
                 .input(screw, Copper, 4)
                 .circuitMeta(1)
-                .fluidInputs(Polyethylene.getFluid(L * 8))
+                .fluidInputs(Polyethylene.getFluid(L * 4))
                 .outputs(GTQTMetaBlocks.blocksResearchSystem.getItemVariant(COMPUTER_VENT))
                 .duration(800).EUt(120).buildAndRegister();
 
         ASSEMBLER_RECIPES.recipeBuilder()
-                .input(frameGt, Aluminium, 4)
-                .input(plate, Polyethylene, 8)
+                .input(frameGt, Aluminium, 1)
+                .input(plate, Polyethylene, 4)
                 .input(screw,Copper,4)
-                .fluidInputs(Tin.getFluid(L * 8))
+                .fluidInputs(Tin.getFluid(L * 4))
                 .outputs(GTQTMetaBlocks.blocksResearchSystem.getItemVariant(KQCC_COMPUTER_CASING))
                 .duration(800).EUt(120).buildAndRegister();
 

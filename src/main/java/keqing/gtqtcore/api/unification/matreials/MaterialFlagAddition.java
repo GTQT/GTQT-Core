@@ -1,16 +1,13 @@
 package keqing.gtqtcore.api.unification.matreials;
 
-import gregtech.api.fluids.FluidBuilder;
-import gregtech.api.fluids.store.FluidStorageKeys;
-import gregtech.api.unification.material.Material;
-import gregtech.api.unification.material.properties.*;
+import gregtech.api.unification.material.properties.OreProperty;
+import gregtech.api.unification.material.properties.PropertyKey;
 
-import static gregicality.multiblocks.api.unification.GCYMMaterials.*;
 import static gregtech.api.unification.material.Materials.*;
-import static gregtech.api.unification.material.info.MaterialFlags.*;
+import static gregtech.api.unification.material.info.MaterialFlags.CRYSTALLIZABLE;
+import static gregtech.api.unification.material.info.MaterialFlags.DISABLE_DECOMPOSITION;
 import static keqing.gtqtcore.api.unification.GTQTMaterials.*;
 import static keqing.gtqtcore.api.unification.material.info.GTQTMaterialFlags.*;
-import static keqing.gtqtcore.api.unification.material.info.GTQTMaterialIconSet.CUSTOM_COSMIC_NEUTRONIUM;
 
 public class MaterialFlagAddition {
 
@@ -268,7 +265,7 @@ public class MaterialFlagAddition {
         //塑料
         CarbonNanotube.addFlags(GENERATE_WRAP);
         Asbestos.addFlags(GENERATE_WRAP);
-        Wool.addFlags(GENERATE_WRAP);
+        AnimalFiber.addFlags(GENERATE_WRAP);
         Polyethylene.addFlags(GENERATE_WRAP);
         PolyvinylChloride.addFlags(GENERATE_WRAP);
         Epoxy.addFlags(GENERATE_WRAP);

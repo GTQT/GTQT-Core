@@ -1372,7 +1372,8 @@ public class FirstDegreeMaterials {
                 .flags(DISABLE_DECOMPOSITION)
                 .build();
 
-        GTQTMaterials.Wool = new Material.Builder(getMaterialsId(), gtqtcoreId("wool"))
+        //动物纤维 Animal fiber
+        GTQTMaterials.AnimalFiber = new Material.Builder(getMaterialsId(), gtqtcoreId("animal_fiber"))
                 .fluid().dust()
                 .color(0xFFFFFF)
                 .flags(DISABLE_DECOMPOSITION)
@@ -2510,8 +2511,8 @@ public class FirstDegreeMaterials {
                 .dust()
                 .color(0x98cafc)
                 .iconSet(ROUGH)
-                .build()
-                .setFormula("C6H12O6", true);
+                .components(Carbon, 6, Hydrogen, 12, Oxygen, 6)
+                .build();
 
         SodiumAzide = new Material.Builder(getMaterialsId(), gtqtcoreId("sodium_azide"))
                 .dust()

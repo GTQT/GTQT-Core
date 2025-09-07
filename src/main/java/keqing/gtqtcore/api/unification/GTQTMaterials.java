@@ -469,7 +469,7 @@ public class GTQTMaterials {
     public static Material DNAl;
     public static Material DNAp;
     public static Material DNAw;
-    public static Material Wool;
+    public static Material AnimalFiber;
     public static Material DNAn;
     public static Material TitaniumOxide;
     public static Material AcidicTitanium;

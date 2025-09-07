@@ -9,7 +9,8 @@ import static gregtech.api.unification.material.Materials.*;
 import static gregtech.api.unification.ore.OrePrefix.dust;
 import static gregtechfoodoption.GTFOMaterialHandler.Stearin;
 import static gregtechfoodoption.GTFOMaterialHandler.Vanillin;
-import static keqing.gtqtcore.api.recipes.GTQTcoreRecipeMaps.*;
+import static keqing.gtqtcore.api.recipes.GTQTcoreRecipeMaps.BIOLOGICAL_REACTION_RECIPES;
+import static keqing.gtqtcore.api.recipes.GTQTcoreRecipeMaps.CHEMICAL_PLANT;
 import static keqing.gtqtcore.api.unification.GTQTMaterials.*;
 import static net.minecraft.init.Items.STRING;
 
@@ -43,7 +44,7 @@ public class CTABChain {
                 .duration(400).EUt(VA[HV]).buildAndRegister();
 
         COMPRESSOR_RECIPES.recipeBuilder()
-                .input(dust,Wool,9)
+                .input(dust, AnimalFiber, 9)
                 .output(STRING,4)
                 .duration(80).EUt(VA[LV]).buildAndRegister();
         //定向培养
@@ -53,7 +54,7 @@ public class CTABChain {
         SpecialOut(DNAh,Gunpowder,HV,20);
         SpecialOut(DNAl,Blaze,HV,20);
         SpecialOut(DNAp,EnderPearl,HV,40);
-        SpecialOut(DNAw,Wool,HV,40);
+        SpecialOut(DNAw, AnimalFiber, HV, 40);
         SpecialOut(DNAn,NetherStar,IV,80);
     }
 

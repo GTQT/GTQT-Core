@@ -3,7 +3,6 @@ package keqing.gtqtcore.loaders.recipes.handlers;
 import gregtech.api.items.metaitem.MetaItem;
 import gregtech.api.metatileentity.MetaTileEntity;
 import gregtech.api.unification.material.Material;
-import keqing.gtqtcore.common.block.GTQTMetaBlocks;
 
 import static gregtech.api.GTValues.L;
 import static gregtech.api.GTValues.VA;
@@ -23,7 +22,7 @@ public class PowerSupply {
                 .input(plate,TungstenSteel,6)
                 .input(screw, NanometerBariumTitanate, 2)
                 .fluidInputs(Zylon.getFluid(L * 2))
-                .output(POWER_SUPPLY_HATCH_BASIC)
+                .output(POWER_SUPPLY_HATCH_BASIC, 4)
                 .circuitMeta(1)
                 .duration(400).EUt(480).buildAndRegister();
 

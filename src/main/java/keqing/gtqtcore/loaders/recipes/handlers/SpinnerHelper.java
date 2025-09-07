@@ -8,11 +8,9 @@ import net.minecraft.item.ItemStack;
 
 import static gregtech.api.GTValues.*;
 import static gregtech.api.unification.material.Materials.*;
-import static gregtech.api.unification.material.Materials.Polybenzimidazole;
 import static gregtech.common.items.MetaItems.PLANT_BALL;
 import static keqing.gtqtcore.api.recipes.GTQTcoreRecipeMaps.SPINNER_RECIPES;
 import static keqing.gtqtcore.api.unification.GTQTMaterials.*;
-import static keqing.gtqtcore.api.unification.GTQTMaterials.Polyetheretherketone;
 import static keqing.gtqtcore.api.unification.ore.GTQTOrePrefix.wrap;
 
 public class SpinnerHelper {
@@ -20,7 +18,7 @@ public class SpinnerHelper {
         SPINNER_RECIPES.recipeBuilder()
                 .circuitMeta(1)
                 .input(Items.STRING)
-                .output(wrap, Wool)
+                .output(wrap, AnimalFiber)
                 .duration(200)
                 .EUt(VA[ULV])
                 .buildAndRegister();
