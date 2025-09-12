@@ -260,11 +260,6 @@ public class MetaTileEntityAssemblyLine extends GTQTRecipeMapMultiblockControlle
     }
 
     @Override
-    public boolean canBeDistinct() {
-        return true;
-    }
-
-    @Override
     public void update() {
         super.update();
         if (ConfigHolder.client.shader.assemblyLineParticles) {
@@ -464,5 +459,10 @@ public class MetaTileEntityAssemblyLine extends GTQTRecipeMapMultiblockControlle
         tooltip.add(I18n.format("gtqt.machine.assembly_line.1"));
         tooltip.add(I18n.format("gtqt.machine.assembly_line.2"));
         tooltip.add(I18n.format("友情提醒，我只能使用ULV级的总线仓口"));
+    }
+
+    @Override
+    public boolean canBeDistinct() {
+        return false;
     }
 }

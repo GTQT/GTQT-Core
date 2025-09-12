@@ -566,7 +566,7 @@ public abstract class GTQTRecipeMapMultiblockController extends MultiMapMultiblo
     }
 
     @Override
-    public boolean isDistinct() {
+    public boolean canBeDistinct() {
         return true;
     }
 

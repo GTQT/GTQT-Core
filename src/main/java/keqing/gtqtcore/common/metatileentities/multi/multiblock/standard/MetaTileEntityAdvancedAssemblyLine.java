@@ -151,7 +151,7 @@ public class MetaTileEntityAdvancedAssemblyLine extends GTQTNoTierMultiblockCont
 
     @Override
     public boolean canBeDistinct() {
-        return true;
+        return false;
     }
 
     public MetaTileEntity createMetaTileEntity(IGregTechTileEntity tileEntity) {

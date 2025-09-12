@@ -509,7 +509,7 @@ public abstract class GTQTNoTierMultiblockController extends MultiMapMultiblockC
     }
 
     @Override
-    public boolean isDistinct() {
+    public boolean canBeDistinct() {
         return true;
     }
 
