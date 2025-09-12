@@ -280,12 +280,12 @@ public class MetaTileEntityMachine {
                 .circuitMeta(9)
                 .duration(1100).EUt(VA[EV]).buildAndRegister();
 
-        MIXER_RECIPES.recipeBuilder()
+        BLAST_RECIPES.recipeBuilder()
                 .input(dust, Germanium, 3)
                 .input(dust, Tungsten, 3)
-                .input(dust, Nitrogen, 10)
+                .fluidInputs(Nitrogen.getFluid(10000))
                 .output(dust, GermaniumTungstenNitride, 16)
-                .circuitMeta(6)
+                .blastFurnaceTemp(4500)
                 .duration(800).EUt(VA[IV]).buildAndRegister();
     }
 

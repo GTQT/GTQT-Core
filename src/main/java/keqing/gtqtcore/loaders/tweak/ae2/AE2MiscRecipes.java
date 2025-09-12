@@ -516,7 +516,7 @@ public class AE2MiscRecipes {
 
         RecipeMaps.ASSEMBLER_RECIPES.recipeBuilder()
                 .inputs(meGlassCable)
-                .circuitMeta(2)
+                .circuitMeta(1)
                 .outputs(meCable)
                 .fluidInputs(SiliconeRubber.getFluid(144))
                 .EUt(VA[MV])
@@ -525,7 +525,7 @@ public class AE2MiscRecipes {
 
         RecipeMaps.ASSEMBLER_RECIPES.recipeBuilder()
                 .inputs(meGlassCable)
-                .circuitMeta(3)
+                .circuitMeta(1)
                 .outputs(meCable)
                 .fluidInputs(StyreneButadieneRubber.getFluid(72))
                 .EUt(VA[MV])
@@ -557,7 +557,7 @@ public class AE2MiscRecipes {
         //致密线缆
         RecipeMaps.ASSEMBLER_RECIPES.recipeBuilder()
                 .inputs(GTUtility.copy(4, meCable))
-                .circuitMeta(1)
+                .circuitMeta(2)
                 .outputs(meCableDense)
                 .fluidInputs(Rubber.getFluid(288 * 4))
                 .EUt(VA[MV])
@@ -575,7 +575,7 @@ public class AE2MiscRecipes {
 
         RecipeMaps.ASSEMBLER_RECIPES.recipeBuilder()
                 .inputs(GTUtility.copy(4, meCable))
-                .circuitMeta(3)
+                .circuitMeta(2)
                 .outputs(meCableDense)
                 .fluidInputs(StyreneButadieneRubber.getFluid(72 * 4))
                 .EUt(VA[MV])
@@ -609,7 +609,7 @@ public class AE2MiscRecipes {
         RecipeMaps.ASSEMBLER_RECIPES.recipeBuilder()
                 .inputs(GTUtility.copy(4, meGlassCable))
                 .input(circuit, MarkerMaterials.Tier.MV)
-                .circuitMeta(1)
+                .circuitMeta(3)
                 .outputs(meCableSmart)
                 .fluidInputs(Rubber.getFluid(288))
                 .EUt(VA[MV])
@@ -619,7 +619,7 @@ public class AE2MiscRecipes {
         RecipeMaps.ASSEMBLER_RECIPES.recipeBuilder()
                 .inputs(GTUtility.copy(4, meGlassCable))
                 .input(circuit, MarkerMaterials.Tier.MV)
-                .circuitMeta(2)
+                .circuitMeta(3)
                 .outputs(meCableSmart)
                 .fluidInputs(SiliconeRubber.getFluid(144))
                 .EUt(VA[MV])

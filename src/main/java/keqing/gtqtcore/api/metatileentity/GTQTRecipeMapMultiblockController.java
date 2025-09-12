@@ -565,6 +565,11 @@ public abstract class GTQTRecipeMapMultiblockController extends MultiMapMultiblo
         else return customParallel + "/" + getMaxParallel();
     }
 
+    @Override
+    public boolean isDistinct() {
+        return true;
+    }
+
     protected class GTQTMultiblockLogic extends MultiblockRecipeLogic {
         public GTQTMultiblockLogic(RecipeMapMultiblockController tileEntity) {
             super(tileEntity, true);
@@ -616,5 +621,4 @@ public abstract class GTQTRecipeMapMultiblockController extends MultiMapMultiblo
             super.setMaxProgress((int) (maxProgress * (setTimeReduce ? timeReduce : 1)));
         }
     }
-
 }

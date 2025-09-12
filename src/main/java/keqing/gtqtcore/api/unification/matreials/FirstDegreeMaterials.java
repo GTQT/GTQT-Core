@@ -541,7 +541,7 @@ public class FirstDegreeMaterials {
         GTQTMaterials.XenoauricFluoroantimonicAcid = new Material.Builder(getMaterialsId(), gtqtcoreId("xenoauric_fluoroantimonic_acid"))
                 .color(0xE0BD74)
                 .fluid()
-                .components(Xenon, 1, Gold, 1, Antimony, 1, Fluorine, 6)
+                .components(Xenon, 2, Gold, 1, Antimony, 1, Fluorine, 6)
                 .flags(DISABLE_DECOMPOSITION)
                 .build();
 

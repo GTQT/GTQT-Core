@@ -131,7 +131,7 @@ public class TechReSearchNET {
         //30 元素复制
         KQ_NET(2, 4, 30, DISK_30, NEUTRON);
         //31 AI大模型
-        KQ_NET(3, 4, 31, DISK_31, HIGH_PERFORMANCE_COMPUTING_ARRAY.getStackForm());
+        KQ_NET(3, 4, 31, DISK_31, ADV_NETWORK_SWITCH.getStackForm());
         //32 光子晶格存储
         KQ_NET(3, 4, 32, DISK_32, DATA_BANK.getStackForm());
         //33 超高能激光聚变

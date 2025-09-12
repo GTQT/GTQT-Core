@@ -213,7 +213,7 @@ public abstract class GTQTOCMultiblockController extends MultiMapMultiblockContr
         this.customParallel = MathHelper.clamp(this.customParallel + parallelAmount, 1, getMaxParallel());
     }
 
-    //////////////////////////////////////////////////////////////////////////////////////////////////////////
+    /// ///////////////////////////////////////////////////////////////////////////////////////////////////////
     @Override
     protected void configureDisplayText(MultiblockUIBuilder builder) {
         builder.setWorkingStatus(recipeMapWorkable.isWorkingEnabled(), recipeMapWorkable.isActive())
@@ -561,6 +561,11 @@ public abstract class GTQTOCMultiblockController extends MultiMapMultiblockContr
         else return customParallel + "/" + getMaxParallel();
     }
 
+    @Override
+    public boolean isDistinct() {
+        return true;
+    }
+
     protected class GTQTOCMultiblockLogic extends ComputationRecipeLogic {
         public GTQTOCMultiblockLogic(RecipeMapMultiblockController tileEntity) {
             super(tileEntity, ComputationType.SPORADIC);
@@ -618,5 +623,4 @@ public abstract class GTQTOCMultiblockController extends MultiMapMultiblockContr
             super.setMaxProgress((int) (maxProgress * (setTimeReduce ? timeReduce : 1)));
         }
     }
-
 }

@@ -13,7 +13,6 @@ import static gregtech.api.unification.ore.OrePrefix.*;
 import static gregtechfoodoption.GTFOMaterialHandler.SodiumCyanide;
 import static keqing.gtqtcore.api.recipes.GTQTcoreRecipeMaps.*;
 import static keqing.gtqtcore.api.unification.GTQTMaterials.*;
-
 import static keqing.gtqtcore.common.items.GTQTMetaItems.*;
 
 /**
@@ -87,7 +86,7 @@ public class TaraniumProcessing {
                 .fluidInputs(BedrockSmoke.getFluid(1000))
                 .fluidInputs(Water.getFluid(1000))
                 .fluidOutputs(BedrockSootSolution.getFluid(1000))
-                .circuitMeta(1)
+                .circuitMeta(2)
                 .duration(100)
                 .EUt(VA[LuV])
                 .buildAndRegister();

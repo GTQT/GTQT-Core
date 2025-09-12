@@ -5,7 +5,6 @@ import gregicality.multiblocks.api.metatileentity.GCYMRecipeMapMultiblockControl
 import gregicality.multiblocks.api.render.GCYMTextures;
 import gregicality.multiblocks.common.block.GCYMMetaBlocks;
 import gregicality.multiblocks.common.block.blocks.BlockLargeMultiblockCasing;
-import gregtech.api.GTValues;
 import gregtech.api.metatileentity.MetaTileEntity;
 import gregtech.api.metatileentity.interfaces.IGregTechTileEntity;
 import gregtech.api.metatileentity.multiblock.IMultiblockPart;
@@ -25,7 +24,6 @@ import gregtech.api.util.KeyUtil;
 import gregtech.client.renderer.ICubeRenderer;
 import gregtech.common.blocks.BlockGlassCasing;
 import gregtech.common.blocks.MetaBlocks;
-import gregtech.common.metatileentities.MetaTileEntities;
 import gregtech.common.metatileentities.multi.multiblockpart.MetaTileEntityItemBus;
 import keqing.gtqtcore.api.recipes.GTQTcoreRecipeMaps;
 import keqing.gtqtcore.client.textures.GTQTTextures;
@@ -63,22 +61,21 @@ public class MetaTileEntityNanoscaleFabricator extends GCYMRecipeMapMultiblockCo
     @Override
     protected BlockPattern createStructurePattern() {
         return FactoryBlockPattern.start()
-                .aisle("   TTT   ", "   TIT   ", "   TCT   ", "         ")
+                .aisle("   TTT   ", "   TXT   ", "   TCT   ", "         ")
                 .aisle("  XXXXX  ", "  XX#XX  ", "  XXXXX  ", "  XXXXX  ")
                 .aisle(" XXXXXXX ", " X#####X ", " X#####X ", " XXGGGXX ")
                 .aisle("TXXTTTXXT", "TX#####XT", "TX#####XT", " XGGGGGX ")
-                .aisle("TXXTITXXT", "I###A###I", "CX#####XC", " XGGGGGX ")
+                .aisle("TXXTXTXXT", "X###A###X", "CX#####XC", " XGGGGGX ")
                 .aisle("TXXTTTXXT", "TX#####XT", "TX#####XT", " XGGGGGX ")
                 .aisle(" XXXXXXX ", " X#####X ", " X#####X ", " XXGGGXX ")
                 .aisle("  XXXXX  ", "  XX#XX  ", "  XXXXX  ", "  XXXXX  ")
-                .aisle("   TST   ", "   TIT   ", "   TCT   ", "         ")
+                .aisle("   TST   ", "   TXT   ", "   TCT   ", "         ")
                 .where('S', selfPredicate())
-                .where('X', states(GCYMMetaBlocks.LARGE_MULTIBLOCK_CASING.getState(BlockLargeMultiblockCasing.CasingType.ENGRAVER_CASING)).setMinGlobalLimited(84)
-                        .or(autoAbilities(true, true, false, true, true, true, true)))
-                .where('T', states(getNonconductingState()).setMinGlobalLimited(36))
+                .where('X', states(GCYMMetaBlocks.LARGE_MULTIBLOCK_CASING.getState(BlockLargeMultiblockCasing.CasingType.ENGRAVER_CASING)).setMinGlobalLimited(76)
+                        .or(autoAbilities()))
+                .where('T', states(getNonconductingState()))
                 .where('G', states(MetaBlocks.TRANSPARENT_CASING.getState(BlockGlassCasing.CasingType.LAMINATED_GLASS)))
-                .where('I', metaTileEntities(MetaTileEntities.ITEM_IMPORT_BUS[GTValues.ULV]).or(states(GCYMMetaBlocks.LARGE_MULTIBLOCK_CASING.getState(BlockLargeMultiblockCasing.CasingType.NONCONDUCTING_CASING))))
-                .where('C', states(getNonconductingState()).or(cruciblePredicate()))
+                .where('C', cruciblePredicate())
                 .where('A', states(GTQTMetaBlocks.blockPCBFactoryCasing.getState(BlockPCBFactoryCasing.PCBFactoryCasingType.ADVANCED_SUBSTRATE_CASING)))
                 .where('#', air())
                 .where(' ', any())

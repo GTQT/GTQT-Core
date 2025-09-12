@@ -113,7 +113,7 @@ public class CPULine {
 
         FLUID_CANNER_RECIPES.recipeBuilder()
                 .input(UV_LIGHT_EMPTY_MKI)
-                .fluidInputs(Helium.getFluid(1000))
+                .fluidInputs(Nitrogen.getFluid(1000))
                 .output(UV_LIGHT_MKI)
                 .duration(200)
                 .EUt(120)
@@ -121,7 +121,7 @@ public class CPULine {
 
         FLUID_CANNER_RECIPES.recipeBuilder()
                 .input(UV_LIGHT_EMPTY_MKI)
-                .fluidInputs(Neon.getFluid(1000))
+                .fluidInputs(Helium.getFluid(1000))
                 .output(UV_LIGHT_MKII)
                 .duration(200)
                 .EUt(120)
@@ -139,7 +139,7 @@ public class CPULine {
 
         FLUID_CANNER_RECIPES.recipeBuilder()
                 .input(UV_LIGHT_EMPTY_MKII)
-                .fluidInputs(Argon.getFluid(1000))
+                .fluidInputs(Neon.getFluid(1000))
                 .output(UV_LIGHT_MKIII)
                 .duration(200)
                 .EUt(120)
@@ -157,7 +157,7 @@ public class CPULine {
 
         FLUID_CANNER_RECIPES.recipeBuilder()
                 .input(UV_LIGHT_EMPTY_MKIII)
-                .fluidInputs(Krypton.getFluid(1000))
+                .fluidInputs(Argon.getFluid(1000))
                 .output(UV_LIGHT_MKIV)
                 .duration(200)
                 .EUt(120)

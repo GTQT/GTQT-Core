@@ -975,7 +975,6 @@ public class GTQTMetaItems {
         GTQT_META_ITEM = new GTQTMetaItem1();
         GTQT_META_BATTERY = new GTQTBattery();
         GTQT_META_ARMOR = new GTQTMetaArmor();
-
     }
 
     public static void initSubItems() {

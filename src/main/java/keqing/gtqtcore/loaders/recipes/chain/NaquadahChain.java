@@ -221,7 +221,7 @@ public class NaquadahChain {
                 .fluidInputs(XenoauricFluoroantimonicAcid.getFluid(1000))
                 .output(dust, Gold)
                 .output(dust, AntimonyTrifluoride)
-                .fluidOutputs(Xenon.getFluid(1000))
+                .fluidOutputs(Xenon.getFluid(2000))
                 .fluidOutputs(HydrofluoricAcid.getFluid(3000))
                 .EUt(VA[IV])
                 .duration(1200)

@@ -27,17 +27,16 @@ import net.minecraftforge.fml.common.registry.GameRegistry;
         modid = "gtqtcore",
         name = "GTQTcore",
         acceptedMinecraftVersions = "[1.12.2,1.13)",
-        version = "0.0.1-beta",
         dependencies = "required-after:gregtech@[2.9.0-beta,);" +
                 "after:gcym@[1.8.0,);" +
                 "after:gregtechfoodoption@[1.8.0,);"
 )
 public class GTQTCore {
-    public static final String PACK = "1.8.6";
+    public static final String PACK = "1.8.7";
 
     public static final String MODID = "gtqtcore";
     public static final String NAME = "GTQT Core";
-    public static final String VERSION = "0907(2025/9/07)";
+    public static final String VERSION = "0912(2025/9/12)";
 
     @Mod.Instance(GTQTCore.MODID)
     public static GTQTCore instance;
