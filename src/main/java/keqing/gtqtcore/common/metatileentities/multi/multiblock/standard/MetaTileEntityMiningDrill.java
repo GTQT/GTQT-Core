@@ -67,6 +67,7 @@ public class MetaTileEntityMiningDrill extends RecipeMapMultiblockController {
     int random;
     int type;
     int dimension;
+
     public MetaTileEntityMiningDrill(ResourceLocation metaTileEntityId) {
         super(metaTileEntityId, GTQTcoreRecipeMaps.MINING_DRILL_RECIPES);
         this.recipeMapWorkable = new IndustrialDrillWorkableHandler(this);

@@ -137,6 +137,7 @@ public class MetaTileEntityIndustrialInductionFurnace extends MultiMapMultiblock
     }
 
     public boolean checkRecipe(Recipe recipe, boolean consumeIfSuccess) {
+        if(!super.checkRecipe(recipe,consumeIfSuccess))return false;
         return (this.heatingCoilLevel + 1) * 900 >= recipe.getProperty(TemperatureProperty.getInstance(), 0);
     }
 
@@ -144,10 +145,6 @@ public class MetaTileEntityIndustrialInductionFurnace extends MultiMapMultiblock
 
         public InductionFurnaceRecipeLogic(RecipeMapMultiblockController tileEntity) {
             super(tileEntity);
-        }
-
-        public ParallelLogicType getParallelLogicType() {
-            return ParallelLogicType.APPEND_ITEMS;
         }
 
         @Override

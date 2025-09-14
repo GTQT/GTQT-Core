@@ -293,9 +293,9 @@ public class MetaTileEntityPreciseAssembler extends GTQTOCMultiblockController {
         tooltip.add(I18n.format("gtqtcore.machine.precise_assembler.tooltip.5"));
     }
 
-    protected class PreciseAssemblerRecipeLogic extends ComputationRecipeLogic {
+    protected class PreciseAssemblerRecipeLogic extends GTQTOCMultiblockLogic {
         public PreciseAssemblerRecipeLogic(RecipeMapMultiblockController tileEntity) {
-            super(tileEntity, ComputationType.SPORADIC);
+            super(tileEntity);
         }
 
         @Override

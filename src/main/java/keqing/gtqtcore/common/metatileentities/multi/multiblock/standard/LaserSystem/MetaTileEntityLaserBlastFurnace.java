@@ -143,6 +143,7 @@ public class MetaTileEntityLaserBlastFurnace extends RecipeMapLaserMultiblockCon
 
     @Override
     public boolean checkRecipe(Recipe recipe, boolean consumeIfSuccess) {
+        if(!super.checkRecipe(recipe,consumeIfSuccess))return false;
         return this.blastFurnaceTemperature >= recipe.getProperty(TemperatureProperty.getInstance(), 0);
     }
 

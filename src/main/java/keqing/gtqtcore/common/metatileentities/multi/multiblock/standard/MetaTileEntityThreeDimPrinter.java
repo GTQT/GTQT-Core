@@ -114,7 +114,17 @@ public class MetaTileEntityThreeDimPrinter extends GTQTOCMultiblockController im
 
     @Override
     protected BlockPattern createStructurePattern() {
-        return FactoryBlockPattern.start().aisle("JXXXXXX", "JXXXXXX", "JXXGGGX").aisle("JXXXXXX", "JXXPPPX", "JXXGGGX").aisle("JXXXXXX", "JCSGGGX", "JXXGGGX").where('S', selfPredicate()).where('C', abilities(MultiblockAbility.COMPUTATION_DATA_RECEPTION)).where('X', TiredTraceabilityPredicate.CP_CASING.get().setMinGlobalLimited(24).or(autoAbilities())).where('G', TiredTraceabilityPredicate.CP_LGLASS.get()).where('J', TiredTraceabilityPredicate.CP_ZJ_CASING.get()).where('P', TiredTraceabilityPredicate.CP_TJ_CASING.get()).where('#', air()).build();
+        return FactoryBlockPattern.start()
+                .aisle("JXXXXXX", "JXXXXXX", "JXXGGGX")
+                .aisle("JXXXXXX", "JXXPPPX", "JXXGGGX")
+                .aisle("JXXXXXX", "JCSGGGX", "JXXGGGX")
+                .where('S', selfPredicate())
+                .where('C', abilities(MultiblockAbility.COMPUTATION_DATA_RECEPTION))
+                .where('X', TiredTraceabilityPredicate.CP_CASING.get().setMinGlobalLimited(24)
+                        .or(autoAbilities())).where('G', TiredTraceabilityPredicate.CP_LGLASS.get())
+                .where('J', TiredTraceabilityPredicate.CP_ZJ_CASING.get()).where('P', TiredTraceabilityPredicate.CP_TJ_CASING.get())
+                .where('#', air())
+                .build();
     }
 
     @SideOnly(Side.CLIENT)

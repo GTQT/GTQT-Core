@@ -391,6 +391,63 @@ public class MachineCasing {
                 .duration(1000)
                 .buildAndRegister();
 
+        //  MK1
+        ASSEMBLY_LINE_RECIPES.recipeBuilder()
+                .input(frameGt, Orichalcum)
+                .input(plate, CarbonNanotube, 4)
+                .input(FIELD_GENERATOR_UV, 2)
+                .input(wireFine, Seaborgium, 4)
+                .fluidInputs(Polybenzimidazole.getFluid(L * 24))
+                .fluidInputs(Kevlar.getFluid(L * 16))
+                .fluidInputs(KaptonE.getFluid(L * 8))
+                .fluidInputs(BlackPlutonium.getFluid(L * 4))
+                .outputs(GTQTMetaBlocks.blockMultiblockCasing4.getItemVariant(HYPER_CIRE_MK1, 1))
+                .stationResearch(b -> b
+                        .researchStack(GTQTMetaBlocks.blockMultiblockCasing3.getItemVariant(NAQUADRIA_CASING))
+                        .CWUt(CWT[UV])
+                        .EUt(VA[UHV]))
+                .EUt(VA[UEV])
+                .duration(100)
+                .buildAndRegister();
+
+        //  MK2
+        ASSEMBLY_LINE_RECIPES.recipeBuilder()
+                .input(frameGt, Adamantium)
+                .input(plate, CelestialTungsten, 4)
+                .input(FIELD_GENERATOR_UHV, 2)
+                .input(wireFine, AstralTitanium, 4)
+                .fluidInputs(Polybenzimidazole.getFluid(L * 24))
+                .fluidInputs(Kevlar.getFluid(L * 16))
+                .fluidInputs(KaptonE.getFluid(L * 8))
+                .fluidInputs(BlackPlutonium.getFluid(L * 4))
+                .outputs(GTQTMetaBlocks.blockMultiblockCasing4.getItemVariant(HYPER_CIRE_MK2, 1))
+                .stationResearch(b -> b
+                        .researchStack(GTQTMetaBlocks.blockMultiblockCasing3.getItemVariant(NAQUADRIA_CASING))
+                        .CWUt(CWT[UV])
+                        .EUt(VA[UHV]))
+                .EUt(VA[UIV])
+                .duration(100)
+                .buildAndRegister();
+
+        //  MK3
+        ASSEMBLY_LINE_RECIPES.recipeBuilder()
+                .input(frameGt, Taranium)
+                .input(plate, MetastableHassium, 4)
+                .input(FIELD_GENERATOR_UEV, 2)
+                .input(wireFine, SuperheavyHAlloy, 4)
+                .fluidInputs(Polybenzimidazole.getFluid(L * 24))
+                .fluidInputs(Kevlar.getFluid(L * 16))
+                .fluidInputs(KaptonE.getFluid(L * 8))
+                .fluidInputs(BlackPlutonium.getFluid(L * 4))
+                .outputs(GTQTMetaBlocks.blockMultiblockCasing4.getItemVariant(HYPER_CIRE_MK3, 1))
+                .stationResearch(b -> b
+                        .researchStack(GTQTMetaBlocks.blockMultiblockCasing3.getItemVariant(NAQUADRIA_CASING))
+                        .CWUt(CWT[UV])
+                        .EUt(VA[UHV]))
+                .EUt(VA[UXV])
+                .duration(100)
+                .buildAndRegister();
+
         ASSEMBLER_RECIPES.recipeBuilder()
                 .inputs(MetaBlocks.METAL_CASING.getItemVariant(BlockMetalCasing.MetalCasingType.INVAR_HEATPROOF))
                 .input(plate, HastelloyN, 4)
@@ -415,8 +472,8 @@ public class MachineCasing {
 
         ASSEMBLER_RECIPES.recipeBuilder()
                 .inputs(GTQTMetaBlocks.blockMultiblockCasing3.getItemVariant(red_steel))
-                .input(plate, Stellite100, 4)
-                .input(gear,TungstenSteel)
+                .input(plate, TungstenSteel, 4)
+                .input(gear,StainlessSteel)
                 .input(ELECTRIC_MOTOR_EV)
                 .fluidInputs(BlackSteel.getFluid(L * 2))
                 .outputs(GTQTMetaBlocks.blockIsaCasing.getItemVariant(VACUUM_CASING))
