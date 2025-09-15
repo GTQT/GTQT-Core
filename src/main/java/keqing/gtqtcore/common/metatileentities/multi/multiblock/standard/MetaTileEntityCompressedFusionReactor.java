@@ -669,6 +669,10 @@ public class MetaTileEntityCompressedFusionReactor extends GTQTNoTierMultiblockC
                         1.0 * heat.getLongValue() / capacity.getLongValue() : 0));
     }
 
+    public IEnergyContainer getIEnergyContainer() {
+        return inputEnergyContainers;
+    }
+
     @Override
     public boolean isBatchAllowed() {
         return false;
@@ -686,12 +690,6 @@ public class MetaTileEntityCompressedFusionReactor extends GTQTNoTierMultiblockC
         }
 
         @Override
-        public long getMinVoltage() {
-            long totalInput = this.getEnergyStored() + energyHatchMaxWork * inputEnergyContainers.getInputPerSec() / 20L;
-            return Math.max(1, totalInput);
-        }
-
-        @Override
         public long getMaximumOverclockVoltage() {
             if (OCFirst) return this.getInputEnergyVoltage();
             return super.getMaximumOverclockVoltage();
@@ -699,7 +697,7 @@ public class MetaTileEntityCompressedFusionReactor extends GTQTNoTierMultiblockC
 
         public long getInputEnergyVoltage() {
             if (!isStructureFormed()) return super.getMaximumOverclockVoltage();
-            IEnergyContainer energyContainer = inputEnergyContainers;
+            IEnergyContainer energyContainer = getIEnergyContainer();
             if (energyContainer instanceof EnergyContainerList) {
                 long voltage;
                 long amperage;

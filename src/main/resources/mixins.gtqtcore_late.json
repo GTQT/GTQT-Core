@@ -6,16 +6,15 @@
   "minVersion": "0.8.3",
   "compatibilityLevel": "JAVA_8",
   "mixins": [
-    "gregtech.MixinMetaTileEntityHolder",
     "architecturecraft.MixinBlockSawbench",
     "architecturecraft.MixinBlockShape",
     "architecturecraft.MixinEnumShape",
     "architecturecraft.MixinTileSawbench",
+    "gregtech.MetaTileEntityDrumAccessor",
     "gregtech.MixinGlassCasingType",
     "gregtech.MixinMetaItem",
     "gregtech.MixinMetaPrefixItem",
-    "gregtech.MixinMetaValueItem",
-    "gregtech.MetaTileEntityDrumAccessor"
+    "gregtech.MixinMetaValueItem"
   ],
   "server": [],
   "client": [

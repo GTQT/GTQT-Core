@@ -2,7 +2,6 @@ package keqing.gtqtcore.common.metatileentities.multi.multiblock.standard;
 
 import gregtech.api.capability.IOpticalComputationHatch;
 import gregtech.api.capability.IOpticalComputationProvider;
-import gregtech.api.capability.impl.ComputationRecipeLogic;
 import gregtech.api.metatileentity.MetaTileEntity;
 import gregtech.api.metatileentity.interfaces.IGregTechTileEntity;
 import gregtech.api.metatileentity.multiblock.IMultiblockPart;
@@ -123,7 +122,7 @@ public class MetaTileEntityPreciseAssembler extends GTQTOCMultiblockController {
         this.writeCustomData(GTQTValue.UPDATE_TIER9, buf -> buf.writeInt(this.CasingTier));
 
         setTier(this.InternalCasingTier);
-        setMaxVoltage(this.InternalCasingTier);
+        setMaxVoltage(this.InternalCasingTier + 5);
     }
 
     @Override

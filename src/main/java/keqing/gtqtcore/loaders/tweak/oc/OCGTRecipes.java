@@ -1,11 +1,14 @@
 package keqing.gtqtcore.loaders.tweak.oc;
 
 import gregtech.api.recipes.RecipeMaps;
+import gregtech.api.recipes.ingredients.nbtmatch.NBTCondition;
+import gregtech.api.recipes.ingredients.nbtmatch.NBTMatcher;
 import keqing.gtqtcore.common.block.GTQTMetaBlocks;
 import keqing.gtqtcore.common.metatileentities.GTQTMetaTileEntities;
 import net.minecraft.item.ItemStack;
 
-import static gregtech.api.GTValues.*;
+import static gregtech.api.GTValues.MV;
+import static gregtech.api.GTValues.VA;
 import static keqing.gtqtcore.common.block.blocks.BlocksResearchSystem.CasingType.COMPUTER_VENT;
 import static keqing.gtqtcore.loaders.tweak.oc.index.*;
 
@@ -27,7 +30,7 @@ public class OCGTRecipes {
     public static void autoRecipe(ItemStack stack,int i) {
         //完成高级部件的合成
         RecipeMaps.PACKER_RECIPES.recipeBuilder()
-                .inputs(stack)
+                .inputNBT(stack, NBTMatcher.ANY, NBTCondition.ANY)
                 .inputs(GTQTMetaBlocks.blocksResearchSystem.getItemVariant(COMPUTER_VENT))
                 .output(GTQTMetaTileEntities.KQCC_HATCH[i])
                 .EUt(VA[MV])
