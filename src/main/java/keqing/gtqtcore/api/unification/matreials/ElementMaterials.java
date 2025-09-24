@@ -529,10 +529,7 @@ public class ElementMaterials {
         GTQTMaterials.Universe = new Material.Builder(getMaterialsId(), gtqtcoreId("universe"))
                 .ingot()
                 .liquid(new FluidBuilder().temperature((int) V[UV]))
-                .blast(b -> b
-                        .temp(8100, BlastProperty.GasTier.HIGHER)
-                        .blastStats(VA[UV], 900)
-                        .vacuumStats(VA[ZPM], 600))
+                .blast(8100, BlastProperty.GasTier.HIGH)
                 .color(0x000000)
                 .iconSet(SHINY)
                 .flags(CRYSTALLIZABLE)

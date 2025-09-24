@@ -47,12 +47,12 @@ public class Elements {
     public static final Element n = gregtech.api.unification.Elements.add(0, 1, -1, null, "Neutrons", "*n*", false);
 
     public static final Element Mx = gregtech.api.unification.Elements.add(1931, 1994, -1, null, "Magmatter", "M⎋", false);
-    public static final Element Pi = gregtech.api.unification.Elements.add(50000, 50000, -1, null, "PrimordialMatter", "Pm⎋", false);
+    public static final Element Pi = gregtech.api.unification.Elements.add(5000, 5000, -1, null, "PrimordialMatter", "Pm⎋", false);
     public static final Element Ax=gregtech.api.unification.Elements.add(290, 282, -1, null, "Astralium", "Ax⚶", false);
     public static final Element Hr=gregtech.api.unification.Elements.add(640, 789, -1, null, "Hikarium", "Hr⚶", false);
 
     //宇宙素
-    public static final Element Sp = gregtech.api.unification.Elements.add(1000000, 1000000, -1, null, "Universe", "Sp", false);
+    public static final Element Sp = gregtech.api.unification.Elements.add(10000, 10000, -1, null, "Universe", "Sp", false);
     //Qt
-    public static final Element Qt = gregtech.api.unification.Elements.add(1000000, 1000000, -1, null, "Qt", "Qt", false);
+    public static final Element Qt = gregtech.api.unification.Elements.add(10000, 10000, -1, null, "Qt", "Qt", false);
 }
