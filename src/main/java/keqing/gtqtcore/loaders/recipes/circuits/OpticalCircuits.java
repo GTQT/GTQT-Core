@@ -204,6 +204,18 @@ public class OpticalCircuits {
                 .buildAndRegister();
     }
     private static void SoC() {
+        //  MnTa2O6 + 2HF -> Ta2O5 + MnF2 + H2O
+        CHEMICAL_BATH_RECIPES.recipeBuilder()
+                .input(dust, Tantalite, 9)
+                .fluidInputs(HydrofluoricAcid.getFluid(2000))
+                .output(dust, TantalumPentoxide, 7)
+                .output(dust, NiobiumPentoxide)
+                .output(dust, ManganeseDifluoride, 3)
+                .fluidOutputs(Water.getFluid(1000))
+                .duration(200)
+                .EUt(VA[HV])
+                .buildAndRegister();
+
         //  MnF2 + ZnS + Ta2O5 + TiO2 + C2H6O -> Electrolyte Reflector Mixture
         MIXER_RECIPES.recipeBuilder()
                 .input(dust, ManganeseDifluoride, 3)

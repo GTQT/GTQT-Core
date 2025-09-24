@@ -800,6 +800,7 @@ public class TaraniumProcessing {
         CHEMICAL_RECIPES.recipeBuilder()
                 .fluidInputs(Krypton.getFluid(1000))
                 .fluidInputs(Fluorine.getFluid(2000))
+                .circuitMeta(1)
                 .fluidOutputs(KryptonDifluoride.getFluid(1000))
                 .EUt(VA[HV])
                 .duration((int) (6.5 * SECOND))
@@ -977,16 +978,6 @@ public class TaraniumProcessing {
                 .EUt(VA[MV])
                 .duration((int) (10.5 * SECOND))
                 .blastFurnaceTemp(1100)
-                .buildAndRegister();
-
-        //  LiH + (CH3)3SiCl -> LiCl + (CH3)3SiH
-        CHEMICAL_RECIPES.recipeBuilder()
-                .input(dust, LithiumHydride, 2)
-                .fluidInputs(Trimethylchlorosilane.getFluid(1000))
-                .output(dust, LithiumChloride, 2)
-                .fluidOutputs(Trimethylsilane.getFluid(1000))
-                .EUt(VA[EV])
-                .duration((int) (6.5 * SECOND))
                 .buildAndRegister();
 
         CENTRIFUGE_RECIPES.recipeBuilder()

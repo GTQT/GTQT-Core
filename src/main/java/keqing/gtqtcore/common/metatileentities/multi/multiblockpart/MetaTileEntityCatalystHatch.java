@@ -30,7 +30,6 @@ import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 import net.minecraftforge.items.CapabilityItemHandler;
 import net.minecraftforge.items.ItemStackHandler;
-import org.jetbrains.annotations.NotNull;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -40,9 +39,9 @@ import java.util.Objects;
 public class MetaTileEntityCatalystHatch extends MetaTileEntityMultiblockPart implements IMultiblockAbilityPart<ICatalystHatch>, ICatalystHatch {
 
     private final CatalystHolder catalystHolder;
-    private boolean needUpdate;
     private final int slotCount;
     private final int tier;
+    private boolean needUpdate;
 
     public MetaTileEntityCatalystHatch(ResourceLocation metaTileEntityId, int tier) {
         super(metaTileEntityId, tier);
@@ -112,6 +111,7 @@ public class MetaTileEntityCatalystHatch extends MetaTileEntityMultiblockPart im
     public boolean canPartShare() {
         return true;
     }
+
     @Override
     public void writeInitialSyncData(PacketBuffer buf) {
         super.writeInitialSyncData(buf);
@@ -155,6 +155,7 @@ public class MetaTileEntityCatalystHatch extends MetaTileEntityMultiblockPart im
         super.clearMachineInventory(itemBuffer);
         clearInventory(itemBuffer, catalystHolder);
     }
+
     @Override
     protected boolean shouldSerializeInventories() {
         return false;
@@ -171,14 +172,15 @@ public class MetaTileEntityCatalystHatch extends MetaTileEntityMultiblockPart im
     public List<ItemStack> getCatalystList() {
         return this.catalystHolder.getCatalystList();
     }
-    public boolean ItemStackEqual(ItemStack a, ItemStack b)
-    {
-        return a.getItem()==b.getItem();
+
+    public boolean ItemStackEqual(ItemStack a, ItemStack b) {
+        return a.getItem() == b.getItem() && a.getMetadata() == b.getMetadata();
     }
+
     @Override
     public void consumeCatalyst(ItemStack catalyst, int amount) {
         for (int i = 0; i < this.catalystHolder.getSlots(); i++) {
-            if (ItemStackEqual(this.catalystHolder.getCatalystStack(i),catalyst)) {
+            if (ItemStackEqual(this.catalystHolder.getCatalystStack(i), catalyst)) {
                 this.catalystHolder.damageCatalyst(i, amount);
             }
         }
@@ -187,13 +189,13 @@ public class MetaTileEntityCatalystHatch extends MetaTileEntityMultiblockPart im
     @Override
     public boolean hasCatalyst(ItemStack catalyst) {
         for (int i = 0; i < this.catalystHolder.getSlots(); i++) {
-            if (ItemStackEqual(this.catalystHolder.getCatalystStack(i),catalyst)) {
+            if (ItemStackEqual(this.catalystHolder.getCatalystStack(i), catalyst)) {
                 return true;
             }
         }
         return false;
     }
-    
+
     @Override
     public MultiblockAbility<ICatalystHatch> getAbility() {
         return GTQTMultiblockAbility.CATALYST_MULTIBLOCK_ABILITY;
@@ -203,6 +205,7 @@ public class MetaTileEntityCatalystHatch extends MetaTileEntityMultiblockPart im
     public void registerAbilities(AbilityInstances abilityInstances) {
         abilityInstances.add(this);
     }
+
     @Override
     public void setStackInSlot(int slot, ItemStack stack) {
         this.catalystHolder.setStackInSlot(slot, stack);
@@ -232,6 +235,20 @@ public class MetaTileEntityCatalystHatch extends MetaTileEntityMultiblockPart im
     public int getSlotLimit(int slot) {
         return this.catalystHolder.getSlotLimit(slot);
     }
+
+    @Override
+    public void onRemoval() {
+        super.onRemoval();
+        for (int i = 0; i < catalystHolder.getSlots(); i++) {
+            var pos = getPos();
+            if (!catalystHolder.getStackInSlot(i).isEmpty()) {
+                getWorld().spawnEntity(new EntityItem(getWorld(), pos.getX() + 0.5, pos.getY() + 0.5, pos.getZ() + 0.5, catalystHolder.getStackInSlot(i)));
+                catalystHolder.extractItem(i, 1, false);
+            }
+
+        }
+    }
+
     private class CatalystHolder extends ItemStackHandler {
         private final List<CatalystBehavior> catalystBehaviors;
 
@@ -299,20 +316,6 @@ public class MetaTileEntityCatalystHatch extends MetaTileEntityMultiblockPart im
                 }
             }
             return catalysts;
-        }
-    }
-
-    @Override
-    public void onRemoval() {
-        super.onRemoval();
-        for (int i = 0; i < catalystHolder.getSlots(); i++) {
-            var pos = getPos();
-            if(!catalystHolder.getStackInSlot(i).isEmpty())
-            {
-                getWorld().spawnEntity(new EntityItem(getWorld(),pos.getX()+0.5,pos.getY()+0.5,pos.getZ()+0.5,catalystHolder.getStackInSlot(i)));
-                catalystHolder.extractItem(i,1,false);
-            }
-
         }
     }
 

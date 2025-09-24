@@ -324,7 +324,6 @@ public class MaterialOreChains {
                 .EUt(VA[MV])
                 .input(dust, Ilmenite, 4)
                 .fluidInputs(HydrochloricAcid.getFluid(4500))
-                .fluidInputs(Water.getFluid(1000))
                 .fluidOutputs(IlmeniteSlurry.getFluid(1000))
                 .buildAndRegister();
 

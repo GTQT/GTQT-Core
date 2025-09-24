@@ -360,7 +360,7 @@ public class FusionReactorRecipes {
         //  Compressed Fusion Reactor Mk I
         ASSEMBLY_LINE_RECIPES.recipeBuilder()
                 .input(CIRCUIT_GOOD_I, 16)
-                .input(FUSION_REACTOR[0], 48)
+                .input(FUSION_REACTOR[0], 32)
                 .input(swarm, Osmium, 1)
                 .input(circuit, MarkerMaterials.Tier.ZPM, 64)
                 .input(ELECTRIC_PUMP_LuV, 32)
@@ -385,7 +385,7 @@ public class FusionReactorRecipes {
         //  Compressed Fusion Reactor Mk II
         ASSEMBLY_LINE_RECIPES.recipeBuilder()
                 .input(CIRCUIT_GOOD_II, 16)
-                .input(FUSION_REACTOR[1], 48)
+                .input(FUSION_REACTOR[1], 32)
                 .input(swarm, Americium, 1)
                 .input(circuit, MarkerMaterials.Tier.UV, 64)
                 .input(ELECTRIC_PUMP_ZPM, 32)
@@ -464,7 +464,7 @@ public class FusionReactorRecipes {
         //  Compressed Fusion Reactor Mk V
         ASSEMBLY_LINE_RECIPES.recipeBuilder()
                 .input(CIRCUIT_GOOD_V, 16)
-                .input(ADVANCED_FUSION_REACTOR[1], 48)
+                .input(ADVANCED_FUSION_REACTOR[1], 64)
                 .input(swarm, Adamantium, 1)
                 .input(circuit, MarkerMaterials.Tier.UIV, 16)
                 .input(circuit, MarkerMaterials.Tier.UEV, 32)
@@ -479,12 +479,12 @@ public class FusionReactorRecipes {
                 .fluidInputs(Tairitsium.getFluid(L * 48))
                 .fluidInputs(Octahedrite.getFluid(L * 40))
                 .fluidInputs(QuantumAlloy.getFluid(L * 16))
-                .output(COMPRESSED_FUSION_REACTOR[3])
+                .output(COMPRESSED_FUSION_REACTOR[4])
                 .stationResearch(b -> b
                         .researchStack(ADVANCED_FUSION_REACTOR[0].getStackForm())
-                        .EUt(VA[UHV])
-                        .CWUt(CWT[UHV]))
-                .EUt(VA[UHV])
+                        .EUt(VA[UEV])
+                        .CWUt(CWT[UEV]))
+                .EUt(VA[UEV])
                 .duration(1200)
                 .buildAndRegister();
     }

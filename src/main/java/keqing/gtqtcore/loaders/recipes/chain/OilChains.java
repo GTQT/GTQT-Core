@@ -376,11 +376,10 @@ public class OilChains {
                 .buildAndRegister();
 
         //过氧化氢
-        ELECTROBATH.recipeBuilder()
+        ELECTROLYZER_RECIPES.recipeBuilder()
                 .duration(100)
                 .EUt(60)
-                .tier(1)
-                .circuitMeta(1)
+                .circuitMeta(2)
                 .fluidInputs(AmmoniumSulfate.getFluid(2000))
                 .fluidInputs(Water.getFluid(2000))
                 .fluidOutputs(Hydrogen.getFluid(1000))

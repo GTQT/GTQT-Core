@@ -2,6 +2,7 @@ package keqing.gtqtcore.loaders.recipes.handlers;
 
 import gregtech.api.unification.material.MarkerMaterials;
 import gregtech.common.blocks.BlockFusionCasing;
+import gregtech.common.blocks.BlockGlassCasing;
 import gregtech.common.blocks.MetaBlocks;
 import keqing.gtqtcore.api.recipes.GTQTcoreRecipeMaps;
 import keqing.gtqtcore.api.unification.GTQTMaterials;
@@ -21,8 +22,7 @@ import static keqing.gtqtcore.api.recipes.GTQTcoreRecipeMaps.LASER_FUSION_RECIPE
 import static keqing.gtqtcore.api.unification.GTQTMaterials.*;
 import static keqing.gtqtcore.api.unification.ore.GTQTOrePrefix.swarm;
 import static keqing.gtqtcore.api.utils.ParticleHelper.metaItemArray;
-import static keqing.gtqtcore.common.block.GTQTMetaBlocks.blockCompressedFusionReactor;
-import static keqing.gtqtcore.common.block.GTQTMetaBlocks.blockMultiblockCasing7;
+import static keqing.gtqtcore.common.block.GTQTMetaBlocks.*;
 import static keqing.gtqtcore.common.block.blocks.BlockCompressedFusionReactor.CasingType.FUSION_COIL_MKII;
 import static keqing.gtqtcore.common.block.blocks.BlockMultiblockCasing7.CasingType.MAGNETIC_FIELD_CASING;
 import static keqing.gtqtcore.common.block.blocks.BlockMultiblockCasing7.CasingType.PROTOMATTER_ACTIVATION_COIL;
@@ -81,9 +81,9 @@ public class AntimatterRecipes {
                 .fluidInputs(Cinobite.getFluid(L * 4))
                 .fluidInputs(Octahedrite.getFluid(L * 4))
                 .fluidInputs(AstralTitanium.getFluid(L * 4))
-                .outputs(blockMultiblockCasing7.getItemVariant(PROTOMATTER_ACTIVATION_COIL))
+                .outputs(blockMultiblockGlass.getItemVariant(ANTIMATTER_CONTAINMENT_CASING))
                 .stationResearch(b -> b
-                        .researchStack(GTQTMetaBlocks.blockMultiblockGlass.getItemVariant(ANTIMATTER_CONTAINMENT_CASING))
+                        .researchStack(MetaBlocks.TRANSPARENT_CASING.getItemVariant(BlockGlassCasing.CasingType.FUSION_GLASS))
                         .EUt(VA[UHV])
                         .CWUt(CWT[UV]))
                 .duration(300)

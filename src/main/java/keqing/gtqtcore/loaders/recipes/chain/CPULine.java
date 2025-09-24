@@ -129,7 +129,7 @@ public class CPULine {
 
         ASSEMBLER_RECIPES.recipeBuilder()
                 .input(GLASS_TUBE)
-                .input(ring, Polytetrafluoroethylene)
+                .input(ring, SiliconeRubber)
                 .input(screw,NanometerBariumTitanate,2)
                 .input(foil, TungstenSteel, 2)
                 .output(UV_LIGHT_EMPTY_MKII)
@@ -147,7 +147,7 @@ public class CPULine {
 
         ASSEMBLER_RECIPES.recipeBuilder()
                 .input(GLASS_TUBE)
-                .input(ring, Kevlar)
+                .input(ring, StyreneButadieneRubber)
                 .input(screw,Naquadah,2)
                 .input(foil, RhodiumPlatedPalladium, 2)
                 .output(UV_LIGHT_EMPTY_MKIII)

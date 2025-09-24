@@ -243,8 +243,8 @@ public class MetaTileEntityLaserEngraving extends GTQTOCMultiblockController {
         }
 
         @Override
-        public void update() {
-            super.update();
+        public void forceRecipeRecheck() {
+            super.forceRecipeRecheck();
             if (this.getRecipeMap() == GTQTcoreRecipeMaps.LASER_ENGRAVING) {
                 setTimeReduce(1);
                 setMaxParallel(glass_tier + laser_tier);

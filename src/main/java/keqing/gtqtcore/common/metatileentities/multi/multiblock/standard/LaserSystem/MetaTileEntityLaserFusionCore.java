@@ -87,9 +87,7 @@ public class MetaTileEntityLaserFusionCore extends RecipeMapLaserMultiblockContr
                 .where('S', this.selfPredicate())
                 .where('C', abilities(LASER_INPUT))
                 .where('A', states(getCasingState())
-                        .or(abilities(MAINTENANCE_HATCH).setExactLimit(1))
-                        .or(abilities(EXPORT_FLUIDS).setMaxGlobalLimited(1))
-                        .or(abilities(IMPORT_FLUIDS).setMaxGlobalLimited(2))
+                        .or(autoAbilities(false, true, true, true, true, true, false))
 
                 )
                 .where('B', states(getGlassState()))
@@ -264,4 +262,5 @@ public class MetaTileEntityLaserFusionCore extends RecipeMapLaserMultiblockContr
             OpenGlHelper.setLightmapTextureCoords(OpenGlHelper.lightmapTexUnit, lastBrightnessX, lastBrightnessY);
         }
     }
+
 }

@@ -655,6 +655,7 @@ public class GTQTMetaItem1 extends StandardMetaItem {
         COSMIC_FABRIC = this.addItem(667, "cosmic_fabric").setCreativeTabs(CommonProxy.GTQTCore_CH);
         MEMORY_FOAM_PLATE = this.addItem(668, "memory_foam_plate").setCreativeTabs(CommonProxy.GTQTCore_CH);
         FULLERENE_FIBER = this.addItem(669, "highly_insulating_fullerene_foil").setCreativeTabs(CommonProxy.GTQTCore_CH);
+
         //  ID 122-130: Spintronic SoC Components
         RYDBERG_SPINORIAL_ASSEMBLY = this.addItem(670, "component.spintronic.rydberg_spinorial_assembly").setCreativeTabs(CommonProxy.GTQTCore_HP);
         CRYOGENIC_INTERFACE = this.addItem(671, "component.spintronic.cryogenic_interface").setCreativeTabs(CommonProxy.GTQTCore_HP);
@@ -665,6 +666,26 @@ public class GTQTMetaItem1 extends StandardMetaItem {
         X_RAY_MIRROR = this.addItem(676, "component.spintronic.x_ray_mirror").setCreativeTabs(CommonProxy.GTQTCore_HP);
         MICROFOCUS_X_RAY_TUBE = this.addItem(677, "component.spintronic.microfocus_x_ray_tube").setCreativeTabs(CommonProxy.GTQTCore_HP);
         EXOTIC_SOC = this.addItem(678, "component.spintronic.exotic_soc").setCreativeTabs(CommonProxy.GTQTCore_HP);
+
+        //  ID 131-135: Cosmic SoC Components
+        LEPTON_TRAP_CRYSTAL = this.addItem(679, "component.cosmic.lepton_trap_crystal");
+        CHARGED_LEPTON_TRAP_CRYSTAL = this.addItem(680, "component.cosmic.charged_lepton_trap_crystal");
+        COLORED_LEDS = this.addItem(681, "component.cosmic.colored_leds");
+        ROTATING_TRANSPARENT_SURFACE = this.addItem(682, "component.cosmic.rotating_transparent_surface");
+        UNIVERSAL_SOC = this.addItem(683, "component.cosmic.universal_soc");
+
+        //  ID 136-148: Supracausal SoC Components
+        SILICON_NITRIDE_FIBER = this.addItem(684, "component.supracausal.silicon_nitride_fiber");
+        SILICON_NITRIDE_FIBER_MESH = this.addItem(685, "component.supracausal.silicon_nitride_fiber_mesh");
+        ELECTRICAL_SILICON_NITRIDE_FILM = this.addItem(686, "component.supracausal.electrical_silicon_nitride_film");
+        PHOTON_SHIELDING_CONTAINMENT_UNIT = this.addItem(687, "component.supracausal.photon_shielding_containment_unit");
+        COATED_PHOTONIC_CRYSTAL_FILM = this.addItem(688, "component.supracausal.coated_photonic_crystal_film");
+        QUANTUM_AMPLITUDE_SQUEEZED_LIGHT_STABILIZER = this.addItem(689, "component.supracausal.quantum_amplitude_squeezed_light_stabilizer");
+        CLOSED_LIGHTLIKE_CURVE_RECEIVE_UNIT = this.addItem(690, "component.supracausal.closed_lightlike_curve_receive_unit");
+        ZERO_POINT_ACCELERATOR = this.addItem(691, "component.supracausal.zero_point_accelerator");
+        QED_EFFECTOR = this.addItem(692, "component.supracausal.qed_effector");
+        SPACETIME_FIELD_STABILIZER = this.addItem(693, "component.supracausal.spacetime_field_stabilizer");
+        SUPRACAUSAL_SOC = this.addItem(694, "component.supracausal.supracausal_soc");
 
         // Optical Circuit Components: ID 200-219
         OPTICAL_FIBER = this.addItem(701, "optical_fiber").setCreativeTabs(CommonProxy.GTQTCore_GD);

@@ -2325,17 +2325,15 @@ public class SecondDegreeMaterials {
 
         // 六氟化氪 KryptonHexafluoride
         GTQTMaterials.KryptonHexafluoride = new Material.Builder(getMaterialsId(), gtqtcoreId("krypton_hexafluoride"))
-                .fluid()
+                .gas()
                 .components(Krypton, 1, Fluorine, 6)
                 .color(0xE6FFFF) // 淡青色
-                .iconSet(SHINY)
                 .build();
 
         // 氟化基岩 FluoriteBedRock
         GTQTMaterials.FluoriteBedRock = new Material.Builder(getMaterialsId(), gtqtcoreId("fluorite_bed_rock"))
                 .dust()
                 .color(0x9932CC) // 深兰花紫
-                .iconSet(SHINY)
                 .build();
 
         // 四氟化硅 SiliconTetrafluoride

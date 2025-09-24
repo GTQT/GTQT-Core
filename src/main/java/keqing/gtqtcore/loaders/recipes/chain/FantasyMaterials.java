@@ -135,6 +135,7 @@ public class FantasyMaterials {
         CHEMICAL_RECIPES.recipeBuilder()
                 .fluidInputs(Krypton.getFluid(1000))
                 .fluidInputs(Fluorine.getFluid(6000))
+                .circuitMeta(2)
                 .fluidOutputs(KryptonHexafluoride.getFluid(1000))
                 .EUt(VA[IV])
                 .duration(100)
@@ -252,6 +253,16 @@ public class FantasyMaterials {
                 .output(dust, ZirconiumTetrafluoride,1)
                 .EUt(VA[ZPM])
                 .duration(400)
+                .buildAndRegister();
+
+        //  Zr + 2F -> ZrF2
+        CHEMICAL_RECIPES.recipeBuilder()
+                .fluidInputs(Zirconium.getFluid(1000))
+                .fluidInputs(Fluorine.getFluid(4000))
+                .circuitMeta(1)
+                .output(dust, ZirconiumTetrafluoride,5)
+                .EUt(VA[EV])
+                .duration((int) (6.5 * SECOND))
                 .buildAndRegister();
 
 

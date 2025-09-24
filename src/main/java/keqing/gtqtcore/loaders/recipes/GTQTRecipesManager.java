@@ -181,5 +181,6 @@ public class GTQTRecipesManager {
         GoowareCircuits.init();
         OpticalCircuits.init();
         SpintronicCircuits.init();
+        CosmicCircuits.init();
     }
 }

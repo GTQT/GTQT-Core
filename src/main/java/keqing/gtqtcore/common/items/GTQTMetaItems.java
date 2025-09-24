@@ -421,6 +421,24 @@ public class GTQTMetaItems {
     public static MetaItem<?>.MetaValueItem X_RAY_MIRROR;
     public static MetaItem<?>.MetaValueItem MICROFOCUS_X_RAY_TUBE;
     public static MetaItem<?>.MetaValueItem EXOTIC_SOC;
+
+    public static MetaItem<?>.MetaValueItem LEPTON_TRAP_CRYSTAL;
+    public static MetaItem<?>.MetaValueItem CHARGED_LEPTON_TRAP_CRYSTAL;
+    public static MetaItem<?>.MetaValueItem COLORED_LEDS;
+    public static MetaItem<?>.MetaValueItem ROTATING_TRANSPARENT_SURFACE;
+    public static MetaItem<?>.MetaValueItem UNIVERSAL_SOC;
+    public static MetaItem<?>.MetaValueItem SILICON_NITRIDE_FIBER;
+    public static MetaItem<?>.MetaValueItem SILICON_NITRIDE_FIBER_MESH;
+    public static MetaItem<?>.MetaValueItem ELECTRICAL_SILICON_NITRIDE_FILM;
+    public static MetaItem<?>.MetaValueItem CLOSED_LIGHTLIKE_CURVE_RECEIVE_UNIT;
+    public static MetaItem<?>.MetaValueItem PHOTON_SHIELDING_CONTAINMENT_UNIT;
+    public static MetaItem<?>.MetaValueItem COATED_PHOTONIC_CRYSTAL_FILM;
+    public static MetaItem<?>.MetaValueItem QUANTUM_AMPLITUDE_SQUEEZED_LIGHT_STABILIZER;
+    public static MetaItem<?>.MetaValueItem ZERO_POINT_ACCELERATOR;
+    public static MetaItem<?>.MetaValueItem QED_EFFECTOR;
+    public static MetaItem<?>.MetaValueItem SPACETIME_FIELD_STABILIZER;
+    public static MetaItem<?>.MetaValueItem SUPRACAUSAL_SOC;
+
     public static MetaItem<?>.MetaValueItem COSMIC_FABRIC;
     public static MetaItem<?>.MetaValueItem MEMORY_FOAM_PLATE;
     public static MetaItem<?>.MetaValueItem FULLERENE_FIBER;
