@@ -40,8 +40,6 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 
 import java.util.List;
 
-import static keqing.gtqtcore.api.recipes.GTQTcoreRecipeMaps.SPINNER_RECIPES;
-
 public class MetaTileEntityNanoCoating extends GTQTOCMultiblockController implements IOpticalComputationReceiver {
     private int glass_tier;
     private int clean_tier;
@@ -56,7 +54,7 @@ public class MetaTileEntityNanoCoating extends GTQTOCMultiblockController implem
     private IOpticalComputationProvider computationProvider;
 
     public MetaTileEntityNanoCoating(ResourceLocation metaTileEntityId) {
-        super(metaTileEntityId, new RecipeMap[]{GTQTcoreRecipeMaps.TD_PRINT_RECIPES, GTQTcoreRecipeMaps.AUTO_CHISEL_RECIPES, GTQTcoreRecipeMaps.PRECISION_SPRAYING, GTQTcoreRecipeMaps.PRECISION_SPINNING, SPINNER_RECIPES});
+        super(metaTileEntityId, new RecipeMap[]{GTQTcoreRecipeMaps.TD_PRINT_RECIPES, GTQTcoreRecipeMaps.AUTO_CHISEL_RECIPES, GTQTcoreRecipeMaps.PRECISION_SPRAYING, GTQTcoreRecipeMaps.PRECISION_SPINNING});
         this.recipeMapWorkable = new LaserEngravingWorkableHandler(this);
 
         setTierFlag(true);

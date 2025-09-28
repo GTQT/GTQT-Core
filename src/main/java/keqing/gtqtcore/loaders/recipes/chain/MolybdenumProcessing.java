@@ -6,7 +6,6 @@ import keqing.gtqtcore.api.unification.GTQTMaterials;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.fluids.FluidStack;
 
-import static keqing.gtqtcore.api.recipes.GTQTcoreRecipeMaps.*;
 import static gregtech.api.GTValues.*;
 import static gregtech.api.recipes.RecipeMaps.*;
 import static gregtech.api.unification.material.Materials.*;
@@ -42,7 +41,7 @@ public class MolybdenumProcessing {
 
     private static void molybdenum() {
         // MoS2 + 9O -> MoO3 + 2SO2 + ReO2
-        BURNER_REACTOR_RECIPES.recipeBuilder()
+        BLAST_RECIPES.recipeBuilder()
                 .input(dust, Molybdenite, 3)
                 .fluidInputs(Oxygen.getFluid(8000))
                 .output(dust, GTQTMaterials.MolybdenumTrioxide, 4)

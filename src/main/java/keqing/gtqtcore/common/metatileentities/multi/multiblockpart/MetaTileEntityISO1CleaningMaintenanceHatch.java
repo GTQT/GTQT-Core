@@ -15,7 +15,7 @@ import gregtech.client.renderer.texture.Textures;
 import gregtech.common.ConfigHolder;
 import gregtech.common.metatileentities.multi.multiblockpart.MetaTileEntityAutoMaintenanceHatch;
 import it.unimi.dsi.fastutil.objects.ObjectOpenHashSet;
-import keqing.gtqtcore.api.metatileentity.multiblock.GCYLCleanroomType;
+import keqing.gtqtcore.api.metatileentity.multiblock.GTQTCleanroomType;
 import keqing.gtqtcore.client.textures.GTQTTextures;
 import keqing.gtqtcore.common.metatileentities.GTQTMetaTileEntities;
 import net.minecraft.client.resources.I18n;
@@ -37,9 +37,9 @@ public class MetaTileEntityISO1CleaningMaintenanceHatch extends MetaTileEntityAu
     static {
         CLEANED_TYPES.add(CleanroomType.CLEANROOM);
         CLEANED_TYPES.add(CleanroomType.STERILE_CLEANROOM);
-        CLEANED_TYPES.add(GCYLCleanroomType.ISO3);
-        CLEANED_TYPES.add(GCYLCleanroomType.ISO2);
-        CLEANED_TYPES.add(GCYLCleanroomType.ISO1);
+        CLEANED_TYPES.add(GTQTCleanroomType.ISO3);
+        CLEANED_TYPES.add(GTQTCleanroomType.ISO2);
+        CLEANED_TYPES.add(GTQTCleanroomType.ISO1);
     }
 
     // must come after the static block

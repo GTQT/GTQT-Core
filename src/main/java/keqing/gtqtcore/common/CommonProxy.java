@@ -34,7 +34,10 @@ import keqing.gtqtcore.loaders.AddHighTierMaterial;
 import keqing.gtqtcore.loaders.recipes.GTQTRecipes;
 import keqing.gtqtcore.loaders.recipes.GTQTRecipesManager;
 import keqing.gtqtcore.loaders.recipes.component.MaterialComponents;
-import keqing.gtqtcore.loaders.recipes.handlers.*;
+import keqing.gtqtcore.loaders.recipes.handlers.CopyRecipesHandlers;
+import keqing.gtqtcore.loaders.recipes.handlers.MaterialRecipeHandler;
+import keqing.gtqtcore.loaders.recipes.handlers.PartRecipeHandler;
+import keqing.gtqtcore.loaders.recipes.handlers.PipeRecipeHandler;
 import keqing.gtqtcore.loaders.tweak.tweakRecipesManager;
 import net.minecraft.block.Block;
 import net.minecraft.creativetab.CreativeTabs;
@@ -158,9 +161,6 @@ public class CommonProxy {
         MaterialRecipeHandler.register();
         PipeRecipeHandler.register();
         PartRecipeHandler.register();
-        WireCombinationHandler.init();
-        WireRecipeHandler.init();
-        GemHandler.init();
     }
 
     @SubscribeEvent

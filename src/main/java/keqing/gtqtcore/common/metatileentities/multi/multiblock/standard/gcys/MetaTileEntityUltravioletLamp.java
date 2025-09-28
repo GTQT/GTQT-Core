@@ -11,7 +11,6 @@ import gregtech.client.renderer.ICubeRenderer;
 import gregtech.client.renderer.texture.cube.OrientedOverlayRenderer;
 import gregtech.common.blocks.BlockBoilerCasing;
 import gregtech.common.blocks.MetaBlocks;
-import keqing.gtqtcore.api.recipes.GTQTcoreRecipeMaps;
 import keqing.gtqtcore.client.textures.GTQTTextures;
 import keqing.gtqtcore.common.block.GTQTMetaBlocks;
 import keqing.gtqtcore.common.block.blocks.BlockMultiblockCasing3;
@@ -25,7 +24,6 @@ public class MetaTileEntityUltravioletLamp extends GCYMAdvanceRecipeMapMultibloc
 
     public MetaTileEntityUltravioletLamp(ResourceLocation metaTileEntityId) {
         super(metaTileEntityId, new RecipeMap[]{
-                GTQTcoreRecipeMaps.ULTRAVIOLET_LAMP_CHAMBER_RECIPES,
                 SCRecipeMaps.DECAY_CHAMBER_RECIPES});
     }
 

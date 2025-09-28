@@ -7,7 +7,8 @@ import static gregtech.api.GTValues.*;
 import static gregtech.api.recipes.RecipeMaps.*;
 import static gregtech.api.unification.material.Materials.*;
 import static gregtech.api.unification.ore.OrePrefix.*;
-import static keqing.gtqtcore.api.recipes.GTQTcoreRecipeMaps.*;
+import static keqing.gtqtcore.api.recipes.GTQTcoreRecipeMaps.CVD_RECIPES;
+import static keqing.gtqtcore.api.recipes.GTQTcoreRecipeMaps.DRYER_RECIPES;
 import static supercritical.api.unification.material.SCMaterials.BoronTrioxide;
 
 public class BoronNitrideChain {
@@ -52,7 +53,7 @@ public class BoronNitrideChain {
                 .buildAndRegister();
 
         // Li + H -> LiH (873K)
-        BURNER_REACTOR_RECIPES.recipeBuilder()
+        BLAST_RECIPES.recipeBuilder()
                 .input(dust, Lithium, 1)
                 .fluidInputs(Hydrogen.getFluid(1000))
                 .output(ingot, GTQTMaterials.LithiumHydride, 1)
@@ -91,7 +92,7 @@ public class BoronNitrideChain {
                 .buildAndRegister();
 
         // B2O3 + 3C + 6Cl -> 2BCl3 + 3CO (774K)
-        BURNER_REACTOR_RECIPES.recipeBuilder()
+        BLAST_RECIPES.recipeBuilder()
                 .input(dust, BoronTrioxide, 5)
                 .input(dust, Carbon, 3)
                 .fluidInputs(Chlorine.getFluid(6000))
@@ -126,14 +127,13 @@ public class BoronNitrideChain {
 
         // Advanced recipe of h-BN.
         // B + N -> h-BN
-        MOLECULAR_BEAM_RECIPES.recipeBuilder()
+        LARGE_CHEMICAL_RECIPES.recipeBuilder()
                 .input(foil, Nickel, 8)
                 .input(dust, Boron)
                 .fluidInputs(Nitrogen.getFluid(1000))
                 .output(gem, GTQTMaterials.HexagonalBoronNitride, 2)
                 .EUt(VA[LuV])
                 .duration(4 * SECOND)
-                .temperature(2900)
                 .buildAndRegister();
 
         // h-BN -> c-BN (3501K)

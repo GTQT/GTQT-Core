@@ -614,7 +614,7 @@ public class TaraniumProcessing {
                 .buildAndRegister();
 
         //  Ultraacidic Stone Residue Solution -> Dusty Helium-3
-        BURNER_REACTOR_RECIPES.recipeBuilder()
+        BLAST_RECIPES.recipeBuilder()
                 .fluidInputs(UltraacidicStoneResidueSolution.getFluid(2000))
                 .fluidInputs(Oxygen.getFluid(FluidStorageKeys.LIQUID, 4000))
                 .fluidInputs(Xenon.getFluid(1000))
@@ -786,7 +786,7 @@ public class TaraniumProcessing {
                 .buildAndRegister();
 
         //  KeF4 + 4Na -> 4NaF + Ke
-        BURNER_REACTOR_RECIPES.recipeBuilder()
+        BLAST_RECIPES.recipeBuilder()
                 .input(dust, TriniumTetrafluoride, 5)
                 .input(dust, Sodium, 4)
                 .output(dust, Trinium)
@@ -876,7 +876,7 @@ public class TaraniumProcessing {
                 .buildAndRegister();
 
         //  CsOH + B10H14 + NaCN + 2HCl + 3CH4O -> CsB10H12CN(CH3)3Cl + 2NaCl + 4H2O
-        LOW_TEMP_ACTIVATOR_RECIPES.recipeBuilder()
+        CHEMICAL_PLANT.recipeBuilder()
                 .input(dust, CaesiumHydroxide, 3)
                 .input(dust, Decaborane, 24)
                 .input(dust,SodiumCyanide,3)
@@ -888,6 +888,7 @@ public class TaraniumProcessing {
                 .fluidOutputs(Water.getFluid(4000))
                 .EUt(VA[IV])
                 .duration(12 * SECOND)
+                .recipeLevel(4)
                 .buildAndRegister();
 
         //  2Cs + H2O2 -> 2CsOH
@@ -900,7 +901,7 @@ public class TaraniumProcessing {
                 .buildAndRegister();
 
         //  8.5NaBH4 + HF + 2H2O2 + 10(BF3)(C2H5)2O -> B10H14 + NaF + 7.5NaBF4 + H2O + 20H + 10(C2H5)2O
-        BURNER_REACTOR_RECIPES.recipeBuilder()
+        BLAST_RECIPES.recipeBuilder()
                 .input(dust, SodiumBorohydride, 51)
                 .fluidInputs(HydrofluoricAcid.getFluid(1000))
                 .fluidInputs(HydrogenPeroxide.getFluid(2000))
@@ -970,7 +971,7 @@ public class TaraniumProcessing {
                 .buildAndRegister();
 
         //  2AgI + O -> Ag2O + 2I
-        BURNER_REACTOR_RECIPES.recipeBuilder()
+        BLAST_RECIPES.recipeBuilder()
                 .input(dust, SilverIodide, 4)
                 .fluidInputs(Oxygen.getFluid(1000))
                 .output(dust, SilverOxide, 3)

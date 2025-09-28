@@ -275,7 +275,7 @@ public class RareEarthProcessing {
                 .buildAndRegister();
 
         //  Rare Earth Hydroxides Solution + Hydrochloric Acid -> Rare Earth Chorides Slurry + Steam
-        BURNER_REACTOR_RECIPES.recipeBuilder()
+        BLAST_RECIPES.recipeBuilder()
                 .fluidInputs(RareEarthHydroxidesSolution.getFluid(1000))
                 .fluidInputs(HydrochloricAcid.getFluid(1000))
                 .output(dust, RareEarthChloridesSlurry, 4)
@@ -286,7 +286,7 @@ public class RareEarthProcessing {
                 .buildAndRegister();
 
         //  Rare Earth Chorides Slurry (EV)
-        BURNER_REACTOR_RECIPES.recipeBuilder()
+        BLAST_RECIPES.recipeBuilder()
                 .input(dust, RareEarthChloridesSlurry, 4)
                 .input(dust, SodiumBicarbonate, 8)
                 .fluidInputs(DistilledWater.getFluid(1000))
@@ -299,7 +299,7 @@ public class RareEarthProcessing {
                 .buildAndRegister();
 
         //  Rare Earth Chorides Slurry (EV)
-        BURNER_REACTOR_RECIPES.recipeBuilder()
+        BLAST_RECIPES.recipeBuilder()
                 .input(dust, RareEarthChloridesSlurry, 2)
                 .input(dust, BariumCarbonate, 4)
                 .fluidInputs(DistilledWater.getFluid(500))
@@ -373,7 +373,7 @@ public class RareEarthProcessing {
                 .buildAndRegister();
 
         //  Low Purity Rare Earth Chlorides Slag + Cobaltite -> Yttrium Oxide, Lanthanum Oxide
-        BURNER_REACTOR_RECIPES.recipeBuilder()
+        BLAST_RECIPES.recipeBuilder()
                 .input(dust, LowPurityRareEarthChloridesSlag, 4)
                 .input(dust, Cobaltite, 2)
                 .output(dust, YttriumOxide)
@@ -384,7 +384,7 @@ public class RareEarthProcessing {
                 .buildAndRegister();
 
         //  Low Purity Rare Earth Chlorides Slag + Ferric Oxide -> Lanthanum Oxide + Oxygen
-        BURNER_REACTOR_RECIPES.recipeBuilder()
+        BLAST_RECIPES.recipeBuilder()
                 .input(dust, LowPurityRareEarthChloridesSlag, 4)
                 .input(dust, FerricOxide, 2)
                 .output(dust, LanthanumOxide)
@@ -726,10 +726,11 @@ public class RareEarthProcessing {
 
     //氧化物反合成
     private static void OxideReversal(Material material, Material resinMaterial) {
-        ION_IMPLANTATOR_RECIPES.recipeBuilder()
+        BLAST_RECIPES.recipeBuilder()
                 .input(dust, material, 2)
                 .fluidInputs(Oxygen.getFluid(3 * 1000))
                 .output(dust, resinMaterial, 5)
+                .blastFurnaceTemp(4500)
                 .duration(600).EUt(VA[LuV]).buildAndRegister();
     }
 }

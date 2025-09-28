@@ -2,12 +2,12 @@ package keqing.gtqtcore.loaders.recipes.chain;
 
 import keqing.gtqtcore.api.unification.GTQTMaterials;
 
-import static gregtech.common.items.MetaItems.SHAPE_MOLD_CYLINDER;
 import static gregtech.api.GTValues.*;
 import static gregtech.api.recipes.RecipeMaps.*;
 import static gregtech.api.unification.material.Materials.*;
-import static gregtech.api.unification.ore.OrePrefix.*;
-import static keqing.gtqtcore.api.recipes.GTQTcoreRecipeMaps.BURNER_REACTOR_RECIPES;
+import static gregtech.api.unification.ore.OrePrefix.dust;
+import static gregtech.api.unification.ore.OrePrefix.plate;
+import static gregtech.common.items.MetaItems.SHAPE_MOLD_CYLINDER;
 
 public class CircuitryMaterialChains {
 
@@ -55,7 +55,7 @@ public class CircuitryMaterialChains {
 
         //  Alumino Silicate Glass Tube
         // 1 AL2O3  2 SIO2   2 ALSIO4
-        BURNER_REACTOR_RECIPES.recipeBuilder()
+        BLAST_RECIPES.recipeBuilder()
                 .notConsumable(SHAPE_MOLD_CYLINDER)
                 .input(dust, GTQTMaterials.Alumina, 5)
                 .input(dust, Quartzite,6)

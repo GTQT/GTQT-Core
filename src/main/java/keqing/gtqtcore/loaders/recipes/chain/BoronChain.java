@@ -5,10 +5,10 @@ import keqing.gtqtcore.common.block.GTQTMetaBlocks;
 import keqing.gtqtcore.common.block.blocks.BlockEvaporationBed;
 
 import static gregtech.api.GTValues.*;
-import static gregtech.api.GTValues.VA;
 import static gregtech.api.recipes.RecipeMaps.*;
 import static gregtech.api.unification.material.Materials.*;
-import static gregtech.api.unification.ore.OrePrefix.*;
+import static gregtech.api.unification.ore.OrePrefix.dust;
+import static gregtech.api.unification.ore.OrePrefix.foil;
 import static keqing.gtqtcore.api.recipes.GTQTcoreRecipeMaps.*;
 import static keqing.gtqtcore.api.unification.GTQTMaterials.*;
 import static net.minecraft.init.Blocks.DIRT;
@@ -126,7 +126,7 @@ public class BoronChain {
                 .buildAndRegister();
 
         //  Co/AC-AB Catalyst (UHV)
-        MOLECULAR_BEAM_RECIPES.recipeBuilder()
+        LARGE_CHEMICAL_RECIPES.recipeBuilder()
                 .input(foil, Polybenzimidazole)
                 .input(dust, Cobalt)
                 .input(dust, Charcoal, 2)
@@ -135,7 +135,6 @@ public class BoronChain {
                 .output(dust, CoACABCatalyst)
                 .EUt(VA[UHV])
                 .duration(240)
-                .temperature(2688)
                 .buildAndRegister();
     }
 }

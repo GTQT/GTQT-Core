@@ -639,6 +639,8 @@ public class GTQTMetaItems {
     public static MetaItem<?>.MetaValueItem HIGH_DENSITY_URANIUM;
     public static MetaItem<?>.MetaValueItem HIGH_DENSITY_PLUTONIUM;
 
+    public static MetaItem<?>.MetaValueItem CHROMATIC_LENS;
+
     public static MetaItem<?>.MetaValueItem MAGNETO_RESONATIC_BOARD;
     public static MetaItem<?>.MetaValueItem MAGNETO_RESONATIC_CIRCUIT_BOARD;
     public static MetaItem<?>.MetaValueItem MAGNETO_RESONATIC_CIRCUIT_ULV;

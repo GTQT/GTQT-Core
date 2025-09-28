@@ -2,12 +2,13 @@ package keqing.gtqtcore.loaders.recipes.chain;
 
 import keqing.gtqtcore.api.unification.GTQTMaterials;
 
-import static keqing.gtqtcore.api.recipes.GTQTcoreRecipeMaps.*;
 import static gregtech.api.GTValues.HV;
 import static gregtech.api.GTValues.VA;
+import static gregtech.api.recipes.RecipeMaps.BLAST_RECIPES;
 import static gregtech.api.recipes.RecipeMaps.ELECTROLYZER_RECIPES;
 import static gregtech.api.unification.material.Materials.*;
-import static gregtech.api.unification.ore.OrePrefix.*;
+import static gregtech.api.unification.ore.OrePrefix.dust;
+import static gregtech.api.unification.ore.OrePrefix.ingot;
 
 /**
  * The Thallium Process
@@ -26,7 +27,7 @@ public class ThalliumProcessing {
 
     public static void init() {
         // FeS2 + 6O -> Fe + Tl2SO4 + SO2
-        BURNER_REACTOR_RECIPES.recipeBuilder()
+        BLAST_RECIPES.recipeBuilder()
                 .input(dust, Pyrite, 3)
                 .fluidInputs(Oxygen.getFluid(6000))
                 .output(ingot, Iron)
@@ -36,7 +37,7 @@ public class ThalliumProcessing {
                 .duration(100).EUt(VA[HV]).buildAndRegister();
 
         // 2PbS + 6O -> 2Pb + Tl2SO4 + SO2
-        BURNER_REACTOR_RECIPES.recipeBuilder()
+        BLAST_RECIPES.recipeBuilder()
                 .input(dust, Galena, 4)
                 .fluidInputs(Oxygen.getFluid(6000))
                 .output(ingot, Lead, 2)

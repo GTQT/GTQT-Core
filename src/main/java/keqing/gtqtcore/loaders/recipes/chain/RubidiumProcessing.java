@@ -2,10 +2,8 @@ package keqing.gtqtcore.loaders.recipes.chain;
 
 import keqing.gtqtcore.api.unification.GTQTMaterials;
 
-import static keqing.gtqtcore.api.recipes.GTQTcoreRecipeMaps.*;
 import static gregtech.api.GTValues.*;
-import static gregtech.api.recipes.RecipeMaps.CHEMICAL_BATH_RECIPES;
-import static gregtech.api.recipes.RecipeMaps.CHEMICAL_RECIPES;
+import static gregtech.api.recipes.RecipeMaps.*;
 import static gregtech.api.unification.material.Materials.*;
 import static gregtech.api.unification.ore.OrePrefix.dust;
 
@@ -35,7 +33,7 @@ public class RubidiumProcessing {
                 .duration(400).EUt(VA[HV]).buildAndRegister();
 
         // Sn + 4Cl -> SnCl4
-        BURNER_REACTOR_RECIPES.recipeBuilder()
+        BLAST_RECIPES.recipeBuilder()
                 .input(dust, Tin)
                 .fluidInputs(Chlorine.getFluid(4000))
                 .fluidOutputs(GTQTMaterials.StannicChloride.getFluid(1000))

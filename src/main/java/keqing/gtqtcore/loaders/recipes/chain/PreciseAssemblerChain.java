@@ -4,7 +4,6 @@ import gregtech.api.unification.material.MarkerMaterials;
 import gregtech.common.blocks.BlockMachineCasing;
 import gregtech.common.blocks.MetaBlocks;
 import keqing.gtqtcore.common.block.GTQTMetaBlocks;
-import keqing.gtqtcore.common.block.blocks.BlockNuclearCasing;
 import keqing.gtqtcore.common.block.blocks.BlockMultiblockCasing4;
 import keqing.gtqtcore.common.block.blocks.BlockMultiblockCasing5;
 
@@ -14,59 +13,16 @@ import static gregtech.api.recipes.RecipeMaps.ASSEMBLER_RECIPES;
 import static gregtech.api.unification.material.Materials.*;
 import static gregtech.api.unification.ore.OrePrefix.*;
 import static gregtech.common.items.MetaItems.*;
-import static gregtech.common.metatileentities.MetaTileEntities.HULL;
 import static keqing.gtqtcore.api.recipes.GTQTcoreRecipeMaps.PRECISE_ASSEMBLER_RECIPES;
 import static keqing.gtqtcore.api.unification.GTQTMaterials.*;
-import static keqing.gtqtcore.api.unification.GTQTMaterials.Polyetheretherketone;
 import static keqing.gtqtcore.api.unification.ore.GTQTOrePrefix.swarm;
 import static keqing.gtqtcore.common.items.GTQTMetaItems.*;
-import static keqing.gtqtcore.common.metatileentities.GTQTMetaTileEntities.*;
 
 public class PreciseAssemblerChain {
     public static void init() {
         MachineRecipes();//
         WorkStation();//工作站
-        NeutronActivator();
     }
-
-    private static void NeutronActivator() {
-        PRECISE_ASSEMBLER_RECIPES.recipeBuilder()
-                .input(CIRCUIT_GOOD_I, 2)
-                .input(circuit, MarkerMaterials.Tier.LuV, 8)
-                .input(CHEMICAL_PLANT, 2)
-                .input(PARTICLE_ACCELERATOR_IO[0], 2)
-                .fluidInputs(SolderingAlloy.getFluid(L * 8))
-                .fluidInputs(Tin.getFluid(L * 8))
-                .fluidInputs(Polybenzimidazole.getFluid(L * 8))
-                .fluidInputs(Zylon.getFluid(L * 4))
-                .output(NEUTRON_ACTIVATOR)
-                .EUt(VA[IV])
-                .duration(600)
-                .Tier(1)
-                .CWUt(120)
-                .buildAndRegister();
-
-        ASSEMBLER_RECIPES.recipeBuilder()
-                .input(HULL[5], 1)
-                .input(frameGt, TungstenSteel, 4)
-                .input(stick, RhodiumPlatedPalladium, 4)
-                .fluidInputs(Zylon.getFluid(576))
-                .outputs(GTQTMetaBlocks.blockNuclearCasing.getItemVariant(BlockNuclearCasing.CasingType.NEUTRON_ACTIVATOR_FRAME, 2))
-                .circuitMeta(10)
-                .duration(400).EUt(VA[IV]).buildAndRegister();
-
-        ASSEMBLER_RECIPES.recipeBuilder()
-                .input(HULL[5], 1)
-                .input(plate, Iridium, 4)
-                .input(stick, RhodiumPlatedPalladium, 4)
-                .fluidInputs(Zylon.getFluid(576))
-                .outputs(GTQTMetaBlocks.blockNuclearCasing.getItemVariant(BlockNuclearCasing.CasingType.NEUTRON_ACTIVATOR_CASING, 2))
-                .circuitMeta(10)
-                .duration(400).EUt(VA[IV]).buildAndRegister();
-
-
-    }
-
 
     private static void WorkStation() {
         ASSEMBLER_RECIPES.recipeBuilder()

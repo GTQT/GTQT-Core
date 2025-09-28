@@ -3,17 +3,17 @@ package keqing.gtqtcore.loaders.recipes.chain;
 import keqing.gtqtcore.api.unification.GTQTMaterials;
 
 import static gregtech.api.GTValues.*;
+import static gregtech.api.recipes.RecipeMaps.BLAST_RECIPES;
 import static gregtech.api.recipes.RecipeMaps.CHEMICAL_RECIPES;
 import static gregtech.api.unification.material.Materials.*;
 import static gregtech.api.unification.ore.OrePrefix.dust;
 import static gregtech.api.unification.ore.OrePrefix.gem;
-import static keqing.gtqtcore.api.recipes.GTQTcoreRecipeMaps.BURNER_REACTOR_RECIPES;
 
 public class AcetyleneChain {
 
     public static void init() {
         // CaO + 3C -> CaC2 + CO
-        BURNER_REACTOR_RECIPES.recipeBuilder()
+        BLAST_RECIPES.recipeBuilder()
                 .input(dust, Quicklime, 2)
                 .input(dust, Carbon, 3)
                 .output(dust, GTQTMaterials.CalciumCarbide, 3)
@@ -21,7 +21,7 @@ public class AcetyleneChain {
                 .blastFurnaceTemp(2700)
                 .duration(500).EUt(VA[MV]).buildAndRegister();
 
-        BURNER_REACTOR_RECIPES.recipeBuilder()
+        BLAST_RECIPES.recipeBuilder()
                 .input(dust, Quicklime, 2)
                 .input(gem, Coke)
                 .output(dust, GTQTMaterials.CalciumCarbide, 3)

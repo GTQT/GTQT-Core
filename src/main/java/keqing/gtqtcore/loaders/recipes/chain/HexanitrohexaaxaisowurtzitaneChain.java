@@ -10,13 +10,14 @@ import static gregtech.api.unification.ore.OrePrefix.craftingLens;
 import static gregtech.api.unification.ore.OrePrefix.dust;
 import static gregtechfoodoption.GTFOMaterialHandler.AceticAnhydride;
 import static gregtechfoodoption.GTFOMaterialHandler.Glyoxal;
-import static keqing.gtqtcore.api.recipes.GTQTcoreRecipeMaps.*;
+import static keqing.gtqtcore.api.recipes.GTQTcoreRecipeMaps.CHEMICAL_PLANT;
+import static keqing.gtqtcore.api.recipes.GTQTcoreRecipeMaps.DRYER_RECIPES;
 import static keqing.gtqtcore.api.unification.GTQTMaterials.*;
 
 public class HexanitrohexaaxaisowurtzitaneChain {
     public static void init() {
         //  Ammonium Carbonate
-        BURNER_REACTOR_RECIPES.recipeBuilder()
+        BLAST_RECIPES.recipeBuilder()
                 .input(dust, Calcite, 5)
                 .fluidInputs(AmmoniumSulfate.getFluid(1000))
                 .output(dust, Gypsum, 6)
@@ -65,7 +66,7 @@ public class HexanitrohexaaxaisowurtzitaneChain {
                 .buildAndRegister();
 
         //  Benzyl Chloride
-        ULTRAVIOLET_LAMP_CHAMBER_RECIPES.recipeBuilder()
+        LARGE_CHEMICAL_RECIPES.recipeBuilder()
                 .notConsumable(craftingLens, MarkerMaterials.Color.LightBlue)
                 .fluidInputs(Toluene.getFluid(1000))
                 .fluidInputs(Chlorine.getFluid(1000))
@@ -132,7 +133,7 @@ public class HexanitrohexaaxaisowurtzitaneChain {
                 .buildAndRegister();
 
         //  Potassium Nitrite
-        BURNER_REACTOR_RECIPES.recipeBuilder()
+        BLAST_RECIPES.recipeBuilder()
                 .input(dust, Saltpeter, 5)
                 .input(dust, Galena)
                 .output(dust, PotassiumNitrite, 4)

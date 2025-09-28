@@ -3,12 +3,11 @@ package keqing.gtqtcore.loaders.recipes.chain;
 import gregtech.api.recipes.ingredients.IntCircuitIngredient;
 
 import static gregtech.api.GTValues.*;
-import static gregtech.api.recipes.RecipeMaps.CHEMICAL_RECIPES;
-import static gregtech.api.recipes.RecipeMaps.MIXER_RECIPES;
+import static gregtech.api.recipes.RecipeMaps.*;
 import static gregtech.api.unification.material.Materials.*;
 import static gregtech.api.unification.ore.OrePrefix.dust;
 import static gregtechfoodoption.GTFOMaterialHandler.Aminophenol;
-import static keqing.gtqtcore.api.recipes.GTQTcoreRecipeMaps.*;
+import static keqing.gtqtcore.api.recipes.GTQTcoreRecipeMaps.CHEMICAL_PLANT;
 import static keqing.gtqtcore.api.unification.GTQTMaterials.*;
 
 
@@ -113,7 +112,7 @@ public class KaptonChain {
 
     private static void kapton() {
         // 2C6H2(C2O3)2 + C12H12N2O -> C22H10N2O5 + 10C + 6H + 2O (loss)
-        POLYMERIZATION_RECIPES.recipeBuilder()
+        CHEMICAL_RECIPES.recipeBuilder()
                 .input(dust, PyromelliticDianhydride, 2)
                 .input(dust, Oxydianiline, 3)
                 .fluidOutputs(KaptonK.getFluid(L))
@@ -122,7 +121,7 @@ public class KaptonChain {
                 .buildAndRegister();
 
         //  2C6H2(C2O3)2 + C12H12N2O + C16H6O6 + H2NC6H4NH2 -> C24H18N2O5 + 30C + 12H + 14O + 2N (loss)
-        POLYMERIZATION_RECIPES.recipeBuilder()
+        LARGE_CHEMICAL_RECIPES.recipeBuilder()
                 .input(dust, BiphenylTetracarboxylicAcidDianhydride, 2)
                 .input(dust, ParaPhenylenediamine)
                 .fluidInputs(KaptonK.getFluid(L))
@@ -141,7 +140,7 @@ public class KaptonChain {
                 .buildAndRegister();
 
         //  Dimethylformamide (EV): Potassium Formate + Dimethylamine Hydrochloride -> Rock Salt + Dimethylformamide + Hydrogen
-        BURNER_REACTOR_RECIPES.recipeBuilder()
+        BLAST_RECIPES.recipeBuilder()
                 .input(dust, PotassiumFormate, 1)
                 .fluidInputs(DimethylamineHydrochloride.getFluid(1000))
                 .output(dust, RockSalt, 2)
@@ -153,7 +152,7 @@ public class KaptonChain {
                 .buildAndRegister();
 
         //  Rock Salt + Methanol -> Potassium Formate + Chlorine
-        BURNER_REACTOR_RECIPES.recipeBuilder()
+        BLAST_RECIPES.recipeBuilder()
                 .input(dust, RockSalt, 2)
                 .fluidInputs(Methanol.getFluid(1000))
                 .output(dust, PotassiumFormate)

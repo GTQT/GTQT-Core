@@ -10,7 +10,8 @@ import static gregtech.api.GTValues.*;
 import static gregtech.api.recipes.RecipeMaps.*;
 import static gregtech.api.unification.material.Materials.*;
 import static gregtech.api.unification.ore.OrePrefix.*;
-import static keqing.gtqtcore.api.recipes.GTQTcoreRecipeMaps.*;
+import static keqing.gtqtcore.api.recipes.GTQTcoreRecipeMaps.DRYER_RECIPES;
+import static keqing.gtqtcore.api.recipes.GTQTcoreRecipeMaps.PRIMITIVE_ROASTING_RECIPES;
 import static keqing.gtqtcore.api.unification.GTQTMaterials.*;
 
 
@@ -35,7 +36,7 @@ public class MaterialOreChains {
                     .fluidOutputs(SulfuricFlueGas.getFluid(100))
                     .buildAndRegister();
 
-            BURNER_REACTOR_RECIPES.recipeBuilder()
+            BLAST_RECIPES.recipeBuilder()
                     .duration(345)
                     .EUt(VA[MV])
                     .blastFurnaceTemp(2700)
@@ -56,7 +57,7 @@ public class MaterialOreChains {
                     .fluidOutputs(SulfuricFlueGas.getFluid(100))
                     .buildAndRegister();
 
-            BURNER_REACTOR_RECIPES.recipeBuilder()
+            BLAST_RECIPES.recipeBuilder()
                     .duration(315)
                     .EUt(VA[MV])
                     .blastFurnaceTemp(2700)
@@ -76,7 +77,7 @@ public class MaterialOreChains {
                     .fluidOutputs(SulfuricFlueGas.getFluid(100))
                     .buildAndRegister();
 
-            BURNER_REACTOR_RECIPES.recipeBuilder()
+            BLAST_RECIPES.recipeBuilder()
                     .duration(380)
                     .EUt(VA[MV])
                     .blastFurnaceTemp(2700)
@@ -96,7 +97,7 @@ public class MaterialOreChains {
                     .fluidOutputs(SulfuricFlueGas.getFluid(100))
                     .buildAndRegister();
 
-            BURNER_REACTOR_RECIPES.recipeBuilder()
+            BLAST_RECIPES.recipeBuilder()
                     .duration(335)
                     .EUt(VA[MV])
                     .blastFurnaceTemp(2700)
@@ -116,7 +117,7 @@ public class MaterialOreChains {
                     .fluidOutputs(SulfuricFlueGas.getFluid(100))
                     .buildAndRegister();
 
-            BURNER_REACTOR_RECIPES.recipeBuilder()
+            BLAST_RECIPES.recipeBuilder()
                     .duration(310)
                     .EUt(VA[MV])
                     .blastFurnaceTemp(2700)
@@ -135,7 +136,7 @@ public class MaterialOreChains {
                     .fluidOutputs(SulfuricFlueGas.getFluid(100))
                     .buildAndRegister();
 
-            BURNER_REACTOR_RECIPES.recipeBuilder()
+            BLAST_RECIPES.recipeBuilder()
                     .duration(345)
                     .EUt(VA[MV])
                     .blastFurnaceTemp(2700)

@@ -24,19 +24,13 @@ import static gregtech.api.GTValues.*;
 import static gregtech.api.recipes.RecipeMaps.*;
 import static gregtech.api.unification.material.Materials.*;
 import static gregtech.api.unification.ore.OrePrefix.*;
-import static gregtech.api.unification.ore.OrePrefix.cableGtQuadruple;
 import static gregtech.common.items.MetaItems.*;
-import static gregtech.common.items.MetaItems.FIELD_GENERATOR_UV;
 import static gregtech.common.metatileentities.MetaTileEntities.MASS_FABRICATOR;
 import static gregtech.common.metatileentities.MetaTileEntities.REPLICATOR;
 import static gregtech.loaders.recipe.CraftingComponent.*;
 import static gregtech.loaders.recipe.MetaTileEntityLoader.registerMachineRecipe;
-import static keqing.gtqtcore.api.recipes.GTQTcoreRecipeMaps.*;
 import static keqing.gtqtcore.api.recipes.GTQTcoreRecipeMaps.PRECISE_ASSEMBLER_RECIPES;
-import static keqing.gtqtcore.api.unification.GTQTMaterials.KaptonK;
 import static keqing.gtqtcore.api.unification.GTQTMaterials.*;
-import static keqing.gtqtcore.api.unification.GTQTMaterials.Stellite;
-
 import static keqing.gtqtcore.common.block.GTQTMetaBlocks.blockMultiblockCasing;
 import static keqing.gtqtcore.common.block.GTQTMetaBlocks.blockMultiblockGlass;
 import static keqing.gtqtcore.common.block.blocks.BlockMultiblockCasing.CasingType.*;
@@ -99,14 +93,14 @@ public class UUHelper {
                 .duration(1600)
                 .buildAndRegister();
 
-        FLUID_EXTRACTOR_RECIPES.recipeBuilder()
+        EXTRACTOR_RECIPES.recipeBuilder()
                 .input(GTQTMetaItems.NEUTRON)
                 .fluidOutputs(NeutronFlux.getFluid(1000))
                 .EUt(VA[IV])
                 .duration(200)
                 .buildAndRegister();
 
-        FLUID_EXTRACTOR_RECIPES.recipeBuilder()
+        EXTRACTOR_RECIPES.recipeBuilder()
                 .input(GTQTMetaItems.PROTON)
                 .fluidOutputs(ProtonFlux.getFluid(1000))
                 .EUt(VA[IV])

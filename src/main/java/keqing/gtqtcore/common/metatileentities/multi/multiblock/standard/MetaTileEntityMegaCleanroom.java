@@ -21,7 +21,7 @@ import gregtech.api.util.TextComponentUtil;
 import gregtech.client.utils.TooltipHelper;
 import gregtech.common.blocks.MetaBlocks;
 import gregtech.common.metatileentities.multi.electric.MetaTileEntityCleanroom;
-import keqing.gtqtcore.api.metatileentity.multiblock.GCYLCleanroomType;
+import keqing.gtqtcore.api.metatileentity.multiblock.GTQTCleanroomType;
 import keqing.gtqtcore.common.block.GTQTMetaBlocks;
 import keqing.gtqtcore.common.block.blocks.BlockCleanroomCasing;
 import net.minecraft.block.Block;
@@ -216,13 +216,13 @@ public class MetaTileEntityMegaCleanroom extends MetaTileEntityCleanroom impleme
         if (type instanceof BlockCleanroomCasing.CasingType casingType) {
 
             if (casingType.equals(BlockCleanroomCasing.CasingType.FILTER_CASING_ISO3)) {
-                this.cleanroomType = GCYLCleanroomType.ISO3;
+                this.cleanroomType = GTQTCleanroomType.ISO3;
             } else if (casingType.equals(BlockCleanroomCasing.CasingType.FILTER_CASING_ISO2)) {
-                this.cleanroomType = GCYLCleanroomType.ISO2;
+                this.cleanroomType = GTQTCleanroomType.ISO2;
             } else if (casingType.equals(BlockCleanroomCasing.CasingType.FILTER_CASING_ISO1)) {
-                this.cleanroomType = GCYLCleanroomType.ISO1;
+                this.cleanroomType = GTQTCleanroomType.ISO1;
             } else if (casingType.equals(BlockCleanroomCasing.CasingType.FILTER_CASING_ISO0)) {
-                this.cleanroomType = GCYLCleanroomType.ISO0;
+                this.cleanroomType = GTQTCleanroomType.ISO0;
             }
 
         }

@@ -785,12 +785,7 @@ public class UnknownCompositionMaterials {
 
         GTQTMaterials.BZMedium = new Material.Builder(getMaterialsId(), gtqtcoreId("bz_medium")).fluid().color(0xA2FD35).build(); //TODO "The Belousov-Zhabotinsky Reaction" tooltip
 
-        GTQTMaterials.MutatedLivingSolder = new Material.Builder(getMaterialsId(), gtqtcoreId("mutated_living_solder"))
-                .fluid()
-                .color(0x936D9B)
-                .iconSet(DULL)
-                .build()
-                .setFormula("?Sn?Bi?", true);
+        //TODO
 
         GTQTMaterials.RichNitrogenMixture = new Material.Builder(getMaterialsId(), gtqtcoreId("rich_nitrogen_mixture")).gas().color(0x6891D8).build();
 

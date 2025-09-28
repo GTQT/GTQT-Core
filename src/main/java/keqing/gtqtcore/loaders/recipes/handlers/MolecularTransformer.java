@@ -4,24 +4,24 @@ import gregtech.api.GTValues;
 import gregtech.api.metatileentity.multiblock.CleanroomType;
 import gregtech.api.unification.material.MarkerMaterial;
 import gregtech.api.unification.material.MarkerMaterials;
+import keqing.gtqtcore.api.unification.MaterialHelper;
 import keqing.gtqtcore.common.block.GTQTMetaBlocks;
+import keqing.gtqtcore.common.block.blocks.BlockElectrolyticMicroscope;
 
 import static gregtech.api.GTValues.*;
 import static gregtech.api.recipes.RecipeMaps.ASSEMBLER_RECIPES;
 import static gregtech.api.recipes.RecipeMaps.ASSEMBLY_LINE_RECIPES;
 import static gregtech.api.unification.material.Materials.*;
-import static gregtech.api.unification.material.Materials.Osmium;
 import static gregtech.api.unification.ore.OrePrefix.*;
-import static gregtech.api.unification.ore.OrePrefix.dust;
-import static gregtech.common.items.MetaItems.*;
-import static gregtech.common.metatileentities.MetaTileEntities.*;
+import static gregtech.common.items.MetaItems.FIELD_GENERATOR_EV;
+import static gregtech.common.items.MetaItems.SENSOR_EV;
+import static gregtech.common.metatileentities.MetaTileEntities.HULL;
 import static gtqt.api.util.MaterialHelper.Plate;
 import static gtqt.api.util.MaterialHelper.Wire;
 import static keqing.gtqtcore.api.recipes.GTQTcoreRecipeMaps.MOLECULAR_TRANSFORMER_RECIPES;
-import static keqing.gtqtcore.api.unification.GTQTMaterials.*;
-import static keqing.gtqtcore.common.metatileentities.GTQTMetaTileEntities.*;
-import keqing.gtqtcore.api.unification.MaterialHelper;
-import keqing.gtqtcore.common.block.blocks.BlockElectrolyticMicroscope;
+import static keqing.gtqtcore.api.unification.GTQTMaterials.NanometerBariumTitanate;
+import static keqing.gtqtcore.common.metatileentities.GTQTMetaTileEntities.ELECTRON_MICROSCOPE;
+import static supercritical.common.metatileentities.SCMetaTileEntities.DECAY_CHAMBER;
 
 public class MolecularTransformer {
 
@@ -77,7 +77,7 @@ public class MolecularTransformer {
                 .fluidInputs(Polybenzimidazole.getFluid(1000))
                 .outputs(ELECTRON_MICROSCOPE.getStackForm())
                 .scannerResearch(b -> b
-                        .researchStack(ULTRAVIOLET_LAMP_CHAMBER[4].getStackForm())
+                        .researchStack(DECAY_CHAMBER[4].getStackForm())
                         .duration(12000)
                         .EUt(VA[HV]))
                 .duration(400).EUt(VA[EV]).buildAndRegister();

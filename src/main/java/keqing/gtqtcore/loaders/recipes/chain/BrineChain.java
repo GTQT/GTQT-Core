@@ -3,6 +3,7 @@ package keqing.gtqtcore.loaders.recipes.chain;
 import gregtech.api.recipes.ingredients.IntCircuitIngredient;
 import gregtech.api.unification.OreDictUnifier;
 import gregtechfoodoption.GTFOMaterialHandler;
+import keqing.gtqtcore.common.items.GTQTMetaItems;
 
 import static gregtech.api.GTValues.*;
 import static gregtech.api.recipes.RecipeMaps.*;
@@ -143,21 +144,24 @@ public class BrineChain {
                 .fluidOutputs(SodiumThiocyanate.getFluid(1000))
                 .buildAndRegister();
 
-        SPINNER_RECIPES.recipeBuilder().duration(60).EUt(VA[HV])
+        ASSEMBLER_RECIPES.recipeBuilder().duration(60).EUt(VA[HV])
+                .notConsumable(GTQTMetaItems.SPINNER)
                 .input(dust, AcrylicFibers, 1)
                 .input(wireFine, Gold)
                 .circuitMeta(1)
                 .outputs(ACRYLIC_YARN.getStackForm())
                 .buildAndRegister();
 
-        SPINNER_RECIPES.recipeBuilder().duration(60).EUt(VA[HV])
+        ASSEMBLER_RECIPES.recipeBuilder().duration(60).EUt(VA[HV])
+                .notConsumable(GTQTMetaItems.SPINNER)
                 .input(dust, AcrylicFibers, 1)
                 .input(wireFine, Platinum)
                 .circuitMeta(2)
                 .outputs(ACRYLIC_YARN.getStackForm(4))
                 .buildAndRegister();
 
-        SPINNER_RECIPES.recipeBuilder().duration(60).EUt(VA[EV])
+        ASSEMBLER_RECIPES.recipeBuilder().duration(60).EUt(VA[EV])
+                .notConsumable(GTQTMetaItems.SPINNER)
                 .input(dust, AcrylicFibers, 1)
                 .input(wireFine, Samarium)
                 .circuitMeta(3)

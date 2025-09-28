@@ -3,7 +3,8 @@ package keqing.gtqtcore.loaders.recipes.chain;
 import static gregtech.api.recipes.RecipeMaps.*;
 import static gregtech.api.unification.material.Materials.*;
 import static gregtech.api.unification.ore.OrePrefix.dust;
-import static keqing.gtqtcore.api.recipes.GTQTcoreRecipeMaps.*;
+import static keqing.gtqtcore.api.recipes.GTQTcoreRecipeMaps.CHEMICAL_PLANT;
+import static keqing.gtqtcore.api.recipes.GTQTcoreRecipeMaps.SFM;
 import static keqing.gtqtcore.api.unification.GTQTMaterials.*;
 import static keqing.gtqtcore.common.items.GTQTMetaItems.*;
 
@@ -87,7 +88,7 @@ public class OceanChain {
                 .buildAndRegister();
 
         
-        BURNER_REACTOR_RECIPES.recipeBuilder()
+        BLAST_RECIPES.recipeBuilder()
                 .input(COMMON_ALGAE)
                 .output(dust, KelpAsh,1)
                 .duration(100)
@@ -95,7 +96,7 @@ public class OceanChain {
                 .blastFurnaceTemp(1800)
                 .buildAndRegister();
 
-        BURNER_REACTOR_RECIPES.recipeBuilder()
+        BLAST_RECIPES.recipeBuilder()
                 .input(GREEN_ALGAE)
                 .output(dust, KelpAsh,1)
                 .duration(100)
@@ -103,7 +104,7 @@ public class OceanChain {
                 .blastFurnaceTemp(1000)
                 .buildAndRegister();
 
-        BURNER_REACTOR_RECIPES.recipeBuilder()
+        BLAST_RECIPES.recipeBuilder()
                 .input(RED_ALGAE)
                 .output(dust, KelpAsh,1)
                 .duration(100)
@@ -111,7 +112,7 @@ public class OceanChain {
                 .blastFurnaceTemp(1000)
                 .buildAndRegister();
 
-        BURNER_REACTOR_RECIPES.recipeBuilder()
+        BLAST_RECIPES.recipeBuilder()
                 .input(BROWN_ALGAE)
                 .output(dust, KelpAsh,1)
                 .duration(100)
@@ -119,7 +120,7 @@ public class OceanChain {
                 .blastFurnaceTemp(1000)
                 .buildAndRegister();
 
-        BURNER_REACTOR_RECIPES.recipeBuilder()
+        BLAST_RECIPES.recipeBuilder()
                 .input(GOLD_ALGAE)
                 .output(dust, KelpAsh,1)
                 .duration(100)

@@ -8,7 +8,8 @@ import static gregtech.api.recipes.RecipeMaps.*;
 import static gregtech.api.unification.material.Materials.*;
 import static gregtech.api.unification.ore.OrePrefix.dust;
 import static gregtech.api.unification.ore.OrePrefix.ingotHot;
-import static keqing.gtqtcore.api.recipes.GTQTcoreRecipeMaps.*;
+import static keqing.gtqtcore.api.recipes.GTQTcoreRecipeMaps.CHEMICAL_PLANT;
+import static keqing.gtqtcore.api.recipes.GTQTcoreRecipeMaps.DRYER_RECIPES;
 import static keqing.gtqtcore.api.unification.GTQTMaterials.*;
 
 
@@ -29,7 +30,7 @@ public class NaquadahChain {
                 .buildAndRegister();
 
         // Nq+S + 2H2SO4 -> Ke2O3 + ANq+S
-        LOW_TEMP_ACTIVATOR_RECIPES.recipeBuilder()
+        CHEMICAL_RECIPES.recipeBuilder()
                 .fluidInputs(EnrichedNaquadahSolution.getFluid(1000))
                 .fluidInputs(SulfuricAcid.getFluid(2000))
                 .output(dust, TriniumTrioxide, 5)
@@ -39,7 +40,7 @@ public class NaquadahChain {
                 .buildAndRegister();
 
         // Ke2O3 + 2H2S -> 2KeS + 2H2O + O (drop) (1495K)
-        BURNER_REACTOR_RECIPES.recipeBuilder()
+        BLAST_RECIPES.recipeBuilder()
                 .input(dust, TriniumTrioxide, 5)
                 .fluidInputs(HydrogenSulfide.getFluid(2000))
                 .output(dust, TriniumSulfide, 4)
@@ -295,7 +296,7 @@ public class NaquadahChain {
                 .buildAndRegister();
 
         //  Naquadria Residue Solution -> Indium Phosphide + Naquadria Solution
-        BURNER_REACTOR_RECIPES.recipeBuilder()
+        BLAST_RECIPES.recipeBuilder()
                 .fluidInputs(NaquadriaResidueSolution.getFluid(2000))
                 .output(dust, IndiumPhosphide)
                 .fluidOutputs(NaquadriaSolution.getFluid(1000))
@@ -353,7 +354,7 @@ public class NaquadahChain {
                 .buildAndRegister();
 
         //  Naquadria Caesium Xenonnonfluoride + Nitryl Fluoride -> Naquadria Caesiumfluoride + Nitrosonium Octafluoroxenate
-        LOW_TEMP_ACTIVATOR_RECIPES.recipeBuilder()
+        LARGE_CHEMICAL_RECIPES.recipeBuilder()
                 .fluidInputs(NaquadriaCaesiumXenonnonfluoride.getFluid(1000))
                 .fluidInputs(NitrylFluoride.getFluid(2000))
                 .fluidOutputs(NaquadriaCaesiumfluoride.getFluid(1000))
@@ -392,7 +393,7 @@ public class NaquadahChain {
                 .buildAndRegister();
 
         //  Acidic Naquadria Solution Cycle
-        BURNER_REACTOR_RECIPES.recipeBuilder()
+        BLAST_RECIPES.recipeBuilder()
                 .fluidInputs(AcidicNaquadriaSolution.getFluid(3000))
                 .fluidOutputs(NaquadriaWaste.getFluid(1000))
                 .fluidOutputs(ImpureEnrichedNaquadahSolution.getFluid(1000))

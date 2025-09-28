@@ -2,14 +2,12 @@ package keqing.gtqtcore.loaders.recipes.chain;
 
 import keqing.gtqtcore.api.unification.GTQTMaterials;
 
-
 import static gregtech.api.GTValues.*;
 import static gregtech.api.recipes.RecipeMaps.*;
 import static gregtech.api.unification.material.Materials.*;
 import static gregtech.api.unification.ore.OrePrefix.dust;
 import static gregtech.api.unification.ore.OrePrefix.ingot;
 import static gregtechfoodoption.GTFOMaterialHandler.BlueVitriol;
-import static keqing.gtqtcore.api.recipes.GTQTcoreRecipeMaps.BURNER_REACTOR_RECIPES;
 
 public class SeleniumTelluriumChain {
     public static void init() {
@@ -44,7 +42,7 @@ public class SeleniumTelluriumChain {
     private static void TelluriumProcess() {
 
         //  Ag2TeSe + 4O + Na2CO3 -> Na2TeO3 + SeO2 + 2Ag + CO2
-        BURNER_REACTOR_RECIPES.recipeBuilder()
+        BLAST_RECIPES.recipeBuilder()
                 .input(dust, GTQTMaterials.ChalcogenAnodeMud)
                 .input(dust, SodaAsh, 6)
                 .fluidInputs(Oxygen.getFluid(4000))

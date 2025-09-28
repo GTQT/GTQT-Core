@@ -8,7 +8,6 @@ import static gregtech.api.unification.material.Materials.*;
 import static gregtech.api.unification.ore.OrePrefix.dust;
 import static gregtechfoodoption.GTFOMaterialHandler.AceticAnhydride;
 import static gregtechfoodoption.GTFOMaterialHandler.IsopropylChloride;
-import static keqing.gtqtcore.api.recipes.GTQTcoreRecipeMaps.BURNER_REACTOR_RECIPES;
 import static keqing.gtqtcore.api.recipes.GTQTcoreRecipeMaps.CHEMICAL_PLANT;
 import static keqing.gtqtcore.api.unification.GTQTMaterials.*;
 
@@ -78,7 +77,7 @@ public class ZylonChain {
                 .buildAndRegister();
 
         // 2Na + O -> Na2O
-        BURNER_REACTOR_RECIPES.recipeBuilder().duration(80).EUt(VA[HV])
+        BLAST_RECIPES.recipeBuilder().duration(80).EUt(VA[HV])
                 .circuitMeta(3)
                 .input(dust, Sodium, 2)
                 .fluidInputs(Oxygen.getFluid(1000))
@@ -93,7 +92,7 @@ public class ZylonChain {
                 .buildAndRegister();
 
         // Na2O + O2 -> Na2O2
-        BURNER_REACTOR_RECIPES.recipeBuilder().duration(80).EUt(VA[HV])
+        BLAST_RECIPES.recipeBuilder().duration(80).EUt(VA[HV])
                 .circuitMeta(2)
                 .input(dust, SodiumOxide, 3)
                 .fluidInputs(Oxygen.getFluid(1000))

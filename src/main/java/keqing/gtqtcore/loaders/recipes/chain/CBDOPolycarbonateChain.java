@@ -3,9 +3,11 @@ package keqing.gtqtcore.loaders.recipes.chain;
 import static gregtech.api.GTValues.*;
 import static gregtech.api.recipes.RecipeMaps.*;
 import static gregtech.api.unification.material.Materials.*;
-import static gregtech.api.unification.ore.OrePrefix.*;
-import static gregtechfoodoption.GTFOMaterialHandler.*;
-import static keqing.gtqtcore.api.recipes.GTQTcoreRecipeMaps.*;
+import static gregtech.api.unification.ore.OrePrefix.dust;
+import static gregtech.api.unification.ore.OrePrefix.stickLong;
+import static gregtechfoodoption.GTFOMaterialHandler.AceticAnhydride;
+import static keqing.gtqtcore.api.recipes.GTQTcoreRecipeMaps.CHEMICAL_PLANT;
+import static keqing.gtqtcore.api.recipes.GTQTcoreRecipeMaps.DISSOLUTION_TANK_RECIPES;
 import static keqing.gtqtcore.api.unification.GTQTMaterials.*;
 
 
@@ -52,7 +54,7 @@ public class CBDOPolycarbonateChain {
                 .buildAndRegister();
 
         //  CBDO Polycarbonate
-        POLYMERIZATION_RECIPES.recipeBuilder()
+        LARGE_CHEMICAL_RECIPES.recipeBuilder()
                 .fluidInputs(Tetramethylcyclobutanediol.getFluid(1000))
                 .fluidInputs(DiphenylCarbonate.getFluid(1000))
                 .fluidOutputs(CBDOPolycarbonate.getFluid(144))

@@ -6,7 +6,6 @@ import static gregtech.api.GTValues.*;
 import static gregtech.api.recipes.RecipeMaps.*;
 import static gregtech.api.unification.material.Materials.*;
 import static gregtech.api.unification.ore.OrePrefix.*;
-import static keqing.gtqtcore.api.recipes.GTQTcoreRecipeMaps.*;
 
 public class PhosphorusChain {
 
@@ -19,7 +18,7 @@ public class PhosphorusChain {
 
     private static void phosphorus() {
         // 2Ca3(PO4)2 + 6SiO2 + 5C -> 6CaSiO3 + 5CO2 + P4
-        BURNER_REACTOR_RECIPES.recipeBuilder()
+        BLAST_RECIPES.recipeBuilder()
                 .input(dust, TricalciumPhosphate, 10)
                 .input(dust, SiliconDioxide, 18)
                 .input(dust, Carbon, 5)
@@ -35,7 +34,7 @@ public class PhosphorusChain {
                 .output(gem, GTQTMaterials.WhitePhosphorus)
                 .duration(800).EUt(VA[HV]).buildAndRegister();
 
-        BURNER_REACTOR_RECIPES.recipeBuilder()
+        BLAST_RECIPES.recipeBuilder()
                 .input(dust, GTQTMaterials.WhitePhosphorus)
                 .fluidInputs(Argon.getFluid(50))
                 .output(gem, GTQTMaterials.RedPhosphorus)
@@ -62,7 +61,7 @@ public class PhosphorusChain {
                 .fluidOutputs(GTQTMaterials.PhosphoreneSolution.getFluid(1000))
                 .duration(600).EUt(VA[IV]).buildAndRegister();
 
-        SONICATION_RECIPES.recipeBuilder()
+        CHEMICAL_RECIPES.recipeBuilder()
                 .fluidInputs(GTQTMaterials.PhosphoreneSolution.getFluid(125))
                 .fluidInputs(Argon.getFluid(100))
                 .output(foil, GTQTMaterials.Phosphorene, 4)

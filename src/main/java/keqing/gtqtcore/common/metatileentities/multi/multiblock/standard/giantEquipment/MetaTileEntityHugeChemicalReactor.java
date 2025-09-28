@@ -83,7 +83,6 @@ public class MetaTileEntityHugeChemicalReactor extends GTQTNoTierMultiblockContr
         super(metaTileEntityId, new RecipeMap[]{
                 RecipeMaps.CHEMICAL_RECIPES,
                 RecipeMaps.LARGE_CHEMICAL_RECIPES,
-                GTQTcoreRecipeMaps.POLYMERIZATION_RECIPES,
                 GTQTcoreRecipeMaps.DESULPHURIZATION_RECIPES,
                 GTQTcoreRecipeMaps.FLUIDIZED_BED,
                 GTQTcoreRecipeMaps.CATALYTIC_REFORMER_RECIPES

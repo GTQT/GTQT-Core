@@ -40,7 +40,6 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 import java.util.List;
 
 import static gregtech.api.recipes.RecipeMaps.TOOL_CASTER_RECIPES;
-import static keqing.gtqtcore.api.recipes.GTQTcoreRecipeMaps.SPINNER_RECIPES;
 
 public class MetaTileEntityThreeDimPrinter extends GTQTOCMultiblockController implements IOpticalComputationReceiver {
     private int glass_tier;
@@ -53,7 +52,6 @@ public class MetaTileEntityThreeDimPrinter extends GTQTOCMultiblockController im
         super(metaTileEntityId, new RecipeMap[]{
                 GTQTcoreRecipeMaps.TD_PRINT_RECIPES,
                 GTQTcoreRecipeMaps.AUTO_CHISEL_RECIPES,
-                SPINNER_RECIPES,
                 TOOL_CASTER_RECIPES
         });
         this.recipeMapWorkable = new LaserEngravingWorkableHandler(this);

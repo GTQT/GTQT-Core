@@ -33,6 +33,7 @@ import static gregicality.multiblocks.common.metatileentities.GCYMMetaTileEntiti
 import static gregicality.multiblocks.common.metatileentities.GCYMMetaTileEntities.LARGE_DISTILLERY;
 import static gregtech.api.GTValues.*;
 import static gregtech.api.GTValues.EV;
+import static gregtech.api.GTValues.IV;
 import static gregtech.api.GTValues.LuV;
 import static gregtech.api.GTValues.UV;
 import static gregtech.api.recipes.RecipeMaps.*;
@@ -1049,6 +1050,15 @@ public class MetaTileEntityLoader {
                 'P', new UnificationEntry(plate, AusteniticStainlessSteel904L),
                 'W', VOLTAGE_COIL_IV.getStackForm());
 
+        ModHandler.addShapedRecipe(true, "large_cvd_unit", LARGE_CVD_UNIT.getStackForm(),
+                "GXG", "RHR", "PWP",
+                'G', new UnificationEntry(gear, Stellite),
+                'X', new UnificationEntry(circuit, MarkerMaterials.Tier.IV),
+                'H', CHEMICAL_REACTOR[IV].getStackForm(),
+                'R', SENSOR_EV.getStackForm(),
+                'P', new UnificationEntry(plate, AusteniticStainlessSteel904L),
+                'W', VOLTAGE_COIL_IV.getStackForm());
+
         MIXER_RECIPES.recipeBuilder()
                 .input(dust, Electrotine)
                 .input(Items.SNOWBALL)
@@ -1154,15 +1164,6 @@ public class MetaTileEntityLoader {
                 'P', CraftingComponent.SENSOR,
                 'C', CraftingComponent.CIRCUIT);
 
-        gregtech.loaders.recipe.MetaTileEntityLoader.registerMachineRecipe(true, ULTRAVIOLET_LAMP_CHAMBER,
-                "GEG", "PHP", "WXW",
-                'E', CraftingComponent.EMITTER,
-                'H', CraftingComponent.HULL,
-                'P', CraftingComponent.PLATE,
-                'G', CraftingComponent.GLASS,
-                'W', CraftingComponent.CABLE,
-                'X', CraftingComponent.CIRCUIT);
-
         gregtech.loaders.recipe.MetaTileEntityLoader.registerMachineRecipe(true, VACUUM_CHAMBER,
                 "GCG", "PHP", "GWG",
                 'W', CraftingComponent.CABLE,
@@ -1170,43 +1171,6 @@ public class MetaTileEntityLoader {
                 'P', CraftingComponent.PUMP,
                 'G', CraftingComponent.GLASS,
                 'H', CraftingComponent.HULL);
-
-        gregtech.loaders.recipe.MetaTileEntityLoader.registerMachineRecipe(true, COMPONENT_ASSEMBLER,
-                "PPP", "CHR", "WXW",
-                'P', CraftingComponent.PLATE,
-                'H', CraftingComponent.HULL,
-                'C', CraftingComponent.CONVEYOR,
-                'R', CraftingComponent.ROBOT_ARM,
-                'W', CraftingComponent.CABLE,
-                'X', CraftingComponent.CIRCUIT);
-
-        ModHandler.addShapedRecipe(true, "particle_accelerator_iv", PARTICLE_ACCELERATOR_IO[0].getStackForm(),
-                "PPP", "CFC", "EME", 'M', HULL[GTValues.IV].getStackForm(),
-                'P', SENSOR_IV,
-                'E', ULTRAVIOLET_LAMP_CHAMBER[GTValues.IV].getStackForm(),
-                'C', new UnificationEntry(OrePrefix.circuit, MarkerMaterials.Tier.IV),
-                'F', MetaItems.ELECTRIC_PUMP_IV);
-
-        ModHandler.addShapedRecipe(true, "particle_accelerator_luv", GTQTMetaTileEntities.PARTICLE_ACCELERATOR_IO[1].getStackForm(),
-                "PPP", "CFC", "EME", 'M', HULL[GTValues.LuV].getStackForm(),
-                'P', SENSOR_LuV,
-                'E', ULTRAVIOLET_LAMP_CHAMBER[GTValues.LuV].getStackForm(),
-                'C', new UnificationEntry(OrePrefix.circuit, MarkerMaterials.Tier.LuV),
-                'F', MetaItems.ELECTRIC_PUMP_LuV);
-
-        ModHandler.addShapedRecipe(true, "particle_accelerator_zpm", GTQTMetaTileEntities.PARTICLE_ACCELERATOR_IO[2].getStackForm(),
-                "PPP", "CFC", "EME", 'M', HULL[GTValues.ZPM].getStackForm(),
-                'P', SENSOR_ZPM,
-                'E', ULTRAVIOLET_LAMP_CHAMBER[GTValues.ZPM].getStackForm(),
-                'C', new UnificationEntry(OrePrefix.circuit, MarkerMaterials.Tier.ZPM),
-                'F', MetaItems.ELECTRIC_PUMP_ZPM);
-
-        ModHandler.addShapedRecipe(true, "particle_accelerator_uv", GTQTMetaTileEntities.PARTICLE_ACCELERATOR_IO[3].getStackForm(),
-                "PPP", "CFC", "EME", 'M', HULL[GTValues.UV].getStackForm(),
-                'P', SENSOR_UV,
-                'E', ULTRAVIOLET_LAMP_CHAMBER[GTValues.UV].getStackForm(),
-                'C', new UnificationEntry(OrePrefix.circuit, MarkerMaterials.Tier.UV),
-                'F', MetaItems.ELECTRIC_PUMP_UV);
 
         //  Naquadah Reactor
         ModHandler.addShapedRecipe(true, "naquadah_reactor_iv", GTQTMetaTileEntities.NAQUADAH_REACTOR[0].getStackForm(),

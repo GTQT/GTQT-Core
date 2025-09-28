@@ -15,7 +15,6 @@ import gregtech.api.recipes.RecipeMaps;
 import gregtech.client.renderer.ICubeRenderer;
 import gregtech.common.blocks.BlockBoilerCasing;
 import gregtech.common.blocks.MetaBlocks;
-import keqing.gtqtcore.api.recipes.GTQTcoreRecipeMaps;
 import keqing.gtqtcore.client.textures.GTQTTextures;
 import keqing.gtqtcore.common.block.GTQTMetaBlocks;
 import keqing.gtqtcore.common.block.blocks.BlockMultiblockCasing1;
@@ -31,8 +30,8 @@ public class MetaTileEntityChemicalReactor extends GCYMAdvanceRecipeMapMultibloc
     public MetaTileEntityChemicalReactor(ResourceLocation metaTileEntityId) {
         super(metaTileEntityId, new RecipeMap[]{
                 RecipeMaps.CHEMICAL_RECIPES,
-                RecipeMaps.LARGE_CHEMICAL_RECIPES,
-                GTQTcoreRecipeMaps.POLYMERIZATION_RECIPES});
+                RecipeMaps.LARGE_CHEMICAL_RECIPES
+        });
     }
 
     @Override

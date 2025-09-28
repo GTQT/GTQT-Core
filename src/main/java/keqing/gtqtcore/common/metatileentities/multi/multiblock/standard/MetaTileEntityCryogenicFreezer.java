@@ -24,7 +24,6 @@ import gregtech.common.blocks.MetaBlocks;
 import gregtech.common.metatileentities.MetaTileEntities;
 import gregtech.core.sound.GTSoundEvents;
 import keqing.gtqtcore.api.metatileentity.GTQTNoTierMultiblockController;
-import keqing.gtqtcore.api.recipes.GTQTcoreRecipeMaps;
 import keqing.gtqtcore.client.textures.GTQTTextures;
 import keqing.gtqtcore.common.block.GTQTMetaBlocks;
 import keqing.gtqtcore.common.block.blocks.BlockCoolingCoil;
@@ -77,8 +76,7 @@ public class MetaTileEntityCryogenicFreezer extends GTQTNoTierMultiblockControll
 
     public MetaTileEntityCryogenicFreezer(ResourceLocation metaTileEntityId) {
         super(metaTileEntityId, new RecipeMap[]{
-                RecipeMaps.VACUUM_RECIPES,
-                GTQTcoreRecipeMaps.LOW_TEMP_ACTIVATOR_RECIPES
+                RecipeMaps.VACUUM_RECIPES
         });
 
         this.recipeMapWorkable = new CryogenicFreezerRecipeLogic(this);

@@ -7,7 +7,6 @@ import keqing.gtqtcore.api.unification.GTQTMaterials;
 import static gregtech.api.GTValues.*;
 import static gregtech.api.recipes.RecipeMaps.*;
 import static gregtech.api.unification.material.Materials.*;
-import static keqing.gtqtcore.api.recipes.GTQTcoreRecipeMaps.POLYMERIZATION_RECIPES;
 
 
 public class PedotChain {
@@ -67,7 +66,7 @@ public class PedotChain {
                 .duration(800).EUt(VA[LV]).buildAndRegister();
 
         // C8H8 + SO3 -> C8H8SO3
-        POLYMERIZATION_RECIPES.recipeBuilder()
+        CHEMICAL_RECIPES.recipeBuilder()
                 .fluidInputs(GTQTMaterials.Polystyrene.getFluid(L))
                 .fluidInputs(SulfurTrioxide.getFluid(1000))
                 .fluidOutputs(GTQTMaterials.PolystyreneSulfonate.getFluid(L))

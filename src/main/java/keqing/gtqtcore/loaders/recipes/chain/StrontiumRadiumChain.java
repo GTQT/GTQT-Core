@@ -3,7 +3,8 @@ package keqing.gtqtcore.loaders.recipes.chain;
 import static gregtech.api.GTValues.*;
 import static gregtech.api.recipes.RecipeMaps.*;
 import static gregtech.api.unification.material.Materials.*;
-import static gregtech.api.unification.ore.OrePrefix.*;
+import static gregtech.api.unification.ore.OrePrefix.dust;
+import static gregtech.api.unification.ore.OrePrefix.dustSmall;
 import static keqing.gtqtcore.api.recipes.GTQTcoreRecipeMaps.*;
 import static keqing.gtqtcore.api.unification.GTQTMaterials.*;
 
@@ -215,7 +216,7 @@ public class StrontiumRadiumChain {
                 .buildAndRegister();
 
         //  Step5
-        BURNER_REACTOR_RECIPES.recipeBuilder()
+        BLAST_RECIPES.recipeBuilder()
                 .input(dust, ThoriumOxide, 2)
                 .input(dust, CalciumChloride, 3)
                 .output(dust, Thorium)
@@ -227,7 +228,7 @@ public class StrontiumRadiumChain {
                 .buildAndRegister();
 
         //  Celestite + Soda Ash + Carbon -> Strontium Carbonate + Sodium Sulfide + Carbon Dioxide
-        BURNER_REACTOR_RECIPES.recipeBuilder()
+        BLAST_RECIPES.recipeBuilder()
                 .input(dust, Celestite, 6)
                 .input(dust, SodaAsh, 6)
                 .input(dust, Carbon, 2)

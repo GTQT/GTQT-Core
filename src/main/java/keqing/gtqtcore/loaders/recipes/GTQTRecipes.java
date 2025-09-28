@@ -29,6 +29,7 @@ import net.minecraft.item.crafting.Ingredient;
 
 import static gregtech.api.GTValues.EV;
 import static gregtech.api.GTValues.HV;
+import static gregtech.api.recipes.RecipeMaps.EXTRACTOR_RECIPES;
 import static gregtech.api.recipes.RecipeMaps.FLUID_SOLIDFICATION_RECIPES;
 import static gregtech.api.unification.material.Materials.*;
 import static gregtech.api.unification.material.info.MaterialFlags.GENERATE_PLATE;
@@ -36,7 +37,8 @@ import static gregtech.api.unification.material.properties.PropertyKey.*;
 import static gregtech.api.unification.ore.OrePrefix.*;
 import static gregtech.loaders.recipe.handlers.ToolRecipeHandler.addToolRecipe;
 import static gregtech.loaders.recipe.handlers.ToolRecipeHandler.powerUnitItems;
-import static keqing.gtqtcore.api.recipes.GTQTcoreRecipeMaps.*;
+import static keqing.gtqtcore.api.recipes.GTQTcoreRecipeMaps.CW_LASER_ENGRAVER_RECIPES;
+import static keqing.gtqtcore.api.recipes.GTQTcoreRecipeMaps.PRECISION_SPINNING;
 import static keqing.gtqtcore.api.unification.GTQTMaterials.*;
 import static keqing.gtqtcore.api.unification.material.info.GTQTMaterialFlags.GENERATE_CURVED_PLATE;
 import static keqing.gtqtcore.api.unification.matreials.SoftToolAddition.softMaterialsGTQT;
@@ -263,19 +265,19 @@ public class GTQTRecipes {
                         .fluidInputs(Lubricant.getFluid(200))
                         .buildAndRegister();
 
-                FLUID_EXTRACTOR_RECIPES.recipeBuilder()
+                EXTRACTOR_RECIPES.recipeBuilder()
                         .EUt(32).duration(40)
                         .fluidOutputs(material.getFluid(576))
                         .input(plate_big, material)
                         .buildAndRegister();
 
-                FLUID_EXTRACTOR_RECIPES.recipeBuilder()
+                EXTRACTOR_RECIPES.recipeBuilder()
                         .EUt(32).duration(40)
                         .fluidOutputs(material.getFluid(72))
                         .input(shell, material)
                         .buildAndRegister();
 
-                FLUID_EXTRACTOR_RECIPES.recipeBuilder()
+                EXTRACTOR_RECIPES.recipeBuilder()
                         .EUt(32).duration(40)
                         .fluidOutputs(material.getFluid(144))
                         .input(plate_curved, material)
@@ -302,7 +304,7 @@ public class GTQTRecipes {
                         .output(cylinder, material)
                         .buildAndRegister();
 
-                FLUID_EXTRACTOR_RECIPES.recipeBuilder()
+                EXTRACTOR_RECIPES.recipeBuilder()
                         .EUt(32).duration(40)
                         .fluidOutputs(material.getFluid(1224))
                         .input(cylinder, material)
@@ -325,7 +327,7 @@ public class GTQTRecipes {
                         .output(motor_stick, material)
                         .buildAndRegister();
 
-                FLUID_EXTRACTOR_RECIPES.recipeBuilder()
+                EXTRACTOR_RECIPES.recipeBuilder()
                         .EUt(32).duration(40)
                         .fluidOutputs(material.getFluid(1620))
                         .input(motor_stick, material)
@@ -352,7 +354,7 @@ public class GTQTRecipes {
                         .output(valve, material)
                         .buildAndRegister();
 
-                FLUID_EXTRACTOR_RECIPES.recipeBuilder()
+                EXTRACTOR_RECIPES.recipeBuilder()
                         .EUt(32).duration(40)
                         .fluidOutputs(material.getFluid(1692))
                         .input(valve, material)

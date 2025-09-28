@@ -5,11 +5,11 @@ import gregtechfoodoption.GTFOMaterialHandler;
 import keqing.gtqtcore.api.unification.GTQTMaterials;
 
 import static gregtech.api.GTValues.*;
+import static gregtech.api.recipes.RecipeMaps.BLAST_RECIPES;
 import static gregtech.api.recipes.RecipeMaps.CHEMICAL_RECIPES;
 import static gregtech.api.unification.material.Materials.*;
 import static gregtech.api.unification.ore.OrePrefix.dust;
 import static gregtech.api.unification.ore.OrePrefix.dustTiny;
-import static keqing.gtqtcore.api.recipes.GTQTcoreRecipeMaps.BURNER_REACTOR_RECIPES;
 
 public class EDTAChain {
 
@@ -32,7 +32,7 @@ public class EDTAChain {
                 .duration(80).EUt(VA[LV]).buildAndRegister();
 
         // C2H4Cl2 -> C2H3Cl + HCl
-        BURNER_REACTOR_RECIPES.recipeBuilder()
+        BLAST_RECIPES.recipeBuilder()
                 .fluidInputs(GTQTMaterials.Dichloroethane.getFluid(1000))
                 .notConsumable(new IntCircuitIngredient(1))
                 .fluidOutputs(VinylChloride.getFluid(1000))
@@ -49,7 +49,7 @@ public class EDTAChain {
                 .duration(80).EUt(VA[HV]).buildAndRegister();
 
         // CH4 + NH3 + 3O -> HCN + 3H2O
-        BURNER_REACTOR_RECIPES.recipeBuilder()
+        BLAST_RECIPES.recipeBuilder()
                 .fluidInputs(Methane.getFluid(1000))
                 .fluidInputs(Ammonia.getFluid(1000))
                 .fluidInputs(Oxygen.getFluid(1000))
@@ -60,7 +60,7 @@ public class EDTAChain {
                 .duration(120).EUt(VA[MV]).buildAndRegister();
 
         // CH3OH -> CH2O + 2H
-        BURNER_REACTOR_RECIPES.recipeBuilder()
+        BLAST_RECIPES.recipeBuilder()
                 .input(dustTiny, Silver)
                 .fluidInputs(Methanol.getFluid(1000))
                 .fluidOutputs(GTQTMaterials.Formaldehyde.getFluid(1000))

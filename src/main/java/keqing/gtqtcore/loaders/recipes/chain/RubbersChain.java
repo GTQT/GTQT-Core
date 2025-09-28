@@ -1,27 +1,22 @@
 package keqing.gtqtcore.loaders.recipes.chain;
 
-import gregtech.api.unification.OreDictUnifier;
-
 import static gregtech.api.GTValues.*;
-import static gregtech.api.GTValues.VA;
-import static gregtech.api.recipes.RecipeMaps.CHEMICAL_RECIPES;
-import static gregtech.api.recipes.RecipeMaps.MIXER_RECIPES;
+import static gregtech.api.recipes.RecipeMaps.*;
 import static gregtech.api.unification.material.Materials.*;
-import static gregtech.api.unification.ore.OrePrefix.*;
-import static keqing.gtqtcore.api.recipes.GTQTcoreRecipeMaps.*;
+import static gregtech.api.unification.ore.OrePrefix.dust;
+import static gregtech.api.unification.ore.OrePrefix.lens;
+import static keqing.gtqtcore.api.recipes.GTQTcoreRecipeMaps.CHEMICAL_PLANT;
 import static keqing.gtqtcore.api.unification.GTQTMaterials.*;
-import static keqing.gtqtcore.api.utils.GTQTUniversUtil.*;
 
 public class RubbersChain {
     public static void init() {
-        VanillaRubberProcess();
         PPFRubberProcess();
         PTMEGRubberProcess();
     }
 
     private static void PPFRubberProcess() {
         //  Acrylonitrile (EV): Acetylene + Hydrogen Cyanide -> Acrylonitrile
-        LOW_TEMP_ACTIVATOR_RECIPES.recipeBuilder()
+        CHEMICAL_RECIPES.recipeBuilder()
                 .fluidInputs(Acetylene.getFluid(1000))
                 .fluidInputs(HydrogenCyanide.getFluid(1000))
                 .fluidOutputs(Acrylonitrile.getFluid(1000))
@@ -52,7 +47,7 @@ public class RubbersChain {
                 .buildAndRegister();
 
         //  Butadiene + Acrylonitrile -> Nitrile Butadiene Rubber
-        LOW_TEMP_ACTIVATOR_RECIPES.recipeBuilder()
+        LARGE_CHEMICAL_RECIPES.recipeBuilder()
                 .notConsumable(dust, FerricCatalyst)
                 .fluidInputs(Butadiene.getFluid(1000))
                 .fluidInputs(Acrylonitrile.getFluid(1000))
@@ -62,7 +57,7 @@ public class RubbersChain {
                 .buildAndRegister();
 
         //  Carbon + Phosphoryl Chloride + Ammonium Chloride -> Phosphonitrilic Chloride Trimer + Steam + Diluted Hydrochloric Acid
-        BURNER_REACTOR_RECIPES.recipeBuilder()
+        BLAST_RECIPES.recipeBuilder()
                 .input(dust, Carbon, 6)
                 .fluidInputs(PhosphorylChloride.getFluid(3000))
                 .input(dust,AmmoniumChloride,3)
@@ -75,7 +70,7 @@ public class RubbersChain {
                 .buildAndRegister();
 
         //  Sodium Fluoride + Ethanol + Fluorine -> Sodium Trifluoroethanolate + Hydrogen
-        LOW_TEMP_ACTIVATOR_RECIPES.recipeBuilder()
+        LARGE_CHEMICAL_RECIPES.recipeBuilder()
                 .input(dust, SodiumFluoride, 6)
                 .fluidInputs(Ethanol.getFluid(3000))
                 .fluidInputs(Fluorine.getFluid(3000))
@@ -86,7 +81,7 @@ public class RubbersChain {
                 .buildAndRegister();
 
         //  Fluorobenzene + Hydrofluoric Acid + Oxygen -> Octafluoro Pentanol + Propene (Cycle)
-        ULTRAVIOLET_LAMP_CHAMBER_RECIPES.recipeBuilder()
+        LARGE_CHEMICAL_RECIPES.recipeBuilder()
                 .notConsumable(lens, NetherStar)
                 .fluidInputs(Fluorobenzene.getFluid(2000))
                 .fluidInputs(HydrofluoricAcid.getFluid(6000))
@@ -98,7 +93,7 @@ public class RubbersChain {
                 .buildAndRegister();
 
         // NaC2H4OF3 + Cl6N3P3 + 4C5H4F8O -> (CH2CF3)6(CH2C3F7)2(C2F4)2(NPO)4O4 + NaF (cycle) + 3POCl3 (cycle)
-        POLYMERIZATION_RECIPES.recipeBuilder()
+        LARGE_CHEMICAL_RECIPES.recipeBuilder()
                 .input(dust, SodiumTrifluoroethanolate, 11)
                 .fluidInputs(PhosphonitrilicChlorideTrimer.getFluid(1000))
                 .fluidInputs(OctafluoroPentanol.getFluid(4000))
@@ -120,48 +115,6 @@ public class RubbersChain {
                 .buildAndRegister();
     }
 
-    private static void VanillaRubberProcess() {
-        // Raw Rubber
-        removeChemicalRecipe(
-                OreDictUnifier.get(dust, RawRubber, 9),
-                OreDictUnifier.get(dust, Sulfur, 1)
-        );
-
-        POLYMERIZATION_RECIPES.recipeBuilder()
-                .input(dust, RawRubber, 9)
-                .fluidInputs(Sulfur.getFluid(250))
-                .fluidOutputs(Rubber.getFluid(L * 9))
-                .EUt(VA[LV])
-                .duration(10 * SECOND)
-                .buildAndRegister();
-
-        // Silicone Rubber
-        removeChemicalRecipe(
-                OreDictUnifier.get(dust, Polydimethylsiloxane, 9),
-                OreDictUnifier.get(dust, Sulfur, 1));
-
-        POLYMERIZATION_RECIPES.recipeBuilder()
-                .input(dust, Polydimethylsiloxane, 9)
-                .fluidInputs(Sulfur.getFluid(250))
-                .fluidOutputs(SiliconeRubber.getFluid(L * 9))
-                .EUt(VA[HV])
-                .duration(10 * SECOND)
-                .buildAndRegister();
-
-        // Styrene Butadiene Rubber
-        removeChemicalRecipe(
-                OreDictUnifier.get(dust, RawStyreneButadieneRubber, 9),
-                OreDictUnifier.get(dust, Sulfur, 1)
-        );
-
-        POLYMERIZATION_RECIPES.recipeBuilder()
-                .input(dust, RawStyreneButadieneRubber, 9)
-                .fluidInputs(Sulfur.getFluid(250))
-                .fluidOutputs(StyreneButadieneRubber.getFluid(L * 9))
-                .EUt(VA[HV])
-                .duration(10 * SECOND)
-                .buildAndRegister();
-    }
     private static void PTMEGRubberProcess() {
         // C7H8 + 2HNO3 -> C7H6N2O4
         CHEMICAL_RECIPES.recipeBuilder()
@@ -182,7 +135,7 @@ public class RubbersChain {
                 .buildAndRegister();
 
         // C6H3(NH2)2CH3 + 2COCl2 -> CH3C6H3(NCO)2
-        BURNER_REACTOR_RECIPES.recipeBuilder()
+        BLAST_RECIPES.recipeBuilder()
                 .fluidInputs(Diaminotoluene.getFluid(1000))
                 .fluidInputs(Phosgene.getFluid(2000))
                 .fluidOutputs(TolueneDiisocyanate.getFluid(1000))
@@ -193,7 +146,7 @@ public class RubbersChain {
                 .buildAndRegister();
 
         // (CH2)4O + H2O -> (C4H8O)OH2
-        POLYMERIZATION_RECIPES.recipeBuilder()
+        CHEMICAL_RECIPES.recipeBuilder()
                 .notConsumable(dust, SodiumBisulfate, 1) // as Initiator.
                 .fluidInputs(Tetrahydrofuran.getFluid(L))
                 .fluidInputs(DistilledWater.getFluid(1000))
@@ -213,7 +166,7 @@ public class RubbersChain {
                 .buildAndRegister();
 
         // (CONH)2(C6H4)2CH2(C4O) + C4H8(OH)2 -> (CONH)2(C6H4)2CH2(C4O)HO(CH2)4OH
-        POLYMERIZATION_RECIPES.recipeBuilder()
+        CHEMICAL_RECIPES.recipeBuilder()
                 .fluidInputs(TolueneTetramethylDiisocyanate.getFluid(4000))
                 .fluidInputs(Butanediol.getFluid(1000))
                 .fluidOutputs(PolytetramethyleneGlycolRubber.getFluid(4000))

@@ -13,7 +13,7 @@ import static gregtech.api.recipes.RecipeMaps.*;
 import static gregtech.api.unification.material.Materials.*;
 import static gregtech.api.unification.ore.OrePrefix.*;
 import static gregtech.common.items.MetaItems.*;
-import static keqing.gtqtcore.api.recipes.GTQTcoreRecipeMaps.PLASMA_CVD_RECIPES;
+import static keqing.gtqtcore.api.recipes.GTQTcoreRecipeMaps.CVD_RECIPES;
 import static keqing.gtqtcore.api.recipes.GTQTcoreRecipeMaps.PRECISE_ASSEMBLER_RECIPES;
 import static keqing.gtqtcore.api.unification.GTQTMaterials.CeLAG;
 import static keqing.gtqtcore.api.unification.GTQTMaterials.CeriumOxide;
@@ -147,7 +147,7 @@ public class CrystalCircuits {
 
         //  Advanced Crystal CPU recipes
         //  use Ce:LAG lens, and 1 step to get Crystal CPU (this machine required material over ZPM, so is not too imba).
-        PLASMA_CVD_RECIPES.recipeBuilder()
+        CVD_RECIPES.recipeBuilder()
                 .input(plate, Emerald)
                 .notConsumable(lens, CeLAG)
                 .fluidInputs(Europium.getFluid(4))
@@ -157,7 +157,7 @@ public class CrystalCircuits {
                 .cleanroom(CleanroomType.CLEANROOM)
                 .buildAndRegister();
 
-        PLASMA_CVD_RECIPES.recipeBuilder()
+        CVD_RECIPES.recipeBuilder()
                 .input(plate, Olivine)
                 .notConsumable(lens, CeLAG)
                 .fluidInputs(Europium.getFluid(4))

@@ -6,9 +6,7 @@ import gregtech.api.metatileentity.interfaces.IGregTechTileEntity;
 import keqing.gtqtcore.common.metatileentities.multi.multiblock.standard.MetaTileEntityBlazingBlastFurnace;
 import keqing.gtqtcore.common.metatileentities.multi.multiblock.standard.MetaTileEntitySepticTank;
 import keqing.gtqtcore.common.metatileentities.multi.multiblock.standard.MetaTileEntityVacuumDryingFurnace;
-import keqing.gtqtcore.common.metatileentities.multi.multiblock.standard.gcys.MetaTileEntityBurnerReactor;
 import keqing.gtqtcore.common.metatileentities.multi.multiblock.standard.giantEquipment.MetaTileEntityHugeBlastFurnace;
-
 import mcjty.theoneprobe.api.*;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.player.EntityPlayer;
@@ -47,13 +45,6 @@ public class MultiblockTemperatureProvider implements  IProbeInfoProvider {
                     horizontalPane.text(TextStyleClass.INFO + "{*gtqt.top.temperature*}");
                     horizontalPane.text(TextStyleClass.INFO + " " +TextFormatting.RED+Temperature+" K");
                 }
-
-                if (mte instanceof MetaTileEntityBurnerReactor) {
-                    int Temperature = ((MetaTileEntityBurnerReactor) mte).getCurrentTemperature();
-                    horizontalPane.text(TextStyleClass.INFO + "{*gtqt.top.temperature*}");
-                    horizontalPane.text(TextStyleClass.INFO + " " +TextFormatting.RED+Temperature+" K");
-                }
-
                 if (mte instanceof MetaTileEntitySepticTank) {
                     int Temperature = ((MetaTileEntitySepticTank) mte).getCurrentTemperature();
                     horizontalPane.text(TextStyleClass.INFO + "{*gtqt.top.temperature*}");

@@ -3,10 +3,10 @@ package keqing.gtqtcore.loaders.recipes.chain;
 
 import static gregtech.api.GTValues.HV;
 import static gregtech.api.GTValues.VA;
+import static gregtech.api.recipes.RecipeMaps.BLAST_RECIPES;
 import static gregtech.api.recipes.RecipeMaps.LARGE_CHEMICAL_RECIPES;
 import static gregtech.api.unification.material.Materials.*;
 import static gregtech.api.unification.ore.OrePrefix.dust;
-import static keqing.gtqtcore.api.recipes.GTQTcoreRecipeMaps.BURNER_REACTOR_RECIPES;
 import static keqing.gtqtcore.api.unification.GTQTMaterials.EthyleneGlycol;
 import static keqing.gtqtcore.api.unification.GTQTMaterials.EthyleneOxide;
 
@@ -14,7 +14,7 @@ public class EthyleneGlycolChain {
 
     public static void init() {
         // 7C2H4 + 12O -> 6C2H4O + 2CO2 + 2H2O
-        BURNER_REACTOR_RECIPES.recipeBuilder()
+        BLAST_RECIPES.recipeBuilder()
                 .input(dust, Silver)
                 .fluidInputs(Ethylene.getFluid(7000))
                 .fluidOutputs(EthyleneOxide.getFluid(6000))

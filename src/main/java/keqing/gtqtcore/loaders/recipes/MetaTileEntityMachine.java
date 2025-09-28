@@ -26,7 +26,6 @@ import keqing.gtqtcore.common.block.blocks.BlockEnergyCell;
 import keqing.gtqtcore.common.block.blocks.BlockMultiblockCasing4;
 import keqing.gtqtcore.common.block.blocks.BlockMultiblockGlass1;
 import keqing.gtqtcore.common.block.blocks.BlockNuclearCasing;
-import keqing.gtqtcore.common.items.GTQTMetaItems;
 import keqing.gtqtcore.common.metatileentities.GTQTMetaTileEntities;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
@@ -40,7 +39,6 @@ import static gregtech.api.recipes.RecipeMaps.*;
 import static gregtech.api.unification.material.Materials.*;
 import static gregtech.api.unification.ore.OrePrefix.*;
 import static gregtech.common.blocks.MetaBlocks.MACHINE_CASING;
-import static gregtech.common.items.MetaItems.ORE_DICTIONARY_FILTER;
 import static gregtech.common.items.MetaItems.SHAPE_MOLD_BLOCK;
 import static gregtech.common.metatileentities.MetaTileEntities.ARC_FURNACE;
 import static gregtech.common.metatileentities.MetaTileEntities.HULL;
@@ -641,61 +639,6 @@ public class MetaTileEntityMachine {
                 'G', "blockGlass",
                 'H', MetaBlocks.STEAM_CASING.getItemVariant(BlockSteamCasing.SteamCasingType.STEEL_HULL));
 
-        // Steam Spinner
-        ModHandler.addShapedRecipe(true, "steam_spinner.bronze", STEAM_SPINNER[0].getStackForm(),
-                " S ", "MHM", "WXW",
-                'H', MetaBlocks.STEAM_CASING.getItemVariant(BlockSteamCasing.SteamCasingType.BRONZE_HULL),
-                'M', Blocks.PISTON,
-                'S', GTQTMetaItems.SPINNER,
-                'W', new UnificationEntry(pipeTinyFluid, Bronze),
-                'X', new UnificationEntry(gem, Diamond));
-
-        ModHandler.addShapedRecipe(true, "steam_spinner.steel", STEAM_SPINNER[1].getStackForm(),
-                " S ", "MHM", "WXW",
-                'H', MetaBlocks.STEAM_CASING.getItemVariant(BlockSteamCasing.SteamCasingType.STEEL_HULL),
-                'M', Blocks.PISTON,
-                'S', GTQTMetaItems.SPINNER,
-                'W', new UnificationEntry(pipeTinyFluid, TinAlloy),
-                'X', new UnificationEntry(circuit, MarkerMaterials.Tier.ULV));
-
-        // Catalytic Reformer
-        MetaTileEntityLoader.registerMachineRecipe(true, CATALYTIC_REFORMER,
-                "MCM", "PHP", "MKM",
-                'M', CraftingComponent.PIPE_NORMAL,
-                'C', CraftingComponent.CIRCUIT,
-                'P', CraftingComponent.PUMP,
-                'H', CraftingComponent.HULL,
-                'K', CraftingComponent.DOUBLE_PLATE);
-
-        // Sonicator
-        MetaTileEntityLoader.registerMachineRecipe(true, SONICATOR,
-                "RXR", "GPG", "MHM",
-                'H', CraftingComponent.HULL,
-                'M', CraftingComponent.MOTOR,
-                'P', CraftingComponent.PIPE_REACTOR,
-                'G', CraftingComponent.GLASS,
-                'R', CraftingComponent.ROTOR,
-                'X', CraftingComponent.BETTER_CIRCUIT);
-
-        // CVD Unit
-        MetaTileEntityLoader.registerMachineRecipe(true, CVD_UNIT,
-                "PKP", "CHC", "ESE",
-                'P', new UnificationEntry(plate, Carbon),
-                'K', CraftingComponent.CABLE,
-                'C', CraftingComponent.CIRCUIT,
-                'H', CraftingComponent.HULL,
-                'S', CraftingComponent.SENSOR,
-                'E', CraftingComponent.EMITTER);
-
-        // Flotation Cell
-        MetaTileEntityLoader.registerMachineRecipe(true, FLOTATION_CELL,
-                "XOX", "PHP", "RRR",
-                'H', CraftingComponent.HULL,
-                'P', CraftingComponent.PUMP,
-                'R', CraftingComponent.PIPE_REACTOR,
-                'O', ORE_DICTIONARY_FILTER,
-                'X', CraftingComponent.CIRCUIT);
-
         //  Condenser
         MetaTileEntityLoader.registerMachineRecipe(true, CONDENSER,
                 "RFR", "PHP", "WXW",
@@ -705,85 +648,6 @@ public class MetaTileEntityMachine {
                 'W', CraftingComponent.CABLE,
                 'X', CraftingComponent.BETTER_CIRCUIT,
                 'R', CraftingComponent.STICK_RADIOACTIVE);
-
-        // Ion Implanter
-        MetaTileEntityLoader.registerMachineRecipe(true, ION_IMPLANTER,
-                "PXP", "EHE", "DXD",
-                'E', CraftingComponent.EMITTER,
-                'H', CraftingComponent.HULL,
-                'D', CraftingComponent.DOUBLE_PLATE,
-                'X', CraftingComponent.CIRCUIT,
-                'P', CraftingComponent.PIPE_NORMAL);
-
-        //  Bio Reactor
-        registerMachineRecipe(true, BIO_REACTOR,
-                "PXX", "pHp", "PMW",
-                'H', CraftingComponent.HULL,
-                'P', CraftingComponent.PUMP,
-                'p', CraftingComponent.PIPE_NORMAL,
-                'X', CraftingComponent.CIRCUIT,
-                'W', CraftingComponent.CABLE,
-                'M', CraftingComponent.MOTOR);
-        // Burner Reactor
-        MetaTileEntityLoader.registerMachineRecipe(true, BURNER_REACTOR,
-                "KRK", "IHI", "CMC",
-                'K', CraftingComponent.CABLE_QUAD,
-                'R', CraftingComponent.ROTOR,
-                'I', CraftingComponent.PIPE_NORMAL,
-                'H', CraftingComponent.HULL,
-                'C', CraftingComponent.CIRCUIT,
-                'M', CraftingComponent.MOTOR);
-
-        MetaTileEntityLoader.registerMachineRecipe(true, LOW_TEMP_ACTIVATOR,
-                "EXE", "GHG", "WXW",
-                'E', CraftingComponent.EMITTER,
-                'X', CraftingComponent.CIRCUIT,
-                'G', CraftingComponent.GLASS,
-                'W', CraftingComponent.CABLE,
-                'H', CraftingComponent.HULL);
-
-        MetaTileEntityLoader.registerMachineRecipe(true, PRESSURE_LAMINATOR,
-                "EEE", "XHX", "WXW",
-                'E', CraftingComponent.PISTON,
-                'X', CraftingComponent.CIRCUIT,
-                'W', CraftingComponent.CABLE,
-                'H', CraftingComponent.HULL);
-
-        MetaTileEntityLoader.registerMachineRecipe(true, POLYMERIZATION_TANK,
-                "GXG", "GMG", "PHP",
-                'H', CraftingComponent.HULL,
-                'P', CraftingComponent.PIPE_LARGE,
-                'G', CraftingComponent.GLASS,
-                'X', CraftingComponent.CIRCUIT,
-                'M', CraftingComponent.MOTOR);
-
-        // Spinner
-        MetaTileEntityLoader.registerMachineRecipe(true, GTQTMetaTileEntities.SPINNER,
-                " S ", "MHM", "WXW",
-                'S', GTQTMetaItems.SPINNER,
-                'H', CraftingComponent.HULL,
-                'M', CraftingComponent.MOTOR,
-                'W', CraftingComponent.CABLE,
-                'X', CraftingComponent.CIRCUIT);
-
-
-        registerMachineRecipe(GTQTMetaTileEntities.FLUID_EXTRACTOR, "PGP", "EGE", "CMC", 'M', CraftingComponent.HULL, 'P', PUMP, 'E', PISTON, 'C',
-                CIRCUIT, 'G', GLASS);
-        registerMachineRecipe(GTQTMetaTileEntities.FLUID_CANNER, "EGE", "PGP", "CMC", 'M', CraftingComponent.HULL, 'P', PUMP, 'E', PISTON, 'C',
-                CIRCUIT, 'G', GLASS);
-        registerMachineRecipe(GTQTMetaTileEntities.DEHYDRATOR, "WCW", "MHM", "GAG", 'C', CIRCUIT, 'M', CABLE_QUAD, 'H', CraftingComponent.HULL,
-                'G', MOTOR, 'A', ROBOT_ARM, 'W', COIL_HEATING_DOUBLE);
-
-        // Laminator
-        MetaTileEntityLoader.registerMachineRecipe(true, LAMINATOR,
-                "XGW", "PCS", "WHX",
-                'H', CraftingComponent.HULL,
-                'X', CraftingComponent.CIRCUIT,
-                'W', CraftingComponent.CABLE,
-                'P', CraftingComponent.PUMP,
-                'C', CraftingComponent.CONVEYOR,
-                'S', PISTON,
-                'G', OreDictUnifier.get(gear, Steel));
 
         registerMachineRecipe(GTQTMetaTileEntities.RADIATION_HATCH,
                 "SCS", "EHE", "SCS",

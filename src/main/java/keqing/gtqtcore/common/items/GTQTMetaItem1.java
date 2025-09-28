@@ -716,6 +716,10 @@ public class GTQTMetaItem1 extends StandardMetaItem {
         HIGH_DENSITY_URANIUM = this.addItem(821, "high_density_uranium").setCreativeTabs(GTQTCore_NC);
         HIGH_DENSITY_PLUTONIUM = this.addItem(822, "high_density_plutonium").setCreativeTabs(GTQTCore_NC);
 
+        //  ID 317: Chromatic Lens (special lens)
+        CHROMATIC_LENS = this.addItem(830, "chromatic_lens")
+                .addOreDict("craftingLensChromatic");
+
         // Power Components: ID 356-379
         NANO_POWER_IC_WAFER = this.addItem(840, "wafer.nano_power_integrated_circuit").setCreativeTabs(GTQTCore_TAB);
         PICO_POWER_IC_WAFER = this.addItem(841, "wafer.pico_power_integrated_circuit").setCreativeTabs(GTQTCore_TAB);

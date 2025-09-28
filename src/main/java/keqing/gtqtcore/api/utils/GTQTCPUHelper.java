@@ -1,8 +1,6 @@
 package keqing.gtqtcore.api.utils;
 
 import gregtech.api.items.metaitem.MetaItem;
-import gregtech.common.items.MetaItems;
-import keqing.gtqtcore.common.items.GTQTMetaItems;
 import net.minecraft.item.ItemStack;
 
 import static gregtech.common.items.MetaItems.*;
@@ -41,6 +39,7 @@ public class GTQTCPUHelper {
             SYSTEM_ON_CHIP_WAFER,
             ADVANCED_SYSTEM_ON_CHIP_WAFER,
             HIGHLY_ADVANCED_SOC_WAFER,
+            UHASOC_WAFER,
             NANO_POWER_IC_WAFER,
             PICO_POWER_IC_WAFER,
             FEMTO_POWER_IC_WAFER,

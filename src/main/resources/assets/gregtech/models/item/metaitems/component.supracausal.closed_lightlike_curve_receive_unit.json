@@ -1,0 +1,6 @@
+{
+  "parent": "item/generated",
+  "textures" : {
+    "layer0": "gtqtcore:items/metaitems/component.supracausal.closed_lightlike_curve_receive_unit"
+  }
+}

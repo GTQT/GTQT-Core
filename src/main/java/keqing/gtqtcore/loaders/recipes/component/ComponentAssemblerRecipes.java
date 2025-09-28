@@ -4,14 +4,12 @@ import gregtech.api.recipes.ModHandler;
 import gregtech.api.unification.material.MarkerMaterials;
 import gregtech.api.unification.stack.UnificationEntry;
 import net.minecraftforge.fluids.FluidStack;
-import scala.tools.asm.Handle;
 
 import static gregtech.api.GTValues.*;
-import static gregtech.api.recipes.RecipeMaps.BLAST_RECIPES;
+import static gregtech.api.recipes.RecipeMaps.ASSEMBLER_RECIPES;
 import static gregtech.api.unification.material.Materials.*;
 import static gregtech.api.unification.ore.OrePrefix.*;
 import static gregtech.common.items.MetaItems.*;
-import static keqing.gtqtcore.api.recipes.GTQTcoreRecipeMaps.COMPONENT_ASSEMBLER_RECIPES;
 import static keqing.gtqtcore.api.unification.GTQTMaterials.NitrileButadieneRubber;
 import static keqing.gtqtcore.api.unification.GTQTMaterials.PolyPhosphonitrileFluoroRubber;
 import static keqing.gtqtcore.api.unification.ore.GTQTOrePrefix.*;
@@ -29,6 +27,7 @@ public class ComponentAssemblerRecipes {
         FieldGenerator();
         Hand();
     }
+
     private static void Hand() {
         ModHandler.addShapedRecipe("electric_motor_lv_steel", ELECTRIC_MOTOR_LV.getStackForm(),
                 "CWR", "WMW", "RWC",
@@ -61,9 +60,10 @@ public class ComponentAssemblerRecipes {
                 'P', ELECTRIC_PISTON_LV.getStackForm(),
                 'X', new UnificationEntry(circuit, MarkerMaterials.Tier.LV));
     }
+
     private static void Motor() {
         //  LV
-        COMPONENT_ASSEMBLER_RECIPES.recipeBuilder()
+        ASSEMBLER_RECIPES.recipeBuilder()
                 .input(cableGtSingle, Tin, 2)
                 .input(plate_curved, Steel, 2)
                 .input(stick, IronMagnetic)
@@ -73,7 +73,7 @@ public class ComponentAssemblerRecipes {
                 .duration(20)
                 .buildAndRegister();
 
-        COMPONENT_ASSEMBLER_RECIPES.recipeBuilder()
+        ASSEMBLER_RECIPES.recipeBuilder()
                 .input(cableGtSingle, Tin, 2)
                 .input(plate_curved, Steel, 2)
                 .input(stick, SteelMagnetic)
@@ -84,7 +84,7 @@ public class ComponentAssemblerRecipes {
                 .buildAndRegister();
 
         //  MV
-        COMPONENT_ASSEMBLER_RECIPES.recipeBuilder()
+        ASSEMBLER_RECIPES.recipeBuilder()
                 .input(cableGtSingle, Copper, 2)
                 .input(plate_curved, Aluminium, 2)
                 .input(stick, SteelMagnetic)
@@ -95,7 +95,7 @@ public class ComponentAssemblerRecipes {
                 .buildAndRegister();
 
         //  HV
-        COMPONENT_ASSEMBLER_RECIPES.recipeBuilder()
+        ASSEMBLER_RECIPES.recipeBuilder()
                 .input(cableGtDouble, Silver, 2)
                 .input(plate_curved, StainlessSteel, 2)
                 .input(stick, SteelMagnetic)
@@ -106,7 +106,7 @@ public class ComponentAssemblerRecipes {
                 .buildAndRegister();
 
         //  EV
-        COMPONENT_ASSEMBLER_RECIPES.recipeBuilder()
+        ASSEMBLER_RECIPES.recipeBuilder()
                 .input(cableGtDouble, Aluminium, 2)
                 .input(plate_curved, Titanium, 2)
                 .input(stick, NeodymiumMagnetic)
@@ -117,7 +117,7 @@ public class ComponentAssemblerRecipes {
                 .buildAndRegister();
 
         //  IV
-        COMPONENT_ASSEMBLER_RECIPES.recipeBuilder()
+        ASSEMBLER_RECIPES.recipeBuilder()
                 .input(cableGtDouble, Tungsten, 2)
                 .input(plate_curved, TungstenSteel, 2)
                 .input(stick, NeodymiumMagnetic)
@@ -130,7 +130,7 @@ public class ComponentAssemblerRecipes {
 
     private static void Piston() {
         //  LV
-        COMPONENT_ASSEMBLER_RECIPES.recipeBuilder()
+        ASSEMBLER_RECIPES.recipeBuilder()
                 .input(stick, Steel, 2)
                 .input(cableGtSingle, Tin, 2)
                 .input(plate, Steel, 3)
@@ -142,7 +142,7 @@ public class ComponentAssemblerRecipes {
                 .buildAndRegister();
 
         //  MV
-        COMPONENT_ASSEMBLER_RECIPES.recipeBuilder()
+        ASSEMBLER_RECIPES.recipeBuilder()
                 .input(stick, Aluminium, 2)
                 .input(cableGtSingle, Copper, 2)
                 .input(plate, Aluminium, 3)
@@ -154,7 +154,7 @@ public class ComponentAssemblerRecipes {
                 .buildAndRegister();
 
         //  HV
-        COMPONENT_ASSEMBLER_RECIPES.recipeBuilder()
+        ASSEMBLER_RECIPES.recipeBuilder()
                 .input(stick, StainlessSteel, 2)
                 .input(cableGtSingle, Gold, 2)
                 .input(plate, StainlessSteel, 3)
@@ -166,7 +166,7 @@ public class ComponentAssemblerRecipes {
                 .buildAndRegister();
 
         //  EV
-        COMPONENT_ASSEMBLER_RECIPES.recipeBuilder()
+        ASSEMBLER_RECIPES.recipeBuilder()
                 .input(stick, Titanium, 2)
                 .input(cableGtSingle, Aluminium, 2)
                 .input(plate, Titanium, 3)
@@ -178,7 +178,7 @@ public class ComponentAssemblerRecipes {
                 .buildAndRegister();
 
         //  IV
-        COMPONENT_ASSEMBLER_RECIPES.recipeBuilder()
+        ASSEMBLER_RECIPES.recipeBuilder()
                 .input(stick, TungstenSteel, 2)
                 .input(cableGtSingle, Tungsten, 2)
                 .input(plate, TungstenSteel, 3)
@@ -199,7 +199,7 @@ public class ComponentAssemblerRecipes {
                 StyreneButadieneRubber.getFluid(L * 6),
                 NitrileButadieneRubber.getFluid(L * 6),
                 PolyPhosphonitrileFluoroRubber.getFluid(L * 6)}) {
-            COMPONENT_ASSEMBLER_RECIPES.recipeBuilder()
+            ASSEMBLER_RECIPES.recipeBuilder()
                     .input(cableGtSingle, Tin)
                     .input(ELECTRIC_MOTOR_LV, 2)
                     .circuitMeta(1)
@@ -217,7 +217,7 @@ public class ComponentAssemblerRecipes {
                 StyreneButadieneRubber.getFluid(L * 6),
                 NitrileButadieneRubber.getFluid(L * 6),
                 PolyPhosphonitrileFluoroRubber.getFluid(L * 6)}) {
-            COMPONENT_ASSEMBLER_RECIPES.recipeBuilder()
+            ASSEMBLER_RECIPES.recipeBuilder()
                     .input(cableGtSingle, Copper)
                     .input(ELECTRIC_MOTOR_MV, 2)
                     .circuitMeta(1)
@@ -235,7 +235,7 @@ public class ComponentAssemblerRecipes {
                 StyreneButadieneRubber.getFluid(L * 6),
                 NitrileButadieneRubber.getFluid(L * 6),
                 PolyPhosphonitrileFluoroRubber.getFluid(L * 6)}) {
-            COMPONENT_ASSEMBLER_RECIPES.recipeBuilder()
+            ASSEMBLER_RECIPES.recipeBuilder()
                     .input(cableGtSingle, Gold)
                     .input(ELECTRIC_MOTOR_HV, 2)
                     .circuitMeta(1)
@@ -253,7 +253,7 @@ public class ComponentAssemblerRecipes {
                 StyreneButadieneRubber.getFluid(L * 6),
                 NitrileButadieneRubber.getFluid(L * 6),
                 PolyPhosphonitrileFluoroRubber.getFluid(L * 6)}) {
-            COMPONENT_ASSEMBLER_RECIPES.recipeBuilder()
+            ASSEMBLER_RECIPES.recipeBuilder()
                     .input(cableGtSingle, Aluminium)
                     .input(ELECTRIC_MOTOR_EV, 2)
                     .circuitMeta(1)
@@ -270,7 +270,7 @@ public class ComponentAssemblerRecipes {
                 StyreneButadieneRubber.getFluid(L * 6),
                 NitrileButadieneRubber.getFluid(L * 6),
                 PolyPhosphonitrileFluoroRubber.getFluid(L * 6)}) {
-            COMPONENT_ASSEMBLER_RECIPES.recipeBuilder()
+            ASSEMBLER_RECIPES.recipeBuilder()
                     .input(cableGtSingle, Tungsten)
                     .input(ELECTRIC_MOTOR_IV, 2)
                     .circuitMeta(1)
@@ -284,7 +284,7 @@ public class ComponentAssemblerRecipes {
 
     private static void Pump() {
         //  LV
-        COMPONENT_ASSEMBLER_RECIPES.recipeBuilder()
+        ASSEMBLER_RECIPES.recipeBuilder()
                 .input(cableGtSingle, Tin)
                 .input(valve, Bronze)
                 .input(screw, Tin)
@@ -296,7 +296,7 @@ public class ComponentAssemblerRecipes {
                 .duration(20)
                 .buildAndRegister();
 
-        COMPONENT_ASSEMBLER_RECIPES.recipeBuilder()
+        ASSEMBLER_RECIPES.recipeBuilder()
                 .input(cableGtSingle, Tin)
                 .input(valve, Bronze)
                 .input(screw, Tin)
@@ -308,7 +308,7 @@ public class ComponentAssemblerRecipes {
                 .duration(20)
                 .buildAndRegister();
 
-        COMPONENT_ASSEMBLER_RECIPES.recipeBuilder()
+        ASSEMBLER_RECIPES.recipeBuilder()
                 .input(cableGtSingle, Tin)
                 .input(valve, Bronze)
                 .input(screw, Tin)
@@ -320,7 +320,7 @@ public class ComponentAssemblerRecipes {
                 .duration(20)
                 .buildAndRegister();
 
-        COMPONENT_ASSEMBLER_RECIPES.recipeBuilder()
+        ASSEMBLER_RECIPES.recipeBuilder()
                 .input(cableGtSingle, Tin)
                 .input(valve, Bronze)
                 .input(screw, Tin)
@@ -332,7 +332,7 @@ public class ComponentAssemblerRecipes {
                 .duration(20)
                 .buildAndRegister();
 
-        COMPONENT_ASSEMBLER_RECIPES.recipeBuilder()
+        ASSEMBLER_RECIPES.recipeBuilder()
                 .input(cableGtSingle, Tin)
                 .input(valve, Bronze)
                 .input(screw, Tin)
@@ -345,7 +345,7 @@ public class ComponentAssemblerRecipes {
                 .buildAndRegister();
 
         //  MV
-        COMPONENT_ASSEMBLER_RECIPES.recipeBuilder()
+        ASSEMBLER_RECIPES.recipeBuilder()
                 .input(cableGtSingle, Copper)
                 .input(valve, Steel)
                 .input(screw, Bronze)
@@ -357,7 +357,7 @@ public class ComponentAssemblerRecipes {
                 .duration(20)
                 .buildAndRegister();
 
-        COMPONENT_ASSEMBLER_RECIPES.recipeBuilder()
+        ASSEMBLER_RECIPES.recipeBuilder()
                 .input(cableGtSingle, Copper)
                 .input(valve, Steel)
                 .input(screw, Bronze)
@@ -369,7 +369,7 @@ public class ComponentAssemblerRecipes {
                 .duration(20)
                 .buildAndRegister();
 
-        COMPONENT_ASSEMBLER_RECIPES.recipeBuilder()
+        ASSEMBLER_RECIPES.recipeBuilder()
                 .input(cableGtSingle, Copper)
                 .input(valve, Steel)
                 .input(screw, Bronze)
@@ -381,7 +381,7 @@ public class ComponentAssemblerRecipes {
                 .duration(20)
                 .buildAndRegister();
 
-        COMPONENT_ASSEMBLER_RECIPES.recipeBuilder()
+        ASSEMBLER_RECIPES.recipeBuilder()
                 .input(cableGtSingle, Copper)
                 .input(valve, Steel)
                 .input(screw, Bronze)
@@ -393,7 +393,7 @@ public class ComponentAssemblerRecipes {
                 .duration(20)
                 .buildAndRegister();
 
-        COMPONENT_ASSEMBLER_RECIPES.recipeBuilder()
+        ASSEMBLER_RECIPES.recipeBuilder()
                 .input(cableGtSingle, Copper)
                 .input(valve, Steel)
                 .input(screw, Bronze)
@@ -406,7 +406,7 @@ public class ComponentAssemblerRecipes {
                 .buildAndRegister();
 
         //  HV
-        COMPONENT_ASSEMBLER_RECIPES.recipeBuilder()
+        ASSEMBLER_RECIPES.recipeBuilder()
                 .input(cableGtSingle, Gold)
                 .input(valve, StainlessSteel)
                 .input(screw, Steel)
@@ -418,7 +418,7 @@ public class ComponentAssemblerRecipes {
                 .duration(20)
                 .buildAndRegister();
 
-        COMPONENT_ASSEMBLER_RECIPES.recipeBuilder()
+        ASSEMBLER_RECIPES.recipeBuilder()
                 .input(cableGtSingle, Gold)
                 .input(valve, StainlessSteel)
                 .input(screw, Steel)
@@ -430,7 +430,7 @@ public class ComponentAssemblerRecipes {
                 .duration(20)
                 .buildAndRegister();
 
-        COMPONENT_ASSEMBLER_RECIPES.recipeBuilder()
+        ASSEMBLER_RECIPES.recipeBuilder()
                 .input(cableGtSingle, Gold)
                 .input(valve, StainlessSteel)
                 .input(screw, Steel)
@@ -442,7 +442,7 @@ public class ComponentAssemblerRecipes {
                 .duration(20)
                 .buildAndRegister();
 
-        COMPONENT_ASSEMBLER_RECIPES.recipeBuilder()
+        ASSEMBLER_RECIPES.recipeBuilder()
                 .input(cableGtSingle, Gold)
                 .input(valve, StainlessSteel)
                 .input(screw, Steel)
@@ -454,7 +454,7 @@ public class ComponentAssemblerRecipes {
                 .duration(20)
                 .buildAndRegister();
 
-        COMPONENT_ASSEMBLER_RECIPES.recipeBuilder()
+        ASSEMBLER_RECIPES.recipeBuilder()
                 .input(cableGtSingle, Gold)
                 .input(valve, StainlessSteel)
                 .input(screw, Steel)
@@ -467,7 +467,7 @@ public class ComponentAssemblerRecipes {
                 .buildAndRegister();
 
         //  EV
-        COMPONENT_ASSEMBLER_RECIPES.recipeBuilder()
+        ASSEMBLER_RECIPES.recipeBuilder()
                 .input(cableGtSingle, Aluminium)
                 .input(valve, Titanium)
                 .input(screw, StainlessSteel)
@@ -479,7 +479,7 @@ public class ComponentAssemblerRecipes {
                 .duration(20)
                 .buildAndRegister();
 
-        COMPONENT_ASSEMBLER_RECIPES.recipeBuilder()
+        ASSEMBLER_RECIPES.recipeBuilder()
                 .input(cableGtSingle, Aluminium)
                 .input(valve, Titanium)
                 .input(screw, StainlessSteel)
@@ -491,7 +491,7 @@ public class ComponentAssemblerRecipes {
                 .duration(20)
                 .buildAndRegister();
 
-        COMPONENT_ASSEMBLER_RECIPES.recipeBuilder()
+        ASSEMBLER_RECIPES.recipeBuilder()
                 .input(cableGtSingle, Aluminium)
                 .input(valve, Titanium)
                 .input(screw, StainlessSteel)
@@ -503,7 +503,7 @@ public class ComponentAssemblerRecipes {
                 .duration(20)
                 .buildAndRegister();
 
-        COMPONENT_ASSEMBLER_RECIPES.recipeBuilder()
+        ASSEMBLER_RECIPES.recipeBuilder()
                 .input(cableGtSingle, Aluminium)
                 .input(valve, Titanium)
                 .input(screw, StainlessSteel)
@@ -515,7 +515,7 @@ public class ComponentAssemblerRecipes {
                 .duration(20)
                 .buildAndRegister();
 
-        COMPONENT_ASSEMBLER_RECIPES.recipeBuilder()
+        ASSEMBLER_RECIPES.recipeBuilder()
                 .input(cableGtSingle, Aluminium)
                 .input(valve, Titanium)
                 .input(screw, StainlessSteel)
@@ -528,7 +528,7 @@ public class ComponentAssemblerRecipes {
                 .buildAndRegister();
 
         //  IV
-        COMPONENT_ASSEMBLER_RECIPES.recipeBuilder()
+        ASSEMBLER_RECIPES.recipeBuilder()
                 .input(cableGtSingle, Tungsten)
                 .input(valve, TungstenSteel)
                 .input(screw, TungstenSteel)
@@ -540,7 +540,7 @@ public class ComponentAssemblerRecipes {
                 .duration(20)
                 .buildAndRegister();
 
-        COMPONENT_ASSEMBLER_RECIPES.recipeBuilder()
+        ASSEMBLER_RECIPES.recipeBuilder()
                 .input(cableGtSingle, Tungsten)
                 .input(valve, TungstenSteel)
                 .input(screw, TungstenSteel)
@@ -552,7 +552,7 @@ public class ComponentAssemblerRecipes {
                 .duration(20)
                 .buildAndRegister();
 
-        COMPONENT_ASSEMBLER_RECIPES.recipeBuilder()
+        ASSEMBLER_RECIPES.recipeBuilder()
                 .input(cableGtSingle, Tungsten)
                 .input(valve, TungstenSteel)
                 .input(screw, TungstenSteel)
@@ -564,7 +564,7 @@ public class ComponentAssemblerRecipes {
                 .duration(20)
                 .buildAndRegister();
 
-        COMPONENT_ASSEMBLER_RECIPES.recipeBuilder()
+        ASSEMBLER_RECIPES.recipeBuilder()
                 .input(cableGtSingle, Tungsten)
                 .input(valve, TungstenSteel)
                 .input(screw, TungstenSteel)
@@ -579,7 +579,7 @@ public class ComponentAssemblerRecipes {
 
     private static void RobotArm() {
         //  LV
-        COMPONENT_ASSEMBLER_RECIPES.recipeBuilder()
+        ASSEMBLER_RECIPES.recipeBuilder()
                 .input(cableGtSingle, Tin, 3)
                 .input(motor_stick, Steel, 1)
                 .input(ELECTRIC_MOTOR_LV, 2)
@@ -591,7 +591,7 @@ public class ComponentAssemblerRecipes {
                 .buildAndRegister();
 
         //  MV
-        COMPONENT_ASSEMBLER_RECIPES.recipeBuilder()
+        ASSEMBLER_RECIPES.recipeBuilder()
                 .input(cableGtSingle, Copper, 3)
                 .input(motor_stick, Aluminium, 1)
                 .input(ELECTRIC_MOTOR_MV, 2)
@@ -603,7 +603,7 @@ public class ComponentAssemblerRecipes {
                 .buildAndRegister();
 
         //  HV
-        COMPONENT_ASSEMBLER_RECIPES.recipeBuilder()
+        ASSEMBLER_RECIPES.recipeBuilder()
                 .input(cableGtSingle, Gold, 3)
                 .input(motor_stick, StainlessSteel, 1)
                 .input(ELECTRIC_MOTOR_HV, 2)
@@ -615,7 +615,7 @@ public class ComponentAssemblerRecipes {
                 .buildAndRegister();
 
         //  EV
-        COMPONENT_ASSEMBLER_RECIPES.recipeBuilder()
+        ASSEMBLER_RECIPES.recipeBuilder()
                 .input(cableGtSingle, Aluminium, 3)
                 .input(motor_stick, Titanium, 1)
                 .input(ELECTRIC_MOTOR_EV, 2)
@@ -627,7 +627,7 @@ public class ComponentAssemblerRecipes {
                 .buildAndRegister();
 
         //  IV
-        COMPONENT_ASSEMBLER_RECIPES.recipeBuilder()
+        ASSEMBLER_RECIPES.recipeBuilder()
                 .input(cableGtSingle, Tungsten, 3)
                 .input(motor_stick, TungstenSteel, 1)
                 .input(ELECTRIC_MOTOR_IV, 2)
@@ -641,7 +641,7 @@ public class ComponentAssemblerRecipes {
 
     private static void Emitter() {
         //  LV
-        COMPONENT_ASSEMBLER_RECIPES.recipeBuilder()
+        ASSEMBLER_RECIPES.recipeBuilder()
                 .input(stick, Brass, 4)
                 .input(cableGtSingle, Tin, 2)
                 .input(circuit, MarkerMaterials.Tier.LV, 2)
@@ -653,7 +653,7 @@ public class ComponentAssemblerRecipes {
                 .buildAndRegister();
 
         //  MV
-        COMPONENT_ASSEMBLER_RECIPES.recipeBuilder()
+        ASSEMBLER_RECIPES.recipeBuilder()
                 .input(stick, Electrum, 4)
                 .input(cableGtSingle, Copper, 2)
                 .input(circuit, MarkerMaterials.Tier.MV, 2)
@@ -665,7 +665,7 @@ public class ComponentAssemblerRecipes {
                 .buildAndRegister();
 
         //  HV
-        COMPONENT_ASSEMBLER_RECIPES.recipeBuilder()
+        ASSEMBLER_RECIPES.recipeBuilder()
                 .input(stick, Chrome, 4)
                 .input(cableGtSingle, Gold, 2)
                 .input(circuit, MarkerMaterials.Tier.HV, 2)
@@ -677,7 +677,7 @@ public class ComponentAssemblerRecipes {
                 .buildAndRegister();
 
         //  EV
-        COMPONENT_ASSEMBLER_RECIPES.recipeBuilder()
+        ASSEMBLER_RECIPES.recipeBuilder()
                 .input(stick, Platinum, 4)
                 .input(cableGtSingle, Aluminium, 2)
                 .input(circuit, MarkerMaterials.Tier.EV, 2)
@@ -689,7 +689,7 @@ public class ComponentAssemblerRecipes {
                 .buildAndRegister();
 
         //  IV
-        COMPONENT_ASSEMBLER_RECIPES.recipeBuilder()
+        ASSEMBLER_RECIPES.recipeBuilder()
                 .input(stick, Iridium, 4)
                 .input(cableGtSingle, Tungsten, 2)
                 .input(circuit, MarkerMaterials.Tier.IV, 2)
@@ -703,7 +703,7 @@ public class ComponentAssemblerRecipes {
 
     private static void Sensor() {
         //  LV
-        COMPONENT_ASSEMBLER_RECIPES.recipeBuilder()
+        ASSEMBLER_RECIPES.recipeBuilder()
                 .input(stick, Brass)
                 .input(plate, Steel, 4)
                 .input(circuit, MarkerMaterials.Tier.LV)
@@ -714,7 +714,7 @@ public class ComponentAssemblerRecipes {
                 .buildAndRegister();
 
         //  MV
-        COMPONENT_ASSEMBLER_RECIPES.recipeBuilder()
+        ASSEMBLER_RECIPES.recipeBuilder()
                 .input(stick, Electrum)
                 .input(plate, Aluminium, 4)
                 .input(circuit, MarkerMaterials.Tier.MV)
@@ -725,7 +725,7 @@ public class ComponentAssemblerRecipes {
                 .buildAndRegister();
 
         //  HV
-        COMPONENT_ASSEMBLER_RECIPES.recipeBuilder()
+        ASSEMBLER_RECIPES.recipeBuilder()
                 .input(stick, Chrome)
                 .input(plate, StainlessSteel, 4)
                 .input(circuit, MarkerMaterials.Tier.HV)
@@ -736,7 +736,7 @@ public class ComponentAssemblerRecipes {
                 .buildAndRegister();
 
         //  EV
-        COMPONENT_ASSEMBLER_RECIPES.recipeBuilder()
+        ASSEMBLER_RECIPES.recipeBuilder()
                 .input(stick, Platinum)
                 .input(plate, Titanium, 4)
                 .input(circuit, MarkerMaterials.Tier.EV)
@@ -747,7 +747,7 @@ public class ComponentAssemblerRecipes {
                 .buildAndRegister();
 
         //  IV
-        COMPONENT_ASSEMBLER_RECIPES.recipeBuilder()
+        ASSEMBLER_RECIPES.recipeBuilder()
                 .input(stick, Iridium)
                 .input(plate, TungstenSteel, 4)
                 .input(circuit, MarkerMaterials.Tier.IV)
@@ -760,7 +760,7 @@ public class ComponentAssemblerRecipes {
 
     private static void FieldGenerator() {
         //  LV
-        COMPONENT_ASSEMBLER_RECIPES.recipeBuilder()
+        ASSEMBLER_RECIPES.recipeBuilder()
                 .input(ENDER_PEARL)
                 .input(plate, Steel, 2)
                 .input(circuit, MarkerMaterials.Tier.LV, 2)
@@ -771,7 +771,7 @@ public class ComponentAssemblerRecipes {
                 .buildAndRegister();
 
         //  MV
-        COMPONENT_ASSEMBLER_RECIPES.recipeBuilder()
+        ASSEMBLER_RECIPES.recipeBuilder()
                 .input(ENDER_EYE)
                 .input(plate, Aluminium, 2)
                 .input(circuit, MarkerMaterials.Tier.MV, 2)
@@ -782,7 +782,7 @@ public class ComponentAssemblerRecipes {
                 .buildAndRegister();
 
         //  HV
-        COMPONENT_ASSEMBLER_RECIPES.recipeBuilder()
+        ASSEMBLER_RECIPES.recipeBuilder()
                 .input(QUANTUM_EYE)
                 .input(plate, StainlessSteel, 2)
                 .input(circuit, MarkerMaterials.Tier.HV, 2)
@@ -793,7 +793,7 @@ public class ComponentAssemblerRecipes {
                 .buildAndRegister();
 
         //  EV
-        COMPONENT_ASSEMBLER_RECIPES.recipeBuilder()
+        ASSEMBLER_RECIPES.recipeBuilder()
                 .input(NETHER_STAR)
                 .input(plateDouble, Titanium, 2)
                 .input(circuit, MarkerMaterials.Tier.EV, 2)
@@ -804,7 +804,7 @@ public class ComponentAssemblerRecipes {
                 .buildAndRegister();
 
         //  IV
-        COMPONENT_ASSEMBLER_RECIPES.recipeBuilder()
+        ASSEMBLER_RECIPES.recipeBuilder()
                 .input(QUANTUM_STAR)
                 .input(plateDouble, TungstenSteel, 2)
                 .input(circuit, MarkerMaterials.Tier.IV, 2)

@@ -12,9 +12,7 @@ import keqing.gtqtcore.api.recipes.builder.*;
 import keqing.gtqtcore.api.recipes.ui.*;
 import keqing.gtqtcore.client.sound.GTQTSoundHandler;
 
-import static gregtech.api.gui.widgets.ProgressWidget.MoveType.HORIZONTAL;
 import static gregtech.api.recipes.RecipeMaps.*;
-import static keqing.gtqtcore.api.gui.GTQTGuiTextures.*;
 
 public class GTQTcoreRecipeMaps {
 
@@ -116,44 +114,6 @@ public class GTQTcoreRecipeMaps {
                     .progressBar(GTGuiTextures.PROGRESS_BAR_MIXER)
             )
             .sound(GTSoundEvents.MIXER)
-            .build();
-
-    public static final RecipeMap<SimpleRecipeBuilder> POLYMERIZATION_RECIPES = new RecipeMapBuilder<>("polymerization_tank",
-            new SimpleRecipeBuilder())
-            .itemInputs(2)
-            .itemOutputs(2)
-            .fluidInputs(2)
-            .fluidOutputs(2)
-            .uiBuilder(builder -> builder
-                    .itemSlotOverlay(GTGuiTextures.VIAL_OVERLAY_1, false)
-                    .progressBar(GTGuiTextures.PROGRESS_BAR_ARROW_MULTIPLE)
-            )
-            .sound(GTSoundEvents.CHEMICAL_REACTOR)
-            .build();
-
-    public static final RecipeMap<SimpleRecipeBuilder> LOW_TEMP_ACTIVATOR_RECIPES = new RecipeMapBuilder<>("low_temperature_activator", new SimpleRecipeBuilder())
-            .itemInputs(3)
-            .itemOutputs(3)
-            .fluidInputs(3)
-            .fluidOutputs(3)
-            .uiBuilder(builder -> builder
-                    .itemSlotOverlay(GTGuiTextures.VIAL_OVERLAY_1, false)
-                    .progressBar(GTGuiTextures.PROGRESS_BAR_ARROW_MULTIPLE)
-            )
-            .sound(GTSoundEvents.COOLING)
-            .build();
-
-    public static final RecipeMap<SimpleRecipeBuilder> FLOTATION_RECIPES = new RecipeMapBuilder<>("flotation_cell", new SimpleRecipeBuilder())
-            .itemInputs(6)
-            .fluidInputs(1)
-            .fluidOutputs(1)
-            .uiBuilder(builder -> builder
-                    .itemSlotOverlay(GTGuiTextures.DUST_OVERLAY, false)
-                    .fluidSlotOverlay(GTGuiTextures.VIAL_OVERLAY_2, false)
-                    .fluidSlotOverlay(GTGuiTextures.HEATING_OVERLAY_2, true)
-                    .progressBar(GTGuiTextures.PROGRESS_BAR_BATH)
-            )
-            .sound(GTSoundEvents.BATH)
             .build();
 
     public static final RecipeMap<SimpleRecipeBuilder> PLASMA_CONDENSER_RECIPES = new RecipeMapBuilder<>("plasma_condenser_recipes", new SimpleRecipeBuilder())
@@ -289,16 +249,6 @@ public class GTQTcoreRecipeMaps {
             .sound(GTSoundEvents.FILE_TOOL)
             .build();
 
-    public static final RecipeMap<SimpleRecipeBuilder> LAMINATOR_RECIPES = new RecipeMapBuilder<>("laminator", new SimpleRecipeBuilder())
-            .itemInputs(6)
-            .itemOutputs(1)
-            .fluidInputs(2)
-            .uiBuilder(builder -> builder
-                    .progressBar(GTGuiTextures.PROGRESS_BAR_ARROW_MULTIPLE)
-            )
-            .sound(GTSoundEvents.COOLING)
-            .build();
-
     public static final RecipeMap<PseudoMultiRecipeBuilder> LATEX_COLLECTOR_RECIPES = new RecipeMapBuilder<>("latex_collector", new PseudoMultiRecipeBuilder())
             .itemInputs(0)
             .itemOutputs(2)
@@ -349,29 +299,7 @@ public class GTQTcoreRecipeMaps {
             .sound(GTSoundEvents.COMPRESSOR)
             .build();
 
-    public static final RecipeMap<BlastRecipeBuilder> BURNER_REACTOR_RECIPES = new RecipeMapBuilder<>("burner_reactor_recipes", new BlastRecipeBuilder())
-            .itemInputs(3)
-            .itemOutputs(3)
-            .fluidInputs(3)
-            .fluidOutputs(3)
-            .uiBuilder(builder -> builder
-                    .progressBar(GTGuiTextures.PROGRESS_BAR_ARROW)
-            )
-            .sound(GTSoundEvents.ARC)
-            .build();
-
     public static final RecipeMap<PressureRecipeBuilder> CVD_RECIPES = new RecipeMapBuilder<>("cvd_recipes", new PressureRecipeBuilder())
-            .itemInputs(2)
-            .itemOutputs(2)
-            .fluidInputs(3)
-            .fluidOutputs(3)
-            .uiBuilder(builder -> builder
-                    .progressBar(GTGuiTextures.PROGRESS_BAR_ARROW_MULTIPLE)
-            )
-            .sound(GTSoundEvents.COOLING)
-            .build();
-
-    public static final RecipeMap<SimpleRecipeBuilder> PLASMA_CVD_RECIPES = new RecipeMapBuilder<>("plasma_cvd_recipes", new SimpleRecipeBuilder())
             .itemInputs(6)
             .itemOutputs(3)
             .fluidInputs(3)
@@ -380,43 +308,6 @@ public class GTQTcoreRecipeMaps {
                     .progressBar(GTGuiTextures.PROGRESS_BAR_ARROW_MULTIPLE)
             )
             .sound(GTSoundEvents.COOLING)
-            .build();
-
-    public static final RecipeMap<NoCoilTemperatureRecipeBuilder> MOLECULAR_BEAM_RECIPES = new RecipeMapBuilder<>("molecular_beam_recipes", new NoCoilTemperatureRecipeBuilder())
-            .itemInputs(6)
-            .itemOutputs(6)
-            .fluidInputs(3)
-            .fluidOutputs(3)
-            .itemSlotOverlay(NANOSCALE_OVERLAY_1, false, false)
-            .itemSlotOverlay(NANOSCALE_OVERLAY_2, false, true)
-            .itemSlotOverlay(NANOSCALE_OVERLAY_1, true, false)
-            .itemSlotOverlay(NANOSCALE_OVERLAY_2, true, true)
-            .progressBar(PROGRESS_BAR_NANOSCALE, HORIZONTAL)
-            .sound(GTSoundEvents.ELECTROLYZER)
-            .build();
-
-    public static final RecipeMap<SimpleRecipeBuilder> SONICATION_RECIPES = new RecipeMapBuilder<>("sonication_recipes", new SimpleRecipeBuilder())
-            .itemInputs(3)
-            .itemOutputs(2)
-            .fluidInputs(2)
-            .fluidOutputs(2)
-            .uiBuilder(builder -> builder
-                    .itemSlotOverlay(GTGuiTextures.DUST_OVERLAY, false)
-                    .itemSlotOverlay(GTGuiTextures.CRYSTAL_OVERLAY, true)
-                    .progressBar(GTGuiTextures.PROGRESS_BAR_EXTRACT)
-            )
-            .sound(GTSoundEvents.CENTRIFUGE)
-            .build();
-
-    public static final RecipeMap<SimpleRecipeBuilder> ION_IMPLANTATOR_RECIPES = new RecipeMapBuilder<>("ion_implanter_recipes", new SimpleRecipeBuilder())
-            .itemInputs(3)
-            .itemOutputs(3)
-            .fluidInputs(1)
-            .fluidOutputs(1)
-            .uiBuilder(builder -> builder
-                    .progressBar(GTGuiTextures.PROGRESS_BAR_ARROW_MULTIPLE)
-            )
-            .sound(GTSoundEvents.ELECTROLYZER)
             .build();
 
     public static final RecipeMap<SimpleRecipeBuilder> DRILLING_RECIPES = new RecipeMapBuilder<>("drill_recipes", new SimpleRecipeBuilder())
@@ -475,28 +366,6 @@ public class GTQTcoreRecipeMaps {
                     .progressBar(GTGuiTextures.PROGRESS_BAR_ARROW_MULTIPLE)
             )
             .sound(GTSoundEvents.ASSEMBLER)
-            .build();
-
-    public static final RecipeMap<SimpleRecipeBuilder> ULTRAVIOLET_LAMP_CHAMBER_RECIPES = new RecipeMapBuilder<>("ultraviolet_lamp_chamber_recipes", new SimpleRecipeBuilder())
-            .itemInputs(3)
-            .itemOutputs(2)
-            .fluidInputs(3)
-            .fluidOutputs(2)
-            .uiBuilder(builder -> builder
-                    .itemSlotOverlay(GTGuiTextures.LENS_OVERLAY, false, false)
-                    .itemSlotOverlay(GTGuiTextures.LENS_OVERLAY, false, true)
-                    .itemSlotOverlay(GTGuiTextures.VIAL_OVERLAY_1, true, false)
-                    .itemSlotOverlay(GTGuiTextures.VIAL_OVERLAY_2, true, true)
-                    .progressBar(GTGuiTextures.PROGRESS_BAR_COMPRESS)
-            )
-            .sound(GTSoundEvents.CHEMICAL_REACTOR)
-            .build();
-
-    public static final RecipeMap<SimpleRecipeBuilder> PRESSURE_LAMINATOR_RECIPES = new RecipeMapBuilder<>("pressure_laminator_recipes", new SimpleRecipeBuilder())
-            .itemInputs(3)
-            .itemOutputs(1)
-            .fluidInputs(3)
-            .sound(GTSoundEvents.COMPRESSOR)
             .build();
 
     public static final RecipeMap<PressureRecipeBuilder> VACUUM_CHAMBER_RECIPES = new RecipeMapBuilder<>("vacuum_chamber_recipes", new PressureRecipeBuilder())
@@ -825,18 +694,6 @@ public class GTQTcoreRecipeMaps {
             )
             .build();
 
-    public static final RecipeMap<SimpleRecipeBuilder> FLUID_EXTRACTOR_RECIPES = new RecipeMapBuilder<>("fluid_extractor_recipes", new SimpleRecipeBuilder())
-            .itemInputs(2)
-            .itemOutputs(2)
-            .fluidInputs(2)
-            .fluidOutputs(2)
-            .uiBuilder(builder -> builder
-                    .itemSlotOverlay(GTGuiTextures.EXTRACTOR_OVERLAY, false, false)
-                    .progressBar(GTGuiTextures.PROGRESS_BAR_COMPRESS)
-            )
-            .sound(GTSoundEvents.ASSEMBLER)
-            .build();
-
     public static final RecipeMap<SimpleRecipeBuilder> FLUID_CANNER_RECIPES = new RecipeMapBuilder<>("fluid_canner_recipes", new SimpleRecipeBuilder())
             .itemInputs(2)
             .itemOutputs(2)
@@ -1101,17 +958,6 @@ public class GTQTcoreRecipeMaps {
             )
             .build();
 
-    public static final RecipeMap<NeutronActivatorRecipeBuilder> NEUTRON_ACTIVATOR = new RecipeMapBuilder<>("neutron_activator", new NeutronActivatorRecipeBuilder())
-            .itemInputs(6)
-            .itemOutputs(6)
-            .fluidInputs(3)
-            .fluidOutputs(3)
-            .uiBuilder(builder -> builder
-                    .progressBar(GTGuiTextures.PROGRESS_BAR_ARROW_MULTIPLE)
-            )
-            .sound(GTSoundEvents.CHEMICAL_REACTOR)
-            .build();
-
     public static final RecipeMap<SimpleRecipeBuilder> SFM = new RecipeMapBuilder<>("sfm", new SimpleRecipeBuilder())
             .itemInputs(1)
             .itemOutputs(1)
@@ -1221,6 +1067,10 @@ public class GTQTcoreRecipeMaps {
         REPLICATOR_RECIPES.setMaxFluidInputs(3);
         COMBUSTION_GENERATOR_FUELS.setMaxFluidOutputs(1);
         CANNER_RECIPES.setMaxFluidInputs(1);
+        EXTRACTOR_RECIPES.setMaxFluidInputs(2);
+        EXTRACTOR_RECIPES.setMaxFluidOutputs(2);
+        EXTRACTOR_RECIPES.setMaxInputs(2);
+        EXTRACTOR_RECIPES.setMaxOutputs(2);
     }
 
 }

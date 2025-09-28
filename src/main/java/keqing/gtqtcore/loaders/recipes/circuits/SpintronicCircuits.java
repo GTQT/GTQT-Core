@@ -96,7 +96,7 @@ public class SpintronicCircuits {
         //  Topological Insulator Tube process
 
         //  Bi + Sb + 2Te + S -> Bismuth Chalcogenide
-        MOLECULAR_BEAM_RECIPES.recipeBuilder()
+        LARGE_CHEMICAL_RECIPES.recipeBuilder()
                 .input(dust, Bismuth)
                 .input(dust, Antimony)
                 .input(dust, Tellurium, 2)
@@ -105,7 +105,6 @@ public class SpintronicCircuits {
                 .output(dust, BismuthChalcogenide, 5)
                 .EUt(VA[UV])
                 .duration(4 * SECOND)
-                .temperature(4876)
                 .buildAndRegister();
 
         //  Cd + 2Te + 2Hg -> Hg2CdTe2
@@ -177,7 +176,7 @@ public class SpintronicCircuits {
                 .cleanroom(CleanroomType.CLEANROOM)
                 .buildAndRegister();
 
-        PLASMA_CVD_RECIPES.recipeBuilder()
+        CVD_RECIPES.recipeBuilder()
                 .input(wireGtSingle, CarbonNanotube, 2)
                 .input(plate, CubicBoronNitride)
                 .fluidInputs(Kevlar.getFluid(L / 4))
@@ -197,7 +196,7 @@ public class SpintronicCircuits {
                 .cleanroom(CleanroomType.CLEANROOM)
                 .buildAndRegister();
 
-        ION_IMPLANTATOR_RECIPES.recipeBuilder()
+        ASSEMBLER_RECIPES.recipeBuilder()
                 .input(ring, Fullerene)
                 .input(wireFine, ThalliumCopperChloride, 4)
                 .fluidInputs(Kevlar.getFluid(L))

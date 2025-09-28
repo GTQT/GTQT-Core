@@ -6,14 +6,12 @@ import net.minecraft.item.ItemStack;
 import net.minecraftforge.fluids.FluidStack;
 
 import static gregtech.api.GTValues.*;
-import static gregtech.api.GTValues.IV;
 import static gregtech.api.recipes.RecipeMaps.*;
 import static gregtech.api.unification.material.Materials.*;
-import static gregtech.api.unification.material.Materials.Lubricant;
 import static gregtech.api.unification.ore.OrePrefix.dust;
 import static gregtech.api.unification.ore.OrePrefix.dustTiny;
 import static gregtechfoodoption.GTFOMaterialHandler.Guaiacol;
-import static keqing.gtqtcore.api.recipes.GTQTcoreRecipeMaps.*;
+import static keqing.gtqtcore.api.recipes.GTQTcoreRecipeMaps.LARGE_MIXER_RECIPES;
 import static keqing.gtqtcore.api.unification.GTQTMaterials.*;
 
 
@@ -81,7 +79,7 @@ public class AdvancedLubricantChain {
 
     private static void PEGProcess() {
         // C2H4O (Ethylene Oxide) -> C2H4O (PEG)
-        POLYMERIZATION_RECIPES.recipeBuilder()
+        CHEMICAL_RECIPES.recipeBuilder()
                 .fluidInputs(EthyleneOxide.getFluid(1000))
                 .notConsumable(BoronTrifluoride.getFluid(1)) // as Catalyst
                 .fluidOutputs(PolyethyleneGlycol.getFluid(1000))

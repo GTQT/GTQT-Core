@@ -2,11 +2,12 @@ package keqing.gtqtcore.loaders.recipes.chain;
 
 import static gregtech.api.recipes.RecipeMaps.*;
 import static gregtech.api.unification.material.Materials.*;
-import static gregtech.api.unification.ore.OrePrefix.*;
+import static gregtech.api.unification.ore.OrePrefix.dust;
+import static gregtech.api.unification.ore.OrePrefix.ingot;
 import static gregtechfoodoption.GTFOMaterialHandler.LithiumCarbonate;
-import static keqing.gtqtcore.api.recipes.GTQTcoreRecipeMaps.*;
+import static keqing.gtqtcore.api.recipes.GTQTcoreRecipeMaps.ELECTROBATH;
+import static keqing.gtqtcore.api.recipes.GTQTcoreRecipeMaps.SFM;
 import static keqing.gtqtcore.api.unification.GTQTMaterials.*;
-import static keqing.gtqtcore.common.metatileentities.GTQTMetaTileEntities.MSF;
 
 public class Bittern {
     public static void init() {
@@ -63,13 +64,14 @@ public class Bittern {
                 .duration(120).EUt(240).buildAndRegister();
 
         // 阶段3: 氯化物相处理（锂/镁/钙提取）
-        BURNER_REACTOR_RECIPES.recipeBuilder()
+        BLAST_RECIPES.recipeBuilder()
                 .fluidInputs(Bitterncl.getFluid(3000))
                 .input(dust, SodaAsh, 6) // Na₂CO₃ 沉淀剂
                 .output(dust, LithiumCarbonate, 2) // 碳酸锂
                 .output(dust, MagnesiumHydroxide, 3) // 氢氧化镁
                 .output(dust, CalciumCarbonate, 3) // 碳酸钙
                 .fluidOutputs(SaltWater.getFluid(1000))
+                .blastFurnaceTemp(2400)
                 .duration(300).EUt(1920).buildAndRegister();
 
         // 阶段4: 硫酸盐相处理（钾/镁提取）

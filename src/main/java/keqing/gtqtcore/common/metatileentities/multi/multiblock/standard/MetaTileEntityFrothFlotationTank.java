@@ -38,13 +38,13 @@ import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 import java.util.List;
 
-import static keqing.gtqtcore.api.recipes.GTQTcoreRecipeMaps.FLOTATION_RECIPES;
+import static keqing.gtqtcore.api.recipes.GTQTcoreRecipeMaps.FLOTATION_FACTORY_RECIPES;
 
 public class MetaTileEntityFrothFlotationTank extends GCYMRecipeMapMultiblockController {
 
     public MetaTileEntityFrothFlotationTank(ResourceLocation metaTileEntityId) {
         super(metaTileEntityId, new RecipeMap[]{
-                FLOTATION_RECIPES
+                FLOTATION_FACTORY_RECIPES
         });
         this.recipeMapWorkable = new MultiblockRecipeLogic(this, true);
     }

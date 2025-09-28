@@ -1,7 +1,7 @@
 package keqing.gtqtcore.common.metatileentities.multi.multiblock.standard.gcys;
 
 
-import gregicality.multiblocks.api.metatileentity.GCYMAdvanceRecipeMapMultiblockController;
+import gregicality.multiblocks.api.metatileentity.GCYMRecipeMapMultiblockController;
 import gregicality.multiblocks.api.render.GCYMTextures;
 import gregicality.multiblocks.common.block.GCYMMetaBlocks;
 import gregicality.multiblocks.common.block.blocks.BlockLargeMultiblockCasing;
@@ -18,6 +18,11 @@ import gregtech.client.renderer.ICubeRenderer;
 import gregtech.common.blocks.BlockBoilerCasing;
 import gregtech.common.blocks.BlockGlassCasing;
 import gregtech.common.blocks.MetaBlocks;
+import keqing.gtqtcore.api.capability.IPressureContainer;
+import keqing.gtqtcore.api.capability.IPressureMachine;
+import keqing.gtqtcore.api.capability.impl.AtmosphericPressureContainer;
+import keqing.gtqtcore.api.capability.impl.PressureMultiblockRecipeLogic;
+import keqing.gtqtcore.api.metatileentity.multiblock.GTQTMultiblockAbility;
 import keqing.gtqtcore.api.recipes.GTQTcoreRecipeMaps;
 import keqing.gtqtcore.common.block.GTQTMetaBlocks;
 import keqing.gtqtcore.common.block.blocks.BlockPCBFactoryCasing;
@@ -26,18 +31,32 @@ import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
 import javax.annotation.Nonnull;
+import java.util.List;
 
-public class MetaTileEntityExtremesCVD extends GCYMAdvanceRecipeMapMultiblockController {
-
+public class MetaTileEntityExtremesCVD extends GCYMRecipeMapMultiblockController implements IPressureMachine {
+    private IPressureContainer container;
     public MetaTileEntityExtremesCVD(ResourceLocation metaTileEntityId) {
-        super(metaTileEntityId, new RecipeMap[]{GTQTcoreRecipeMaps.PLASMA_CVD_RECIPES, GTQTcoreRecipeMaps.CVD_RECIPES});
+        super(metaTileEntityId, new RecipeMap[]{
+                GTQTcoreRecipeMaps.CVD_RECIPES,
+                GTQTcoreRecipeMaps.VACUUM_CHAMBER_RECIPES
+        });
+        this.recipeMapWorkable = new PressureMultiblockRecipeLogic(this);
     }
 
     @Override
     public MetaTileEntity createMetaTileEntity(IGregTechTileEntity tileEntity) {
         return new MetaTileEntityExtremesCVD(metaTileEntityId);
     }
-
+    @Override
+    protected void initializeAbilities() {
+        super.initializeAbilities();
+        List<IPressureContainer> list = getAbilities(GTQTMultiblockAbility.PRESSURE_CONTAINER);
+        if (list.isEmpty()) {
+            this.container = new AtmosphericPressureContainer(this, 1.0);
+        } else {
+            this.container = list.get(0);
+        }
+    }
     @Override
     protected BlockPattern createStructurePattern() {
         return FactoryBlockPattern.start()
@@ -77,5 +96,10 @@ public class MetaTileEntityExtremesCVD extends GCYMAdvanceRecipeMapMultiblockCon
     @Override
     protected ICubeRenderer getFrontOverlay() {
         return GCYMTextures.ALLOY_BLAST_SMELTER_OVERLAY;
+    }
+
+    @Override
+    public IPressureContainer getPressureContainer() {
+        return this.container;
     }
 }

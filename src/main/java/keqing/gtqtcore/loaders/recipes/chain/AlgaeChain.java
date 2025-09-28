@@ -6,13 +6,11 @@ import gregtech.api.unification.ore.OrePrefix;
 
 import static gregtech.api.GTValues.*;
 import static gregtech.api.recipes.RecipeMaps.*;
-import static gregtech.api.recipes.RecipeMaps.GAS_TURBINE_FUELS;
 import static gregtech.api.unification.material.MarkerMaterials.Color.Lime;
 import static gregtech.api.unification.material.Materials.*;
 import static gregtech.api.unification.ore.OrePrefix.dust;
 import static gregtechfoodoption.GTFOMaterialHandler.FertilizerSolution;
 import static keqing.gtqtcore.api.recipes.GTQTcoreRecipeMaps.*;
-import static keqing.gtqtcore.api.unification.GTQTMaterials.Tiberium;
 import static keqing.gtqtcore.api.unification.GTQTMaterials.*;
 import static keqing.gtqtcore.common.items.GTQTMetaItems.*;
 import static keqing.gtqtcore.loaders.recipes.chain.OilChains.lightlyCrack;
@@ -272,7 +270,7 @@ public class AlgaeChain {
                 .buildAndRegister();
 
         //  Cracked Crude Exotic Gas + *Nq*CsXeF9 -> Naquadic Exotic Gas
-        BURNER_REACTOR_RECIPES.recipeBuilder()
+        BLAST_RECIPES.recipeBuilder()
                 .fluidInputs(CrackedCrudeExoticGas.getFluid(8000))
                 .fluidInputs(NaquadriaCaesiumXenonnonfluoride.getFluid(1000))
                 .fluidOutputs(NaquadicExoticGas.getFluid(4000))

@@ -12,7 +12,7 @@ import static gregtech.api.recipes.RecipeMaps.*;
 import static gregtech.api.unification.material.Materials.*;
 import static gregtech.api.unification.ore.OrePrefix.dust;
 import static gregtechfoodoption.GTFOMaterialHandler.SodiumChlorate;
-import static keqing.gtqtcore.api.recipes.GTQTcoreRecipeMaps.*;
+import static keqing.gtqtcore.api.recipes.GTQTcoreRecipeMaps.DRYER_RECIPES;
 import static keqing.gtqtcore.api.unification.GTQTMaterials.HexachloroplatinicAcid;
 
 /**
@@ -200,7 +200,7 @@ public class PlatinumGroupProcessing {
                 .buildAndRegister();
 
         //  HCO2CH3 + H2O -> HCOOH + CH3OH
-        BURNER_REACTOR_RECIPES.recipeBuilder()
+        CHEMICAL_RECIPES.recipeBuilder()
                 .fluidInputs(GTQTMaterials.MethylFormate.getFluid(1000))
                 .fluidInputs(Water.getFluid(1000))
                 .fluidOutputs(GTQTMaterials.FormicAcid.getFluid(1000))
@@ -261,7 +261,7 @@ public class PlatinumGroupProcessing {
                 .buildAndRegister();
 
         //  2Na + 2O -> Na2O2
-        BURNER_REACTOR_RECIPES.recipeBuilder()
+        BLAST_RECIPES.recipeBuilder()
                 .circuitMeta(4)
                 .input(dust, Sodium)
                 .fluidInputs(Oxygen.getFluid(1000))
@@ -361,7 +361,7 @@ public class PlatinumGroupProcessing {
     private static void OsmiumProcess() {
 
         //  S + 2Cl -> SCl2
-        LOW_TEMP_ACTIVATOR_RECIPES.recipeBuilder()
+        CHEMICAL_RECIPES.recipeBuilder()
                 .input(dust, Sulfur)
                 .fluidInputs(Chlorine.getFluid(2000))
                 .fluidOutputs(GTQTMaterials.SulfurDichloride.getFluid(1000))

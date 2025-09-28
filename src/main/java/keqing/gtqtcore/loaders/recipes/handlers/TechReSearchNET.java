@@ -950,7 +950,7 @@ public class TechReSearchNET {
 
         ASSEMBLY_LINE_RECIPES.recipeBuilder()
                 .input(CHEMICAL_REACTOR[3], 4)
-                .input(BIO_REACTOR[3], 4)
+                .input(CHEMICAL_BATH[3], 4)
                 .input(circuit, Tier.HV, 4)
                 .input(ELECTRIC_PUMP_HV, 4)
                 .input(ROBOT_ARM_HV, 4)
@@ -1080,7 +1080,7 @@ public class TechReSearchNET {
                 .input(frameGt, Cinobite, 16)
                 .input(ASSEMBLY_LINE, 8)
                 .input(PRECISE_ASSEMBLER, 16)
-                .input(COMPONENT_ASSEMBLER[IV], 16)
+                .input(ASSEMBLER[IV], 16)
                 .input(ROBOT_ARM_LuV, 32)
                 .input(ELECTRIC_PISTON_LUV, 32)
                 .input(CONVEYOR_MODULE_LuV, 32)
@@ -1556,7 +1556,7 @@ public class TechReSearchNET {
         //BIOLOGICAL_REACTION
         ASSEMBLY_LINE_RECIPES.recipeBuilder()
                 .input(CHEMICAL_BATH[3], 4)
-                .input(BIO_REACTOR[3], 4)
+                .input(CHEMICAL_BATH[3], 4)
                 .input(circuit, Tier.MV, 8)
                 .input(ELECTRIC_MOTOR_MV, 16)
                 .input(ELECTRIC_PUMP_MV, 16)

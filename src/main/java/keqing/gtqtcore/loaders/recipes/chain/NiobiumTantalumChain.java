@@ -4,10 +4,10 @@ import gregtech.api.unification.ore.OrePrefix;
 
 import static gregtech.api.GTValues.EV;
 import static gregtech.api.GTValues.VA;
+import static gregtech.api.recipes.RecipeMaps.BLAST_RECIPES;
 import static gregtech.api.recipes.RecipeMaps.CHEMICAL_RECIPES;
 import static gregtech.api.unification.material.Materials.*;
 import static gregtech.api.unification.ore.OrePrefix.dust;
-import static keqing.gtqtcore.api.recipes.GTQTcoreRecipeMaps.BURNER_REACTOR_RECIPES;
 import static keqing.gtqtcore.api.recipes.GTQTcoreRecipeMaps.SFM;
 import static keqing.gtqtcore.api.unification.GTQTMaterials.*;
 
@@ -32,7 +32,7 @@ public class NiobiumTantalumChain {
 
     private static void NewProcess() {
         //
-        BURNER_REACTOR_RECIPES.recipeBuilder()
+        BLAST_RECIPES.recipeBuilder()
                 .input(dust, Pyrochlore, 11)
                 .input(dust,Carbon)
                 .fluidInputs(Oxygen.getFluid(2000))
@@ -41,7 +41,7 @@ public class NiobiumTantalumChain {
                 .blastFurnaceTemp(3600)
                 .duration(400).EUt(VA[EV]).buildAndRegister();
 
-        BURNER_REACTOR_RECIPES.recipeBuilder()
+        BLAST_RECIPES.recipeBuilder()
                 .input(dust, Tantalite, 7)
                 .input(dust,Carbon)
                 .fluidInputs(Oxygen.getFluid(2000))
@@ -103,7 +103,7 @@ public class NiobiumTantalumChain {
                 .fluidOutputs(PotassiumHeptafluorotanate.getFluid(1000))
                 .duration(400).EUt(VA[EV]).buildAndRegister();
 
-        BURNER_REACTOR_RECIPES.recipeBuilder()
+        BLAST_RECIPES.recipeBuilder()
                 .fluidInputs(PotassiumHeptafluorooniobate.getFluid(1000))
                 .fluidInputs(Oxygen.getFluid(5000))
                 .input(dust,Sodium,1)
@@ -114,7 +114,7 @@ public class NiobiumTantalumChain {
                 .blastFurnaceTemp(3600)
                 .duration(400).EUt(VA[EV]).buildAndRegister();
 
-        BURNER_REACTOR_RECIPES.recipeBuilder()
+        BLAST_RECIPES.recipeBuilder()
                 .fluidInputs(PotassiumHeptafluorotanate.getFluid(1000))
                 .fluidInputs(Oxygen.getFluid(5000))
                 .input(dust,Sodium,1)

@@ -64,8 +64,8 @@ public class CPULine {
     }
 
     private static void ReticleChain() {
-        SPINNER_RECIPES.recipeBuilder()
-                .input(wrap, PolyvinylChloride,16)
+        ASSEMBLER_RECIPES.recipeBuilder()
+                .input(wrap, PolyvinylChloride, 16)
                 .input(circuit, MarkerMaterials.Tier.MV)
                 .inputs(GTQTMetaBlocks.blockMultiblockGlass1.getItemVariant(SILICATE_GLASS))
                 .output(RETICLE_GRID_MKI)
@@ -73,8 +73,8 @@ public class CPULine {
                 .EUt(VA[MV])
                 .buildAndRegister();
 
-        SPINNER_RECIPES.recipeBuilder()
-                .input(wrap, ReinforcedEpoxyResin,16)
+        ASSEMBLER_RECIPES.recipeBuilder()
+                .input(wrap, ReinforcedEpoxyResin, 16)
                 .input(circuit, MarkerMaterials.Tier.HV)
                 .inputs(GTQTMetaBlocks.blockMultiblockGlass1.getItemVariant(THY_SILICATE_GLASS))
                 .output(RETICLE_GRID_MKII)
@@ -82,8 +82,8 @@ public class CPULine {
                 .EUt(VA[HV])
                 .buildAndRegister();
 
-        SPINNER_RECIPES.recipeBuilder()
-                .input(wrap, Zylon,16)
+        ASSEMBLER_RECIPES.recipeBuilder()
+                .input(wrap, Zylon, 16)
                 .input(circuit, MarkerMaterials.Tier.IV)
                 .inputs(GTQTMetaBlocks.blockMultiblockGlass1.getItemVariant(W_BORON_SILICATE_GLASS))
                 .output(RETICLE_GRID_MKIII)
@@ -91,8 +91,8 @@ public class CPULine {
                 .EUt(VA[IV])
                 .buildAndRegister();
 
-        SPINNER_RECIPES.recipeBuilder()
-                .input(wrap, Polyetheretherketone,16)
+        ASSEMBLER_RECIPES.recipeBuilder()
+                .input(wrap, Polyetheretherketone, 16)
                 .input(circuit, MarkerMaterials.Tier.LuV)
                 .inputs(GTQTMetaBlocks.blockMultiblockGlass1.getItemVariant(OSMIR_BORON_SILICATE_GLASS))
                 .output(RETICLE_GRID_MKIV)
@@ -103,8 +103,8 @@ public class CPULine {
         //////////////////////////////////////
         ASSEMBLER_RECIPES.recipeBuilder()
                 .input(GLASS_TUBE)
-                .input(ring,Rubber)
-                .input(screw,Gold,2)
+                .input(ring, Rubber)
+                .input(screw, Gold, 2)
                 .input(foil, Aluminium, 2)
                 .output(UV_LIGHT_EMPTY_MKI)
                 .duration(200)
@@ -130,7 +130,7 @@ public class CPULine {
         ASSEMBLER_RECIPES.recipeBuilder()
                 .input(GLASS_TUBE)
                 .input(ring, SiliconeRubber)
-                .input(screw,NanometerBariumTitanate,2)
+                .input(screw, NanometerBariumTitanate, 2)
                 .input(foil, TungstenSteel, 2)
                 .output(UV_LIGHT_EMPTY_MKII)
                 .duration(200)
@@ -148,7 +148,7 @@ public class CPULine {
         ASSEMBLER_RECIPES.recipeBuilder()
                 .input(GLASS_TUBE)
                 .input(ring, StyreneButadieneRubber)
-                .input(screw,Naquadah,2)
+                .input(screw, Naquadah, 2)
                 .input(foil, RhodiumPlatedPalladium, 2)
                 .output(UV_LIGHT_EMPTY_MKIII)
                 .duration(200)
@@ -200,7 +200,7 @@ public class CPULine {
                 .buildAndRegister();
 
         //////////////////////////////////
-        LOW_TEMP_ACTIVATOR_RECIPES.recipeBuilder()
+        CHEMICAL_RECIPES.recipeBuilder()
                 .notConsumable(SHAPE_MOLD_BALL)
                 .input(block, Polysilicon, 1)
                 .fluidInputs(SiliconTetrachloride.getFluid(1000))
@@ -212,7 +212,7 @@ public class CPULine {
                 .buildAndRegister();
 
         //////////////////////////////////
-        PRESSURE_LAMINATOR_RECIPES.recipeBuilder()
+        CHEMICAL_RECIPES.recipeBuilder()
                 .input(RETICLE_BASE)
                 .input(RETICLE_TIN)
                 .output(RETICLE_BASE_TIN)
@@ -229,7 +229,7 @@ public class CPULine {
                 .buildAndRegister();
 
         //////////////////////////////////
-        ULTRAVIOLET_LAMP_CHAMBER_RECIPES.recipeBuilder()
+        CHEMICAL_RECIPES.recipeBuilder()
                 .input(RETICLE_GLASS_MKI)
                 .input(RETICLE_BASE_TIN)
                 .notConsumable(UV_LIGHT_MKI)
@@ -238,7 +238,7 @@ public class CPULine {
                 .EUt(120)
                 .buildAndRegister();
 
-        ULTRAVIOLET_LAMP_CHAMBER_RECIPES.recipeBuilder()
+        CHEMICAL_RECIPES.recipeBuilder()
                 .input(RETICLE_GLASS_MKII)
                 .input(RETICLE_BASE_TIN)
                 .notConsumable(UV_LIGHT_MKII)
@@ -247,7 +247,7 @@ public class CPULine {
                 .EUt(120)
                 .buildAndRegister();
 
-        ULTRAVIOLET_LAMP_CHAMBER_RECIPES.recipeBuilder()
+        CHEMICAL_RECIPES.recipeBuilder()
                 .input(RETICLE_GLASS_MKIII)
                 .input(RETICLE_BASE_TIN)
                 .notConsumable(UV_LIGHT_MKIII)
@@ -256,7 +256,7 @@ public class CPULine {
                 .EUt(120)
                 .buildAndRegister();
 
-        ULTRAVIOLET_LAMP_CHAMBER_RECIPES.recipeBuilder()
+        CHEMICAL_RECIPES.recipeBuilder()
                 .input(RETICLE_GLASS_MKIV)
                 .input(RETICLE_BASE_TIN)
                 .notConsumable(UV_LIGHT_MKIV)
@@ -489,19 +489,29 @@ public class CPULine {
         return NEUTRONIUM_WAFER;
     }
 
-    public static void Stepper(int tier, int EU, MetaItem<?>.MetaValueItem item1, MetaItem<?>.MetaValueItem item2, Material materials) {
+    public static void Stepper(int tier, int EU, MetaItem<?>.MetaValueItem item1, MetaItem<?>.MetaValueItem item2, Object obj) {
         //透镜+晶圆+光掩模基板 锡附着=掩模
-        if (materials.hasFlag(GENERATE_LENS)) {
+        if (obj instanceof Material materials) {
+            if (materials.hasFlag(GENERATE_LENS)) {
+                LASER_ENGRAVING.recipeBuilder().duration(9000).EUt(VA[EU])
+                        .notConsumable(lens, materials)
+                        .input(getReticleBasicByTier(tier))
+                        .output(item1)
+                        .CWUt(CWT[tier])
+                        .duration(250 * tier * EU)
+                        .buildAndRegister();
+            } else {
+                LASER_ENGRAVING.recipeBuilder().duration(9000).EUt(VA[EU])
+                        .notConsumable(craftingLens, materials)
+                        .input(getReticleBasicByTier(tier))
+                        .output(item1)
+                        .CWUt(CWT[tier])
+                        .duration(250 * tier * EU)
+                        .buildAndRegister();
+            }
+        } else if (obj instanceof ItemStack itemStack) {
             LASER_ENGRAVING.recipeBuilder().duration(9000).EUt(VA[EU])
-                    .notConsumable(lens, materials)
-                    .input(getReticleBasicByTier(tier))
-                    .output(item1)
-                    .CWUt(CWT[tier])
-                    .duration(250 * tier * EU)
-                    .buildAndRegister();
-        } else {
-            LASER_ENGRAVING.recipeBuilder().duration(9000).EUt(VA[EU])
-                    .notConsumable(craftingLens, materials)
+                    .notConsumable(itemStack)
                     .input(getReticleBasicByTier(tier))
                     .output(item1)
                     .CWUt(CWT[tier])
@@ -509,14 +519,13 @@ public class CPULine {
                     .buildAndRegister();
         }
 
-
         for (int i = tier; i <= 7; i++) {
             //掩模-》产品+光掩模基板 无锡附着+液态锡
-            STEPPER_RECIPES.recipeBuilder().duration(9000).EUt(VA[EU+i-1])
+            STEPPER_RECIPES.recipeBuilder().duration(9000).EUt(VA[EU + i - 1])
                     .Laser(tier)
                     .input(getWaferByTier(i))
                     .input(item1)
-                    .output(item2, (int)Math.pow(4, i - tier))
+                    .output(item2, (int) Math.pow(4, i - tier))
                     .output(getReticleByTier(tier))
                     .CWUt(CWT[i])
                     .buildAndRegister();
@@ -537,11 +546,11 @@ public class CPULine {
 
         for (int i = tier; i <= 7; i++) {
             //掩模-》产品+光掩模基板 无锡附着+液态锡
-            STEPPER_RECIPES.recipeBuilder().duration(9000).EUt(VA[EU+i-1])
+            STEPPER_RECIPES.recipeBuilder().duration(9000).EUt(VA[EU + i - 1])
                     .Laser(tier)
                     .input(getWaferByTier(i))
                     .inputs(item1)
-                    .output(item2, (int)Math.pow(4, i - tier))
+                    .output(item2, (int) Math.pow(4, i - tier))
                     .output(getReticleByTier(tier))
                     .CWUt(CWT[i])
                     .buildAndRegister();
@@ -565,6 +574,9 @@ public class CPULine {
         Stepper(2, 3, RETICLE_SYSTEM_ON_CHIP, SYSTEM_ON_CHIP_WAFER, Color.Magenta);
         Stepper(3, 3, RETICLE_ADVANCED_SYSTEM_ON_CHIP, ADVANCED_SYSTEM_ON_CHIP_WAFER, Color.Purple);
         Stepper(4, 3, RETICLE_HIGHLY_ADVANCED_SYSTEM_ON_CHIP, HIGHLY_ADVANCED_SOC_WAFER, Color.Orange);
+
+
+        Stepper(4, 4, RETICLE_UHASOC_WAFER, UHASOC_WAFER, CHROMATIC_LENS);
 
         Stepper(4, 4, RETICLE_NANO_POWER_IC_WAFER, NANO_POWER_IC_WAFER, LithiumNiobate);
         Stepper(4, 5, RETICLE_PICO_POWER_IC_WAFER, PICO_POWER_IC_WAFER, LuTmYVO);
@@ -795,7 +807,7 @@ public class CPULine {
                 .output(LAMINATION_WD, 4)
                 .buildAndRegister();
 
-        PRESSURE_LAMINATOR_RECIPES.recipeBuilder()
+        CHEMICAL_RECIPES.recipeBuilder()
                 .duration(100)
                 .EUt(30)
                 .input(LAMINATION_WD)
@@ -834,7 +846,7 @@ public class CPULine {
                 .output(LAMINATION_FG, 4)
                 .buildAndRegister();
 
-        PRESSURE_LAMINATOR_RECIPES.recipeBuilder()
+        CHEMICAL_RECIPES.recipeBuilder()
                 .duration(100)
                 .EUt(120)
                 .input(LAMINATION_FG)
@@ -869,7 +881,7 @@ public class CPULine {
                 .output(EPOXY_BOARD)
                 .buildAndRegister();
 
-        PRESSURE_LAMINATOR_RECIPES.recipeBuilder()
+        CHEMICAL_RECIPES.recipeBuilder()
                 .duration(100)
                 .EUt(480)
                 .input(LAMINATION_CA)
@@ -904,7 +916,7 @@ public class CPULine {
                 .output(FIBER_BOARD)
                 .buildAndRegister();
 
-        PRESSURE_LAMINATOR_RECIPES.recipeBuilder()
+        CHEMICAL_RECIPES.recipeBuilder()
                 .duration(100)
                 .EUt(1920)
                 .input(LAMINATION_GE)
@@ -943,7 +955,7 @@ public class CPULine {
                 .output(LAMINATION_IR, 4)
                 .buildAndRegister();
 
-        PRESSURE_LAMINATOR_RECIPES.recipeBuilder()
+        CHEMICAL_RECIPES.recipeBuilder()
                 .duration(200)
                 .EUt(7680)
                 .input(LAMINATION_IR)

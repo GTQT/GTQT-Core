@@ -105,8 +105,7 @@ public class DragonChain {
                 .cleanroom(CleanroomType.CLEANROOM)
                 .buildAndRegister();
 
-        //  TODO rebalanced it.
-        SONICATION_RECIPES.recipeBuilder()
+        LARGE_CHEMICAL_RECIPES.recipeBuilder()
                 .fluidInputs(ConcentrateDragonBreath.getFluid(2000))
                 .fluidInputs(Radon.getFluid(1000))
                 .chancedOutput(dust, Endstone, 2000, 0)

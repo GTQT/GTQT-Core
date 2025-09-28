@@ -5,17 +5,22 @@ import gregtech.api.recipes.ModHandler;
 import gregtech.api.recipes.RecipeMaps;
 import gregtech.api.recipes.ingredients.IntCircuitIngredient;
 import gregtech.api.unification.OreDictUnifier;
+import gregtech.api.unification.material.MarkerMaterials;
 import gregtech.api.unification.stack.UnificationEntry;
 import gregtech.common.items.MetaItems;
 import keqing.gtqtcore.api.unification.GTQTMaterials;
 import keqing.gtqtcore.common.items.GTQTMetaItems;
 
 import static gregicality.multiblocks.api.unification.GCYMMaterials.HSLASteel;
-import static keqing.gtqtcore.api.recipes.GTQTcoreRecipeMaps.PRECISE_ASSEMBLER_RECIPES;
 import static gregtech.api.GTValues.*;
 import static gregtech.api.unification.material.Materials.*;
 import static gregtech.api.unification.ore.OrePrefix.*;
-
+import static gregtech.common.items.MetaItems.RANDOM_ACCESS_MEMORY;
+import static gregtech.common.items.MetaItems.TOOL_DATA_STICK;
+import static keqing.gtqtcore.api.recipes.GTQTcoreRecipeMaps.PRECISE_ASSEMBLER_RECIPES;
+import static keqing.gtqtcore.api.unification.GTQTMaterials.Kevlar;
+import static keqing.gtqtcore.api.unification.GTQTMaterials.Polyetheretherketone;
+import static keqing.gtqtcore.common.items.GTQTMetaItems.CIRCUIT_GOOD_II;
 import static keqing.gtqtcore.common.items.GTQTMetaItems.SPINNER;
 
 public class GrapheneChain {
@@ -85,6 +90,19 @@ public class GrapheneChain {
                 .fluidInputs(Naquadria.getFluid(1440))
                 .fluidInputs(VanadiumGallium.getFluid(1440))
                 .outputs(GTQTMetaItems.MAGNETRON.getStackForm())
+                .duration(600).EUt(VA[ZPM]).buildAndRegister();
+
+        PRECISE_ASSEMBLER_RECIPES.recipeBuilder()
+                .CWUt(CWT[ZPM]).Tier(2)
+                .input(CIRCUIT_GOOD_II, 4)
+                .input(circuit, MarkerMaterials.Tier.ZPM, 8)
+                .input(TOOL_DATA_STICK, 4)
+                .input(RANDOM_ACCESS_MEMORY, 16)
+                .fluidInputs(SolderingAlloy.getFluid(L * 8))
+                .fluidInputs(NaquadahEnriched.getFluid(L * 8))
+                .fluidInputs(Polyetheretherketone.getFluid(L * 8))
+                .fluidInputs(Kevlar.getFluid(L * 4))
+                .outputs(GTQTMetaItems.CIRCUIT_PATTERN.getStackForm())
                 .duration(600).EUt(VA[ZPM]).buildAndRegister();
 
         ModHandler.addShapedRecipe(true, "spinner", SPINNER.getStackForm(),

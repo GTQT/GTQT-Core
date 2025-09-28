@@ -7,7 +7,8 @@ import static gregtech.api.recipes.RecipeMaps.*;
 import static gregtech.api.unification.material.Materials.*;
 import static gregtech.api.unification.ore.OrePrefix.*;
 import static gregtech.common.items.MetaItems.*;
-import static keqing.gtqtcore.api.recipes.GTQTcoreRecipeMaps.*;
+import static keqing.gtqtcore.api.recipes.GTQTcoreRecipeMaps.CVD_RECIPES;
+import static keqing.gtqtcore.api.recipes.GTQTcoreRecipeMaps.PRECISE_ASSEMBLER_RECIPES;
 import static keqing.gtqtcore.api.unification.GTQTMaterials.*;
 import static keqing.gtqtcore.common.items.GTQTMetaItems.*;
 
@@ -175,7 +176,7 @@ public class CosmicCircuits {
                 .buildAndRegister();
 
         //  Na + HNO2 -> NaNO2 + H
-        BURNER_REACTOR_RECIPES.recipeBuilder()
+        BLAST_RECIPES.recipeBuilder()
                 .input(dust, Sodium)
                 .fluidInputs(NitrousAcid.getFluid(1000))
                 .output(dust, SodiumNitrite, 4)
@@ -472,7 +473,7 @@ public class CosmicCircuits {
                 .cleanroom(CleanroomType.CLEANROOM)
                 .buildAndRegister();
 
-        PLASMA_CVD_RECIPES.recipeBuilder()
+        CVD_RECIPES.recipeBuilder()
                 .input(wireFine, SuperheavyLAlloy, 4)
                 .input(dust, LanthanumFullereneNanotube)
                 .fluidInputs(Zylon.getFluid(L * 2))
@@ -482,7 +483,7 @@ public class CosmicCircuits {
                 .cleanroom(CleanroomType.CLEANROOM)
                 .buildAndRegister();
 
-        PLASMA_CVD_RECIPES.recipeBuilder()
+        CVD_RECIPES.recipeBuilder()
                 .input(wireFine, SuperheavyHAlloy, 8)
                 .input(plate, Rhugnor)
                 .fluidInputs(Zylon.getFluid(L * 2))
@@ -492,7 +493,7 @@ public class CosmicCircuits {
                 .cleanroom(CleanroomType.CLEANROOM)
                 .buildAndRegister();
 
-        ION_IMPLANTATOR_RECIPES.recipeBuilder()
+        ASSEMBLER_RECIPES.recipeBuilder()
                 .input(ring, AstralTitanium, 2)
                 .input(wireFine, PlatinumGroupAlloy, 4)
                 .fluidInputs(Zylon.getFluid(L * 2))

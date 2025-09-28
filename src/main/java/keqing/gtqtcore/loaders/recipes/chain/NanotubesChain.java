@@ -8,7 +8,6 @@ import static gregtech.api.unification.material.Materials.*;
 import static gregtech.api.unification.ore.OrePrefix.*;
 import static gregtech.common.items.MetaItems.SHAPE_EXTRUDER_INGOT;
 import static keqing.gtqtcore.api.recipes.GTQTcoreRecipeMaps.CVD_RECIPES;
-import static keqing.gtqtcore.api.recipes.GTQTcoreRecipeMaps.PLASMA_CVD_RECIPES;
 import static keqing.gtqtcore.api.unification.GTQTMaterials.*;
 import static keqing.gtqtcore.api.unification.ore.GTQTOrePrefix.seedCrystal;
 import static keqing.gtqtcore.common.items.GTQTMetaItems.CARBON_ALLOTROPE_MIXTURE;
@@ -330,7 +329,7 @@ public class NanotubesChain {
                 .buildAndRegister();
 
         //  Lanthanum-Fullerene Mixture + Nitrogen -> Lanthanum Embedded Fullerene
-        PLASMA_CVD_RECIPES.recipeBuilder()
+        CVD_RECIPES.recipeBuilder()
                 .notConsumable(plate, MagnetoResonatic)
                 .input(dust, LanthanumFullereneMixture, 4)
                 .fluidInputs(Nitrogen.getFluid(20000))

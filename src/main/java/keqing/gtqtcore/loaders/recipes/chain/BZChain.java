@@ -7,8 +7,6 @@ import static gregtech.api.GTValues.*;
 import static gregtech.api.recipes.RecipeMaps.*;
 import static gregtech.api.unification.material.Materials.*;
 import static gregtech.api.unification.ore.OrePrefix.dust;
-import static keqing.gtqtcore.api.recipes.GTQTcoreRecipeMaps.BURNER_REACTOR_RECIPES;
-import static keqing.gtqtcore.api.recipes.GTQTcoreRecipeMaps.LOW_TEMP_ACTIVATOR_RECIPES;
 
 /**
  * The Belousov-Zhabotinsky Reaction
@@ -49,7 +47,7 @@ public class BZChain {
                 .duration(720).EUt(VA[LV]).buildAndRegister();
 
         // 3HBr + 3KOH -> KBrO3 + 3H2O
-        LOW_TEMP_ACTIVATOR_RECIPES.recipeBuilder()
+        CHEMICAL_RECIPES.recipeBuilder()
                 .fluidInputs(Bromine.getFluid(3000))
                 .input(dust, GTQTMaterials.PotassiumHydroxide, 1)
                 .output(dust, GTQTMaterials.PotassiumBromate, 5)
@@ -59,7 +57,7 @@ public class BZChain {
 
     private static void malonicAcid() {
         // C2H4Cl2 + Cl -> C2HCl3 + 3H
-        BURNER_REACTOR_RECIPES.recipeBuilder()
+            CHEMICAL_RECIPES.recipeBuilder()
                 .fluidInputs(GTQTMaterials.Dichloroethane.getFluid(1000))
                 .fluidInputs(Chlorine.getFluid(1000))
                 .fluidOutputs(GTQTMaterials.Trichloroethylene.getFluid(1000))

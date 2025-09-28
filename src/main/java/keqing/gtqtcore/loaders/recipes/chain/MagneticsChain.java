@@ -4,7 +4,6 @@ import gregtech.api.GTValues;
 import keqing.gtqtcore.api.unification.GTQTMaterials;
 
 import static gregicality.multiblocks.api.recipes.GCYMRecipeMaps.ALLOY_BLAST_RECIPES;
-import static keqing.gtqtcore.api.recipes.GTQTcoreRecipeMaps.BURNER_REACTOR_RECIPES;
 import static gregtech.api.GTValues.*;
 import static gregtech.api.recipes.RecipeMaps.*;
 import static gregtech.api.unification.material.Materials.*;
@@ -31,7 +30,7 @@ public class MagneticsChain {
                 .duration(60).EUt(VA[IV]).buildAndRegister();
 
         // Pu + PH3 -> PuP + 6H
-        BURNER_REACTOR_RECIPES.recipeBuilder()
+        BLAST_RECIPES.recipeBuilder()
                 .input(dust, GTQTMaterials.PlutoniumTrihydride, 4)
                 .fluidInputs(GTQTMaterials.Phosphine.getFluid(1000))
                 .output(ingot, GTQTMaterials.PlutoniumPhosphide, 2)
@@ -58,7 +57,7 @@ public class MagneticsChain {
                 .duration(50).EUt(60).buildAndRegister();
 
         // 2Fe + 3O -> Fe2O3
-        BURNER_REACTOR_RECIPES.recipeBuilder()
+        BLAST_RECIPES.recipeBuilder()
                 .input(dust, Iron, 2)
                 .fluidInputs(Oxygen.getFluid(3000))
                 .output(dust, GTQTMaterials.FerricOxide, 5)

@@ -1,16 +1,16 @@
 package keqing.gtqtcore.loaders.recipes.chain;
 
 import static gregtech.api.GTValues.*;
+import static gregtech.api.recipes.RecipeMaps.BLAST_RECIPES;
 import static gregtech.api.unification.material.Materials.*;
-import static gregtech.api.unification.ore.OrePrefix.*;
-import static keqing.gtqtcore.api.recipes.GTQTcoreRecipeMaps.*;
+import static gregtech.api.unification.ore.OrePrefix.dust;
 import static keqing.gtqtcore.api.unification.GTQTMaterials.*;
 
 public class SodiumChain {
     public static void init() {
 
         //  Sodium Tungstate
-        BURNER_REACTOR_RECIPES.recipeBuilder()
+        BLAST_RECIPES.recipeBuilder()
                 .input(dust, Scheelite, 7)
                 .input(dust, SodiumHydroxide, 6)
                 .fluidInputs(HydrogenPeroxide.getFluid(1000))
@@ -22,7 +22,7 @@ public class SodiumChain {
                 .buildAndRegister();
 
         //  Sodium Molybdate
-        BURNER_REACTOR_RECIPES.recipeBuilder()
+        BLAST_RECIPES.recipeBuilder()
                 .input(dust, SodiumHydroxide, 6)
                 .input(dust, MolybdenumTrioxide, 4)
                 .output(dust, SodiumMolybdate, 7)
@@ -33,7 +33,7 @@ public class SodiumChain {
                 .buildAndRegister();
 
         //  Sodium Tungstate + Phosphoric Acid -> Sodium Phosphotungstate + Sodium Hydroxide + Sodium Oxide
-        BURNER_REACTOR_RECIPES.recipeBuilder()
+        BLAST_RECIPES.recipeBuilder()
                 .fluidInputs(SodiumTungstate.getFluid(12000))
                 .fluidInputs(PhosphoricAcid.getFluid(1000))
                 .output(dust, SodiumPhosphotungstate, 56)
@@ -44,7 +44,7 @@ public class SodiumChain {
                 .blastFurnaceTemp(2700)
                 .buildAndRegister();
 
-        BURNER_REACTOR_RECIPES.recipeBuilder()
+        BLAST_RECIPES.recipeBuilder()
                 .input(dust, SodiumNitrite, 2)
                 .input(dust, Sodium, 7)
                 .output(dust, SodiumOxide, 4)
@@ -54,7 +54,7 @@ public class SodiumChain {
                 .blastFurnaceTemp(2700)
                 .buildAndRegister();
 
-        BURNER_REACTOR_RECIPES.recipeBuilder()
+        BLAST_RECIPES.recipeBuilder()
                 .input(dust, SodiumNitrate, 10)
                 .output(dust, SodiumOxide, 3)
                 .fluidOutputs(Oxygen.getFluid(5000))
@@ -65,7 +65,7 @@ public class SodiumChain {
                 .buildAndRegister();
 
         //  Sodium Molybdate + Phosphoric Acid -> Sodium Phosphomolybdate + Sodium Hydroxide + Sodium Oxide
-        BURNER_REACTOR_RECIPES.recipeBuilder()
+        BLAST_RECIPES.recipeBuilder()
                 .input(dust, SodiumMolybdate, 64)
                 .input(dust, SodiumMolybdate, 20)
                 .fluidInputs(PhosphoricAcid.getFluid(1000))

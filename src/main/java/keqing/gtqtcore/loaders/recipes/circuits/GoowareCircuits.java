@@ -42,7 +42,7 @@ public class GoowareCircuits {
                 .buildAndRegister();
 
         // Al + C9H7NO -> Al(C9H7NO)
-        LOW_TEMP_ACTIVATOR_RECIPES.recipeBuilder()
+        CHEMICAL_RECIPES.recipeBuilder()
                 .input(dust, Aluminium, 1)
                 .input(dust, Hydroxyquinoline, 18)
                 .output(dust, HydroxyquinolineAluminium, 19)
@@ -71,7 +71,7 @@ public class GoowareCircuits {
                 .buildAndRegister();
 
         // Cu + Ga + In + 2H2SeO4 -> CuGaInSe2 + 2H2O + 6O
-        BURNER_REACTOR_RECIPES.recipeBuilder()
+        BLAST_RECIPES.recipeBuilder()
                 .input(dust, Copper)
                 .input(dust, Gallium)
                 .input(dust, Indium)
@@ -80,6 +80,7 @@ public class GoowareCircuits {
                 .fluidOutputs(Oxygen.getFluid(6000))
                 .fluidOutputs(Steam.getFluid(2000))
                 .EUt(VA[LuV])
+                .blastFurnaceTemp(3600)
                 .duration(5 * SECOND)
                 .buildAndRegister();
 
@@ -307,7 +308,7 @@ public class GoowareCircuits {
                 .output(LAMINATION_IN, 4)
                 .buildAndRegister();
 
-        PRESSURE_LAMINATOR_RECIPES.recipeBuilder()
+        CHEMICAL_RECIPES.recipeBuilder()
                 .duration(200)
                 .EUt(VA[ZPM])
                 .input(LAMINATION_IN)
@@ -426,7 +427,7 @@ public class GoowareCircuits {
                 .buildAndRegister();
 
         //  Another Blood Sonication recipe
-        SONICATION_RECIPES.recipeBuilder()
+        CHEMICAL_RECIPES.recipeBuilder()
                 .fluidInputs(Blood.getFluid(16000))
                 .fluidOutputs(BloodCells.getFluid(8000))
                 .fluidOutputs(BloodPlasma.getFluid(8000))
@@ -499,7 +500,7 @@ public class GoowareCircuits {
                 .duration(2 * MINUTE + 20 * SECOND)
                 .buildAndRegister();
 
-        SONICATION_RECIPES.recipeBuilder()
+        CHEMICAL_RECIPES.recipeBuilder()
                 .fluidInputs(FermentedBiomass.getFluid(32000))
                 .fluidOutputs(LinoleicAcid.getFluid(16000))
                 .fluidOutputs(Biomass.getFluid(16000))

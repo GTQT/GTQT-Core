@@ -1,14 +1,16 @@
 package keqing.gtqtcore.loaders.recipes.chain;
 
+import gregtech.api.recipes.RecipeMaps;
+
 import static gregtech.api.GTValues.*;
-import static gregtech.api.GTValues.ZPM;
 import static gregtech.api.recipes.RecipeMaps.CHEMICAL_RECIPES;
 import static gregtech.api.recipes.RecipeMaps.LARGE_CHEMICAL_RECIPES;
 import static gregtech.api.unification.material.Materials.*;
 import static gregtech.api.unification.ore.OrePrefix.dust;
 import static gregtech.api.unification.ore.OrePrefix.gem;
 import static gregtechfoodoption.GTFOMaterialHandler.HydrogenCyanide;
-import static keqing.gtqtcore.api.recipes.GTQTcoreRecipeMaps.*;
+import static keqing.gtqtcore.api.recipes.GTQTcoreRecipeMaps.CVD_RECIPES;
+import static keqing.gtqtcore.api.recipes.GTQTcoreRecipeMaps.DRYER_RECIPES;
 import static keqing.gtqtcore.api.unification.GTQTMaterials.*;
 
 public class NdYAGChain {
@@ -31,7 +33,7 @@ public class NdYAGChain {
                 .buildAndRegister();
 
         //  3K2MnO4 + 2H2O -> 2KMnO4 + MnO2 (cycle) + 4KOH (cycle)
-        BURNER_REACTOR_RECIPES.recipeBuilder()
+        RecipeMaps.BLAST_RECIPES.recipeBuilder()
                 .input(dust, PotassiumManganate, 21)
                 .fluidInputs(Water.getFluid(2000))
                 .output(dust, PotassiumPermanganate, 12)
@@ -68,7 +70,7 @@ public class NdYAGChain {
     private static void NdYOChain() {
 
         //  YO + NdO -> Nd:YO?
-        BURNER_REACTOR_RECIPES.recipeBuilder()
+        RecipeMaps.BLAST_RECIPES.recipeBuilder()
                 .input(dust, YttriumOxide, 45)
                 .input(dust, NeodymiumOxide, 5)
                 .output(dust, NeodymiumDopedYttriumOxide, 5)

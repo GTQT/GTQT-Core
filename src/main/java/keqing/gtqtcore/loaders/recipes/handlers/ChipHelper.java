@@ -2,16 +2,17 @@ package keqing.gtqtcore.loaders.recipes.handlers;
 
 import gregtech.api.items.metaitem.MetaItem;
 import gregtech.api.metatileentity.multiblock.CleanroomType;
-import keqing.gtqtcore.api.metatileentity.multiblock.GCYLCleanroomType;
+import keqing.gtqtcore.api.metatileentity.multiblock.GTQTCleanroomType;
 
 import static gregtech.api.GTValues.*;
 import static gregtech.api.recipes.RecipeMaps.*;
 import static gregtech.api.unification.material.Materials.*;
 import static gregtech.api.unification.ore.OrePrefix.*;
-import static gregtech.api.unification.ore.OrePrefix.dust;
 import static gregtech.common.items.MetaItems.NEUTRONIUM_BOULE;
 import static gregtech.common.items.MetaItems.NEUTRONIUM_WAFER;
-import static keqing.gtqtcore.api.recipes.GTQTcoreRecipeMaps.*;
+import static gregtechfoodoption.GTFOMaterialHandler.RainbowSap;
+import static keqing.gtqtcore.api.recipes.GTQTcoreRecipeMaps.CVD_RECIPES;
+import static keqing.gtqtcore.api.recipes.GTQTcoreRecipeMaps.DRYER_RECIPES;
 import static keqing.gtqtcore.api.unification.GTQTMaterials.*;
 import static keqing.gtqtcore.common.items.GTQTMetaItems.*;
 
@@ -33,9 +34,9 @@ public class ChipHelper {
     private static void pic() {
         cutter(NANO_POWER_IC_WAFER,NANO_POWER_IC,8,CleanroomType.STERILE_CLEANROOM);
         cutter(PICO_POWER_IC_WAFER,PICO_POWER_IC,9,CleanroomType.STERILE_CLEANROOM);
-        cutter(FEMTO_POWER_IC_WAFER,FEMTO_POWER_IC,10, GCYLCleanroomType.ISO3);
-        cutter(ATTO_PIC_WAFER,ATTO_PIC_CHIP,11,GCYLCleanroomType.ISO2);
-        cutter(ZEPTO_PIC_WAFER,ZEPTO_PIC_CHIP,12,GCYLCleanroomType.ISO1);
+        cutter(FEMTO_POWER_IC_WAFER,FEMTO_POWER_IC,10, GTQTCleanroomType.ISO3);
+        cutter(ATTO_PIC_WAFER,ATTO_PIC_CHIP,11, GTQTCleanroomType.ISO2);
+        cutter(ZEPTO_PIC_WAFER,ZEPTO_PIC_CHIP,12, GTQTCleanroomType.ISO1);
 
         NanoPIC();
         PicoPIC();
@@ -48,7 +49,7 @@ public class ChipHelper {
     private static void NanoPIC() {
 
         //  Nb2O3 + 10HCl -> 2NbCl5 + 3H2O + 4H
-        BURNER_REACTOR_RECIPES.recipeBuilder()
+        BLAST_RECIPES.recipeBuilder()
                 .input(dust, NiobiumPentoxide, 5)
                 .fluidInputs(HydrochloricAcid.getFluid(10000))
                 .output(dust, NiobiumPentachloride, 12)
@@ -81,6 +82,14 @@ public class ChipHelper {
                 .duration(MINUTE)
                 .buildAndRegister();
 
+        //  Chromatic Lens
+        CHEMICAL_BATH_RECIPES.recipeBuilder()
+                .input(lens, NetherStar)
+                .fluidInputs(RainbowSap.getFluid(L * 2))
+                .output(CHROMATIC_LENS)
+                .EUt(VA[UV])
+                .duration(200)
+                .buildAndRegister();
 
     }
 

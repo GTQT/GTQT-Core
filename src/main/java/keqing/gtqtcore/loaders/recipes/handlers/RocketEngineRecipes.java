@@ -7,8 +7,8 @@ import static gregtech.api.GTValues.*;
 import static gregtech.api.recipes.RecipeMaps.*;
 import static gregtech.api.unification.material.Materials.*;
 import static gregtech.api.unification.ore.OrePrefix.dust;
-import static keqing.gtqtcore.api.recipes.GTQTcoreRecipeMaps.*;
-import static keqing.gtqtcore.api.unification.GTQTMaterials.Hydrazine;
+import static keqing.gtqtcore.api.recipes.GTQTcoreRecipeMaps.CHEMICAL_PLANT;
+import static keqing.gtqtcore.api.recipes.GTQTcoreRecipeMaps.ROCKET_RECIPES;
 import static keqing.gtqtcore.api.unification.GTQTMaterials.*;
 
 public class RocketEngineRecipes {
@@ -84,7 +84,7 @@ public class RocketEngineRecipes {
                 .buildAndRegister();
 
         // HydrazineFluorideFuel
-        LOW_TEMP_ACTIVATOR_RECIPES.recipeBuilder()
+        CHEMICAL_RECIPES.recipeBuilder()
                 .fluidInputs(Methylhydrazine.getFluid(1000))
                 .fluidInputs(HydrofluoricAcid.getFluid(1000))
                 .fluidOutputs(UnstableHydrazineFluoride.getFluid(1000))
@@ -135,8 +135,8 @@ public class RocketEngineRecipes {
                 .duration(80)
                 .buildAndRegister();
 
-        //硝化反应（需低温逐滴添加）
-        LOW_TEMP_ACTIVATOR_RECIPES.recipeBuilder()
+        //硝化反应
+        CHEMICAL_RECIPES.recipeBuilder()
                 .fluidInputs(HydraziniumChloride.getFluid(4000))
                 .fluidInputs(SodiumNitrateSulfuricAcid.getFluid(1000))
                 .output(dust, HydraziniumDinitramide, 6) // N₂H₅N(NO₂)₂

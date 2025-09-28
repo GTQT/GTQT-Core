@@ -126,7 +126,7 @@ public class OpticalCircuits {
                 .buildAndRegister();
 
         //  Optical Fiber
-        PLASMA_CVD_RECIPES.recipeBuilder()
+        CVD_RECIPES.recipeBuilder()
                 .notConsumable(SHAPE_EXTRUDER_WIRE)
                 .fluidInputs(GermaniumTetrachloride.getFluid(250))
                 .fluidInputs(PhosphorylChloride.getFluid(250))
@@ -138,7 +138,7 @@ public class OpticalCircuits {
                 .buildAndRegister();
 
         //  Dielectric Mirror
-        MOLECULAR_BEAM_RECIPES.recipeBuilder()
+        LARGE_CHEMICAL_RECIPES.recipeBuilder()
                 .input(foil, Polybenzimidazole)
                 .input(dust, ErbiumDopedZBLANGlass, 2)
                 .input(dust, PraseodymiumDopedZBLANGlass, 2)
@@ -146,7 +146,6 @@ public class OpticalCircuits {
                 .output(DIELECTRIC_MIRROR)
                 .EUt(VA[LuV])
                 .duration(MINUTE / 2)
-                .temperature(2820)
                 .cleanroom(CleanroomType.CLEANROOM)
                 .buildAndRegister();
 
@@ -315,7 +314,7 @@ public class OpticalCircuits {
                 .output(LAMINATION_EU, 4)
                 .buildAndRegister();
 
-        PRESSURE_LAMINATOR_RECIPES.recipeBuilder()
+        CHEMICAL_RECIPES.recipeBuilder()
                 .duration(200)
                 .EUt(VA[UV])
                 .input(LAMINATION_EU)
@@ -374,7 +373,7 @@ public class OpticalCircuits {
                 .cleanroom(CleanroomType.CLEANROOM)
                 .buildAndRegister();
 
-        PLASMA_CVD_RECIPES.recipeBuilder()
+        CVD_RECIPES.recipeBuilder()
                 .input(OPTICAL_FIBER, 2)
                 .input(plate, ErbiumDopedZBLANGlass)
                 .fluidInputs(KaptonE.getFluid(L / 4))
@@ -394,7 +393,7 @@ public class OpticalCircuits {
                 .cleanroom(CleanroomType.CLEANROOM)
                 .buildAndRegister();
 
-        ION_IMPLANTATOR_RECIPES.recipeBuilder()
+        ASSEMBLER_RECIPES.recipeBuilder()
                 .input(dust, Silver, 4)
                 .input(plate, PMMA)
                 .fluidInputs(KaptonE.getFluid(L))

@@ -1,20 +1,14 @@
 package keqing.gtqtcore.loaders.recipes.chain;
 
-import gregtech.api.recipes.GTRecipeHandler;
-import gregtech.api.recipes.ModHandler;
-import gregtech.api.recipes.ingredients.IntCircuitIngredient;
-import gregtech.api.unification.OreDictUnifier;
 import keqing.gtqtcore.api.recipes.GTQTcoreRecipeMaps;
 
-import static gregtech.api.unification.ore.OrePrefix.*;
-import static gregtechfoodoption.GTFOMaterialHandler.Acetaldehyde;
-import static keqing.gtqtcore.api.recipes.GTQTcoreRecipeMaps.LARGE_MIXER_RECIPES;
-import static keqing.gtqtcore.api.recipes.GTQTcoreRecipeMaps.SPINNER_RECIPES;
 import static gregtech.api.GTValues.*;
 import static gregtech.api.recipes.RecipeMaps.*;
 import static gregtech.api.unification.material.Materials.*;
+import static gregtech.api.unification.ore.OrePrefix.dust;
+import static gregtech.api.unification.ore.OrePrefix.foil;
+import static gregtechfoodoption.GTFOMaterialHandler.Acetaldehyde;
 import static keqing.gtqtcore.api.unification.GTQTMaterials.*;
-import static keqing.gtqtcore.api.unification.ore.GTQTOrePrefix.wrap;
 
 public class KevlarChain {
 
@@ -128,6 +122,7 @@ public class KevlarChain {
                 .duration(100)
                 .buildAndRegister();
     }
+
     private static void PolyurethaneResinProcess() {
 
         // Subchain of Polyurethane Catalyst A.
@@ -285,7 +280,7 @@ public class KevlarChain {
                 .buildAndRegister();
 
         // 2Ag + O -> Ag2O
-        GTQTcoreRecipeMaps.BURNER_REACTOR_RECIPES.recipeBuilder()
+        BLAST_RECIPES.recipeBuilder()
                 .input(dust, Silver, 2)
                 .fluidInputs(Oxygen.getFluid(1000))
                 .output(dust, SilverOxide, 3)

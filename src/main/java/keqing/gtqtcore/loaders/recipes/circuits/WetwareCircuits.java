@@ -17,8 +17,6 @@ import static gregtech.common.items.MetaItems.*;
 import static gregtechfoodoption.GTFOMaterialHandler.AceticAnhydride;
 import static keqing.gtqtcore.api.recipes.GTQTcoreRecipeMaps.*;
 import static keqing.gtqtcore.api.unification.GTQTMaterials.*;
-import static keqing.gtqtcore.api.unification.GTQTMaterials.Polyetheretherketone;
-
 import static keqing.gtqtcore.common.items.GTQTMetaItems.*;
 
 public class WetwareCircuits {
@@ -329,7 +327,7 @@ public class WetwareCircuits {
                 .output(LAMINATION_YR, 4)
                 .buildAndRegister();
 
-        PRESSURE_LAMINATOR_RECIPES.recipeBuilder()
+        CHEMICAL_RECIPES.recipeBuilder()
                 .duration(200)
                 .EUt(VA[LuV])
                 .input(LAMINATION_YR)

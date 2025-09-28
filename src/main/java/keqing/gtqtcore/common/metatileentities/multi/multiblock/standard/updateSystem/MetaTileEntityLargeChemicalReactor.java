@@ -20,7 +20,6 @@ import keqing.gtqtcore.api.GTQTValue;
 import keqing.gtqtcore.api.blocks.impl.WrappedIntTired;
 import keqing.gtqtcore.api.metatileentity.GTQTRecipeMapMultiblockController;
 import keqing.gtqtcore.api.predicate.TiredTraceabilityPredicate;
-import keqing.gtqtcore.api.recipes.GTQTcoreRecipeMaps;
 import keqing.gtqtcore.api.utils.GTQTUtil;
 import keqing.gtqtcore.client.textures.GTQTTextures;
 import net.minecraft.network.PacketBuffer;
@@ -37,8 +36,7 @@ public class MetaTileEntityLargeChemicalReactor extends GTQTRecipeMapMultiblockC
 
     public MetaTileEntityLargeChemicalReactor(ResourceLocation metaTileEntityId) {
         super(metaTileEntityId, new RecipeMap[]{
-                RecipeMaps.CHEMICAL_RECIPES,
-                GTQTcoreRecipeMaps.POLYMERIZATION_RECIPES
+                RecipeMaps.CHEMICAL_RECIPES
         });
         setTierFlag(true);
         //setTier(auto);

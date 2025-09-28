@@ -375,9 +375,6 @@ gcys.multiblock.roaster.tooltip.4=Tungstensteel Firebox: §c2500K
 # Burner Reactor
 gcys.machine.burner_reactor.name=Burner Reactor
 
-# Cryogenic Reactor
-gcys.machine.cryogenic_reactor.name=Cryogenic Reaction Chamber
-
 # Nanoscale Fabricator
 gcys.machine.nanoscale_fabricator.name=Nanoscale Fabricator
 gtqtcore.multiblock.nanoscale_fabricator.tooltip.1=Average Crucible heat cannot exceed the target by more than §c250K§7.
@@ -802,13 +799,8 @@ recipemap.dryer_recipes.name=Drying
 recipemap.pressure_chamber_recipes.name=Pressure Chamber
 recipemap.catalytic_reformer_recipes.name=Catalytic Reformation
 recipemap.crystallization_recipes.name=Crystallization
-recipemap.burner_reactor_recipes.name=High Temperature Reactions
 recipemap.cryogenic_reactor_recipes.name=Cryogenic Reactions
-recipemap.molecular_beam_recipes.name=Molecular Beam Epitaxy
-recipemap.cvd_recipes.name=Chemical Vapor Deposition
-recipemap.plasma_cvd_recipes.name=Plasma Enhanced CVD
 recipemap.sonication_recipes.name=Sonication
-recipemap.ion_implanter_recipes.name=Ion Implantation
 recipemap.superheavy_reactor_recipes.name=Superheavy Reactions
 recipemap.drill_recipes.name=Drilling
 recipemap.czpuller_recipes.name=CZochralski Zone
