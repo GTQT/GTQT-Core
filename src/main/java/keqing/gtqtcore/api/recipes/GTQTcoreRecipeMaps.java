@@ -260,21 +260,6 @@ public class GTQTcoreRecipeMaps {
             .sound(GTSoundEvents.DRILL_TOOL)
             .build();
 
-    public static final RecipeMap<SimpleRecipeBuilder> DRYER_RECIPES = new RecipeMapBuilder<>("dryer_recipes", new SimpleRecipeBuilder())
-            .itemInputs(3)
-            .itemOutputs(3)
-            .fluidInputs(3)
-            .fluidOutputs(3)
-            .uiBuilder(builder -> builder
-                    .itemSlotOverlay(GTGuiTextures.DUST_OVERLAY, true, false)
-                    .itemSlotOverlay(GTGuiTextures.DUST_OVERLAY, true, true)
-                    .itemSlotOverlay(GTGuiTextures.FURNACE_OVERLAY_1, false, false)
-                    .itemSlotOverlay(GTGuiTextures.FURNACE_OVERLAY_2, false, true)
-                    .progressBar(GTGuiTextures.PROGRESS_BAR_ARROW)
-            )
-            .sound(GTSoundEvents.FURNACE)
-            .build();
-
     public static final RecipeMap<SimpleRecipeBuilder> CATALYTIC_REFORMER_RECIPES = new RecipeMapBuilder<>("catalytic_reformer_recipes", new SimpleRecipeBuilder())
             .itemInputs(3)
             .itemOutputs(3)
@@ -427,10 +412,10 @@ public class GTQTcoreRecipeMaps {
             .build();
 
     public static final RecipeMap<SimpleRecipeBuilder> DIGESTER_RECIPES = new RecipeMapBuilder<>("digester_recipes", new SimpleRecipeBuilder())
-            .itemInputs(4)
-            .itemOutputs(4)
-            .fluidInputs(4)
-            .fluidOutputs(4)
+            .itemInputs(3)
+            .itemOutputs(3)
+            .fluidInputs(3)
+            .fluidOutputs(3)
             .sound(GTSoundEvents.CHEMICAL_REACTOR)
             .build();
 
@@ -582,18 +567,6 @@ public class GTQTcoreRecipeMaps {
             .sound(GTSoundEvents.CUT)
             .build();
 
-    public static final RecipeMap<NeutronActivatorIORecipeBuilder> PAC_RECIPES = new RecipeMapBuilder<>("pac_recipes", new NeutronActivatorIORecipeBuilder())
-            .itemInputs(3)
-            .itemOutputs(3)
-            .fluidInputs(3)
-            .fluidOutputs(3)
-            .uiBuilder(builder -> builder
-                    .progressBar(GTGuiTextures.PROGRESS_BAR_ARROW_MULTIPLE)
-            )
-            .sound(GTSoundEvents.ARC)
-            .allowEmptyOutputs()
-            .build();
-
     public static final RecipeMap<SimpleRecipeBuilder> PLASMA_FORGE = new RecipeMapBuilder<>("plasma_forge", new SimpleRecipeBuilder())
             .itemInputs(9)
             .itemOutputs(9)
@@ -692,18 +665,6 @@ public class GTQTcoreRecipeMaps {
             .uiBuilder(builder -> builder
                     .progressBar(GTGuiTextures.PROGRESS_BAR_ARROW_MULTIPLE)
             )
-            .build();
-
-    public static final RecipeMap<SimpleRecipeBuilder> FLUID_CANNER_RECIPES = new RecipeMapBuilder<>("fluid_canner_recipes", new SimpleRecipeBuilder())
-            .itemInputs(2)
-            .itemOutputs(2)
-            .fluidInputs(2)
-            .fluidOutputs(2)
-            .uiBuilder(builder -> builder
-                    .itemSlotOverlay(GTGuiTextures.CANNER_OVERLAY, false, false)
-                    .progressBar(GTGuiTextures.PROGRESS_BAR_COMPRESS)
-            )
-            .sound(GTSoundEvents.ASSEMBLER)
             .build();
 
     public static final RecipeMap<SimpleRecipeBuilder> BIO_CENTRIFUGE = new RecipeMapBuilder<>("bio_centrifuge", new SimpleRecipeBuilder())
@@ -883,34 +844,6 @@ public class GTQTcoreRecipeMaps {
             .sound(GTSoundEvents.CHEMICAL_REACTOR)
             .build();
 
-    public static final RecipeMap<SimpleRecipeBuilder> CW_LASER_ENGRAVER_RECIPES = new RecipeMapBuilder<>("cw_laser_engraver", new SimpleRecipeBuilder())
-            .itemInputs(2)
-            .itemOutputs(6)
-            .fluidInputs(1)
-            .fluidOutputs(0)
-            .uiBuilder(builder -> builder
-                    .progressBar(GTGuiTextures.PROGRESS_BAR_ARROW_MULTIPLE)
-                    .itemSlotOverlay(GTGuiTextures.CIRCUIT_OVERLAY, false, false)
-                    .itemSlotOverlay(GTGuiTextures.CIRCUIT_OVERLAY, false, true)
-            )
-            .sound(GTSoundEvents.ASSEMBLER)
-            .build();
-
-    public static final RecipeMap<BlastRecipeBuilder> CW_LASER_ALLOY_RECIPES = new RecipeMapBuilder<>("cw_laser_alloy", new BlastRecipeBuilder())
-            .itemInputs(9)
-            .itemOutputs(0)
-            .fluidInputs(3)
-            .fluidOutputs(1)
-            .uiBuilder(builder -> builder
-                    .itemSlotOverlay(GTGuiTextures.FURNACE_OVERLAY_1, false, false)
-                    .itemSlotOverlay(GTGuiTextures.FURNACE_OVERLAY_1, false, true)
-                    .itemSlotOverlay(GTGuiTextures.FURNACE_OVERLAY_2, true, false)
-                    .itemSlotOverlay(GTGuiTextures.FURNACE_OVERLAY_2, true, true)
-                    .progressBar(GTGuiTextures.PROGRESS_BAR_ARROW_MULTIPLE)
-            )
-            .sound(GTSoundEvents.FURNACE)
-            .build();
-
     public static final RecipeMap<BlastRecipeBuilder> ANTIMATTER_FORGE = new RecipeMapBuilder<>("antimatter_forge", new BlastRecipeBuilder())
             .itemInputs(9)
             .itemOutputs(3)
@@ -1071,6 +1004,16 @@ public class GTQTcoreRecipeMaps {
         EXTRACTOR_RECIPES.setMaxFluidOutputs(2);
         EXTRACTOR_RECIPES.setMaxInputs(2);
         EXTRACTOR_RECIPES.setMaxOutputs(2);
+        CHEMICAL_RECIPES.setMaxInputs(3);
+        ASSEMBLER_RECIPES.setMaxFluidInputs(3);
+
+        FLUID_HEATER_RECIPES.setMaxFluidInputs(3);
+        FLUID_HEATER_RECIPES.setMaxFluidOutputs(3);
+        FLUID_HEATER_RECIPES.setMaxInputs(3);
+        FLUID_HEATER_RECIPES.setMaxOutputs(3);
+
+        CENTRIFUGE_RECIPES.setMaxFluidInputs(3);
+        CENTRIFUGE_RECIPES.setMaxInputs(3);
     }
 
 }

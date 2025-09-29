@@ -6,7 +6,8 @@ import gregtech.api.unification.material.Material;
 import keqing.gtqtcore.common.block.GTQTMetaBlocks;
 import keqing.gtqtcore.common.block.blocks.BlockParticleAcceleratorCasing;
 
-import static gregtech.api.GTValues.*;
+import static gregtech.api.GTValues.EV;
+import static gregtech.api.GTValues.VA;
 import static gregtech.api.recipes.RecipeMaps.*;
 import static gregtech.api.unification.material.Materials.*;
 import static gregtech.api.unification.ore.OrePrefix.*;
@@ -14,10 +15,7 @@ import static gregtech.common.items.MetaItems.EMITTER_IV;
 import static gregtech.common.items.MetaItems.FLUID_CELL_LARGE_TUNGSTEN_STEEL;
 import static gregtech.common.metatileentities.MetaTileEntities.HULL;
 import static keqing.gtqtcore.api.recipes.GTQTcoreRecipeMaps.BEAM_COLLECTION;
-import static keqing.gtqtcore.api.recipes.GTQTcoreRecipeMaps.PAC_RECIPES;
-import static keqing.gtqtcore.api.unification.GTQTMaterials.Carbon16;
-import static keqing.gtqtcore.api.unification.GTQTMaterials.Radium226;
-import static keqing.gtqtcore.api.unification.GTQTMaterials.AuPdCCatalyst;
+import static keqing.gtqtcore.api.unification.GTQTMaterials.*;
 import static keqing.gtqtcore.common.items.GTQTMetaItems.*;
 import static supercritical.api.unification.material.SCMaterials.*;
 
@@ -37,14 +35,6 @@ public class NuclearLine {
         PA(Plutonium238,ALPHA, Uranium236, 4, 4);
         PA(Americium,ALPHA, Neptunium, 4, 5);
         PA(Curium246,ALPHA, Plutonium244, 4, 6);
-
-        PAC_RECIPES.recipeBuilder()
-                .notConsumable(EMITTER_IV)
-                .duration(1000)
-                .output(ELECTRON)
-                .part(5)
-                .EUt(VA[EV])
-                .buildAndRegister();
 
         BEAM_COLLECTION.recipeBuilder()
                 .notConsumable(EMITTER_IV)
@@ -101,14 +91,6 @@ public class NuclearLine {
     }
 
     private static void PAc(Material material1, MetaItem<?>.MetaValueItem particle, int kind, int tier) {
-        PAC_RECIPES.recipeBuilder()
-                .fluidInputs(material1.getFluid(1000))
-                .duration(1000)
-                .output(particle)
-                .part(kind)
-                .EUt(VA[EV+tier])
-                .buildAndRegister();
-
         BEAM_COLLECTION.recipeBuilder()
                 .fluidInputs(material1.getFluid(1000))
                 .duration(200)
@@ -120,15 +102,6 @@ public class NuclearLine {
 
 
     private static void PA(Material material1, MetaItem<?>.MetaValueItem particle, Material material2, int kind, int tier) {
-        PAC_RECIPES.recipeBuilder()
-                .input(dustTiny, material1)
-                .output(dustTiny, material2)
-                .duration(1000)
-                .output(particle)
-                .part(kind)
-                .EUt(VA[EV+tier])
-                .buildAndRegister();
-
         BEAM_COLLECTION.recipeBuilder()
                 .input(dustTiny, material1)
                 .output(dustTiny, material2)

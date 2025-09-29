@@ -5,13 +5,12 @@ import gregtech.api.unification.OreDictUnifier;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.fluids.FluidStack;
 
-
-import static gregtech.api.GTValues.*;
+import static gregtech.api.GTValues.LV;
+import static gregtech.api.GTValues.VA;
 import static gregtech.api.recipes.RecipeMaps.*;
 import static gregtech.api.unification.material.Materials.*;
 import static gregtech.api.unification.ore.OrePrefix.*;
 import static gregtechfoodoption.GTFOMaterialHandler.ChloroauricAcid;
-import static keqing.gtqtcore.api.recipes.GTQTcoreRecipeMaps.*;
 import static keqing.gtqtcore.api.unification.GTQTMaterials.*;
 
 public class PreciousMetalChain {
@@ -192,7 +191,7 @@ public class PreciousMetalChain {
                 .buildAndRegister();
 
         //  Leaching Copper Dryer recipe
-        DRYER_RECIPES.recipeBuilder()
+        CENTRIFUGE_RECIPES.recipeBuilder()
                 .input(dust, LeachingCopper, 4)
                 .output(dust, Copper, 3)
                 .output(dustSmall, Silver, 2)

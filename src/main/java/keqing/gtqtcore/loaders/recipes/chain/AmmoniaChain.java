@@ -2,18 +2,16 @@ package keqing.gtqtcore.loaders.recipes.chain;
 
 import keqing.gtqtcore.api.unification.GTQTMaterials;
 
-
 import static gregtech.api.GTValues.*;
 import static gregtech.api.recipes.RecipeMaps.*;
 import static gregtech.api.unification.material.Materials.*;
 import static gregtech.api.unification.ore.OrePrefix.dust;
-import static keqing.gtqtcore.api.recipes.GTQTcoreRecipeMaps.DRYER_RECIPES;
 
 public class AmmoniaChain {
 
     public static void init() {
         // Minimized Haber-Bosch Process
-        DRYER_RECIPES.recipeBuilder()
+        CENTRIFUGE_RECIPES.recipeBuilder()
                 .input(dust,SodiumBicarbonate,12)
                 .circuitMeta(1)
                 .output(dust,SodaAsh,6)

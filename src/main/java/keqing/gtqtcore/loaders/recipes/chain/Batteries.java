@@ -6,8 +6,8 @@ import static gregtech.api.unification.ore.OrePrefix.*;
 import static gregtech.common.items.MetaItems.CARBON_FIBER_PLATE;
 import static gregtech.common.items.MetaItems.NEUTRON_REFLECTOR;
 import static gregtechfoodoption.GTFOMaterialHandler.*;
-import static gregtechfoodoption.GTFOMaterialHandler.Acetaldehyde;
-import static keqing.gtqtcore.api.recipes.GTQTcoreRecipeMaps.*;
+import static keqing.gtqtcore.api.recipes.GTQTcoreRecipeMaps.BIOLOGICAL_REACTION_RECIPES;
+import static keqing.gtqtcore.api.recipes.GTQTcoreRecipeMaps.CHEMICAL_PLANT;
 import static keqing.gtqtcore.api.unification.GTQTMaterials.*;
 import static keqing.gtqtcore.common.items.GTQTMetaItems.*;
 
@@ -15,7 +15,7 @@ public class Batteries {
     public static void init() {
 
         // 4NiO + 3H2SO4 + 6KOH -> 3K2SO4 + 4NiO2H + 4H + 2H2O (H + H2O lost to dehydrator)
-        DRYER_RECIPES.recipeBuilder().duration(240).EUt(1300)
+        CENTRIFUGE_RECIPES.recipeBuilder().duration(240).EUt(1300)
                 .input(dust, Garnierite, 8)
                 .fluidInputs(SulfuricAcid.getFluid(3000))
                 .input(dust, PotassiumHydroxide, 6)
@@ -24,7 +24,7 @@ public class Batteries {
                 .buildAndRegister();
 
         // 2CoO + Li2CO3(H2O) -> 2 LiCoO2 + CO + H2O (H2O lost to dehydrator)
-        DRYER_RECIPES.recipeBuilder().duration(240).EUt(4000)
+        CENTRIFUGE_RECIPES.recipeBuilder().duration(240).EUt(4000)
                 .input(dust, CobaltOxide, 4)
                 .fluidInputs(LithiumCarbonateSolution.getFluid(1000))
                 .output(dust, LithiumCobaltOxide,6)
@@ -67,7 +67,7 @@ public class Batteries {
                 .buildAndRegister();
 
         // BaO6S2C2F6 + Li2CO3(H2O) -> BaCO3 + 2LiCSO3F3 + H2O (H2O lost to dehydrator)
-        DRYER_RECIPES.recipeBuilder().duration(220).EUt(480)
+        CENTRIFUGE_RECIPES.recipeBuilder().duration(220).EUt(480)
                 .input(dust,BariumTriflate,17)
                 .fluidInputs(LithiumCarbonateSolution.getFluid(1000))
                 .output(dust,BariumCarbonate,5)
@@ -102,7 +102,7 @@ public class Batteries {
                 .buildAndRegister();
 
         // C6H12O6 -> C6H8O6 + 4H (H lost to dehydrator)
-        DRYER_RECIPES.recipeBuilder().duration(280).EUt(480)
+        CENTRIFUGE_RECIPES.recipeBuilder().duration(280).EUt(480)
                 .input(dust,Sorbose,24)
                 .fluidOutputs(AscorbicAcid.getFluid(1000))
                 .notConsumable(dust, Platinum)

@@ -37,10 +37,8 @@ import static gregtech.api.unification.material.properties.PropertyKey.*;
 import static gregtech.api.unification.ore.OrePrefix.*;
 import static gregtech.loaders.recipe.handlers.ToolRecipeHandler.addToolRecipe;
 import static gregtech.loaders.recipe.handlers.ToolRecipeHandler.powerUnitItems;
-import static keqing.gtqtcore.api.recipes.GTQTcoreRecipeMaps.CW_LASER_ENGRAVER_RECIPES;
 import static keqing.gtqtcore.api.recipes.GTQTcoreRecipeMaps.PRECISION_SPINNING;
 import static keqing.gtqtcore.api.unification.GTQTMaterials.*;
-import static keqing.gtqtcore.api.unification.material.info.GTQTMaterialFlags.GENERATE_CURVED_PLATE;
 import static keqing.gtqtcore.api.unification.matreials.SoftToolAddition.softMaterialsGTQT;
 import static keqing.gtqtcore.api.unification.ore.GTQTOrePrefix.*;
 import static keqing.gtqtcore.common.items.metaitems.GTQTMetaToolItems.*;
@@ -56,12 +54,8 @@ public class GTQTRecipes {
         milled.addProcessingHandler(PropertyKey.ORE, GTQTRecipes::processMilled);
         plate_curved.addProcessingHandler(PropertyKey.INGOT, GTQTRecipes::processPlateCurved);
         plate_big.addProcessingHandler(PropertyKey.INGOT, GTQTRecipes::processPlateBig);
-        round_cover.addProcessingHandler(PropertyKey.INGOT, GTQTRecipes::processRoundCover);
-        shell.addProcessingHandler(PropertyKey.INGOT, GTQTRecipes::processShell);
         soldering_iron_head.addProcessingHandler(PropertyKey.INGOT, GTQTRecipes::processSolderingIron);
         OrePrefix.ring.addProcessingHandler(PropertyKey.DUST, GTQTRecipes::processRing);
-        OrePrefix.stick.addProcessingHandler(PropertyKey.DUST, GTQTRecipes::processStick);
-        OrePrefix.plate.addProcessingHandler(PropertyKey.DUST, GTQTRecipes::processPlate);
         OrePrefix.plate.addProcessingHandler(TOOL, GTQTRecipes::processTool);
         OrePrefix.spring.addProcessingHandler(PropertyKey.INGOT, GTQTRecipes::processSpring);
         OrePrefix.springSmall.addProcessingHandler(PropertyKey.INGOT, GTQTRecipes::processSpringSmall);
@@ -172,27 +166,6 @@ public class GTQTRecipes {
         }
     }
 
-    private static void processShell(OrePrefix orePrefix, Material material, IngotProperty ingotProperty) {
-        CW_LASER_ENGRAVER_RECIPES.recipeBuilder()
-                .input(plate_big, material, 1)
-                .fluidInputs(Water.getFluid(1000))
-                .outputs(OreDictUnifier.get(orePrefix, material, 4))
-                .duration(100)
-                .circuitMeta(1)
-                .EUt(GTValues.VA[HV])
-                .buildAndRegister();
-    }
-
-    private static void processRoundCover(OrePrefix orePrefix, Material material, IngotProperty ingotProperty) {
-        CW_LASER_ENGRAVER_RECIPES.recipeBuilder()
-                .input(plate_big, material, 1)
-                .fluidInputs(Water.getFluid(1000))
-                .outputs(OreDictUnifier.get(orePrefix, material, 1))
-                .duration(100)
-                .circuitMeta(2)
-                .EUt(GTValues.VA[HV])
-                .buildAndRegister();
-    }
 
     private static void processPlateBig(OrePrefix orePrefix, Material material, IngotProperty ingotProperty) {
         if (material.hasFlag(GENERATE_PLATE)) {
@@ -485,16 +458,6 @@ public class GTQTRecipes {
 
 
     private static void processRing(OrePrefix orePrefix, Material material, DustProperty dustProperty) {
-        if (material.hasFlag(GENERATE_CURVED_PLATE)) {
-            CW_LASER_ENGRAVER_RECIPES.recipeBuilder()
-                    .input(plate_big, material, 1)
-                    .fluidInputs(Water.getFluid(1000))
-                    .outputs(OreDictUnifier.get(orePrefix, material, 16))
-                    .duration(100)
-                    .circuitMeta(3)
-                    .EUt(GTValues.VA[HV])
-                    .buildAndRegister();
-        }
         if (material.hasFlag(MaterialFlags.GENERATE_ROD)) {
             if (!material.hasFlag(MaterialFlags.NO_SMASHING)) {
                 ModHandler.addShapedRecipe(String.format("bending_ring_%s", material),
@@ -503,32 +466,6 @@ public class GTQTRecipes {
                         'S', new UnificationEntry(OrePrefix.stick, material),
                         'B', GTQTMetaToolItems.SMALL_BENDING_CYLINDER);
             }
-        }
-    }
-
-    private static void processStick(OrePrefix orePrefix, Material material, DustProperty dustProperty) {
-        if (material.hasFlag(GENERATE_CURVED_PLATE)) {
-            CW_LASER_ENGRAVER_RECIPES.recipeBuilder()
-                    .input(plate_big, material, 1)
-                    .fluidInputs(Water.getFluid(1000))
-                    .outputs(OreDictUnifier.get(orePrefix, material, 8))
-                    .duration(100)
-                    .circuitMeta(4)
-                    .EUt(GTValues.VA[HV])
-                    .buildAndRegister();
-        }
-    }
-
-    public static void processPlate(OrePrefix platePrefix, Material material, DustProperty property) {
-        if (material.hasFlag(GENERATE_CURVED_PLATE)) {
-            CW_LASER_ENGRAVER_RECIPES.recipeBuilder()
-                    .input(plate_big, material, 1)
-                    .fluidInputs(Water.getFluid(1000))
-                    .outputs(OreDictUnifier.get(platePrefix, material, 4))
-                    .duration(100)
-                    .circuitMeta(5)
-                    .EUt(GTValues.VA[HV])
-                    .buildAndRegister();
         }
     }
 

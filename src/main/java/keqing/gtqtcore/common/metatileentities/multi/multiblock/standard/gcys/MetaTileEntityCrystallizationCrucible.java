@@ -109,12 +109,13 @@ public class MetaTileEntityCrystallizationCrucible extends GCYMAdvanceRecipeMapM
 
         this.temperature += 100 * Math.max(0, GTUtility.getTierByVoltage(getEnergyContainer().getInputVoltage()) - GTValues.MV);
 
-        if(this.thread != 0) return;
-        this.thread = this.getAbilities(MultiblockAbility.THREAD_HATCH).isEmpty() ? 1 : this.getAbilities(MultiblockAbility.THREAD_HATCH).get(0).getCurrentThread();
-        this.recipeMapWorkable = new ArrayList();
+        if(this.thread != 0) {
+            this.thread = this.getAbilities(MultiblockAbility.THREAD_HATCH).isEmpty() ? 1 : this.getAbilities(MultiblockAbility.THREAD_HATCH).get(0).getCurrentThread();
+            this.recipeMapWorkable = new ArrayList();
 
-        for (int i = 0; i < this.thread; ++i) {
-            this.recipeMapWorkable.add(new GCYMHeatCoilRecipeLogic(this));
+            for (int i = 0; i < this.thread; ++i) {
+                this.recipeMapWorkable.add(new GCYMHeatCoilRecipeLogic(this));
+            }
         }
     }
 

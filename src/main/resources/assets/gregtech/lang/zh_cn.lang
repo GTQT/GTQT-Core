@@ -710,7 +710,6 @@ metaitem.circuit.suprachronal.max.tooltip=§fMAX-等级电路/n
 
 # RecipeMaps
 # Machines
-recipemap.dryer_recipes.name=干燥
 recipemap.pressure_chamber_recipes.name=压力室
 recipemap.catalytic_reformer_recipes.name=催化重整
 recipemap.crystallization_recipes.name=结晶

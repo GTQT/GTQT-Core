@@ -7,6 +7,7 @@ import gregtech.api.metatileentity.multiblock.MultiblockAbility;
 import gregtech.api.pattern.BlockPattern;
 import gregtech.api.pattern.FactoryBlockPattern;
 import gregtech.api.pattern.TraceabilityPredicate;
+import gregtech.api.recipes.RecipeMaps;
 import gregtech.api.unification.material.Materials;
 import gregtech.client.renderer.ICubeRenderer;
 import gregtech.client.renderer.texture.Textures;
@@ -16,7 +17,6 @@ import gregtech.core.sound.GTSoundEvents;
 import keqing.gtqtcore.api.capability.impl.MultiblockLaserRecipeLogic;
 import keqing.gtqtcore.api.metatileentity.multiblock.GTQTMultiblockAbility;
 import keqing.gtqtcore.api.metatileentity.multiblock.RecipeMapLaserMultiblockController;
-import keqing.gtqtcore.api.recipes.GTQTcoreRecipeMaps;
 import keqing.gtqtcore.client.textures.GTQTTextures;
 import keqing.gtqtcore.common.block.GTQTMetaBlocks;
 import keqing.gtqtcore.common.block.blocks.BlockMultiblockCasing4;
@@ -32,7 +32,7 @@ import static keqing.gtqtcore.common.block.blocks.BlockMultiblockCasing4.Turbine
 public class MetaTileEntityLaserCutter extends RecipeMapLaserMultiblockController {
 
     public MetaTileEntityLaserCutter(ResourceLocation metaTileEntityId) {
-        super(metaTileEntityId, GTQTcoreRecipeMaps.CW_LASER_ENGRAVER_RECIPES);
+        super(metaTileEntityId, RecipeMaps.CUTTER_RECIPES);
         this.recipeMapWorkable = new MultiblockLaserRecipeLogic(this);
     }
 

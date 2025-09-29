@@ -12,7 +12,6 @@ import static gregtech.common.items.MetaItems.NEUTRONIUM_BOULE;
 import static gregtech.common.items.MetaItems.NEUTRONIUM_WAFER;
 import static gregtechfoodoption.GTFOMaterialHandler.RainbowSap;
 import static keqing.gtqtcore.api.recipes.GTQTcoreRecipeMaps.CVD_RECIPES;
-import static keqing.gtqtcore.api.recipes.GTQTcoreRecipeMaps.DRYER_RECIPES;
 import static keqing.gtqtcore.api.unification.GTQTMaterials.*;
 import static keqing.gtqtcore.common.items.GTQTMetaItems.*;
 
@@ -119,7 +118,7 @@ public class ChipHelper {
                 .buildAndRegister();
 
         //  Lu/Tm:YVO? + C2H6O -> Lu/Tm:YVO + (NH4)2CO3 + C3H6
-        DRYER_RECIPES.recipeBuilder()
+        CHEMICAL_RECIPES.recipeBuilder()
                 .input(dust, LuTmDopedYttriumVanadateDeposition)
                 .fluidInputs(Ethanol.getFluid(1000))
                 .output(dust, LuTmYVO)

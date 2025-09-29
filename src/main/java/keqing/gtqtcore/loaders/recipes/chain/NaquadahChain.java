@@ -9,7 +9,6 @@ import static gregtech.api.unification.material.Materials.*;
 import static gregtech.api.unification.ore.OrePrefix.dust;
 import static gregtech.api.unification.ore.OrePrefix.ingotHot;
 import static keqing.gtqtcore.api.recipes.GTQTcoreRecipeMaps.CHEMICAL_PLANT;
-import static keqing.gtqtcore.api.recipes.GTQTcoreRecipeMaps.DRYER_RECIPES;
 import static keqing.gtqtcore.api.unification.GTQTMaterials.*;
 
 
@@ -209,7 +208,7 @@ public class NaquadahChain {
                 .buildAndRegister();
 
         //  Enriched Naquadah Residue Solution -> Trinium Sulfide + Xenoauric Fluoroantimonic Acid
-        DRYER_RECIPES.recipeBuilder()
+        CENTRIFUGE_RECIPES.recipeBuilder()
                 .fluidInputs(EnrichedNaquadahResidueSolution.getFluid(2000))
                 .output(dust, TriniumSulfide)
                 .fluidOutputs(XenoauricFluoroantimonicAcid.getFluid(1000))
@@ -306,7 +305,7 @@ public class NaquadahChain {
                 .buildAndRegister();
 
         //  Naquadria Solution -> Sulfur + Naquadria Waste + Sulfur dust
-        DRYER_RECIPES.recipeBuilder()
+        FLUID_HEATER_RECIPES.recipeBuilder()
                 .fluidInputs(NaquadriaSolution.getFluid(3000))
                 .output(dust, Sulfur, 6)
                 .fluidOutputs(NaquadriaWaste.getFluid(1000))

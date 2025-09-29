@@ -8,7 +8,6 @@ import static gregtech.api.recipes.RecipeMaps.*;
 import static gregtech.api.unification.material.Materials.*;
 import static gregtech.api.unification.ore.OrePrefix.*;
 import static keqing.gtqtcore.api.recipes.GTQTcoreRecipeMaps.CVD_RECIPES;
-import static keqing.gtqtcore.api.recipes.GTQTcoreRecipeMaps.DRYER_RECIPES;
 import static supercritical.api.unification.material.SCMaterials.BoronTrioxide;
 
 public class BoronNitrideChain {
@@ -32,7 +31,7 @@ public class BoronNitrideChain {
                 .buildAndRegister();
 
         // 2H3BO3 -> B2O3 + 3H2O
-        DRYER_RECIPES.recipeBuilder()
+        CENTRIFUGE_RECIPES.recipeBuilder()
                 .input(dust, GTQTMaterials.BoricAcid, 8)
                 .output(dust, BoronTrioxide, 5)
                 .fluidOutputs(Water.getFluid(3000))
@@ -73,7 +72,7 @@ public class BoronNitrideChain {
                 .buildAndRegister();
 
         // LiBF4 -> BF3 + LiF
-        DRYER_RECIPES.recipeBuilder()
+        CENTRIFUGE_RECIPES.recipeBuilder()
                 .input(dust, GTQTMaterials.LithiumTetrafluoroborate, 6)
                 .output(ingot, GTQTMaterials.LithiumFluoride, 2)
                 .fluidOutputs(GTQTMaterials.BoronTrifluoride.getFluid(1000))

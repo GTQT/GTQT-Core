@@ -51,7 +51,7 @@ public class MetaTileEntityLaserEngraving extends GTQTOCMultiblockController {
         super(metaTileEntityId, new RecipeMap[]{
                 RecipeMaps.LASER_ENGRAVER_RECIPES,
                 GTQTcoreRecipeMaps.LASER_ENGRAVING,//普通装配
-                GTQTcoreRecipeMaps.CW_LASER_ENGRAVER_RECIPES
+                RecipeMaps.CUTTER_RECIPES
         });
         this.recipeMapWorkable = new LaserEngravingWorkableHandler(this);
 

@@ -1,8 +1,8 @@
 package keqing.gtqtcore.loaders.recipes.chain;
 
+import gregtech.api.recipes.RecipeMaps;
 import keqing.gtqtcore.api.unification.GTQTMaterials;
 
-import static keqing.gtqtcore.api.recipes.GTQTcoreRecipeMaps.DRYER_RECIPES;
 import static gregtech.api.GTValues.IV;
 import static gregtech.api.GTValues.VA;
 import static gregtech.api.recipes.RecipeMaps.CHEMICAL_RECIPES;
@@ -35,7 +35,7 @@ public class IsotopesChain {
 
         // ... except we don't have room in a tower so we use the dryer :(
         // this uses a lot of power to prevent energy exploits via fusion
-        DRYER_RECIPES.recipeBuilder()
+        RecipeMaps.CENTRIFUGE_RECIPES.recipeBuilder()
                 .fluidInputs(GTQTMaterials.LithiumAmalgam.getFluid(10000))
                 .output(dust, GTQTMaterials.Lithium6)
                 .output(dust, GTQTMaterials.Lithium7Hydroxide, 27)

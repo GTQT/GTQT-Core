@@ -1,7 +1,5 @@
 package keqing.gtqtcore.loaders.recipes.chain;
 
-import keqing.gtqtcore.api.recipes.GTQTcoreRecipeMaps;
-
 import static gregtech.api.GTValues.*;
 import static gregtech.api.recipes.RecipeMaps.*;
 import static gregtech.api.unification.material.Materials.*;
@@ -235,7 +233,7 @@ public class KevlarChain {
                 .buildAndRegister();
 
         // Hg + 2Br -> HgBr2
-        GTQTcoreRecipeMaps.DRYER_RECIPES.recipeBuilder()
+        CHEMICAL_RECIPES.recipeBuilder()
                 .circuitMeta(2)
                 .fluidInputs(Mercury.getFluid(1000))
                 .fluidInputs(Bromine.getFluid(2000))

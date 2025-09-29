@@ -20,7 +20,6 @@ import java.util.List;
 
 import static gregtech.api.GTValues.*;
 import static gregtech.api.recipes.RecipeMaps.VACUUM_RECIPES;
-import static gregtech.api.unification.material.Materials.Lubricant;
 import static keqing.gtqtcore.api.recipes.GTQTcoreRecipeMaps.*;
 
 public class CopyRecipesHandlers {
@@ -161,31 +160,6 @@ public class CopyRecipesHandlers {
                     .EUt(VA[ZPM])
                     .buildAndRegister();
         }
-        //
-        Collection<Recipe> cutterRecipes = RecipeMaps.CUTTER_RECIPES.getRecipeList();
-        for (Recipe recipe : cutterRecipes) {
-
-            List<GTRecipeInput> fluidInputs = recipe.getFluidInputs();
-            if (fluidInputs.get(0).getInputFluidStack().getFluid() != Lubricant.getFluid()) continue;
-
-            List<GTRecipeInput> itemInputs = recipe.getInputs();
-            List<ItemStack> itemOutputs = recipe.getOutputs();
-
-            long EUt = recipe.getEUt() * 4;
-            int baseDuration;
-
-            if (EUt <= V[IV]) baseDuration = recipe.getDuration() * 4;
-            else baseDuration = recipe.getDuration();
-
-            CW_LASER_ENGRAVER_RECIPES.recipeBuilder()
-                    .fluidInputs(fluidInputs)
-                    .inputIngredients(itemInputs)
-                    .outputs(itemOutputs)
-                    .duration(baseDuration)
-                    .EUt(EUt)
-                    .circuitMeta(6)
-                    .buildAndRegister();
-        }
         //燃料电池
         Collection<Recipe> oilsRecipes = RecipeMaps.COMBUSTION_GENERATOR_FUELS.getRecipeList();
         for (Recipe recipe : oilsRecipes) {
@@ -275,15 +249,33 @@ public class CopyRecipesHandlers {
 
     private static void processRecipes(Collection<Recipe> recipeList, int circuitMeta, RecipeMap<SimpleRecipeBuilder> MAP) {
         for (Recipe recipe : recipeList) {
-            MAP.recipeBuilder()
+            SimpleRecipeBuilder builder = MAP.recipeBuilder()
                     .duration(recipe.getDuration())
-                    .EUt(recipe.getEUt())
-                    .fluidInputs(recipe.getFluidInputs())
-                    .inputIngredients(recipe.getInputs())
-                    .outputs(recipe.getOutputs())
-                    .fluidOutputs(recipe.getFluidOutputs())
-                    .circuitMeta(circuitMeta)
+                    .EUt(recipe.getEUt());
+
+            // 只有当 fluidInputs 不为 null 且不为空时才添加
+            if (recipe.getFluidInputs() != null && !recipe.getFluidInputs().isEmpty()) {
+                builder.fluidInputs(recipe.getFluidInputs());
+            }
+
+            // 只有当 inputs 不为 null 且不为空时才添加
+            if (recipe.getInputs() != null && !recipe.getInputs().isEmpty()) {
+                builder.inputIngredients(recipe.getInputs());
+            }
+
+            // 只有当 outputs 不为 null 且不为空时才添加
+            if (recipe.getOutputs() != null && !recipe.getOutputs().isEmpty()) {
+                builder.outputs(recipe.getOutputs());
+            }
+
+            // 只有当 fluidOutputs 不为 null 且不为空时才添加
+            if (recipe.getFluidOutputs() != null && !recipe.getFluidOutputs().isEmpty()) {
+                builder.fluidOutputs(recipe.getFluidOutputs());
+            }
+
+            builder.circuitMeta(circuitMeta)
                     .buildAndRegister();
         }
     }
+
 }

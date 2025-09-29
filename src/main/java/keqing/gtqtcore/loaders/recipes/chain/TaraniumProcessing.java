@@ -429,7 +429,7 @@ public class TaraniumProcessing {
                 .buildAndRegister();
 
         //  2 Oxidized Residual Stone Slurry -> Oxidized Stone Residue + Heavy Oxidized Residue
-        DRYER_RECIPES.recipeBuilder()
+        CENTRIFUGE_RECIPES.recipeBuilder()
                 .fluidInputs(OxidizedResidualStoneSlurry.getFluid(2000))
                 .output(dust, OxidizedStoneResidue)
                 .output(dust, HeavyOxidizedStoneResidue)

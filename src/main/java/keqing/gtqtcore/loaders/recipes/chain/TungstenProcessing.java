@@ -10,7 +10,6 @@ import static gregtech.api.recipes.RecipeMaps.*;
 import static gregtech.api.unification.material.Materials.*;
 import static gregtech.api.unification.ore.OrePrefix.dust;
 import static gregtech.api.unification.ore.OrePrefix.ingotHot;
-import static keqing.gtqtcore.api.recipes.GTQTcoreRecipeMaps.DRYER_RECIPES;
 import static keqing.gtqtcore.api.recipes.GTQTcoreRecipeMaps.SFM;
 import static keqing.gtqtcore.api.unification.GTQTMaterials.*;
 
@@ -97,7 +96,7 @@ public class TungstenProcessing {
                 .fluidOutputs(AmmoniumTungstate.getFluid(7000))
                 .duration(400).EUt(480).buildAndRegister();
 
-        DRYER_RECIPES.recipeBuilder()
+        FLUID_HEATER_RECIPES.recipeBuilder()
                 .fluidInputs(ItungsticAcid.getFluid(1000))
                 .output(dust, TungstenTrioxide, 1)
                 .duration(400).EUt(480).buildAndRegister();

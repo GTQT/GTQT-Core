@@ -3,7 +3,6 @@ package keqing.gtqtcore.loaders.recipes.handlers;
 import gregtech.api.GregTechAPI;
 import gregtech.api.recipes.RecipeBuilder;
 import gregtech.api.unification.material.Material;
-import gregtech.api.unification.material.Materials;
 import gregtech.api.unification.material.properties.PropertyKey;
 import gregtech.api.unification.stack.MaterialStack;
 import keqing.gtqtcore.api.utils.GTQTUtil;
@@ -17,8 +16,6 @@ import static gregtech.api.unification.material.Materials.*;
 import static gregtech.api.unification.ore.OrePrefix.*;
 import static gregtech.common.items.MetaItems.*;
 import static keqing.gtqtcore.api.recipes.GTQTcoreRecipeMaps.*;
-import static keqing.gtqtcore.api.unification.GTQTMaterials.CarbonNanotube;
-import static keqing.gtqtcore.api.unification.GTQTMaterials.NdYAG;
 import static keqing.gtqtcore.api.unification.GTQTMaterials.*;
 import static keqing.gtqtcore.api.unification.ore.GTQTOrePrefix.singularity;
 import static keqing.gtqtcore.api.unification.ore.GTQTOrePrefix.swarm;
@@ -236,48 +233,6 @@ public class SwarmRecipeHandler {
         else builder2.output(dust, material, totalInputAmount);
         // register recipe
         builder2.buildAndRegister();
-        /////////////////////////////////////////////////////////////////////////////
-        if(material.getBlastTemperature()<1000)return;
-        if(!material.hasFluid())return;
-        if(!material.hasProperty(PropertyKey.INGOT))return;
-
-        RecipeBuilder<?> builder3;
-
-        int duration;
-        int gasTier;
-        int EUt;
-
-
-        gasTier=material.getBlastTemperature()/2000;
-        duration=material.getMaterialComponents().size()*400;
-        EUt=VA[material.getBlastTemperature()/1500];
-
-        builder3 = CW_LASER_ALLOY_RECIPES.recipeBuilder()
-                .blastFurnaceTemp(material.getBlastTemperature())
-                .duration(duration)
-                .notConsumable(stackForm)
-                .EUt(EUt);
-
-        switch (gasTier)
-        {
-            case 1 -> builder3.fluidInputs(Materials.Helium.getFluid(1000));
-            case 2 -> builder3.fluidInputs(Neon.getFluid(1000));
-            case 3 -> builder3.fluidInputs(Argon.getFluid(1000));
-            case 4 -> builder3.fluidInputs(Krypton.getFluid(1000));
-            default -> builder3.fluidInputs(Materials.Nitrogen.getFluid(1000));
-        }
-
-        int amount=0;
-
-        for (MaterialStack component : material.getMaterialComponents()) {
-            if(component.material.hasProperty(PropertyKey.DUST))builder3.input(dust, component.material, (int) component.amount);
-            else builder3.fluidInputs(component.material.getFluid((int)component.amount*1000));
-
-            amount+=(int)component.amount;
-        }
-
-        builder3 .fluidOutputs(material.getFluid(144*amount))
-                .buildAndRegister();
     }
 
     private static int getTIerByAmount(int totalInputAmount) {

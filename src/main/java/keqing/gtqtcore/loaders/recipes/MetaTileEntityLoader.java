@@ -1224,23 +1224,27 @@ public class MetaTileEntityLoader {
                 'E', ELECTRIC_PISTON_HV,
                 'C', new UnificationEntry(OrePrefix.circuit, HV));
 
-        ModHandler.addShapedRecipe(true, "fuel_cell.ev", GTQTMetaTileEntities.FUEL_CELL_TURBINE[3].getStackForm(),
-                "PCP", "AMB", "ECE",
-                'M', HULL[GTValues.EV].getStackForm(),
-                'A', COMBUSTION_GENERATOR[3].getStackForm(),
-                'B', GAS_TURBINE[3].getStackForm(),
-                'P', ELECTRIC_MOTOR_EV,
-                'E', ELECTRIC_PISTON_EV,
-                'C', new UnificationEntry(OrePrefix.circuit, MarkerMaterials.Tier.EV));
+        ///////////////////////////////////
+        ModHandler.addShapedRecipe(true, "semi_fluid_generator_lv", SEMI_FLUID_GENERATOR[0].getStackForm(),
+                "PCP", "EME", "GWG", 'M', MetaTileEntities.HULL[GTValues.LV].getStackForm(), 'P',
+                MetaItems.ELECTRIC_PISTON_LV, 'E', MetaItems.ELECTRIC_PUMP_LV, 'C',
+                new UnificationEntry(OrePrefix.circuit, MarkerMaterials.Tier.LV), 'W',
+                new UnificationEntry(OrePrefix.cableGtSingle, Materials.Tin), 'G',
+                new UnificationEntry(OrePrefix.gear, Materials.Steel));
 
-        ModHandler.addShapedRecipe(true, "fuel_cell.iv", GTQTMetaTileEntities.FUEL_CELL_TURBINE[4].getStackForm(),
-                "PCP", "AMB", "ECE",
-                'M', HULL[GTValues.IV].getStackForm(),
-                'A', COMBUSTION_GENERATOR[4].getStackForm(),
-                'B', GAS_TURBINE[4].getStackForm(),
-                'P', ELECTRIC_MOTOR_IV,
-                'E', ELECTRIC_PISTON_IV,
-                'C', new UnificationEntry(OrePrefix.circuit, MarkerMaterials.Tier.IV));
+        ModHandler.addShapedRecipe(true, "semi_fluid_generator_mv", SEMI_FLUID_GENERATOR[1].getStackForm(),
+                "PCP", "EME", "GWG", 'M', MetaTileEntities.HULL[GTValues.MV].getStackForm(), 'P',
+                MetaItems.ELECTRIC_PISTON_MV, 'E', MetaItems.ELECTRIC_PUMP_MV, 'C',
+                new UnificationEntry(OrePrefix.circuit, MarkerMaterials.Tier.MV), 'W',
+                new UnificationEntry(OrePrefix.cableGtSingle, Materials.Copper), 'G',
+                new UnificationEntry(OrePrefix.gear, Materials.Aluminium));
+
+        ModHandler.addShapedRecipe(true, "semi_fluid_generator_hv", SEMI_FLUID_GENERATOR[2].getStackForm(),
+                "PCP", "EME", "GWG", 'M', MetaTileEntities.HULL[GTValues.HV].getStackForm(), 'P',
+                MetaItems.ELECTRIC_PISTON_HV, 'E', MetaItems.ELECTRIC_PUMP_HV, 'C',
+                new UnificationEntry(OrePrefix.circuit, MarkerMaterials.Tier.HV), 'W',
+                new UnificationEntry(OrePrefix.cableGtSingle, Materials.Gold), 'G',
+                new UnificationEntry(OrePrefix.gear, Materials.StainlessSteel));
 
 
         ModHandler.addShapedRecipe(true, "rtg.hv", SCMetaTileEntities.RTG[0].getStackForm(),

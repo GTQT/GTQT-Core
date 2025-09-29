@@ -85,6 +85,7 @@ public class GTQTMetaTileEntities {
     public static final SimpleGeneratorMetaTileEntity[] BIOMASS_GENERATOR = new SimpleGeneratorMetaTileEntity[3];
     public static final SimpleGeneratorMetaTileEntity[] ACID_GENERATOR = new SimpleGeneratorMetaTileEntity[3];
     public static final SimpleGeneratorMetaTileEntity[] PLASMA_GENERATOR = new SimpleGeneratorMetaTileEntity[5];
+    public static final SimpleGeneratorMetaTileEntity[] SEMI_FLUID_GENERATOR = new SimpleGeneratorMetaTileEntity[5];
     public static final MetaTileEntityReinforcedRotorHolder[] REINFORCED_ROTOR_HOLDER = new MetaTileEntityReinforcedRotorHolder[14];
     public static final MetaTileEntityCompressedFusionReactor[] COMPRESSED_FUSION_REACTOR = new MetaTileEntityCompressedFusionReactor[6];
     public static MetaTileEntityWrapSwarmHatch SWARM_HATCH ;
@@ -358,11 +359,11 @@ public class GTQTMetaTileEntities {
         ROCKET_ENGINE[1] = registerMetaTileEntity(7, new SimpleGeneratorMetaTileEntity(gtqtcoreId("rocket_engine.ev"), GTQTcoreRecipeMaps.ROCKET_RECIPES, GTQTTextures.ROCKET_ENGINE_OVERLAY, 4, genericGeneratorTankSizeFunctionPlus));
         ROCKET_ENGINE[2] = registerMetaTileEntity(8, new SimpleGeneratorMetaTileEntity(gtqtcoreId("rocket_engine.iv"), GTQTcoreRecipeMaps.ROCKET_RECIPES, GTQTTextures.ROCKET_ENGINE_OVERLAY, 5, genericGeneratorTankSizeFunctionPlus));
         //小促燃
-        FUEL_CELL_TURBINE[0] = registerMetaTileEntity(15, new SimpleGeneratorMetaTileEntity(gtqtcoreId("fuel_cell_turbine.lv"), GTQTcoreRecipeMaps.FUEL_CELL, Textures.COMBUSTION_GENERATOR_OVERLAY, 1, genericGeneratorTankSizeFunctionPlus));
-        FUEL_CELL_TURBINE[1] = registerMetaTileEntity(16, new SimpleGeneratorMetaTileEntity(gtqtcoreId("fuel_cell_turbine.mv"), GTQTcoreRecipeMaps.FUEL_CELL, Textures.COMBUSTION_GENERATOR_OVERLAY, 2, genericGeneratorTankSizeFunctionPlus));
-        FUEL_CELL_TURBINE[2] = registerMetaTileEntity(17, new SimpleGeneratorMetaTileEntity(gtqtcoreId("fuel_cell_turbine.hv"), GTQTcoreRecipeMaps.FUEL_CELL, Textures.COMBUSTION_GENERATOR_OVERLAY, 3, genericGeneratorTankSizeFunctionPlus));
-        FUEL_CELL_TURBINE[3] = registerMetaTileEntity(18, new SimpleGeneratorMetaTileEntity(gtqtcoreId("fuel_cell_turbine.ev"), GTQTcoreRecipeMaps.FUEL_CELL, Textures.COMBUSTION_GENERATOR_OVERLAY, 4, genericGeneratorTankSizeFunctionPlus));
-        FUEL_CELL_TURBINE[4] = registerMetaTileEntity(19, new SimpleGeneratorMetaTileEntity(gtqtcoreId("fuel_cell_turbine.iv"), GTQTcoreRecipeMaps.FUEL_CELL, Textures.COMBUSTION_GENERATOR_OVERLAY, 5, genericGeneratorTankSizeFunctionPlus));
+        FUEL_CELL_TURBINE[0] = registerMetaTileEntity(15, new SimpleGeneratorMetaTileEntity(gtqtcoreId("fuel_cell_turbine.lv"), GTQTcoreRecipeMaps.FUEL_CELL, Textures.GAS_TURBINE_OVERLAY, 1, genericGeneratorTankSizeFunctionPlus));
+        FUEL_CELL_TURBINE[1] = registerMetaTileEntity(16, new SimpleGeneratorMetaTileEntity(gtqtcoreId("fuel_cell_turbine.mv"), GTQTcoreRecipeMaps.FUEL_CELL, Textures.GAS_TURBINE_OVERLAY, 2, genericGeneratorTankSizeFunctionPlus));
+        FUEL_CELL_TURBINE[2] = registerMetaTileEntity(17, new SimpleGeneratorMetaTileEntity(gtqtcoreId("fuel_cell_turbine.hv"), GTQTcoreRecipeMaps.FUEL_CELL, Textures.GAS_TURBINE_OVERLAY, 3, genericGeneratorTankSizeFunctionPlus));
+        FUEL_CELL_TURBINE[3] = registerMetaTileEntity(18, new SimpleGeneratorMetaTileEntity(gtqtcoreId("fuel_cell_turbine.ev"), GTQTcoreRecipeMaps.FUEL_CELL, Textures.GAS_TURBINE_OVERLAY, 4, genericGeneratorTankSizeFunctionPlus));
+        FUEL_CELL_TURBINE[4] = registerMetaTileEntity(19, new SimpleGeneratorMetaTileEntity(gtqtcoreId("fuel_cell_turbine.iv"), GTQTcoreRecipeMaps.FUEL_CELL, Textures.GAS_TURBINE_OVERLAY, 5, genericGeneratorTankSizeFunctionPlus));
         //生物质
         BIOMASS_GENERATOR[0] = registerMetaTileEntity(20, new SimpleGeneratorMetaTileEntity(gtqtcoreId("biomass_generator.ev"), GTQTcoreRecipeMaps.BIOMASS_GENERATOR_RECIPES, GTQTTextures.BIOMASS_GENERATOR_OVERLAY, 4, GTUtility.genericGeneratorTankSizeFunction));
         BIOMASS_GENERATOR[1] = registerMetaTileEntity(21, new SimpleGeneratorMetaTileEntity(gtqtcoreId("biomass_generator.iv"), GTQTcoreRecipeMaps.BIOMASS_GENERATOR_RECIPES, GTQTTextures.BIOMASS_GENERATOR_OVERLAY, 5, GTUtility.genericGeneratorTankSizeFunction));
@@ -377,6 +378,12 @@ public class GTQTMetaTileEntities {
         PLASMA_GENERATOR[2] = registerMetaTileEntity(28, new SimpleGeneratorMetaTileEntity(gtqtcoreId("plasma_generator.luv"), RecipeMaps.PLASMA_GENERATOR_FUELS, Textures.FUSION_REACTOR_OVERLAY, 6, GTUtility.genericGeneratorTankSizeFunction));
         PLASMA_GENERATOR[3] = registerMetaTileEntity(29, new SimpleGeneratorMetaTileEntity(gtqtcoreId("plasma_generator.zpm"), RecipeMaps.PLASMA_GENERATOR_FUELS, Textures.FUSION_REACTOR_OVERLAY, 7, GTUtility.genericGeneratorTankSizeFunction));
         PLASMA_GENERATOR[4] = registerMetaTileEntity(30, new SimpleGeneratorMetaTileEntity(gtqtcoreId("plasma_generator.uv"), RecipeMaps.PLASMA_GENERATOR_FUELS, Textures.FUSION_REACTOR_OVERLAY, 8, GTUtility.genericGeneratorTankSizeFunction));
+        //单方块半流质 LV-IV
+        SEMI_FLUID_GENERATOR[0] = registerMetaTileEntity(31, new SimpleGeneratorMetaTileEntity(gtqtcoreId("semi_fluid_generator.lv"), RecipeMaps.SEMI_FLUID_GENERATOR_FUELS, Textures.COMBUSTION_GENERATOR_OVERLAY, 1, GTUtility.genericGeneratorTankSizeFunction));
+        SEMI_FLUID_GENERATOR[1] = registerMetaTileEntity(32, new SimpleGeneratorMetaTileEntity(gtqtcoreId("semi_fluid_generator.mv"), RecipeMaps.SEMI_FLUID_GENERATOR_FUELS, Textures.COMBUSTION_GENERATOR_OVERLAY, 2, GTUtility.genericGeneratorTankSizeFunction));
+        SEMI_FLUID_GENERATOR[2] = registerMetaTileEntity(33, new SimpleGeneratorMetaTileEntity(gtqtcoreId("semi_fluid_generator.hv"), RecipeMaps.SEMI_FLUID_GENERATOR_FUELS, Textures.COMBUSTION_GENERATOR_OVERLAY, 3, GTUtility.genericGeneratorTankSizeFunction));
+        SEMI_FLUID_GENERATOR[3] = registerMetaTileEntity(34, new SimpleGeneratorMetaTileEntity(gtqtcoreId("semi_fluid_generator.ev"), RecipeMaps.SEMI_FLUID_GENERATOR_FUELS, Textures.COMBUSTION_GENERATOR_OVERLAY, 4, GTUtility.genericGeneratorTankSizeFunction));
+        SEMI_FLUID_GENERATOR[4] = registerMetaTileEntity(35, new SimpleGeneratorMetaTileEntity(gtqtcoreId("semi_fluid_generator.iv"), RecipeMaps.SEMI_FLUID_GENERATOR_FUELS, Textures.COMBUSTION_GENERATOR_OVERLAY, 5, GTUtility.genericGeneratorTankSizeFunction));
 
         //发电设备 多方块
         //高能反应堆

@@ -1,16 +1,16 @@
 package keqing.gtqtcore.loaders.recipes.chain;
 
+import gregtech.api.recipes.RecipeMaps;
 import keqing.gtqtcore.api.unification.GTQTMaterials;
 
-import static keqing.gtqtcore.api.GCYSValues.increaseDetailP;
-import static keqing.gtqtcore.api.recipes.GTQTcoreRecipeMaps.CVD_RECIPES;
-import static keqing.gtqtcore.api.recipes.GTQTcoreRecipeMaps.DRYER_RECIPES;
 import static gregtech.api.GTValues.*;
 import static gregtech.api.recipes.RecipeMaps.CHEMICAL_BATH_RECIPES;
 import static gregtech.api.recipes.RecipeMaps.CHEMICAL_RECIPES;
 import static gregtech.api.unification.material.Materials.*;
 import static gregtech.api.unification.ore.OrePrefix.dust;
 import static gregtech.api.unification.ore.OrePrefix.plate;
+import static keqing.gtqtcore.api.GCYSValues.increaseDetailP;
+import static keqing.gtqtcore.api.recipes.GTQTcoreRecipeMaps.CVD_RECIPES;
 
 public class GalliumNitrideChain {
 
@@ -48,7 +48,7 @@ public class GalliumNitrideChain {
                 .duration(60).EUt(VA[LV]).buildAndRegister();
 
         // 2Al(OH)3 -> Al2O3 + 3H2O
-        DRYER_RECIPES.recipeBuilder()
+        RecipeMaps.CENTRIFUGE_RECIPES.recipeBuilder()
                 .input(dust, GTQTMaterials.AluminiumHydroxide, 14)
                 .output(dust, GTQTMaterials.Alumina, 5)
                 .fluidOutputs(Water.getFluid(3000))

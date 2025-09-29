@@ -1964,6 +1964,78 @@ public class TechReSearchNET {
                         .duration(1200)
                         .EUt(VA[IV]))
                 .duration(100).buildAndRegister();
+
+        //
+        ASSEMBLY_LINE_RECIPES.recipeBuilder()
+                .EUt(VA[EV])
+                .input(COMBUSTION_GENERATOR[3])
+                .input(GAS_TURBINE[3])
+                .input(ELECTRIC_PISTON_EV, 4)
+                .input(ELECTRIC_MOTOR_EV, 4)
+                .input(circuit, Tier.EV, 2)
+                .fluidInputs(Polytetrafluoroethylene.getFluid(GTValues.L * 8))
+                .fluidInputs(SolderingAlloy.getFluid(L * 5))
+                .fluidInputs(Lubricant.getFluid(1000))
+                .outputs(FUEL_CELL_TURBINE[3].getStackForm())
+                .scannerResearch(b -> b
+                        .researchStack(DISK_1.getStackForm())
+                        .duration(1200)
+                        .EUt(VA[EV]))
+                .duration(100).buildAndRegister();
+
+        ASSEMBLY_LINE_RECIPES.recipeBuilder()
+                .EUt(VA[IV])
+                .input(COMBUSTION_GENERATOR[4])
+                .input(GAS_TURBINE[4])
+                .input(ELECTRIC_PISTON_IV, 4)
+                .input(ELECTRIC_MOTOR_IV, 4)
+                .input(circuit, Tier.IV, 2)
+                .fluidInputs(Polybenzimidazole.getFluid(GTValues.L * 8))
+                .fluidInputs(SolderingAlloy.getFluid(L * 5))
+                .fluidInputs(Lubricant.getFluid(1000))
+                .outputs(FUEL_CELL_TURBINE[4].getStackForm())
+                .scannerResearch(b -> b
+                        .researchStack(DISK_1.getStackForm())
+                        .duration(1200)
+                        .EUt(VA[IV]))
+                .duration(100).buildAndRegister();
+
+        //
+        ASSEMBLY_LINE_RECIPES.recipeBuilder()
+                .EUt(VA[EV])
+                .input(ELECTRIC_PISTON_EV, 4)
+                .input(ELECTRIC_PUMP_EV, 4)
+                .input(circuit, Tier.EV, 2)
+                .input(HULL[EV])
+                .input(cableGtSingle, Aluminium, 2)
+                .input(rotor, Titanium, 2)
+                .fluidInputs(Polytetrafluoroethylene.getFluid(GTValues.L * 8))
+                .fluidInputs(SolderingAlloy.getFluid(L * 5))
+                .fluidInputs(Lubricant.getFluid(1000))
+                .outputs(SEMI_FLUID_GENERATOR[3].getStackForm())
+                .scannerResearch(b -> b
+                        .researchStack(DISK_1.getStackForm())
+                        .duration(1200)
+                        .EUt(VA[EV]))
+                .duration(100).buildAndRegister();
+
+        ASSEMBLY_LINE_RECIPES.recipeBuilder()
+                .EUt(VA[IV])
+                .input(ELECTRIC_PISTON_IV, 4)
+                .input(ELECTRIC_PUMP_IV, 4)
+                .input(circuit, Tier.IV, 2)
+                .input(HULL[IV])
+                .input(cableGtSingle, Platinum, 2)
+                .input(rotor, TungstenSteel, 2)
+                .fluidInputs(Polybenzimidazole.getFluid(GTValues.L * 8))
+                .fluidInputs(SolderingAlloy.getFluid(L * 5))
+                .fluidInputs(Lubricant.getFluid(1000))
+                .outputs(SEMI_FLUID_GENERATOR[4].getStackForm())
+                .scannerResearch(b -> b
+                        .researchStack(DISK_1.getStackForm())
+                        .duration(1200)
+                        .EUt(VA[IV]))
+                .duration(100).buildAndRegister();
         //
         ASSEMBLY_LINE_RECIPES.recipeBuilder()
                 .EUt(VA[EV])

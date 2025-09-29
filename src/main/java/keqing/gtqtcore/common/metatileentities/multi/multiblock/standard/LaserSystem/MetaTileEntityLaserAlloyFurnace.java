@@ -1,5 +1,6 @@
 package keqing.gtqtcore.common.metatileentities.multi.multiblock.standard.LaserSystem;
 
+import gregicality.multiblocks.api.recipes.GCYMRecipeMaps;
 import gregicality.multiblocks.common.block.GCYMMetaBlocks;
 import gregicality.multiblocks.common.block.blocks.BlockUniqueCasing;
 import gregtech.api.GTValues;
@@ -29,7 +30,6 @@ import gregtech.core.sound.GTSoundEvents;
 import keqing.gtqtcore.api.capability.impl.MultiblockLaserRecipeLogic;
 import keqing.gtqtcore.api.metatileentity.multiblock.GTQTMultiblockAbility;
 import keqing.gtqtcore.api.metatileentity.multiblock.RecipeMapLaserMultiblockController;
-import keqing.gtqtcore.api.recipes.GTQTcoreRecipeMaps;
 import keqing.gtqtcore.api.unification.GTQTMaterials;
 import keqing.gtqtcore.client.textures.GTQTTextures;
 import keqing.gtqtcore.common.block.GTQTMetaBlocks;
@@ -65,7 +65,7 @@ public class MetaTileEntityLaserAlloyFurnace extends RecipeMapLaserMultiblockCon
     private int simBlastFurnaceTemperature;
 
     public MetaTileEntityLaserAlloyFurnace(ResourceLocation metaTileEntityId) {
-        super(metaTileEntityId, GTQTcoreRecipeMaps.CW_LASER_ALLOY_RECIPES);
+        super(metaTileEntityId, GCYMRecipeMaps.ALLOY_BLAST_RECIPES);
         this.recipeMapWorkable = new MultiblockLaserRecipeLogic(this);
     }
 

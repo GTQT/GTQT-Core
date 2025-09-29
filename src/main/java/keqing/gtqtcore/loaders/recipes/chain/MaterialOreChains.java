@@ -10,7 +10,6 @@ import static gregtech.api.GTValues.*;
 import static gregtech.api.recipes.RecipeMaps.*;
 import static gregtech.api.unification.material.Materials.*;
 import static gregtech.api.unification.ore.OrePrefix.*;
-import static keqing.gtqtcore.api.recipes.GTQTcoreRecipeMaps.DRYER_RECIPES;
 import static keqing.gtqtcore.api.recipes.GTQTcoreRecipeMaps.PRIMITIVE_ROASTING_RECIPES;
 import static keqing.gtqtcore.api.unification.GTQTMaterials.*;
 
@@ -204,7 +203,7 @@ public class MaterialOreChains {
                 .blastFurnaceTemp(2100)
                 .buildAndRegister();
 
-        DRYER_RECIPES.recipeBuilder()
+        CENTRIFUGE_RECIPES.recipeBuilder()
                 .duration(160)
                 .EUt(VA[HV])
                 .input(dust, Molybdenite,3)
@@ -288,7 +287,7 @@ public class MaterialOreChains {
                 .fluidOutputs(IndiumConcentrate.getFluid(1000))
                 .buildAndRegister();
 
-        DRYER_RECIPES.recipeBuilder()
+        CENTRIFUGE_RECIPES.recipeBuilder()
                 .duration(120)
                 .EUt(VA[HV])
                 .fluidInputs(IndiumConcentrate.getFluid(1000))

@@ -1,17 +1,18 @@
 package keqing.gtqtcore.loaders.recipes.chain;
 
 
-import static keqing.gtqtcore.api.recipes.GTQTcoreRecipeMaps.*;
-import static gregtech.api.GTValues.*;
-import static gregtech.api.recipes.RecipeMaps.*;
-import static gregtech.api.unification.material.Materials.*;
-import static gregtech.api.unification.ore.OrePrefix.*;
-import static keqing.gtqtcore.api.unification.GTQTMaterials.DimethylCarbonate;
-
 import gregtech.api.recipes.GTRecipeHandler;
 import keqing.gtqtcore.api.unification.GTQTMaterials;
 
-import static gregtech.common.items.MetaItems.*;
+import static gregtech.api.GTValues.*;
+import static gregtech.api.recipes.RecipeMaps.*;
+import static gregtech.api.unification.material.Materials.*;
+import static gregtech.api.unification.ore.OrePrefix.dust;
+import static gregtech.api.unification.ore.OrePrefix.plate;
+import static gregtech.common.items.MetaItems.FERTILIZER;
+import static gregtech.common.items.MetaItems.STICKY_RESIN;
+import static keqing.gtqtcore.api.recipes.GTQTcoreRecipeMaps.CVD_RECIPES;
+import static keqing.gtqtcore.api.unification.GTQTMaterials.DimethylCarbonate;
 
 
 public class PetrochemRecipes {
@@ -195,7 +196,7 @@ public class PetrochemRecipes {
                 .fluidOutputs(GTQTMaterials.OnePropanol.getFluid(1000))
                 .buildAndRegister();
 
-        DRYER_RECIPES.recipeBuilder()
+        FLUID_HEATER_RECIPES.recipeBuilder()
                 .duration(120)
                 .EUt(VA[HV])
                 .notConsumable(dust, GTQTMaterials.ZSM_5_ZEOLITE)

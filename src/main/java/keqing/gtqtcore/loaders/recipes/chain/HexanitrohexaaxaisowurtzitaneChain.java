@@ -11,7 +11,6 @@ import static gregtech.api.unification.ore.OrePrefix.dust;
 import static gregtechfoodoption.GTFOMaterialHandler.AceticAnhydride;
 import static gregtechfoodoption.GTFOMaterialHandler.Glyoxal;
 import static keqing.gtqtcore.api.recipes.GTQTcoreRecipeMaps.CHEMICAL_PLANT;
-import static keqing.gtqtcore.api.recipes.GTQTcoreRecipeMaps.DRYER_RECIPES;
 import static keqing.gtqtcore.api.unification.GTQTMaterials.*;
 
 public class HexanitrohexaaxaisowurtzitaneChain {
@@ -39,7 +38,7 @@ public class HexanitrohexaaxaisowurtzitaneChain {
                 .buildAndRegister();
 
         //  Acetamide
-        DRYER_RECIPES.recipeBuilder()
+        FURNACE_RECIPES.recipeBuilder()
                 .input(dust, AmmoniumAcetate, 12)
                 .output(dust, Acetamide, 9)
                 .EUt(VA[HV])
@@ -47,7 +46,7 @@ public class HexanitrohexaaxaisowurtzitaneChain {
                 .buildAndRegister();
 
         //  Acetonitrile
-        DRYER_RECIPES.recipeBuilder()
+        FURNACE_RECIPES.recipeBuilder()
                 .input(dust, Acetamide, 9)
                 .output(dust, Acetonitrile, 6)
                 .EUt(VA[HV])
@@ -336,7 +335,7 @@ public class HexanitrohexaaxaisowurtzitaneChain {
                 .buildAndRegister();
 
         //  Silica Gel Base -> Silica Gel + Salt
-        DRYER_RECIPES.recipeBuilder()
+        CENTRIFUGE_RECIPES.recipeBuilder()
                 .fluidInputs(SilicaGelBase.getFluid(1000))
                 .output(dust, SilicaGel, 3)
                 .output(dust, Salt, 2)

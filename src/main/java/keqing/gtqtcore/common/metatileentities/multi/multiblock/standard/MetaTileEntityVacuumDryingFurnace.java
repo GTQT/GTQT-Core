@@ -55,7 +55,6 @@ public class MetaTileEntityVacuumDryingFurnace extends GTQTNoTierMultiblockContr
 
     public MetaTileEntityVacuumDryingFurnace(ResourceLocation metaTileEntityId) {
         super(metaTileEntityId, new RecipeMap[]{
-                GTQTcoreRecipeMaps.DRYER_RECIPES,
                 GTQTcoreRecipeMaps.VACUUM_DRYING_FURNACE_RECIPES
         });
         //setMaxParallel(auto);

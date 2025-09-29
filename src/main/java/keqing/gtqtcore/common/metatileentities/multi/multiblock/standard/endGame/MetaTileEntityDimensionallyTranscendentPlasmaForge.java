@@ -69,7 +69,6 @@ public class MetaTileEntityDimensionallyTranscendentPlasmaForge extends MultiMap
                 RecipeMaps.BLAST_RECIPES,
                 RecipeMaps.ALLOY_SMELTER_RECIPES,
                 GTQTcoreRecipeMaps.EXTRADIMENSIONAL_SMELTING_RECIPES,
-                GTQTcoreRecipeMaps.DRYER_RECIPES,
                 GTQTcoreRecipeMaps.VACUUM_DRYING_FURNACE_RECIPES,
                 GCYMRecipeMaps.ALLOY_BLAST_RECIPES
         });

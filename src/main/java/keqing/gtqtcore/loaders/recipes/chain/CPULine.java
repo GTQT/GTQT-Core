@@ -111,7 +111,7 @@ public class CPULine {
                 .EUt(120)
                 .buildAndRegister();
 
-        FLUID_CANNER_RECIPES.recipeBuilder()
+        CANNER_RECIPES.recipeBuilder()
                 .input(UV_LIGHT_EMPTY_MKI)
                 .fluidInputs(Nitrogen.getFluid(1000))
                 .output(UV_LIGHT_MKI)
@@ -119,7 +119,7 @@ public class CPULine {
                 .EUt(120)
                 .buildAndRegister();
 
-        FLUID_CANNER_RECIPES.recipeBuilder()
+        CANNER_RECIPES.recipeBuilder()
                 .input(UV_LIGHT_EMPTY_MKI)
                 .fluidInputs(Helium.getFluid(1000))
                 .output(UV_LIGHT_MKII)
@@ -137,7 +137,7 @@ public class CPULine {
                 .EUt(VA[EV])
                 .buildAndRegister();
 
-        FLUID_CANNER_RECIPES.recipeBuilder()
+        CANNER_RECIPES.recipeBuilder()
                 .input(UV_LIGHT_EMPTY_MKII)
                 .fluidInputs(Neon.getFluid(1000))
                 .output(UV_LIGHT_MKIII)
@@ -155,7 +155,7 @@ public class CPULine {
                 .EUt(VA[EV])
                 .buildAndRegister();
 
-        FLUID_CANNER_RECIPES.recipeBuilder()
+        CANNER_RECIPES.recipeBuilder()
                 .input(UV_LIGHT_EMPTY_MKIII)
                 .fluidInputs(Argon.getFluid(1000))
                 .output(UV_LIGHT_MKIV)
@@ -807,7 +807,7 @@ public class CPULine {
                 .output(LAMINATION_WD, 4)
                 .buildAndRegister();
 
-        CHEMICAL_RECIPES.recipeBuilder()
+        ASSEMBLER_RECIPES.recipeBuilder()
                 .duration(100)
                 .EUt(30)
                 .input(LAMINATION_WD)
@@ -846,7 +846,7 @@ public class CPULine {
                 .output(LAMINATION_FG, 4)
                 .buildAndRegister();
 
-        CHEMICAL_RECIPES.recipeBuilder()
+        ASSEMBLER_RECIPES.recipeBuilder()
                 .duration(100)
                 .EUt(120)
                 .input(LAMINATION_FG)
@@ -881,7 +881,7 @@ public class CPULine {
                 .output(EPOXY_BOARD)
                 .buildAndRegister();
 
-        CHEMICAL_RECIPES.recipeBuilder()
+        ASSEMBLER_RECIPES.recipeBuilder()
                 .duration(100)
                 .EUt(480)
                 .input(LAMINATION_CA)
@@ -916,7 +916,7 @@ public class CPULine {
                 .output(FIBER_BOARD)
                 .buildAndRegister();
 
-        CHEMICAL_RECIPES.recipeBuilder()
+        ASSEMBLER_RECIPES.recipeBuilder()
                 .duration(100)
                 .EUt(1920)
                 .input(LAMINATION_GE)
@@ -955,7 +955,7 @@ public class CPULine {
                 .output(LAMINATION_IR, 4)
                 .buildAndRegister();
 
-        CHEMICAL_RECIPES.recipeBuilder()
+        ASSEMBLER_RECIPES.recipeBuilder()
                 .duration(200)
                 .EUt(7680)
                 .input(LAMINATION_IR)

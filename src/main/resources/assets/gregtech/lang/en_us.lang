@@ -795,7 +795,6 @@ metaitem.circuit.suprachronal.max.tooltip=§fMAX-tier Circuit/n
 
 # RecipeMaps
 # Machines
-recipemap.dryer_recipes.name=Drying
 recipemap.pressure_chamber_recipes.name=Pressure Chamber
 recipemap.catalytic_reformer_recipes.name=Catalytic Reformation
 recipemap.crystallization_recipes.name=Crystallization

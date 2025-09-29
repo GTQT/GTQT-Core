@@ -3,14 +3,12 @@ package keqing.gtqtcore.loaders.recipes.chain;
 import gregtech.api.recipes.RecipeMaps;
 
 import static gregtech.api.GTValues.*;
-import static gregtech.api.recipes.RecipeMaps.CHEMICAL_RECIPES;
-import static gregtech.api.recipes.RecipeMaps.LARGE_CHEMICAL_RECIPES;
+import static gregtech.api.recipes.RecipeMaps.*;
 import static gregtech.api.unification.material.Materials.*;
 import static gregtech.api.unification.ore.OrePrefix.dust;
 import static gregtech.api.unification.ore.OrePrefix.gem;
 import static gregtechfoodoption.GTFOMaterialHandler.HydrogenCyanide;
 import static keqing.gtqtcore.api.recipes.GTQTcoreRecipeMaps.CVD_RECIPES;
-import static keqing.gtqtcore.api.recipes.GTQTcoreRecipeMaps.DRYER_RECIPES;
 import static keqing.gtqtcore.api.unification.GTQTMaterials.*;
 
 public class NdYAGChain {
@@ -59,7 +57,7 @@ public class NdYAGChain {
                 .buildAndRegister();
 
         //  NH4CNO -> CH4N2O
-        DRYER_RECIPES.recipeBuilder()
+        FLUID_HEATER_RECIPES.recipeBuilder()
                 .fluidInputs(AmmoniumCyanate.getFluid(1000))
                 .output(dust, Carbamide, 8)
                 .EUt(VA[HV])

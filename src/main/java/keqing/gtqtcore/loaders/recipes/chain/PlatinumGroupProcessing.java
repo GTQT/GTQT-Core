@@ -12,7 +12,6 @@ import static gregtech.api.recipes.RecipeMaps.*;
 import static gregtech.api.unification.material.Materials.*;
 import static gregtech.api.unification.ore.OrePrefix.dust;
 import static gregtechfoodoption.GTFOMaterialHandler.SodiumChlorate;
-import static keqing.gtqtcore.api.recipes.GTQTcoreRecipeMaps.DRYER_RECIPES;
 import static keqing.gtqtcore.api.unification.GTQTMaterials.HexachloroplatinicAcid;
 
 /**
@@ -323,17 +322,18 @@ public class PlatinumGroupProcessing {
                 .buildAndRegister();
 
         //  NaClO3 -> NaCl + 3O
-        DRYER_RECIPES.recipeBuilder()
+        BLAST_RECIPES.recipeBuilder()
                 .input(dust,SodiumChlorate,5)
                 .circuitMeta(1)
                 .output(dust, Salt, 2)
                 .fluidOutputs(Oxygen.getFluid(3000))
+                .blastFurnaceTemp(1800)
                 .duration(100)
                 .EUt(60)
                 .buildAndRegister();
 
         //  Ir2Os + 2NaClO3 + O -> Ir2O3 + OsO4 + 2NaCl
-        DRYER_RECIPES.recipeBuilder()
+        LARGE_CHEMICAL_RECIPES.recipeBuilder()
                 .input(dust, RarestMetalMixture, 12)
                 .input(dust,SodiumChlorate,10)
                 .fluidInputs(Oxygen.getFluid(1000))

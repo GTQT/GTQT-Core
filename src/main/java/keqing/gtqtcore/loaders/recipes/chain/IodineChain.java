@@ -3,7 +3,6 @@ package keqing.gtqtcore.loaders.recipes.chain;
 import static gregtech.api.recipes.RecipeMaps.*;
 import static gregtech.api.unification.material.Materials.*;
 import static gregtech.api.unification.ore.OrePrefix.dust;
-import static keqing.gtqtcore.api.recipes.GTQTcoreRecipeMaps.DRYER_RECIPES;
 import static keqing.gtqtcore.api.unification.GTQTMaterials.*;
 
 public class IodineChain {
@@ -48,7 +47,7 @@ public class IodineChain {
                 .buildAndRegister();
 
         // [NaNO3·KNO3·KCl·NaOH + H2O] = NaNO3 + KNO3 + KCl + NaOH + H2O (Water voided - Dehydrator)
-        DRYER_RECIPES.recipeBuilder().duration(120).EUt(30)
+        CENTRIFUGE_RECIPES.recipeBuilder().duration(120).EUt(30)
                 .fluidInputs(CalicheNitrateSolution.getFluid(1000))
                 .output(dust, SodiumNitrate, 5)
                 .output(dust, RockSalt, 2)
@@ -77,7 +76,7 @@ public class IodineChain {
                 .buildAndRegister();
 
         // I? = I
-        DRYER_RECIPES.recipeBuilder().duration(200).EUt(7680)
+        FLUID_HEATER_RECIPES.recipeBuilder().duration(200).EUt(7680)
                 .fluidInputs(IodineSlurry.getFluid(1000))
                 .output(dust, Iodine)
                 .buildAndRegister();
