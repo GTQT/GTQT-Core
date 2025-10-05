@@ -5205,6 +5205,7 @@ metaitem.pos_binding_card.tooltip=适用于：微波无线仓绑定 科研计算
 metaitem.scintillator.name=闪烁体
 metaitem.scintillator_crystal.name=闪烁晶体
 metaitem.mte_copy_card.name=设备信息复制卡
+metaitem.message_terminal.name=消息终端
 metaitem.debug.hatch_trans.name=仓室替换器
 metaitem.debug.wire_trans.name=线缆替换器
 

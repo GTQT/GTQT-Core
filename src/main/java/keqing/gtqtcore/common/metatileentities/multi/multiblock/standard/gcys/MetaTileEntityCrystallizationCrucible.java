@@ -56,6 +56,7 @@ public class MetaTileEntityCrystallizationCrucible extends GCYMAdvanceRecipeMapM
 
     public MetaTileEntityCrystallizationCrucible(ResourceLocation metaTileEntityId) {
         super(metaTileEntityId, GTQTcoreRecipeMaps.CRYSTALLIZER_RECIPES);
+
         this.recipeMapWorkable = new ArrayList();
         this.recipeMapWorkable.add(new GCYMHeatCoilRecipeLogic(this));
     }
@@ -69,19 +70,15 @@ public class MetaTileEntityCrystallizationCrucible extends GCYMAdvanceRecipeMapM
     private static IBlockState getVentState() {
         return GCYMMetaBlocks.UNIQUE_CASING.getState(BlockUniqueCasing.UniqueCasingType.HEAT_VENT);
     }
-
-    @Override
-    public void refreshThread(int thread) {
-        if (!this.checkWorkingEnable()) {
-            this.recipeMapWorkable = new ArrayList();
-
-            for (int i = 0; i < thread; ++i) {
-                this.recipeMapWorkable.add(new GCYMHeatCoilRecipeLogic(this));
+    public void refreshThread(int currentThread) {
+        if (currentThread == 0) return;
+        if (!isActive()) {
+            recipeMapWorkable = new ArrayList<>();
+            for (int i = 0; i < currentThread; i++) {
+                recipeMapWorkable.add(new GCYMHeatCoilRecipeLogic(this));
             }
         }
-
     }
-
     @Override
     public MetaTileEntity createMetaTileEntity(IGregTechTileEntity holder) {
         return new MetaTileEntityCrystallizationCrucible(metaTileEntityId);
@@ -109,14 +106,7 @@ public class MetaTileEntityCrystallizationCrucible extends GCYMAdvanceRecipeMapM
 
         this.temperature += 100 * Math.max(0, GTUtility.getTierByVoltage(getEnergyContainer().getInputVoltage()) - GTValues.MV);
 
-        if(this.thread != 0) {
-            this.thread = this.getAbilities(MultiblockAbility.THREAD_HATCH).isEmpty() ? 1 : this.getAbilities(MultiblockAbility.THREAD_HATCH).get(0).getCurrentThread();
-            this.recipeMapWorkable = new ArrayList();
-
-            for (int i = 0; i < this.thread; ++i) {
-                this.recipeMapWorkable.add(new GCYMHeatCoilRecipeLogic(this));
-            }
-        }
+        refreshThread(getThread());
     }
 
     @Override

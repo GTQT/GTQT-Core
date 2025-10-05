@@ -5284,6 +5284,7 @@ metaitem.pos_binding_card.tooltip=Applicable to: Microwave Wireless Storage Bind
 metaitem.scintillator.name=Scintillator
 metaitem.scintillator_crystal.name=Scintillator Crystal
 metaitem.mte_copy_card.name=MTE Copy Card
+metaitem.message_terminal.name=Message Terminal
 metaitem.debug.hatch_trans.name=Hatch Trans
 metaitem.debug.wire_trans.name=Cable Trans
 

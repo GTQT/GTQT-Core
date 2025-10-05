@@ -1,0 +1,106 @@
+=== GTQT 许可证 ===
+Copyright (c) 2025 MeowmelMuku
+
+本项目采用多重许可证，不同部分适用不同的开源协议：
+
+=======================================================
+1. 核心代码部分
+=======================================================
+
+GTQTcore 模组本体代码：
+- 许可证：GNU General Public License v3.0 (GPL-3.0)
+- 版权所有：MeowmelMuku
+- 许可证全文：参见 LICENSE-GPLv3.txt 文件
+
+基于的模板项目：
+- 项目：CleanroomMC TemplateDevEnv
+- 许可证：MIT License
+- 版权：CleanroomMC
+- 许可证全文：参见 LICENSE-MIT.txt 文件
+
+包含的第三方代码：
+- Nomi Labs - GNU Lesser General Public License v3.0 (LGPL-3.0)
+- GTLite Core - MIT License
+- Gregicality Legacy - GNU General Public License v3.0 (GPL-3.0)
+- GT++ (GregTech++) - GNU General Public License v3.0 (GPL-3.0)
+- GT5 Unofficial - GNU Lesser General Public License v3.0 (LGPL-3.0)
+- GregTech 6 - GNU General Public License v3.0 (GPL-3.0)
+- GoodGenerator - MIT License
+- Epimorphism Core - MIT License
+- Supersymmetry - GNU Lesser General Public License v3.0 (LGPL-3.0)
+
+=======================================================
+2. 资源文件部分
+=======================================================
+
+文本、翻译与任务书文本：
+- 许可证：Creative Commons Attribution-NonCommercial-ShareAlike 3.0 (CC BY-NC-SA 3.0)
+- 版权所有：越人不歌 MeowmelMuku
+- 主要限制：非商业性使用，需署名，相同方式共享
+
+材质与模型文件：
+- 许可证：Creative Commons Attribution-NonCommercial-ShareAlike 3.0 (CC BY-NC-SA 3.0)
+- 版权所有：MeowmelMuku 越人不歌 遺失唐傘絵卷屋
+- 主要限制：非商业性使用，需署名，相同方式共享
+
+包含的第三方材质：
+- Gregicality Science - 遵循原项目许可证
+- Gregicality Legacy - GNU General Public License v3.0 (GPL-3.0)
+- GT++ (GregTech++) - GNU General Public License v3.0 (GPL-3.0)
+- GT5 Unofficial - GNU Lesser General Public License v3.0 (LGPL-3.0)
+- GregTech 6 - GNU General Public License v3.0 (GPL-3.0)
+- TecTech - 遵循原项目许可证
+- GoodGenerator - MIT License
+- Epimorphism Core - MIT License
+- GTExpert Core - GNU Lesser General Public License v3.0 (LGPL-3.0)
+- Supersymmetry - GNU Lesser General Public License v3.0 (LGPL-3.0)
+
+=======================================================
+3. GTQT 整合包
+=======================================================
+
+GTQT 整合包本体：
+- 许可证：GNU Affero General Public License v3.0 (AGPL-3.0)
+- 版权所有：MeowmelMuku
+- 许可证全文：参见 LICENSE-AGPLv3.txt 文件
+
+=======================================================
+4. 使用条款摘要
+=======================================================
+
+对于用户：
+1. 你可以自由使用、修改和分发本项目的代码部分，但必须：
+   - 保留所有版权声明
+   - 在修改文件中明确标注更改
+   - 使用相同的GPL-3.0许可证发布衍生作品
+
+2. 对于资源文件（文本、材质、模型）：
+   - 可以非商业性使用
+   - 必须署名原作者
+   - 衍生作品必须使用相同的CC BY-NC-SA 3.0许可证
+
+3. 对于整合包：
+   - 遵循AGPL-3.0许可证要求
+   - 网络服务必须提供源代码
+
+对于开发者：
+1. 引用本项目代码时，必须遵守相应部分的许可证要求
+2. 商业使用需要获得明确授权
+3. 分发包含本项目代码的作品时，必须提供完整的源代码
+
+=======================================================
+5. 重要声明
+=======================================================
+
+本项目站在众多优秀项目的肩膀上，特别感谢：
+- GregTechCEu 团队及所有GregTech相关项目的开发者
+- CleanroomMC 团队提供的开发环境
+- 所有在致谢列表中提到的项目及其贡献者
+
+本许可证文件旨在简化理解，具体法律条款以各许可证的完整文本为准。
+
+如有任何许可证相关问题，请联系：
+- GitHub: https://github.com/GTQT
+- 或通过其他官方渠道联系维护者
+
+最后更新：2025年

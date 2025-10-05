@@ -1,0 +1,14 @@
+=== GTQT 教程指南 ===
+更新
+saves文件夹：存放着你的存档
+resourcepacks文件夹：存放着你的资源包
+shaderpacks文件夹：存放着你的光影
+visualores文件夹：存放着你的矿脉标点
+xaero文件夹：存放着你的地图数据
+options文本：存放着你的游戏设置
+optionsof文本：存放着你的视频设置
+
+以上文件夹需要保存，下载新版本后迁移到新版本文件夹
+
+更新后注意使用
+/bq_admin default loadLegacy 更新任务

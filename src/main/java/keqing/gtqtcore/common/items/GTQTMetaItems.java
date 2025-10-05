@@ -468,6 +468,7 @@ public class GTQTMetaItems {
     public static MetaItem<?>.MetaValueItem DEBUG_STRUCTURE_BUILDER;
     public static MetaItem<?>.MetaValueItem POS_BINDING_CARD;
     public static MetaItem<?>.MetaValueItem MTE_COPY_CARD;
+    public static MetaItem<?>.MetaValueItem MESSAGE_TERMINAL;
     public static MetaItem<?>.MetaValueItem DEBUG_HATCH_TRANS;
     public static MetaItem<?>.MetaValueItem DEBUG_WIRE_TRANS;
     public static MetaItem<?>.MetaValueItem AE_SILICON;

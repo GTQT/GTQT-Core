@@ -7,20 +7,26 @@ import gregtech.api.unification.material.event.MaterialRegistryEvent;
 import gregtech.api.util.Mods;
 import gregtech.common.ConfigHolder;
 import keqing.gtqtcore.GTQTCore;
+import keqing.gtqtcore.GTQTCoreConfig;
 import keqing.gtqtcore.api.unification.GTQTMaterials;
 import keqing.gtqtcore.api.unification.OrePrefixAdditions;
 import keqing.gtqtcore.api.unification.matreials.SoftToolAddition;
 import keqing.gtqtcore.api.unification.ore.GTQTStoneTypes;
 import keqing.gtqtcore.api.utils.GTQTLog;
+import keqing.gtqtcore.common.items.GTQTMetaItems;
 import keqing.gtqtcore.loaders.recipes.handlers.OreRecipeHandler;
 import net.minecraft.block.Block;
+import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.item.ItemStack;
 import net.minecraft.item.crafting.IRecipe;
+import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.text.TextComponentString;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.eventhandler.EventPriority;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.common.gameevent.PlayerEvent;
+import net.minecraftforge.items.ItemHandlerHelper;
 
 import java.util.Objects;
 
@@ -64,6 +70,22 @@ public class GTQTEventHandler {
     public static void registerRecipeHandlers(RegistryEvent.Register<IRecipe> event) {
         GTQTLog.logger.info("Registering recipe handlers...");
         OreRecipeHandler.register();
+    }
+    private static final String HAS_TERMINAL = GTQTCore.MODID + ".terminal";
+    @SubscribeEvent
+    public static void onPlayerLoggedIn(PlayerEvent.PlayerLoggedInEvent event) {
+        if (GTQTCoreConfig.misc.spawnTerminal) {
+            NBTTagCompound playerData = event.player.getEntityData();
+            NBTTagCompound data = playerData.hasKey(EntityPlayer.PERSISTED_NBT_TAG) ?
+                    playerData.getCompoundTag(EntityPlayer.PERSISTED_NBT_TAG) : new NBTTagCompound();
+
+            if (!data.getBoolean(HAS_TERMINAL)) {
+                ItemStack terminal = GTQTMetaItems.MESSAGE_TERMINAL.getStackForm();
+                ItemHandlerHelper.giveItemToPlayer(event.player, terminal);
+                data.setBoolean(HAS_TERMINAL, true);
+                playerData.setTag(EntityPlayer.PERSISTED_NBT_TAG, data);
+            }
+        }
     }
 
     public static class PlayerLoginEventHandler {

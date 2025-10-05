@@ -400,6 +400,7 @@ public class MachineCasingMaterials {
                 .iconSet(SAND)
                 .components(Iron, 4, Kanthal, 1, Invar, 5)
                 .build();
+
         //  24528 Eglin Steel
         EglinSteel = new Material.Builder(getMaterialsId(), gtqtcoreId("eglin_steel"))
                 .ingot()
@@ -407,7 +408,7 @@ public class MachineCasingMaterials {
                 .color(0x8B4513)
                 .iconSet(METALLIC)
                 .components(EglinSteelBase, 10, Sulfur, 1, Silicon, 1, Carbon, 1)
-                .blast(1080, GasTier.HIGHER)
+                .blast(1800, GasTier.LOW)
                 .flags(GENERATE_PLATE, GENERATE_ROD, GENERATE_RING, GENERATE_BOLT_SCREW, GENERATE_GEAR, GENERATE_ROTOR,
                         GENERATE_FRAME, GENERATE_DOUBLE_PLATE, GENERATE_DENSE, GENERATE_LONG_ROD, GENERATE_ROUND, GENERATE_SMALL_GEAR
                         , GENERATE_SPRING, GENERATE_SPRING_SMALL)
@@ -415,6 +416,7 @@ public class MachineCasingMaterials {
                 .toolStats(MaterialToolProperty.Builder.of(7.0F, 6.0F, 60000, 7)
                         .attackSpeed(0.1F).enchantability(21).build())
                 .build();
+
         //  24529 Pikyonium-64B
         Pikyonium64B = new Material.Builder(getMaterialsId(), gtqtcoreId("pikyonium_64_b"))
                 .ingot()
@@ -461,6 +463,7 @@ public class MachineCasingMaterials {
                         .attackSpeed(0.1F).enchantability(21).build())
                 .blast(6200, GasTier.HIGHER)
                 .build();
+
         //  24534 Tantalloy61
         Tantalloy61 = new Material.Builder(getMaterialsId(), gtqtcoreId("tantalloy_61"))
                 .ingot()
@@ -476,6 +479,7 @@ public class MachineCasingMaterials {
                 .toolStats(MaterialToolProperty.Builder.of(7.0F, 6.0F, 60000, 7)
                         .attackSpeed(0.1F).enchantability(21).build())
                 .build();
+
         //  24535 Inconel-020
         Incoloy020 = new Material.Builder(getMaterialsId(), gtqtcoreId("incoloy_020"))
                 .ingot()

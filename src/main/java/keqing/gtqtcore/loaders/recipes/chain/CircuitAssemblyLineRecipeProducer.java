@@ -90,6 +90,8 @@ public class CircuitAssemblyLineRecipeProducer {
         addCircuit(CRYSTAL_MODULATOR_SAPPHIRE);
         addCircuit(CRYSTAL_SYSTEM_ON_CHIP_SOCKET);
 
+        addCircuit(NEURO_PROCESSOR);
+
         /* ---------------------------------------------------------------------------------------------------------- */
 
         // T1: Electronic

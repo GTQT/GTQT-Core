@@ -459,6 +459,7 @@ public class GTQTMetaItem1 extends StandardMetaItem {
         DEBUG_WIRE_TRANS = this.addItem(438, "debug.wire_trans").addComponents(new WireTransBehavior()).setCreativeTabs(GTQTCore_TO);
 
         MTE_COPY_CARD = this.addItem(439, "mte_copy_card").setMaxStackSize(1).addComponents(new MTECopyCardBehaviors()).setCreativeTabs(GTQTCore_TO);
+        MESSAGE_TERMINAL = this.addItem(445, "message_terminal").setMaxStackSize(1).addComponents(new MessageBehavior()).setCreativeTabs(GTQTCore_TO);
 
         //440
         CIRCUIT_GOOD_I = addItem(440, "circuit.good_i").setCreativeTabs(CommonProxy.GTQTCore_HP);

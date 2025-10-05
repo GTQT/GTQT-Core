@@ -350,6 +350,9 @@ public class CommonProxy {
     @SubscribeEvent
     public static void registerServerChatEvents(ServerChatEvent event) {
         String message = event.getMessage();
+        if (message.startsWith("/gtqt message")){
+
+        }
 
         if (!message.startsWith("="))
             return;

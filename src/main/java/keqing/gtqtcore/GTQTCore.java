@@ -13,6 +13,7 @@ import keqing.gtqtcore.common.MetaEntities;
 import keqing.gtqtcore.common.block.GTQTMetaBlocks;
 import keqing.gtqtcore.common.items.GTQTMetaItems;
 import keqing.gtqtcore.common.metatileentities.GTQTMetaTileEntities;
+import keqing.gtqtcore.common.textResource.GTQTTextManager;
 import keqing.gtqtcore.common.worldgen.WorldGenAbandonedBase;
 import keqing.gtqtcore.core.advancement.AdvancementManager;
 import keqing.gtqtcore.core.advancement.AdvancementTriggers;
@@ -75,7 +76,12 @@ public class GTQTCore {
         proxy.preInit();
         MetaEntities.init();
 
+        // 初始化文本资源管理器
+        GTQTTextManager.init();
 
+        // 检查加载状态
+        String statusReport = GTQTTextManager.getInstance().getLoadStatusReport();
+        System.out.println(statusReport);
     }
 
     @Mod.EventHandler

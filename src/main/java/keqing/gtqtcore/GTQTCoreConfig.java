@@ -13,6 +13,12 @@ public class GTQTCoreConfig {
     public static OBJRenderSwitch OBJRenderSwitch = new OBJRenderSwitch();
     public static DifficultySwitch difficultySwitch = new DifficultySwitch();
     public static DebugSwitch debugSwitch = new DebugSwitch();
+    public static Misc misc = new Misc();
+    //MISC
+    public static class Misc {
+        @Config.Comment({ "Whether to give the terminal to new players on login", "Default: true" })
+        public boolean spawnTerminal = true;
+    }
 
     public static class DebugSwitch {
         @Config.Comment({"Debug Switch"})
